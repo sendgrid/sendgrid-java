@@ -17,4 +17,13 @@ sendgrid.send();
 
 ## Usage
 
+## Development
+
+### Generating the jar
+
+```bash
+gradle jar
+```
+
+(If you don't have gradle install it. If on a mac, you can run `brew install gradle`) 
 

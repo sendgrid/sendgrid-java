@@ -1,0 +1,14 @@
+apply plugin: 'war'
+
+repositories {
+  mavenCentral()
+}
+
+dependencies {
+  compile 'com.github.kevinsawicki:http-request:5.4.1'
+}
+
+jar {
+  archiveName 'sendgrid-0.0.1.jar'
+}
+
