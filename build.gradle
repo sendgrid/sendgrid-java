@@ -20,6 +20,7 @@ repositories {
 }
 
 jar {
+  baseName "sendgrid"
   manifest {
     attributes("Implementation-Title": "MrGadget", "Implementation-Version": version)
   }
@@ -28,6 +29,7 @@ jar {
 // adds 'with-dependencies' to the fatJar name
 fatJar {
   classifier 'jar-with-dependencies'
+  baseName "sendgrid"
   manifest {
     attributes("Implementation-Title": "MrGadget", "Implementation-Version": version)
   }
