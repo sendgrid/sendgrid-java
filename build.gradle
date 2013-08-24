@@ -19,6 +19,34 @@ repositories {
   mavenCentral()
 }
 
+jar {
+  manifest {
+    attributes("Implementation-Title": "MrGadget", "Implementation-Version": version)
+  }
+}
+
+// adds 'with-dependencies' to the fatJar name
+fatJar {
+  classifier 'jar-with-dependencies'
+  manifest {
+    attributes("Implementation-Title": "MrGadget", "Implementation-Version": version)
+  }
+}
+
+// copy jar and fatJar to base project directory so they will be in git (and on github for download)
+build << {
+  copy {
+    println "Copying ${jar.archiveName} to $projectDir/repo/com/scottmotte/github/sendgrid/$version"
+    from("$buildDir/libs/${jar.archiveName}")
+    into("$projectDir/repo/com/scottmotte/github/sendgrid/$version")
+  }
+  copy {
+    println "Copying ${fatJar.archiveName} to $projectDir/repo/com/scottmotte/github/sendgrid/$version"
+    from("$buildDir/libs/${fatJar.archiveName}")
+    into("$projectDir/repo/com/scottmotte/github/sendgrid/$version")
+  }
+}
+
 // REQUIRED FOR OSS SONATYPE AND MAVEN CENTRAL DEPLOYMENT
 
 apply plugin: 'maven'
@@ -40,6 +68,7 @@ artifacts {
   archives sourcesJar
   archives javadocJar
   archives jar
+  archives fatJar
 }
 
 signing {
