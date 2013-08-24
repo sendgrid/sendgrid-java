@@ -1,35 +1,45 @@
-import org.gradle.api.XmlProvider
-import org.gradle.api.artifacts.maven.MavenDeployment
+apply plugin: 'fatjar'
 
-apply plugin: 'maven'
-apply plugin: 'signing'
-
-group         = "com.github.scottmotte"
 version       = "0.0.1"
-ext.packaging = 'jar'
 
-repositories {
-  mavenCentral()
+buildscript {
+  dependencies {
+    classpath 'eu.appsatori:gradle-fatjar-plugin:0.1.2' // adds fatJar task
+  }
+  repositories {
+    mavenCentral()
+  }
 }
 
 dependencies {
   compile 'com.github.kevinsawicki:http-request:5.4.1'
 }
 
+repositories {
+  mavenCentral()
+}
+
+// REQUIRED FOR OSS SONATYPE AND MAVEN CENTRAL DEPLOYMENT
+
+apply plugin: 'maven'
+apply plugin: 'signing'
+
+group         = "com.github.scottmotte"
+
 task javadocJar(type: Jar, dependsOn: javadoc) {
   classifier = 'javadoc'
-  from 'build/docs/javadoc'
+  from javadoc.destinationDir
 }
  
-task sourcesJar(type: Jar) {
-  from sourceSets.main.allSource
+task sourcesJar(type: Jar, dependsOn:classes) {
   classifier = 'sources'
+  from sourceSets.main.allSource
 }
 
 artifacts {
-  archives jar
-  archives javadocJar
   archives sourcesJar
+  archives javadocJar
+  archives jar
 }
 
 signing {
