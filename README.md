@@ -9,11 +9,18 @@ sendgrid.setTo("example@example.com");
 sendgrid.setFrom("other@example.com");
 sendgrid.setSubject("Hello World");
 sendgrid.setText("My first email through SendGrid");
+sendgrid.setHtml("<h1>My first email through SendGrid</h1>");
 
 sendgrid.send();
 ```
 
 ## Installation
+
+### Using Gradle
+
+I highly recommend [Gradle](http://www.gradle.org/) to manage your project's library dependencies.
+
+
 
 ## Usage
 
