@@ -12,7 +12,7 @@ public class Sendgrid {
   private String text     = "";
   private String html     = "";
 
-  Sendgrid(String username, String password) {
+  public Sendgrid(String username, String password) {
     this.username = username;
     this.password = password;
   }
