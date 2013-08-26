@@ -7,15 +7,11 @@ import java.io.File;
 import static org.junit.Assert.assertEquals;
 
 public class SendgridTest {
-// ------------------------------ FIELDS ------------------------------
-
     private static final String FROM_EMAIL = "from@email.to";
     private static final String PASSWORD = "password";
     private static final String TO_ANOTHER_EMAIL = "bcc@email.to";
     private static final String TO_EMAIL = "to@email.to";
     private static final String USERNAME = "username";
-
-// -------------------------- OTHER METHODS --------------------------
 
     @Test
     public void testSendSuccess() {

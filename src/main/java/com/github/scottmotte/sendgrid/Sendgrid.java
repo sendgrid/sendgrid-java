@@ -5,8 +5,6 @@ import com.github.kevinsawicki.http.HttpRequest;
 import java.io.File;
 
 public class Sendgrid {
-// ------------------------------ FIELDS ------------------------------
-
     private static final String PARAM_API_KEY = "api_key";
     private static final String PARAM_API_USER = "api_user";
     private static final String PARAM_BCC = "bcc";
@@ -27,20 +25,14 @@ public class Sendgrid {
     private String[] to;
     private String username;
 
-// -------------------------- STATIC METHODS --------------------------
-
     public static Sendgrid withCredentials(String username, String password) {
         return new Sendgrid(username, password);
     }
-
-// --------------------------- CONSTRUCTORS ---------------------------
 
     public Sendgrid(final String username, final String password) {
         this.username = username;
         this.password = password;
     }
-
-// -------------------------- OTHER METHODS --------------------------
 
     public Sendgrid bcc(final String... bcc) {
         this.bcc = bcc;
