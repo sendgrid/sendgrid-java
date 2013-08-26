@@ -4,7 +4,6 @@ This Java module allows you to quickly and easily send emails through SendGrid u
 
 ```java
 import com.github.scottmotte.sendgrid.Sendgrid;
-
 Sendgrid sendgrid = new Sendgrid("sendgrid_username", "sendgrid_password");
 
 sendgrid.setTo("example@example.com");
@@ -18,9 +17,9 @@ sendgrid.send();
 
 ## Installation
 
-There are a number of ways to add this library to your Java project. I recommend using [Gradle](http://www.gradle.org).
+There are multiple ways to install this library. I recommend using [Gradle](http://www.gradle.org).
 
-#### via Gradle
+### via Gradle (recommended)
 
 Add the following to your build.gradle file in the root of your project.
 
@@ -48,7 +47,7 @@ Then import the library - in the file appropriate to your Java project.
 import com.github.scottmotte.sendgrid.Sendgrid;
 ```
 
-#### via copy/paste
+### via copy/paste
 
 Copy and paste the [SendGrid.java](https://github.com/scottmotte/sendgrid-java/blob/master/src/main/java/com/github/scottmotte/sendgrid/Sendgrid.java) file into your project. That file is available here: [https://github.com/scottmotte/sendgrid-java/blob/master/src/main/java/com/github/scottmotte/sendgrid/Sendgrid.java](https://github.com/scottmotte/sendgrid-java/blob/master/src/main/java/com/github/scottmotte/sendgrid/Sendgrid.java)
 
@@ -58,7 +57,7 @@ Then import the library - in the file appropriate to your Java project.
 import com.github.scottmotte.sendgrid.Sendgrid;
 ```
 
-#### via Maven
+### via Maven
 
 I'd like to get this on Maven. Please [create an issue](https://github.com/scottmotte/sendgrid-java/issues/new) if you'd like to see it on Maven as well. 
 
@@ -69,8 +68,19 @@ I'd like to get this on Maven. Please [create an issue](https://github.com/scott
 ### Generating the jar
 
 ```bash
-gradle jar
+gradle build
 ```
 
 (If you don't have gradle install it. If on a mac, you can run `brew install gradle`) 
 
+## Contributing
+
+1. Fork it
+2. Create your feature branch (`git checkout -b my-new-feature`)
+3. Commit your changes (`git commit -am 'Added some feature'`)
+4. Push to the branch (`git push origin my-new-feature`)
+5. Create new Pull Request
+
+## License
+
+Licensed under the MIT License.
