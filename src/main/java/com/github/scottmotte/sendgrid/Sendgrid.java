@@ -5,30 +5,26 @@ import com.github.kevinsawicki.http.HttpRequest;
 import java.io.File;
 
 public class Sendgrid {
-  private static final String PARAM_API_KEY = "api_key";
-  private static final String PARAM_API_USER = "api_user";
-  private static final String PARAM_BCC = "bcc";
-  private static final String PARAM_FILES = "files[%s]";
-  private static final String PARAM_FROM = "from";
-  private static final String PARAM_HTML = "html";
-  private static final String PARAM_SUBJECT = "subject";
-  private static final String PARAM_TEXT = "text";
-  private static final String PARAM_TO = "to";
+  private static final String PARAM_API_USER    = "api_user";
+  private static final String PARAM_API_KEY     = "api_key";
+  private static final String PARAM_BCC         = "bcc";
+  private static final String PARAM_FILES       = "files[%s]";
+  private static final String PARAM_FROM        = "from";
+  private static final String PARAM_HTML        = "html";
+  private static final String PARAM_SUBJECT     = "subject";
+  private static final String PARAM_TEXT        = "text";
+  private static final String PARAM_TO          = "to";
 
+  private String username;
+  private String password;
   private String[] bcc;
   private File[] file;
   private String from;
   private String html;
-  private String password;
   private String subject;
   private String text;
   private String[] to;
-  private String username;
-
-  public static Sendgrid withCredentials(String username, String password) {
-    return new Sendgrid(username, password);
-  }
-
+  
   public Sendgrid(final String username, final String password) {
     this.username = username;
     this.password = password;
@@ -50,12 +46,10 @@ public class Sendgrid {
 
   public String web() {
     HttpRequest request = HttpRequest.post("https://sendgrid.com/api/mail.send.json");
-    if (username != null) {
-      request.part(PARAM_API_USER, username);
-    }
-    if (password != null) {
-      request.part(PARAM_API_KEY, password);
-    }
+
+    request.part(PARAM_API_USER, this.username);
+    request.part(PARAM_API_KEY, this.password);
+
     if (from != null) {
       request.part(PARAM_FROM, from);
     }
