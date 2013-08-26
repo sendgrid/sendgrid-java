@@ -17,31 +17,21 @@ public class Sendgrid {
 
   private String username;
   private String password;
-  private String[] bcc;
-  private File[] file;
+  private String to;
+  private String bcc;
   private String from;
-  private String html;
   private String subject;
   private String text;
-  private String[] to;
+  private String html;
+  private File[] file;
   
   public Sendgrid(final String username, final String password) {
     this.username = username;
     this.password = password;
   }
 
-  public Sendgrid bcc(final String... bcc) {
-    this.bcc = bcc;
-    return this;
-  }
-
-  public Sendgrid from(final String email) {
-    this.from = email;
-    return this;
-  }
-
   public String send() {
-    this.web();
+    return this.web();
   } 
 
   public String web() {
@@ -49,28 +39,24 @@ public class Sendgrid {
 
     request.part(PARAM_API_USER, this.username);
     request.part(PARAM_API_KEY, this.password);
+    request.part(PARAM_TO, this.getTo());
+    request.part(PARAM_FROM, this.getFrom());
+    request.part(PARAM_SUBJECT, this.getSubject());
 
-    if (from != null) {
-      request.part(PARAM_FROM, from);
-    }
-    if (to != null) {
-      for (String s : to) {
-        request.part(PARAM_TO, s);
-      }
-    }
-    if (bcc != null) {
-      for (String s : bcc) {
-        request.part(PARAM_BCC, s);
-      }
-    }
-    if (subject != null) {
-      request.part(PARAM_SUBJECT, subject);
-    }
     if (text != null) {
-      request.part(PARAM_TEXT, text);
+      request.part(PARAM_TEXT, this.getText());
     }
     if (html != null) {
-      request.part(PARAM_HTML, html);
+      request.part(PARAM_HTML, this.getHtml());
+    }
+
+//    if (to != null) {
+//      for (String s : to) {
+//        request.part(PARAM_TO, s);
+//      }
+//    }
+    if (this.getBcc() != null) {
+      request.part(PARAM_BCC, this.getBcc());
     }
     if (file != null) {
       for (File f : file) {
@@ -81,28 +67,62 @@ public class Sendgrid {
     return request.body();
   }
 
-  public Sendgrid to(final String... to) {
+  public String getTo() {
+    return this.to;
+  }
+
+  public String getBcc() {
+    return this.bcc;
+  }
+
+  public String getFrom() {
+    return this.from;
+  }
+
+  public String getSubject() {
+    return this.subject;
+  }
+
+  public String getText() {
+    return this.text;
+  }
+
+  public String getHtml() {
+    return this.html;
+  }
+
+  public Sendgrid setTo(final String to) {
     this.to = to;
+    return this;
+  }
+
+  public Sendgrid setFrom(final String email) {
+    this.from = email;
+    return this;
+  }
+
+  public Sendgrid setBcc(final String bcc) {
+    this.bcc = bcc;
+    return this;
+  }
+
+  public Sendgrid setSubject(final String subject) {
+    this.subject = subject;
+    return this;
+  }
+
+  public Sendgrid setText(final String text) {
+    this.text = text;
+    return this;
+  }
+
+  public Sendgrid setHtml(final String html) {
+    this.html = html;
     return this;
   }
 
   public Sendgrid withAttachment(final File... file) {
     this.file = file;
-    return this;
-  }
-
-  public Sendgrid withHtml(final String html) {
-    this.html = html;
-    return this;
-  }
-
-  public Sendgrid withSubject(final String subject) {
-    this.subject = subject;
-    return this;
-  }
-
-  public Sendgrid withText(final String text) {
-    this.text = text;
     return this;
   }
 }
