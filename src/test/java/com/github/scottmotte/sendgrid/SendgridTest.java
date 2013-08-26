@@ -5,6 +5,8 @@ import org.junit.Test;
 import java.io.File;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertThat;
+import static org.junit.matchers.JUnitMatchers.hasItems;
 
 public class SendgridTest {
   private static final String USERNAME = "username";
@@ -68,6 +70,29 @@ public class SendgridTest {
     sendgrid.setHtml(html);
 
     assertEquals(sendgrid.getHtml(), html); 
+  }
+
+  @Test
+  public void testAddFile() {
+    Sendgrid sendgrid = new Sendgrid(USERNAME, PASSWORD);
+
+    File file = new File(getClass().getResource("/test.txt").getFile());
+    sendgrid.addFile(file);
+
+    assertThat(sendgrid.getFiles(), hasItems(file)); 
+  }
+
+  @Test
+  public void testAddMultipleFiles() {
+    Sendgrid sendgrid = new Sendgrid(USERNAME, PASSWORD);
+
+    File file = new File(getClass().getResource("/test.txt").getFile());
+    File file2 = new File(getClass().getResource("/image.png").getFile());
+
+    sendgrid.addFile(file);
+    sendgrid.addFile(file2);
+
+    assertThat(sendgrid.getFiles(), hasItems(file, file2)); 
   }
 
 //  @Test

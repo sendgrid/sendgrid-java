@@ -1,8 +1,8 @@
 package com.github.scottmotte.sendgrid;
 
 import com.github.kevinsawicki.http.HttpRequest;
-
 import java.io.File;
+import java.util.ArrayList;
 
 public class Sendgrid {
   private static final String PARAM_API_USER    = "api_user";
@@ -23,9 +23,10 @@ public class Sendgrid {
   private String subject;
   private String text;
   private String html;
-  private File[] file;
+  private ArrayList<File> files = new ArrayList<File>();
+
   
-  public Sendgrid(final String username, final String password) {
+  public Sendgrid(String username, String password) {
     this.username = username;
     this.password = password;
   }
@@ -37,17 +38,17 @@ public class Sendgrid {
   public String web() {
     HttpRequest request = HttpRequest.post("https://sendgrid.com/api/mail.send.json");
 
-    request.part(PARAM_API_USER, this.username);
-    request.part(PARAM_API_KEY, this.password);
-    request.part(PARAM_TO, this.getTo());
-    request.part(PARAM_FROM, this.getFrom());
-    request.part(PARAM_SUBJECT, this.getSubject());
+    request.part(PARAM_API_USER,  this.username);
+    request.part(PARAM_API_KEY,   this.password);
+    request.part(PARAM_TO,        this.getTo());
+    request.part(PARAM_FROM,      this.getFrom());
+    request.part(PARAM_SUBJECT,   this.getSubject());
 
     if (text != null) {
-      request.part(PARAM_TEXT, this.getText());
+      request.part(PARAM_TEXT,    this.getText());
     }
     if (html != null) {
-      request.part(PARAM_HTML, this.getHtml());
+      request.part(PARAM_HTML,    this.getHtml());
     }
 
 //    if (to != null) {
@@ -58,9 +59,10 @@ public class Sendgrid {
     if (this.getBcc() != null) {
       request.part(PARAM_BCC, this.getBcc());
     }
-    if (file != null) {
-      for (File f : file) {
-        request.part(String.format(PARAM_FILES, f.getName()), f);
+    if (files != null) {
+      for (File file:files) {
+        System.out.println(file.getName());
+        request.part(String.format(PARAM_FILES, file.getName()), file);
       }
     }
 
@@ -91,38 +93,42 @@ public class Sendgrid {
     return this.html;
   }
 
-  public Sendgrid setTo(final String to) {
+  public ArrayList<File> getFiles() {
+    return this.files;
+  }
+
+  public Sendgrid setTo(String to) {
     this.to = to;
     return this;
   }
 
-  public Sendgrid setFrom(final String email) {
+  public Sendgrid setFrom(String email) {
     this.from = email;
     return this;
   }
 
-  public Sendgrid setBcc(final String bcc) {
+  public Sendgrid setBcc(String bcc) {
     this.bcc = bcc;
     return this;
   }
 
-  public Sendgrid setSubject(final String subject) {
+  public Sendgrid setSubject(String subject) {
     this.subject = subject;
     return this;
   }
 
-  public Sendgrid setText(final String text) {
+  public Sendgrid setText(String text) {
     this.text = text;
     return this;
   }
 
-  public Sendgrid setHtml(final String html) {
+  public Sendgrid setHtml(String html) {
     this.html = html;
     return this;
   }
 
-  public Sendgrid withAttachment(final File... file) {
-    this.file = file;
+  public Sendgrid addFile(File file) {
+    this.files.add(file);
     return this;
   }
 }
