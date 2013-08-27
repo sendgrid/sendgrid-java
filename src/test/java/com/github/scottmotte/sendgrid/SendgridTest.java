@@ -1,9 +1,7 @@
 package com.github.scottmotte.sendgrid;
 
 import org.junit.Test;
-
 import java.io.File;
-
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertThat;
 import static org.junit.matchers.JUnitMatchers.hasItems;
@@ -17,9 +15,9 @@ public class SendgridTest {
     Sendgrid sendgrid = new Sendgrid(USERNAME, PASSWORD);
 
     String email = "email@example.com";
-    sendgrid.setTo(email);
+    sendgrid.addTo(email);
 
-    assertEquals(sendgrid.getTo(), email); 
+    assertThat(sendgrid.getTos(), hasItems(email)); 
   }
 
   @Test

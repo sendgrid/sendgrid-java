@@ -6,11 +6,10 @@ This Java module allows you to quickly and easily send emails through SendGrid u
 import com.github.scottmotte.sendgrid.Sendgrid;
 Sendgrid sendgrid = new Sendgrid("sendgrid_username", "sendgrid_password");
 
-sendgrid.setTo("example@example.com");
+sendgrid.addTo("example@example.com");
 sendgrid.setFrom("other@example.com");
 sendgrid.setSubject("Hello World");
 sendgrid.setText("My first email through SendGrid");
-sendgrid.setHtml("<h1>My first email through SendGrid</h1>");
 
 sendgrid.send();
 ```
@@ -23,6 +22,8 @@ There are multiple ways to install this library. I recommend using [Gradle](http
 
 Add the following to your build.gradle file in the root of your project.
 
+https://github.com/scottmotte/sendgrid-java/raw/v0.0.1/repo/com/github/scottmotte/sendgrid/0.0.1/sendgrid-0.0.1-jar.jar
+
 ```groovy
 ...
 
@@ -30,7 +31,7 @@ repositories {
   mavenCentral()
   add(new org.apache.ivy.plugins.resolver.URLResolver()) {
     name = 'GitHub'
-    addArtifactPattern 'https://github.com/scottmotte/sendgrid-java/raw/master/repo/com/github/scottmotte/sendgrid/0.0.1/sendgrid-0.0.1-jar.jar'
+    addArtifactPattern 'https://github.com/scottmotte/sendgrid-java/raw/v[revision]/repo/com/github/scottmotte/sendgrid/[revision]/sendgrid-[revision]-jar.jar'
   }
 }
 dependencies {
@@ -63,15 +64,96 @@ I'd like to get this on Maven. Please [create an issue](https://github.com/scott
 
 ## Usage
 
-## Development
+To begin using this library, initialize the SendGrid object with your SendGrid credentials.
 
-### Generating the jar
-
-```bash
-gradle build
+```java
+import com.github.scottmotte.sendgrid.Sendgrid;
+Sendgrid sendgrid = new Sendgrid("sendgrid_username", "sendgrid_password");
 ```
 
-(If you don't have gradle install it. If on a mac, you can run `brew install gradle`) 
+Add your message details.
+
+```java
+sendgrid.addTo("example@example.com");
+sendgrid.setFrom("other@example.com");
+sendgrid.setSubject("Hello World");
+sendgrid.setText("My first email through SendGrid");
+```
+
+Send it.
+
+```java
+sendgrid.send();
+```
+
+### To
+
+```java
+Sendgrid sendgrid = new Sendgrid("sendgrid_username", "sendgrid_password");
+sendgrid.addTo("example@example.com");
+sendgrid.addTo("other@other.com");
+```
+
+You can add multiple `to`s as necessary. She will get the email as if it was sent solely to her.
+
+### From
+
+```java
+Sendgrid sendgrid = new Sendgrid("sendgrid_username", "sendgrid_password");
+sendgrid.addTo("example@example.com");
+...
+sendgrid.setFrom("other@example.com");
+```
+
+### Subject
+
+```java
+Sendgrid sendgrid = new Sendgrid("sendgrid_username", "sendgrid_password");
+sendgrid.addTo("example@example.com");
+...
+sendgrid.setSubject("Hello World");
+```
+
+### Text
+
+```java
+Sendgrid sendgrid = new Sendgrid("sendgrid_username", "sendgrid_password");
+sendgrid.addTo("example@example.com");
+...
+sendgrid.setText("This is some text of the email.");
+```
+
+### Html
+
+```java
+Sendgrid sendgrid = new Sendgrid("sendgrid_username", "sendgrid_password");
+sendgrid.addTo("example@example.com");
+...
+sendgrid.setHtml(<h1>My first email through SendGrid");
+```
+
+### Attachments
+
+```java
+Sendgrid sendgrid = new Sendgrid("sendgrid_username", "sendgrid_password");
+sendgrid.addTo("example@example.com");
+...
+sendgrid.addFile(new File("../path/to/file.txt");
+```
+
+### Bcc
+
+Use multiple `addTo`s as a superior alternative to `setBcc`.
+
+```java
+Sendgrid sendgrid = new Sendgrid("sendgrid_username", "sendgrid_password");
+sendgrid.addTo("example@example.com");
+sendgrid.addTo("other@other.com");
+sendgrid.addTo("yourself@yourself.com");
+...
+```
+
+If you still absolutely need to use Bcc, you can use `sendgrid.addBcc("email@somewhere.com")`;
 
 ## Contributing
 
@@ -80,6 +162,23 @@ gradle build
 3. Commit your changes (`git commit -am 'Added some feature'`)
 4. Push to the branch (`git push origin my-new-feature`)
 5. Create new Pull Request
+
+## Running Tests
+
+The existing tests in the `src/test` directory can be run using gradle with the following command:
+
+```bash
+gradle build
+```
+
+## Generating the jar
+
+```bash
+gradle build
+```
+
+(If you don't have gradle install it. If on a mac, you can run `brew install gradle`) 
+
 
 ## License
 

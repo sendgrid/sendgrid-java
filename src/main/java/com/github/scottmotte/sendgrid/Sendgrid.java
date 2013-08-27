@@ -13,18 +13,17 @@ public class Sendgrid {
   private static final String PARAM_HTML        = "html";
   private static final String PARAM_SUBJECT     = "subject";
   private static final String PARAM_TEXT        = "text";
-  private static final String PARAM_TO          = "to";
+  private static final String PARAM_TOS         = "to[]";
 
   private String username;
   private String password;
-  private String to;
+  private ArrayList<String> tos = new ArrayList<String>();
   private String bcc;
   private String from;
   private String subject;
   private String text;
   private String html;
   private ArrayList<File> files = new ArrayList<File>();
-
   
   public Sendgrid(String username, String password) {
     this.username = username;
@@ -40,7 +39,9 @@ public class Sendgrid {
 
     request.part(PARAM_API_USER,  this.username);
     request.part(PARAM_API_KEY,   this.password);
-    request.part(PARAM_TO,        this.getTo());
+    for (String to:this.getTos()) {
+      request.part(PARAM_TOS,     to);
+    }
     request.part(PARAM_FROM,      this.getFrom());
     request.part(PARAM_SUBJECT,   this.getSubject());
 
@@ -50,27 +51,19 @@ public class Sendgrid {
     if (html != null) {
       request.part(PARAM_HTML,    this.getHtml());
     }
-
-//    if (to != null) {
-//      for (String s : to) {
-//        request.part(PARAM_TO, s);
-//      }
-//    }
     if (this.getBcc() != null) {
       request.part(PARAM_BCC, this.getBcc());
     }
-    if (files != null) {
-      for (File file:files) {
-        System.out.println(file.getName());
-        request.part(String.format(PARAM_FILES, file.getName()), file);
-      }
+
+    for (File file:this.getFiles()) {
+      request.part(String.format(PARAM_FILES, file.getName()), file);
     }
 
     return request.body();
   }
 
-  public String getTo() {
-    return this.to;
+  public ArrayList<String> getTos() {
+    return this.tos;
   }
 
   public String getBcc() {
@@ -97,8 +90,8 @@ public class Sendgrid {
     return this.files;
   }
 
-  public Sendgrid setTo(String to) {
-    this.to = to;
+  public Sendgrid addTo(String to) {
+    this.tos.add(to);
     return this;
   }
 
