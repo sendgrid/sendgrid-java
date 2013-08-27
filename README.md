@@ -34,7 +34,7 @@ repositories {
 }
 dependencies {
   ...
-  compile 'com.github.scottmotte:sendgrid:0.0.3'
+  compile 'com.github.scottmotte:sendgrid:0.0.4'
 }
 
 ...
