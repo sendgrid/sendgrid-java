@@ -132,8 +132,13 @@ public class SendGrid {
     return this;
   }
 
-  public SendGrid addHeader(String key, String value) throws JSONException {
-    this.headers.put(key, value);
+  public SendGrid addHeader(String key, String value) {
+    try {
+      this.headers.put(key, value);
+    } catch(Exception e){
+      e.printStackTrace();
+    }
+
     return this;
   }
 }

@@ -12,6 +12,21 @@ public class SendGridTest {
   private static final String USERNAME = "username";
   private static final String PASSWORD = "password";
   
+  @Test public void sanityTestSend() {
+    SendGrid sendgrid = new SendGrid(USERNAME, PASSWORD);
+
+    String email = "email@example.com";
+    sendgrid.addTo(email);
+    sendgrid.setFrom(email);
+    sendgrid.setSubject("Subject");
+    sendgrid.setText("Text");
+    sendgrid.setHtml("Html");
+    sendgrid.addHeader("key", "value");
+    String response = sendgrid.send();
+
+    assertEquals(response, "{\"message\": \"error\", \"errors\": [\"Bad username / password\"]}");
+  }
+
   @Test
   public void testSetTo() {
     SendGrid sendgrid = new SendGrid(USERNAME, PASSWORD);
