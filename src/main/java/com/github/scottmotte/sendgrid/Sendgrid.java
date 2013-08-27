@@ -14,6 +14,7 @@ public class SendGrid {
   private static final String PARAM_BCC         = "bcc";
   private static final String PARAM_FROM        = "from";
   private static final String PARAM_FROMNAME    = "fromname";
+  private static final String PARAM_REPLYTO     = "replyto";
   private static final String PARAM_SUBJECT     = "subject";
   private static final String PARAM_HTML        = "html";
   private static final String PARAM_TEXT        = "text";
@@ -27,6 +28,7 @@ public class SendGrid {
   private String bcc;
   private String from;
   private String fromname;
+  private String replyto;
   private String subject;
   private String text;
   private String html;
@@ -55,12 +57,15 @@ public class SendGrid {
     }
     request.part(PARAM_FROM,      this.getFrom());
     request.part(PARAM_FROMNAME,  this.getFromName());
+    if (this.getReplyTo() != null) {
+      request.part(PARAM_REPLYTO, this.getReplyTo());
+    }
     request.part(PARAM_SUBJECT,   this.getSubject());
 
-    if (text != null) {
+    if (this.getText() != null) {
       request.part(PARAM_TEXT,    this.getText());
     }
-    if (html != null) {
+    if (this.getHtml() != null) {
       request.part(PARAM_HTML,    this.getHtml());
     }
     if (this.getBcc() != null) {
@@ -94,6 +99,10 @@ public class SendGrid {
 
   public String getFromName() {
     return this.fromname;
+  }
+
+  public String getReplyTo() {
+    return this.replyto;
   }
 
   public String getSubject() {
@@ -133,6 +142,11 @@ public class SendGrid {
 
   public SendGrid setFromName(String name) {
     this.fromname = name;
+    return this;
+  }
+
+  public SendGrid setReplyTo(String email) {
+    this.replyto = email;
     return this;
   }
 
