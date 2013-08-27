@@ -34,7 +34,7 @@ repositories {
 }
 dependencies {
   ...
-  compile 'com.github.scottmotte:sendgrid:0.0.4'
+  compile 'com.github.scottmotte:sendgrid:0.0.5'
 }
 
 ...
@@ -73,6 +73,7 @@ Add your message details.
 
 ```java
 sendgrid.addTo("example@example.com");
+sendgrid.addToName("Example Guy");
 sendgrid.setFrom("other@example.com");
 sendgrid.setSubject("Hello World");
 sendgrid.setText("My first email through SendGrid");
@@ -93,6 +94,18 @@ sendgrid.addTo("other@other.com");
 ```
 
 You can add multiple `to`s as necessary. She will get the email as if it was sent solely to her.
+
+### To Name
+
+```java
+SendGrid sendgrid = new SendGrid("sendgrid_username", "sendgrid_password");
+sendgrid.addTo("example@example.com");
+sendgrid.addToName("Example Guy");
+sendgrid.addTo("other@other.com");
+sendgrid.addToName("Other Gal");
+```
+
+You can add multiple `toname`s as necessary. They should be set in the same array order as the emails. 
 
 ### From
 

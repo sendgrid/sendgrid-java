@@ -17,6 +17,7 @@ public class SendGridTest {
 
     String email = "email@example.com";
     sendgrid.addTo(email);
+    sendgrid.addToName("Name Guy");
     sendgrid.setFrom(email);
     sendgrid.setSubject("Subject");
     sendgrid.setText("Text");
@@ -28,13 +29,23 @@ public class SendGridTest {
   }
 
   @Test
-  public void testSetTo() {
+  public void testAddTo() {
     SendGrid sendgrid = new SendGrid(USERNAME, PASSWORD);
 
     String email = "email@example.com";
     sendgrid.addTo(email);
 
     assertThat(sendgrid.getTos(), hasItems(email)); 
+  }
+
+  @Test
+  public void testAddToName() {
+    SendGrid sendgrid = new SendGrid(USERNAME, PASSWORD);
+
+    String name = "Example Guy";
+    sendgrid.addToName(name);
+
+    assertThat(sendgrid.getToNames(), hasItems(name)); 
   }
 
   @Test

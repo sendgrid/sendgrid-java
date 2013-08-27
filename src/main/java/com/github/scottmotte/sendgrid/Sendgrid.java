@@ -10,6 +10,7 @@ public class SendGrid {
   private static final String PARAM_API_USER    = "api_user";
   private static final String PARAM_API_KEY     = "api_key";
   private static final String PARAM_TOS         = "to[]";
+  private static final String PARAM_TONAMES     = "toname[]";
   private static final String PARAM_BCC         = "bcc";
   private static final String PARAM_FROM        = "from";
   private static final String PARAM_SUBJECT     = "subject";
@@ -21,6 +22,7 @@ public class SendGrid {
   private String username;
   private String password;
   private ArrayList<String> tos = new ArrayList<String>();
+  private ArrayList<String> tonames = new ArrayList<String>();
   private String bcc;
   private String from;
   private String subject;
@@ -46,6 +48,9 @@ public class SendGrid {
     for (String to:this.getTos()) {
       request.part(PARAM_TOS,     to);
     }
+    for (String toname:this.getToNames()) {
+      request.part(PARAM_TONAMES,     toname);
+    }
     request.part(PARAM_FROM,      this.getFrom());
     request.part(PARAM_SUBJECT,   this.getSubject());
 
@@ -70,6 +75,10 @@ public class SendGrid {
 
   public ArrayList<String> getTos() {
     return this.tos;
+  }
+
+  public ArrayList<String> getToNames() {
+    return this.tonames;
   }
 
   public String getBcc() {
@@ -100,8 +109,13 @@ public class SendGrid {
     return this.headers;
   }
 
-  public SendGrid addTo(String to) {
-    this.tos.add(to);
+  public SendGrid addTo(String email) {
+    this.tos.add(email);
+    return this;
+  }
+
+  public SendGrid addToName(String name) {
+    this.tonames.add(name);
     return this;
   }
 
