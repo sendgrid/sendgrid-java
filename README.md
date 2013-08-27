@@ -151,6 +151,17 @@ sendgrid.addTo("yourself@yourself.com");
 ...
 ```
 
+### Headers
+
+Headers can be used to add existing SendGrid functionality (like categories or filters) or your own custom headers.
+
+```java
+SendGrid sendgrid = new SendGrid("sendgrid_username", "sendgrid_password");
+sendgrid.addTo("example@example.com");
+...
+sendgrid.addHeader("category", "My New Category");
+```
+
 If you still absolutely need to use Bcc, you can use `sendgrid.addBcc("email@somewhere.com")`;
 
 ## Contributing

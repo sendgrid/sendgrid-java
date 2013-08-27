@@ -1,19 +1,21 @@
 package com.github.scottmotte.sendgrid;
 
 import com.github.kevinsawicki.http.HttpRequest;
+import org.json.JSONObject;
+import org.json.JSONException;
 import java.io.File;
 import java.util.ArrayList;
 
 public class SendGrid {
   private static final String PARAM_API_USER    = "api_user";
   private static final String PARAM_API_KEY     = "api_key";
-  private static final String PARAM_BCC         = "bcc";
-  private static final String PARAM_FILES       = "files[%s]";
-  private static final String PARAM_FROM        = "from";
-  private static final String PARAM_HTML        = "html";
-  private static final String PARAM_SUBJECT     = "subject";
-  private static final String PARAM_TEXT        = "text";
   private static final String PARAM_TOS         = "to[]";
+  private static final String PARAM_BCC         = "bcc";
+  private static final String PARAM_FROM        = "from";
+  private static final String PARAM_SUBJECT     = "subject";
+  private static final String PARAM_HTML        = "html";
+  private static final String PARAM_TEXT        = "text";
+  private static final String PARAM_FILES       = "files[%s]";
 
   private String username;
   private String password;
@@ -24,6 +26,7 @@ public class SendGrid {
   private String text;
   private String html;
   private ArrayList<File> files = new ArrayList<File>();
+  private JSONObject headers = new JSONObject();
   
   public SendGrid(String username, String password) {
     this.username = username;
@@ -90,6 +93,10 @@ public class SendGrid {
     return this.files;
   }
 
+  public JSONObject getHeaders() {
+    return this.headers;
+  }
+
   public SendGrid addTo(String to) {
     this.tos.add(to);
     return this;
@@ -122,6 +129,11 @@ public class SendGrid {
 
   public SendGrid addFile(File file) {
     this.files.add(file);
+    return this;
+  }
+
+  public SendGrid addHeader(String key, String value) throws JSONException {
+    this.headers.put(key, value);
     return this;
   }
 }

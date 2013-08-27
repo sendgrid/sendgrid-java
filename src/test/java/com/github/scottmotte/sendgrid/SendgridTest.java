@@ -5,6 +5,8 @@ import java.io.File;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertThat;
 import static org.junit.matchers.JUnitMatchers.hasItems;
+import org.json.JSONObject;
+import org.json.JSONException;
 
 public class SendGridTest {
   private static final String USERNAME = "username";
@@ -93,65 +95,14 @@ public class SendGridTest {
     assertThat(sendgrid.getFiles(), hasItems(file, file2)); 
   }
 
-//  @Test
-//  public void testSendSuccess() {
-//    String result = SendGrid
-//            .withCredentials(USERNAME, PASSWORD)
-//            .from(FROM_EMAIL)
-//            .to(TO_EMAIL)
-//            .withSubject("This is a test subject")
-//            .withText("This is a test text.")
-//            .send();
-//    assertEquals("{\"message\":\"success\"}", result);
-//  }
-//
-//  @Test
-//  public void testSendSuccessBcc() {
-//    String result = SendGrid
-//            .withCredentials(USERNAME, PASSWORD)
-//            .from(FROM_EMAIL)
-//            .to(TO_EMAIL)
-//            .bcc(TO_ANOTHER_EMAIL)
-//            .withSubject("This is a test subject")
-//            .withText("This is a test text.")
-//            .send();
-//    assertEquals("{\"message\":\"success\"}", result);
-//  }
-//
-//  @Test
-//  public void testSendSuccessWithAttachment() {
-//    File attachment = new File(getClass().getResource("/test.txt").getFile());
-//    String result = SendGrid
-//            .withCredentials(USERNAME, PASSWORD)
-//            .from(FROM_EMAIL)
-//            .to(TO_EMAIL)
-//            .withSubject("This is a test subject")
-//            .withText("This is a test text.")
-//            .withAttachment(attachment)
-//            .send();
-//    assertEquals("{\"message\":\"success\"}", result);
-//  }
-//
-//  @Test
-//  public void testSendSuccessWithMultipleRecipients() {
-//    String result = SendGrid
-//            .withCredentials(USERNAME, PASSWORD)
-//            .from(FROM_EMAIL)
-//            .to(TO_EMAIL, TO_ANOTHER_EMAIL)
-//            .withSubject("This is a test subject")
-//            .withText("This is a test text.")
-//            .send();
-//    assertEquals("{\"message\":\"success\"}", result);
-//  }
-//
-//  @Test
-//  public void testSendWithoutFrom() {
-//    String result = SendGrid
-//            .withCredentials(USERNAME, PASSWORD)
-//            .to(TO_EMAIL)
-//            .withSubject("This is a test subject")
-//            .withText("This is a test text.")
-//            .send();
-//    assertEquals("{\"message\": \"error\", \"errors\": [\"Empty from email address (required)\"]}", result);
-//  }
+  @Test
+  public void testAddHeader() throws JSONException {
+    SendGrid sendgrid = new SendGrid(USERNAME, PASSWORD);
+
+    sendgrid.addHeader("key", "value");
+    sendgrid.addHeader("other", "other-value");
+
+    assertEquals(sendgrid.getHeaders().get("key"), "value"); 
+    assertEquals(sendgrid.getHeaders().get("other"), "other-value"); 
+  }
 }
