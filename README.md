@@ -185,7 +185,7 @@ sendgrid.addTo("yourself@yourself.com");
 
 ### Headers
 
-Headers can be used to add existing SendGrid functionality (like categories or filters) or your own custom headers.
+Headers can be used to add existing SendGrid functionality (like categories or filters through the smtpapi header) or your own custom headers.
 
 ```java
 SendGrid sendgrid = new SendGrid("sendgrid_username", "sendgrid_password");
