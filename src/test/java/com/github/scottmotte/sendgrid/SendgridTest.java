@@ -19,6 +19,7 @@ public class SendGridTest {
     sendgrid.addTo(email);
     sendgrid.addToName("Name Guy");
     sendgrid.setFrom(email);
+    sendgrid.setFromName("Some Name");
     sendgrid.setSubject("Subject");
     sendgrid.setText("Text");
     sendgrid.setHtml("Html");
@@ -66,6 +67,16 @@ public class SendGridTest {
     sendgrid.setFrom(email);
 
     assertEquals(sendgrid.getFrom(), email); 
+  }
+
+  @Test
+  public void testSetFromName() {
+    SendGrid sendgrid = new SendGrid(USERNAME, PASSWORD);
+
+    String name = "Example Guy";
+    sendgrid.setFromName(name);
+
+    assertEquals(sendgrid.getFromName(), name); 
   }
 
   @Test

@@ -34,7 +34,7 @@ repositories {
 }
 dependencies {
   ...
-  compile 'com.github.scottmotte:sendgrid:0.0.5'
+  compile 'com.github.scottmotte:sendgrid:0.0.6'
 }
 
 ...
@@ -114,6 +114,16 @@ SendGrid sendgrid = new SendGrid("sendgrid_username", "sendgrid_password");
 sendgrid.addTo("example@example.com");
 ...
 sendgrid.setFrom("other@example.com");
+```
+
+### From Name
+
+```java
+SendGrid sendgrid = new SendGrid("sendgrid_username", "sendgrid_password");
+sendgrid.addTo("example@example.com");
+...
+sendgrid.setFrom("other@example.com");
+sendgrid.setFromName("Other Dude");
 ```
 
 ### Subject

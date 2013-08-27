@@ -13,6 +13,7 @@ public class SendGrid {
   private static final String PARAM_TONAMES     = "toname[]";
   private static final String PARAM_BCC         = "bcc";
   private static final String PARAM_FROM        = "from";
+  private static final String PARAM_FROMNAME    = "fromname";
   private static final String PARAM_SUBJECT     = "subject";
   private static final String PARAM_HTML        = "html";
   private static final String PARAM_TEXT        = "text";
@@ -25,6 +26,7 @@ public class SendGrid {
   private ArrayList<String> tonames = new ArrayList<String>();
   private String bcc;
   private String from;
+  private String fromname;
   private String subject;
   private String text;
   private String html;
@@ -52,6 +54,7 @@ public class SendGrid {
       request.part(PARAM_TONAMES,     toname);
     }
     request.part(PARAM_FROM,      this.getFrom());
+    request.part(PARAM_FROMNAME,  this.getFromName());
     request.part(PARAM_SUBJECT,   this.getSubject());
 
     if (text != null) {
@@ -89,6 +92,10 @@ public class SendGrid {
     return this.from;
   }
 
+  public String getFromName() {
+    return this.fromname;
+  }
+
   public String getSubject() {
     return this.subject;
   }
@@ -121,6 +128,11 @@ public class SendGrid {
 
   public SendGrid setFrom(String email) {
     this.from = email;
+    return this;
+  }
+
+  public SendGrid setFromName(String name) {
+    this.fromname = name;
     return this;
   }
 
