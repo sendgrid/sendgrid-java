@@ -25,7 +25,7 @@ fatJar {
   classifier 'jar'
   baseName "sendgrid"
   manifest {
-    attributes("Implementation-Title": "Sendgrid", "Implementation-Version": version)
+    attributes("Implementation-Title": "SendGrid", "Implementation-Version": version)
   }
 }
 
