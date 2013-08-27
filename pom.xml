@@ -1,0 +1,120 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
+  <modelVersion>4.0.0</modelVersion>
+
+  <parent>
+    <groupId>org.sonatype.oss</groupId>
+    <artifactId>oss-parent</artifactId>
+    <version>7</version>
+  </parent>
+
+  <groupId>com.github.scottmotte</groupId>
+  <artifactId>sendgrid</artifactId>
+  <version>0.0.3-SNAPSHOT</version>
+  <packaging>jar</packaging>
+  
+  <url>https://github.com/scottmotte/sendgrid-java</url>
+  <description>SendGrid Java helper library</description>
+  <inceptionYear>2013</inceptionYear>
+
+  <properties>
+    <version.java>1.5</version.java>
+    <version.http-request>5.4.1</version.http-request>
+    <version.junit>4.11</version.junit>
+  </properties>
+
+  <issueManagement>
+    <url>https://github.com/scottmotte/sendgrid-java/issues</url>
+    <system>GitHub Issues</system>
+  </issueManagement>
+
+  <scm>
+    <url>https://github.com/scottmotte/sendgrid-java</url>
+    <connection>scm:git:git://github.com/scottmotte/sendgrid-java.git</connection>
+    <developerConnection>scm:git:git@github.com:scottmotte/sendgrid-java.git</developerConnection>
+  </scm>
+
+  <developers>
+    <developer>
+      <name>Scott Motte</name>
+      <url>https://github.com/scottmotte</url>
+      <id>scottmotte</id>
+    </developer>
+  </developers>
+
+  <dependencies>
+
+    <dependency>
+      <groupId>com.github.kevinsawicki</groupId>
+      <artifactId>http-request</artifactId>
+      <version>${version.http-request}</version>
+    </dependency>
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>${version.junit}</version>
+      <scope>test</scope>
+    </dependency>
+
+  </dependencies>
+
+  <build>
+
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>2.3.2</version>
+        <configuration>
+          <source>${version.java}</source>
+          <target>${version.java}</target>
+        </configuration>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-shade-plugin</artifactId>
+        <version>2.1</version>
+        <executions>
+          <execution>
+            <phase>package</phase>
+            <goals>
+              <goal>shade</goal>
+            </goals>
+          </execution>
+        </executions>
+        <configuration>
+          <outputDirectory>${basedir}/repo/com/github/scottmotte/sendgrid/${project.version}</outputDirectory>
+          <finalName>${project.artifactId}-${project.version}-uberjar</finalName>
+        </configuration>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-javadoc-plugin</artifactId>
+        <version>2.8</version>
+        <executions>
+          <execution>
+            <goals>
+              <goal>jar</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-source-plugin</artifactId>
+        <version>2.1.2</version>
+        <executions>
+          <execution>
+            <goals>
+              <goal>jar</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+    </plugins>
+
+  </build>
+
+</project>
