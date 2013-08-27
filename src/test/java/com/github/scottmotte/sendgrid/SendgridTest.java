@@ -6,13 +6,13 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertThat;
 import static org.junit.matchers.JUnitMatchers.hasItems;
 
-public class SendgridTest {
+public class SendGridTest {
   private static final String USERNAME = "username";
   private static final String PASSWORD = "password";
   
   @Test
   public void testSetTo() {
-    Sendgrid sendgrid = new Sendgrid(USERNAME, PASSWORD);
+    SendGrid sendgrid = new SendGrid(USERNAME, PASSWORD);
 
     String email = "email@example.com";
     sendgrid.addTo(email);
@@ -22,7 +22,7 @@ public class SendgridTest {
 
   @Test
   public void testSetBcc() {
-    Sendgrid sendgrid = new Sendgrid(USERNAME, PASSWORD);
+    SendGrid sendgrid = new SendGrid(USERNAME, PASSWORD);
 
     String email = "email@example.com";
     sendgrid.setBcc(email);
@@ -32,7 +32,7 @@ public class SendgridTest {
  
   @Test
   public void testSetFrom() {
-    Sendgrid sendgrid = new Sendgrid(USERNAME, PASSWORD);
+    SendGrid sendgrid = new SendGrid(USERNAME, PASSWORD);
 
     String email = "email@example.com";
     sendgrid.setFrom(email);
@@ -42,7 +42,7 @@ public class SendgridTest {
 
   @Test
   public void testSetSubject() {
-    Sendgrid sendgrid = new Sendgrid(USERNAME, PASSWORD);
+    SendGrid sendgrid = new SendGrid(USERNAME, PASSWORD);
 
     String subject = "This is a subject";
     sendgrid.setSubject(subject);
@@ -52,7 +52,7 @@ public class SendgridTest {
 
   @Test
   public void testSetText() {
-    Sendgrid sendgrid = new Sendgrid(USERNAME, PASSWORD);
+    SendGrid sendgrid = new SendGrid(USERNAME, PASSWORD);
 
     String text = "This is some email text.";
     sendgrid.setText(text);
@@ -62,7 +62,7 @@ public class SendgridTest {
 
   @Test
   public void testSetHtml() {
-    Sendgrid sendgrid = new Sendgrid(USERNAME, PASSWORD);
+    SendGrid sendgrid = new SendGrid(USERNAME, PASSWORD);
 
     String html = "This is some email text.";
     sendgrid.setHtml(html);
@@ -72,7 +72,7 @@ public class SendgridTest {
 
   @Test
   public void testAddFile() {
-    Sendgrid sendgrid = new Sendgrid(USERNAME, PASSWORD);
+    SendGrid sendgrid = new SendGrid(USERNAME, PASSWORD);
 
     File file = new File(getClass().getResource("/test.txt").getFile());
     sendgrid.addFile(file);
@@ -82,7 +82,7 @@ public class SendgridTest {
 
   @Test
   public void testAddMultipleFiles() {
-    Sendgrid sendgrid = new Sendgrid(USERNAME, PASSWORD);
+    SendGrid sendgrid = new SendGrid(USERNAME, PASSWORD);
 
     File file = new File(getClass().getResource("/test.txt").getFile());
     File file2 = new File(getClass().getResource("/image.png").getFile());
@@ -95,7 +95,7 @@ public class SendgridTest {
 
 //  @Test
 //  public void testSendSuccess() {
-//    String result = Sendgrid
+//    String result = SendGrid
 //            .withCredentials(USERNAME, PASSWORD)
 //            .from(FROM_EMAIL)
 //            .to(TO_EMAIL)
@@ -107,7 +107,7 @@ public class SendgridTest {
 //
 //  @Test
 //  public void testSendSuccessBcc() {
-//    String result = Sendgrid
+//    String result = SendGrid
 //            .withCredentials(USERNAME, PASSWORD)
 //            .from(FROM_EMAIL)
 //            .to(TO_EMAIL)
@@ -121,7 +121,7 @@ public class SendgridTest {
 //  @Test
 //  public void testSendSuccessWithAttachment() {
 //    File attachment = new File(getClass().getResource("/test.txt").getFile());
-//    String result = Sendgrid
+//    String result = SendGrid
 //            .withCredentials(USERNAME, PASSWORD)
 //            .from(FROM_EMAIL)
 //            .to(TO_EMAIL)
@@ -134,7 +134,7 @@ public class SendgridTest {
 //
 //  @Test
 //  public void testSendSuccessWithMultipleRecipients() {
-//    String result = Sendgrid
+//    String result = SendGrid
 //            .withCredentials(USERNAME, PASSWORD)
 //            .from(FROM_EMAIL)
 //            .to(TO_EMAIL, TO_ANOTHER_EMAIL)
@@ -146,7 +146,7 @@ public class SendgridTest {
 //
 //  @Test
 //  public void testSendWithoutFrom() {
-//    String result = Sendgrid
+//    String result = SendGrid
 //            .withCredentials(USERNAME, PASSWORD)
 //            .to(TO_EMAIL)
 //            .withSubject("This is a test subject")

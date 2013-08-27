@@ -4,7 +4,7 @@ import com.github.kevinsawicki.http.HttpRequest;
 import java.io.File;
 import java.util.ArrayList;
 
-public class Sendgrid {
+public class SendGrid {
   private static final String PARAM_API_USER    = "api_user";
   private static final String PARAM_API_KEY     = "api_key";
   private static final String PARAM_BCC         = "bcc";
@@ -25,7 +25,7 @@ public class Sendgrid {
   private String html;
   private ArrayList<File> files = new ArrayList<File>();
   
-  public Sendgrid(String username, String password) {
+  public SendGrid(String username, String password) {
     this.username = username;
     this.password = password;
   }
@@ -90,37 +90,37 @@ public class Sendgrid {
     return this.files;
   }
 
-  public Sendgrid addTo(String to) {
+  public SendGrid addTo(String to) {
     this.tos.add(to);
     return this;
   }
 
-  public Sendgrid setFrom(String email) {
+  public SendGrid setFrom(String email) {
     this.from = email;
     return this;
   }
 
-  public Sendgrid setBcc(String bcc) {
+  public SendGrid setBcc(String bcc) {
     this.bcc = bcc;
     return this;
   }
 
-  public Sendgrid setSubject(String subject) {
+  public SendGrid setSubject(String subject) {
     this.subject = subject;
     return this;
   }
 
-  public Sendgrid setText(String text) {
+  public SendGrid setText(String text) {
     this.text = text;
     return this;
   }
 
-  public Sendgrid setHtml(String html) {
+  public SendGrid setHtml(String html) {
     this.html = html;
     return this;
   }
 
-  public Sendgrid addFile(File file) {
+  public SendGrid addFile(File file) {
     this.files.add(file);
     return this;
   }
