@@ -16,6 +16,7 @@ public class SendGrid {
   private static final String PARAM_HTML        = "html";
   private static final String PARAM_TEXT        = "text";
   private static final String PARAM_FILES       = "files[%s]";
+  private static final String PARAM_HEADERS     = "headers";
 
   private String username;
   private String password;
@@ -61,6 +62,8 @@ public class SendGrid {
     for (File file:this.getFiles()) {
       request.part(String.format(PARAM_FILES, file.getName()), file);
     }
+
+    request.part(PARAM_HEADERS,   this.getHeaders().toString());
 
     return request.body();
   }
