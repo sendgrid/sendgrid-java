@@ -22,8 +22,6 @@ There are multiple ways to install this library. I recommend using [Gradle](http
 
 Add the following to your build.gradle file in the root of your project.
 
-https://github.com/scottmotte/sendgrid-java/raw/v0.0.1/repo/com/github/scottmotte/sendgrid/0.0.1/sendgrid-0.0.1-jar.jar
-
 ```groovy
 ...
 
@@ -36,7 +34,7 @@ repositories {
 }
 dependencies {
   ...
-  compile 'com.github.scottmotte:sendgrid:0.0.1'
+  compile 'com.github.scottmotte:sendgrid:0.0.2'
 }
 
 ...
