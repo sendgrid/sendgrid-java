@@ -47,21 +47,30 @@ public class SendGrid {
   public String web() {
     HttpRequest request = HttpRequest.post("https://sendgrid.com/api/mail.send.json");
 
-    request.part(PARAM_API_USER,  this.username);
-    request.part(PARAM_API_KEY,   this.password);
+    if (this.username != null) {
+      request.part(PARAM_API_USER,  this.username);
+    }
+    if (this.password != null) {
+      request.part(PARAM_API_KEY,   this.password);
+    }
     for (String to:this.getTos()) {
       request.part(PARAM_TOS,     to);
     }
     for (String toname:this.getToNames()) {
       request.part(PARAM_TONAMES,     toname);
     }
-    request.part(PARAM_FROM,      this.getFrom());
-    request.part(PARAM_FROMNAME,  this.getFromName());
+    if (this.getFrom() != null) {
+      request.part(PARAM_FROM,      this.getFrom());
+    }
+    if (this.getFromName() != null) {
+      request.part(PARAM_FROMNAME,  this.getFromName());
+    }
     if (this.getReplyTo() != null) {
       request.part(PARAM_REPLYTO, this.getReplyTo());
     }
-    request.part(PARAM_SUBJECT,   this.getSubject());
-
+    if (this.getSubject() != null) {
+      request.part(PARAM_SUBJECT,   this.getSubject());
+    }
     if (this.getText() != null) {
       request.part(PARAM_TEXT,    this.getText());
     }
@@ -71,11 +80,9 @@ public class SendGrid {
     if (this.getBcc() != null) {
       request.part(PARAM_BCC, this.getBcc());
     }
-
     for (File file:this.getFiles()) {
       request.part(String.format(PARAM_FILES, file.getName()), file);
     }
-
     request.part(PARAM_HEADERS,   this.getHeaders().toString());
 
     return request.body();
