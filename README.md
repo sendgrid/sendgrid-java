@@ -183,6 +183,8 @@ sendgrid.addTo("yourself@yourself.com");
 ...
 ```
 
+If you still absolutely need to use Bcc, you can use `sendgrid.addBcc("email@somewhere.com")`;
+
 ### Headers
 
 Headers can be used to add existing SendGrid functionality (like categories or filters through the smtpapi header) or your own custom headers.
@@ -193,8 +195,6 @@ sendgrid.addTo("example@example.com");
 ...
 sendgrid.addHeader("category", "My New Category");
 ```
-
-If you still absolutely need to use Bcc, you can use `sendgrid.addBcc("email@somewhere.com")`;
 
 ## Contributing
 
