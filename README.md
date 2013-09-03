@@ -165,6 +165,7 @@ sendgrid.setHtml(<h1>My first email through SendGrid");
 ### Attachments
 
 ```java
+import java.io.File;
 SendGrid sendgrid = new SendGrid("sendgrid_username", "sendgrid_password");
 sendgrid.addTo("example@example.com");
 ...
