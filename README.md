@@ -221,6 +221,11 @@ gradle build
 
 (If you don't have gradle install it. If on a mac, you can run `brew install gradle`) 
 
+## Example App
+
+We have an example app using this library. This can be helpful to get a grasp on implementing it in your own app. The example below is a [spring](http://www.springsource.org/spring-framework) based application.
+
+[github.com/scottmotte/spring-attack](http://github.com/scottmotte/spring-attack)
 
 ## License
 
