@@ -1,4 +1,4 @@
-package com.github.scottmotte.sendgrid;
+package com.github.sendgrid;
 
 import com.github.kevinsawicki.http.HttpRequest;
 import org.json.JSONObject;

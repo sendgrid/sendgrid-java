@@ -1,4 +1,4 @@
-package com.github.scottmotte.sendgrid;
+package com.github.sendgrid;
 
 import org.junit.Test;
 import java.io.File;

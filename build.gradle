@@ -1,6 +1,6 @@
 apply plugin: 'fatjar'
 
-version       = "0.0.8"
+version       = "0.1.0"
 
 buildscript {
   dependencies {
@@ -33,9 +33,9 @@ fatJar {
 // copy fatJar to base project directory so they will be in git (and on github for download)
 build << {
   copy {
-    println "Copying ${fatJar.archiveName} to $projectDir/repo/com/github/scottmotte/sendgrid/$version"
+    println "Copying ${fatJar.archiveName} to $projectDir/repo/com/github/sendgrid/$version"
     from("$buildDir/libs/${fatJar.archiveName}")
-    into("$projectDir/repo/com/github/scottmotte/sendgrid/$version")
+    into("$projectDir/repo/com/github/sendgrid/$version")
   }
 }
 

@@ -3,7 +3,7 @@
 This Java module allows you to quickly and easily send emails through SendGrid using Java.
 
 ```java
-import com.github.scottmotte.sendgrid.SendGrid;
+import com.github.sendgrid.SendGrid;
 SendGrid sendgrid = new SendGrid("sendgrid_username", "sendgrid_password");
 
 sendgrid.addTo("example@example.com");
@@ -29,12 +29,12 @@ repositories {
   mavenCentral()
   add(new org.apache.ivy.plugins.resolver.URLResolver()) {
     name = 'GitHub'
-    addArtifactPattern 'https://github.com/scottmotte/sendgrid-java/raw/v[revision]/repo/com/github/scottmotte/sendgrid/[revision]/sendgrid-[revision]-jar.jar'
+    addArtifactPattern 'https://github.com/sendgrid/sendgrid-java/raw/v[revision]/repo/com/github/sendgrid/[revision]/sendgrid-[revision]-jar.jar'
   }
 }
 dependencies {
   ...
-  compile 'com.github.scottmotte:sendgrid:0.0.8'
+  compile 'com.github.sendgrid:sendgrid:0.0.8'
 }
 
 ...
@@ -43,29 +43,29 @@ dependencies {
 Then import the library - in the file appropriate to your Java project.
 
 ```java
-import com.github.scottmotte.sendgrid.SendGrid;
+import com.github.sendgrid.SendGrid;
 ```
 
 ### via copy/paste
 
-Copy and paste the [SendGrid.java](https://github.com/scottmotte/sendgrid-java/blob/master/src/main/java/com/github/scottmotte/sendgrid/SendGrid.java) file into your project. That file is available here: [https://github.com/scottmotte/sendgrid-java/blob/master/src/main/java/com/github/scottmotte/sendgrid/SendGrid.java](https://github.com/scottmotte/sendgrid-java/blob/master/src/main/java/com/github/scottmotte/sendgrid/SendGrid.java)
+Copy and paste the [SendGrid.java](https://github.com/sendgrid/sendgrid-java/blob/master/src/main/java/com/github/sendgrid/SendGrid.java) file into your project. That file is available here: [https://github.com/sendgrid/sendgrid-java/blob/master/src/main/java/com/github/sendgrid/SendGrid.java](https://github.com/sendgrid/sendgrid-java/blob/master/src/main/java/com/github/sendgrid/SendGrid.java)
 
 Then import the library - in the file appropriate to your Java project.
 
 ```java
-import com.github.scottmotte.sendgrid.SendGrid;
+import com.github.sendgrid.SendGrid;
 ```
 
 ### via Maven
 
-I'd like to get this on Maven. Please [create an issue](https://github.com/scottmotte/sendgrid-java/issues/new) if you'd like to see it on Maven as well. 
+I'd like to get this on Maven. Please [create an issue](https://github.com/sendgrid/sendgrid-java/issues/new) if you'd like to see it on Maven as well. 
 
 ## Usage
 
 To begin using this library, initialize the SendGrid object with your SendGrid credentials.
 
 ```java
-import com.github.scottmotte.sendgrid.SendGrid;
+import com.github.sendgrid.SendGrid;
 SendGrid sendgrid = new SendGrid("sendgrid_username", "sendgrid_password");
 ```
 
