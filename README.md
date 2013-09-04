@@ -34,7 +34,7 @@ repositories {
 }
 dependencies {
   ...
-  compile 'com.github.sendgrid:sendgrid:0.0.8'
+  compile 'com.github.sendgrid:sendgrid:0.1.0'
 }
 
 ...
