@@ -56,6 +56,8 @@ Then import the library - in the file appropriate to your Java project.
 import com.github.sendgrid.SendGrid;
 ```
 
+You will also need to include the [http-request library from kevinsawicki](https://github.com/kevinsawicki/http-request).
+
 ### via Maven
 
 I'd like to get this on Maven. Please [create an issue](https://github.com/sendgrid/sendgrid-java/issues/new) if you'd like to see it on Maven as well. 
