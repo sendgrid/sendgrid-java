@@ -48,6 +48,8 @@ import com.github.sendgrid.SendGrid;
 
 ### via copy/paste
 
+#### Include the SendGrid.java library
+
 Copy and paste the [SendGrid.java](https://github.com/sendgrid/sendgrid-java/blob/master/src/main/java/com/github/sendgrid/SendGrid.java) file into your project. That file is available here: [https://github.com/sendgrid/sendgrid-java/blob/master/src/main/java/com/github/sendgrid/SendGrid.java](https://github.com/sendgrid/sendgrid-java/blob/master/src/main/java/com/github/sendgrid/SendGrid.java)
 
 Then import the library - in the file appropriate to your Java project.
@@ -56,10 +58,10 @@ Then import the library - in the file appropriate to your Java project.
 import com.github.sendgrid.SendGrid;
 ```
 
-Also include these REQUIRED dependencies in your project:
+#### Include the required dependencies
 
-You need to include the [http-request library from kevinsawicki](https://github.com/kevinsawicki/http-request).
-You need to include the [json library from chargebee](http://maven-repository.com/artifact/org.json/org.json/chargebee-1.0)
+* You need to include the [http-request library from kevinsawicki](https://github.com/kevinsawicki/http-request).
+* You need to include the [json library from chargebee](http://maven-repository.com/artifact/org.json/org.json/chargebee-1.0)
 
 ### via Maven
 
