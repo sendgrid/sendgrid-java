@@ -46,6 +46,12 @@ Then import the library - in the file appropriate to your Java project.
 import com.github.sendgrid.SendGrid;
 ```
 
+### via jar file
+
+You can just drop the jar file in. It's a fat jar - it has all the dependencies built in.
+
+[sendgrid-0.1.0-jar.jar](https://github.com/sendgrid/sendgrid-java/blob/master/repo/com/github/sendgrid/0.1.0/sendgrid-0.1.0-jar.jar?raw=true)
+
 ### via copy/paste
 
 #### Include the SendGrid.java library
