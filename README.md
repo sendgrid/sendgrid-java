@@ -73,6 +73,10 @@ import com.github.sendgrid.SendGrid;
 
 I'd like to get this on Maven. Please [+1 your support](https://github.com/sendgrid/sendgrid-java/issues/6) if you'd like to see it on Maven as well. 
 
+## Example App
+
+There is a [sendgrid-java-example app](https://github.com/scottmotte/sendgrid-java-example) to help jumpstart your development.
+
 ## Usage
 
 To begin using this library, initialize the SendGrid object with your SendGrid credentials.
