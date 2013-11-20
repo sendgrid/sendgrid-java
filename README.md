@@ -215,6 +215,15 @@ sendgrid.addHeader("X-Sent-Using", "SendGrid-API");
 sendgrid.addHeader("X-Transport", "web");
 ```
 
+To add SendGrid style headers for things such as categories or filters, do the following.
+
+```java
+SendGrid sendgrid = new SendGrid("sendgrid_username", "sendgrid_password");
+sendgrid.addTo("example@example.com");
+...
+sendgrid.addHeader("X-SMTPAPI", "{\"category\":\"My New Category\"}");
+```
+
 ## Contributing
 
 1. Fork it
