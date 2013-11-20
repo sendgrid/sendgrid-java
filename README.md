@@ -205,13 +205,14 @@ If you still absolutely need to use Bcc, you can use `sendgrid.addBcc("email@som
 
 ### Headers
 
-Headers can be used to add existing SendGrid functionality (like categories or filters through the smtpapi header) or your own custom headers.
+You can add custom headers.
 
 ```java
 SendGrid sendgrid = new SendGrid("sendgrid_username", "sendgrid_password");
 sendgrid.addTo("example@example.com");
 ...
-sendgrid.addHeader("category", "My New Category");
+sendgrid.addHeader("X-Sent-Using", "SendGrid-API");
+sendgrid.addHeader("X-Transport", "web");
 ```
 
 ## Contributing
