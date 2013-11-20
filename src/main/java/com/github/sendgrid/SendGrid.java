@@ -45,7 +45,7 @@ public class SendGrid {
   } 
 
   public String web() {
-    HttpRequest request = HttpRequest.post("https://sendgrid.com/api/mail.send.json");
+    HttpRequest request = HttpRequest.post("https://api.sendgrid.com/api/mail.send.json");
 
     if (this.username != null) {
       request.part(PARAM_API_USER,  this.username);
