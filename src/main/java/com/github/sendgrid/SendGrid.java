@@ -2,8 +2,11 @@ package com.github.sendgrid;
 
 import com.github.kevinsawicki.http.HttpRequest;
 import org.json.JSONObject;
-import org.json.JSONException;
+
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.InputStream;
 import java.util.ArrayList;
 
 public class SendGrid {
@@ -32,7 +35,7 @@ public class SendGrid {
   private String subject;
   private String text;
   private String html;
-  private ArrayList<File> files = new ArrayList<File>();
+  private ArrayList<Attachment> attachments = new ArrayList<Attachment>();
   private JSONObject headers = new JSONObject();
   
   public SendGrid(String username, String password) {
@@ -80,8 +83,8 @@ public class SendGrid {
     if (this.getBcc() != null) {
       request.part(PARAM_BCC, this.getBcc());
     }
-    for (File file:this.getFiles()) {
-      request.part(String.format(PARAM_FILES, file.getName()), file);
+    for (Attachment attachment:this.getAttachments()) {
+      request.part(String.format(PARAM_FILES, attachment.name), attachment.contents);
     }
     request.part(PARAM_HEADERS,   this.getHeaders().toString());
 
@@ -124,8 +127,8 @@ public class SendGrid {
     return this.html;
   }
 
-  public ArrayList<File> getFiles() {
-    return this.files;
+  public ArrayList<Attachment> getAttachments() {
+    return this.attachments;
   }
 
   public JSONObject getHeaders() {
@@ -177,8 +180,8 @@ public class SendGrid {
     return this;
   }
 
-  public SendGrid addFile(File file) {
-    this.files.add(file);
+  public SendGrid addAttachment(Attachment attachment) {
+    this.attachments.add(attachment);
     return this;
   }
 
@@ -190,5 +193,23 @@ public class SendGrid {
     }
 
     return this;
+  }
+
+  public static class Attachment
+  {
+    public final String name;
+    public final InputStream contents;
+
+    public Attachment(File file) throws FileNotFoundException
+    {
+      this.name = file.getName();
+      this.contents = new FileInputStream(file);
+    }
+
+    public Attachment(String name, InputStream contents)
+    {
+      this.name = name;
+      this.contents = contents;
+    }
   }
 }

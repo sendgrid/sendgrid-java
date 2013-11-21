@@ -1,12 +1,14 @@
 package com.github.sendgrid;
 
+import org.json.JSONException;
 import org.junit.Test;
+
 import java.io.File;
+import java.io.FileNotFoundException;
+
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertThat;
 import static org.junit.matchers.JUnitMatchers.hasItems;
-import org.json.JSONObject;
-import org.json.JSONException;
 
 public class SendGridTest {
   private static final String USERNAME = "username";
@@ -121,26 +123,27 @@ public class SendGridTest {
   }
 
   @Test
-  public void testAddFile() {
+  public void testAddFile() throws FileNotFoundException {
     SendGrid sendgrid = new SendGrid(USERNAME, PASSWORD);
 
     File file = new File(getClass().getResource("/test.txt").getFile());
-    sendgrid.addFile(file);
+    SendGrid.Attachment attachment = new SendGrid.Attachment(file);
+    sendgrid.addAttachment(attachment);
 
-    assertThat(sendgrid.getFiles(), hasItems(file)); 
+    assertThat(sendgrid.getAttachments(), hasItems(attachment));
   }
 
   @Test
-  public void testAddMultipleFiles() {
+  public void testAddMultipleFiles() throws FileNotFoundException {
     SendGrid sendgrid = new SendGrid(USERNAME, PASSWORD);
 
-    File file = new File(getClass().getResource("/test.txt").getFile());
-    File file2 = new File(getClass().getResource("/image.png").getFile());
+    SendGrid.Attachment attachment1 = new SendGrid.Attachment(new File(getClass().getResource("/test.txt").getFile()));
+    SendGrid.Attachment attachment2 = new SendGrid.Attachment(new File(getClass().getResource("/image.png").getFile()));
 
-    sendgrid.addFile(file);
-    sendgrid.addFile(file2);
+    sendgrid.addAttachment(attachment1);
+    sendgrid.addAttachment(attachment2);
 
-    assertThat(sendgrid.getFiles(), hasItems(file, file2)); 
+    assertThat(sendgrid.getAttachments(), hasItems(attachment1, attachment2));
   }
 
   @Test
