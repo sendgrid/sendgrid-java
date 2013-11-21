@@ -4,7 +4,10 @@ import org.json.JSONException;
 import org.junit.Test;
 
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.InputStream;
+import java.io.IOException; 
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertThat;
@@ -127,23 +130,45 @@ public class SendGridTest {
     SendGrid sendgrid = new SendGrid(USERNAME, PASSWORD);
 
     File file = new File(getClass().getResource("/test.txt").getFile());
-    SendGrid.Attachment attachment = new SendGrid.Attachment(file);
-    sendgrid.addAttachment(attachment);
+    sendgrid.addFile(file);
 
-    assertThat(sendgrid.getAttachments(), hasItems(attachment));
+    assertEquals(sendgrid.getAttachments().get(0).name, file.getName());
+  }
+
+  @Test
+  public void testAddFileFromString() throws FileNotFoundException {
+    SendGrid sendgrid = new SendGrid(USERNAME, PASSWORD);
+
+    //File file = new File(getClass().getResource("/test.txt").getFile());
+    InputStream is;
+    try {
+      is = new FileInputStream(getClass().getResource("/test.txt").getFile());
+      is.close(); 
+
+      SendGrid.Attachment attachment1 = new SendGrid.Attachment("filename.txt", is);
+      sendgrid.addFile(attachment1);
+      assertThat(sendgrid.getAttachments(), hasItems(attachment1));
+    } catch (FileNotFoundException e) {
+      // TODO Auto-generated catch block
+      e.printStackTrace();
+    } catch (IOException e) {
+      // TODO Auto-generated catch block
+      e.printStackTrace();
+    }
   }
 
   @Test
   public void testAddMultipleFiles() throws FileNotFoundException {
     SendGrid sendgrid = new SendGrid(USERNAME, PASSWORD);
 
-    SendGrid.Attachment attachment1 = new SendGrid.Attachment(new File(getClass().getResource("/test.txt").getFile()));
-    SendGrid.Attachment attachment2 = new SendGrid.Attachment(new File(getClass().getResource("/image.png").getFile()));
+    File file1 = new File(getClass().getResource("/test.txt").getFile());
+    File file2 = new File(getClass().getResource("/image.png").getFile());
 
-    sendgrid.addAttachment(attachment1);
-    sendgrid.addAttachment(attachment2);
+    sendgrid.addAttachment(file1);
+    sendgrid.addFile(file2);
 
-    assertThat(sendgrid.getAttachments(), hasItems(attachment1, attachment2));
+    assertEquals(sendgrid.getAttachments().get(0).name, file1.getName());
+    assertEquals(sendgrid.getAttachments().get(1).name, file2.getName());
   }
 
   @Test

@@ -180,8 +180,24 @@ public class SendGrid {
     return this;
   }
 
+  public SendGrid addFile(Attachment attachment) {
+    this.addAttachment(attachment);
+    return this;
+  }
+
+  public SendGrid addFile(File file) throws FileNotFoundException {
+    this.addAttachment(file);
+    return this;
+  }
+
   public SendGrid addAttachment(Attachment attachment) {
     this.attachments.add(attachment);
+    return this;
+  }
+
+  public SendGrid addAttachment(File file) throws FileNotFoundException {
+    SendGrid.Attachment attachment = new SendGrid.Attachment(file);
+    this.addAttachment(attachment);
     return this;
   }
 
@@ -195,19 +211,16 @@ public class SendGrid {
     return this;
   }
 
-  public static class Attachment
-  {
+  public static class Attachment {
     public final String name;
     public final InputStream contents;
 
-    public Attachment(File file) throws FileNotFoundException
-    {
+    public Attachment(File file) throws FileNotFoundException {
       this.name = file.getName();
       this.contents = new FileInputStream(file);
     }
 
-    public Attachment(String name, InputStream contents)
-    {
+    public Attachment(String name, InputStream contents) {
       this.name = name;
       this.contents = contents;
     }
