@@ -186,34 +186,23 @@ import java.io.File;
 SendGrid sendgrid = new SendGrid("sendgrid_username", "sendgrid_password");
 sendgrid.addTo("example@example.com");
 ...
-sendgrid.addFile(new File("../path/to/file.txt"));
+sendgrid.addAttachment(new SendGrid.Attachment(new File("../path/to/file.txt")));
 ```
 
-If you need to add files from an InputStream (maybe you're on Google App Engine), here is how.
+If you need to add files from an InputStream (maybe you're on Google App Engine and have the contents in a byte array), here is how.
 
 ```java
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.InputStream;
-import java.io.IOException; 
+import java.io.ByteArrayInputStream;
  
 SendGrid sendgrid = new SendGrid("sendgrid_username", "sendgrid_password");
 sendgrid.addTo("example@example.com");
 ...
-try {
-  InputStream is = new FileInputStream("c://filename");
-  is.close(); 
+  byte[] contents = somehowGenerateAttachmentContents();
 
-  SendGrid.Attachment attachment1 = new SendGrid.Attachment("filename.txt", is);
-  sendgrid.addFile(attachment1);
+  SendGrid.Attachment attachment1 = new SendGrid.Attachment("Invoice.pdf", new ByteArrayInputStream(contents));
+  sendgrid.addAttachment(attachment1);
 
   sendgrid.send();
-} catch (FileNotFoundException e) {
-  e.printStackTrace();
-} catch (IOException e) {
-  e.printStackTrace();
-}
 ```
 
 ### Bcc
