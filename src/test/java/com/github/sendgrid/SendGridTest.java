@@ -139,20 +139,16 @@ public class SendGridTest {
   public void testAddFileFromString() throws FileNotFoundException {
     SendGrid sendgrid = new SendGrid(USERNAME, PASSWORD);
 
-    //File file = new File(getClass().getResource("/test.txt").getFile());
-    InputStream is;
     try {
-      is = new FileInputStream(getClass().getResource("/test.txt").getFile());
+      InputStream is = new FileInputStream(getClass().getResource("/test.txt").getFile());
       is.close(); 
 
       SendGrid.Attachment attachment1 = new SendGrid.Attachment("filename.txt", is);
       sendgrid.addFile(attachment1);
       assertThat(sendgrid.getAttachments(), hasItems(attachment1));
     } catch (FileNotFoundException e) {
-      // TODO Auto-generated catch block
       e.printStackTrace();
     } catch (IOException e) {
-      // TODO Auto-generated catch block
       e.printStackTrace();
     }
   }
