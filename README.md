@@ -16,27 +16,22 @@ sendgrid.send();
 
 ## Installation
 
-There are multiple ways to install this library. I recommend using [Gradle](http://www.gradle.org).
+There are multiple ways to install this library. I recommend using Maven w/ Gradle. 
 
-### via Gradle (recommended)
+### via Maven w/ Gradle
 
 Add the following to your build.gradle file in the root of your project.
 
 ```groovy
 ...
+dependencies {
+  ...
+  compile 'com.sendgrid:sendgrid-java:0.1.2'
+}
 
 repositories {
   mavenCentral()
-  add(new org.apache.ivy.plugins.resolver.URLResolver()) {
-    name = 'GitHub'
-    addArtifactPattern 'https://github.com/sendgrid/sendgrid-java/raw/v[revision]/repo/com/github/sendgrid/[revision]/sendgrid-[revision]-jar.jar'
-  }
 }
-dependencies {
-  ...
-  compile 'com.github.sendgrid:sendgrid:0.1.2'
-}
-
 ...
 ```
 
@@ -68,10 +63,6 @@ import com.github.sendgrid.SendGrid;
 
 * You need to include the [http-request library from kevinsawicki](https://github.com/kevinsawicki/http-request).
 * You need to include the [json library from chargebee](http://maven-repository.com/artifact/org.json/org.json/chargebee-1.0)
-
-### via Maven
-
-I'd like to get this on Maven. Please [+1 your support](https://github.com/sendgrid/sendgrid-java/issues/6) if you'd like to see it on Maven as well. 
 
 ## Example App
 
