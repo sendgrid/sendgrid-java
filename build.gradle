@@ -1,6 +1,12 @@
-apply plugin: 'fatjar'
+import org.gradle.api.artifacts.maven.MavenDeployment
 
+apply plugin: 'fatjar'
+apply plugin: 'maven'
+apply plugin: 'signing'
+
+group = 'com.sendgrid'
 version       = "0.1.2"
+ext.packaging = 'jar'
 
 buildscript {
   dependencies {
@@ -39,6 +45,64 @@ build << {
   }
 }
 
+task javadocJar(type: Jar, dependsOn: javadoc) {
+  classifier = 'javadoc'
+  from 'build/docs/javadoc'
+}
+
+task sourcesJar(type: Jar) {
+  from sourceSets.main.allSource
+  classifier = 'sources'
+}
+
+signing {
+    sign configurations.archives
+}
+
+uploadArchives {
+    repositories {
+        mavenDeployer {
+            beforeDeployment { MavenDeployment deployment -> signing.signPom(deployment) }
+
+            repository(url: "https://oss.sonatype.org/service/local/staging/deploy/maven2/") {
+                authentication(userName: sonatypeUsername, password: sonatypePassword)
+            }
+
+            pom.project {
+                name 'sendgrid-java'
+                packaging 'jar'
+                description 'SendGrid Java helper library'
+                url 'https://github.com/sendgrid/sendgrid-java'
+
+                scm {
+                    url 'scm:git@github.com:sendgrid/sendgrid-java.git'
+                    connection 'scm:git@github.com:sendgrid/sendgrid-java.git'
+                    developerConnection 'scm:git@github.com:sendgrid/sendgrid-java.git'
+                }
+
+                licenses {
+                    license {
+                        name 'MIT License'
+                        url 'http://opensource.org/licenses/MIT'
+                        distribution 'repo'
+                    }
+                }
+
+                developers {
+                    developer {
+                        id 'scottmotte'
+                        name 'Scott Motte'
+                    }
+                }
+            }
+        }
+    }
+}
+
 artifacts {
   archives fatJar
+
+  archives jar
+  archives javadocJar
+  archives sourcesJar
 }
