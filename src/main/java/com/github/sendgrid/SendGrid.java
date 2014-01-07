@@ -1,6 +1,8 @@
 package com.github.sendgrid;
 
 import com.github.kevinsawicki.http.HttpRequest;
+import org.json.JSONArray;
+import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.File;
@@ -10,24 +12,29 @@ import java.io.InputStream;
 import java.util.ArrayList;
 
 public class SendGrid {
-  private static final String PARAM_API_USER    = "api_user";
-  private static final String PARAM_API_KEY     = "api_key";
-  private static final String PARAM_TOS         = "to[]";
-  private static final String PARAM_TONAMES     = "toname[]";
-  private static final String PARAM_BCC         = "bcc";
-  private static final String PARAM_FROM        = "from";
-  private static final String PARAM_FROMNAME    = "fromname";
-  private static final String PARAM_REPLYTO     = "replyto";
-  private static final String PARAM_SUBJECT     = "subject";
-  private static final String PARAM_HTML        = "html";
-  private static final String PARAM_TEXT        = "text";
-  private static final String PARAM_FILES       = "files[%s]";
-  private static final String PARAM_HEADERS     = "headers";
+  private static final String PARAM_API_USER        = "api_user";
+  private static final String PARAM_API_KEY         = "api_key";
+  private static final String PARAM_TOS             = "to[]";
+  private static final String PARAM_TONAMES         = "toname[]";
+  private static final String PARAM_BCC             = "bcc";
+  private static final String PARAM_FROM            = "from";
+  private static final String PARAM_FROMNAME        = "fromname";
+  private static final String PARAM_REPLYTO         = "replyto";
+  private static final String PARAM_SUBJECT         = "subject";
+  private static final String PARAM_HTML            = "html";
+  private static final String PARAM_TEXT            = "text";
+  private static final String PARAM_FILES           = "files[%s]";
+  private static final String PARAM_HEADERS         = "headers";
+
+  private static final String SMTP_API_HEADER       = "X-SMTPAPI";
+  private static final String CATEGORY_KEY          = "category";
+  private static final String FILTERS_KEY           = "filters";
+  private static final String SETTINGS_KEY          = "settings";
 
   private String username;
   private String password;
-  private ArrayList<String> tos = new ArrayList<String>();
-  private ArrayList<String> tonames = new ArrayList<String>();
+  private ArrayList<String> tos = new ArrayList<>();
+  private ArrayList<String> tonames = new ArrayList<>();
   private String bcc;
   private String from;
   private String fromname;
@@ -225,4 +232,99 @@ public class SendGrid {
       this.contents = contents;
     }
   }
+
+    /**
+     * Adds support for additional filters/apps in the SendGrid API mail model. A filter is also known as an app that
+     * integrates with SendGrid, such as <b>Google Analytics</b>. More information on filters/apps that integrate with
+     * the SendGrid service can be found in their <a href="http://sendgrid.com/docs/API_Reference/SMTP_API/apps.html">documentation</a>.
+     *
+     * @param filter String that represents the App
+     * @param key    Property to be set for the given filter/app
+     * @param value  The value to be set for the property.
+     * @return Current instance of the {@link SendGrid} object.
+     */
+    public SendGrid addFilter(String filter, String key, Object value) throws JSONException {
+        JSONObject smtpApiHeader;
+
+        if (!this.getHeaders().has(SMTP_API_HEADER)) {
+            final JSONObject individualFilterObject = new JSONObject().put(filter, new JSONObject().put(SETTINGS_KEY, new JSONObject().put(key, value)));
+
+            smtpApiHeader = new JSONObject().accumulate(FILTERS_KEY, individualFilterObject);
+        } else {
+            smtpApiHeader = new JSONObject(this.getHeaders().get(SMTP_API_HEADER).toString());
+
+            if (!smtpApiHeader.has(FILTERS_KEY)) {
+                final JSONObject individualFilterObject = new JSONObject().put(filter, new JSONObject().put(SETTINGS_KEY, new JSONObject().put(key, value)));
+
+                smtpApiHeader.accumulate(FILTERS_KEY, individualFilterObject);
+            } else {
+                if (smtpApiHeader.get(FILTERS_KEY) instanceof JSONObject) {
+                    final JSONObject parentFiltersObject = smtpApiHeader.getJSONObject(FILTERS_KEY);
+
+                    if(!parentFiltersObject.has(filter)) {
+                        smtpApiHeader.accumulate(FILTERS_KEY, new JSONObject().put(filter, new JSONObject().put(SETTINGS_KEY, new JSONObject().put(key, value))));
+                    } else {
+                        parentFiltersObject.getJSONObject(filter).getJSONObject(SETTINGS_KEY).put(key, value);
+                    }
+                } else {
+                    final JSONArray parentFiltersObject = smtpApiHeader.getJSONArray(FILTERS_KEY);
+
+                    for(int i=0; i<parentFiltersObject.length(); i++) {
+                        final JSONObject filter1 = parentFiltersObject.getJSONObject(i);
+
+                        if(filter1.keys().next().toString().equalsIgnoreCase(filter)) {
+                            filter1.getJSONObject(filter).getJSONObject(SETTINGS_KEY).put(key, value);
+                            break;
+                        }
+                    }
+                }
+            }
+        }
+
+        this.addHeader(SMTP_API_HEADER, smtpApiHeader.toString());
+
+        return this;
+    }
+
+    /**
+     * Adds an email category to an email flowing through the SendGrid API. This is set individually of filters/apps as
+     * categories is in essence its own filter/app with no extra parameters. Handles duplicate categories by simply not
+     * adding the category to the list.
+     *
+     * @param category Name of the category to send to SendGrid.
+     * @return Current instance of {@link SendGrid} object.
+     */
+    public SendGrid addCategory(String category) throws JSONException {
+        JSONObject smtpApiHeader;
+
+        if (!this.getHeaders().has(SMTP_API_HEADER)) {
+            smtpApiHeader = new JSONObject().put(CATEGORY_KEY, new JSONArray("[" + category + "]"));
+        } else {
+            smtpApiHeader = new JSONObject(this.getHeaders().get(SMTP_API_HEADER).toString());
+
+            if (smtpApiHeader.has(CATEGORY_KEY)) {
+
+                // Determines if this is a duplicate category.
+                boolean isAddable = true;
+                final JSONArray array = smtpApiHeader.getJSONArray(CATEGORY_KEY);
+                for (int i = 0; i < array.length(); i++) {
+                    if (category.equalsIgnoreCase(array.getString(i))) {
+                        isAddable = false;
+                        break;
+                    }
+                }
+
+                // Can only add up to 10 categories in one email.
+                if (isAddable && array.length() <= 9) {
+                    smtpApiHeader.accumulate(CATEGORY_KEY, category);
+                }
+            } else {
+                smtpApiHeader.put(CATEGORY_KEY, new JSONArray("[" + category + "]"));
+            }
+        }
+
+        this.addHeader(SMTP_API_HEADER, smtpApiHeader.toString());
+
+        return this;
+    }
 }
