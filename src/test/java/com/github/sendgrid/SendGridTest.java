@@ -173,7 +173,7 @@ public class SendGridTest {
 
     @Test
     public void testAddFilter_multiple_filter() throws Exception {
-        final String expected = "{\"filters\":[{\"sendgridApp\":{\"settings\":{\"enabled\":1,\"pizza\":1}}},{\"ganalytics\":{\"settings\":{\"enabled\":1}}}]}";
+        final String expected = "{\"filters\":{\"sendgridApp\":{\"settings\":{\"enabled\":1,\"pizza\":1}},\"ganalytics\":{\"settings\":{\"enabled\":1}}}}";
 
         sendgrid.addFilter("sendgridApp", "enabled", 1);
         sendgrid.addFilter("ganalytics", "enabled", 1);
@@ -186,7 +186,7 @@ public class SendGridTest {
 
     @Test
     public void testAddFilter_multiple_duplicate_filters() throws Exception {
-        final String expected = "{\"filters\":[{\"sendgridApp\":{\"settings\":{\"enabled\":1,\"pizza\":1}}},{\"ganalytics\":{\"settings\":{\"enabled\":1}}}]}";
+        final String expected = "{\"filters\":{\"sendgridApp\":{\"settings\":{\"enabled\":1,\"pizza\":1}},\"ganalytics\":{\"settings\":{\"enabled\":1}}}}";
 
         sendgrid.addFilter("sendgridApp", "enabled", 1);
         sendgrid.addFilter("sendgridApp", "enabled", 1);

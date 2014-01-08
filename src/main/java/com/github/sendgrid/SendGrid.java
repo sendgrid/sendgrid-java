@@ -245,38 +245,19 @@ public class SendGrid {
      */
     public SendGrid addFilter(String filter, String key, Object value) throws JSONException {
         JSONObject smtpApiHeader;
-
         if (!this.getHeaders().has(SMTP_API_HEADER)) {
-            final JSONObject individualFilterObject = new JSONObject().put(filter, new JSONObject().put(SETTINGS_KEY, new JSONObject().put(key, value)));
-
-            smtpApiHeader = new JSONObject().accumulate(FILTERS_KEY, individualFilterObject);
+            smtpApiHeader = new JSONObject().put(FILTERS_KEY, new JSONObject().put(filter, new JSONObject().put(SETTINGS_KEY, new JSONObject().put(key, value))));
         } else {
             smtpApiHeader = new JSONObject(this.getHeaders().get(SMTP_API_HEADER).toString());
-
             if (!smtpApiHeader.has(FILTERS_KEY)) {
-                final JSONObject individualFilterObject = new JSONObject().put(filter, new JSONObject().put(SETTINGS_KEY, new JSONObject().put(key, value)));
-
-                smtpApiHeader.accumulate(FILTERS_KEY, individualFilterObject);
+                smtpApiHeader.put(FILTERS_KEY, new JSONObject().put(filter, new JSONObject().put(SETTINGS_KEY, new JSONObject().put(key, value))));
             } else {
-                if (smtpApiHeader.get(FILTERS_KEY) instanceof JSONObject) {
-                    final JSONObject parentFiltersObject = smtpApiHeader.getJSONObject(FILTERS_KEY);
+                final JSONObject parentFiltersObject = smtpApiHeader.getJSONObject(FILTERS_KEY);
 
-                    if(!parentFiltersObject.has(filter)) {
-                        smtpApiHeader.accumulate(FILTERS_KEY, new JSONObject().put(filter, new JSONObject().put(SETTINGS_KEY, new JSONObject().put(key, value))));
-                    } else {
-                        parentFiltersObject.getJSONObject(filter).getJSONObject(SETTINGS_KEY).put(key, value);
-                    }
+                if (!parentFiltersObject.has(filter)) {
+                    parentFiltersObject.put(filter, new JSONObject().put(SETTINGS_KEY, new JSONObject().put(key, value)));
                 } else {
-                    final JSONArray parentFiltersObject = smtpApiHeader.getJSONArray(FILTERS_KEY);
-
-                    for(int i=0; i<parentFiltersObject.length(); i++) {
-                        final JSONObject filter1 = parentFiltersObject.getJSONObject(i);
-
-                        if(filter1.keys().next().toString().equalsIgnoreCase(filter)) {
-                            filter1.getJSONObject(filter).getJSONObject(SETTINGS_KEY).put(key, value);
-                            break;
-                        }
-                    }
+                    parentFiltersObject.getJSONObject(filter).getJSONObject(SETTINGS_KEY).put(key, value);
                 }
             }
         }
