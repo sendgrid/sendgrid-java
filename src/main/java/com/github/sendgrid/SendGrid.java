@@ -26,6 +26,7 @@ public class SendGrid {
 
   private String username;
   private String password;
+  private String apiurl;
   private ArrayList<String> tos = new ArrayList<String>();
   private ArrayList<String> tonames = new ArrayList<String>();
   private String bcc;
@@ -39,8 +40,13 @@ public class SendGrid {
   private JSONObject headers = new JSONObject();
   
   public SendGrid(String username, String password) {
-    this.username = username;
-    this.password = password;
+    this(username, password, "https://api.sendgrid.com/api/mail.send.json");
+  }
+
+  public SendGrid(String username, String password, String apiurl) {
+      this.username = username;
+      this.password = password;
+      this.apiurl = apiurl;
   }
 
   public String send() {
@@ -48,7 +54,7 @@ public class SendGrid {
   } 
 
   public String web() {
-    HttpRequest request = HttpRequest.post("https://api.sendgrid.com/api/mail.send.json");
+    HttpRequest request = HttpRequest.post(apiurl);
 
     if (this.username != null) {
       request.part(PARAM_API_USER,  this.username);
