@@ -210,6 +210,18 @@ sendgrid.addTo("yourself@yourself.com");
 
 If you still absolutely need to use Bcc, you can use `sendgrid.addBcc("email@somewhere.com")`;
 
+### Categories
+
+Add up to 10 categories to the object.
+
+```java
+SendGrid sendgrid = new SendGrid("sendgrid_username", "sendgrid_password");
+sendgrid.addTo("example@example.com");
+...
+sendgrid.addCategory("sample_email");
+sendgrid.addCategory("dev_test");
+```
+
 ### Headers
 
 You can add custom headers.
@@ -230,6 +242,19 @@ sendgrid.addTo("example@example.com");
 ...
 sendgrid.addHeader("X-SMTPAPI", "{\"category\":\"My New Category\"}");
 ```
+
+### Filters/Apps
+
+You can enable and configure Apps.
+
+```java
+SendGrid sendgrid = new SendGrid("sendgrid_username", "sendgrid_password");
+sendgrid.addTo("example@example.com");
+...
+sendgrid.addFilter("bcc", "enable", 1);
+sendgrid.addFilter("bcc", "email", "example@example.com");
+```
+
 
 ## Contributing
 
