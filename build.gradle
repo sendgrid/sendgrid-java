@@ -5,7 +5,7 @@ apply plugin: 'maven'
 apply plugin: 'signing'
 
 group = 'com.sendgrid'
-version       = "0.1.2"
+version       = "0.2.0"
 ext.packaging = 'jar'
 
 buildscript {
