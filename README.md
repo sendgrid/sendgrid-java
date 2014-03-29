@@ -26,7 +26,7 @@ Add the following to your build.gradle file in the root of your project.
 ...
 dependencies {
   ...
-  compile 'com.sendgrid:sendgrid-java:0.1.2'
+  compile 'com.sendgrid:sendgrid-java:0.2.0'
 }
 
 repositories {
@@ -45,7 +45,7 @@ import com.github.sendgrid.SendGrid;
 
 You can just drop the jar file in. It's a fat jar - it has all the dependencies built in.
 
-[sendgrid-0.1.2-jar.jar](https://github.com/sendgrid/sendgrid-java/blob/master/repo/com/github/sendgrid/0.1.2/sendgrid-0.1.2-jar.jar?raw=true)
+[sendgrid-0.2.0-jar.jar](https://github.com/sendgrid/sendgrid-java/blob/master/repo/com/github/sendgrid/0.2.0/sendgrid-0.2.0-jar.jar?raw=true)
 
 ### via copy/paste
 
