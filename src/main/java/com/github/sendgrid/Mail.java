@@ -1,31 +1,20 @@
 package com.github.sendgrid;
 
 import com.github.sendgrid.smtpapi.SMTPAPI;
-import java.util.ArrayList;
+
+
 import java.util.Map;
-import java.io.File;
-import java.util.HashMap;
 import java.util.Arrays;
-import java.io.InputStream;
-import java.util.Iterator;
-import java.io.FileInputStream;
+import java.util.HashMap;
 import java.util.Scanner;
+import java.util.ArrayList;
+
+import java.io.File;
+import java.io.InputStream;
+import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 
 public class Mail extends SMTPAPI {
-
-  private static final String PARAM_TOS         = "to[]";
-  private static final String PARAM_TONAMES     = "toname[]";
-  private static final String PARAM_BCCS        = "bcc[]";
-  private static final String PARAM_FROM        = "from";
-  private static final String PARAM_FROMNAME    = "fromname";
-  private static final String PARAM_REPLYTO     = "replyto";
-  private static final String PARAM_SUBJECT     = "subject";
-  private static final String PARAM_HTML        = "html";
-  private static final String PARAM_TEXT        = "text";
-  private static final String PARAM_FILES       = "files[%s]";
-  private static final String PARAM_HEADERS     = "headers";
-  //private static final String PARAM_DATE        = "date";
 
   private ArrayList<String> to = new ArrayList<String>();
   private ArrayList<String> toname = new ArrayList<String>();
@@ -172,46 +161,8 @@ public class Mail extends SMTPAPI {
     return this.addAttachment(buffer, name);
   }
 
-  public Map getAttachments() {
+  public Map getAttachment() {
     return this.attachments;
   }
 
-  protected Map buildBody() {
-    Map body = new HashMap();
-    if (this.to.size() > 0) {
-      body.put(PARAM_TOS, this.to);
-    }
-    if (this.toname.size() > 0) {
-      body.put(PARAM_TONAMES, this.toname);
-    }
-    if (this.bcc.size() > 0) {
-      body.put(PARAM_BCCS, this.bcc);
-    }
-    if (this.from.length() > 0) {
-      body.put(PARAM_FROM, this.from);
-    }
-    if (this.fromname.length() > 0) {
-      body.put(PARAM_FROMNAME, this.fromname);
-    }
-    if (this.replyto.length() > 0) {
-      body.put(PARAM_REPLYTO, this.replyto);
-    }
-    if (this.subject.length() > 0) {
-      body.put(PARAM_SUBJECT, this.subject);
-    }
-    if (this.text.length() > 0) {
-      body.put(PARAM_TEXT, this.text);
-    }
-    if (this.html.length() > 0) {
-      body.put(PARAM_HTML, this.html);
-    }
-    if (this.attachments.size() > 0) {
-      Iterator it = this.attachments.entrySet().iterator();
-      while (it.hasNext()) {
-        Map.Entry entry = (Map.Entry) it.next();
-        body.put(String.format(PARAM_FILES, entry.getKey()), entry.getValue());
-      }
-    }
-    return body;
-  }
 }

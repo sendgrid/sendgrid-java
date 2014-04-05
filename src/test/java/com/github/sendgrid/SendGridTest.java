@@ -10,6 +10,8 @@ import java.io.FileNotFoundException;
 import java.io.InputStream;
 import java.io.IOException;
 
+import com.mashape.unirest.http.exceptions.*;
+
 import static org.junit.Assert.*;
 import static org.junit.matchers.JUnitMatchers.hasItems;
 
@@ -17,8 +19,8 @@ public class SendGridTest {
 
   Mail mail;
 
-  private static final String USERNAME = "username";
-  private static final String PASSWORD = "password";
+  private static final String USERNAME = System.getenv("SG_USER");
+  private static final String PASSWORD = System.getenv("SG_PWD");
 
   @Before public void initialize() {
     mail = new Mail();
@@ -81,10 +83,10 @@ public class SendGridTest {
   @Test public void testAddAttachment() throws FileNotFoundException {
     File file = new File(getClass().getResource("/test.txt").getFile());
     mail.addAttachment(file, "test.txt");
-    assertTrue(mail.getAttachments().keySet().contains("test.txt"));
+    assertTrue(mail.getAttachment().keySet().contains("test.txt"));
   }
 
-  @Test public void testBuildBody() throws FileNotFoundException {
+  @Test public void testSend() throws FileNotFoundException, UnirestException {
     mail.addTo("yamil@sendgrid.com");
     mail.addToName("Yamil");
     mail.addBcc("jose@sendgrid.com");
@@ -94,9 +96,11 @@ public class SendGridTest {
     mail.setSubject("Test");
     mail.setText("Test body");
     mail.setHtml("Test body");
+    mail.addCategory("-TEST-");
     File file = new File(getClass().getResource("/test.txt").getFile());
     mail.addAttachment(file, "test.txt");
-    System.out.println(mail.buildBody().toString());
+    SendGrid sg = new SendGrid(USERNAME, PASSWORD);
+    sg.send(mail);
   }
 
 }
