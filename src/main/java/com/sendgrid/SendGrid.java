@@ -49,17 +49,17 @@ public class SendGrid {
 
   private Map buildBody(Mail mail) {
     Map body = new HashMap();
-    ArrayList<String> tos = mail.getTo();
-    ArrayList<String> tonames = mail.getToName();
-    ArrayList<String> bccs = mail.getBcc();
-    for (int i = 0; i < tos.size(); i++) {
-      body.put(String.format(PARAM_TOS, i), tos.get(i));
+    String[] tos = mail.getTos();
+    String[] tonames = mail.getToNames();
+    String[] bccs = mail.getBccs();
+    for (int i = 0; i < tos.length; i++) {
+      body.put(String.format(PARAM_TOS, i), tos[i]);
     }
-    for (int i = 0; i < tonames.size(); i++) {
-      body.put(String.format(PARAM_TONAMES, i), tonames.get(i));
+    for (int i = 0; i < tonames.length; i++) {
+      body.put(String.format(PARAM_TONAMES, i), tonames[i]);
     }
-    for (int i = 0; i < bccs.size(); i++) {
-      body.put(String.format(PARAM_BCCS, i), bccs.get(i));
+    for (int i = 0; i < bccs.length; i++) {
+      body.put(String.format(PARAM_BCCS, i), bccs[i]);
     }
     if (mail.getFrom().length() > 0) {
       body.put(PARAM_FROM, mail.getFrom());
@@ -79,8 +79,8 @@ public class SendGrid {
     if (mail.getHtml().length() > 0) {
       body.put(PARAM_HTML, mail.getHtml());
     }
-    if (mail.getAttachment().size() > 0) {
-      Iterator it = mail.getAttachment().entrySet().iterator();
+    if (mail.getAttachments().size() > 0) {
+      Iterator it = mail.getAttachments().entrySet().iterator();
       while (it.hasNext()) {
         Map.Entry entry = (Map.Entry) it.next();
         body.put(String.format(PARAM_FILES, entry.getKey()), entry.getValue());
