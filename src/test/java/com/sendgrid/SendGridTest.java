@@ -1,17 +1,19 @@
 package com.sendgrid;
 
 import org.json.JSONException;
-import org.junit.Test;
-import org.junit.Before;
+
+import java.util.Arrays;
 
 import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.InputStream;
 import java.io.IOException;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 
 import com.mashape.unirest.http.exceptions.*;
 
+import org.junit.Test;
+import org.junit.Before;
 import static org.junit.Assert.*;
 import static org.junit.matchers.JUnitMatchers.hasItems;
 
@@ -29,19 +31,19 @@ public class SendGridTest {
   @Test public void testAddTo() {
     String email = "email@example.com";
     mail.addTo(email);
-    assertThat(mail.getTo(), hasItems(email));
+    assertTrue(Arrays.asList(mail.getTos()).contains(email));
   }
 
   @Test public void testAddToName() {
     String name = "Example Guy";
     mail.addToName(name);
-    assertThat(mail.getToName(), hasItems(name));
+    assertTrue(Arrays.asList(mail.getToNames()).contains(name));
   }
 
   @Test public void testAddBcc() {
     String email = "email@example.com";
     mail.addBcc(email);
-    assertThat(mail.getBcc(), hasItems(email));
+    assertTrue(Arrays.asList(mail.getBccs()).contains(email));
   }
 
   @Test public void testSetFrom() {
@@ -83,7 +85,7 @@ public class SendGridTest {
   @Test public void testAddAttachment() throws FileNotFoundException {
     File file = new File(getClass().getResource("/test.txt").getFile());
     mail.addAttachment(file, "test.txt");
-    assertTrue(mail.getAttachment().keySet().contains("test.txt"));
+    assertTrue(mail.getAttachments().keySet().contains("test.txt"));
   }
 
   @Test public void testSend() throws FileNotFoundException, SendGridException {
