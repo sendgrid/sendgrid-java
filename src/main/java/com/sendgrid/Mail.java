@@ -37,18 +37,18 @@ public class Mail extends SMTPAPI {
     return this;
   }
 
-  public Mail addTo(String[] tos) {
+  public Mail addTos(String[] tos) {
     this.to.addAll(to);
     return this;
   }
 
-  public Mail setTo(String[] tos) {
+  public Mail setTos(String[] tos) {
     this.to = new ArrayList(Arrays.asList(tos));
     return this;
   }
 
-  public ArrayList<String> getTo() {
-    return this.to;
+  public String[] getTos() {
+    return this.to.toArray(new String[this.to.size()]);
   }
 
   public Mail addToName(String toname) {
@@ -56,18 +56,18 @@ public class Mail extends SMTPAPI {
     return this;
   }
 
-  public Mail addToName(String[] tonames) {
+  public Mail addToNames(String[] tonames) {
     this.toname.addAll(Arrays.asList(tonames));
     return this;
   }
 
-  public Mail setToName(String[] tonames) {
+  public Mail setToNames(String[] tonames) {
     this.toname = new ArrayList(Arrays.asList(tonames));
     return this;
   }
 
-  public ArrayList<String> getToName() {
-    return this.toname;
+  public String[] getToNames() {
+    return this.toname.toArray(new String[this.toname.size()]);
   }
 
   public Mail addBcc(String bcc) {
@@ -75,18 +75,18 @@ public class Mail extends SMTPAPI {
     return this;
   }
 
-  public Mail addBcc(String[] bccs) {
+  public Mail addBccs(String[] bccs) {
     this.bcc.addAll(Arrays.asList(bccs));
     return this;
   }
 
-  public Mail setBcc(String[] bccs) {
+  public Mail setBccs(String[] bccs) {
     this.bcc = new ArrayList(Arrays.asList(bccs));
     return this;
   }
 
-  public ArrayList<String> getBcc() {
-    return this.bcc;
+  public String[] getBccs() {
+    return this.bcc.toArray(new String[this.bcc.size()]);
   }
 
   public Mail setFrom(String from) {
@@ -161,8 +161,7 @@ public class Mail extends SMTPAPI {
     return this.addAttachment(buffer, name);
   }
 
-  public Map getAttachment() {
+  public Map getAttachments() {
     return this.attachments;
   }
-
 }
