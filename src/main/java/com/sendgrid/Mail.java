@@ -29,20 +29,23 @@ public class Mail extends SMTPAPI {
 
 
   public Mail() {
-
+    super();
   }
 
   public Mail addTo(String to) {
+    super.addTo(to);
     this.to.add(to);
     return this;
   }
 
   public Mail addTos(String[] tos) {
+    super.addTos(tos);
     this.to.addAll(to);
     return this;
   }
 
   public Mail setTos(String[] tos) {
+    super.setTos(tos);
     this.to = new ArrayList(Arrays.asList(tos));
     return this;
   }
