@@ -288,11 +288,19 @@ This only works if you have the correct permissions - for admins only basically.
 gradle uploadArchives
 ```
 
-Login to [Sonatype](https://oss.sonatype.org/index.html#stagingRepositories). 
+Login to [Sonatype](https://oss.sonatype.org/index.html#stagingRepositories).
 
-Click 'Close' with the archive selected. Yes, 'Close' is actually 'Publish' for your maven repos.
+Go to [staging repositories page](https://oss.sonatype.org/index.html#stagingRepositories).
 
-![]
+Click 'Close' with the archive selected.
+
+![](https://raw.githubusercontent.com/sendgrid/sendgrid-java/master/maven-help.png)
+
+Wait a few minutes, and refresh the staging repositories page.
+
+Check the box for the SendGrid repo again and this time click 'Release'.
+
+You're all done.
 
 [Further help](https://github.com/sendgrid/sendgrid-java/pull/15).
 
