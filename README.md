@@ -280,6 +280,22 @@ gradle build
 
 (If you don't have gradle install it. If on a mac, you can run `brew install gradle`) 
 
+## Publishing to Maven
+
+This only works if you have the correct permissions - for admins only basically.
+
+```
+gradle uploadArchives
+```
+
+Login to [Sonatype](https://oss.sonatype.org/index.html#stagingRepositories). 
+
+Click 'Close' with the archive selected. Yes, 'Close' is actually 'Publish' for your maven repos.
+
+![]
+
+[Further help](https://github.com/sendgrid/sendgrid-java/pull/15).
+
 ## Example App
 
 We have an example app using this library. This can be helpful to get a grasp on implementing it in your own app. The example below is a [spring](http://www.springsource.org/spring-framework) based application.
