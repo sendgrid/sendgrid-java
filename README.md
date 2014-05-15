@@ -251,7 +251,7 @@ You can enable and configure Apps.
 SendGrid sendgrid = new SendGrid("sendgrid_username", "sendgrid_password");
 sendgrid.addTo("example@example.com");
 ...
-sendgrid.addFilter("bcc", "enable", 1);
+sendgrid.addFilter("bcc", "enabled", 1);
 sendgrid.addFilter("bcc", "email", "example@example.com");
 ```
 
