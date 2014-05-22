@@ -161,6 +161,7 @@ public class Mail extends SMTPAPI {
     while (scanner.hasNextLine()) {
       buffer += scanner.nextLine();
     }
+    scanner.close();
     return this.addAttachment(buffer, name);
   }
 
