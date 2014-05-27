@@ -19,7 +19,7 @@ sendgrid.send(mail);
 
 ## Installation
 
-There are multiple ways to install this library. I recommend using Maven w/ Gradle.
+Choose your installation method - Maven w/ Gradle (recommended) or Jar file.
 
 ### via Maven w/ Gradle
 
@@ -48,7 +48,7 @@ import com.sendgrid.SendGrid;
 
 You can just drop the jar file in. It's a fat jar - it has all the dependencies built in.
 
-[sendgrid-0.2.0-jar.jar](https://github.com/sendgrid/sendgrid-java/blob/master/repo/com/github/sendgrid/0.2.0/sendgrid-0.2.0-jar.jar?raw=true)
+[sendgrid-java.jar](https://sendgrid-open-source.s3.amazonaws.com/sendgrid-java/sendgrid-java.jar)
 
 ```java
 import com.sendgrid.*;
