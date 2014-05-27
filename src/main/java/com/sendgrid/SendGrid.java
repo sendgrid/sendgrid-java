@@ -100,4 +100,8 @@ public class SendGrid {
     }
   }
 
+  public class Email {
+    // put all the Mail stuff in here
+  }
+
 }
