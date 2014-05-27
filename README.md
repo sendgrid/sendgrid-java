@@ -1,22 +1,23 @@
-# sendgrid-java
+# SendGrid-Java
 
 This Java module allows you to quickly and easily send emails through SendGrid using Java.
 
 ```java
-import com.github.sendgrid.SendGrid;
+import com.sendgrid.*;
 SendGrid sendgrid = new SendGrid("sendgrid_username", "sendgrid_password");
 
-sendgrid.addTo("example@example.com");
-sendgrid.setFrom("other@example.com");
-sendgrid.setSubject("Hello World");
-sendgrid.setText("My first email through SendGrid");
+Mail mail = new Mail();
+mail.addTo("example@example.com");
+mail.setFrom("other@example.com");
+mail.setSubject("Hello World");
+mail.setText("My first email through SendGrid");
 
-sendgrid.send();
+sendgrid.send(mail);
 ```
 
 ## Installation
 
-There are multiple ways to install this library. I recommend using Maven w/ Gradle. 
+There are multiple ways to install this library. I recommend using Maven w/ Gradle.
 
 ### via Maven w/ Gradle
 
@@ -38,7 +39,7 @@ repositories {
 Then import the library - in the file appropriate to your Java project.
 
 ```java
-import com.github.sendgrid.SendGrid;
+import com.sendgrid.SendGrid;
 ```
 
 ### via jar file
@@ -47,200 +48,183 @@ You can just drop the jar file in. It's a fat jar - it has all the dependencies 
 
 [sendgrid-0.2.0-jar.jar](https://github.com/sendgrid/sendgrid-java/blob/master/repo/com/github/sendgrid/0.2.0/sendgrid-0.2.0-jar.jar?raw=true)
 
-### via copy/paste
-
-#### Include the SendGrid.java library
-
-Copy and paste the [SendGrid.java](https://github.com/sendgrid/sendgrid-java/blob/master/src/main/java/com/github/sendgrid/SendGrid.java) file into your project. That file is available here: [https://github.com/sendgrid/sendgrid-java/blob/master/src/main/java/com/github/sendgrid/SendGrid.java](https://github.com/sendgrid/sendgrid-java/blob/master/src/main/java/com/github/sendgrid/SendGrid.java)
-
-Then import the library - in the file appropriate to your Java project.
-
 ```java
-import com.github.sendgrid.SendGrid;
+import com.sendgrid.*;
 ```
-
-#### Include the required dependencies
-
-* You need to include the [http-request library from kevinsawicki](https://github.com/kevinsawicki/http-request).
-* You need to include the [json library from chargebee](http://maven-repository.com/artifact/org.json/org.json/chargebee-1.0)
-
-## Example App
-
-There is a [sendgrid-java-example app](https://github.com/scottmotte/sendgrid-java-example) to help jumpstart your development.
 
 ## Usage
 
 To begin using this library, initialize the SendGrid object with your SendGrid credentials.
 
 ```java
-import com.github.sendgrid.SendGrid;
+import com.sendgrid.SendGrid;
 SendGrid sendgrid = new SendGrid("sendgrid_username", "sendgrid_password");
 ```
 
 Add your message details.
 
 ```java
-sendgrid.addTo("example@example.com");
-sendgrid.addToName("Example Guy");
-sendgrid.setFrom("other@example.com");
-sendgrid.setSubject("Hello World");
-sendgrid.setText("My first email through SendGrid");
+Mail mail = new Mail();
+mail.addTo("example@example.com");
+mail.addToName("Example Guy");
+mail.setFrom("other@example.com");
+mail.setSubject("Hello World");
+mail.setText("My first email through SendGrid");
 ```
 
 Send it.
 
 ```java
-sendgrid.send();
+sendgrid.send(mail);
 ```
 
 ### To
 
 ```java
-SendGrid sendgrid = new SendGrid("sendgrid_username", "sendgrid_password");
-sendgrid.addTo("example@example.com");
-sendgrid.addTo("other@other.com");
+mail.addTo("example@example.com");
+// or
+mail.addTos(["other@other.com"]);
+// or
+mail.setTos(["other@other.com"]);
 ```
-
-You can add multiple `to`s as necessary. She will get the email as if it was sent solely to her.
 
 ### To Name
 
 ```java
-SendGrid sendgrid = new SendGrid("sendgrid_username", "sendgrid_password");
-sendgrid.addTo("example@example.com");
-sendgrid.addToName("Example Guy");
-sendgrid.addTo("other@other.com");
-sendgrid.addToName("Other Gal");
+mail.addToName("Example Guy");
+// or
+mail.addToNames(["Other Gal"]);
+//or
+mail.setToNames(["Other Gal"]);
 ```
 
-You can add multiple `toname`s as necessary. They should be set in the same array order as the emails. 
+### Bcc
+
+```java
+mail.addBcc("yourself@yourself.com");
+// or
+mail.addBccs(["yourself@yourself.com"]);
+// or
+mail.setBccs([]"yourself@yourself.com"]);
+```
+
 
 ### From
 
 ```java
-SendGrid sendgrid = new SendGrid("sendgrid_username", "sendgrid_password");
-sendgrid.addTo("example@example.com");
-...
-sendgrid.setFrom("other@example.com");
+mail.setFrom("other@example.com");
 ```
 
 ### From Name
 
 ```java
-SendGrid sendgrid = new SendGrid("sendgrid_username", "sendgrid_password");
-sendgrid.addTo("example@example.com");
-...
-sendgrid.setFrom("other@example.com");
-sendgrid.setFromName("Other Dude");
+mail.setFromName("Other Dude");
 ```
 
-### Reply To 
+### Reply To
 
 ```java
-SendGrid sendgrid = new SendGrid("sendgrid_username", "sendgrid_password");
-sendgrid.addTo("example@example.com");
-...
-sendgrid.setReplyTo("no-reply@nowhere.com");
+mail.setReplyTo("no-reply@nowhere.com");
 ```
 
 ### Subject
 
 ```java
-SendGrid sendgrid = new SendGrid("sendgrid_username", "sendgrid_password");
-sendgrid.addTo("example@example.com");
-...
-sendgrid.setSubject("Hello World");
+mail.setSubject("Hello World");
 ```
 
 ### Text
 
 ```java
-SendGrid sendgrid = new SendGrid("sendgrid_username", "sendgrid_password");
-sendgrid.addTo("example@example.com");
-...
-sendgrid.setText("This is some text of the email.");
+mail.setText("This is some text of the email.");
 ```
 
 ### Html
 
 ```java
-SendGrid sendgrid = new SendGrid("sendgrid_username", "sendgrid_password");
-sendgrid.addTo("example@example.com");
-...
-sendgrid.setHtml(<h1>My first email through SendGrid");
+mail.setHtml("<h1>My first email through SendGrid");
 ```
 
 ### Attachments
 
 ```java
-import java.io.File;
-SendGrid sendgrid = new SendGrid("sendgrid_username", "sendgrid_password");
-sendgrid.addTo("example@example.com");
-...
-sendgrid.addFile(new File("../path/to/file.txt"));
+mail.addAttachment("contents", "text.txt");
+// or
+mail.addAttachment(new File("./file.txt"), "text.txt");
+// or
+mail.addAttachment(new InputStream(new File("./file.txt")), "text.txt");
 ```
 
-If you need to add files from an InputStream (maybe you're on Google App Engine and have the contents in a byte array), here is how.
+## [X-SMTPAPI](http://sendgrid.com/docs/API_Reference/SMTP_API/index.html)
+
+The mail object extends de SMTPAPI object which is found in [STMAPI-Java](https://github.com/sendgrid/smtpapi-java).
+
+### [Substitutions](http://sendgrid.com/docs/API_Reference/SMTP_API/substitution_tags.html)
 
 ```java
-import java.io.ByteArrayInputStream;
- 
-SendGrid sendgrid = new SendGrid("sendgrid_username", "sendgrid_password");
-sendgrid.addTo("example@example.com");
-...
-byte[] contents = somehowGenerateAttachmentContents();
+header.addSubstitution("key", "value");
+// or
+header.setSubstitutions("key", ["value1", "value2"]);
 
-SendGrid.Attachment attachment1 = new SendGrid.Attachment("filename.txt", new ByteArrayInputStream(contents));
-sendgrid.addFile(attachment1);
-
-sendgrid.send();
+JSONObject subs = header.getSubstitutions();
 ```
 
-### Bcc
-
-Use multiple `addTo`s as a superior alternative to `setBcc`.
+### [Unique Arguments](http://sendgrid.com/docs/API_Reference/SMTP_API/unique_arguments.html)
 
 ```java
-SendGrid sendgrid = new SendGrid("sendgrid_username", "sendgrid_password");
-sendgrid.addTo("example@example.com");
-sendgrid.addTo("other@other.com");
-sendgrid.addTo("yourself@yourself.com");
-...
+header.addUuniqueAarg("key", "value");
+// or
+Map map = new HashMap<String, String>();
+map.put("unique", "value");
+header.setUniqueArgs(map);
+// or
+JSONObject map = new JSONObject();
+map.put("unique", "value");
+header.setUniqueArgs(map);
+
+JSONObject args = header.getUniqueArgs();
+```
+### [Categories](http://sendgrid.com/docs/API_Reference/SMTP_API/categories.html)
+
+```java
+header.addCategory("category");
+// or
+header.addCategory(["categories"]);
+// or
+header.setCategories(["category1", "category2"]);
+
+String[] cats = header.getCategories();
 ```
 
-If you still absolutely need to use Bcc, you can use `sendgrid.addBcc("email@somewhere.com")`;
-
-### Categories
-
-Add up to 10 categories to the object.
+### [Sections](http://sendgrid.com/docs/API_Reference/SMTP_API/section_tags.html)
 
 ```java
-SendGrid sendgrid = new SendGrid("sendgrid_username", "sendgrid_password");
-sendgrid.addTo("example@example.com");
-...
-sendgrid.addCategory("sample_email");
-sendgrid.addCategory("dev_test");
+header.addSection("key", "section");
+// or
+Map newSec = new HashMap();
+newSec.put("-section-", "value");
+header.setSections(newSec);
+// or
+JSONObject newSec = new JSONObject();
+newSec.put("-section-", "value");
+header.setSections(newSec);
+
+JSONObject sections = header.getSections();
 ```
 
-### Headers
-
-You can add custom headers.
+### [Filters](http://sendgrid.com/docs/API_Reference/SMTP_API/apps.html)
 
 ```java
-SendGrid sendgrid = new SendGrid("sendgrid_username", "sendgrid_password");
-sendgrid.addTo("example@example.com");
-...
-sendgrid.addHeader("X-Sent-Using", "SendGrid-API");
-sendgrid.addHeader("X-Transport", "web");
+header.addFilter("filter", "setting", "value");
+header.addFilter("filter", "setting", 1);
+
+JSONObject filters = header.getFilters();
 ```
 
-To add SendGrid style headers for things such as categories or filters, do the following.
+### Get Headers
 
 ```java
-SendGrid sendgrid = new SendGrid("sendgrid_username", "sendgrid_password");
-sendgrid.addTo("example@example.com");
-...
-sendgrid.addHeader("X-SMTPAPI", "{\"category\":\"My New Category\"}");
+String headers = header.jsonString();
 ```
 
 ### Filters/Apps
@@ -254,7 +238,6 @@ sendgrid.addTo("example@example.com");
 sendgrid.addFilter("bcc", "enabled", 1);
 sendgrid.addFilter("bcc", "email", "example@example.com");
 ```
-
 
 ## Contributing
 
