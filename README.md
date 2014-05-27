@@ -2,6 +2,8 @@
 
 This Java module allows you to quickly and easily send emails through SendGrid using Java.
 
+[![BuildStatus](https://travis-ci.org/sendgrid/sendgrid-java.png?branch=master)](https://travis-ci.org/sendgrid/sendgrid-java)
+
 ```java
 import com.sendgrid.*;
 SendGrid sendgrid = new SendGrid("sendgrid_username", "sendgrid_password");

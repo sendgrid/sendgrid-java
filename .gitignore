@@ -4,3 +4,5 @@ build
 *.iml
 out
 .DS_Store
+repo
+gradle.properties
