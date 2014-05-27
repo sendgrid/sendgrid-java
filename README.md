@@ -254,13 +254,13 @@ sendgrid.addFilter("bcc", "email", "example@example.com");
 The existing tests in the `src/test` directory can be run using gradle with the following command:
 
 ```bash
-gradle build
+./gradlew build
 ```
 
 ## Generating the jar
 
 ```bash
-gradle build
+./gradlew build
 ```
 
 (If you don't have gradle install it. If on a mac, you can run `brew install gradle`) 
@@ -270,7 +270,7 @@ gradle build
 This only works if you have the correct permissions - for admins only basically.
 
 ```
-gradle uploadArchives
+./gradlew uploadArchives
 ```
 
 Login to [Sonatype](https://oss.sonatype.org/index.html#stagingRepositories).

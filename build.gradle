@@ -1,12 +1,33 @@
-import org.gradle.api.artifacts.maven.MavenDeployment
+/**
+ * Commands:
+ *   - gradle build
+ *   - gradle test
+ *   - gradle assemble
+ *   - gradle uploadArchives
+ *
+ * To execute the 'uploadArchives' task, the following properties must be specified
+ * in an external 'gradle.properties' file:
+ *   - sonatypeUsername
+ *   - sonatypePassword
+ */
 
+apply plugin: 'java'
 apply plugin: 'fatjar'
 apply plugin: 'maven'
 apply plugin: 'signing'
 
-group = 'com.sendgrid'
+group         = 'com.sendgrid'
 version       = "0.2.0"
 ext.packaging = 'jar'
+
+if (!hasProperty("sonatypeUsername")) {
+  ext.sonatypeUsername = null
+  ext.sonatypePassword = null
+}
+
+task wrapper(type: Wrapper) {
+  gradleVersion = '1.8'
+}
 
 buildscript {
   dependencies {
