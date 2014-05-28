@@ -8,13 +8,13 @@ This Java module allows you to quickly and easily send emails through SendGrid u
 import com.sendgrid.*;
 SendGrid sendgrid = new SendGrid("sendgrid_username", "sendgrid_password");
 
-Mail mail = new Mail();
-mail.addTo("example@example.com");
-mail.setFrom("other@example.com");
-mail.setSubject("Hello World");
-mail.setText("My first email through SendGrid");
+Email email = new Email();
+email.addTo("example@example.com");
+email.setFrom("other@example.com");
+email.setSubject("Hello World");
+email.setText("My first email through SendGrid");
 
-sendgrid.send(mail);
+sendgrid.send(email);
 ```
 
 ## Installation
@@ -29,7 +29,7 @@ Add the following to your build.gradle file in the root of your project.
 ...
 dependencies {
   ...
-  compile 'com.sendgrid:sendgrid-java:0.2.0'
+  compile 'com.sendgrid:sendgrid-java:0.3.0'
 }
 
 repositories {
@@ -66,95 +66,82 @@ SendGrid sendgrid = new SendGrid("sendgrid_username", "sendgrid_password");
 Add your message details.
 
 ```java
-Mail mail = new Mail();
-mail.addTo("example@example.com");
-mail.addToName("Example Guy");
-mail.setFrom("other@example.com");
-mail.setSubject("Hello World");
-mail.setText("My first email through SendGrid");
+Email email = new Email();
+email.addTo("example@example.com");
+email.addToName("Example Guy");
+email.setFrom("other@example.com");
+email.setSubject("Hello World");
+email.setText("My first email through SendGrid");
 ```
 
 Send it.
 
 ```java
-sendgrid.send(mail);
+sendgrid.send(email);
 ```
 
 ### To
 
 ```java
-mail.addTo("example@example.com");
+email.addTo("example@example.com");
 // or
-mail.addTos(["other@other.com"]);
-// or
-mail.setTos(["other@other.com"]);
-```
-
-### To Name
-
-```java
-mail.addToName("Example Guy");
-// or
-mail.addToNames(["Other Gal"]);
-//or
-mail.setToNames(["Other Gal"]);
+email.setTos(["other@other.com"]);
 ```
 
 ### Bcc
 
 ```java
-mail.addBcc("yourself@yourself.com");
+email.addBcc("yourself@yourself.com");
 // or
-mail.addBccs(["yourself@yourself.com"]);
+email.addBccs(["yourself@yourself.com"]);
 // or
-mail.setBccs([]"yourself@yourself.com"]);
+email.setBccs([]"yourself@yourself.com"]);
 ```
-
 
 ### From
 
 ```java
-mail.setFrom("other@example.com");
+email.setFrom("other@example.com");
 ```
 
 ### From Name
 
 ```java
-mail.setFromName("Other Dude");
+email.setFromName("Other Dude");
 ```
 
 ### Reply To
 
 ```java
-mail.setReplyTo("no-reply@nowhere.com");
+email.setReplyTo("no-reply@nowhere.com");
 ```
 
 ### Subject
 
 ```java
-mail.setSubject("Hello World");
+email.setSubject("Hello World");
 ```
 
 ### Text
 
 ```java
-mail.setText("This is some text of the email.");
+email.setText("This is some text of the email.");
 ```
 
 ### Html
 
 ```java
-mail.setHtml("<h1>My first email through SendGrid");
+email.setHtml("<h1>My first email through SendGrid");
 ```
 
 ### Attachments
 
 ```java
-mail.addAttachment("contents", "text.txt");
+email.addAttachment("contents", "text.txt");
 // or
-mail.addAttachment(new File("./file.txt"), "text.txt");
+email.addAttachment(new File("./file.txt"), "text.txt");
 // or
-mail.addAttachment(new InputStream(new File("./file.txt")), "text.txt");
+email.addAttachment(new InputStream(new File("./file.txt")), "text.txt");
 ```
 
 ## [X-SMTPAPI](http://sendgrid.com/docs/API_Reference/SMTP_API/index.html)
@@ -254,7 +241,7 @@ sendgrid.addFilter("bcc", "email", "example@example.com");
 The existing tests in the `src/test` directory can be run using gradle with the following command:
 
 ```bash
-./gradlew build
+./gradlew test -i
 ```
 
 ## Generating the jar
