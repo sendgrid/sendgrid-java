@@ -3,6 +3,8 @@ package com.sendgrid;
 import org.json.JSONException;
 
 import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
 
 import java.io.File;
 import java.io.InputStream;
@@ -20,6 +22,7 @@ import static org.junit.matchers.JUnitMatchers.hasItems;
 public class SendGridTest {
 
   Mail mail;
+  SendGrid.Email email;
 
   private static final String USERNAME = System.getenv("SG_USER");
   private static final String PASSWORD = System.getenv("SG_PWD");
@@ -29,80 +32,161 @@ public class SendGridTest {
   }
 
   @Test public void testAddTo() {
-    String email = "email@example.com";
-    mail.addTo(email);
-    assertTrue(Arrays.asList(mail.getTos()).contains(email));
+    email = new SendGrid.Email();
+
+    String address = "email@example.com";
+    String address2 = "email2@example.com";
+    email.addTo(address);
+    email.addTo(address2);
+
+    Map correct = new HashMap();
+    correct.put("x-smtpapi", "{\"to\":[\"email@example.com\",\"email2@example.com\"]}");
+
+    assertEquals(correct, email.toWebFormat());
   }
 
-  @Test public void testAddToName() {
-    String name = "Example Guy";
-    mail.addToName(name);
-    assertTrue(Arrays.asList(mail.getToNames()).contains(name));
-  }
+  @Test public void testAddToWithAFrom() {
+    email = new SendGrid.Email();
 
-  @Test public void testAddBcc() {
-    String email = "email@example.com";
-    mail.addBcc(email);
-    assertTrue(Arrays.asList(mail.getBccs()).contains(email));
+    String address = "email@example.com";
+    String fromaddress = "from@mailinator.com";
+    email.addTo(address);
+    email.setFrom(fromaddress);
+
+    Map correct = new HashMap();
+    correct.put("x-smtpapi", "{\"to\":[\"email@example.com\"]}");
+    correct.put("from", fromaddress);
+    correct.put("to", fromaddress);
+
+    assertEquals(correct, email.toWebFormat());
+
   }
 
   @Test public void testSetFrom() {
-    String email = "email@example.com";
-    mail.setFrom(email);
-    assertEquals(mail.getFrom(), email);
-  }
+    email = new SendGrid.Email();
+
+    String address = "email@example.com";
+    email.setFrom(address);
+
+    Map correct = new HashMap();
+    correct.put("from", address);
+    correct.put("to", address);
+
+    assertEquals(correct, email.toWebFormat());
+  }  
 
   @Test public void testSetFromName() {
-    String name = "Example Guy";
-    mail.setFromName(name);
-    assertEquals(mail.getFromName(), name);
+    email = new SendGrid.Email();
+
+    String fromname = "Uncle Bob";
+    email.setFromName(fromname);
+
+    Map correct = new HashMap();
+    correct.put("fromname", fromname);
+
+    assertEquals(correct, email.toWebFormat());
   }
 
   @Test public void testSetReplyTo() {
-    String email = "email@example.com";
-    mail.setReplyTo(email);
-    assertEquals(mail.getReplyTo(), email);
+    email = new SendGrid.Email();
+
+    String address = "email@example.com";
+    email.setReplyTo(address);
+
+    Map correct = new HashMap();
+    correct.put("replyto", address);
+
+    assertEquals(correct, email.toWebFormat());
+  }
+
+  @Test public void testAddBcc() {
+    email = new SendGrid.Email();
+
+    String address = "email@example.com";
+    email.addBcc(address);
+
+    Map correct = new HashMap();
+    correct.put("bcc[0]", address);
+
+    assertEquals(correct, email.toWebFormat());
   }
 
   @Test public void testSetSubject() {
+    email = new SendGrid.Email();
+
     String subject = "This is a subject";
-    mail.setSubject(subject);
-    assertEquals(mail.getSubject(), subject);
+    email.setSubject(subject);
+
+    Map correct = new HashMap();
+    correct.put("subject", subject);
+
+    assertEquals(correct, email.toWebFormat());
   }
 
   @Test public void testSetText() {
+    email = new SendGrid.Email();
+
     String text = "This is some email text.";
-    mail.setText(text);
-    assertEquals(mail.getText(), text);
+    email.setText(text);
+
+    Map correct = new HashMap();
+    correct.put("text", text);
+
+    assertEquals(correct, email.toWebFormat());
   }
 
   @Test public void testSetHtml() {
+    email = new SendGrid.Email();
+
     String html = "This is some email text.";
-    mail.setHtml(html);
-    assertEquals(mail.getHtml(), html);
+    email.setHtml(html);
+
+    Map correct = new HashMap();
+    correct.put("html", html);
+
+    assertEquals(correct, email.toWebFormat());
+  }
+
+  @Test public void testAddHeader() {
+    email = new SendGrid.Email();
+
+    email.addHeader("key", "value");
+    email.addHeader("other", "other-value");                           
+
+    Map correct = new HashMap();
+    correct.put("headers", "{\"other\":\"other-value\",\"key\":\"value\"}");
+
+    assertEquals(correct, email.toWebFormat());
   }
 
   @Test public void testAddAttachment() throws FileNotFoundException {
+
+    email = new SendGrid.Email();
+
     File file = new File(getClass().getResource("/test.txt").getFile());
-    mail.addAttachment(file, "test.txt");
-    assertTrue(mail.getAttachments().keySet().contains("test.txt"));
+    email.addAttachment(file, "test.txt");
+
+    Map correct = new HashMap();
+    correct.put("files[test.txt]", "This is a test file.");
+
+    assertEquals(correct, email.toWebFormat());
   }
 
   @Test public void testSend() throws FileNotFoundException, SendGridException {
-    mail.addTo("yamil@sendgrid.com");
-    mail.addToName("Yamil");
-    mail.setFrom("yamil@sendgrid.com");
-    mail.setFromName("Yamil");
-    mail.setReplyTo("yamil@sendgrid.com");
-    mail.setSubject("Test");
-    mail.setText("Test body");
-    mail.setHtml("Test body");
-    mail.addCategory("-TEST-");
+    email = new SendGrid.Email();
+    email.addTo("yamil@sendgrid.com");
+    email.setFrom("yamil@sendgrid.com");
+    email.setFromName("Yamil");
+    email.setReplyTo("yamil@sendgrid.com");
+    email.setSubject("Test");
+    email.setText("Test body");
+    email.setHtml("Test body");
+    email.addCategory("-TEST-");
     File file = new File(getClass().getResource("/test.txt").getFile());
-    mail.addAttachment(file, "test.txt");
-    SendGrid sg = new SendGrid(USERNAME, PASSWORD);
-    SendGridResponse resp = sg.send(mail);
-    System.out.println(resp.getStatus() + resp.getMessage());
-  }
+    email.addAttachment(file, "test.txt");
+    SendGrid sendgrid = new SendGrid(USERNAME, PASSWORD);
+    SendGridResponse resp = sendgrid.send(email);
 
+    assertEquals("{\"message\":\"error\",\"errors\":[\"Permission denied, wrong credentials\"]}", resp.getMessage());
+  }
 }

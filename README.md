@@ -254,7 +254,7 @@ sendgrid.addFilter("bcc", "email", "example@example.com");
 The existing tests in the `src/test` directory can be run using gradle with the following command:
 
 ```bash
-./gradlew build
+./gradlew test -i
 ```
 
 ## Generating the jar

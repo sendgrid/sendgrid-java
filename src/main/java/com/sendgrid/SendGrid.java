@@ -1,16 +1,199 @@
 package com.sendgrid;
 
 import org.json.JSONObject;
-
 import com.mashape.unirest.http.*;
 import com.mashape.unirest.http.exceptions.*;
+import com.sendgrid.smtpapi.SMTPAPI;
 
-import java.util.Map;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
-import java.util.ArrayList;
+import java.util.Scanner;
+import java.util.Map;
+
+import java.io.File;
+import java.io.InputStream;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 
 public class SendGrid {
+  public static class Email {
+    public SMTPAPI smtpapi;
+    SMTPAPI header = new SMTPAPI();
+
+    public String to;
+    public String from;
+    public String fromname;
+    public String replyto;
+    public String subject;
+    public String text;
+    public String html;
+    public ArrayList<String> bcc = new ArrayList<String>();
+    public Map attachments = new HashMap();
+    public Map headers = new HashMap();
+
+    public Email () {
+      this.smtpapi = new SMTPAPI(); 
+    }
+
+    public Email addTo(String to) {
+      this.smtpapi.addTo(to);
+      return this;
+    }
+
+    public Email setFrom(String from) {
+      this.from = from;
+      return this;
+    }
+
+    public Email setFromName(String fromname) {
+      this.fromname = fromname;
+      return this;
+    }
+
+    public Email setReplyTo(String replyto) {
+      this.replyto = replyto;
+      return this;
+    }
+
+    public Email addBcc(String bcc) {
+      this.bcc.add(bcc);
+      return this;
+    }
+
+    public Email setSubject(String subject) {
+      this.subject = subject;
+      return this;
+    }
+
+    public Email setText(String text) {
+      this.text = text;
+      return this;
+    }
+
+    public Email setHtml(String html) {
+      this.html = html;
+      return this;
+    }
+
+    public Email addSubstitution(String key, String[] val) {       
+      this.smtpapi.addSubstitutions(key, val);               
+      return this;                                                     
+    }
+    
+    public Email addUniqueArg(String key, String val) {                
+      this.smtpapi.addUniqueArg(key, val);
+      return this;
+    }
+    
+    public Email addCategory(String category) {                        
+      this.smtpapi.addCategory(category);
+      return this;
+    }
+ 
+    public Email addSection(String key, String val) {                  
+      this.smtpapi.addSection(key, val);                               
+      return this;
+    }
+                                                                       
+    public Email addFilter(String filter_name, String parameter_name, String parameter_value) {
+      this.smtpapi.addFilter(filter_name, parameter_name, parameter_value);   
+      return this; 
+    }
+
+    public Email addAttachment(File file, String name) throws FileNotFoundException {
+      return this.addAttachment(new FileInputStream(file), name);
+    }
+
+    public Email addAttachment(String file, String name) {
+      this.attachments.put(name, file);
+      return this;
+    }
+
+    public Email addAttachment(InputStream file, String name) {
+      Scanner scanner = new Scanner(file, "UTF-8");
+      String buffer = new String();
+      while (scanner.hasNextLine()) {
+        buffer += scanner.nextLine();
+      }
+      scanner.close();
+      return this.addAttachment(buffer, name);
+    }
+   
+    public Email addHeader(String key, String val) {                   
+      this.headers.put(key, val);                                      
+      return this;
+    }
+
+    public Map toWebFormat() {
+      Map body = new HashMap();
+
+      // updateMissingTo - There needs to be at least 1 to address,
+      // or else the mail won't send.
+      if ((this.to == null || this.to.isEmpty()) && this.from != null && !this.from.isEmpty()) {
+        String value = this.from; 
+        body.put("to", value);
+      }
+
+      if (this.from != null && !this.from.isEmpty()) {
+        String value = this.from; 
+        body.put("from", value);
+      }
+
+      if (this.fromname != null && !this.fromname.isEmpty()) {
+        String value = this.fromname; 
+        body.put("fromname", value);
+      }
+
+      if (this.replyto != null && !this.replyto.isEmpty()) {
+        String value = this.replyto;
+        body.put("replyto", value);
+      }
+
+      for (int i = 0; i < this.bcc.size(); i++) {
+        String key = String.format(PARAM_BCCS, i);
+        String value = this.bcc.get(i);
+        body.put(key, value);
+      }
+
+      if (this.subject != null && !this.subject.isEmpty()) {
+        String value = this.subject;
+        body.put("subject", value);
+      }
+
+      if (this.text != null && !this.text.isEmpty()) {
+        String value = this.text;
+        body.put("text", value);
+      }
+
+      if (this.html != null && !this.html.isEmpty()) {
+        String value = this.html;
+        body.put("html", value);
+      }
+
+      if (!this.headers.isEmpty()) {                                   
+        JSONObject json_headers = new JSONObject(this.headers);
+        String serialized_headers = json_headers.toString();
+        body.put("headers", serialized_headers);
+      } 
+
+      if (!this.smtpapi.jsonString().equals("{}")) {
+        String value = this.smtpapi.jsonString(); 
+        body.put("x-smtpapi", value);
+      }
+
+      if (this.attachments.size() > 0) {
+        Iterator it = this.attachments.entrySet().iterator();
+        while (it.hasNext()) {
+          Map.Entry entry = (Map.Entry) it.next();
+          body.put(String.format(PARAM_FILES, entry.getKey()), entry.getValue());
+        }
+      }
+
+      return body;
+    }
+    // put all the Mail stuff in here
+  }
 
   private static final String PARAM_TOS         = "to[%d]";
   private static final String PARAM_TONAMES     = "toname[%d]";
@@ -90,18 +273,15 @@ public class SendGrid {
     return body;
   }
 
-  public SendGridResponse send(Mail mail) throws SendGridException {
+  public SendGridResponse send(Email email) throws SendGridException {
     try {
       HttpResponse<JsonNode> res = Unirest.post(this.url + this.endpoint)
-      .fields(this.buildBody(mail)).field("api_user", this.username).field("api_key", this.password).asJson();
+      .fields(email.toWebFormat()).field("api_user", this.username).field("api_key", this.password).asJson();
       return new SendGridResponse(res.getCode(), res.getBody());
     } catch (UnirestException e) {
       throw new SendGridException(e);
     }
   }
 
-  public class Email {
-    // put all the Mail stuff in here
-  }
 
 }
