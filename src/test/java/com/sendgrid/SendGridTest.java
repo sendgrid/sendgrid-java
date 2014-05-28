@@ -168,10 +168,10 @@ public class SendGridTest {
 
   @Test public void testSend() throws FileNotFoundException, SendGridException {
     email = new SendGrid.Email();
-    email.addTo("yamil@sendgrid.com");
-    email.setFrom("yamil@sendgrid.com");
-    email.setFromName("Yamil");
-    email.setReplyTo("yamil@sendgrid.com");
+    email.addTo("sendgrid@mailinator.com");
+    email.setFrom("sendgrid-from@mailinator.com");
+    email.setFromName("Mailinator");
+    email.setReplyTo("sendgrid-replyto@mailinator.com");
     email.setSubject("Test");
     email.setText("Test body");
     email.setHtml("Test body");
