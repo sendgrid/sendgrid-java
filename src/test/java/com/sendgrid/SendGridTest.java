@@ -20,16 +20,10 @@ import static org.junit.Assert.*;
 import static org.junit.matchers.JUnitMatchers.hasItems;
 
 public class SendGridTest {
-
-  Mail mail;
   SendGrid.Email email;
 
-  private static final String USERNAME = System.getenv("SG_USER");
-  private static final String PASSWORD = System.getenv("SG_PWD");
-
-  @Before public void initialize() {
-    mail = new Mail();
-  }
+  private static final String USERNAME = "USERNAME";
+  private static final String PASSWORD = "PASSWORD";
 
   @Test public void testAddTo() {
     email = new SendGrid.Email();
@@ -185,8 +179,8 @@ public class SendGridTest {
     File file = new File(getClass().getResource("/test.txt").getFile());
     email.addAttachment(file, "test.txt");
     SendGrid sendgrid = new SendGrid(USERNAME, PASSWORD);
-    SendGridResponse resp = sendgrid.send(email);
+    SendGrid.Response resp = sendgrid.send(email);
 
-    assertEquals("{\"message\":\"error\",\"errors\":[\"Permission denied, wrong credentials\"]}", resp.getMessage());
+    assertEquals("{\"message\":\"error\",\"errors\":[\"Bad username / password\"]}", resp.getMessage());
   }
 }
