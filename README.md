@@ -8,13 +8,17 @@ This Java module allows you to quickly and easily send emails through SendGrid u
 import com.sendgrid.*;
 SendGrid sendgrid = new SendGrid("sendgrid_username", "sendgrid_password");
 
-Email email = new Email();
+SendGrid.Email email = new SendGrid.Email();
 email.addTo("example@example.com");
 email.setFrom("other@example.com");
 email.setSubject("Hello World");
 email.setText("My first email through SendGrid");
 
-sendgrid.send(email);
+try {
+  SendGrid.Response response = sendgrid.send(email);
+catch (SendGridException e) {
+  System.out.println(e);
+}
 ```
 
 ## Installation
