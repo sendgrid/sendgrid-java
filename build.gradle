@@ -73,7 +73,7 @@ build << {
   tasks.renameSmtpapiVersionJarToSmtpapiJar.execute()
 }
 
-task renameSmtpapiVersionJarToSmtpapiJar {
+task renameSendGridVersionJarToSendGridJar {
   doLast {
     file("$projectDir/repo/com/sendgrid/${fatJar.archiveName}").renameTo(file("$projectDir/repo/com/sendgrid/sendgrid-jar.jar"))
   }
@@ -88,51 +88,55 @@ task sourcesJar(type: Jar) {
   from sourceSets.main.allSource
   classifier = 'sources'
 }
-/*
+
 signing {
-    sign configurations.archives
+  required { gradle.taskGraph.hasTask("uploadArchives") }
+  sign configurations.archives
 }
 
 uploadArchives {
-    repositories {
-        mavenDeployer {
-            beforeDeployment { MavenDeployment deployment -> signing.signPom(deployment) }
+  repositories {
+    mavenDeployer {
+      beforeDeployment { MavenDeployment deployment -> signing.signPom(deployment) }
+      repository(url: "https://oss.sonatype.org/service/local/staging/deploy/maven2/") {
+        authentication(userName: sonatypeUsername, password: sonatypePassword)
+      }
 
-            repository(url: "https://oss.sonatype.org/service/local/staging/deploy/maven2/") {
-                authentication(userName: sonatypeUsername, password: sonatypePassword)
-            }
+      pom.project {
+        name 'sendgrid-java'
+        packaging 'jar'
+        description 'SendGrid Java helper library'
+        url 'https://github.com/sendgrid/sendgrid-java'
 
-            pom.project {
-                name 'sendgrid-java'
-                packaging 'jar'
-                description 'SendGrid Java helper library'
-                url 'https://github.com/sendgrid/sendgrid-java'
-
-                scm {
-                    url 'scm:git@github.com:sendgrid/sendgrid-java.git'
-                    connection 'scm:git@github.com:sendgrid/sendgrid-java.git'
-                    developerConnection 'scm:git@github.com:sendgrid/sendgrid-java.git'
-                }
-
-                licenses {
-                    license {
-                        name 'MIT License'
-                        url 'http://opensource.org/licenses/MIT'
-                        distribution 'repo'
-                    }
-                }
-
-                developers {
-                    developer {
-                        id 'scottmotte'
-                        name 'Scott Motte'
-                    }
-                }
-            }
+        scm {
+          url 'scm:git@github.com:sendgrid/sendgrid-java.git'
+          connection 'scm:git@github.com:sendgrid/sendgrid-java.git'
+          developerConnection 'scm:git@github.com:sendgrid/sendgrid-java.git'
         }
+
+        licenses {
+          license {
+            name 'MIT License'
+            url 'http://opensource.org/licenses/MIT'
+            distribution 'repo'
+          }
+        }
+
+        developers {
+          developer {
+            id 'scottmotte'
+            name 'Scott Motte'
+          }
+          developer {
+            id 'elbou8'
+            name 'Yamil Asusta'
+          }
+        }
+      }
     }
+  }
 }
-*/
+
 artifacts {
   archives fatJar
 
