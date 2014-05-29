@@ -70,7 +70,7 @@ build << {
     from("$buildDir/libs/${fatJar.archiveName}")
     into("$projectDir/repo/com/sendgrid")
   }
-  tasks.renameSmtpapiVersionJarToSmtpapiJar.execute()
+  tasks.renameSendGridVersionJarToSendGridJar.execute()
 }
 
 task renameSendGridVersionJarToSendGridJar {
