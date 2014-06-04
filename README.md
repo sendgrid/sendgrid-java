@@ -92,16 +92,6 @@ email.addTo("example@example.com");
 email.setTos(["other@other.com"]);
 ```
 
-### Bcc
-
-```java
-email.addBcc("yourself@yourself.com");
-// or
-email.addBccs(["yourself@yourself.com"]);
-// or
-email.setBccs([]"yourself@yourself.com"]);
-```
-
 ### From
 
 ```java
