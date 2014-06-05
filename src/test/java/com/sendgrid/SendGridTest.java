@@ -1,23 +1,13 @@
 package com.sendgrid;
 
-import org.json.JSONException;
+import org.junit.Test;
 
-import java.util.Arrays;
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.util.HashMap;
 import java.util.Map;
 
-import java.io.File;
-import java.io.InputStream;
-import java.io.IOException;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-
-import com.mashape.unirest.http.exceptions.*;
-
-import org.junit.Test;
-import org.junit.Before;
-import static org.junit.Assert.*;
-import static org.junit.matchers.JUnitMatchers.hasItems;
+import static org.junit.Assert.assertEquals;
 
 public class SendGridTest {
   SendGrid.Email email;
@@ -34,7 +24,8 @@ public class SendGridTest {
     email.addTo(address2);
 
     Map correct = new HashMap();
-    correct.put("x-smtpapi", "{\"to\":[\"email@example.com\",\"email2@example.com\"]}");
+      correct.put("to[0]", address);
+      correct.put("to[1]", address2);
 
     assertEquals(correct, email.toWebFormat());
   }
@@ -48,9 +39,8 @@ public class SendGridTest {
     email.setFrom(fromaddress);
 
     Map correct = new HashMap();
-    correct.put("x-smtpapi", "{\"to\":[\"email@example.com\"]}");
     correct.put("from", fromaddress);
-    correct.put("to", fromaddress);
+    correct.put("to[0]", address);
 
     assertEquals(correct, email.toWebFormat());
 
@@ -64,7 +54,6 @@ public class SendGridTest {
 
     Map correct = new HashMap();
     correct.put("from", address);
-    correct.put("to", address);
 
     assertEquals(correct, email.toWebFormat());
   }  
@@ -182,5 +171,16 @@ public class SendGridTest {
     SendGrid.Response resp = sendgrid.send(email);
 
     assertEquals("{\"message\":\"error\",\"errors\":[\"Bad username / password\"]}", resp.getMessage());
+  }
+
+
+  @Test public void canAddRecipientToSmtpApi() {
+      email = new SendGrid.Email();
+      email.addSmtpApiTo("email@example.com");
+
+      Map correct = new HashMap();
+      correct.put("x-smtpapi", "{\"to\":[\"email@example.com\"]}");
+
+      assertEquals(correct, email.toWebFormat());
   }
 }

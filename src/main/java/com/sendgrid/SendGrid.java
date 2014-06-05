@@ -10,6 +10,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Scanner;
+import java.util.List;
 import java.util.Map;
 
 import java.io.File;
@@ -52,7 +53,7 @@ public class SendGrid {
   }
 
   public static class Email {
-    private static final String PARAM_TO          = "to";
+    private static final String PARAM_TO          = "to[%d]";
     private static final String PARAM_FROM        = "from";
     private static final String PARAM_FROMNAME    = "fromname";
     private static final String PARAM_REPLYTO     = "replyto";
@@ -67,24 +68,29 @@ public class SendGrid {
     public SMTPAPI smtpapi;
     SMTPAPI header = new SMTPAPI();
 
-    public String to;
+    public List<String> to = new ArrayList<String>();
     public String from;
     public String fromname;
     public String replyto;
     public String subject;
     public String text;
     public String html;
-    public ArrayList<String> bcc = new ArrayList<String>();
+    public List<String> bcc = new ArrayList<String>();
     public Map attachments = new HashMap();
     public Map headers = new HashMap();
 
     public Email () {
-      this.smtpapi = new SMTPAPI(); 
+      this.smtpapi = new SMTPAPI();
     }
 
     public Email addTo(String to) {
-      this.smtpapi.addTo(to);
-      return this;
+        this.to.add(to);
+        return this;
+    }
+
+    public Email addSmtpApiTo(String to) {
+        this.smtpapi.addTo(to);
+        return this;
     }
 
     public Email setFrom(String from) {
@@ -123,22 +129,22 @@ public class SendGrid {
     }
 
     public Email addSubstitution(String key, String[] val) {       
-      this.smtpapi.addSubstitutions(key, val);               
-      return this;                                                     
+      this.smtpapi.addSubstitutions(key, val);
+      return this;
     }
-    
+
     public Email addUniqueArg(String key, String val) {                
       this.smtpapi.addUniqueArg(key, val);
       return this;
     }
-    
+
     public Email addCategory(String category) {                        
       this.smtpapi.addCategory(category);
       return this;
     }
- 
+
     public Email addSection(String key, String val) {                  
-      this.smtpapi.addSection(key, val);                               
+      this.smtpapi.addSection(key, val);
       return this;
     }
                                                                        
@@ -174,11 +180,10 @@ public class SendGrid {
     public Map toWebFormat() {
       Map body = new HashMap();
 
-      // updateMissingTo - There needs to be at least 1 to address,
-      // or else the mail won't send.
-      if ((this.to == null || this.to.isEmpty()) && this.from != null && !this.from.isEmpty()) {
-        String value = this.from; 
-        body.put(PARAM_TO, value);
+      for (int i = 0; i < this.to.size(); i++) {
+        String key = String.format(PARAM_TO, i);
+        String value = this.to.get(i);
+        body.put(key, value);
       }
 
       if (this.from != null && !this.from.isEmpty()) {
