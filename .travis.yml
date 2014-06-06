@@ -11,3 +11,12 @@ env:
   - secure: Iki1btwhG1nlyjnEMu90Oh/hoatFpPiiKkqpj7siLnlLp2xbBQ2003jRsn30I3Vujes2ugvzdlHqBJ9lDwRvfGrKXcLlRvYuDQ24N2YKquEiKHUxs+iMOzTQj6Sf64KL5O0aSZd1l5rjWgsQ0qqjHW9u3l5bUjqxzrhAI2Js37U=
   - secure: Khi6a4z1lfZmDEDV738MOiWznRcTv5ILZUM+igEw2txX7PGX+B5909WridpAijTGiurJ6eda7jvsUgci8DTPQCXB18LD6N870hnPcSQkuI6zDAhKTx+w/ZsfPLWh28sP2CVzbqGdxaitZDKxRWaVmKnBZpyi8XI9UKjmyK2sjwE=
   - secure: wKXAjjBgCLM4h++nP1xDQQtYU10JbwwynY0XB920SoQjI2Uu82cMPtkEXFWTpzyIS2hE5B3qvu75VHNdLqDUtek3e3lBg5k3SpYgGin20dg3SDEJrvA4vlvcApdQ132pMEWdDOVwzbXhm9+JTjALYbc3fX+VAQX1u5daPyeDGC4=
+notifications:
+  hipchat:
+    rooms:
+      secure: U4oMQRXVm23/KtPWJ7FRohyP+2OR7hZKLhZmaqCLuT+Al3UCiniX6fJtS+7tCg/2igERV2PN22HZS9fAhv34tNzTjSvpAk/2T5Exhg0B/FMQZmjxPIcalNL5nmgaY4c1D1Z0teKJrzayOgQEfkEi4SZ8ePiVQUmFMsnV8BmjKRE=
+    template:
+      - '<a href="https://travis-ci.org/%{repository}/builds/%{build_id}">Docs Build
+          %{build_number}</a> on branch <i>%{branch}</i> by %{author}: <strong>%{message}</strong>
+          <a href="https://github.com/sendgrid/docs/commits/%{commit}">View on GitHub</a>'
+      format: html
