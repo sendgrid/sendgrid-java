@@ -33,7 +33,7 @@ Add the following to your build.gradle file in the root of your project.
 ...
 dependencies {
   ...
-  compile 'com.sendgrid:sendgrid-java:0.3.0'
+  compile 'com.sendgrid:sendgrid-java:0.3.1'
 }
 
 repositories {
