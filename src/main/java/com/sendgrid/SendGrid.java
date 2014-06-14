@@ -147,9 +147,24 @@ public class SendGrid {
       return this;
     }
 
-    public Email addAttachment(String name, File file)  {
+    public Email addAttachment(String name, File file) {
       this.attachments.put(name, file);
       return this;
+    }
+
+    public Email addAttachment(String name, String file) {
+      this.attachments.put(name, file);
+      return this;
+    }
+
+    public Email addAttachment(String name, InputStream file) {
+      Scanner scanner = new Scanner(file, "UTF-8");
+      String buffer = new String();
+      while (scanner.hasNextLine()) {
+        buffer += scanner.nextLine();
+      }
+      scanner.close();
+      return this.addAttachment(name, buffer);
     }
 
     public Email addHeader(String key, String val) {
