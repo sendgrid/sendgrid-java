@@ -17,7 +17,7 @@ apply plugin: 'maven'
 apply plugin: 'signing'
 
 group         = 'com.sendgrid'
-version       = "0.3.1"
+version       = "1.0.0"
 ext.packaging = 'jar'
 
 if (!hasProperty("sonatypeUsername")) {
