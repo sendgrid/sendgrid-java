@@ -131,11 +131,11 @@ email.setHtml("<h1>My first email through SendGrid");
 ### Attachments
 
 ```java
-email.addAttachment("contents", "text.txt");
+email.addAttachment("text.txt", "contents");
 // or
-email.addAttachment(new File("./file.txt"), "text.txt");
+email.addAttachment("image.png", new File("./image.png"));
 // or
-email.addAttachment(new InputStream(new File("./file.txt")), "text.txt");
+email.addAttachment("text.txt", new InputStream(new File("./file.txt")));
 ```
 
 ## [X-SMTPAPI](http://sendgrid.com/docs/API_Reference/SMTP_API/index.html)
