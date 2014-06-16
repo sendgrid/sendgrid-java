@@ -272,9 +272,9 @@ You're all done.
 
 ## Example App
 
-We have an example app using this library. This can be helpful to get a grasp on implementing it in your own app. The example below is a [spring](http://www.springsource.org/spring-framework) based application.
+We have an example app using this library. This can be helpful to get a grasp on implementing it in your own app. 
 
-[github.com/scottmotte/spring-attack](http://github.com/scottmotte/spring-attack)
+[github.com/scottmotte/sendgrid-java-example](http://github.com/scottmotte/sendgrid-java-example)
 
 ## License
 
