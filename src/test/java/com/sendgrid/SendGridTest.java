@@ -176,8 +176,8 @@ public class SendGridTest {
     email.setText("Test body");
     email.setHtml("Test body");
     email.addCategory("-TEST-");
-    File file = new File(getClass().getResource("/test.txt").getFile());
-    email.addAttachment("test.txt", file);
+    File file = new File(getClass().getResource("/image.png").getFile());
+    email.addAttachment("image.png", file);
     SendGrid sendgrid = new SendGrid(USERNAME, PASSWORD);
     SendGrid.Response resp = sendgrid.send(email);
 
