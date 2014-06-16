@@ -33,7 +33,7 @@ Add the following to your build.gradle file in the root of your project.
 ...
 dependencies {
   ...
-  compile 'com.sendgrid:sendgrid-java:0.3.1'
+  compile 'com.sendgrid:sendgrid-java:1.0.0'
 }
 
 repositories {
@@ -131,11 +131,11 @@ email.setHtml("<h1>My first email through SendGrid");
 ### Attachments
 
 ```java
-email.addAttachment("contents", "text.txt");
+email.addAttachment("text.txt", "contents");
 // or
-email.addAttachment(new File("./file.txt"), "text.txt");
+email.addAttachment("image.png", new File("./image.png"));
 // or
-email.addAttachment(new InputStream(new File("./file.txt")), "text.txt");
+email.addAttachment("text.txt", new InputStream(new File("./file.txt")));
 ```
 
 ## [X-SMTPAPI](http://sendgrid.com/docs/API_Reference/SMTP_API/index.html)

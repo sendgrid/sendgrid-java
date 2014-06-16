@@ -79,7 +79,7 @@ public class SendGrid {
     public Map headers = new HashMap();
 
     public Email () {
-      this.smtpapi = new SMTPAPI(); 
+      this.smtpapi = new SMTPAPI();
     }
 
     public Email addTo(String to) {
@@ -122,52 +122,53 @@ public class SendGrid {
       return this;
     }
 
-    public Email addSubstitution(String key, String[] val) {       
-      this.smtpapi.addSubstitutions(key, val);               
-      return this;                                                     
+    public Email addSubstitution(String key, String[] val) {
+      this.smtpapi.addSubstitutions(key, val);
+      return this;
     }
-    
-    public Email addUniqueArg(String key, String val) {                
+
+    public Email addUniqueArg(String key, String val) {
       this.smtpapi.addUniqueArg(key, val);
       return this;
     }
-    
-    public Email addCategory(String category) {                        
+
+    public Email addCategory(String category) {
       this.smtpapi.addCategory(category);
       return this;
     }
- 
-    public Email addSection(String key, String val) {                  
-      this.smtpapi.addSection(key, val);                               
+
+    public Email addSection(String key, String val) {
+      this.smtpapi.addSection(key, val);
       return this;
     }
-                                                                       
+
     public Email addFilter(String filter_name, String parameter_name, String parameter_value) {
-      this.smtpapi.addFilter(filter_name, parameter_name, parameter_value);   
-      return this; 
+      this.smtpapi.addFilter(filter_name, parameter_name, parameter_value);
+      return this;
     }
 
-    public Email addAttachment(File file, String name) throws FileNotFoundException {
-      return this.addAttachment(new FileInputStream(file), name);
-    }
-
-    public Email addAttachment(String file, String name) {
+    public Email addAttachment(String name, File file) {
       this.attachments.put(name, file);
       return this;
     }
 
-    public Email addAttachment(InputStream file, String name) {
+    public Email addAttachment(String name, String file) {
+      this.attachments.put(name, file);
+      return this;
+    }
+
+    public Email addAttachment(String name, InputStream file) {
       Scanner scanner = new Scanner(file, "UTF-8");
       String buffer = new String();
       while (scanner.hasNextLine()) {
         buffer += scanner.nextLine();
       }
       scanner.close();
-      return this.addAttachment(buffer, name);
+      return this.addAttachment(name, buffer);
     }
-   
-    public Email addHeader(String key, String val) {                   
-      this.headers.put(key, val);                                      
+
+    public Email addHeader(String key, String val) {
+      this.headers.put(key, val);
       return this;
     }
 
@@ -177,17 +178,17 @@ public class SendGrid {
       // updateMissingTo - There needs to be at least 1 to address,
       // or else the mail won't send.
       if ((this.to == null || this.to.isEmpty()) && this.from != null && !this.from.isEmpty()) {
-        String value = this.from; 
+        String value = this.from;
         body.put(PARAM_TO, value);
       }
 
       if (this.from != null && !this.from.isEmpty()) {
-        String value = this.from; 
+        String value = this.from;
         body.put(PARAM_FROM, value);
       }
 
       if (this.fromname != null && !this.fromname.isEmpty()) {
-        String value = this.fromname; 
+        String value = this.fromname;
         body.put(PARAM_FROMNAME, value);
       }
 
@@ -217,14 +218,14 @@ public class SendGrid {
         body.put(PARAM_HTML, value);
       }
 
-      if (!this.headers.isEmpty()) {                                   
+      if (!this.headers.isEmpty()) {
         JSONObject json_headers = new JSONObject(this.headers);
         String serialized_headers = json_headers.toString();
         body.put(PARAM_HEADERS, serialized_headers);
-      } 
+      }
 
       if (!this.smtpapi.jsonString().equals("{}")) {
-        String value = this.smtpapi.jsonString(); 
+        String value = this.smtpapi.jsonString();
         body.put(PARAM_XSMTPAPI, value);
       }
 

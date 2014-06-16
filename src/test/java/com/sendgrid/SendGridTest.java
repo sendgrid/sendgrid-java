@@ -67,7 +67,7 @@ public class SendGridTest {
     correct.put("to", address);
 
     assertEquals(correct, email.toWebFormat());
-  }  
+  }
 
   @Test public void testSetFromName() {
     email = new SendGrid.Email();
@@ -145,7 +145,7 @@ public class SendGridTest {
     email = new SendGrid.Email();
 
     email.addHeader("key", "value");
-    email.addHeader("other", "other-value");                           
+    email.addHeader("other", "other-value");
 
     Map correct = new HashMap();
     correct.put("headers", "{\"other\":\"other-value\",\"key\":\"value\"}");
@@ -158,10 +158,10 @@ public class SendGridTest {
     email = new SendGrid.Email();
 
     File file = new File(getClass().getResource("/test.txt").getFile());
-    email.addAttachment(file, "test.txt");
+    email.addAttachment("test.txt", file);
 
     Map correct = new HashMap();
-    correct.put("files[test.txt]", "This is a test file.");
+    correct.put("files[test.txt]", file);
 
     assertEquals(correct, email.toWebFormat());
   }
@@ -176,11 +176,12 @@ public class SendGridTest {
     email.setText("Test body");
     email.setHtml("Test body");
     email.addCategory("-TEST-");
-    File file = new File(getClass().getResource("/test.txt").getFile());
-    email.addAttachment(file, "test.txt");
+    File file = new File(getClass().getResource("/image.png").getFile());
+    email.addAttachment("image.png", file);
     SendGrid sendgrid = new SendGrid(USERNAME, PASSWORD);
     SendGrid.Response resp = sendgrid.send(email);
 
     assertEquals("{\"message\":\"error\",\"errors\":[\"Bad username / password\"]}", resp.getMessage());
   }
+
 }
