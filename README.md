@@ -140,7 +140,7 @@ email.addAttachment("text.txt", new InputStream(new File("./file.txt")));
 
 ## [X-SMTPAPI](http://sendgrid.com/docs/API_Reference/SMTP_API/index.html)
 
-The mail object extends de SMTPAPI object which is found in [STMAPI-Java](https://github.com/sendgrid/smtpapi-java).
+The mail object extends the SMTPAPI object which is found in [STMAPI-Java](https://github.com/sendgrid/smtpapi-java).
 
 ### [Substitutions](http://sendgrid.com/docs/API_Reference/SMTP_API/substitution_tags.html)
 
