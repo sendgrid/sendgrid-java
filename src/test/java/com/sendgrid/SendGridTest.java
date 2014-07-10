@@ -58,6 +58,32 @@ public class SendGridTest {
 
   }
 
+  @Test public void testDropSmtpTo() {
+    email = new SendGrid.Email();
+
+    String to = "email@example.com";
+    email.addTo(to);
+    email.dropSMTPITos();
+
+    Map correct = new HashMap();
+    correct.put("to[0]", "email@example.com");
+
+    assertEquals(correct, email.toWebFormat());
+
+  }
+
+  @Test public void testAddToName() {
+    email = new SendGrid.Email();
+
+    String name = "John";
+    email.addToName(name);
+
+    Map correct = new HashMap();
+    correct.put("toname[0]", name);
+
+    assertEquals(correct, email.toWebFormat());
+  }
+
   @Test public void testSetFrom() {
     email = new SendGrid.Email();
 
