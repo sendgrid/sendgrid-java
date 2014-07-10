@@ -198,6 +198,17 @@ public class SendGrid {
       return this;
     }
 
+    public String getHtml() {
+      return this.html;
+    }
+
+    public Email dropSMTPITos() {
+      JSONObject oldHeader = new JSONObject(this.smtpapi.jsonString());
+      oldHeader.remove("to");
+      this.smtpapi = new SMTPAPI(oldHeader);
+      return this;
+    }
+
     public Email addSubstitution(String key, String[] val) {
       this.smtpapi.addSubstitutions(key, val);
       return this;
