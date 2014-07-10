@@ -35,6 +35,8 @@ public class SendGridTest {
 
     Map correct = new HashMap();
     correct.put("x-smtpapi", "{\"to\":[\"email@example.com\",\"email2@example.com\"]}");
+    correct.put("to[0]", "email@example.com");
+    correct.put("to[1]", "email2@example.com");
 
     assertEquals(correct, email.toWebFormat());
   }
@@ -49,11 +51,37 @@ public class SendGridTest {
 
     Map correct = new HashMap();
     correct.put("x-smtpapi", "{\"to\":[\"email@example.com\"]}");
+    correct.put("to[0]", "email@example.com");
     correct.put("from", fromaddress);
-    correct.put("to", fromaddress);
 
     assertEquals(correct, email.toWebFormat());
 
+  }
+
+  @Test public void testDropSmtpTo() {
+    email = new SendGrid.Email();
+
+    String to = "email@example.com";
+    email.addTo(to);
+    email.dropSMTPITos();
+
+    Map correct = new HashMap();
+    correct.put("to[0]", "email@example.com");
+
+    assertEquals(correct, email.toWebFormat());
+
+  }
+
+  @Test public void testAddToName() {
+    email = new SendGrid.Email();
+
+    String name = "John";
+    email.addToName(name);
+
+    Map correct = new HashMap();
+    correct.put("toname[0]", name);
+
+    assertEquals(correct, email.toWebFormat());
   }
 
   @Test public void testSetFrom() {
@@ -64,7 +92,6 @@ public class SendGridTest {
 
     Map correct = new HashMap();
     correct.put("from", address);
-    correct.put("to", address);
 
     assertEquals(correct, email.toWebFormat());
   }
@@ -166,9 +193,9 @@ public class SendGridTest {
     assertEquals(correct, email.toWebFormat());
   }
 
-  @Test public void testSend() throws FileNotFoundException, SendGridException {
+  @Test public void testSend() throws FileNotFoundException, SendGridException, IOException {
     email = new SendGrid.Email();
-    email.addTo("sendgrid@mailinator.com");
+    email.addTo("sendgrid-to@mailinator.com");
     email.setFrom("sendgrid-from@mailinator.com");
     email.setFromName("Mailinator");
     email.setReplyTo("sendgrid-replyto@mailinator.com");
@@ -177,7 +204,9 @@ public class SendGridTest {
     email.setHtml("Test body");
     email.addCategory("-TEST-");
     File file = new File(getClass().getResource("/image.png").getFile());
+    InputStream file2 = new FileInputStream(getClass().getResource("/pdf.pdf").getFile());
     email.addAttachment("image.png", file);
+    email.addAttachment("pdf.pdf", file2);
     SendGrid sendgrid = new SendGrid(USERNAME, PASSWORD);
     SendGrid.Response resp = sendgrid.send(email);
 
