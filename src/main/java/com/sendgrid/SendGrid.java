@@ -1,27 +1,26 @@
 package com.sendgrid;
 
-import org.json.JSONObject;
-import com.mashape.unirest.http.*;
-import com.mashape.unirest.http.exceptions.*;
-import com.sendgrid.smtpapi.SMTPAPI;
+import com.mashape.unirest.http.HttpResponse;
 import com.mashape.unirest.http.JsonNode;
-
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.Scanner;
-import java.util.Map;
+import com.mashape.unirest.http.Unirest;
+import com.mashape.unirest.http.exceptions.UnirestException;
+import com.sendgrid.smtpapi.SMTPAPI;
+import org.apache.http.HttpHost;
+import org.apache.http.client.HttpClient;
+import org.apache.http.impl.client.HttpClientBuilder;
+import org.json.JSONObject;
 
 import java.io.File;
-import java.io.InputStream;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.InputStream;
+import java.util.*;
 
 public class SendGrid {
+  private HttpClient httpClient;
   private String username;
   private String password;
   private String url;
-  private String port;
   private String endpoint;
 
   public SendGrid(String username, String password) {
@@ -29,6 +28,7 @@ public class SendGrid {
     this.password = password;
     this.url = "https://api.sendgrid.com";
     this.endpoint = "/api/mail.send.json";
+    this.httpClient = HttpClientBuilder.create().build();
   }
 
   public SendGrid setUrl(String url) {
@@ -41,7 +41,15 @@ public class SendGrid {
     return this;
   }
 
+  public SendGrid setProxy(String host, int port) {
+      this.httpClient = HttpClientBuilder.create()
+              .setProxy(new HttpHost(host, port))
+              .build();
+      return this;
+  }
+
   public SendGrid.Response send(Email email) throws SendGridException {
+    Unirest.setHttpClient(this.httpClient);
     try {
       HttpResponse<JsonNode> res = Unirest.post(this.url + this.endpoint)
       .fields(email.toWebFormat()).field("api_user", this.username).field("api_key", this.password).asJson();
