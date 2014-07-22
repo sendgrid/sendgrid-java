@@ -259,7 +259,7 @@ cp gradle.properties.example ~/.gradle/gradle.properties
 Edit that file and set your `sonatypeUsername` and sonatypePassword`. You also need to set the values for your keys. Here's how to list/create them. [1](http://central.sonatype.org/pages/working-with-pgp-signatures.html).
 
 ```
-gpg2 --list-keys
+gpg --list-keys
 gpg --gen-key
 ```
 
