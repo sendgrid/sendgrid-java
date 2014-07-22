@@ -18,6 +18,8 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 
 public class SendGrid {
+  public final String VERSION = "1.0.0";
+
   private String username;
   private String password;
   private String url;
@@ -29,6 +31,7 @@ public class SendGrid {
     this.password = password;
     this.url = "https://api.sendgrid.com";
     this.endpoint = "/api/mail.send.json";
+    Unirest.setDefaultHeader("User-Agent", "sendgrid/" + VERSION + ";java");
   }
 
   public SendGrid setUrl(String url) {
