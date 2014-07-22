@@ -263,9 +263,13 @@ gpg2 --list-keys
 gpg --gen-key
 ```
 
-Then set the values for `signing.keyId` and `signing.secretKeyRingFile`. You don't need to set the `signing.password`.
+Set the signing.KeyId, signing.password, and the signing.secretKeyRingFile.
 
-The `signing.keyId` is the "sec" part of your list of keys that looks something like this: `2048R/5D64A177`. So in this scenario it would be `5D64A177`.
+The signing.KeyId is the 'pub' one. It's the part of your list of keys that looks something like this: `2048R/5D64A177`. So in this scenario it would be `5D64A177`. [1](http://www.gradle.org/docs/current/userguide/signing_plugin.html)
+
+The signing.password is the password you used when generating this key. It could be blank if you didn't use a password.
+
+The signing.secretKeyRingFile is the path to the secring.gpg.
 
 Cool, now you can do the following.
 
