@@ -94,19 +94,19 @@ public class SendGrid {
       return this;
     }
 
-    public Email addTos(String[] tos) {
+    public Email addTo(String[] tos) {
       this.smtpapi.addTos(tos);
       this.to.addAll(Arrays.asList(tos));
       return this;
     }
 
-    public Email setTos(String[] tos) {
+    public Email setTo(String[] tos) {
       this.smtpapi.setTos(tos);
       this.to = new ArrayList(Arrays.asList(tos));
       return this;
     }
 
-    public String[] getTos() {
+    public String[] getTo() {
       return this.to.toArray(new String[this.to.size()]);
     }
 
@@ -115,17 +115,17 @@ public class SendGrid {
       return this;
     }
 
-    public Email addToNames(String[] tonames) {
+    public Email addToName(String[] tonames) {
       this.toname.addAll(Arrays.asList(tonames));
       return this;
     }
 
-    public Email setToNames(String[] tonames) {
+    public Email setToName(String[] tonames) {
       this.toname = new ArrayList(Arrays.asList(tonames));
       return this;
     }
 
-    public String[] getToNames() {
+    public String[] getToName() {
       return this.toname.toArray(new String[this.toname.size()]);
     }
 
@@ -161,17 +161,17 @@ public class SendGrid {
       return this;
     }
 
-    public Email addBccs(String[] bccs) {
+    public Email addBcc(String[] bccs) {
       this.bcc.addAll(Arrays.asList(bccs));
       return this;
     }
 
-    public Email setBccs(String[] bccs) {
+    public Email setBcc(String[] bccs) {
       this.bcc = new ArrayList(Arrays.asList(bccs));
       return this;
     }
 
-    public String[] getBccs() {
+    public String[] getBcc() {
       return this.bcc.toArray(new String[this.bcc.size()]);
     }
 
@@ -202,7 +202,7 @@ public class SendGrid {
       return this.html;
     }
 
-    public Email dropSMTPITos() {
+    public Email dropSMTPAPITos() {
       JSONObject oldHeader = new JSONObject(this.smtpapi.jsonString());
       oldHeader.remove("to");
       this.smtpapi = new SMTPAPI(oldHeader);
