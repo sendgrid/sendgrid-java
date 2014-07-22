@@ -271,7 +271,13 @@ The signing.password is the password you used when generating this key. It could
 
 The signing.secretKeyRingFile is the path to the secring.gpg.
 
-Cool, now you can do the following.
+Now, upload that key to the keyserver.
+
+```
+gpg --keyserver hkp://pool.sks-keyservers.net --send-keys 5D64A177
+```
+
+Now, you can finally upload! Ah, Java!
 
 ```
 ./gradlew uploadArchives
