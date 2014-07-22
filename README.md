@@ -250,6 +250,16 @@ The existing tests in the `src/test` directory can be run using gradle with the 
 
 This only works if you have the correct permissions - for admins only basically.
 
+Let's begin with the permissions.
+
+```
+mv gradle.properties.example ~/.gradle/gradle.properties
+```
+
+Edit that file and set your `sonatypeUsername` and sonatypePassword`.
+
+Cool, now you can do the following.
+
 ```
 ./gradlew uploadArchives
 ```
