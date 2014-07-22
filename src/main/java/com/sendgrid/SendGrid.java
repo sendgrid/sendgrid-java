@@ -18,7 +18,7 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 
 public class SendGrid {
-  public final String VERSION = "1.0.0";
+  public final String VERSION = "1.0.1";
 
   private String username;
   private String password;
