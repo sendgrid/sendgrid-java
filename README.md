@@ -265,7 +265,7 @@ gpg --gen-key
 
 Set the signing.KeyId, signing.password, and the signing.secretKeyRingFile.
 
-The signing.KeyId is the 'pub' one. It's the part of your list of keys that looks something like this: `2048R/5D64A177`. So in this scenario it would be `5D64A177`. [1](http://www.gradle.org/docs/current/userguide/signing_plugin.html)
+The signing.KeyId is the 'pub' one. It's the part of your list of keys that looks something like this: `2048R/5D64A177`. So in this scenario it would be `5D64A177`. [1](http://www.gradle.org/docs/current/userguide/signing_plugin.html) [2](http://yennicktrevels.com/blog/2013/10/11/automated-gradle-project-deployment-to-sonatype-oss-repository/)
 
 The signing.password is the password you used when generating this key. It could be blank if you didn't use a password.
 
