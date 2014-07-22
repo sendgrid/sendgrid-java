@@ -253,7 +253,7 @@ This only works if you have the correct permissions - for admins only basically.
 Let's begin with the permissions.
 
 ```
-mv gradle.properties.example ~/.gradle/gradle.properties
+cp gradle.properties.example ~/.gradle/gradle.properties
 ```
 
 Edit that file and set your `sonatypeUsername` and sonatypePassword`.
