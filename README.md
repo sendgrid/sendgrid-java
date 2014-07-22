@@ -265,6 +265,8 @@ gpg --gen-key
 
 Then set the values for `signing.keyId` and `signing.secretKeyRingFile`. You don't need to set the `signing.password`.
 
+The `signing.keyId` is the 2nd part of your list of keys that looks something like this: `2048R/5D64A177`.
+
 Cool, now you can do the following.
 
 ```
