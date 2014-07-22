@@ -131,6 +131,10 @@ uploadArchives {
             id 'elbou8'
             name 'Yamil Asusta'
           }
+          developer {
+            id 'eddiezane'
+            name 'Eddie Zaneski'
+          }
         }
       }
     }
