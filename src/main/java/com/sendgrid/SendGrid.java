@@ -151,16 +151,16 @@ public class SendGrid {
     private String text;
     private String html;
     private ArrayList<String> bcc;
-    private Map attachments;
-    private Map headers;
+    private Map<String, InputStream> attachments;
+    private Map<String, String> headers;
 
     public Email () {
       this.smtpapi = new SMTPAPI();
       this.to = new ArrayList<String>();
       this.toname = new ArrayList<String>();
       this.bcc = new ArrayList<String>();
-      this.attachments = new HashMap();
-      this.headers = new HashMap();
+      this.attachments = new HashMap<String, InputStream>();
+      this.headers = new HashMap<String, String>();
     }
 
     public Email addTo(String to) {
@@ -177,7 +177,7 @@ public class SendGrid {
 
     public Email setTo(String[] tos) {
       this.smtpapi.setTos(tos);
-      this.to = new ArrayList(Arrays.asList(tos));
+      this.to = new ArrayList<String>(Arrays.asList(tos));
       return this;
     }
 
@@ -196,7 +196,7 @@ public class SendGrid {
     }
 
     public Email setToName(String[] tonames) {
-      this.toname = new ArrayList(Arrays.asList(tonames));
+      this.toname = new ArrayList<String>(Arrays.asList(tonames));
       return this;
     }
 
@@ -242,7 +242,7 @@ public class SendGrid {
     }
 
     public Email setBcc(String[] bccs) {
-      this.bcc = new ArrayList(Arrays.asList(bccs));
+      this.bcc = new ArrayList<String>(Arrays.asList(bccs));
       return this;
     }
 
