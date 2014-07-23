@@ -12,8 +12,6 @@ import java.io.IOException;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 
-import com.mashape.unirest.http.exceptions.*;
-
 import org.junit.Test;
 import org.junit.Before;
 import static org.junit.Assert.*;
@@ -33,10 +31,9 @@ public class SendGridTest {
     email.addTo(address);
     email.addTo(address2);
 
-    Map correct = new HashMap();
-    correct.put("x-smtpapi", "{\"to\":[\"email@example.com\",\"email2@example.com\"]}");
+    String[] correct = {address, address2};
 
-    assertEquals(correct, email.toWebFormat());
+    assertArrayEquals(correct, email.getTos());
   }
 
   @Test public void testAddToWithAFrom() {
@@ -47,13 +44,22 @@ public class SendGridTest {
     email.addTo(address);
     email.setFrom(fromaddress);
 
-    Map correct = new HashMap();
-    correct.put("x-smtpapi", "{\"to\":[\"email@example.com\"]}");
-    correct.put("from", fromaddress);
-    correct.put("to", fromaddress);
+    String[] correct = {address};
 
-    assertEquals(correct, email.toWebFormat());
+    assertArrayEquals(correct, email.getTos());
+    assertEquals(fromaddress, email.getFrom());
 
+  }
+
+  @Test public void testAddToName() {
+    email = new SendGrid.Email();
+
+    String name = "John";
+    email.addToName(name);
+
+    String[] correct = {name};
+
+    assertArrayEquals(correct, email.getToNames());
   }
 
   @Test public void testSetFrom() {
@@ -62,11 +68,7 @@ public class SendGridTest {
     String address = "email@example.com";
     email.setFrom(address);
 
-    Map correct = new HashMap();
-    correct.put("from", address);
-    correct.put("to", address);
-
-    assertEquals(correct, email.toWebFormat());
+    assertEquals(address, email.getFrom());
   }
 
   @Test public void testSetFromName() {
@@ -75,10 +77,7 @@ public class SendGridTest {
     String fromname = "Uncle Bob";
     email.setFromName(fromname);
 
-    Map correct = new HashMap();
-    correct.put("fromname", fromname);
-
-    assertEquals(correct, email.toWebFormat());
+    assertEquals(fromname, email.getFromName());
   }
 
   @Test public void testSetReplyTo() {
@@ -87,10 +86,7 @@ public class SendGridTest {
     String address = "email@example.com";
     email.setReplyTo(address);
 
-    Map correct = new HashMap();
-    correct.put("replyto", address);
-
-    assertEquals(correct, email.toWebFormat());
+    assertEquals(address, email.getReplyTo());
   }
 
   @Test public void testAddBcc() {
@@ -99,10 +95,9 @@ public class SendGridTest {
     String address = "email@example.com";
     email.addBcc(address);
 
-    Map correct = new HashMap();
-    correct.put("bcc[0]", address);
+    String[] correct = {address};
 
-    assertEquals(correct, email.toWebFormat());
+    assertArrayEquals(correct, email.getBccs());
   }
 
   @Test public void testSetSubject() {
@@ -111,10 +106,7 @@ public class SendGridTest {
     String subject = "This is a subject";
     email.setSubject(subject);
 
-    Map correct = new HashMap();
-    correct.put("subject", subject);
-
-    assertEquals(correct, email.toWebFormat());
+    assertEquals(subject, email.getSubject());
   }
 
   @Test public void testSetText() {
@@ -123,10 +115,7 @@ public class SendGridTest {
     String text = "This is some email text.";
     email.setText(text);
 
-    Map correct = new HashMap();
-    correct.put("text", text);
-
-    assertEquals(correct, email.toWebFormat());
+    assertEquals(text, email.getText());
   }
 
   @Test public void testSetHtml() {
@@ -135,10 +124,7 @@ public class SendGridTest {
     String html = "This is some email text.";
     email.setHtml(html);
 
-    Map correct = new HashMap();
-    correct.put("html", html);
-
-    assertEquals(correct, email.toWebFormat());
+    assertEquals(html, email.getHtml());
   }
 
   @Test public void testAddHeader() {
@@ -147,41 +133,10 @@ public class SendGridTest {
     email.addHeader("key", "value");
     email.addHeader("other", "other-value");
 
-    Map correct = new HashMap();
-    correct.put("headers", "{\"other\":\"other-value\",\"key\":\"value\"}");
+    Map<String, String> correct = new HashMap<String, String>();
+    correct.put("key", "value");
+    correct.put("other", "other-value");
 
-    assertEquals(correct, email.toWebFormat());
+    assertEquals(correct, email.getHeaders());
   }
-
-  @Test public void testAddAttachment() throws FileNotFoundException {
-
-    email = new SendGrid.Email();
-
-    File file = new File(getClass().getResource("/test.txt").getFile());
-    email.addAttachment("test.txt", file);
-
-    Map correct = new HashMap();
-    correct.put("files[test.txt]", file);
-
-    assertEquals(correct, email.toWebFormat());
-  }
-
-  @Test public void testSend() throws FileNotFoundException, SendGridException {
-    email = new SendGrid.Email();
-    email.addTo("sendgrid@mailinator.com");
-    email.setFrom("sendgrid-from@mailinator.com");
-    email.setFromName("Mailinator");
-    email.setReplyTo("sendgrid-replyto@mailinator.com");
-    email.setSubject("Test");
-    email.setText("Test body");
-    email.setHtml("Test body");
-    email.addCategory("-TEST-");
-    File file = new File(getClass().getResource("/image.png").getFile());
-    email.addAttachment("image.png", file);
-    SendGrid sendgrid = new SendGrid(USERNAME, PASSWORD);
-    SendGrid.Response resp = sendgrid.send(email);
-
-    assertEquals("{\"message\":\"error\",\"errors\":[\"Bad username / password\"]}", resp.getMessage());
-  }
-
 }
