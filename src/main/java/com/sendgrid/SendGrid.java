@@ -175,6 +175,11 @@ public class SendGrid {
       return this;
     }
 
+    public Email addTo(String to, String name) {
+      this.addTo(to);
+      return this.addToName(name);
+    }
+
     public Email setTo(String[] tos) {
       this.smtpapi.setTos(tos);
       this.to = new ArrayList<String>(Arrays.asList(tos));
