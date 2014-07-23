@@ -19,15 +19,18 @@ import java.io.InputStream;
 import java.io.IOException;
 
 import org.apache.http.HttpResponse;
-import org.apache.http.client.HttpClient;
 import org.apache.http.HttpEntity;
 import org.apache.http.entity.mime.MultipartEntityBuilder;
 import org.apache.http.client.methods.HttpPost;
-import org.apache.http.impl.client.DefaultHttpClient;
+import org.apache.http.impl.client.HttpClientBuilder;
+import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.util.EntityUtils;
 
 
 public class SendGrid {
+  private static final String VERSION           = "1.0.1";
+  private static final String USER_AGENT        = "sendgrid/" + VERSION + ";java";
+
   private static final String PARAM_TO          = "to[%d]";
   private static final String PARAM_TONAME      = "toname[%d]";
   private static final String PARAM_FROM        = "from";
@@ -46,14 +49,14 @@ public class SendGrid {
   private String url;
   private String port;
   private String endpoint;
-  private HttpClient client;
+  private CloseableHttpClient client;
 
   public SendGrid(String username, String password) {
     this.username = username;
     this.password = password;
     this.url = "https://api.sendgrid.com";
     this.endpoint = "/api/mail.send.json";
-    this.client = new DefaultHttpClient();
+    this.client = HttpClientBuilder.create().setUserAgent(USER_AGENT).build();
   }
 
   public SendGrid setUrl(String url) {
@@ -63,6 +66,15 @@ public class SendGrid {
 
   public SendGrid setEndpoint(String endpoint) {
     this.endpoint = endpoint;
+    return this;
+  }
+
+  public String getVersion() {
+    return VERSION;
+  }
+
+  public SendGrid setClient(CloseableHttpClient client) {
+    this.client = client;
     return this;
   }
 
