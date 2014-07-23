@@ -33,7 +33,7 @@ public class SendGridTest {
 
     String[] correct = {address, address2};
 
-    assertEquals(correct, email.getTos());
+    assertArrayEquals(correct, email.getTos());
   }
 
   @Test public void testAddToWithAFrom() {
@@ -46,7 +46,7 @@ public class SendGridTest {
 
     String[] correct = {address};
 
-    assertEquals(correct, email.getTos());
+    assertArrayEquals(correct, email.getTos());
     assertEquals(fromaddress, email.getFrom());
 
   }
@@ -59,7 +59,7 @@ public class SendGridTest {
 
     String[] correct = {name};
 
-    assertEquals(correct, email.getToNames());
+    assertArrayEquals(correct, email.getToNames());
   }
 
   @Test public void testSetFrom() {
@@ -97,7 +97,7 @@ public class SendGridTest {
 
     String[] correct = {address};
 
-    assertEquals(correct, email.getBccs());
+    assertArrayEquals(correct, email.getBccs());
   }
 
   @Test public void testSetSubject() {
@@ -133,7 +133,7 @@ public class SendGridTest {
     email.addHeader("key", "value");
     email.addHeader("other", "other-value");
 
-    Map correct = new HashMap();
+    Map<String, String> correct = new HashMap<String, String>();
     correct.put("key", "value");
     correct.put("other", "other-value");
 
