@@ -19,7 +19,8 @@ apply plugin: 'signing'
 group         = 'com.sendgrid'
 version       = "1.0.1"
 ext.packaging = 'jar'
-sourceCompatibility = 1.6
+sourceCompatibility = "1.6"
+targetCompatibility = "1.6" 
 
 if (!hasProperty("sonatypeUsername")) {
   ext.sonatypeUsername = null
