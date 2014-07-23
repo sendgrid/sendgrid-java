@@ -1,35 +1,59 @@
 package com.sendgrid;
 
 import org.json.JSONObject;
-import com.mashape.unirest.http.*;
-import com.mashape.unirest.http.exceptions.*;
 import com.sendgrid.smtpapi.SMTPAPI;
-import com.mashape.unirest.http.JsonNode;
 
 import java.util.ArrayList;
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.io.ByteArrayInputStream;
+import java.io.FileNotFoundException;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Iterator;
-import java.util.Scanner;
 import java.util.Map;
+import java.io.FileInputStream;
 
 import java.io.File;
 import java.io.InputStream;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
+import java.io.IOException;
+
+import org.apache.http.HttpResponse;
+import org.apache.http.client.HttpClient;
+import org.apache.http.HttpEntity;
+import org.apache.http.entity.mime.MultipartEntityBuilder;
+import org.apache.http.client.methods.HttpPost;
+import org.apache.http.impl.client.DefaultHttpClient;
+import org.apache.http.util.EntityUtils;
+
 
 public class SendGrid {
+  private static final String PARAM_TO          = "to[%d]";
+  private static final String PARAM_TONAME      = "toname[%d]";
+  private static final String PARAM_FROM        = "from";
+  private static final String PARAM_FROMNAME    = "fromname";
+  private static final String PARAM_REPLYTO     = "replyto";
+  private static final String PARAM_BCC         = "bcc[%d]";
+  private static final String PARAM_SUBJECT     = "subject";
+  private static final String PARAM_HTML        = "html";
+  private static final String PARAM_TEXT        = "text";
+  private static final String PARAM_FILES       = "files[%s]";
+  private static final String PARAM_XSMTPAPI    = "x-smtpapi";
+  private static final String PARAM_HEADERS     = "headers";
+
   private String username;
   private String password;
   private String url;
   private String port;
   private String endpoint;
+  private HttpClient client;
 
   public SendGrid(String username, String password) {
     this.username = username;
     this.password = password;
     this.url = "https://api.sendgrid.com";
     this.endpoint = "/api/mail.send.json";
+    this.client = new DefaultHttpClient();
   }
 
   public SendGrid setUrl(String url) {
@@ -42,30 +66,69 @@ public class SendGrid {
     return this;
   }
 
-  public SendGrid.Response send(Email email) throws SendGridException {
-    try {
-      HttpResponse<JsonNode> res = Unirest.post(this.url + this.endpoint)
-      .fields(email.toWebFormat()).field("api_user", this.username).field("api_key", this.password).asJson();
-      return new SendGrid.Response(res.getCode(), res.getBody());
-    } catch (UnirestException e) {
-      throw new SendGridException(e);
+  public HttpEntity buildBody(Email email) {
+    MultipartEntityBuilder builder = MultipartEntityBuilder.create();
+
+    builder.addTextBody("api_user", this.username);
+    builder.addTextBody("api_key", this.password);
+
+    for (int i = 0, len = email.getTos().length; i < len; i++)
+      builder.addTextBody(String.format(PARAM_TO, i), email.getTos()[i]);
+
+    for (int i = 0, len = email.getToNames().length; i < len; i++)
+      builder.addTextBody(String.format(PARAM_TONAME, i), email.getToNames()[i]);
+
+    for (int i = 0, len = email.getBccs().length; i < len; i++)
+      builder.addTextBody(String.format(PARAM_BCC, i), email.getBccs()[i]);
+    // Files
+    if (email.getAttachments().size() > 0) {
+      Iterator it = email.getAttachments().entrySet().iterator();
+      while (it.hasNext()) {
+        Map.Entry entry = (Map.Entry) it.next();
+        builder.addBinaryBody(String.format(PARAM_FILES, entry.getKey()), (InputStream) entry.getValue());
+      }
     }
+
+    if (email.getHeaders().size() > 0)
+      builder.addTextBody(PARAM_HEADERS, new JSONObject(email.getHeaders()).toString());
+
+    if (email.getFrom() != null && !email.getFrom().isEmpty())
+      builder.addTextBody(PARAM_FROM, email.getFrom());
+
+    if (email.getFromName() != null && !email.getFromName().isEmpty())
+      builder.addTextBody(PARAM_FROMNAME, email.getFromName());
+
+    if (email.getReplyTo() != null && !email.getReplyTo().isEmpty())
+      builder.addTextBody(PARAM_REPLYTO, email.getReplyTo());
+
+    if (email.getSubject() != null && !email.getSubject().isEmpty())
+      builder.addTextBody(PARAM_SUBJECT, email.getSubject());
+
+    if (email.getHtml() != null && !email.getHtml().isEmpty())
+      builder.addTextBody(PARAM_HTML, email.getHtml());
+
+    if (email.getText() != null && !email.getText().isEmpty())
+      builder.addTextBody(PARAM_TEXT, email.getText());
+
+    if (!email.getSMTPAPI().jsonString().equals("{}")) {
+      builder.addTextBody(PARAM_XSMTPAPI, email.getSMTPAPI().jsonString());
+    }
+    return builder.build();
+  }
+
+  public SendGrid.Response send(Email email) throws SendGridException {
+    HttpPost httppost = new HttpPost(this.url + this.endpoint);
+    httppost.setEntity(this.buildBody(email));
+    try {
+      HttpResponse res = this.client.execute(httppost);
+      return new SendGrid.Response(res.getStatusLine().getStatusCode(), EntityUtils.toString(res.getEntity()));
+    } catch (IOException e) {
+      return new SendGrid.Response(500, "Problem connecting to SendGrid");
+    }
+
   }
 
   public static class Email {
-    private static final String PARAM_TO          = "to[%d]";
-    private static final String PARAM_TONAME      = "toname[%d]";
-    private static final String PARAM_FROM        = "from";
-    private static final String PARAM_FROMNAME    = "fromname";
-    private static final String PARAM_REPLYTO     = "replyto";
-    private static final String PARAM_BCC         = "bcc[%d]";
-    private static final String PARAM_SUBJECT     = "subject";
-    private static final String PARAM_HTML        = "html";
-    private static final String PARAM_TEXT        = "text";
-    private static final String PARAM_FILES       = "files[%s]";
-    private static final String PARAM_XSMTPAPI    = "x-smtpapi";
-    private static final String PARAM_HEADERS     = "headers";
-
     private SMTPAPI smtpapi;
     private ArrayList<String> to;
     private ArrayList<String> toname;
@@ -106,7 +169,7 @@ public class SendGrid {
       return this;
     }
 
-    public String[] getTo() {
+    public String[] getTos() {
       return this.to.toArray(new String[this.to.size()]);
     }
 
@@ -125,7 +188,7 @@ public class SendGrid {
       return this;
     }
 
-    public String[] getToName() {
+    public String[] getToNames() {
       return this.toname.toArray(new String[this.toname.size()]);
     }
 
@@ -171,7 +234,7 @@ public class SendGrid {
       return this;
     }
 
-    public String[] getBcc() {
+    public String[] getBccs() {
       return this.bcc.toArray(new String[this.bcc.size()]);
     }
 
@@ -254,24 +317,21 @@ public class SendGrid {
       return this.smtpapi.getFilters();
     }
 
-    public Email addAttachment(String name, File file) {
+    public Email addAttachment(String name, File file) throws IOException, FileNotFoundException {
+      return this.addAttachment(name, new FileInputStream(file));
+    }
+
+    public Email addAttachment(String name, String file) throws IOException {
+      return this.addAttachment(name, new ByteArrayInputStream(file.getBytes()));
+    }
+
+    public Email addAttachment(String name, InputStream file) throws IOException {
       this.attachments.put(name, file);
       return this;
     }
 
-    public Email addAttachment(String name, String file) {
-      this.attachments.put(name, file);
-      return this;
-    }
-
-    public Email addAttachment(String name, InputStream file) {
-      Scanner scanner = new Scanner(file, "UTF-8");
-      String buffer = new String();
-      while (scanner.hasNextLine()) {
-        buffer += scanner.nextLine();
-      }
-      scanner.close();
-      return this.addAttachment(name, buffer);
+    public Map getAttachments() {
+      return this.attachments;
     }
 
     public Email addHeader(String key, String val) {
@@ -286,53 +346,6 @@ public class SendGrid {
     public SMTPAPI getSMTPAPI() {
       return this.smtpapi;
     }
-
-    public Map toWebFormat() {
-      Map body = new HashMap();
-
-      for (int i = 0; i < this.to.size(); i++)
-        body.put(String.format(PARAM_TO, i), this.to.get(i));
-
-      for (int i = 0; i < this.toname.size(); i++)
-        body.put(String.format(PARAM_TONAME, i), this.toname.get(i));
-
-      for (int i = 0; i < this.bcc.size(); i++)
-        body.put(String.format(PARAM_BCC, i), this.bcc.get(i));
-
-      if (this.from != null && !this.from.isEmpty())
-        body.put(PARAM_FROM, this.from);
-
-      if (this.fromname != null && !this.fromname.isEmpty())
-        body.put(PARAM_FROMNAME, this.fromname);
-
-      if (this.replyto != null && !this.replyto.isEmpty())
-        body.put(PARAM_REPLYTO, this.replyto);
-
-      if (this.subject != null && !this.subject.isEmpty())
-        body.put(PARAM_SUBJECT, this.subject);
-
-      if (this.text != null && !this.text.isEmpty())
-        body.put(PARAM_TEXT, this.text);
-
-      if (this.html != null && !this.html.isEmpty())
-        body.put(PARAM_HTML, this.html);
-
-      if (!this.headers.isEmpty())
-        body.put(PARAM_HEADERS, new JSONObject(this.headers).toString());
-
-      if (!this.smtpapi.jsonString().equals("{}"))
-        body.put(PARAM_XSMTPAPI, this.smtpapi.jsonString());
-
-      if (this.attachments.size() > 0) {
-        Iterator it = this.attachments.entrySet().iterator();
-        while (it.hasNext()) {
-          Map.Entry entry = (Map.Entry) it.next();
-          body.put(String.format(PARAM_FILES, entry.getKey()), entry.getValue());
-        }
-      }
-
-      return body;
-    }
   }
 
   public static class Response {
@@ -340,10 +353,10 @@ public class SendGrid {
     private boolean success;
     private String message;
 
-    public Response(int code, JsonNode body) {
+    public Response(int code, String msg) {
       this.code = code;
       this.success = code == 200;
-      this.message = body.toString();
+      this.message = msg;
     }
 
     public int getCode() {
