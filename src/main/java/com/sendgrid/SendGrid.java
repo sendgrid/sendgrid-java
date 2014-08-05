@@ -28,11 +28,12 @@ import org.apache.http.util.EntityUtils;
 import org.apache.http.entity.ContentType;
 
 public class SendGrid {
-  private static final String VERSION           = "1.1.0";
+  private static final String VERSION           = "1.2.0";
   private static final String USER_AGENT        = "sendgrid/" + VERSION + ";java";
 
   private static final String PARAM_TO          = "to[%d]";
   private static final String PARAM_TONAME      = "toname[%d]";
+  private static final String PARAM_CC          = "cc[%d]";
   private static final String PARAM_FROM        = "from";
   private static final String PARAM_FROMNAME    = "fromname";
   private static final String PARAM_REPLYTO     = "replyto";
@@ -84,14 +85,19 @@ public class SendGrid {
     builder.addTextBody("api_user", this.username);
     builder.addTextBody("api_key", this.password);
 
-    for (int i = 0, len = email.getTos().length; i < len; i++)
-      builder.addTextBody(String.format(PARAM_TO, i), email.getTos()[i]);
+    String[] tos = email.getTos();
+    String[] tonames = email.getToNames();
+    String[] ccs = email.getCcs();
+    String[] bccs = email.getBccs();
 
-    for (int i = 0, len = email.getToNames().length; i < len; i++)
-      builder.addTextBody(String.format(PARAM_TONAME, i), email.getToNames()[i], ContentType.create("text/plain", "UTF-8"));
-
-    for (int i = 0, len = email.getBccs().length; i < len; i++)
-      builder.addTextBody(String.format(PARAM_BCC, i), email.getBccs()[i]);
+    for (int i = 0, len = tos.length; i < len; i++)
+      builder.addTextBody(String.format(PARAM_TO, i), tos[i]);
+    for (int i = 0, len = tonames.length; i < len; i++)
+      builder.addTextBody(String.format(PARAM_TONAME, i), tonames[i], ContentType.create("text/plain", "UTF-8"));
+    for (int i = 0, len = ccs.length; i < len; i++)
+      builder.addTextBody(String.format(PARAM_CC, i), ccs[i]);
+    for (int i = 0, len = bccs.length; i < len; i++)
+      builder.addTextBody(String.format(PARAM_BCC, i), bccs[i]);
     // Files
     if (email.getAttachments().size() > 0) {
       Iterator it = email.getAttachments().entrySet().iterator();
@@ -122,9 +128,9 @@ public class SendGrid {
     if (email.getText() != null && !email.getText().isEmpty())
       builder.addTextBody(PARAM_TEXT, email.getText(), ContentType.create("text/plain", "UTF-8"));
 
-    if (!email.getSMTPAPI().jsonString().equals("{}")) {
+    if (!email.getSMTPAPI().jsonString().equals("{}"))
       builder.addTextBody(PARAM_XSMTPAPI, email.getSMTPAPI().jsonString());
-    }
+
     return builder.build();
   }
 
@@ -144,6 +150,7 @@ public class SendGrid {
     private SMTPAPI smtpapi;
     private ArrayList<String> to;
     private ArrayList<String> toname;
+    private ArrayList<String> cc;
     private String from;
     private String fromname;
     private String replyto;
@@ -158,6 +165,7 @@ public class SendGrid {
       this.smtpapi = new SMTPAPI();
       this.to = new ArrayList<String>();
       this.toname = new ArrayList<String>();
+      this.cc = new ArrayList<String>();
       this.bcc = new ArrayList<String>();
       this.attachments = new HashMap<String, InputStream>();
       this.headers = new HashMap<String, String>();
@@ -207,6 +215,25 @@ public class SendGrid {
 
     public String[] getToNames() {
       return this.toname.toArray(new String[this.toname.size()]);
+    }
+
+    public Email addCc(String cc) {
+      this.cc.add(cc);
+      return this;
+    }
+
+    public Email addCc(String[] ccs) {
+      this.cc.addAll(Arrays.asList(ccs));
+      return this;
+    }
+
+    public Email setCc(String[] ccs) {
+      this.cc = new ArrayList<String>(Arrays.asList(ccs));
+      return this;
+    }
+
+    public String[] getCcs() {
+      return this.cc.toArray(new String[this.cc.size()]);
     }
 
     public Email setFrom(String from) {

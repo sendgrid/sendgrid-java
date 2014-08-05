@@ -62,6 +62,17 @@ public class SendGridTest {
     assertArrayEquals(correct, email.getToNames());
   }
 
+  @Test public void testAddCc() {
+    email = new SendGrid.Email();
+
+    String address = "email@example.com";
+    email.addCc(address);
+
+    String[] correct = {address};
+
+    assertArrayEquals(correct, email.getCcs());
+  }
+
   @Test public void testSetFrom() {
     email = new SendGrid.Email();
 
