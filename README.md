@@ -5,21 +5,30 @@ This Java module allows you to quickly and easily send emails through SendGrid u
 [![BuildStatus](https://travis-ci.org/sendgrid/sendgrid-java.png?branch=master)](https://travis-ci.org/sendgrid/sendgrid-java)
 
 ```java
+// SendGridExample.java
 import com.sendgrid.*;
-SendGrid sendgrid = new SendGrid("sendgrid_username", "sendgrid_password");
 
-SendGrid.Email email = new SendGrid.Email();
-email.addTo("example@example.com");
-email.setFrom("other@example.com");
-email.setSubject("Hello World");
-email.setText("My first email through SendGrid");
+public class SendGridExample {
+  public static void main(String[] args) {
+    SendGrid sendgrid = new SendGrid(System.getenv("SENDGRID_USERNAME"), System.getenv("SENDGRID_PASSWORD"));
 
-try {
-  SendGrid.Response response = sendgrid.send(email);
-catch (SendGridException e) {
-  System.out.println(e);
+    SendGrid.Email email = new SendGrid.Email();
+    email.addTo("example@example.com");
+    email.setFrom("other@example.com");
+    email.setSubject("Hello World");
+    email.setText("My first email with SendGrid Java!");
+
+    try {
+      SendGrid.Response response = sendgrid.send(email);
+      System.out.println(response.getMessage());
+    }
+    catch (SendGridException e) {
+      System.err.println(e);
+    }
+  }
 }
 ```
+Compile and run this example with `javac -classpath sendgrid-1.2.0-jar.jar:. SendGridExample.java && java -classpath sendgrid-1.2.0-jar.jar:. SendGridExample`
 
 ## Installation
 
