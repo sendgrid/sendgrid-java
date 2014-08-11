@@ -10,7 +10,7 @@ import com.sendgrid.*;
 
 public class SendGridExample {
   public static void main(String[] args) {
-    SendGrid sendgrid = new SendGrid(System.getenv("SENDGRID_USERNAME"), System.getenv("SENDGRID_PASSWORD"));
+    SendGrid sendgrid = new SendGrid("SENDGRID USERNAME", "SENDGRID_PASSWORD");
 
     SendGrid.Email email = new SendGrid.Email();
     email.addTo("example@example.com");
