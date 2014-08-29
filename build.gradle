@@ -17,7 +17,7 @@ apply plugin: 'maven'
 apply plugin: 'signing'
 
 group         = 'com.sendgrid'
-version       = "1.2.0"
+version       = "1.2.1"
 ext.packaging = 'jar'
 
 allprojects {
@@ -45,7 +45,7 @@ buildscript {
 }
 
 dependencies {
-  compile 'com.sendgrid:smtpapi-java:0.1.1'
+  compile 'com.sendgrid:smtpapi-java:1.0.0'
   compile 'org.apache.httpcomponents:httpcore:4.3.2'
   compile 'org.apache.httpcomponents:httpclient:4.3.4'
   compile 'org.apache.httpcomponents:httpmime:4.3.4'

@@ -28,7 +28,7 @@ import org.apache.http.util.EntityUtils;
 import org.apache.http.entity.ContentType;
 
 public class SendGrid {
-  private static final String VERSION           = "1.2.0";
+  private static final String VERSION           = "1.2.1";
   private static final String USER_AGENT        = "sendgrid/" + VERSION + ";java";
 
   private static final String PARAM_TO          = "to[%d]";
