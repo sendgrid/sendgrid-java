@@ -28,7 +28,7 @@ import org.apache.http.util.EntityUtils;
 import org.apache.http.entity.ContentType;
 
 public class SendGrid {
-  private static final String VERSION           = "1.2.1";
+  private static final String VERSION           = "1.3.0";
   private static final String USER_AGENT        = "sendgrid/" + VERSION + ";java";
 
   private static final String PARAM_TO          = "to[%d]";
@@ -42,6 +42,7 @@ public class SendGrid {
   private static final String PARAM_HTML        = "html";
   private static final String PARAM_TEXT        = "text";
   private static final String PARAM_FILES       = "files[%s]";
+  private static final String PARAM_CONTENTS    = "content[%s]";
   private static final String PARAM_XSMTPAPI    = "x-smtpapi";
   private static final String PARAM_HEADERS     = "headers";
 
@@ -107,6 +108,14 @@ public class SendGrid {
       }
     }
 
+		if (email.getContentIds().size() > 0) {
+      Iterator it = email.getContentIds().entrySet().iterator();
+      while (it.hasNext()) {
+        Map.Entry entry = (Map.Entry) it.next();
+        builder.addTextBody(String.format(PARAM_CONTENTS, entry.getKey()), (String) entry.getValue());
+      }
+    }
+
     if (email.getHeaders().size() > 0)
       builder.addTextBody(PARAM_HEADERS, new JSONObject(email.getHeaders()).toString());
 
@@ -159,6 +168,7 @@ public class SendGrid {
     private String html;
     private ArrayList<String> bcc;
     private Map<String, InputStream> attachments;
+    private Map<String, String> contents;
     private Map<String, String> headers;
 
     public Email () {
@@ -168,8 +178,9 @@ public class SendGrid {
       this.cc = new ArrayList<String>();
       this.bcc = new ArrayList<String>();
       this.attachments = new HashMap<String, InputStream>();
-      this.headers = new HashMap<String, String>();
-    }
+      this.contents = new HashMap<String, String>();
+   	  this.headers = new HashMap<String, String>();
+   	}
 
     public Email addTo(String to) {
       this.smtpapi.addTo(to);
@@ -376,6 +387,15 @@ public class SendGrid {
 
     public Map getAttachments() {
       return this.attachments;
+    }
+
+    public Email addContentId(String attachmentName, String cid) {
+		  this.contents.put(attachmentName, cid);
+		  return this;
+    }
+
+    public Map getContentIds() {
+		  return this.contents;
     }
 
     public Email addHeader(String key, String val) {
