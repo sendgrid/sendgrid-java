@@ -10,7 +10,7 @@ import com.sendgrid.*;
 
 public class SendGridExample {
   public static void main(String[] args) {
-    SendGrid sendgrid = new SendGrid(System.getenv("SENDGRID_USERNAME"), System.getenv("SENDGRID_PASSWORD"));
+    SendGrid sendgrid = new SendGrid("SENDGRID USERNAME", "SENDGRID_PASSWORD");
 
     SendGrid.Email email = new SendGrid.Email();
     email.addTo("example@example.com");
@@ -31,7 +31,7 @@ public class SendGridExample {
 Compile and run this example with
 
 ```bash
-$ javac -classpath sendgrid-1.2.0-jar.jar:. SendGridExample.java && java -classpath sendgrid-1.2.0-jar.jar:. SendGridExample
+$ javac -classpath sendgrid-1.2.1-jar.jar:. SendGridExample.java && java -classpath sendgrid-1.2.1-jar.jar:. SendGridExample
 ```
 
 ## Installation
@@ -46,7 +46,7 @@ Add the following to your build.gradle file in the root of your project.
 ...
 dependencies {
   ...
-  compile 'com.sendgrid:sendgrid-java:1.2.0'
+  compile 'com.sendgrid:sendgrid-java:1.2.1'
 }
 
 repositories {
@@ -59,6 +59,16 @@ Then import the library - in the file appropriate to your Java project.
 
 ```java
 import com.sendgrid.SendGrid;
+```
+
+### via jar file
+
+You can just drop the jar file in. It's a fat jar - it has all the dependencies built in.
+
+[sendgrid-java.jar](https://sendgrid-open-source.s3.amazonaws.com/sendgrid-java/sendgrid-java.jar)
+
+```java
+import com.sendgrid.*;
 ```
 
 ## Usage
