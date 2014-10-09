@@ -102,7 +102,7 @@ sendgrid.send(email);
 ```java
 email.addTo("example@example.com");
 // or
-email.setTos(["other@other.com"]);
+email.setTo(["other@other.com"]);
 ```
 
 ### From
