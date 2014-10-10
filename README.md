@@ -151,6 +151,26 @@ email.addAttachment("image.png", new File("./image.png"));
 email.addAttachment("text.txt", new InputStream(new File("./file.txt")));
 ```
 
+### Content IDs
+
+```java
+// First, add an attachment
+email.addAttachment("image.png", new File("./image.png"));
+// Map the name of the attachment to an ID
+email.addContentId("image.png", "ID_IN_HTML")
+// Map the ID in the HTML
+email.setHtml("<html><body>TEXT BEFORE IMAGE<img src=\"cid:ID_IN_HTML\"></img>AFTER IMAGE</body></html>")
+```
+
+### Proxy Server Setup
+
+```java
+SendGrid sendgrid = new SendGrid("SENDGRID USERNAME", "SENDGRID_PASSWORD");
+HttpHost proxy = new HttpHost("server", 3128);
+CloseableHttpClient http = HttpClientBuilder.create().setProxy(proxy).setUserAgent("sendgrid/" + sendgrid.getVersion() + ";java").build();
+sendgrid.setClient(http);
+```
+
 ## [X-SMTPAPI](http://sendgrid.com/docs/API_Reference/SMTP_API/index.html)
 
 The mail object extends the SMTPAPI object which is found in [STMAPI-Java](https://github.com/sendgrid/smtpapi-java).
