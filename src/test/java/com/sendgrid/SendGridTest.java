@@ -1,21 +1,10 @@
 package com.sendgrid;
 
-import org.json.JSONException;
-
-import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
-import java.io.File;
-import java.io.InputStream;
-import java.io.IOException;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-
 import org.junit.Test;
-import org.junit.Before;
 import static org.junit.Assert.*;
-import static org.junit.matchers.JUnitMatchers.hasItems;
 
 public class SendGridTest {
   SendGrid.Email email;

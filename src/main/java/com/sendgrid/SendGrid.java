@@ -4,8 +4,6 @@ import org.json.JSONObject;
 import com.sendgrid.smtpapi.SMTPAPI;
 
 import java.util.ArrayList;
-import java.io.BufferedReader;
-import java.io.InputStreamReader;
 import java.io.ByteArrayInputStream;
 import java.io.FileNotFoundException;
 import java.util.Arrays;
