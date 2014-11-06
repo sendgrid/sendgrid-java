@@ -148,7 +148,7 @@ public class SendGrid {
       HttpResponse res = this.client.execute(httppost);
       return new SendGrid.Response(res.getStatusLine().getStatusCode(), EntityUtils.toString(res.getEntity()));
     } catch (IOException e) {
-      return new SendGrid.Response(500, "Problem connecting to SendGrid");
+      throw new SendGridException(e);
     }
 
   }
