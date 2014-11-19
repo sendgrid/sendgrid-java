@@ -26,7 +26,7 @@ import org.apache.http.util.EntityUtils;
 import org.apache.http.entity.ContentType;
 
 public class SendGrid {
-  private static final String VERSION           = "1.3.1";
+  private static final String VERSION           = "2.0.0";
   private static final String USER_AGENT        = "sendgrid/" + VERSION + ";java";
 
   private static final String PARAM_TO          = "to[%d]";
@@ -89,14 +89,18 @@ public class SendGrid {
     String[] ccs = email.getCcs();
     String[] bccs = email.getBccs();
 
+    // If SMTPAPI Header is used, To is still required. #workaround.
+    if (tos.length == 0) {
+      builder.addTextBody(String.format(PARAM_TO, 0), email.getFrom(), ContentType.create("text/plain", "UTF-8"));
+    }
     for (int i = 0, len = tos.length; i < len; i++)
-      builder.addTextBody(String.format(PARAM_TO, i), tos[i]);
+      builder.addTextBody(String.format(PARAM_TO, i), tos[i], ContentType.create("text/plain", "UTF-8"));
     for (int i = 0, len = tonames.length; i < len; i++)
       builder.addTextBody(String.format(PARAM_TONAME, i), tonames[i], ContentType.create("text/plain", "UTF-8"));
     for (int i = 0, len = ccs.length; i < len; i++)
-      builder.addTextBody(String.format(PARAM_CC, i), ccs[i]);
+      builder.addTextBody(String.format(PARAM_CC, i), ccs[i], ContentType.create("text/plain", "UTF-8"));
     for (int i = 0, len = bccs.length; i < len; i++)
-      builder.addTextBody(String.format(PARAM_BCC, i), bccs[i]);
+      builder.addTextBody(String.format(PARAM_BCC, i), bccs[i], ContentType.create("text/plain", "UTF-8"));
     // Files
     if (email.getAttachments().size() > 0) {
       Iterator it = email.getAttachments().entrySet().iterator();
@@ -115,16 +119,16 @@ public class SendGrid {
     }
 
     if (email.getHeaders().size() > 0)
-      builder.addTextBody(PARAM_HEADERS, new JSONObject(email.getHeaders()).toString());
+      builder.addTextBody(PARAM_HEADERS, new JSONObject(email.getHeaders()).toString(), ContentType.create("text/plain", "UTF-8"));
 
     if (email.getFrom() != null && !email.getFrom().isEmpty())
-      builder.addTextBody(PARAM_FROM, email.getFrom());
+      builder.addTextBody(PARAM_FROM, email.getFrom(), ContentType.create("text/plain", "UTF-8"));
 
     if (email.getFromName() != null && !email.getFromName().isEmpty())
       builder.addTextBody(PARAM_FROMNAME, email.getFromName(), ContentType.create("text/plain", "UTF-8"));
 
     if (email.getReplyTo() != null && !email.getReplyTo().isEmpty())
-      builder.addTextBody(PARAM_REPLYTO, email.getReplyTo());
+      builder.addTextBody(PARAM_REPLYTO, email.getReplyTo(), ContentType.create("text/plain", "UTF-8"));
 
     if (email.getSubject() != null && !email.getSubject().isEmpty())
       builder.addTextBody(PARAM_SUBJECT, email.getSubject(), ContentType.create("text/plain", "UTF-8"));
@@ -135,8 +139,8 @@ public class SendGrid {
     if (email.getText() != null && !email.getText().isEmpty())
       builder.addTextBody(PARAM_TEXT, email.getText(), ContentType.create("text/plain", "UTF-8"));
 
-    if (!email.getSMTPAPI().jsonString().equals("{}"))
-      builder.addTextBody(PARAM_XSMTPAPI, email.getSMTPAPI().jsonString());
+    if (!email.smtpapi.jsonString().equals("{}"))
+      builder.addTextBody(PARAM_XSMTPAPI, email.smtpapi.jsonString(), ContentType.create("text/plain", "UTF-8"));
 
     return builder.build();
   }
@@ -181,13 +185,11 @@ public class SendGrid {
    	}
 
     public Email addTo(String to) {
-      this.smtpapi.addTo(to);
       this.to.add(to);
       return this;
     }
 
     public Email addTo(String[] tos) {
-      this.smtpapi.addTos(tos);
       this.to.addAll(Arrays.asList(tos));
       return this;
     }
@@ -198,7 +200,6 @@ public class SendGrid {
     }
 
     public Email setTo(String[] tos) {
-      this.smtpapi.setTos(tos);
       this.to = new ArrayList<String>(Arrays.asList(tos));
       return this;
     }
@@ -207,7 +208,17 @@ public class SendGrid {
       return this.to.toArray(new String[this.to.size()]);
     }
 
-    public Email addToName(String toname) {
+    public Email addSmtpApiTo(String to) {
+      this.smtpapi.addTo(to);
+      return this;
+    }
+
+    public Email addSmtpApiTo(String[] to) {
+      this.smtpapi.addTos(to);
+      return this;
+    }
+
+   public Email addToName(String toname) {
       this.toname.add(toname);
       return this;
     }
@@ -316,13 +327,6 @@ public class SendGrid {
 
     public String getHtml() {
       return this.html;
-    }
-
-    public Email dropSMTPAPITos() {
-      JSONObject oldHeader = new JSONObject(this.smtpapi.jsonString());
-      oldHeader.remove("to");
-      this.smtpapi = new SMTPAPI(oldHeader);
-      return this;
     }
 
     public Email addSubstitution(String key, String[] val) {

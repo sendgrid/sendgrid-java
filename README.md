@@ -4,6 +4,10 @@ This Java module allows you to quickly and easily send emails through SendGrid u
 
 [![BuildStatus](https://travis-ci.org/sendgrid/sendgrid-java.png?branch=master)](https://travis-ci.org/sendgrid/sendgrid-java)
 
+### Warning
+
+Version ``2.x.x``, behaves differently in the ``addTo`` method. In the past this method defaulted to using the ``SMTPAPI`` header. Now you must explicitly call the ``addSmtpApiTo`` method. More on the ``SMTPAPI`` section.
+
 ```java
 // SendGridExample.java
 import com.sendgrid.*;
@@ -46,7 +50,7 @@ Add the following to your build.gradle file in the root of your project.
 ...
 dependencies {
   ...
-  compile 'com.sendgrid:sendgrid-java:1.2.1'
+  compile 'com.sendgrid:sendgrid-java:2.0.0'
 }
 
 repositories {
@@ -175,12 +179,25 @@ sendgrid.setClient(http);
 
 The mail object extends the SMTPAPI object which is found in [STMAPI-Java](https://github.com/sendgrid/smtpapi-java).
 
+```java
+email.getSMTPAPI();
+```
+
+### Recipients
+
+```java
+email.addSmtpApiTo("email@email.com");
+// or
+email.addSmtpApiTo(["email@email.com"]);
+```
+
+
 ### [Substitutions](http://sendgrid.com/docs/API_Reference/SMTP_API/substitution_tags.html)
 
 ```java
-header.addSubstitution("key", "value");
+email.addSubstitution("key", "value");
 // or
-header.setSubstitutions("key", ["value1", "value2"]);
+email.setSubstitutions("key", ["value1", "value2"]);
 
 JSONObject subs = header.getSubstitutions();
 ```
@@ -188,59 +205,63 @@ JSONObject subs = header.getSubstitutions();
 ### [Unique Arguments](http://sendgrid.com/docs/API_Reference/SMTP_API/unique_arguments.html)
 
 ```java
-header.addUuniqueAarg("key", "value");
+email.addUniqueAarg("key", "value");
 // or
 Map map = new HashMap<String, String>();
 map.put("unique", "value");
-header.setUniqueArgs(map);
+email.setUniqueArgs(map);
 // or
 JSONObject map = new JSONObject();
 map.put("unique", "value");
-header.setUniqueArgs(map);
+email.setUniqueArgs(map);
+// or
+email.setUniqueArgs(map);
 
-JSONObject args = header.getUniqueArgs();
+JSONObject args = email.getUniqueArgs();
 ```
 ### [Categories](http://sendgrid.com/docs/API_Reference/SMTP_API/categories.html)
 
 ```java
-header.addCategory("category");
+email.addCategory("category");
 // or
-header.addCategory(["categories"]);
+email.addCategory(["categories"]);
 // or
-header.setCategories(["category1", "category2"]);
+email.setCategories(["category1", "category2"]);
+// or
+email.setCategories(["category1", category2"]);
 
-String[] cats = header.getCategories();
+String[] cats = email.getCategories();
 ```
 
 ### [Sections](http://sendgrid.com/docs/API_Reference/SMTP_API/section_tags.html)
 
 ```java
-header.addSection("key", "section");
+email.addSection("key", "section");
 // or
 Map newSec = new HashMap();
 newSec.put("-section-", "value");
-header.setSections(newSec);
+email.setSections(newSec);
 // or
 JSONObject newSec = new JSONObject();
 newSec.put("-section-", "value");
-header.setSections(newSec);
+email.setSections(newSec);
 
-JSONObject sections = header.getSections();
+JSONObject sections = email.getSections();
 ```
 
 ### [Filters](http://sendgrid.com/docs/API_Reference/SMTP_API/apps.html)
 
 ```java
-header.addFilter("filter", "setting", "value");
-header.addFilter("filter", "setting", 1);
+email.addFilter("filter", "setting", "value");
+email.addFilter("filter", "setting", 1);
 
-JSONObject filters = header.getFilters();
+JSONObject filters = email.getFilters();
 ```
 
 ### Get Headers
 
 ```java
-String headers = header.jsonString();
+String headers = email.jsonString();
 ```
 
 ### Filters/Apps

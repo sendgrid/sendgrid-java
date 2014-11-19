@@ -139,4 +139,16 @@ public class SendGridTest {
 
     assertEquals(correct, email.getHeaders());
   }
+
+  @Test public void testSmtpapiToHeader() {
+    email = new SendGrid.Email();
+
+    String[] expected = {"example@email.com"};
+
+    email.getSMTPAPI().addTo(expected[0]);
+    String[] result = email.getSMTPAPI().getTos();
+
+    assertArrayEquals(expected, result);
+  }
+
 }
