@@ -374,6 +374,24 @@ public class SendGrid {
       return this.smtpapi.getFilters();
     }
 
+    public Email setASMGroupId(int val) {
+      this.smtpapi.setASMGroupId(val);
+      return this;
+    }
+
+    public Integer getASMGroupId() {
+      return this.smtpapi.getASMGroupId();
+    }
+
+    public Email setSendAt(int sendAt) {
+      this.smtpapi.setSendAt(sendAt);
+      return this;
+    }
+
+    public int getSendAt() {
+      return this.smtpapi.getSendAt();
+    }
+
     public Email addAttachment(String name, File file) throws IOException, FileNotFoundException {
       return this.addAttachment(name, new FileInputStream(file));
     }
