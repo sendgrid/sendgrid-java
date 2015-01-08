@@ -103,49 +103,105 @@ sendgrid.send(email);
 
 ### To
 
+#### addTo
+
 ```java
-email.addTo("example@example.com");
+email.addTo("foo@example.com");
 // or
-email.setTo(["other@other.com"]);
+email.addTo(["foo@other.com", "bar@other.com"]);
+// or
+email.addTo("foo.bar@other.com", "Foo Bar");
+```
+
+#### setTo
+
+```java
+email.setTo(["foo@other.com", "bar@other.com"]);
+```
+
+#### addToName
+
+```java
+email.addToName("Foo");
+// or
+email.addToName(["Foo", "Bar"]);
+```
+
+#### setToName
+
+```java
+email.setToName(["Foo", "Bar"]);
+```
+
+#### addCc
+
+```java
+email.addCc("foo@example.com");
+// or
+email.addCc(["foo@other.com", "bar@other.com"]);
+```
+
+#### setCc
+
+```java
+email.setCc(["foo@other.com", "bar@other.com"]);
+```
+
+#### addBcc
+
+```java
+email.addBcc("foo@example.com");
+// or
+email.addBcc(["foo@other.com", "bar@other.com"]);
+```
+
+#### setBcc
+
+```java
+email.setBcc(["foo@other.com", "bar@other.com"]);
 ```
 
 ### From
+
+#### setFrom
 
 ```java
 email.setFrom("other@example.com");
 ```
 
-### From Name
+#### setFromName
 
 ```java
 email.setFromName("Other Dude");
 ```
 
-### Reply To
+#### setReplyTo
 
 ```java
 email.setReplyTo("no-reply@nowhere.com");
 ```
 
-### Subject
+#### setSubject
 
 ```java
 email.setSubject("Hello World");
 ```
 
-### Text
+#### setText
 
 ```java
 email.setText("This is some text of the email.");
 ```
 
-### Html
+#### setHtml
 
 ```java
 email.setHtml("<h1>My first email through SendGrid");
 ```
 
 ### Attachments
+
+#### addAttachment
 
 ```java
 email.addAttachment("text.txt", "contents");
@@ -156,6 +212,8 @@ email.addAttachment("text.txt", new InputStream(new File("./file.txt")));
 ```
 
 ### Content IDs
+
+#### addContentId
 
 ```java
 // First, add an attachment
@@ -185,24 +243,35 @@ email.getSMTPAPI();
 
 ### Recipients
 
-```java
-email.addSmtpApiTo("email@email.com");
-// or
-email.addSmtpApiTo(["email@email.com"]);
-```
+#### addSmtpApiTo
 
+```java
+email.addSmtpApiTo("foo@example.com");
+// or
+email.addSmtpApiTo(["foo@other.com", "bar@other.com"]);
+```
 
 ### [Substitutions](http://sendgrid.com/docs/API_Reference/SMTP_API/substitution_tags.html)
 
+#### addSubstitution
+
 ```java
 email.addSubstitution("key", "value");
-// or
+
+JSONObject subs = header.getSubstitutions();
+```
+
+#### setSubstitutions
+
+```java
 email.setSubstitutions("key", ["value1", "value2"]);
 
 JSONObject subs = header.getSubstitutions();
 ```
 
 ### [Unique Arguments](http://sendgrid.com/docs/API_Reference/SMTP_API/unique_arguments.html)
+
+#### addUniqueAarg
 
 ```java
 email.addUniqueAarg("key", "value");
@@ -219,37 +288,32 @@ email.setUniqueArgs(map);
 
 JSONObject args = email.getUniqueArgs();
 ```
+
 ### [Categories](http://sendgrid.com/docs/API_Reference/SMTP_API/categories.html)
+
+#### addCategory
 
 ```java
 email.addCategory("category");
-// or
-email.addCategory(["categories"]);
-// or
-email.setCategories(["category1", "category2"]);
-// or
-email.setCategories(["category1", category2"]);
 
 String[] cats = email.getCategories();
 ```
 
 ### [Sections](http://sendgrid.com/docs/API_Reference/SMTP_API/section_tags.html)
 
+#### addSection
+
 ```java
 email.addSection("key", "section");
-// or
-Map newSec = new HashMap();
-newSec.put("-section-", "value");
-email.setSections(newSec);
-// or
-JSONObject newSec = new JSONObject();
-newSec.put("-section-", "value");
-email.setSections(newSec);
 
 JSONObject sections = email.getSections();
 ```
 
-### [Filters](http://sendgrid.com/docs/API_Reference/SMTP_API/apps.html)
+### [Filters / Apps](http://sendgrid.com/docs/API_Reference/SMTP_API/apps.html)
+
+You can enable and configure Apps.
+
+#### addFilter
 
 ```java
 email.addFilter("filter", "setting", "value");
@@ -258,15 +322,7 @@ email.addFilter("filter", "setting", 1);
 JSONObject filters = email.getFilters();
 ```
 
-### Get Headers
-
-```java
-String headers = email.jsonString();
-```
-
-### Filters/Apps
-
-You can enable and configure Apps.
+Example enabling bcc app:
 
 ```java
 SendGrid sendgrid = new SendGrid("sendgrid_username", "sendgrid_password");
@@ -274,6 +330,22 @@ sendgrid.addTo("example@example.com");
 ...
 sendgrid.addFilter("bcc", "enabled", 1);
 sendgrid.addFilter("bcc", "email", "example@example.com");
+```
+
+### [ASM - Advanced Supression Manager](https://sendgrid.com/docs/User_Guide/advanced_suppression_manager.html)
+
+#### setASMGroupId
+
+```java
+email.setASMGroupId(1);
+```
+
+### [Schedule Sending](https://sendgrid.com/docs/API_Reference/SMTP_API/scheduling_parameters.html)
+
+#### setSendAt
+
+```java
+email.setSendAt(1409348513);
 ```
 
 ## Contributing
