@@ -3,10 +3,10 @@ package com.sendgrid;
 import org.junit.Test;
 
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertArrayEquals;
+import static org.junit.Assert.assertEquals;
 
 public class SendGridTest {
     SendGrid.Email email;
@@ -169,9 +169,9 @@ public class SendGridTest {
     @Test
     public void testGetTemplates() {
         try {
-            List<SendGrid.Template> availableTemplates = new SendGrid(USERNAME, PASSWORD).getTemplates();
-            assertNotNull(availableTemplates);
+            new SendGrid(USERNAME, PASSWORD).getTemplates();
         } catch (SendGridException e) {
+            assert false;
             e.printStackTrace();
         }
     }

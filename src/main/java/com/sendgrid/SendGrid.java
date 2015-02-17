@@ -184,14 +184,18 @@ public class SendGrid {
             HttpResponse response = this.client.execute(httpGet);
             String responseJson = EntityUtils.toString(response.getEntity());
             System.out.println(responseJson);
-            JSONObject jsonObject = new JSONObject(responseJson);
-            JSONArray templatesArray = jsonObject.getJSONArray("templates");
-            if (templatesArray.length()>0) {
-                availableTemplates = new ArrayList<Template>();
-                for(int i=0; i<templatesArray.length(); i++) {
-                    JSONObject templateJson = templatesArray.getJSONObject(i);
-                    Template template = convertToTemplate(templateJson);
-                    availableTemplates.add(template);
+            // Checks if it is 100 something or 200 something and
+            // more importantly it is not 40 something or 500 something
+            if (response.getStatusLine().getStatusCode()<300) {
+                JSONObject jsonObject = new JSONObject(responseJson);
+                JSONArray templatesArray = jsonObject.getJSONArray("templates");
+                if (templatesArray.length()>0) {
+                    availableTemplates = new ArrayList<Template>();
+                    for(int i=0; i<templatesArray.length(); i++) {
+                        JSONObject templateJson = templatesArray.getJSONObject(i);
+                        Template template = convertToTemplate(templateJson);
+                        availableTemplates.add(template);
+                    }
                 }
             }
         } catch (IOException e) {
