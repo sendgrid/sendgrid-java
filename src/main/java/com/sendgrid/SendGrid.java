@@ -23,21 +23,24 @@ public class SendGrid {
     private static final String VERSION = "2.1.0";
     private static final String USER_AGENT = "sendgrid/" + VERSION + ";java";
 
-    private static final String PARAM_TO = "to[%d]";
-    private static final String PARAM_TONAME = "toname[%d]";
-    private static final String PARAM_CC = "cc[%d]";
-    private static final String PARAM_FROM = "from";
-    private static final String PARAM_FROMNAME = "fromname";
-    private static final String PARAM_REPLYTO = "replyto";
-    private static final String PARAM_BCC = "bcc[%d]";
-    private static final String PARAM_SUBJECT = "subject";
-    private static final String PARAM_HTML = "html";
-    private static final String PARAM_TEXT = "text";
-    private static final String PARAM_FILES = "files[%s]";
-    private static final String PARAM_CONTENTS = "content[%s]";
-    private static final String PARAM_XSMTPAPI = "x-smtpapi";
-    private static final String PARAM_HEADERS = "headers";
+    private static final String PARAM_TO            = "to[%d]";
+    private static final String PARAM_TONAME        = "toname[%d]";
+    private static final String PARAM_CC            = "cc[%d]";
+    private static final String PARAM_FROM          = "from";
+    private static final String PARAM_FROMNAME      = "fromname";
+    private static final String PARAM_REPLYTO       = "replyto";
+    private static final String PARAM_BCC           = "bcc[%d]";
+    private static final String PARAM_SUBJECT       = "subject";
+    private static final String PARAM_HTML          = "html";
+    private static final String PARAM_TEXT          = "text";
+    private static final String PARAM_FILES         = "files[%s]";
+    private static final String PARAM_CONTENTS      = "content[%s]";
+    private static final String PARAM_XSMTPAPI      = "x-smtpapi";
+    private static final String PARAM_HEADERS       = "headers";
     private static final String PARAM_AUTHORIZATION = "AUTHORIZATION";
+
+    private static final String TEXT_PLAIN          = "text/plain";
+    private static final String UTF_8               = "UTF-8";
 
     private String username;
     private String password;
@@ -86,60 +89,92 @@ public class SendGrid {
 
         // If SMTPAPI Header is used, To is still required. #workaround.
         if (tos.length == 0) {
-            builder.addTextBody(String.format(PARAM_TO, 0), email.getFrom(), ContentType.create("text/plain", "UTF-8"));
+            builder.addTextBody(String.format(PARAM_TO, 0), email.getFrom(), ContentType.create(TEXT_PLAIN, UTF_8));
         }
         for (int i = 0, len = tos.length; i < len; i++)
-            builder.addTextBody(String.format(PARAM_TO, i), tos[i], ContentType.create("text/plain", "UTF-8"));
+            builder.addTextBody(String.format(PARAM_TO, i), tos[i], ContentType.create(TEXT_PLAIN, UTF_8));
         for (int i = 0, len = tonames.length; i < len; i++)
-            builder.addTextBody(String.format(PARAM_TONAME, i), tonames[i], ContentType.create("text/plain", "UTF-8"));
+            builder.addTextBody(String.format(PARAM_TONAME, i), tonames[i], ContentType.create(TEXT_PLAIN, UTF_8));
         for (int i = 0, len = ccs.length; i < len; i++)
-            builder.addTextBody(String.format(PARAM_CC, i), ccs[i], ContentType.create("text/plain", "UTF-8"));
+            builder.addTextBody(String.format(PARAM_CC, i), ccs[i], ContentType.create(TEXT_PLAIN, UTF_8));
         for (int i = 0, len = bccs.length; i < len; i++)
-            builder.addTextBody(String.format(PARAM_BCC, i), bccs[i], ContentType.create("text/plain", "UTF-8"));
+            builder.addTextBody(String.format(PARAM_BCC, i), bccs[i], ContentType.create(TEXT_PLAIN, UTF_8));
         // Files
         if (email.getAttachments().size() > 0) {
-            Iterator it = email.getAttachments().entrySet().iterator();
-            while (it.hasNext()) {
-                Map.Entry entry = (Map.Entry) it.next();
+            for (Object o : email.getAttachments().entrySet()) {
+                Map.Entry entry = (Map.Entry) o;
                 builder.addBinaryBody(String.format(PARAM_FILES, entry.getKey()), (InputStream) entry.getValue());
             }
         }
 
         if (email.getContentIds().size() > 0) {
-            Iterator it = email.getContentIds().entrySet().iterator();
-            while (it.hasNext()) {
-                Map.Entry entry = (Map.Entry) it.next();
+            for (Object o : email.getContentIds().entrySet()) {
+                Map.Entry entry = (Map.Entry) o;
                 builder.addTextBody(String.format(PARAM_CONTENTS, entry.getKey()), (String) entry.getValue());
             }
         }
 
         if (email.getHeaders().size() > 0)
-            builder.addTextBody(PARAM_HEADERS, new JSONObject(email.getHeaders()).toString(), ContentType.create("text/plain", "UTF-8"));
+            builder.addTextBody(PARAM_HEADERS, new JSONObject(email.getHeaders()).toString(), ContentType.create(TEXT_PLAIN, UTF_8));
 
         if (email.getFrom() != null && !email.getFrom().isEmpty())
-            builder.addTextBody(PARAM_FROM, email.getFrom(), ContentType.create("text/plain", "UTF-8"));
+            builder.addTextBody(PARAM_FROM, email.getFrom(), ContentType.create(TEXT_PLAIN, UTF_8));
 
         if (email.getFromName() != null && !email.getFromName().isEmpty())
-            builder.addTextBody(PARAM_FROMNAME, email.getFromName(), ContentType.create("text/plain", "UTF-8"));
+            builder.addTextBody(PARAM_FROMNAME, email.getFromName(), ContentType.create(TEXT_PLAIN, UTF_8));
 
         if (email.getReplyTo() != null && !email.getReplyTo().isEmpty())
-            builder.addTextBody(PARAM_REPLYTO, email.getReplyTo(), ContentType.create("text/plain", "UTF-8"));
+            builder.addTextBody(PARAM_REPLYTO, email.getReplyTo(), ContentType.create(TEXT_PLAIN, UTF_8));
 
         if (email.getSubject() != null && !email.getSubject().isEmpty())
-            builder.addTextBody(PARAM_SUBJECT, email.getSubject(), ContentType.create("text/plain", "UTF-8"));
+            builder.addTextBody(PARAM_SUBJECT, email.getSubject(), ContentType.create(TEXT_PLAIN, UTF_8));
 
         if (email.getHtml() != null && !email.getHtml().isEmpty())
-            builder.addTextBody(PARAM_HTML, email.getHtml(), ContentType.create("text/plain", "UTF-8"));
+            builder.addTextBody(PARAM_HTML, email.getHtml(), ContentType.create(TEXT_PLAIN, UTF_8));
 
         if (email.getText() != null && !email.getText().isEmpty())
-            builder.addTextBody(PARAM_TEXT, email.getText(), ContentType.create("text/plain", "UTF-8"));
+            builder.addTextBody(PARAM_TEXT, email.getText(), ContentType.create(TEXT_PLAIN, UTF_8));
 
-        if (!email.smtpapi.jsonString().equals("{}"))
-            builder.addTextBody(PARAM_XSMTPAPI, email.smtpapi.jsonString(), ContentType.create("text/plain", "UTF-8"));
+        if (!email.smtpapi.jsonString().equals("{}") || email.isUseActiveTemplate()) {
+            if(email.isUseActiveTemplate()) {
+                Template activeTemplate = this.getActiveTemplate();
+                if(activeTemplate != null) {
+                    email.getSMTPAPI().addFilter("templates", "enabled", 1);
+                    email.getSMTPAPI().addFilter("templates", "template_id", activeTemplate.getId());
+                }
+            }
+            builder.addTextBody(PARAM_XSMTPAPI, email.smtpapi.jsonString(), ContentType.create(TEXT_PLAIN, UTF_8));
+        }
 
         return builder.build();
     }
 
+    /**
+     * Gets a template which has one active version
+     * @return A {@link com.sendgrid.SendGrid.Template}
+     */
+    private Template getActiveTemplate() {
+        try {
+            List<Template> templates = this.getTemplates();
+            for(Template template : templates) {
+                for(Template.Version version : template.getVersions()) {
+                    if(version.isActive()) {
+                        return template;
+                    }
+                }
+            }
+        } catch (SendGridException e) {
+            e.printStackTrace();
+        }
+
+        return null;
+    }
+
+    /**
+     * Get all the created Templates
+     * @return List of available templates
+     * @throws SendGridException
+     */
     public List<SendGrid.Template> getTemplates() throws SendGridException {
         List<Template> availableTemplates = null;
         HttpGet httpGet = new HttpGet(this.url+"/v3/templates");
@@ -212,7 +247,7 @@ public class SendGrid {
         private String subject;
         private String text;
         private String html;
-        private String template;
+        private boolean useActiveTemplate;
         private ArrayList<String> bcc;
         private Map<String, InputStream> attachments;
         private Map<String, String> contents;
@@ -476,12 +511,12 @@ public class SendGrid {
             return this.smtpapi;
         }
 
-        public String getTemplate() {
-            return this.template;
+        public boolean isUseActiveTemplate() {
+            return this.useActiveTemplate;
         }
 
-        public void setTemplate(String template) {
-            this.template = template;
+        public void setUseActiveTemplate(boolean useActiveTemplate) {
+            this.useActiveTemplate = useActiveTemplate;
         }
     }
 
