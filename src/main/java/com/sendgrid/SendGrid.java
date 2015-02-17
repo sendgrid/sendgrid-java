@@ -1,6 +1,7 @@
 package com.sendgrid;
 
 import com.sendgrid.smtpapi.SMTPAPI;
+import org.apache.commons.codec.binary.Base64;
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
 import org.apache.http.client.methods.HttpGet;
@@ -178,12 +179,12 @@ public class SendGrid {
     public List<SendGrid.Template> getTemplates() throws SendGridException {
         List<Template> availableTemplates = null;
         HttpGet httpGet = new HttpGet(this.url+"/v3/templates");
-        httpGet.addHeader(PARAM_AUTHORIZATION, "Basic "+ Base64.getEncoder()
-                .encodeToString((this.username+":"+this.password).getBytes()));
+        httpGet.addHeader(PARAM_AUTHORIZATION, "Basic "+ Base64.
+                encodeBase64String((this.username+":"+this.password).getBytes()));
         try {
             HttpResponse response = this.client.execute(httpGet);
             String responseJson = EntityUtils.toString(response.getEntity());
-            System.out.println(responseJson);
+
             // Checks if it is 100 something or 200 something and
             // more importantly it is not 40 something or 500 something
             if (response.getStatusLine().getStatusCode()<300) {
