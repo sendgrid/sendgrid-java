@@ -40,7 +40,7 @@ $ javac -classpath sendgrid-1.2.1-jar.jar:. SendGridExample.java && java -classp
 
 ## Installation
 
-Choose your installation method - Maven w/ Gradle (recommended) or Jar file.
+Choose your installation method - Maven w/ Gradle (recommended), Maven or Jar file.
 
 ### via Maven w/ Gradle
 
@@ -63,6 +63,12 @@ Then import the library - in the file appropriate to your Java project.
 
 ```java
 import com.sendgrid.SendGrid;
+```
+
+### via Maven
+
+```
+mvn install
 ```
 
 ### via jar file
