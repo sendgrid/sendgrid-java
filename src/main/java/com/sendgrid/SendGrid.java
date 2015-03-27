@@ -1,41 +1,31 @@
 package com.sendgrid;
 
-import org.json.JSONObject;
 import com.sendgrid.smtpapi.SMTPAPI;
-
-import java.util.ArrayList;
-import java.io.ByteArrayInputStream;
-import java.io.FileNotFoundException;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.Map;
-import java.io.FileInputStream;
-
-import java.io.File;
-import java.io.InputStream;
-import java.io.IOException;
-
-import org.apache.http.HttpResponse;
 import org.apache.http.HttpEntity;
-import org.apache.http.entity.mime.MultipartEntityBuilder;
+import org.apache.http.HttpResponse;
 import org.apache.http.client.methods.HttpPost;
-import org.apache.http.impl.client.HttpClientBuilder;
-import org.apache.http.impl.client.CloseableHttpClient;
-import org.apache.http.util.EntityUtils;
 import org.apache.http.entity.ContentType;
+import org.apache.http.entity.mime.MultipartEntityBuilder;
+import org.apache.http.impl.client.CloseableHttpClient;
+import org.apache.http.impl.client.HttpClientBuilder;
+import org.apache.http.util.EntityUtils;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.*;
+import java.util.*;
 
 public class SendGrid {
   private static final String VERSION           = "2.1.0";
   private static final String USER_AGENT        = "sendgrid/" + VERSION + ";java";
 
-  private static final String PARAM_TO          = "to[%d]";
-  private static final String PARAM_TONAME      = "toname[%d]";
-  private static final String PARAM_CC          = "cc[%d]";
+  private static final String PARAM_TO          = "to[]";
+  private static final String PARAM_TONAME      = "toname[]";
+  private static final String PARAM_CC          = "cc[]";
   private static final String PARAM_FROM        = "from";
   private static final String PARAM_FROMNAME    = "fromname";
   private static final String PARAM_REPLYTO     = "replyto";
-  private static final String PARAM_BCC         = "bcc[%d]";
+  private static final String PARAM_BCC         = "bcc[]";
   private static final String PARAM_SUBJECT     = "subject";
   private static final String PARAM_HTML        = "html";
   private static final String PARAM_TEXT        = "text";
@@ -91,16 +81,17 @@ public class SendGrid {
 
     // If SMTPAPI Header is used, To is still required. #workaround.
     if (tos.length == 0) {
-      builder.addTextBody(String.format(PARAM_TO, 0), email.getFrom(), ContentType.create("text/plain", "UTF-8"));
+      builder.addTextBody(PARAM_TO, email.getFrom(), ContentType.create("text/plain", "UTF-8"));
     }
+    //Bug fix for #61 - To, ToName and Substitution values getting jumbled.
     for (int i = 0, len = tos.length; i < len; i++)
-      builder.addTextBody(String.format(PARAM_TO, i), tos[i], ContentType.create("text/plain", "UTF-8"));
+      builder.addTextBody(PARAM_TO, tos[i], ContentType.create("text/plain", "UTF-8"));
     for (int i = 0, len = tonames.length; i < len; i++)
-      builder.addTextBody(String.format(PARAM_TONAME, i), tonames[i], ContentType.create("text/plain", "UTF-8"));
+      builder.addTextBody(PARAM_TONAME, tonames[i], ContentType.create("text/plain", "UTF-8"));
     for (int i = 0, len = ccs.length; i < len; i++)
-      builder.addTextBody(String.format(PARAM_CC, i), ccs[i], ContentType.create("text/plain", "UTF-8"));
+      builder.addTextBody(PARAM_CC, ccs[i], ContentType.create("text/plain", "UTF-8"));
     for (int i = 0, len = bccs.length; i < len; i++)
-      builder.addTextBody(String.format(PARAM_BCC, i), bccs[i], ContentType.create("text/plain", "UTF-8"));
+      builder.addTextBody(PARAM_BCC, bccs[i], ContentType.create("text/plain", "UTF-8"));
     // Files
     if (email.getAttachments().size() > 0) {
       Iterator it = email.getAttachments().entrySet().iterator();
@@ -110,7 +101,7 @@ public class SendGrid {
       }
     }
 
-		if (email.getContentIds().size() > 0) {
+    if (email.getContentIds().size() > 0) {
       Iterator it = email.getContentIds().entrySet().iterator();
       while (it.hasNext()) {
         Map.Entry entry = (Map.Entry) it.next();
@@ -208,17 +199,17 @@ public class SendGrid {
       return this.to.toArray(new String[this.to.size()]);
     }
 
-    public Email addSmtpApiTo(String to) {
+    public Email addSmtpApiTo(String to) throws JSONException {
       this.smtpapi.addTo(to);
       return this;
     }
 
-    public Email addSmtpApiTo(String[] to) {
+    public Email addSmtpApiTo(String[] to) throws JSONException {
       this.smtpapi.addTos(to);
       return this;
     }
 
-   public Email addToName(String toname) {
+    public Email addToName(String toname) {
       this.toname.add(toname);
       return this;
     }
@@ -329,66 +320,66 @@ public class SendGrid {
       return this.html;
     }
 
-    public Email addSubstitution(String key, String[] val) {
+    public Email addSubstitution(String key, String[] val) throws JSONException {
       this.smtpapi.addSubstitutions(key, val);
       return this;
     }
 
-    public JSONObject getSubstitutions() {
+    public JSONObject getSubstitutions() throws JSONException {
       return this.smtpapi.getSubstitutions();
     }
 
-    public Email addUniqueArg(String key, String val) {
+    public Email addUniqueArg(String key, String val) throws JSONException {
       this.smtpapi.addUniqueArg(key, val);
       return this;
     }
 
-    public JSONObject getUniqueArgs() {
+    public JSONObject getUniqueArgs() throws JSONException {
       return this.smtpapi.getUniqueArgs();
     }
 
-    public Email addCategory(String category) {
+    public Email addCategory(String category) throws JSONException {
       this.smtpapi.addCategory(category);
       return this;
     }
 
-    public String[] getCategories() {
+    public String[] getCategories() throws JSONException {
       return this.smtpapi.getCategories();
     }
 
-    public Email addSection(String key, String val) {
+    public Email addSection(String key, String val) throws JSONException {
       this.smtpapi.addSection(key, val);
       return this;
     }
 
-    public JSONObject getSections() {
+    public JSONObject getSections() throws JSONException {
       return this.smtpapi.getSections();
     }
 
-    public Email addFilter(String filter_name, String parameter_name, String parameter_value) {
+    public Email addFilter(String filter_name, String parameter_name, String parameter_value) throws JSONException {
       this.smtpapi.addFilter(filter_name, parameter_name, parameter_value);
       return this;
     }
 
-    public JSONObject getFilters() {
+    public JSONObject getFilters() throws JSONException {
       return this.smtpapi.getFilters();
     }
 
-    public Email setASMGroupId(int val) {
+    public Email setASMGroupId(int val) throws JSONException {
       this.smtpapi.setASMGroupId(val);
       return this;
     }
 
-    public Integer getASMGroupId() {
+    public Integer getASMGroupId() throws JSONException {
       return this.smtpapi.getASMGroupId();
     }
 
-    public Email setSendAt(int sendAt) {
+    public Email setSendAt(int sendAt) throws JSONException {
       this.smtpapi.setSendAt(sendAt);
       return this;
     }
 
-    public int getSendAt() {
+    public int getSendAt() throws JSONException {
       return this.smtpapi.getSendAt();
     }
 
@@ -410,12 +401,12 @@ public class SendGrid {
     }
 
     public Email addContentId(String attachmentName, String cid) {
-		  this.contents.put(attachmentName, cid);
-		  return this;
+      this.contents.put(attachmentName, cid);
+      return this;
     }
 
     public Map getContentIds() {
-		  return this.contents;
+      return this.contents;
     }
 
     public Email addHeader(String key, String val) {
@@ -438,7 +429,26 @@ public class SendGrid {
     private String message;
 
     public Response(int code, String msg) {
-      this.code = code;
+      //Handling Sendgrid Response in case of failure.
+      //Since the HTTP status returned is 200 but in the response JSON there is code parameter which contains acutal error code as 400
+      JSONObject exception = null;
+      boolean error = false;
+      try {
+        exception = new JSONObject(msg);
+        Iterator it = exception.keys();
+        while(it.hasNext()){
+          String val = (String) it.next();
+          if(val.equals("error") || val.equals("errors")) {
+            error = true;
+            break;
+          }
+        }
+
+        this.code = error ? 400 : 200;
+      } catch (Exception e) {
+        this.code = code;
+      }
+      
       this.success = code == 200;
       this.message = msg;
     }
