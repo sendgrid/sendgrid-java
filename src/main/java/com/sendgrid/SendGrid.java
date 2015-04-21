@@ -139,8 +139,9 @@ public class SendGrid {
     if (email.getText() != null && !email.getText().isEmpty())
       builder.addTextBody(PARAM_TEXT, email.getText(), ContentType.create("text/plain", "UTF-8"));
 
-    if (!email.smtpapi.jsonString().equals("{}"))
-      builder.addTextBody(PARAM_XSMTPAPI, email.smtpapi.jsonString(), ContentType.create("text/plain", "UTF-8"));
+    String tmpString = email.smtpapi.jsonString();
+    if (!tmpString.equals("{}"))
+      builder.addTextBody(PARAM_XSMTPAPI, tmpString, ContentType.create("text/plain", "UTF-8"));
 
     return builder.build();
   }
