@@ -12,6 +12,11 @@ public class SendGridTest {
   private static final String USERNAME = "USERNAME";
   private static final String PASSWORD = "PASSWORD";
 
+  @Test public void testVersion() {
+    SendGrid client = new SendGrid(USERNAME, PASSWORD);
+    assertEquals(client.getVersion(), "2.1.1");
+  }
+
   @Test public void testAddTo() {
     email = new SendGrid.Email();
 
