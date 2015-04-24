@@ -396,6 +396,16 @@ public class SendGrid {
             return this.smtpapi.getSendAt();
         }
 
+        /**
+         * Convenience method to set the template
+         * @param templateId
+         */
+        public Email setTemplateId(String templateId) {
+            this.getSMTPAPI().addFilter("templates", "enable", 1);
+            this.getSMTPAPI().addFilter("templates", "template_id", templateId);
+            return this;
+        }
+
         public Email addAttachment(String name, File file) throws IOException, FileNotFoundException {
             return this.addAttachment(name, new FileInputStream(file));
         }

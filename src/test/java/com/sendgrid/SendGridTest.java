@@ -3,6 +3,9 @@ package com.sendgrid;
 import java.util.HashMap;
 import java.util.Map;
 
+import org.skyscreamer.jsonassert.JSONAssert;
+
+import org.json.JSONObject;
 import org.junit.Test;
 
 import static org.junit.Assert.*;
@@ -157,6 +160,21 @@ public class SendGridTest {
         correct.put("other", "other-value");
 
         assertEquals(correct, email.getHeaders());
+    }
+
+    @Test
+    public void testSetTemplateId() {
+        email = new SendGrid.Email();
+        email.setTemplateId("abc-123");
+
+        String filters = email.getSMTPAPI().jsonString();
+
+        JSONObject obj = new JSONObject();
+        obj.put("filters", new JSONObject().put("templates", new JSONObject()
+                .put("settings", new JSONObject().put("enable", 1)
+                        .put("template_id", "abc-123"))));
+
+        JSONAssert.assertEquals(filters, obj.toString(), false);
     }
 
     @Test

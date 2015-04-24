@@ -354,6 +354,14 @@ email.setASMGroupId(1);
 email.setSendAt(1409348513);
 ```
 
+### [Templates](https://sendgrid.com/docs/API_Reference/Web_API_v3/Template_Engine/index.html)
+
+#### setTemplateId
+
+```java
+email.setTemplateId("abc123-def456");
+```
+
 ## Contributing
 
 1. Fork it
