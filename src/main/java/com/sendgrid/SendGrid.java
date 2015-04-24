@@ -43,6 +43,8 @@ public class SendGrid {
     private static final String PARAM_CONTENTS = "content[%s]";
     private static final String PARAM_XSMTPAPI = "x-smtpapi";
     private static final String PARAM_HEADERS = "headers";
+    private static final String TEXT_PLAIN  = "text/plain";
+    private static final String UTF_8 = "UTF-8";
 
     private String username;
     private String password;
@@ -91,16 +93,16 @@ public class SendGrid {
 
         // If SMTPAPI Header is used, To is still required. #workaround.
         if (tos.length == 0) {
-            builder.addTextBody(String.format(PARAM_TO, 0), email.getFrom(), ContentType.create("text/plain", "UTF-8"));
+            builder.addTextBody(String.format(PARAM_TO, 0), email.getFrom(), ContentType.create(TEXT_PLAIN, UTF_8));
         }
         for (int i = 0, len = tos.length; i < len; i++)
-            builder.addTextBody(String.format(PARAM_TO, i), tos[i], ContentType.create("text/plain", "UTF-8"));
+            builder.addTextBody(String.format(PARAM_TO, i), tos[i], ContentType.create(TEXT_PLAIN, UTF_8));
         for (int i = 0, len = tonames.length; i < len; i++)
-            builder.addTextBody(String.format(PARAM_TONAME, i), tonames[i], ContentType.create("text/plain", "UTF-8"));
+            builder.addTextBody(String.format(PARAM_TONAME, i), tonames[i], ContentType.create(TEXT_PLAIN, UTF_8));
         for (int i = 0, len = ccs.length; i < len; i++)
-            builder.addTextBody(String.format(PARAM_CC, i), ccs[i], ContentType.create("text/plain", "UTF-8"));
+            builder.addTextBody(String.format(PARAM_CC, i), ccs[i], ContentType.create(TEXT_PLAIN, UTF_8));
         for (int i = 0, len = bccs.length; i < len; i++)
-            builder.addTextBody(String.format(PARAM_BCC, i), bccs[i], ContentType.create("text/plain", "UTF-8"));
+            builder.addTextBody(String.format(PARAM_BCC, i), bccs[i], ContentType.create(TEXT_PLAIN, UTF_8));
         // Files
         if (email.getAttachments().size() > 0) {
             Iterator it = email.getAttachments().entrySet().iterator();
@@ -119,29 +121,29 @@ public class SendGrid {
         }
 
         if (email.getHeaders().size() > 0)
-            builder.addTextBody(PARAM_HEADERS, new JSONObject(email.getHeaders()).toString(), ContentType.create("text/plain", "UTF-8"));
+            builder.addTextBody(PARAM_HEADERS, new JSONObject(email.getHeaders()).toString(), ContentType.create(TEXT_PLAIN, UTF_8));
 
         if (email.getFrom() != null && !email.getFrom().isEmpty())
-            builder.addTextBody(PARAM_FROM, email.getFrom(), ContentType.create("text/plain", "UTF-8"));
+            builder.addTextBody(PARAM_FROM, email.getFrom(), ContentType.create(TEXT_PLAIN, UTF_8));
 
         if (email.getFromName() != null && !email.getFromName().isEmpty())
-            builder.addTextBody(PARAM_FROMNAME, email.getFromName(), ContentType.create("text/plain", "UTF-8"));
+            builder.addTextBody(PARAM_FROMNAME, email.getFromName(), ContentType.create(TEXT_PLAIN, UTF_8));
 
         if (email.getReplyTo() != null && !email.getReplyTo().isEmpty())
-            builder.addTextBody(PARAM_REPLYTO, email.getReplyTo(), ContentType.create("text/plain", "UTF-8"));
+            builder.addTextBody(PARAM_REPLYTO, email.getReplyTo(), ContentType.create(TEXT_PLAIN, UTF_8));
 
         if (email.getSubject() != null && !email.getSubject().isEmpty())
-            builder.addTextBody(PARAM_SUBJECT, email.getSubject(), ContentType.create("text/plain", "UTF-8"));
+            builder.addTextBody(PARAM_SUBJECT, email.getSubject(), ContentType.create(TEXT_PLAIN, UTF_8));
 
         if (email.getHtml() != null && !email.getHtml().isEmpty())
-            builder.addTextBody(PARAM_HTML, email.getHtml(), ContentType.create("text/plain", "UTF-8"));
+            builder.addTextBody(PARAM_HTML, email.getHtml(), ContentType.create(TEXT_PLAIN, UTF_8));
 
         if (email.getText() != null && !email.getText().isEmpty())
-            builder.addTextBody(PARAM_TEXT, email.getText(), ContentType.create("text/plain", "UTF-8"));
+            builder.addTextBody(PARAM_TEXT, email.getText(), ContentType.create(TEXT_PLAIN, UTF_8));
 
         String tmpString = email.smtpapi.jsonString();
         if (!tmpString.equals("{}"))
-            builder.addTextBody(PARAM_XSMTPAPI, tmpString, ContentType.create("text/plain", "UTF-8"));
+            builder.addTextBody(PARAM_XSMTPAPI, tmpString, ContentType.create(TEXT_PLAIN, UTF_8));
 
         return builder.build();
     }
