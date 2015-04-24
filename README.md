@@ -114,7 +114,7 @@ sendgrid.send(email);
 ```java
 email.addTo("foo@example.com");
 // or
-email.addTo(["foo@other.com", "bar@other.com"]);
+email.addTo(new String[]{"foo@other.com", "bar@other.com"});
 // or
 email.addTo("foo.bar@other.com", "Foo Bar");
 ```
@@ -122,7 +122,7 @@ email.addTo("foo.bar@other.com", "Foo Bar");
 #### setTo
 
 ```java
-email.setTo(["foo@other.com", "bar@other.com"]);
+email.setTo(new String[]{"foo@other.com", "bar@other.com"});
 ```
 
 #### addToName
@@ -130,13 +130,13 @@ email.setTo(["foo@other.com", "bar@other.com"]);
 ```java
 email.addToName("Foo");
 // or
-email.addToName(["Foo", "Bar"]);
+email.addToName(new String[]{"Foo", "Bar"});
 ```
 
 #### setToName
 
 ```java
-email.setToName(["Foo", "Bar"]);
+email.setToName(new String[]{"Foo", "Bar"});
 ```
 
 #### addCc
@@ -144,13 +144,13 @@ email.setToName(["Foo", "Bar"]);
 ```java
 email.addCc("foo@example.com");
 // or
-email.addCc(["foo@other.com", "bar@other.com"]);
+email.addCc(new String[]{"foo@other.com", "bar@other.com"});
 ```
 
 #### setCc
 
 ```java
-email.setCc(["foo@other.com", "bar@other.com"]);
+email.setCc(new String[]{"foo@other.com", "bar@other.com"});
 ```
 
 #### addBcc
@@ -158,13 +158,13 @@ email.setCc(["foo@other.com", "bar@other.com"]);
 ```java
 email.addBcc("foo@example.com");
 // or
-email.addBcc(["foo@other.com", "bar@other.com"]);
+email.addBcc(new String[]{"foo@other.com", "bar@other.com"});
 ```
 
 #### setBcc
 
 ```java
-email.setBcc(["foo@other.com", "bar@other.com"]);
+email.setBcc(new String[]{"foo@other.com", "bar@other.com"});
 ```
 
 ### From
@@ -254,7 +254,7 @@ email.getSMTPAPI();
 ```java
 email.addSmtpApiTo("foo@example.com");
 // or
-email.addSmtpApiTo(["foo@other.com", "bar@other.com"]);
+email.addSmtpApiTo(new String[]{"foo@other.com", "bar@other.com"});
 ```
 
 ### [Substitutions](http://sendgrid.com/docs/API_Reference/SMTP_API/substitution_tags.html)
@@ -270,7 +270,7 @@ JSONObject subs = header.getSubstitutions();
 #### setSubstitutions
 
 ```java
-email.setSubstitutions("key", ["value1", "value2"]);
+email.setSubstitutions("key", new String[]{"value1", "value2"});
 
 JSONObject subs = header.getSubstitutions();
 ```
