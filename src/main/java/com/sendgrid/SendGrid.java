@@ -56,8 +56,8 @@ public class SendGrid {
     /**
      * Constructor for using a username and password
      *
-     * @param username
-     * @param password
+     * @param username SendGrid username
+     * @param password SendGrid password
      */
     public SendGrid(String username, String password) {
         this.username = username;
@@ -70,7 +70,7 @@ public class SendGrid {
     /**
      * Constructor for using an API key
      *
-     * @param apiKey
+     * @param apiKey SendGrid api key
      */
     public SendGrid(String apiKey) {
         this.password = apiKey;
@@ -425,7 +425,8 @@ public class SendGrid {
 
         /**
          * Convenience method to set the template
-         * @param templateId
+         * @param templateId The ID string of your template
+         * @return this
          */
         public Email setTemplateId(String templateId) {
             this.getSMTPAPI().addFilter("templates", "enable", 1);
