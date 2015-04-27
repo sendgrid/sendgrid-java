@@ -1,7 +1,7 @@
 # Change Log
 All notable changes to this project will be documented in this file.
-This project adheres to [Semantic Versioning](http://semver.org/).
 
-## [v2.2.0] - (Unreleased)
+## [2.2.0] - 2015-4-27
 ### Added
-- Added `setTemplateId`
+- Support for API keys
+- setTemplateId to use the Template Engine
