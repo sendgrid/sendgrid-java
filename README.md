@@ -35,7 +35,7 @@ public class SendGridExample {
 Compile and run this example with
 
 ```bash
-$ javac -classpath sendgrid-1.2.1-jar.jar:. SendGridExample.java && java -classpath sendgrid-1.2.1-jar.jar:. SendGridExample
+$ javac -classpath sendgrid-2.2.0-jar.jar:. SendGridExample.java && java -classpath sendgrid-2.2.0-jar.jar:. SendGridExample
 ```
 
 ## Installation
@@ -50,7 +50,7 @@ Add the following to your build.gradle file in the root of your project.
 ...
 dependencies {
   ...
-  compile 'com.sendgrid:sendgrid-java:2.0.0'
+  compile 'com.sendgrid:sendgrid-java:2.2.0'
 }
 
 repositories {
@@ -83,11 +83,13 @@ import com.sendgrid.*;
 
 ## Usage
 
-To begin using this library, initialize the SendGrid object with your SendGrid credentials.
+To begin using this library, initialize the SendGrid object with your SendGrid credentials OR a SendGrid API Key. API Key is the preferred method. API Keys are in beta. To configure API keys, visit https://sendgrid.com/beta/settings/api_keys.
 
 ```java
 import com.sendgrid.SendGrid;
 SendGrid sendgrid = new SendGrid("sendgrid_username", "sendgrid_password");
+// or
+SendGrid sendgrid = new SendGrid("sendgrid_api_key");
 ```
 
 Add your message details.
