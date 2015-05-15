@@ -35,7 +35,7 @@ public class SendGridExample {
 Compile and run this example with
 
 ```bash
-$ javac -classpath sendgrid-2.2.0-jar.jar:. SendGridExample.java && java -classpath sendgrid-2.2.0-jar.jar:. SendGridExample
+$ javac -classpath sendgrid-2.2.1-jar.jar:. SendGridExample.java && java -classpath sendgrid-2.2.1-jar.jar:. SendGridExample
 ```
 
 ## Installation
@@ -50,7 +50,7 @@ Add the following to your build.gradle file in the root of your project.
 ...
 dependencies {
   ...
-  compile 'com.sendgrid:sendgrid-java:2.2.0'
+  compile 'com.sendgrid:sendgrid-java:2.2.1'
 }
 
 repositories {
