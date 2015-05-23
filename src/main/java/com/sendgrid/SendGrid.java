@@ -15,7 +15,7 @@ import java.io.*;
 import java.util.*;
 
 public class SendGrid {
-    private static final String VERSION = "2.2.1";
+    private static final String VERSION = "2.2.2";
     private static final String USER_AGENT = "sendgrid/" + VERSION + ";java";
 
     private static final String PARAM_TO = "to[]";

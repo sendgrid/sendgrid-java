@@ -23,7 +23,7 @@ public class SendGridTest {
     @Test
     public void testVersion() {
         SendGrid client = new SendGrid(USERNAME, PASSWORD);
-        assertEquals(client.getVersion(), "2.2.1");
+        assertEquals(client.getVersion(), "2.2.2");
     }
 
     @Test
