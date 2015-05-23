@@ -1,41 +1,31 @@
 package com.sendgrid;
 
-import org.json.JSONObject;
 import com.sendgrid.smtpapi.SMTPAPI;
-
-import java.util.ArrayList;
-import java.io.ByteArrayInputStream;
-import java.io.FileNotFoundException;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.Map;
-import java.io.FileInputStream;
-
-import java.io.File;
-import java.io.InputStream;
-import java.io.IOException;
-
-import org.apache.http.HttpResponse;
 import org.apache.http.HttpEntity;
-import org.apache.http.entity.mime.MultipartEntityBuilder;
+import org.apache.http.HttpResponse;
 import org.apache.http.client.methods.HttpPost;
-import org.apache.http.impl.client.HttpClientBuilder;
-import org.apache.http.impl.client.CloseableHttpClient;
-import org.apache.http.util.EntityUtils;
 import org.apache.http.entity.ContentType;
+import org.apache.http.entity.mime.MultipartEntityBuilder;
+import org.apache.http.impl.client.CloseableHttpClient;
+import org.apache.http.impl.client.HttpClientBuilder;
+import org.apache.http.util.EntityUtils;
+import org.json.JSONObject;
+
+import java.io.*;
+import java.util.*;
 
 public class SendGrid {
     private static final String VERSION = "2.2.1";
     private static final String USER_AGENT = "sendgrid/" + VERSION + ";java";
 
-    private static final String PARAM_TO = "to[%d]";
-    private static final String PARAM_TONAME = "toname[%d]";
-    private static final String PARAM_CC = "cc[%d]";
+    private static final String PARAM_TO = "to[]";
+    private static final String PARAM_TONAME = "toname[]";
+    private static final String PARAM_CC = "cc[]";
+    private static final String PARAM_BCC = "bcc[]";
+
     private static final String PARAM_FROM = "from";
     private static final String PARAM_FROMNAME = "fromname";
     private static final String PARAM_REPLYTO = "replyto";
-    private static final String PARAM_BCC = "bcc[%d]";
     private static final String PARAM_SUBJECT = "subject";
     private static final String PARAM_HTML = "html";
     private static final String PARAM_TEXT = "text";
@@ -43,8 +33,9 @@ public class SendGrid {
     private static final String PARAM_CONTENTS = "content[%s]";
     private static final String PARAM_XSMTPAPI = "x-smtpapi";
     private static final String PARAM_HEADERS = "headers";
-    private static final String TEXT_PLAIN  = "text/plain";
+    private static final String TEXT_PLAIN = "text/plain";
     private static final String UTF_8 = "UTF-8";
+
 
     private String username;
     private String password;
@@ -118,13 +109,13 @@ public class SendGrid {
             builder.addTextBody(String.format(PARAM_TO, 0), email.getFrom(), ContentType.create(TEXT_PLAIN, UTF_8));
         }
         for (int i = 0, len = tos.length; i < len; i++)
-            builder.addTextBody(String.format(PARAM_TO, i), tos[i], ContentType.create(TEXT_PLAIN, UTF_8));
+            builder.addTextBody(PARAM_TO, tos[i], ContentType.create("text/plain", "UTF-8"));
         for (int i = 0, len = tonames.length; i < len; i++)
-            builder.addTextBody(String.format(PARAM_TONAME, i), tonames[i], ContentType.create(TEXT_PLAIN, UTF_8));
+            builder.addTextBody(PARAM_TONAME, tonames[i], ContentType.create("text/plain", "UTF-8"));
         for (int i = 0, len = ccs.length; i < len; i++)
-            builder.addTextBody(String.format(PARAM_CC, i), ccs[i], ContentType.create(TEXT_PLAIN, UTF_8));
+            builder.addTextBody(PARAM_CC, ccs[i], ContentType.create("text/plain", "UTF-8"));
         for (int i = 0, len = bccs.length; i < len; i++)
-            builder.addTextBody(String.format(PARAM_BCC, i), bccs[i], ContentType.create(TEXT_PLAIN, UTF_8));
+            builder.addTextBody(PARAM_BCC, bccs[i], ContentType.create(TEXT_PLAIN, UTF_8));
         // Files
         if (email.getAttachments().size() > 0) {
             Iterator it = email.getAttachments().entrySet().iterator();
@@ -425,6 +416,7 @@ public class SendGrid {
 
         /**
          * Convenience method to set the template
+         *
          * @param templateId The ID string of your template
          * @return this
          */
