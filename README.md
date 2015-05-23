@@ -2,7 +2,8 @@
 
 This Java module allows you to quickly and easily send emails through SendGrid using Java.
 
-[![BuildStatus](https://travis-ci.org/sendgrid/sendgrid-java.png?branch=master)](https://travis-ci.org/sendgrid/sendgrid-java)
+[![BuildStatus](https://travis-ci.org/sendgrid/sendgrid-java.svg?branch=master)](https://travis-ci.org/sendgrid/sendgrid-java)
+[![BuildStatus](https://maven-badges.herokuapp.com/maven-central/com.sendgrid/sendgrid-java/badge.svg)](https://maven-badges.herokuapp.com/maven-central/com.sendgrid/sendgrid-java)
 
 ### Warning
 
