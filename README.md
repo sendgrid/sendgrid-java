@@ -270,10 +270,18 @@ email.addSubstitution("key", "value");
 JSONObject subs = header.getSubstitutions();
 ```
 
+#### addSubstitutions
+
+```java
+email.addSubstititions("key", new String[]{"value1", "value2"});
+
+JSONObject subs = header.getSubstititons();
+```
+
 #### setSubstitutions
 
 ```java
-email.setSubstitutions("key", new String[]{"value1", "value2"});
+email.setSubstitutions(new JSONObject("JSON Object"));
 
 JSONObject subs = header.getSubstitutions();
 ```
