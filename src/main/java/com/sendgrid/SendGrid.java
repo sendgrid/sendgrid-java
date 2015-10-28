@@ -93,7 +93,8 @@ public class SendGrid {
     public HttpEntity buildBody(Email email) {
         MultipartEntityBuilder builder = MultipartEntityBuilder.create();
 
-        // We are using an API key
+        // We are NOT using an API key
+        // username == null when using the API constructor
         if (this.username != null) {
             builder.addTextBody("api_user", this.username);
             builder.addTextBody("api_key", this.password);
