@@ -280,10 +280,10 @@ JSONObject subs = header.getSubstitutions();
 
 ### [Unique Arguments](http://sendgrid.com/docs/API_Reference/SMTP_API/unique_arguments.html)
 
-#### addUniqueAarg
+#### addUniqueArg
 
 ```java
-email.addUniqueAarg("key", "value");
+email.addUniqueArg("key", "value");
 // or
 Map map = new HashMap<String, String>();
 map.put("unique", "value");
