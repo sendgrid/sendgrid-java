@@ -15,7 +15,7 @@ import com.sendgrid.*;
 
 public class SendGridExample {
   public static void main(String[] args) {
-    SendGrid sendgrid = new SendGrid("SENDGRID USERNAME", "SENDGRID_PASSWORD");
+    SendGrid sendgrid = new SendGrid('YOUR_SENDGRID_API_KEY');
 
     SendGrid.Email email = new SendGrid.Email();
     email.addTo("example@example.com");
@@ -84,13 +84,11 @@ import com.sendgrid.*;
 
 ## Usage
 
-To begin using this library, initialize the SendGrid object with your SendGrid credentials OR a SendGrid API Key. API Key is the preferred method. API Keys are in beta. To configure API keys, visit https://sendgrid.com/beta/settings/api_keys.
+To begin using this library, initialize the SendGrid object with your SendGrid API Key. To configure API keys, visit https://sendgrid.com/beta/settings/api_keys.
 
 ```java
 import com.sendgrid.SendGrid;
-SendGrid sendgrid = new SendGrid("sendgrid_username", "sendgrid_password");
-// or
-SendGrid sendgrid = new SendGrid("sendgrid_api_key");
+SendGrid sendgrid = new SendGrid('YOUR_SENDGRID_API_KEY');
 ```
 
 Add your message details.
@@ -236,7 +234,7 @@ email.setHtml("<html><body>TEXT BEFORE IMAGE<img src=\"cid:ID_IN_HTML\"></img>AF
 ### Proxy Server Setup
 
 ```java
-SendGrid sendgrid = new SendGrid("SENDGRID USERNAME", "SENDGRID_PASSWORD");
+SendGrid sendgrid = new SendGrid('YOUR_SENDGRID_API_KEY');
 HttpHost proxy = new HttpHost("server", 3128);
 CloseableHttpClient http = HttpClientBuilder.create().setProxy(proxy).setUserAgent("sendgrid/" + sendgrid.getVersion() + ";java").build();
 sendgrid.setClient(http);
@@ -334,7 +332,7 @@ JSONObject filters = email.getFilters();
 Example enabling bcc app:
 
 ```java
-SendGrid sendgrid = new SendGrid("sendgrid_username", "sendgrid_password");
+SendGrid sendgrid = new SendGrid('YOUR_SENDGRID_API_KEY');
 sendgrid.addTo("example@example.com");
 ...
 sendgrid.addFilter("bcc", "enabled", 1);
