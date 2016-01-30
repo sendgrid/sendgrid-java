@@ -106,7 +106,7 @@ public class SendGrid {
 
         // If SMTPAPI Header is used, To is still required. #workaround.
         if (tos.length == 0) {
-            builder.addTextBody(String.format(PARAM_TO, 0), email.getFrom(), ContentType.create(TEXT_PLAIN, UTF_8));
+            builder.addTextBody(PARAM_TO, email.getFrom(), ContentType.create(TEXT_PLAIN, UTF_8));
         }
         for (int i = 0, len = tos.length; i < len; i++)
             builder.addTextBody(PARAM_TO, tos[i], ContentType.create("text/plain", "UTF-8"));
