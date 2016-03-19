@@ -16,14 +16,14 @@ apply plugin: 'fatjar'
 apply plugin: 'maven'
 apply plugin: 'signing'
 
-group         = 'com.sendgrid'
+group         = 'com.flozano.sendgrid'
 version       = '2.2.2'
 ext.packaging = 'jar'
 
 allprojects {
   apply plugin: 'java'
-  sourceCompatibility = 1.6
-  targetCompatibility = 1.6
+  sourceCompatibility = 1.8
+  targetCompatibility = 1.8
 }
 
 if (!hasProperty("sonatypeUsername")) {
@@ -32,7 +32,7 @@ if (!hasProperty("sonatypeUsername")) {
 }
 
 task wrapper(type: Wrapper) {
-  gradleVersion = '1.8'
+  gradleVersion = '1.12'
 }
 
 buildscript {
@@ -46,12 +46,15 @@ buildscript {
 
 dependencies {
   compile 'com.sendgrid:smtpapi-java:1.2.0'
-  compile 'org.apache.httpcomponents:httpcore:4.3.2'
-  compile 'org.apache.httpcomponents:httpclient:4.3.4'
-  compile 'org.apache.httpcomponents:httpmime:4.3.4'
+  compile 'org.apache.httpcomponents:httpcore:4.4.4'
+  compile 'org.apache.httpcomponents:httpclient:4.5.2'
+  compile 'org.apache.httpcomponents:httpmime:4.5.2'
+  compile 'org.apache.httpcomponents:httpasyncclient:4.1.1'
   compile 'org.json:json:20140107'
   testCompile group: 'junit', name: 'junit', version: '4.12'
   testCompile group: 'org.skyscreamer', name: 'jsonassert', version: '1.2.3'
+  testCompile 'org.mock-server:mockserver-netty:3.10.4'
+  testCompile 'com.jayway.awaitility:awaitility:1.7.0'
 }
 
 repositories {
@@ -69,7 +72,7 @@ allprojects {
 // adds 'with-dependencies' to the fatJar name
 fatJar {
   classifier 'jar'
-  baseName "sendgrid"
+  baseName "async-sendgrid"
   manifest {
     attributes("Implementation-Title": "SendGrid", "Implementation-Version": version)
   }
@@ -78,12 +81,12 @@ fatJar {
 // copy fatJar to base project directory so they will be in git (and on github for download)
 build << {
   copy {
-    println "Copying ${fatJar.archiveName} to $projectDir/repo/com/sendgrid/$version"
+    println "Copying ${fatJar.archiveName} to $projectDir/repo/com/flozano/sendgrid/$version"
     from("$buildDir/libs/${fatJar.archiveName}")
-    into("$projectDir/repo/com/sendgrid/$version")
+    into("$projectDir/repo/com/flozano/sendgrid/$version")
   }
   copy {
-    println "Copying ${fatJar.archiveName} to $projectDir/repo/com/sendgrid"
+    println "Copying ${fatJar.archiveName} to $projectDir/repo/com/flozano/sendgrid"
     from("$buildDir/libs/${fatJar.archiveName}")
     into("$projectDir/repo/com/sendgrid")
   }
@@ -92,7 +95,7 @@ build << {
 
 task renameSendGridVersionJarToSendGridJar {
   doLast {
-    file("$projectDir/repo/com/sendgrid/${fatJar.archiveName}").renameTo(file("$projectDir/repo/com/sendgrid/sendgrid-jar.jar"))
+    file("$projectDir/repo/com/flozano/sendgrid/${fatJar.archiveName}").renameTo(file("$projectDir/repo/com/flozano/sendgrid/async-sendgrid-jar.jar"))
   }
 }
 
@@ -120,15 +123,15 @@ uploadArchives {
       }
 
       pom.project {
-        name 'sendgrid-java'
+        name 'async-sendgrid-java'
         packaging 'jar'
-        description 'SendGrid Java helper library'
-        url 'https://github.com/sendgrid/sendgrid-java'
+        description 'Fork of SendGrid Java helper library that uses async HTTP client'
+        url 'https://github.com/flozano/sendgrid-java'
 
         scm {
-          url 'scm:git@github.com:sendgrid/sendgrid-java.git'
-          connection 'scm:git@github.com:sendgrid/sendgrid-java.git'
-          developerConnection 'scm:git@github.com:sendgrid/sendgrid-java.git'
+          url 'scm:git@github.com:flozano/sendgrid-java.git'
+          connection 'scm:git@github.com:flozano/sendgrid-java.git'
+          developerConnection 'scm:git@github.com:flozano/sendgrid-java.git'
         }
 
         licenses {
@@ -151,6 +154,10 @@ uploadArchives {
           developer {
             id 'eddiezane'
             name 'Eddie Zaneski'
+          }
+          developer {
+            id 'flozano'
+            name 'Francisco A. Lozano'
           }
         }
       }

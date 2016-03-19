@@ -1,5 +1,9 @@
 package com.sendgrid;
 
+import static org.junit.Assert.assertArrayEquals;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.fail;
+
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
@@ -7,15 +11,18 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
-import org.skyscreamer.jsonassert.JSONAssert;
-
+import org.apache.http.impl.nio.client.CloseableHttpAsyncClient;
+import org.apache.http.impl.nio.client.HttpAsyncClientBuilder;
 import org.json.JSONObject;
+import org.junit.After;
+import org.junit.Before;
 import org.junit.Test;
-
-import static org.junit.Assert.*;
+import org.skyscreamer.jsonassert.JSONAssert;
 
 public class SendGridTest {
     SendGrid.Email email;
+
+    CloseableHttpAsyncClient httpClient;
 
     private static final String USERNAME = "USERNAME";
     private static final String PASSWORD = "PASSWORD";
@@ -209,9 +216,8 @@ public class SendGridTest {
         String filters = email.getSMTPAPI().jsonString();
 
         JSONObject obj = new JSONObject();
-        obj.put("filters", new JSONObject().put("templates", new JSONObject()
-                .put("settings", new JSONObject().put("enable", 1)
-                        .put("template_id", "abc-123"))));
+        obj.put("filters", new JSONObject().put("templates",
+                new JSONObject().put("settings", new JSONObject().put("enable", 1).put("template_id", "abc-123"))));
 
         JSONAssert.assertEquals(filters, obj.toString(), false);
     }

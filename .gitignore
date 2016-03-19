@@ -8,3 +8,7 @@ out
 repo
 gradle.properties
 target
+/bin/
+.classpath
+.project
+.settings/
