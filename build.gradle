@@ -17,13 +17,13 @@ apply plugin: 'maven'
 apply plugin: 'signing'
 
 group         = 'com.sendgrid'
-version       = '2.2.2'
+version       = '3.0.0'
 ext.packaging = 'jar'
 
 allprojects {
   apply plugin: 'java'
-  sourceCompatibility = 1.6
-  targetCompatibility = 1.6
+  sourceCompatibility = 1.7
+  targetCompatibility = 1.7
 }
 
 if (!hasProperty("sonatypeUsername")) {
@@ -45,6 +45,7 @@ buildscript {
 }
 
 dependencies {
+  compile 'com.sendgrid:java-http-client:1.0.0'
   compile 'com.sendgrid:smtpapi-java:1.2.0'
   compile 'org.apache.httpcomponents:httpcore:4.3.2'
   compile 'org.apache.httpcomponents:httpclient:4.3.4'

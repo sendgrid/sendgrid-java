@@ -89,6 +89,11 @@
     <dependencies>
         <dependency>
             <groupId>com.sendgrid</groupId>
+            <artifactId>java-http-client</artifactId>
+            <version>1.0.0</version>
+        </dependency>
+        <dependency>
+            <groupId>com.sendgrid</groupId>
             <artifactId>smtpapi-java</artifactId>
             <version>1.1.1</version>
         </dependency>
