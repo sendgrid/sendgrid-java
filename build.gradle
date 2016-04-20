@@ -50,9 +50,10 @@ dependencies {
   compile 'org.apache.httpcomponents:httpcore:4.3.2'
   compile 'org.apache.httpcomponents:httpclient:4.3.4'
   compile 'org.apache.httpcomponents:httpmime:4.3.4'
-  compile 'org.json:json:20140107'
+  compile 'com.fasterxml.jackson.core:jackson-core:2.5.3'
+  compile 'com.fasterxml.jackson.core:jackson-annotations:2.5.3'
+  compile 'com.fasterxml.jackson.core:jackson-databind:2.5.3'
   testCompile group: 'junit', name: 'junit', version: '4.12'
-  testCompile group: 'org.skyscreamer', name: 'jsonassert', version: '1.2.3'
 }
 
 repositories {

@@ -7,12 +7,9 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
-import org.skyscreamer.jsonassert.JSONAssert;
-
-import org.json.JSONObject;
+import org.junit.Assert;
+import org.junit.Before;
 import org.junit.Test;
-
-import static org.junit.Assert.*;
 
 public class SendGridTest {
 
@@ -21,7 +18,7 @@ public class SendGridTest {
     @Test
     public void testVersion() {
         SendGrid sg = new SendGrid(SENDGRID_API_KEY);
-        assertEquals(sg.getVersion(), "3.0.0");
+        Assert.assertEquals(sg.getVersion(), "3.0.0");
     }
 
     @Test
@@ -40,7 +37,7 @@ public class SendGridTest {
                 line = br.readLine();
             }
             br.close();
-            fail("build.gradle version does not match");
+            Assert.assertTrue("build.gradle version does not match", false);
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         } catch (IOException e) {

@@ -29,31 +29,40 @@ public class SendGrid {
         this.requestHeaders.put("User-agent", USER_AGENT);
     }
 
-    public SendGrid(String apiKey, Map<String,String> opts) {
-        this(apiKey);
-        if(opts.containsKey("host") == true) {
-            this.host = opts.get("host");
-        }
-    }
-    
     public String getVersion() {
         return this.VERSION;
     }
     
-    public Response get(String endpoint) throws IOException {
-        Request request = new Request();
-        request.baseUri = host;
-        request.requestHeaders = requestHeaders;
-        request.method = Method.GET;
-        request.endpoint = "/" + version + "/" + endpoint;
-        Map<String,String> queryParams = new HashMap<String, String>();
-        queryParams.put("limit", "100");
-        queryParams.put("offset", "0");
-        request.queryParams = queryParams;
+    public Map<String,String> addHeader(String key, String value){
+        this.requestHeaders.put(key, value); 
+        return this.requestHeaders;
+    }
+    
+    public Map<String,String> removeHeader(String key){
+        this.requestHeaders.remove(key); 
+        return this.requestHeaders;
+    }
+    
+    public void setHost(String host){
+        this.host = host;
+    }
+    
+    public void setVersion(String version){
+        this.version = version;
+    }
+    
+    public Response api(Request request) throws IOException {
+        Request req = new Request();
+        req.method = request.method;
+        req.baseUri = this.host;
+        req.endpoint = "/" + version + "/" + request.endpoint;
+        req.requestBody = request.requestBody;
+        req.requestHeaders = this.requestHeaders;
+        req.queryParams = request.queryParams;
         
         Response response = new Response();
         try {
-            response = client.api(request);
+            response = client.api(req);
         } catch (IOException ex) {
             throw ex;
         }
