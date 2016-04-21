@@ -1,6 +1,12 @@
 # Change Log
 All notable changes to this project will be documented in this file.
 
+## [3.0.0] - XXXX-XX-XX
+### Added
+- Breaking change to support the v3 Web API
+- New HTTP client
+- v3 Mail Send helper
+
 ## [2.2.2] - 2015-5-23
 ### Fixed
 - Subsitution orders being swapped via [#65](https://github.com/sendgrid/sendgrid-java/pull/65)
