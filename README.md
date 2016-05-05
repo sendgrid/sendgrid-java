@@ -84,7 +84,7 @@ import com.sendgrid.*;
 
 ## Usage
 
-To begin using this library, initialize the SendGrid object with your SendGrid API Key. To configure API keys, visit https://sendgrid.com/beta/settings/api_keys.
+To begin using this library, initialize the SendGrid object with your SendGrid API Key. To configure API keys, visit https://sendgrid.com/docs/API_Reference/Web_API_v3/API_Keys/index.html.
 
 ```java
 import com.sendgrid.SendGrid;
