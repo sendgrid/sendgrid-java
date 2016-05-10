@@ -81,7 +81,7 @@ public class Mail {
     this.asm = asm;
   }
 
-  @JsonProperty("personalization")
+  @JsonProperty("personalizations")
   public List<Personalization> getPersonalization() {
     return personalization;
   }

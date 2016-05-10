@@ -223,7 +223,8 @@ public class Example {
 
   public static void baselineExample() throws IOException {
     SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
-    sg.addRequestHeader("X-Mock", "true");
+    //sg.addRequestHeader("X-Mock", "true");
+    sg.setHost("e9sk3d3bfaikbpdq7.stoplight-proxy.io");
 
     Request request = new Request();
     Mail helloWorld = buildHelloEmail();
@@ -243,15 +244,16 @@ public class Example {
 
   public static void kitchenSinkExample() throws IOException {
     SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
-    sg.addRequestHeader("X-Mock", "true");
+    //sg.addRequestHeader("X-Mock", "true");
+    sg.setHost("e9sk3d3bfaikbpdq7.stoplight-proxy.io");
 
     Request request = new Request();
     Mail kitchenSink = buildKitchenSink();
     try {
       request.method = Method.POST;
       request.endpoint = "mail/send/beta";
-      request.requestBody = kitchenSink.build();
 
+      System.out.println(request.requestBody);
       Response response = sg.api(request);
       System.out.println(response.statusCode);
       System.out.println(response.responseBody);
