@@ -86,7 +86,7 @@ cd sendgrid-java
 
 ##### Execute: #####
 
-See the [examples folder](https://github.com/sendgrid/sendgrid-java/tree/master/examples) to get started quickly.
+See the [examples folder](https://github.com/sendgrid/sendgrid-java/tree/v2beta/examples) to get started quickly.
 
 You will need to setup the following environment to use the SendGrid example:
 
@@ -126,9 +126,9 @@ The interface to the SendGrid API.
 
 All PRs require passing tests before the PR will be reviewed.
 
-All test files are in the `[tests](https://github.com/sendgrid/sendgrid-java/tree/master/tests)` directory.
+All test files are in the `[tests](https://github.com/sendgrid/sendgrid-java/tree/v2beta/tests)` directory.
 
-For the purposes of contributing to this repo, please update the [`SendGridTest.java`](https://github.com/sendgrid/sendgrid-java/blob/master/test/java/com/sendgrid/SendGridTest.java) file with unit tests as you modify the code.
+For the purposes of contributing to this repo, please update the [`SendGridTest.java`](https://github.com/sendgrid/sendgrid-java/tree/v2beta/test/java/com/sendgrid/SendGridTest.java) file with unit tests as you modify the code.
 
 ```bash
 ./gradlew test -i

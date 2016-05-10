@@ -24,7 +24,7 @@ import java.util.Map;
 public class Mail {
   @JsonProperty("from") public Email from;
   @JsonProperty("subject") public String subject;
-  @JsonProperty("personalization") public List<Personalization> personalization;
+  @JsonProperty("personalizations") public List<Personalization> personalization;
   @JsonProperty("content") public List<Content> content;
   @JsonProperty("attachments") public List<Attachments> attachments;
   @JsonProperty("template_id") public String templateId;

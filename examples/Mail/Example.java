@@ -146,7 +146,8 @@ public class Example {
     asm.setGroupsToDisplay(new int[] {4,5,6,7,8});
     mail.setASM(asm);
 
-    mail.setBatchId("sendgrid_batch_id");
+    // This must be a valid [batch ID](https://sendgrid.com/docs/API_Reference/SMTP_API/scheduling_parameters.html) to work
+    // mail.setBatchId("sendgrid_batch_id");
 
     mail.setIpPoolId("23");
 
@@ -222,7 +223,6 @@ public class Example {
 
   public static void baselineExample() throws IOException {
     SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
-    sg.setHost("3wyb2hp7emnqja6ys.stoplight-proxy.io/");
     sg.addRequestHeader("X-Mock", "true");
 
     Request request = new Request();
@@ -243,7 +243,6 @@ public class Example {
 
   public static void kitchenSinkExample() throws IOException {
     SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
-    sg.setHost("3wyb2hp7emnqja6ys.stoplight-proxy.io/");
     sg.addRequestHeader("X-Mock", "true");
 
     Request request = new Request();
