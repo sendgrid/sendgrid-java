@@ -9,7 +9,16 @@ public class Content {
   @JsonProperty("type") private String type;
   @JsonProperty("value") private String  value;
 
-  @JsonProperty("type") 
+  public Content() {
+    return;
+  }
+
+  public Content(String type, String value) {
+    this.setType(type);
+    this.setValue(value);
+  }
+
+  @JsonProperty("type")
   public String getType() {
     return type;
   }
@@ -18,7 +27,7 @@ public class Content {
     this.type = type;
   }
 
-  @JsonProperty("value") 
+  @JsonProperty("value")
   public String getValue() {
     return value;
   }

@@ -2,6 +2,14 @@
 
 **This library allows you to quickly and easily use the SendGrid Web API via Java.**
 
+**NOTE: The `/mail/send/beta` endpoint is currently in beta!
+
+Since this is not a general release, we do not recommend POSTing production level traffic through this endpoint or integrating your production servers with this endpoint.
+
+When this endpoint is ready for general release, your code will require an update in order to use the official URI.
+
+By using this endpoint, you accept that you may encounter bugs and that the endpoint may be taken down for maintenance at any time. We cannot guarantee the continued availability of this beta endpoint. We hope that you like this new endpoint and we appreciate any [feedback](dx+mail-beta@sendgrid.com) that you can send our way.**
+
 # Installation
 
 Choose your installation method - Maven w/ Gradle (recommended), Maven or Jar file.
@@ -46,10 +54,10 @@ import com.sendgrid.*;
 ```
 
 ## Dependencies
-)
+
 - [Java-HTTP-Client](https://github.com/sendgrid/java-http-client)
 
-## Environment Variables 
+## Environment Variables
 
 First, get your free SendGrid account [here](https://sendgrid.com/free?source=sendgrid-java).
 
@@ -63,12 +71,40 @@ source ./sendgrid.env
 
 # Quick Start
 
-## v3 Web API endpoints
+## Hello Email
 
 ```java
 import com.sendgrid.*;
 import java.io.IOException;
 
+Email from = new Email("dx@sendgrid.com");
+String subject = "Hello World from the SendGrid Java Library";
+Email to = new Email("elmer.thomas@sendgrid.com");
+Content content = new Content("text/plain", "some text here");
+Mail mail = new Mail(from, subject, to, content);
+
+SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
+Request request = new Request();
+try {
+  request.method = Method.POST;
+  request.endpoint = "mail/send/beta";
+  request.requestBody = mail.build();
+  Response response = sg.api(request);
+  System.out.println(response.statusCode);
+  System.out.println(response.responseBody);
+  System.out.println(response.responseHeaders);
+} catch (IOException ex) {
+  throw ex;
+}
+```
+
+## General v3 Web API Usage
+
+```java
+import com.sendgrid.*;
+import java.io.IOException;
+
+SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
 Request request = new Request();
 try {
   Request request = new Request;

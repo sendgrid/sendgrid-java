@@ -1,4 +1,4 @@
-Hello! Thank you for choosing to help contribute to the sendgrid-python library. There are many ways you can contribute and help is always welcome.
+Hello! Thank you for choosing to help contribute to the sendgrid-java library. There are many ways you can contribute and help is always welcome.
 
 We use [Milestones](https://github.com/sendgrid/sendgrid-java/milestones) to help define current roadmaps, please feel free to grab an issue from the current milestone. Please indicate that you have begun work on it to avoid collisions. Once a PR is made, community review, comments, suggestions and additional PRs are welcomed and encouraged.
 
@@ -94,7 +94,6 @@ You will need to setup the following environment to use the SendGrid example:
 echo "export SENDGRID_API_KEY='YOUR_API_KEY'" > sendgrid.env
 echo "sendgrid.env" >> .gitignore
 source ./sendgrid.env
-node examples/example.js
 ```
 
 <a name="understanding_the_codebase"></a>
@@ -107,6 +106,11 @@ Working examples that demonstrate usage. To run the example code
 ```bash
 cd examples
 javac -classpath ./jackson-annotations-2.7.0.jar:./jackson-databind-2.7.3.jar:./jackson-core-2.7.3.jar:../build/libs/sendgrid-3.0.0-jar.jar:. Example.java && java -classpath ./jackson-annotations-2.7.0.jar:./jackson-databind-2.7.3.jar:./jackson-core-2.7.3.jar:../build/libs/sendgrid-3.0.0-jar.jar:. Example
+```
+
+To build the project:
+```bash
+./gradlew build
 ```
 
 **/tests**
@@ -124,9 +128,9 @@ All PRs require passing tests before the PR will be reviewed.
 
 All test files are in the `[tests](https://github.com/sendgrid/sendgrid-java/tree/master/tests)` directory.
 
-For the purposes of contributing to this repo, please update the [`test_v3_endpoints.py`](https://github.com/sendgrid/sendgrid-java/blob/master/test/test_v3_endpoints.py) file with unit tests as you modify the code.
+For the purposes of contributing to this repo, please update the [`SendGridTest.java`](https://github.com/sendgrid/sendgrid-java/blob/master/test/java/com/sendgrid/SendGridTest.java) file with unit tests as you modify the code.
 
-```java
+```bash
 ./gradlew test -i
 ```
 
@@ -135,9 +139,7 @@ For the purposes of contributing to this repo, please update the [`test_v3_endpo
 
 Generally, we follow the style guidelines as suggested by the official language. However, we ask that you conform to the styles that already exist in the library. If you wish to deviate, please explain your reasoning.
 
-* []()
-
-Please run your code through 
+Please run your code through [FindBugs](http://findbugs.sourceforge.net/) and [CheckStyle](http://checkstyle.sourceforge.net/) with [Google's Java Style Guide](http://checkstyle.sourceforge.net/reports/google-java-style.html).
 
 ### Directory Structure
 
