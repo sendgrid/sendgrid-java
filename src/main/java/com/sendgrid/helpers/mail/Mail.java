@@ -10,6 +10,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.ObjectWriter;
+import com.fasterxml.jackson.databind.SerializationFeature;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -39,6 +40,11 @@ public class Mail {
   @JsonProperty("mail_settings") public MailSettings mailSettings;
   @JsonProperty("tracking_settings") public TrackingSettings trackingSettings;
   @JsonProperty("reply_to") public Email replyTo;
+
+  private static final ObjectMapper SORTED_MAPPER = new ObjectMapper();
+  static {
+    SORTED_MAPPER.configure(SerializationFeature.ORDER_MAP_ENTRIES_BY_KEYS, true);
+  }
 
   public Mail() {
     return;
@@ -257,8 +263,8 @@ public class Mail {
   */
   public String build() throws IOException {
     try {
-      ObjectMapper mapper = new ObjectMapper();
-      return mapper.writeValueAsString(this);
+      //ObjectMapper mapper = new ObjectMapper();
+      return SORTED_MAPPER.writeValueAsString(this);
     } catch (IOException ex) {
       throw ex;
     }

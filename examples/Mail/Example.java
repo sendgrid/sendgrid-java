@@ -204,7 +204,6 @@ public class Example {
     replyTo.setEmail("dx+reply@sendgrid.com");
     mail.setReplyTo(replyTo);
 
-    System.out.println(mail.build());
     return mail;
   }
 
@@ -224,7 +223,7 @@ public class Example {
   public static void baselineExample() throws IOException {
     SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
     //sg.addRequestHeader("X-Mock", "true");
-    sg.setHost("e9sk3d3bfaikbpdq7.stoplight-proxy.io");
+    sg.setHost("3wyb2hp7emnqja6ys.stoplight-proxy.io");
 
     Request request = new Request();
     Mail helloWorld = buildHelloEmail();
@@ -232,7 +231,7 @@ public class Example {
       request.method = Method.POST;
       request.endpoint = "mail/send/beta";
       request.requestBody = helloWorld.build();
-
+      System.out.println(request.requestBody); // REMOVE
       Response response = sg.api(request);
       System.out.println(response.statusCode);
       System.out.println(response.responseBody);
@@ -245,15 +244,15 @@ public class Example {
   public static void kitchenSinkExample() throws IOException {
     SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
     //sg.addRequestHeader("X-Mock", "true");
-    sg.setHost("e9sk3d3bfaikbpdq7.stoplight-proxy.io");
+    sg.setHost("3wyb2hp7emnqja6ys.stoplight-proxy.io");
 
     Request request = new Request();
     Mail kitchenSink = buildKitchenSink();
     try {
       request.method = Method.POST;
       request.endpoint = "mail/send/beta";
-
-      System.out.println(request.requestBody);
+      request.requestBody = kitchenSink.build();
+      System.out.println(request.requestBody); // REMOVE
       Response response = sg.api(request);
       System.out.println(response.statusCode);
       System.out.println(response.responseBody);
