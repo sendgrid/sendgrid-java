@@ -12,6 +12,50 @@ By using this endpoint, you accept that you may encounter bugs and that the endp
 
 # Installation
 
+## Environment Variables
+
+First, get your free SendGrid account [here](https://sendgrid.com/free?source=sendgrid-java).
+
+Next, update your environment with your [SENDGRID_API_KEY](https://app.sendgrid.com/settings/api_keys).
+
+```bash
+echo "export SENDGRID_API_KEY='YOUR_API_KEY'" > sendgrid.env
+echo "sendgrid.env" >> .gitignore
+source ./sendgrid.env
+```
+## TRYING OUT THE V3 BETA MAIL SEND
+
+```bash
+git clone -b v3beta --single-branch https://github.com/sendgrid/sendgrid-java.git
+cd sendgrid-java
+./gradlew build
+```
+
+* Update the to and from [emails](https://github.com/sendgrid/sendgrid-java/blob/v3beta/examples/Mail/Example.java#L35).
+
+```bash
+cd examples/mail
+javac -classpath ../examples/jackson-annotations-2.7.0.jar:../examples/jackson-databind-2.7.3.jar:../examples/jackson-core-2.7.3.jar:../../build/libs/sendgrid-3.0.0-jar.jar:. Example.java && java -classpath ../examples/jackson-annotations-2.7.0.jar:../examples/jackson-databind-2.7.3.jar:../examples/jackson-core-2.7.3.jar:../../build/libs/sendgrid-3.0.0-jar.jar:. Example
+```
+
+## TRYING OUT THE V3 BETA WEB API
+
+```bash
+git clone -b v3beta --single-branch https://github.com/sendgrid/sendgrid-java.git
+```
+
+* Check out the documentation for [Web API v3 endpoints](https://sendgrid.com/docs/API_Reference/Web_API_v3/index.html).
+* Review the corresponding [examples](https://github.com/sendgrid/sendgrid-python/blob/v3beta/examples).
+
+```bash
+cd examples
+javac -classpath ./jackson-annotations-2.7.0.jar:./jackson-databind-2.7.3.jar:./jackson-core-2.7.3.jar:../build/libs/sendgrid-3.0.0-jar.jar:. Example.java && java -classpath ./jackson-annotations-2.7.0.jar:./jackson-databind-2.7.3.jar:./jackson-core-2.7.3.jar:../build/libs/sendgrid-3.0.0-jar.jar:. Example
+```
+
+* Check out the documentation for [Web API v3 /mail/send/beta endpoint](https://sendgrid.com/docs/API_Reference/Web_API_v3/Mail/index.html).
+
+## Once we are out of v3 BETA, the following will apply
+
 Choose your installation method - Maven w/ Gradle (recommended), Maven or Jar file.
 
 ### via Maven w/ Gradle
@@ -57,18 +101,6 @@ import com.sendgrid.*;
 
 - [Java-HTTP-Client](https://github.com/sendgrid/java-http-client)
 
-## Environment Variables
-
-First, get your free SendGrid account [here](https://sendgrid.com/free?source=sendgrid-java).
-
-Next, update your environment with your [SENDGRID_API_KEY](https://app.sendgrid.com/settings/api_keys).
-
-```bash
-echo "export SENDGRID_API_KEY='YOUR_API_KEY'" > sendgrid.env
-echo "sendgrid.env" >> .gitignore
-source ./sendgrid.env
-```
-
 # Quick Start
 
 ## Hello Email
@@ -77,9 +109,9 @@ source ./sendgrid.env
 import com.sendgrid.*;
 import java.io.IOException;
 
-Email from = new Email("dx@sendgrid.com");
+Email from = new Email("test@example.com");
 String subject = "Hello World from the SendGrid Java Library";
-Email to = new Email("elmer.thomas@sendgrid.com");
+Email to = new Email("test@example.com");
 Content content = new Content("text/plain", "some text here");
 Mail mail = new Mail(from, subject, to, content);
 

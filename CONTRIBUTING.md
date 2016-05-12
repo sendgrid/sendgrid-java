@@ -126,7 +126,7 @@ The interface to the SendGrid API.
 
 All PRs require passing tests before the PR will be reviewed.
 
-All test files are in the `[tests](https://github.com/sendgrid/sendgrid-java/tree/v2beta/tests)` directory.
+All test files are in the [`tests`](https://github.com/sendgrid/sendgrid-java/tree/v2beta/tests) directory.
 
 For the purposes of contributing to this repo, please update the [`SendGridTest.java`](https://github.com/sendgrid/sendgrid-java/tree/v2beta/test/java/com/sendgrid/SendGridTest.java) file with unit tests as you modify the code.
 
@@ -140,11 +140,6 @@ For the purposes of contributing to this repo, please update the [`SendGridTest.
 Generally, we follow the style guidelines as suggested by the official language. However, we ask that you conform to the styles that already exist in the library. If you wish to deviate, please explain your reasoning.
 
 Please run your code through [FindBugs](http://findbugs.sourceforge.net/) and [CheckStyle](http://checkstyle.sourceforge.net/) with [Google's Java Style Guide](http://checkstyle.sourceforge.net/reports/google-java-style.html).
-
-### Directory Structure
-
-* `examples` for example calls
-* `test`, for all tests
 
 ## Creating a Pull Request<a name="creating_a_pull_request"></a>
 

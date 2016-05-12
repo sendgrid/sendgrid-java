@@ -13,12 +13,12 @@ public class MailTest {
     Mail mail = new Mail();
 
     Email fromEmail = new Email();
-    fromEmail.setEmail("dx@sendgrid.com");
+    fromEmail.setEmail("test@example.com");
     mail.setFrom(fromEmail);
 
     Personalization personalization = new Personalization();
     Email to = new Email();
-    to.setEmail("elmer.thomas@sendgrid.com");
+    to.setEmail("test@example.com");
     personalization.addTo(to);
 
     mail.addPersonalization(personalization);
@@ -33,7 +33,7 @@ public class MailTest {
     content.setValue("<html><body>some text here</body></html>");
     mail.addContent(content);
 
-    Assert.assertEquals(mail.build(), "{\"from\":{\"email\":\"dx@sendgrid.com\"},\"subject\":\"Hello World from the SendGrid Java Library\",\"personalizations\":[{\"to\":[{\"email\":\"elmer.thomas@sendgrid.com\"}]}],\"content\":[{\"type\":\"text/plain\",\"value\":\"some text here\"},{\"type\":\"text/html\",\"value\":\"<html><body>some text here</body></html>\"}]}");
+    Assert.assertEquals(mail.build(), "{\"from\":{\"email\":\"test@example.com\"},\"subject\":\"Hello World from the SendGrid Java Library\",\"personalizations\":[{\"to\":[{\"email\":\"test@example.com\"}]}],\"content\":[{\"type\":\"text/plain\",\"value\":\"some text here\"},{\"type\":\"text/html\",\"value\":\"<html><body>some text here</body></html>\"}]}");
   }
 
   @Test
@@ -41,39 +41,39 @@ public class MailTest {
     Mail mail = new Mail();
 
     Email fromEmail = new Email();
-    fromEmail.setName("Elmer Thomas");
-    fromEmail.setEmail("dx@sendgrid.com");
+    fromEmail.setName("Example User");
+    fromEmail.setEmail("test@example.com");
     mail.setFrom(fromEmail);
 
     mail.setSubject("Hello World from the SendGrid Java Library");
 
     Personalization personalization = new Personalization();
     Email to = new Email();
-    to.setName("Elmer Thomas");
-    to.setEmail("elmer.thomas@sendgrid.com");
+    to.setName("Example User");
+    to.setEmail("test@example.com");
     personalization.addTo(to);
-    to.setName("Elmer Thomas Alias");
-    to.setEmail("elmer.thomas@gmail.com");
+    to.setName("Example User");
+    to.setEmail("test@example.com");
     personalization.addTo(to);
     Email cc = new Email();
-    cc.setName("Matt Bernier");
-    cc.setEmail("matt.bernier@sendgrid.com");
+    cc.setName("Example User");
+    cc.setEmail("test@example.com");
     personalization.addCc(cc);
-    cc.setName("Eric Shallock");
-    cc.setEmail("eric.shallock@sendgrid.com");
+    cc.setName("Example User");
+    cc.setEmail("test@example.com");
     personalization.addCc(cc);
     Email bcc = new Email();
-    bcc.setName("DX Matt Bernier");
-    bcc.setEmail("dx+matt@sendgrid.com");
+    bcc.setName("Example User");
+    bcc.setEmail("test@example.com");
     personalization.addBcc(bcc);
-    bcc.setName("DX Eric Shallock");
-    bcc.setEmail("dx+eric@sendgrid.com");
+    bcc.setName("Example User");
+    bcc.setEmail("test@example.com");
     personalization.addBcc(bcc);
     personalization.setSubject("Hello World from the Personalized SendGrid Java Library");
     personalization.addHeader("X-Test", "test");
     personalization.addHeader("X-Mock", "true");
-    personalization.addSubstitution("%name%", "Tim");
-    personalization.addSubstitution("%city%", "Riverside");
+    personalization.addSubstitution("%name%", "Example User");
+    personalization.addSubstitution("%city%", "Denver");
     personalization.addCustomArg("user_id", "343");
     personalization.addCustomArg("type", "marketing");
     personalization.setSendAt(1443636843);
@@ -81,31 +81,31 @@ public class MailTest {
 
     Personalization personalization2 = new Personalization();
     Email to2 = new Email();
-    to2.setName("Elmer Thomas");
-    to2.setEmail("elmer.thomas@sendgrid.com");
+    to2.setName("Example User");
+    to2.setEmail("test@example.com");
     personalization2.addTo(to2);
-    to2.setName("Elmer Thomas Alias");
-    to2.setEmail("elmer.thomas@gmail.com");
+    to2.setName("Example User");
+    to2.setEmail("test@example.com");
     personalization2.addTo(to2);
     Email cc2 = new Email();
-    cc2.setName("Matt Bernier");
-    cc2.setEmail("matt.bernier@sendgrid.com");
+    cc2.setName("Example User");
+    cc2.setEmail("test@example.com");
     personalization2.addCc(cc2);
-    cc2.setName("Eric Shallock");
-    cc2.setEmail("eric.shallock@sendgrid.com");
+    cc2.setName("Example User");
+    cc2.setEmail("test@example.com");
     personalization2.addCc(cc2);
     Email bcc2 = new Email();
-    bcc2.setName("DX Matt Bernier");
-    bcc2.setEmail("dx+matt@sendgrid.com");
+    bcc2.setName("Example User");
+    bcc2.setEmail("test@example.com");
     personalization2.addBcc(bcc2);
-    bcc2.setName("DX Eric Shallock");
-    bcc2.setEmail("dx+eric@sendgrid.com");
+    bcc2.setName("Example User");
+    bcc2.setEmail("test@example.com");
     personalization2.addBcc(bcc2);
     personalization2.setSubject("Hello World from the Personalized SendGrid Java Library");
     personalization2.addHeader("X-Test", "test");
     personalization2.addHeader("X-Mock", "true");
-    personalization2.addSubstitution("%name%", "Tim");
-    personalization2.addSubstitution("%city%", "Riverside");
+    personalization2.addSubstitution("%name%", "Example User");
+    personalization2.addSubstitution("%city%", "Denver");
     personalization2.addCustomArg("user_id", "343");
     personalization2.addCustomArg("type", "marketing");
     personalization2.setSendAt(1443636843);
@@ -164,7 +164,7 @@ public class MailTest {
     MailSettings mailSettings = new MailSettings();
     BccSettings bccSettings = new BccSettings();
     bccSettings.setEnable(true);
-    bccSettings.setEmail("dx+bcc@sendgrid.com");
+    bccSettings.setEmail("test@example.com");
     mailSettings.setBccSettings(bccSettings);
     Setting sandBoxMode = new Setting();
     sandBoxMode.setEnable(true);
@@ -210,10 +210,10 @@ public class MailTest {
     mail.setTrackingSettings(trackingSettings);
 
     Email replyTo = new Email();
-    replyTo.setName("Mr. Elmer Thomas");
-    replyTo.setEmail("dx+reply@sendgrid.com");
+    replyTo.setName("Example User");
+    replyTo.setEmail("test@example.com");
     mail.setReplyTo(replyTo);
 
-    Assert.assertEquals(mail.build(), "{\"from\":{\"name\":\"Elmer Thomas\",\"email\":\"dx@sendgrid.com\"},\"subject\":\"Hello World from the SendGrid Java Library\",\"personalizations\":[{\"to\":[{\"name\":\"Elmer Thomas\",\"email\":\"elmer.thomas@sendgrid.com\"},{\"name\":\"Elmer Thomas Alias\",\"email\":\"elmer.thomas@gmail.com\"}],\"cc\":[{\"name\":\"Matt Bernier\",\"email\":\"matt.bernier@sendgrid.com\"},{\"name\":\"Eric Shallock\",\"email\":\"eric.shallock@sendgrid.com\"}],\"bcc\":[{\"name\":\"DX Matt Bernier\",\"email\":\"dx+matt@sendgrid.com\"},{\"name\":\"DX Eric Shallock\",\"email\":\"dx+eric@sendgrid.com\"}],\"subject\":\"Hello World from the Personalized SendGrid Java Library\",\"headers\":{\"X-Mock\":\"true\",\"X-Test\":\"test\"},\"substitutions\":{\"%city%\":\"Riverside\",\"%name%\":\"Tim\"},\"custom_args\":{\"type\":\"marketing\",\"user_id\":\"343\"},\"send_at\":1443636843},{\"to\":[{\"name\":\"Elmer Thomas\",\"email\":\"elmer.thomas@sendgrid.com\"},{\"name\":\"Elmer Thomas Alias\",\"email\":\"elmer.thomas@gmail.com\"}],\"cc\":[{\"name\":\"Matt Bernier\",\"email\":\"matt.bernier@sendgrid.com\"},{\"name\":\"Eric Shallock\",\"email\":\"eric.shallock@sendgrid.com\"}],\"bcc\":[{\"name\":\"DX Matt Bernier\",\"email\":\"dx+matt@sendgrid.com\"},{\"name\":\"DX Eric Shallock\",\"email\":\"dx+eric@sendgrid.com\"}],\"subject\":\"Hello World from the Personalized SendGrid Java Library\",\"headers\":{\"X-Mock\":\"true\",\"X-Test\":\"test\"},\"substitutions\":{\"%city%\":\"Riverside\",\"%name%\":\"Tim\"},\"custom_args\":{\"type\":\"marketing\",\"user_id\":\"343\"},\"send_at\":1443636843}],\"content\":[{\"type\":\"text/plain\",\"value\":\"some text here\"},{\"type\":\"text/html\",\"value\":\"<html><body>some text here</body></html>\"}],\"attachments\":[{\"content\":\"TG9yZW0gaXBzdW0gZG9sb3Igc2l0IGFtZXQsIGNvbnNlY3RldHVyIGFkaXBpc2NpbmcgZWxpdC4gQ3JhcyBwdW12\",\"type\":\"application/pdf\",\"filename\":\"balance_001.pdf\",\"disposition\":\"attachment\",\"content_id\":\"Balance Sheet\"},{\"content\":\"BwdW\",\"type\":\"image/png\",\"filename\":\"banner.png\",\"disposition\":\"inline\",\"content_id\":\"Banner\"}],\"template_id\":\"13b8f94f-bcae-4ec6-b752-70d6cb59f932\",\"sections\":{\"%section1%\":\"Substitution Text for Section 1\",\"%section2%\":\"Substitution Text for Section 2\"},\"headers\":{\"X-Test1\":\"1\",\"X-Test2\":\"2\"},\"categories\":[\"May\",\"2016\"],\"custom_args\":{\"campaign\":\"welcome\",\"weekday\":\"morning\"},\"send_at\":1443636842,\"asm\":{\"group_id\":99,\"groups_to_display\":[4,5,6,7,8]},\"ip_pool_name\":\"23\",\"mail_settings\":{\"bcc\":{\"enable\":true,\"email\":\"dx+bcc@sendgrid.com\"},\"bypass_list_management\":{\"enable\":true},\"footer\":{\"enable\":true,\"text\":\"Footer Text\",\"html\":\"<html><body>Footer Text</body></html>\"},\"sandbox_mode\":{\"enable\":true},\"spam_check\":{\"enable\":true,\"threshold\":1,\"post_to_url\":\"https://spamcatcher.sendgrid.com\"}},\"tracking_settings\":{\"click_tracking\":{\"enable\":true,\"enable_text\":true},\"open_tracking\":{\"enable\":true,\"substitution_tag\":\"Optional tag to replace with the open image in the body of the message\"},\"subscription_tracking\":{\"enable\":true,\"text\":\"text to insert into the text/plain portion of the message\",\"html\":\"<html><body>html to insert into the text/html portion of the message</body></html>\",\"substitution_tag\":\"Optional tag to replace with the open image in the body of the message\"},\"ganalytics\":{\"enable\":true,\"utm_source\":\"some source\",\"utm_term\":\"some term\",\"utm_content\":\"some content\",\"utm_campaign\":\"some name\",\"utm_medium\":\"some medium\"}},\"reply_to\":{\"name\":\"Mr. Elmer Thomas\",\"email\":\"dx+reply@sendgrid.com\"}}");
+    Assert.assertEquals(mail.build(), "{\"from\":{\"name\":\"Example User\",\"email\":\"test@example.com\"},\"subject\":\"Hello World from the SendGrid Java Library\",\"personalizations\":[{\"to\":[{\"name\":\"Example User\",\"email\":\"test@example.com\"},{\"name\":\"Example User\",\"email\":\"test@example.com\"}],\"cc\":[{\"name\":\"Example User\",\"email\":\"test@example.com\"},{\"name\":\"Example User\",\"email\":\"test@example.com\"}],\"bcc\":[{\"name\":\"Example User\",\"email\":\"test@example.com\"},{\"name\":\"Example User\",\"email\":\"test@example.com\"}],\"subject\":\"Hello World from the Personalized SendGrid Java Library\",\"headers\":{\"X-Mock\":\"true\",\"X-Test\":\"test\"},\"substitutions\":{\"%city%\":\"Denver\",\"%name%\":\"Example User\"},\"custom_args\":{\"type\":\"marketing\",\"user_id\":\"343\"},\"send_at\":1443636843},{\"to\":[{\"name\":\"Example User\",\"email\":\"test@example.com\"},{\"name\":\"Example User\",\"email\":\"test@example.com\"}],\"cc\":[{\"name\":\"Example User\",\"email\":\"test@example.com\"},{\"name\":\"Example User\",\"email\":\"test@example.com\"}],\"bcc\":[{\"name\":\"Example User\",\"email\":\"test@example.com\"},{\"name\":\"Example User\",\"email\":\"test@example.com\"}],\"subject\":\"Hello World from the Personalized SendGrid Java Library\",\"headers\":{\"X-Mock\":\"true\",\"X-Test\":\"test\"},\"substitutions\":{\"%city%\":\"Denver\",\"%name%\":\"Example User\"},\"custom_args\":{\"type\":\"marketing\",\"user_id\":\"343\"},\"send_at\":1443636843}],\"content\":[{\"type\":\"text/plain\",\"value\":\"some text here\"},{\"type\":\"text/html\",\"value\":\"<html><body>some text here</body></html>\"}],\"attachments\":[{\"content\":\"TG9yZW0gaXBzdW0gZG9sb3Igc2l0IGFtZXQsIGNvbnNlY3RldHVyIGFkaXBpc2NpbmcgZWxpdC4gQ3JhcyBwdW12\",\"type\":\"application/pdf\",\"filename\":\"balance_001.pdf\",\"disposition\":\"attachment\",\"content_id\":\"Balance Sheet\"},{\"content\":\"BwdW\",\"type\":\"image/png\",\"filename\":\"banner.png\",\"disposition\":\"inline\",\"content_id\":\"Banner\"}],\"template_id\":\"13b8f94f-bcae-4ec6-b752-70d6cb59f932\",\"sections\":{\"%section1%\":\"Substitution Text for Section 1\",\"%section2%\":\"Substitution Text for Section 2\"},\"headers\":{\"X-Test1\":\"1\",\"X-Test2\":\"2\"},\"categories\":[\"May\",\"2016\"],\"custom_args\":{\"campaign\":\"welcome\",\"weekday\":\"morning\"},\"send_at\":1443636842,\"asm\":{\"group_id\":99,\"groups_to_display\":[4,5,6,7,8]},\"ip_pool_name\":\"23\",\"mail_settings\":{\"bcc\":{\"enable\":true,\"email\":\"test@example.com\"},\"bypass_list_management\":{\"enable\":true},\"footer\":{\"enable\":true,\"text\":\"Footer Text\",\"html\":\"<html><body>Footer Text</body></html>\"},\"sandbox_mode\":{\"enable\":true},\"spam_check\":{\"enable\":true,\"threshold\":1,\"post_to_url\":\"https://spamcatcher.sendgrid.com\"}},\"tracking_settings\":{\"click_tracking\":{\"enable\":true,\"enable_text\":true},\"open_tracking\":{\"enable\":true,\"substitution_tag\":\"Optional tag to replace with the open image in the body of the message\"},\"subscription_tracking\":{\"enable\":true,\"text\":\"text to insert into the text/plain portion of the message\",\"html\":\"<html><body>html to insert into the text/html portion of the message</body></html>\",\"substitution_tag\":\"Optional tag to replace with the open image in the body of the message\"},\"ganalytics\":{\"enable\":true,\"utm_source\":\"some source\",\"utm_term\":\"some term\",\"utm_content\":\"some content\",\"utm_campaign\":\"some name\",\"utm_medium\":\"some medium\"}},\"reply_to\":{\"name\":\"Example User\",\"email\":\"test@example.com\"}}");
   }
 }

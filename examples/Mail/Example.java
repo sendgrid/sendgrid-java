@@ -31,38 +31,38 @@ public class Example {
     Mail mail = new Mail();
 
     Email fromEmail = new Email();
-    fromEmail.setName("Elmer Thomas");
-    fromEmail.setEmail("dx@sendgrid.com");
+    fromEmail.setName("Example User");
+    fromEmail.setEmail("test@example.com");
     mail.setFrom(fromEmail);
 
     mail.setSubject("Hello World from the SendGrid Java Library");
 
     Personalization personalization = new Personalization();
     Email to = new Email();
-    to.setName("Elmer Thomas");
-    to.setEmail("elmer.thomas@sendgrid.com");
+    to.setName("Example User");
+    to.setEmail("test1@example.com");
     personalization.addTo(to);
-    to.setName("Elmer Thomas Alias");
-    to.setEmail("elmer.thomas@gmail.com");
+    to.setName("Example User");
+    to.setEmail("test2@example.com");
     personalization.addTo(to);
     Email cc = new Email();
-    cc.setName("Matt Bernier");
-    cc.setEmail("matt.bernier@sendgrid.com");
+    cc.setName("Example User");
+    cc.setEmail("test3@example.com");
     personalization.addCc(cc);
-    cc.setName("Eric Shallock");
-    cc.setEmail("eric.shallock@sendgrid.com");
+    cc.setName("Example User");
+    cc.setEmail("test4@example.com");
     personalization.addCc(cc);
     Email bcc = new Email();
-    bcc.setName("DX Matt Bernier");
-    bcc.setEmail("dx+matt@sendgrid.com");
+    bcc.setName("Example User");
+    bcc.setEmail("test5@example.com");
     personalization.addBcc(bcc);
-    bcc.setName("DX Eric Shallock");
-    bcc.setEmail("dx+eric@sendgrid.com");
+    bcc.setName("Example User");
+    bcc.setEmail("test6@example.com");
     personalization.addBcc(bcc);
     personalization.setSubject("Hello World from the Personalized SendGrid Java Library");
     personalization.addHeader("X-Test", "test");
     personalization.addHeader("X-Mock", "true");
-    personalization.addSubstitution("%name%", "Tim");
+    personalization.addSubstitution("%name%", "Example User");
     personalization.addSubstitution("%city%", "Riverside");
     personalization.addCustomArg("user_id", "343");
     personalization.addCustomArg("type", "marketing");
@@ -71,31 +71,31 @@ public class Example {
 
     Personalization personalization2 = new Personalization();
     Email to2 = new Email();
-    to2.setName("Elmer Thomas");
-    to2.setEmail("elmer.thomas@sendgrid.com");
+    to2.setName("Example User");
+    to2.setEmail("test1@example.com");
     personalization2.addTo(to2);
-    to2.setName("Elmer Thomas Alias");
-    to2.setEmail("elmer.thomas@gmail.com");
+    to2.setName("Example User");
+    to2.setEmail("test2@example.com");
     personalization2.addTo(to2);
     Email cc2 = new Email();
-    cc2.setName("Matt Bernier");
-    cc2.setEmail("matt.bernier@sendgrid.com");
+    cc2.setName("Example User");
+    cc2.setEmail("test3@example.com");
     personalization2.addCc(cc2);
-    cc2.setName("Eric Shallock");
-    cc2.setEmail("eric.shallock@sendgrid.com");
+    cc2.setName("Example User");
+    cc2.setEmail("test4@example.com");
     personalization2.addCc(cc2);
     Email bcc2 = new Email();
-    bcc2.setName("DX Matt Bernier");
-    bcc2.setEmail("dx+matt@sendgrid.com");
+    bcc2.setName("Example User");
+    bcc2.setEmail("test5@example.com");
     personalization2.addBcc(bcc2);
-    bcc2.setName("DX Eric Shallock");
-    bcc2.setEmail("dx+eric@sendgrid.com");
+    bcc2.setName("Example User");
+    bcc2.setEmail("test6@example.com");
     personalization2.addBcc(bcc2);
     personalization2.setSubject("Hello World from the Personalized SendGrid Java Library");
     personalization2.addHeader("X-Test", "test");
     personalization2.addHeader("X-Mock", "true");
-    personalization2.addSubstitution("%name%", "Tim");
-    personalization2.addSubstitution("%city%", "Riverside");
+    personalization2.addSubstitution("%name%", "Example User");
+    personalization2.addSubstitution("%city%", "Denver");
     personalization2.addCustomArg("user_id", "343");
     personalization2.addCustomArg("type", "marketing");
     personalization2.setSendAt(1443636843);
@@ -154,7 +154,7 @@ public class Example {
     MailSettings mailSettings = new MailSettings();
     BccSettings bccSettings = new BccSettings();
     bccSettings.setEnable(true);
-    bccSettings.setEmail("dx+bcc@sendgrid.com");
+    bccSettings.setEmail("test@example.com");
     mailSettings.setBccSettings(bccSettings);
     Setting sandBoxMode = new Setting();
     sandBoxMode.setEnable(true);
@@ -200,8 +200,8 @@ public class Example {
     mail.setTrackingSettings(trackingSettings);
 
     Email replyTo = new Email();
-    replyTo.setName("Mr. Elmer Thomas");
-    replyTo.setEmail("dx+reply@sendgrid.com");
+    replyTo.setName("Example User");
+    replyTo.setEmail("test@example.com");
     mail.setReplyTo(replyTo);
 
     return mail;
@@ -209,12 +209,12 @@ public class Example {
 
   // Minimum required to send an email
   public static Mail buildHelloEmail() throws IOException {
-    Email from = new Email("dx@sendgrid.com");
+    Email from = new Email("test@example.com");
     String subject = "Hello World from the SendGrid Java Library";
-    Email to = new Email("elmer.thomas@sendgrid.com");
+    Email to = new Email("test@example.com");
     Content content = new Content("text/plain", "some text here");
     Mail mail = new Mail(from, subject, to, content);
-    Email email = new Email("elmer.thomas+add_second_email@sendgrid.com");
+    Email email = new Email("test2@example.com");
     mail.personalization.get(0).addTo(email);
 
     return mail;
@@ -222,8 +222,7 @@ public class Example {
 
   public static void baselineExample() throws IOException {
     SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
-    //sg.addRequestHeader("X-Mock", "true");
-    sg.setHost("3wyb2hp7emnqja6ys.stoplight-proxy.io");
+    sg.addRequestHeader("X-Mock", "true");
 
     Request request = new Request();
     Mail helloWorld = buildHelloEmail();
@@ -243,8 +242,7 @@ public class Example {
 
   public static void kitchenSinkExample() throws IOException {
     SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
-    //sg.addRequestHeader("X-Mock", "true");
-    sg.setHost("3wyb2hp7emnqja6ys.stoplight-proxy.io");
+    sg.addRequestHeader("X-Mock", "true");
 
     Request request = new Request();
     Mail kitchenSink = buildKitchenSink();
