@@ -40,7 +40,6 @@ public class SendGrid {
     private String username;
     private String password;
     private String url;
-    private String port;
     private String endpoint;
     private CloseableHttpClient client;
 
