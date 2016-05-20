@@ -351,8 +351,18 @@ public class SendGrid {
             return this.html;
         }
 
-        public Email addSubstitution(String key, String[] val) {
+        public Email addSubstitution(String key, String val) {
+            this.smtpapi.addSubstitution(key, val);
+            return this;
+        }
+
+        public Email addSubstitutions(String key, String[] val) {
             this.smtpapi.addSubstitutions(key, val);
+            return this;
+        }
+
+        public Email setSubstitutions(JSONObject subs) {
+            this.smtpapi.setSubstitutions(subs);
             return this;
         }
 
