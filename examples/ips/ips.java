@@ -21,7 +21,7 @@ public class Example {
       SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
       Request request = new Request();
       request.method = Method.GET;
-      request.endpoint = "ips/";
+      request.endpoint = "ips";
       Map<String,String> queryParams = new HashMap<String, String>();
       queryParams.put("subuser", "test_string");
     queryParams.put("ip", "test_string");
@@ -49,7 +49,7 @@ public class Example {
       SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
       Request request = new Request();
       request.method = Method.GET;
-      request.endpoint = "ips/assigned/";
+      request.endpoint = "ips/assigned";
       Response response = sg.api(request);
       System.out.println(response.statusCode);
       System.out.println(response.responseBody);
@@ -70,7 +70,7 @@ public class Example {
       SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
       Request request = new Request();
       request.method = Method.POST;
-      request.endpoint = "ips/pools/";
+      request.endpoint = "ips/pools";
       request.requestBody = "{\"name\":\"marketing\"}";
       Response response = sg.api(request);
       System.out.println(response.statusCode);
@@ -92,7 +92,7 @@ public class Example {
       SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
       Request request = new Request();
       request.method = Method.GET;
-      request.endpoint = "ips/pools/";
+      request.endpoint = "ips/pools";
       Response response = sg.api(request);
       System.out.println(response.statusCode);
       System.out.println(response.responseBody);
@@ -113,7 +113,7 @@ public class Example {
       SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
       Request request = new Request();
       request.method = Method.PUT;
-      request.endpoint = "ips/pools/{pool_name}/";
+      request.endpoint = "ips/pools/{pool_name}";
       request.requestBody = "{\"name\":\"new_pool_name\"}";
       Response response = sg.api(request);
       System.out.println(response.statusCode);
@@ -135,7 +135,7 @@ public class Example {
       SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
       Request request = new Request();
       request.method = Method.GET;
-      request.endpoint = "ips/pools/{pool_name}/";
+      request.endpoint = "ips/pools/{pool_name}";
       Response response = sg.api(request);
       System.out.println(response.statusCode);
       System.out.println(response.responseBody);
@@ -156,7 +156,7 @@ public class Example {
       SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
       Request request = new Request();
       request.method = Method.DELETE;
-      request.endpoint = "ips/pools/{pool_name}/";
+      request.endpoint = "ips/pools/{pool_name}";
       Response response = sg.api(request);
       System.out.println(response.statusCode);
       System.out.println(response.responseBody);
@@ -177,7 +177,7 @@ public class Example {
       SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
       Request request = new Request();
       request.method = Method.POST;
-      request.endpoint = "ips/pools/{pool_name}/ips/";
+      request.endpoint = "ips/pools/{pool_name}/ips";
       request.requestBody = "{\"ip\":\"0.0.0.0\"}";
       Response response = sg.api(request);
       System.out.println(response.statusCode);
@@ -199,7 +199,7 @@ public class Example {
       SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
       Request request = new Request();
       request.method = Method.DELETE;
-      request.endpoint = "ips/pools/{pool_name}/ips/{ip}/";
+      request.endpoint = "ips/pools/{pool_name}/ips/{ip}";
       Response response = sg.api(request);
       System.out.println(response.statusCode);
       System.out.println(response.responseBody);
@@ -220,7 +220,7 @@ public class Example {
       SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
       Request request = new Request();
       request.method = Method.POST;
-      request.endpoint = "ips/warmup/";
+      request.endpoint = "ips/warmup";
       request.requestBody = "{\"ip\":\"0.0.0.0\"}";
       Response response = sg.api(request);
       System.out.println(response.statusCode);
@@ -242,7 +242,7 @@ public class Example {
       SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
       Request request = new Request();
       request.method = Method.GET;
-      request.endpoint = "ips/warmup/";
+      request.endpoint = "ips/warmup";
       Response response = sg.api(request);
       System.out.println(response.statusCode);
       System.out.println(response.responseBody);
@@ -263,7 +263,7 @@ public class Example {
       SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
       Request request = new Request();
       request.method = Method.GET;
-      request.endpoint = "ips/warmup/{ip_address}/";
+      request.endpoint = "ips/warmup/{ip_address}";
       Response response = sg.api(request);
       System.out.println(response.statusCode);
       System.out.println(response.responseBody);
@@ -284,7 +284,7 @@ public class Example {
       SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
       Request request = new Request();
       request.method = Method.DELETE;
-      request.endpoint = "ips/warmup/{ip_address}/";
+      request.endpoint = "ips/warmup/{ip_address}";
       Response response = sg.api(request);
       System.out.println(response.statusCode);
       System.out.println(response.responseBody);
@@ -305,7 +305,7 @@ public class Example {
       SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
       Request request = new Request();
       request.method = Method.GET;
-      request.endpoint = "ips/{ip_address}/";
+      request.endpoint = "ips/{ip_address}";
       Response response = sg.api(request);
       System.out.println(response.statusCode);
       System.out.println(response.responseBody);

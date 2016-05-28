@@ -21,7 +21,7 @@ public class Example {
       SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
       Request request = new Request();
       request.method = Method.GET;
-      request.endpoint = "partner_settings/";
+      request.endpoint = "partner_settings";
       Map<String,String> queryParams = new HashMap<String, String>();
       queryParams.put("limit", "1");
     queryParams.put("offset", "1");
@@ -46,7 +46,7 @@ public class Example {
       SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
       Request request = new Request();
       request.method = Method.PATCH;
-      request.endpoint = "partner_settings/new_relic/";
+      request.endpoint = "partner_settings/new_relic";
       request.requestBody = "{\"enable_subuser_statistics\":true,\"enabled\":true,\"license_key\":\"\"}";
       Response response = sg.api(request);
       System.out.println(response.statusCode);
@@ -68,7 +68,7 @@ public class Example {
       SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
       Request request = new Request();
       request.method = Method.GET;
-      request.endpoint = "partner_settings/new_relic/";
+      request.endpoint = "partner_settings/new_relic";
       Response response = sg.api(request);
       System.out.println(response.statusCode);
       System.out.println(response.responseBody);

@@ -21,7 +21,7 @@ public class Example {
       SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
       Request request = new Request();
       request.method = Method.POST;
-      request.endpoint = "contactdb/custom_fields/";
+      request.endpoint = "contactdb/custom_fields";
       request.requestBody = "{\"type\":\"text\",\"name\":\"pet\"}";
       Response response = sg.api(request);
       System.out.println(response.statusCode);
@@ -43,7 +43,7 @@ public class Example {
       SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
       Request request = new Request();
       request.method = Method.GET;
-      request.endpoint = "contactdb/custom_fields/";
+      request.endpoint = "contactdb/custom_fields";
       Response response = sg.api(request);
       System.out.println(response.statusCode);
       System.out.println(response.responseBody);
@@ -64,7 +64,7 @@ public class Example {
       SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
       Request request = new Request();
       request.method = Method.GET;
-      request.endpoint = "contactdb/custom_fields/{custom_field_id}/";
+      request.endpoint = "contactdb/custom_fields/{custom_field_id}";
       Response response = sg.api(request);
       System.out.println(response.statusCode);
       System.out.println(response.responseBody);
@@ -85,7 +85,7 @@ public class Example {
       SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
       Request request = new Request();
       request.method = Method.DELETE;
-      request.endpoint = "contactdb/custom_fields/{custom_field_id}/";
+      request.endpoint = "contactdb/custom_fields/{custom_field_id}";
       Response response = sg.api(request);
       System.out.println(response.statusCode);
       System.out.println(response.responseBody);
@@ -106,7 +106,7 @@ public class Example {
       SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
       Request request = new Request();
       request.method = Method.POST;
-      request.endpoint = "contactdb/lists/";
+      request.endpoint = "contactdb/lists";
       request.requestBody = "{\"name\":\"your list name\"}";
       Response response = sg.api(request);
       System.out.println(response.statusCode);
@@ -128,7 +128,7 @@ public class Example {
       SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
       Request request = new Request();
       request.method = Method.GET;
-      request.endpoint = "contactdb/lists/";
+      request.endpoint = "contactdb/lists";
       Response response = sg.api(request);
       System.out.println(response.statusCode);
       System.out.println(response.responseBody);
@@ -149,7 +149,7 @@ public class Example {
       SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
       Request request = new Request();
       request.method = Method.DELETE;
-      request.endpoint = "contactdb/lists/";
+      request.endpoint = "contactdb/lists";
       request.requestBody = "[1,2,3,4]";
       Response response = sg.api(request);
       System.out.println(response.statusCode);
@@ -171,7 +171,7 @@ public class Example {
       SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
       Request request = new Request();
       request.method = Method.PATCH;
-      request.endpoint = "contactdb/lists/{list_id}/";
+      request.endpoint = "contactdb/lists/{list_id}";
       request.requestBody = "{\"name\":\"newlistname\"}";
       Map<String,String> queryParams = new HashMap<String, String>();
       queryParams.put("list_id", "0");
@@ -196,7 +196,7 @@ public class Example {
       SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
       Request request = new Request();
       request.method = Method.GET;
-      request.endpoint = "contactdb/lists/{list_id}/";
+      request.endpoint = "contactdb/lists/{list_id}";
       Map<String,String> queryParams = new HashMap<String, String>();
       queryParams.put("list_id", "0");
       request.queryParams = queryParams;
@@ -220,7 +220,7 @@ public class Example {
       SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
       Request request = new Request();
       request.method = Method.DELETE;
-      request.endpoint = "contactdb/lists/{list_id}/";
+      request.endpoint = "contactdb/lists/{list_id}";
       Map<String,String> queryParams = new HashMap<String, String>();
       queryParams.put("delete_contacts", "true");
       request.queryParams = queryParams;
@@ -244,7 +244,7 @@ public class Example {
       SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
       Request request = new Request();
       request.method = Method.POST;
-      request.endpoint = "contactdb/lists/{list_id}/recipients/";
+      request.endpoint = "contactdb/lists/{list_id}/recipients";
       request.requestBody = "[\"recipient_id1\",\"recipient_id2\"]";
       Response response = sg.api(request);
       System.out.println(response.statusCode);
@@ -266,7 +266,7 @@ public class Example {
       SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
       Request request = new Request();
       request.method = Method.GET;
-      request.endpoint = "contactdb/lists/{list_id}/recipients/";
+      request.endpoint = "contactdb/lists/{list_id}/recipients";
       Map<String,String> queryParams = new HashMap<String, String>();
       queryParams.put("page", "1");
     queryParams.put("page_size", "1");
@@ -292,7 +292,7 @@ public class Example {
       SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
       Request request = new Request();
       request.method = Method.POST;
-      request.endpoint = "contactdb/lists/{list_id}/recipients/{recipient_id}/";
+      request.endpoint = "contactdb/lists/{list_id}/recipients/{recipient_id}";
       Response response = sg.api(request);
       System.out.println(response.statusCode);
       System.out.println(response.responseBody);
@@ -313,7 +313,7 @@ public class Example {
       SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
       Request request = new Request();
       request.method = Method.DELETE;
-      request.endpoint = "contactdb/lists/{list_id}/recipients/{recipient_id}/";
+      request.endpoint = "contactdb/lists/{list_id}/recipients/{recipient_id}";
       Map<String,String> queryParams = new HashMap<String, String>();
       queryParams.put("recipient_id", "0");
     queryParams.put("list_id", "0");
@@ -338,7 +338,7 @@ public class Example {
       SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
       Request request = new Request();
       request.method = Method.PATCH;
-      request.endpoint = "contactdb/recipients/";
+      request.endpoint = "contactdb/recipients";
       request.requestBody = "[{\"first_name\":\"Guy\",\"last_name\":\"Jones\",\"email\":\"jones@example.com\"}]";
       Response response = sg.api(request);
       System.out.println(response.statusCode);
@@ -360,7 +360,7 @@ public class Example {
       SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
       Request request = new Request();
       request.method = Method.POST;
-      request.endpoint = "contactdb/recipients/";
+      request.endpoint = "contactdb/recipients";
       request.requestBody = "[{\"age\":25,\"last_name\":\"User\",\"email\":\"example@example.com\",\"first_name\":\"\"},{\"age\":25,\"last_name\":\"User\",\"email\":\"example2@example.com\",\"first_name\":\"Example\"}]";
       Response response = sg.api(request);
       System.out.println(response.statusCode);
@@ -382,7 +382,7 @@ public class Example {
       SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
       Request request = new Request();
       request.method = Method.GET;
-      request.endpoint = "contactdb/recipients/";
+      request.endpoint = "contactdb/recipients";
       Map<String,String> queryParams = new HashMap<String, String>();
       queryParams.put("page", "1");
     queryParams.put("page_size", "1");
@@ -407,7 +407,7 @@ public class Example {
       SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
       Request request = new Request();
       request.method = Method.DELETE;
-      request.endpoint = "contactdb/recipients/";
+      request.endpoint = "contactdb/recipients";
       request.requestBody = "[\"recipient_id1\",\"recipient_id2\"]";
       Response response = sg.api(request);
       System.out.println(response.statusCode);
@@ -429,7 +429,7 @@ public class Example {
       SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
       Request request = new Request();
       request.method = Method.GET;
-      request.endpoint = "contactdb/recipients/billable_count/";
+      request.endpoint = "contactdb/recipients/billable_count";
       Response response = sg.api(request);
       System.out.println(response.statusCode);
       System.out.println(response.responseBody);
@@ -450,7 +450,7 @@ public class Example {
       SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
       Request request = new Request();
       request.method = Method.GET;
-      request.endpoint = "contactdb/recipients/count/";
+      request.endpoint = "contactdb/recipients/count";
       Response response = sg.api(request);
       System.out.println(response.statusCode);
       System.out.println(response.responseBody);
@@ -471,7 +471,7 @@ public class Example {
       SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
       Request request = new Request();
       request.method = Method.GET;
-      request.endpoint = "contactdb/recipients/search/";
+      request.endpoint = "contactdb/recipients/search";
       Map<String,String> queryParams = new HashMap<String, String>();
       queryParams.put("{field_name}", "test_string");
       request.queryParams = queryParams;
@@ -495,7 +495,7 @@ public class Example {
       SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
       Request request = new Request();
       request.method = Method.GET;
-      request.endpoint = "contactdb/recipients/{recipient_id}/";
+      request.endpoint = "contactdb/recipients/{recipient_id}";
       Response response = sg.api(request);
       System.out.println(response.statusCode);
       System.out.println(response.responseBody);
@@ -516,7 +516,7 @@ public class Example {
       SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
       Request request = new Request();
       request.method = Method.DELETE;
-      request.endpoint = "contactdb/recipients/{recipient_id}/";
+      request.endpoint = "contactdb/recipients/{recipient_id}";
       Response response = sg.api(request);
       System.out.println(response.statusCode);
       System.out.println(response.responseBody);
@@ -537,7 +537,7 @@ public class Example {
       SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
       Request request = new Request();
       request.method = Method.GET;
-      request.endpoint = "contactdb/recipients/{recipient_id}/lists/";
+      request.endpoint = "contactdb/recipients/{recipient_id}/lists";
       Response response = sg.api(request);
       System.out.println(response.statusCode);
       System.out.println(response.responseBody);
@@ -558,7 +558,7 @@ public class Example {
       SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
       Request request = new Request();
       request.method = Method.GET;
-      request.endpoint = "contactdb/reserved_fields/";
+      request.endpoint = "contactdb/reserved_fields";
       Response response = sg.api(request);
       System.out.println(response.statusCode);
       System.out.println(response.responseBody);
@@ -579,7 +579,7 @@ public class Example {
       SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
       Request request = new Request();
       request.method = Method.POST;
-      request.endpoint = "contactdb/segments/";
+      request.endpoint = "contactdb/segments";
       request.requestBody = "{\"conditions\":[{\"operator\":\"eq\",\"field\":\"last_name\",\"and_or\":\"\",\"value\":\"Miller\"},{\"operator\":\"gt\",\"field\":\"last_clicked\",\"and_or\":\"and\",\"value\":\"01/02/2015\"},{\"operator\":\"eq\",\"field\":\"clicks.campaign_identifier\",\"and_or\":\"or\",\"value\":\"513\"}],\"name\":\"Last Name Miller\",\"list_id\":4}";
       Response response = sg.api(request);
       System.out.println(response.statusCode);
@@ -601,7 +601,7 @@ public class Example {
       SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
       Request request = new Request();
       request.method = Method.GET;
-      request.endpoint = "contactdb/segments/";
+      request.endpoint = "contactdb/segments";
       Response response = sg.api(request);
       System.out.println(response.statusCode);
       System.out.println(response.responseBody);
@@ -622,7 +622,7 @@ public class Example {
       SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
       Request request = new Request();
       request.method = Method.PATCH;
-      request.endpoint = "contactdb/segments/{segment_id}/";
+      request.endpoint = "contactdb/segments/{segment_id}";
       request.requestBody = "{\"conditions\":[{\"operator\":\"eq\",\"field\":\"last_name\",\"and_or\":\"\",\"value\":\"Miller\"}],\"name\":\"The Millers\",\"list_id\":5}";
       Map<String,String> queryParams = new HashMap<String, String>();
       queryParams.put("segment_id", "test_string");
@@ -647,7 +647,7 @@ public class Example {
       SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
       Request request = new Request();
       request.method = Method.GET;
-      request.endpoint = "contactdb/segments/{segment_id}/";
+      request.endpoint = "contactdb/segments/{segment_id}";
       Map<String,String> queryParams = new HashMap<String, String>();
       queryParams.put("segment_id", "0");
       request.queryParams = queryParams;
@@ -671,7 +671,7 @@ public class Example {
       SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
       Request request = new Request();
       request.method = Method.DELETE;
-      request.endpoint = "contactdb/segments/{segment_id}/";
+      request.endpoint = "contactdb/segments/{segment_id}";
       Map<String,String> queryParams = new HashMap<String, String>();
       queryParams.put("delete_contacts", "true");
       request.queryParams = queryParams;
@@ -695,7 +695,7 @@ public class Example {
       SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
       Request request = new Request();
       request.method = Method.GET;
-      request.endpoint = "contactdb/segments/{segment_id}/recipients/";
+      request.endpoint = "contactdb/segments/{segment_id}/recipients";
       Map<String,String> queryParams = new HashMap<String, String>();
       queryParams.put("page", "1");
     queryParams.put("page_size", "1");

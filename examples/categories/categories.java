@@ -21,7 +21,7 @@ public class Example {
       SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
       Request request = new Request();
       request.method = Method.GET;
-      request.endpoint = "categories/";
+      request.endpoint = "categories";
       Map<String,String> queryParams = new HashMap<String, String>();
       queryParams.put("category", "test_string");
     queryParams.put("limit", "1");
@@ -47,7 +47,7 @@ public class Example {
       SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
       Request request = new Request();
       request.method = Method.GET;
-      request.endpoint = "categories/stats/";
+      request.endpoint = "categories/stats";
       Map<String,String> queryParams = new HashMap<String, String>();
       queryParams.put("end_date", "2016-04-01");
     queryParams.put("aggregated_by", "day");
@@ -76,7 +76,7 @@ public class Example {
       SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
       Request request = new Request();
       request.method = Method.GET;
-      request.endpoint = "categories/stats/sums/";
+      request.endpoint = "categories/stats/sums";
       Map<String,String> queryParams = new HashMap<String, String>();
       queryParams.put("end_date", "2016-04-01");
     queryParams.put("aggregated_by", "day");

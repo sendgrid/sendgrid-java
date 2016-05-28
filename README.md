@@ -54,8 +54,8 @@ cd sendgrid-java
 * Update the to and from [emails](https://github.com/sendgrid/sendgrid-java/blob/v3beta/examples/Mail/Example.java#L35).
 
 ```bash
-cd examples/mail
-javac -classpath ../examples/jackson-annotations-2.7.0.jar:../examples/jackson-databind-2.7.3.jar:../examples/jackson-core-2.7.3.jar:../../build/libs/sendgrid-3.0.0-jar.jar:. Example.java && java -classpath ../examples/jackson-annotations-2.7.0.jar:../examples/jackson-databind-2.7.3.jar:../examples/jackson-core-2.7.3.jar:../../build/libs/sendgrid-3.0.0-jar.jar:. Example
+cd examples/helpers/mail
+javac -classpath ../../examples/dependencies/jackson-annotations-2.7.0.jar:../../examples/dependencies/jackson-databind-2.7.3.jar:../../examples/dependencies/jackson-core-2.7.3.jar:../../../build/libs/sendgrid-3.0.0-jar.jar:. Example.java && java -classpath ../../examples/dependencies/jackson-annotations-2.7.0.jar:../../examples/dependencies/jackson-databind-2.7.3.jar:../../examples/dependencies/jackson-core-2.7.3.jar:../../../build/libs/sendgrid-3.0.0-jar.jar:. Example
 ```
 
 ## TRYING OUT THE V3 BETA WEB API
@@ -69,7 +69,13 @@ git clone -b v3beta --single-branch https://github.com/sendgrid/sendgrid-java.gi
 
 ```bash
 cd examples
-javac -classpath ./jackson-annotations-2.7.0.jar:./jackson-databind-2.7.3.jar:./jackson-core-2.7.3.jar:../build/libs/sendgrid-3.0.0-jar.jar:. Example.java && java -classpath ./jackson-annotations-2.7.0.jar:./jackson-databind-2.7.3.jar:./jackson-core-2.7.3.jar:../build/libs/sendgrid-3.0.0-jar.jar:. Example
+touch Example.java
+```
+
+Add the example you want to test to Example.java, including the headers at the top of the file.
+
+``` bash
+javac -classpath ./dependencies/jackson-annotations-2.7.0.jar:./dependencies/jackson-databind-2.7.3.jar:./dependencies/jackson-core-2.7.3.jar:../build/libs/sendgrid-3.0.0-jar.jar:. Example.java && java -classpath ./dependencies/jackson-annotations-2.7.0.jar:./dependencies/jackson-databind-2.7.3.jar:./dependencies/jackson-core-2.7.3.jar:../build/libs/sendgrid-3.0.0-jar.jar:. Example
 ```
 
 * Check out the documentation for [Web API v3 /mail/send/beta endpoint](https://sendgrid.com/docs/API_Reference/Web_API_v3/Mail/index.html).
@@ -175,6 +181,7 @@ try {
 # Usage
 
 - [SendGrid Docs](https://sendgrid.com/docs/API_Reference/Web_API_v3/index.html)
+- [Usage Docs](https://github.com/sendgrid/sendgrid-java/tree/v3beta/USAGE.md)
 - [Example Code](https://github.com/sendgrid/sendgrid-java/tree/v3beta/examples)
 
 ## Roadmap

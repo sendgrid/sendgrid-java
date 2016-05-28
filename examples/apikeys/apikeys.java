@@ -21,7 +21,7 @@ public class Example {
       SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
       Request request = new Request();
       request.method = Method.POST;
-      request.endpoint = "api_keys/";
+      request.endpoint = "api_keys";
       request.requestBody = "{\"scopes\":[\"mail.send\",\"alerts.create\",\"alerts.read\"],\"name\":\"My API Key\"}";
       Response response = sg.api(request);
       System.out.println(response.statusCode);
@@ -43,7 +43,7 @@ public class Example {
       SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
       Request request = new Request();
       request.method = Method.GET;
-      request.endpoint = "api_keys/";
+      request.endpoint = "api_keys";
       Response response = sg.api(request);
       System.out.println(response.statusCode);
       System.out.println(response.responseBody);
@@ -64,7 +64,7 @@ public class Example {
       SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
       Request request = new Request();
       request.method = Method.PUT;
-      request.endpoint = "api_keys/{api_key_id}/";
+      request.endpoint = "api_keys/{api_key_id}";
       request.requestBody = "{\"scopes\":[\"user.profile.read\",\"user.profile.update\"],\"name\":\"A New Hope\"}";
       Response response = sg.api(request);
       System.out.println(response.statusCode);
@@ -86,7 +86,7 @@ public class Example {
       SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
       Request request = new Request();
       request.method = Method.PATCH;
-      request.endpoint = "api_keys/{api_key_id}/";
+      request.endpoint = "api_keys/{api_key_id}";
       request.requestBody = "{\"name\":\"A New Hope\"}";
       Response response = sg.api(request);
       System.out.println(response.statusCode);
@@ -108,7 +108,7 @@ public class Example {
       SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
       Request request = new Request();
       request.method = Method.GET;
-      request.endpoint = "api_keys/{api_key_id}/";
+      request.endpoint = "api_keys/{api_key_id}";
       Response response = sg.api(request);
       System.out.println(response.statusCode);
       System.out.println(response.responseBody);
@@ -129,7 +129,7 @@ public class Example {
       SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
       Request request = new Request();
       request.method = Method.DELETE;
-      request.endpoint = "api_keys/{api_key_id}/";
+      request.endpoint = "api_keys/{api_key_id}";
       Response response = sg.api(request);
       System.out.println(response.statusCode);
       System.out.println(response.responseBody);

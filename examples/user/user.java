@@ -21,7 +21,7 @@ public class Example {
       SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
       Request request = new Request();
       request.method = Method.GET;
-      request.endpoint = "user/account/";
+      request.endpoint = "user/account";
       Response response = sg.api(request);
       System.out.println(response.statusCode);
       System.out.println(response.responseBody);
@@ -42,7 +42,7 @@ public class Example {
       SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
       Request request = new Request();
       request.method = Method.GET;
-      request.endpoint = "user/credits/";
+      request.endpoint = "user/credits";
       Response response = sg.api(request);
       System.out.println(response.statusCode);
       System.out.println(response.responseBody);
@@ -63,7 +63,7 @@ public class Example {
       SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
       Request request = new Request();
       request.method = Method.PUT;
-      request.endpoint = "user/email/";
+      request.endpoint = "user/email";
       request.requestBody = "{\"email\":\"example@example.com\"}";
       Response response = sg.api(request);
       System.out.println(response.statusCode);
@@ -85,7 +85,7 @@ public class Example {
       SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
       Request request = new Request();
       request.method = Method.GET;
-      request.endpoint = "user/email/";
+      request.endpoint = "user/email";
       Response response = sg.api(request);
       System.out.println(response.statusCode);
       System.out.println(response.responseBody);
@@ -106,7 +106,7 @@ public class Example {
       SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
       Request request = new Request();
       request.method = Method.PUT;
-      request.endpoint = "user/password/";
+      request.endpoint = "user/password";
       request.requestBody = "{\"new_password\":\"new_password\",\"old_password\":\"old_password\"}";
       Response response = sg.api(request);
       System.out.println(response.statusCode);
@@ -128,7 +128,7 @@ public class Example {
       SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
       Request request = new Request();
       request.method = Method.PATCH;
-      request.endpoint = "user/profile/";
+      request.endpoint = "user/profile";
       request.requestBody = "{\"city\":\"Orange\",\"first_name\":\"Example\",\"last_name\":\"User\"}";
       Response response = sg.api(request);
       System.out.println(response.statusCode);
@@ -150,7 +150,7 @@ public class Example {
       SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
       Request request = new Request();
       request.method = Method.GET;
-      request.endpoint = "user/profile/";
+      request.endpoint = "user/profile";
       Response response = sg.api(request);
       System.out.println(response.statusCode);
       System.out.println(response.responseBody);
@@ -171,7 +171,7 @@ public class Example {
       SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
       Request request = new Request();
       request.method = Method.POST;
-      request.endpoint = "user/scheduled_sends/";
+      request.endpoint = "user/scheduled_sends";
       request.requestBody = "{\"batch_id\":\"YOUR_BATCH_ID\",\"status\":\"pause\"}";
       Response response = sg.api(request);
       System.out.println(response.statusCode);
@@ -193,7 +193,7 @@ public class Example {
       SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
       Request request = new Request();
       request.method = Method.GET;
-      request.endpoint = "user/scheduled_sends/";
+      request.endpoint = "user/scheduled_sends";
       Response response = sg.api(request);
       System.out.println(response.statusCode);
       System.out.println(response.responseBody);
@@ -214,7 +214,7 @@ public class Example {
       SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
       Request request = new Request();
       request.method = Method.PATCH;
-      request.endpoint = "user/scheduled_sends/{batch_id}/";
+      request.endpoint = "user/scheduled_sends/{batch_id}";
       request.requestBody = "{\"status\":\"pause\"}";
       Response response = sg.api(request);
       System.out.println(response.statusCode);
@@ -236,7 +236,7 @@ public class Example {
       SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
       Request request = new Request();
       request.method = Method.GET;
-      request.endpoint = "user/scheduled_sends/{batch_id}/";
+      request.endpoint = "user/scheduled_sends/{batch_id}";
       Response response = sg.api(request);
       System.out.println(response.statusCode);
       System.out.println(response.responseBody);
@@ -257,7 +257,7 @@ public class Example {
       SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
       Request request = new Request();
       request.method = Method.DELETE;
-      request.endpoint = "user/scheduled_sends/{batch_id}/";
+      request.endpoint = "user/scheduled_sends/{batch_id}";
       Response response = sg.api(request);
       System.out.println(response.statusCode);
       System.out.println(response.responseBody);
@@ -278,7 +278,7 @@ public class Example {
       SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
       Request request = new Request();
       request.method = Method.PATCH;
-      request.endpoint = "user/settings/enforced_tls/";
+      request.endpoint = "user/settings/enforced_tls";
       request.requestBody = "{\"require_tls\":true,\"require_valid_cert\":false}";
       Response response = sg.api(request);
       System.out.println(response.statusCode);
@@ -300,7 +300,7 @@ public class Example {
       SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
       Request request = new Request();
       request.method = Method.GET;
-      request.endpoint = "user/settings/enforced_tls/";
+      request.endpoint = "user/settings/enforced_tls";
       Response response = sg.api(request);
       System.out.println(response.statusCode);
       System.out.println(response.responseBody);
@@ -321,7 +321,7 @@ public class Example {
       SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
       Request request = new Request();
       request.method = Method.PUT;
-      request.endpoint = "user/username/";
+      request.endpoint = "user/username";
       request.requestBody = "{\"username\":\"test_username\"}";
       Response response = sg.api(request);
       System.out.println(response.statusCode);
@@ -343,7 +343,7 @@ public class Example {
       SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
       Request request = new Request();
       request.method = Method.GET;
-      request.endpoint = "user/username/";
+      request.endpoint = "user/username";
       Response response = sg.api(request);
       System.out.println(response.statusCode);
       System.out.println(response.responseBody);
@@ -364,7 +364,7 @@ public class Example {
       SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
       Request request = new Request();
       request.method = Method.PATCH;
-      request.endpoint = "user/webhooks/event/settings/";
+      request.endpoint = "user/webhooks/event/settings";
       request.requestBody = "{\"group_resubscribe\":true,\"delivered\":true,\"group_unsubscribe\":true,\"spam_report\":true,\"url\":\"url\",\"enabled\":true,\"bounce\":true,\"deferred\":true,\"unsubscribe\":true,\"dropped\":true,\"open\":true,\"click\":true,\"processed\":true}";
       Response response = sg.api(request);
       System.out.println(response.statusCode);
@@ -386,7 +386,7 @@ public class Example {
       SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
       Request request = new Request();
       request.method = Method.GET;
-      request.endpoint = "user/webhooks/event/settings/";
+      request.endpoint = "user/webhooks/event/settings";
       Response response = sg.api(request);
       System.out.println(response.statusCode);
       System.out.println(response.responseBody);
@@ -407,7 +407,7 @@ public class Example {
       SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
       Request request = new Request();
       request.method = Method.POST;
-      request.endpoint = "user/webhooks/event/test/";
+      request.endpoint = "user/webhooks/event/test";
       request.requestBody = "{\"url\":\"url\"}";
       Response response = sg.api(request);
       System.out.println(response.statusCode);
@@ -429,7 +429,7 @@ public class Example {
       SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
       Request request = new Request();
       request.method = Method.GET;
-      request.endpoint = "user/webhooks/parse/settings/";
+      request.endpoint = "user/webhooks/parse/settings";
       Response response = sg.api(request);
       System.out.println(response.statusCode);
       System.out.println(response.responseBody);
@@ -450,7 +450,7 @@ public class Example {
       SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
       Request request = new Request();
       request.method = Method.GET;
-      request.endpoint = "user/webhooks/parse/stats/";
+      request.endpoint = "user/webhooks/parse/stats";
       Map<String,String> queryParams = new HashMap<String, String>();
       queryParams.put("aggregated_by", "day");
     queryParams.put("limit", "test_string");

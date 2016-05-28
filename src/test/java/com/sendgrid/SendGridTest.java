@@ -81,7 +81,7 @@ public class SendGridTest {
 
     Request request = new Request();
     request.method = Method.GET;
-    request.endpoint = "access_settings/activity/";
+    request.endpoint = "access_settings/activity";
     Map<String,String> queryParams = new HashMap<String, String>();
     queryParams.put("limit", "1");
     request.queryParams = queryParams;
@@ -101,7 +101,7 @@ public class SendGridTest {
 
     Request request = new Request();
     request.method = Method.POST;
-    request.endpoint = "access_settings/whitelist/";
+    request.endpoint = "access_settings/whitelist";
     request.requestBody = "{\"ips\":[{\"ip\":\"192.168.1.1\"},{\"ip\":\"192.*.*.*\"},{\"ip\":\"192.168.1.3/32\"}]}";
     Response response = sg.api(request);
     Assert.assertEquals(201, response.statusCode);
@@ -119,7 +119,7 @@ public class SendGridTest {
 
     Request request = new Request();
     request.method = Method.GET;
-    request.endpoint = "access_settings/whitelist/";
+    request.endpoint = "access_settings/whitelist";
     Response response = sg.api(request);
     Assert.assertEquals(200, response.statusCode);
   }
@@ -136,7 +136,7 @@ public class SendGridTest {
 
     Request request = new Request();
     request.method = Method.DELETE;
-    request.endpoint = "access_settings/whitelist/";
+    request.endpoint = "access_settings/whitelist";
     request.requestBody = "{\"ids\":[1,2,3]}";
     Response response = sg.api(request);
     Assert.assertEquals(204, response.statusCode);
@@ -154,7 +154,7 @@ public class SendGridTest {
 
     Request request = new Request();
     request.method = Method.GET;
-    request.endpoint = "access_settings/whitelist/{rule_id}/";
+    request.endpoint = "access_settings/whitelist/{rule_id}";
     Response response = sg.api(request);
     Assert.assertEquals(200, response.statusCode);
   }
@@ -171,7 +171,7 @@ public class SendGridTest {
 
     Request request = new Request();
     request.method = Method.DELETE;
-    request.endpoint = "access_settings/whitelist/{rule_id}/";
+    request.endpoint = "access_settings/whitelist/{rule_id}";
     Response response = sg.api(request);
     Assert.assertEquals(204, response.statusCode);
   }
@@ -188,7 +188,7 @@ public class SendGridTest {
 
     Request request = new Request();
     request.method = Method.POST;
-    request.endpoint = "api_keys/";
+    request.endpoint = "api_keys";
     request.requestBody = "{\"scopes\":[\"mail.send\",\"alerts.create\",\"alerts.read\"],\"name\":\"My API Key\"}";
     Response response = sg.api(request);
     Assert.assertEquals(201, response.statusCode);
@@ -206,7 +206,7 @@ public class SendGridTest {
 
     Request request = new Request();
     request.method = Method.GET;
-    request.endpoint = "api_keys/";
+    request.endpoint = "api_keys";
     Response response = sg.api(request);
     Assert.assertEquals(200, response.statusCode);
   }
@@ -223,7 +223,7 @@ public class SendGridTest {
 
     Request request = new Request();
     request.method = Method.PUT;
-    request.endpoint = "api_keys/{api_key_id}/";
+    request.endpoint = "api_keys/{api_key_id}";
     request.requestBody = "{\"scopes\":[\"user.profile.read\",\"user.profile.update\"],\"name\":\"A New Hope\"}";
     Response response = sg.api(request);
     Assert.assertEquals(200, response.statusCode);
@@ -241,7 +241,7 @@ public class SendGridTest {
 
     Request request = new Request();
     request.method = Method.PATCH;
-    request.endpoint = "api_keys/{api_key_id}/";
+    request.endpoint = "api_keys/{api_key_id}";
     request.requestBody = "{\"name\":\"A New Hope\"}";
     Response response = sg.api(request);
     Assert.assertEquals(200, response.statusCode);
@@ -259,7 +259,7 @@ public class SendGridTest {
 
     Request request = new Request();
     request.method = Method.GET;
-    request.endpoint = "api_keys/{api_key_id}/";
+    request.endpoint = "api_keys/{api_key_id}";
     Response response = sg.api(request);
     Assert.assertEquals(200, response.statusCode);
   }
@@ -276,7 +276,7 @@ public class SendGridTest {
 
     Request request = new Request();
     request.method = Method.DELETE;
-    request.endpoint = "api_keys/{api_key_id}/";
+    request.endpoint = "api_keys/{api_key_id}";
     Response response = sg.api(request);
     Assert.assertEquals(204, response.statusCode);
   }
@@ -293,7 +293,7 @@ public class SendGridTest {
 
     Request request = new Request();
     request.method = Method.POST;
-    request.endpoint = "asm/groups/";
+    request.endpoint = "asm/groups";
     request.requestBody = "{\"is_default\":false,\"description\":\"A group description\",\"name\":\"A group name\"}";
     Response response = sg.api(request);
     Assert.assertEquals(200, response.statusCode);
@@ -311,7 +311,7 @@ public class SendGridTest {
 
     Request request = new Request();
     request.method = Method.GET;
-    request.endpoint = "asm/groups/";
+    request.endpoint = "asm/groups";
     Response response = sg.api(request);
     Assert.assertEquals(200, response.statusCode);
   }
@@ -328,7 +328,7 @@ public class SendGridTest {
 
     Request request = new Request();
     request.method = Method.PATCH;
-    request.endpoint = "asm/groups/{group_id}/";
+    request.endpoint = "asm/groups/{group_id}";
     request.requestBody = "{\"description\":\"Suggestions for items our users might like.\",\"name\":\"Item Suggestions\",\"id\":103}";
     Response response = sg.api(request);
     Assert.assertEquals(201, response.statusCode);
@@ -346,7 +346,7 @@ public class SendGridTest {
 
     Request request = new Request();
     request.method = Method.GET;
-    request.endpoint = "asm/groups/{group_id}/";
+    request.endpoint = "asm/groups/{group_id}";
     Response response = sg.api(request);
     Assert.assertEquals(200, response.statusCode);
   }
@@ -363,7 +363,7 @@ public class SendGridTest {
 
     Request request = new Request();
     request.method = Method.DELETE;
-    request.endpoint = "asm/groups/{group_id}/";
+    request.endpoint = "asm/groups/{group_id}";
     Response response = sg.api(request);
     Assert.assertEquals(204, response.statusCode);
   }
@@ -380,7 +380,7 @@ public class SendGridTest {
 
     Request request = new Request();
     request.method = Method.POST;
-    request.endpoint = "asm/groups/{group_id}/suppressions/";
+    request.endpoint = "asm/groups/{group_id}/suppressions";
     request.requestBody = "{\"recipient_emails\":[\"test1@example.com\",\"test2@example.com\"]}";
     Response response = sg.api(request);
     Assert.assertEquals(201, response.statusCode);
@@ -398,7 +398,7 @@ public class SendGridTest {
 
     Request request = new Request();
     request.method = Method.GET;
-    request.endpoint = "asm/groups/{group_id}/suppressions/";
+    request.endpoint = "asm/groups/{group_id}/suppressions";
     Response response = sg.api(request);
     Assert.assertEquals(200, response.statusCode);
   }
@@ -415,7 +415,7 @@ public class SendGridTest {
 
     Request request = new Request();
     request.method = Method.DELETE;
-    request.endpoint = "asm/groups/{group_id}/suppressions/{email}/";
+    request.endpoint = "asm/groups/{group_id}/suppressions/{email}";
     Response response = sg.api(request);
     Assert.assertEquals(204, response.statusCode);
   }
@@ -432,7 +432,7 @@ public class SendGridTest {
 
     Request request = new Request();
     request.method = Method.POST;
-    request.endpoint = "asm/suppressions/global/";
+    request.endpoint = "asm/suppressions/global";
     request.requestBody = "{\"recipient_emails\":[\"test1@example.com\",\"test2@example.com\"]}";
     Response response = sg.api(request);
     Assert.assertEquals(201, response.statusCode);
@@ -450,7 +450,7 @@ public class SendGridTest {
 
     Request request = new Request();
     request.method = Method.GET;
-    request.endpoint = "asm/suppressions/global/{email}/";
+    request.endpoint = "asm/suppressions/global/{email}";
     Response response = sg.api(request);
     Assert.assertEquals(200, response.statusCode);
   }
@@ -467,7 +467,7 @@ public class SendGridTest {
 
     Request request = new Request();
     request.method = Method.DELETE;
-    request.endpoint = "asm/suppressions/global/{email}/";
+    request.endpoint = "asm/suppressions/global/{email}";
     Response response = sg.api(request);
     Assert.assertEquals(204, response.statusCode);
   }
@@ -484,7 +484,7 @@ public class SendGridTest {
 
     Request request = new Request();
     request.method = Method.GET;
-    request.endpoint = "browsers/stats/";
+    request.endpoint = "browsers/stats";
     Map<String,String> queryParams = new HashMap<String, String>();
     queryParams.put("end_date", "2016-04-01");
     queryParams.put("aggregated_by", "day");
@@ -509,7 +509,7 @@ public class SendGridTest {
 
     Request request = new Request();
     request.method = Method.POST;
-    request.endpoint = "campaigns/";
+    request.endpoint = "campaigns";
     request.requestBody = "{\"custom_unsubscribe_url\":\"\",\"html_content\":\"<html><head><title></title></head><body><p>Check out our spring line!</p></body></html>\",\"list_ids\":[110,124],\"sender_id\":124451,\"subject\":\"New Products for Spring!\",\"plain_content\":\"Check out our spring line!\",\"suppression_group_id\":42,\"title\":\"March Newsletter\",\"segment_ids\":[110],\"categories\":[\"spring line\"],\"ip_pool\":\"marketing\"}";
     Response response = sg.api(request);
     Assert.assertEquals(201, response.statusCode);
@@ -527,7 +527,7 @@ public class SendGridTest {
 
     Request request = new Request();
     request.method = Method.GET;
-    request.endpoint = "campaigns/";
+    request.endpoint = "campaigns";
     Map<String,String> queryParams = new HashMap<String, String>();
     queryParams.put("limit", "0");
     queryParams.put("offset", "0");
@@ -548,7 +548,7 @@ public class SendGridTest {
 
     Request request = new Request();
     request.method = Method.PATCH;
-    request.endpoint = "campaigns/{campaign_id}/";
+    request.endpoint = "campaigns/{campaign_id}";
     request.requestBody = "{\"html_content\":\"<html><head><title></title></head><body><p>Check out our summer line!</p></body></html>\",\"subject\":\"New Products for Summer!\",\"title\":\"May Newsletter\",\"categories\":[\"summer line\"],\"plain_content\":\"Check out our summer line!\"}";
     Response response = sg.api(request);
     Assert.assertEquals(200, response.statusCode);
@@ -566,7 +566,7 @@ public class SendGridTest {
 
     Request request = new Request();
     request.method = Method.GET;
-    request.endpoint = "campaigns/{campaign_id}/";
+    request.endpoint = "campaigns/{campaign_id}";
     Response response = sg.api(request);
     Assert.assertEquals(200, response.statusCode);
   }
@@ -583,7 +583,7 @@ public class SendGridTest {
 
     Request request = new Request();
     request.method = Method.DELETE;
-    request.endpoint = "campaigns/{campaign_id}/";
+    request.endpoint = "campaigns/{campaign_id}";
     Response response = sg.api(request);
     Assert.assertEquals(204, response.statusCode);
   }
@@ -600,7 +600,7 @@ public class SendGridTest {
 
     Request request = new Request();
     request.method = Method.PATCH;
-    request.endpoint = "campaigns/{campaign_id}/schedules/";
+    request.endpoint = "campaigns/{campaign_id}/schedules";
     request.requestBody = "{\"send_at\":1489451436}";
     Response response = sg.api(request);
     Assert.assertEquals(200, response.statusCode);
@@ -618,7 +618,7 @@ public class SendGridTest {
 
     Request request = new Request();
     request.method = Method.POST;
-    request.endpoint = "campaigns/{campaign_id}/schedules/";
+    request.endpoint = "campaigns/{campaign_id}/schedules";
     request.requestBody = "{\"send_at\":1489771528}";
     Response response = sg.api(request);
     Assert.assertEquals(201, response.statusCode);
@@ -636,7 +636,7 @@ public class SendGridTest {
 
     Request request = new Request();
     request.method = Method.GET;
-    request.endpoint = "campaigns/{campaign_id}/schedules/";
+    request.endpoint = "campaigns/{campaign_id}/schedules";
     Response response = sg.api(request);
     Assert.assertEquals(200, response.statusCode);
   }
@@ -653,7 +653,7 @@ public class SendGridTest {
 
     Request request = new Request();
     request.method = Method.DELETE;
-    request.endpoint = "campaigns/{campaign_id}/schedules/";
+    request.endpoint = "campaigns/{campaign_id}/schedules";
     Response response = sg.api(request);
     Assert.assertEquals(204, response.statusCode);
   }
@@ -670,7 +670,7 @@ public class SendGridTest {
 
     Request request = new Request();
     request.method = Method.POST;
-    request.endpoint = "campaigns/{campaign_id}/schedules/now/";
+    request.endpoint = "campaigns/{campaign_id}/schedules/now";
     Response response = sg.api(request);
     Assert.assertEquals(201, response.statusCode);
   }
@@ -687,7 +687,7 @@ public class SendGridTest {
 
     Request request = new Request();
     request.method = Method.POST;
-    request.endpoint = "campaigns/{campaign_id}/schedules/test/";
+    request.endpoint = "campaigns/{campaign_id}/schedules/test";
     request.requestBody = "{\"to\":\"your.email@example.com\"}";
     Response response = sg.api(request);
     Assert.assertEquals(204, response.statusCode);
@@ -705,7 +705,7 @@ public class SendGridTest {
 
     Request request = new Request();
     request.method = Method.GET;
-    request.endpoint = "categories/";
+    request.endpoint = "categories";
     Map<String,String> queryParams = new HashMap<String, String>();
     queryParams.put("category", "test_string");
     queryParams.put("limit", "1");
@@ -727,7 +727,7 @@ public class SendGridTest {
 
     Request request = new Request();
     request.method = Method.GET;
-    request.endpoint = "categories/stats/";
+    request.endpoint = "categories/stats";
     Map<String,String> queryParams = new HashMap<String, String>();
     queryParams.put("end_date", "2016-04-01");
     queryParams.put("aggregated_by", "day");
@@ -752,7 +752,7 @@ public class SendGridTest {
 
     Request request = new Request();
     request.method = Method.GET;
-    request.endpoint = "categories/stats/sums/";
+    request.endpoint = "categories/stats/sums";
     Map<String,String> queryParams = new HashMap<String, String>();
     queryParams.put("end_date", "2016-04-01");
     queryParams.put("aggregated_by", "day");
@@ -778,7 +778,7 @@ public class SendGridTest {
 
     Request request = new Request();
     request.method = Method.GET;
-    request.endpoint = "clients/stats/";
+    request.endpoint = "clients/stats";
     Map<String,String> queryParams = new HashMap<String, String>();
     queryParams.put("aggregated_by", "day");
     queryParams.put("start_date", "2016-01-01");
@@ -800,7 +800,7 @@ public class SendGridTest {
 
     Request request = new Request();
     request.method = Method.GET;
-    request.endpoint = "clients/{client_type}/stats/";
+    request.endpoint = "clients/{client_type}/stats";
     Map<String,String> queryParams = new HashMap<String, String>();
     queryParams.put("aggregated_by", "day");
     queryParams.put("start_date", "2016-01-01");
@@ -822,7 +822,7 @@ public class SendGridTest {
 
     Request request = new Request();
     request.method = Method.POST;
-    request.endpoint = "contactdb/custom_fields/";
+    request.endpoint = "contactdb/custom_fields";
     request.requestBody = "{\"type\":\"text\",\"name\":\"pet\"}";
     Response response = sg.api(request);
     Assert.assertEquals(201, response.statusCode);
@@ -840,7 +840,7 @@ public class SendGridTest {
 
     Request request = new Request();
     request.method = Method.GET;
-    request.endpoint = "contactdb/custom_fields/";
+    request.endpoint = "contactdb/custom_fields";
     Response response = sg.api(request);
     Assert.assertEquals(200, response.statusCode);
   }
@@ -857,7 +857,7 @@ public class SendGridTest {
 
     Request request = new Request();
     request.method = Method.GET;
-    request.endpoint = "contactdb/custom_fields/{custom_field_id}/";
+    request.endpoint = "contactdb/custom_fields/{custom_field_id}";
     Response response = sg.api(request);
     Assert.assertEquals(200, response.statusCode);
   }
@@ -874,7 +874,7 @@ public class SendGridTest {
 
     Request request = new Request();
     request.method = Method.DELETE;
-    request.endpoint = "contactdb/custom_fields/{custom_field_id}/";
+    request.endpoint = "contactdb/custom_fields/{custom_field_id}";
     Response response = sg.api(request);
     Assert.assertEquals(202, response.statusCode);
   }
@@ -891,7 +891,7 @@ public class SendGridTest {
 
     Request request = new Request();
     request.method = Method.POST;
-    request.endpoint = "contactdb/lists/";
+    request.endpoint = "contactdb/lists";
     request.requestBody = "{\"name\":\"your list name\"}";
     Response response = sg.api(request);
     Assert.assertEquals(201, response.statusCode);
@@ -909,7 +909,7 @@ public class SendGridTest {
 
     Request request = new Request();
     request.method = Method.GET;
-    request.endpoint = "contactdb/lists/";
+    request.endpoint = "contactdb/lists";
     Response response = sg.api(request);
     Assert.assertEquals(200, response.statusCode);
   }
@@ -926,7 +926,7 @@ public class SendGridTest {
 
     Request request = new Request();
     request.method = Method.DELETE;
-    request.endpoint = "contactdb/lists/";
+    request.endpoint = "contactdb/lists";
     request.requestBody = "[1,2,3,4]";
     Response response = sg.api(request);
     Assert.assertEquals(204, response.statusCode);
@@ -944,7 +944,7 @@ public class SendGridTest {
 
     Request request = new Request();
     request.method = Method.PATCH;
-    request.endpoint = "contactdb/lists/{list_id}/";
+    request.endpoint = "contactdb/lists/{list_id}";
     request.requestBody = "{\"name\":\"newlistname\"}";
     Map<String,String> queryParams = new HashMap<String, String>();
     queryParams.put("list_id", "0");
@@ -965,7 +965,7 @@ public class SendGridTest {
 
     Request request = new Request();
     request.method = Method.GET;
-    request.endpoint = "contactdb/lists/{list_id}/";
+    request.endpoint = "contactdb/lists/{list_id}";
     Map<String,String> queryParams = new HashMap<String, String>();
     queryParams.put("list_id", "0");
     request.queryParams = queryParams;
@@ -985,7 +985,7 @@ public class SendGridTest {
 
     Request request = new Request();
     request.method = Method.DELETE;
-    request.endpoint = "contactdb/lists/{list_id}/";
+    request.endpoint = "contactdb/lists/{list_id}";
     Map<String,String> queryParams = new HashMap<String, String>();
     queryParams.put("delete_contacts", "true");
     request.queryParams = queryParams;
@@ -1005,7 +1005,7 @@ public class SendGridTest {
 
     Request request = new Request();
     request.method = Method.POST;
-    request.endpoint = "contactdb/lists/{list_id}/recipients/";
+    request.endpoint = "contactdb/lists/{list_id}/recipients";
     request.requestBody = "[\"recipient_id1\",\"recipient_id2\"]";
     Response response = sg.api(request);
     Assert.assertEquals(201, response.statusCode);
@@ -1023,7 +1023,7 @@ public class SendGridTest {
 
     Request request = new Request();
     request.method = Method.GET;
-    request.endpoint = "contactdb/lists/{list_id}/recipients/";
+    request.endpoint = "contactdb/lists/{list_id}/recipients";
     Map<String,String> queryParams = new HashMap<String, String>();
     queryParams.put("page", "1");
     queryParams.put("page_size", "1");
@@ -1045,7 +1045,7 @@ public class SendGridTest {
 
     Request request = new Request();
     request.method = Method.POST;
-    request.endpoint = "contactdb/lists/{list_id}/recipients/{recipient_id}/";
+    request.endpoint = "contactdb/lists/{list_id}/recipients/{recipient_id}";
     Response response = sg.api(request);
     Assert.assertEquals(201, response.statusCode);
   }
@@ -1062,7 +1062,7 @@ public class SendGridTest {
 
     Request request = new Request();
     request.method = Method.DELETE;
-    request.endpoint = "contactdb/lists/{list_id}/recipients/{recipient_id}/";
+    request.endpoint = "contactdb/lists/{list_id}/recipients/{recipient_id}";
     Map<String,String> queryParams = new HashMap<String, String>();
     queryParams.put("recipient_id", "0");
     queryParams.put("list_id", "0");
@@ -1083,7 +1083,7 @@ public class SendGridTest {
 
     Request request = new Request();
     request.method = Method.PATCH;
-    request.endpoint = "contactdb/recipients/";
+    request.endpoint = "contactdb/recipients";
     request.requestBody = "[{\"first_name\":\"Guy\",\"last_name\":\"Jones\",\"email\":\"jones@example.com\"}]";
     Response response = sg.api(request);
     Assert.assertEquals(201, response.statusCode);
@@ -1101,7 +1101,7 @@ public class SendGridTest {
 
     Request request = new Request();
     request.method = Method.POST;
-    request.endpoint = "contactdb/recipients/";
+    request.endpoint = "contactdb/recipients";
     request.requestBody = "[{\"age\":25,\"last_name\":\"User\",\"email\":\"example@example.com\",\"first_name\":\"\"},{\"age\":25,\"last_name\":\"User\",\"email\":\"example2@example.com\",\"first_name\":\"Example\"}]";
     Response response = sg.api(request);
     Assert.assertEquals(201, response.statusCode);
@@ -1119,7 +1119,7 @@ public class SendGridTest {
 
     Request request = new Request();
     request.method = Method.GET;
-    request.endpoint = "contactdb/recipients/";
+    request.endpoint = "contactdb/recipients";
     Map<String,String> queryParams = new HashMap<String, String>();
     queryParams.put("page", "1");
     queryParams.put("page_size", "1");
@@ -1140,7 +1140,7 @@ public class SendGridTest {
 
     Request request = new Request();
     request.method = Method.DELETE;
-    request.endpoint = "contactdb/recipients/";
+    request.endpoint = "contactdb/recipients";
     request.requestBody = "[\"recipient_id1\",\"recipient_id2\"]";
     Response response = sg.api(request);
     Assert.assertEquals(200, response.statusCode);
@@ -1158,7 +1158,7 @@ public class SendGridTest {
 
     Request request = new Request();
     request.method = Method.GET;
-    request.endpoint = "contactdb/recipients/billable_count/";
+    request.endpoint = "contactdb/recipients/billable_count";
     Response response = sg.api(request);
     Assert.assertEquals(200, response.statusCode);
   }
@@ -1175,7 +1175,7 @@ public class SendGridTest {
 
     Request request = new Request();
     request.method = Method.GET;
-    request.endpoint = "contactdb/recipients/count/";
+    request.endpoint = "contactdb/recipients/count";
     Response response = sg.api(request);
     Assert.assertEquals(200, response.statusCode);
   }
@@ -1192,7 +1192,7 @@ public class SendGridTest {
 
     Request request = new Request();
     request.method = Method.GET;
-    request.endpoint = "contactdb/recipients/search/";
+    request.endpoint = "contactdb/recipients/search";
     Map<String,String> queryParams = new HashMap<String, String>();
     queryParams.put("{field_name}", "test_string");
     request.queryParams = queryParams;
@@ -1212,7 +1212,7 @@ public class SendGridTest {
 
     Request request = new Request();
     request.method = Method.GET;
-    request.endpoint = "contactdb/recipients/{recipient_id}/";
+    request.endpoint = "contactdb/recipients/{recipient_id}";
     Response response = sg.api(request);
     Assert.assertEquals(200, response.statusCode);
   }
@@ -1229,7 +1229,7 @@ public class SendGridTest {
 
     Request request = new Request();
     request.method = Method.DELETE;
-    request.endpoint = "contactdb/recipients/{recipient_id}/";
+    request.endpoint = "contactdb/recipients/{recipient_id}";
     Response response = sg.api(request);
     Assert.assertEquals(204, response.statusCode);
   }
@@ -1246,7 +1246,7 @@ public class SendGridTest {
 
     Request request = new Request();
     request.method = Method.GET;
-    request.endpoint = "contactdb/recipients/{recipient_id}/lists/";
+    request.endpoint = "contactdb/recipients/{recipient_id}/lists";
     Response response = sg.api(request);
     Assert.assertEquals(200, response.statusCode);
   }
@@ -1263,7 +1263,7 @@ public class SendGridTest {
 
     Request request = new Request();
     request.method = Method.GET;
-    request.endpoint = "contactdb/reserved_fields/";
+    request.endpoint = "contactdb/reserved_fields";
     Response response = sg.api(request);
     Assert.assertEquals(200, response.statusCode);
   }
@@ -1280,7 +1280,7 @@ public class SendGridTest {
 
     Request request = new Request();
     request.method = Method.POST;
-    request.endpoint = "contactdb/segments/";
+    request.endpoint = "contactdb/segments";
     request.requestBody = "{\"conditions\":[{\"operator\":\"eq\",\"field\":\"last_name\",\"and_or\":\"\",\"value\":\"Miller\"},{\"operator\":\"gt\",\"field\":\"last_clicked\",\"and_or\":\"and\",\"value\":\"01/02/2015\"},{\"operator\":\"eq\",\"field\":\"clicks.campaign_identifier\",\"and_or\":\"or\",\"value\":\"513\"}],\"name\":\"Last Name Miller\",\"list_id\":4}";
     Response response = sg.api(request);
     Assert.assertEquals(200, response.statusCode);
@@ -1298,7 +1298,7 @@ public class SendGridTest {
 
     Request request = new Request();
     request.method = Method.GET;
-    request.endpoint = "contactdb/segments/";
+    request.endpoint = "contactdb/segments";
     Response response = sg.api(request);
     Assert.assertEquals(200, response.statusCode);
   }
@@ -1315,7 +1315,7 @@ public class SendGridTest {
 
     Request request = new Request();
     request.method = Method.PATCH;
-    request.endpoint = "contactdb/segments/{segment_id}/";
+    request.endpoint = "contactdb/segments/{segment_id}";
     request.requestBody = "{\"conditions\":[{\"operator\":\"eq\",\"field\":\"last_name\",\"and_or\":\"\",\"value\":\"Miller\"}],\"name\":\"The Millers\",\"list_id\":5}";
     Map<String,String> queryParams = new HashMap<String, String>();
     queryParams.put("segment_id", "test_string");
@@ -1336,7 +1336,7 @@ public class SendGridTest {
 
     Request request = new Request();
     request.method = Method.GET;
-    request.endpoint = "contactdb/segments/{segment_id}/";
+    request.endpoint = "contactdb/segments/{segment_id}";
     Map<String,String> queryParams = new HashMap<String, String>();
     queryParams.put("segment_id", "0");
     request.queryParams = queryParams;
@@ -1356,7 +1356,7 @@ public class SendGridTest {
 
     Request request = new Request();
     request.method = Method.DELETE;
-    request.endpoint = "contactdb/segments/{segment_id}/";
+    request.endpoint = "contactdb/segments/{segment_id}";
     Map<String,String> queryParams = new HashMap<String, String>();
     queryParams.put("delete_contacts", "true");
     request.queryParams = queryParams;
@@ -1376,7 +1376,7 @@ public class SendGridTest {
 
     Request request = new Request();
     request.method = Method.GET;
-    request.endpoint = "contactdb/segments/{segment_id}/recipients/";
+    request.endpoint = "contactdb/segments/{segment_id}/recipients";
     Map<String,String> queryParams = new HashMap<String, String>();
     queryParams.put("page", "1");
     queryParams.put("page_size", "1");
@@ -1397,7 +1397,7 @@ public class SendGridTest {
 
     Request request = new Request();
     request.method = Method.GET;
-    request.endpoint = "devices/stats/";
+    request.endpoint = "devices/stats";
     Map<String,String> queryParams = new HashMap<String, String>();
     queryParams.put("aggregated_by", "day");
     queryParams.put("limit", "1");
@@ -1421,7 +1421,7 @@ public class SendGridTest {
 
     Request request = new Request();
     request.method = Method.GET;
-    request.endpoint = "geo/stats/";
+    request.endpoint = "geo/stats";
     Map<String,String> queryParams = new HashMap<String, String>();
     queryParams.put("end_date", "2016-04-01");
     queryParams.put("country", "US");
@@ -1446,7 +1446,7 @@ public class SendGridTest {
 
     Request request = new Request();
     request.method = Method.GET;
-    request.endpoint = "ips/";
+    request.endpoint = "ips";
     Map<String,String> queryParams = new HashMap<String, String>();
     queryParams.put("subuser", "test_string");
     queryParams.put("ip", "test_string");
@@ -1470,7 +1470,7 @@ public class SendGridTest {
 
     Request request = new Request();
     request.method = Method.GET;
-    request.endpoint = "ips/assigned/";
+    request.endpoint = "ips/assigned";
     Response response = sg.api(request);
     Assert.assertEquals(200, response.statusCode);
   }
@@ -1487,7 +1487,7 @@ public class SendGridTest {
 
     Request request = new Request();
     request.method = Method.POST;
-    request.endpoint = "ips/pools/";
+    request.endpoint = "ips/pools";
     request.requestBody = "{\"name\":\"marketing\"}";
     Response response = sg.api(request);
     Assert.assertEquals(200, response.statusCode);
@@ -1505,7 +1505,7 @@ public class SendGridTest {
 
     Request request = new Request();
     request.method = Method.GET;
-    request.endpoint = "ips/pools/";
+    request.endpoint = "ips/pools";
     Response response = sg.api(request);
     Assert.assertEquals(200, response.statusCode);
   }
@@ -1522,7 +1522,7 @@ public class SendGridTest {
 
     Request request = new Request();
     request.method = Method.PUT;
-    request.endpoint = "ips/pools/{pool_name}/";
+    request.endpoint = "ips/pools/{pool_name}";
     request.requestBody = "{\"name\":\"new_pool_name\"}";
     Response response = sg.api(request);
     Assert.assertEquals(200, response.statusCode);
@@ -1540,7 +1540,7 @@ public class SendGridTest {
 
     Request request = new Request();
     request.method = Method.GET;
-    request.endpoint = "ips/pools/{pool_name}/";
+    request.endpoint = "ips/pools/{pool_name}";
     Response response = sg.api(request);
     Assert.assertEquals(200, response.statusCode);
   }
@@ -1557,7 +1557,7 @@ public class SendGridTest {
 
     Request request = new Request();
     request.method = Method.DELETE;
-    request.endpoint = "ips/pools/{pool_name}/";
+    request.endpoint = "ips/pools/{pool_name}";
     Response response = sg.api(request);
     Assert.assertEquals(204, response.statusCode);
   }
@@ -1574,7 +1574,7 @@ public class SendGridTest {
 
     Request request = new Request();
     request.method = Method.POST;
-    request.endpoint = "ips/pools/{pool_name}/ips/";
+    request.endpoint = "ips/pools/{pool_name}/ips";
     request.requestBody = "{\"ip\":\"0.0.0.0\"}";
     Response response = sg.api(request);
     Assert.assertEquals(201, response.statusCode);
@@ -1592,7 +1592,7 @@ public class SendGridTest {
 
     Request request = new Request();
     request.method = Method.DELETE;
-    request.endpoint = "ips/pools/{pool_name}/ips/{ip}/";
+    request.endpoint = "ips/pools/{pool_name}/ips/{ip}";
     Response response = sg.api(request);
     Assert.assertEquals(204, response.statusCode);
   }
@@ -1609,7 +1609,7 @@ public class SendGridTest {
 
     Request request = new Request();
     request.method = Method.POST;
-    request.endpoint = "ips/warmup/";
+    request.endpoint = "ips/warmup";
     request.requestBody = "{\"ip\":\"0.0.0.0\"}";
     Response response = sg.api(request);
     Assert.assertEquals(200, response.statusCode);
@@ -1627,7 +1627,7 @@ public class SendGridTest {
 
     Request request = new Request();
     request.method = Method.GET;
-    request.endpoint = "ips/warmup/";
+    request.endpoint = "ips/warmup";
     Response response = sg.api(request);
     Assert.assertEquals(200, response.statusCode);
   }
@@ -1644,7 +1644,7 @@ public class SendGridTest {
 
     Request request = new Request();
     request.method = Method.GET;
-    request.endpoint = "ips/warmup/{ip_address}/";
+    request.endpoint = "ips/warmup/{ip_address}";
     Response response = sg.api(request);
     Assert.assertEquals(200, response.statusCode);
   }
@@ -1661,7 +1661,7 @@ public class SendGridTest {
 
     Request request = new Request();
     request.method = Method.DELETE;
-    request.endpoint = "ips/warmup/{ip_address}/";
+    request.endpoint = "ips/warmup/{ip_address}";
     Response response = sg.api(request);
     Assert.assertEquals(204, response.statusCode);
   }
@@ -1678,7 +1678,7 @@ public class SendGridTest {
 
     Request request = new Request();
     request.method = Method.GET;
-    request.endpoint = "ips/{ip_address}/";
+    request.endpoint = "ips/{ip_address}";
     Response response = sg.api(request);
     Assert.assertEquals(200, response.statusCode);
   }
@@ -1695,7 +1695,7 @@ public class SendGridTest {
 
     Request request = new Request();
     request.method = Method.POST;
-    request.endpoint = "mail/batch/";
+    request.endpoint = "mail/batch";
     Response response = sg.api(request);
     Assert.assertEquals(201, response.statusCode);
   }
@@ -1712,7 +1712,7 @@ public class SendGridTest {
 
     Request request = new Request();
     request.method = Method.GET;
-    request.endpoint = "mail/batch/{batch_id}/";
+    request.endpoint = "mail/batch/{batch_id}";
     Response response = sg.api(request);
     Assert.assertEquals(200, response.statusCode);
   }
@@ -1729,7 +1729,7 @@ public class SendGridTest {
 
     Request request = new Request();
     request.method = Method.POST;
-    request.endpoint = "mail/send/beta/";
+    request.endpoint = "mail/send/beta";
     request.requestBody = "{\"custom_args\":{\"New Argument 1\":\"New Value 1\",\"activationAttempt\":\"1\",\"customerAccountNumber\":\"[CUSTOMER ACCOUNT NUMBER GOES HERE]\"},\"from\":{\"email\":\"sam.smith@example.com\",\"name\":\"Sam Smith\"},\"attachments\":[{\"name\":\"file1\",\"filename\":\"file1.jpg\",\"content\":\"[BASE64 encoded content block here]\",\"disposition\":\"inline\",\"content_id\":\"ii_139db99fdb5c3704\",\"type\":\"jpg\"}],\"personalizations\":[{\"to\":[{\"email\":\"john.doe@example.com\",\"name\":\"John Doe\"}],\"cc\":[{\"email\":\"jane.doe@example.com\",\"name\":\"Jane Doe\"}],\"bcc\":[{\"email\":\"sam.doe@example.com\",\"name\":\"Sam Doe\"}],\"custom_args\":{\"New Argument 1\":\"New Value 1\",\"activationAttempt\":\"1\",\"customerAccountNumber\":\"[CUSTOMER ACCOUNT NUMBER GOES HERE]\"},\"headers\":{\"X-Accept-Language\":\"en\",\"X-Mailer\":\"MyApp\"},\"send_at\":1409348513,\"substitutions\":{\"sub\":{\"%name%\":[\"John\",\"Jane\",\"Sam\"]}},\"subject\":\"Hello, World!\"}],\"subject\":\"Hello, World!\",\"ip_pool_name\":\"[YOUR POOL NAME GOES HERE]\",\"content\":[{\"type\":\"text/html\",\"value\":\"<html><p>Hello, world!</p><img src=[CID GOES HERE]></img></html>\"}],\"headers\":{},\"asm\":{\"groups_to_display\":[1,2,3],\"group_id\":1},\"batch_id\":\"[YOUR BATCH ID GOES HERE]\",\"tracking_settings\":{\"subscription_tracking\":{\"text\":\"If you would like to unsubscribe and stop receiveing these emails <% click here %>.\",\"enable\":true,\"html\":\"If you would like to unsubscribe and stop receiving these emails <% clickhere %>.\",\"substitution_tag\":\"<%click here%>\"},\"open_tracking\":{\"enable\":true,\"substitution_tag\":\"%opentrack\"},\"click_tracking\":{\"enable\":true,\"enable_text\":true},\"ganalytics\":{\"utm_campaign\":\"[NAME OF YOUR REFERRER SOURCE]\",\"enable\":true,\"utm_name\":\"[NAME OF YOUR CAMPAIGN]\",\"utm_term\":\"[IDENTIFY PAID KEYWORDS HERE]\",\"utm_content\":\"[USE THIS SPACE TO DIFFERENTIATE YOUR EMAIL FROM ADS]\",\"utm_medium\":\"[NAME OF YOUR MARKETING MEDIUM e.g. email]\"}},\"mail_settings\":{\"footer\":{\"text\":\"Thanks,/n The SendGrid Team\",\"enable\":true,\"html\":\"<p>Thanks</br>The SendGrid Team</p>\"},\"spam_check\":{\"threshold\":3,\"post_to_url\":\"http://example.com/compliance\",\"enable\":true},\"bypass_list_management\":{\"enable\":true},\"sandbox_mode\":{\"enable\":false},\"bcc\":{\"enable\":true,\"email\":\"ben.doe@example.com\"}},\"reply_to\":{\"email\":\"sam.smith@example.com\",\"name\":\"Sam Smith\"},\"sections\":{\"section\":{\":sectionName2\":\"section 2 text\",\":sectionName1\":\"section 1 text\"}},\"template_id\":\"[YOUR TEMPLATE ID GOES HERE]\",\"categories\":[\"category1\",\"category2\"],\"send_at\":1409348513}";
     Response response = sg.api(request);
     Assert.assertEquals(202, response.statusCode);
@@ -1747,7 +1747,7 @@ public class SendGridTest {
 
     Request request = new Request();
     request.method = Method.GET;
-    request.endpoint = "mail_settings/";
+    request.endpoint = "mail_settings";
     Map<String,String> queryParams = new HashMap<String, String>();
     queryParams.put("limit", "1");
     queryParams.put("offset", "1");
@@ -1768,7 +1768,7 @@ public class SendGridTest {
 
     Request request = new Request();
     request.method = Method.PATCH;
-    request.endpoint = "mail_settings/address_whitelist/";
+    request.endpoint = "mail_settings/address_whitelist";
     request.requestBody = "{\"list\":[\"email1@example.com\",\"example.com\"],\"enabled\":true}";
     Response response = sg.api(request);
     Assert.assertEquals(200, response.statusCode);
@@ -1786,7 +1786,7 @@ public class SendGridTest {
 
     Request request = new Request();
     request.method = Method.GET;
-    request.endpoint = "mail_settings/address_whitelist/";
+    request.endpoint = "mail_settings/address_whitelist";
     Response response = sg.api(request);
     Assert.assertEquals(200, response.statusCode);
   }
@@ -1803,7 +1803,7 @@ public class SendGridTest {
 
     Request request = new Request();
     request.method = Method.PATCH;
-    request.endpoint = "mail_settings/bcc/";
+    request.endpoint = "mail_settings/bcc";
     request.requestBody = "{\"enabled\":false,\"email\":\"email@example.com\"}";
     Response response = sg.api(request);
     Assert.assertEquals(200, response.statusCode);
@@ -1821,7 +1821,7 @@ public class SendGridTest {
 
     Request request = new Request();
     request.method = Method.GET;
-    request.endpoint = "mail_settings/bcc/";
+    request.endpoint = "mail_settings/bcc";
     Response response = sg.api(request);
     Assert.assertEquals(200, response.statusCode);
   }
@@ -1838,7 +1838,7 @@ public class SendGridTest {
 
     Request request = new Request();
     request.method = Method.PATCH;
-    request.endpoint = "mail_settings/bounce_purge/";
+    request.endpoint = "mail_settings/bounce_purge";
     request.requestBody = "{\"hard_bounces\":5,\"soft_bounces\":5,\"enabled\":true}";
     Response response = sg.api(request);
     Assert.assertEquals(200, response.statusCode);
@@ -1856,7 +1856,7 @@ public class SendGridTest {
 
     Request request = new Request();
     request.method = Method.GET;
-    request.endpoint = "mail_settings/bounce_purge/";
+    request.endpoint = "mail_settings/bounce_purge";
     Response response = sg.api(request);
     Assert.assertEquals(200, response.statusCode);
   }
@@ -1873,7 +1873,7 @@ public class SendGridTest {
 
     Request request = new Request();
     request.method = Method.PATCH;
-    request.endpoint = "mail_settings/footer/";
+    request.endpoint = "mail_settings/footer";
     request.requestBody = "{\"html_content\":\"...\",\"enabled\":true,\"plain_content\":\"...\"}";
     Response response = sg.api(request);
     Assert.assertEquals(200, response.statusCode);
@@ -1891,7 +1891,7 @@ public class SendGridTest {
 
     Request request = new Request();
     request.method = Method.GET;
-    request.endpoint = "mail_settings/footer/";
+    request.endpoint = "mail_settings/footer";
     Response response = sg.api(request);
     Assert.assertEquals(200, response.statusCode);
   }
@@ -1908,7 +1908,7 @@ public class SendGridTest {
 
     Request request = new Request();
     request.method = Method.PATCH;
-    request.endpoint = "mail_settings/forward_bounce/";
+    request.endpoint = "mail_settings/forward_bounce";
     request.requestBody = "{\"enabled\":true,\"email\":\"example@example.com\"}";
     Response response = sg.api(request);
     Assert.assertEquals(200, response.statusCode);
@@ -1926,7 +1926,7 @@ public class SendGridTest {
 
     Request request = new Request();
     request.method = Method.GET;
-    request.endpoint = "mail_settings/forward_bounce/";
+    request.endpoint = "mail_settings/forward_bounce";
     Response response = sg.api(request);
     Assert.assertEquals(200, response.statusCode);
   }
@@ -1943,7 +1943,7 @@ public class SendGridTest {
 
     Request request = new Request();
     request.method = Method.PATCH;
-    request.endpoint = "mail_settings/forward_spam/";
+    request.endpoint = "mail_settings/forward_spam";
     request.requestBody = "{\"enabled\":false,\"email\":\"\"}";
     Response response = sg.api(request);
     Assert.assertEquals(200, response.statusCode);
@@ -1961,7 +1961,7 @@ public class SendGridTest {
 
     Request request = new Request();
     request.method = Method.GET;
-    request.endpoint = "mail_settings/forward_spam/";
+    request.endpoint = "mail_settings/forward_spam";
     Response response = sg.api(request);
     Assert.assertEquals(200, response.statusCode);
   }
@@ -1978,7 +1978,7 @@ public class SendGridTest {
 
     Request request = new Request();
     request.method = Method.PATCH;
-    request.endpoint = "mail_settings/plain_content/";
+    request.endpoint = "mail_settings/plain_content";
     request.requestBody = "{\"enabled\":false}";
     Response response = sg.api(request);
     Assert.assertEquals(200, response.statusCode);
@@ -1996,7 +1996,7 @@ public class SendGridTest {
 
     Request request = new Request();
     request.method = Method.GET;
-    request.endpoint = "mail_settings/plain_content/";
+    request.endpoint = "mail_settings/plain_content";
     Response response = sg.api(request);
     Assert.assertEquals(200, response.statusCode);
   }
@@ -2013,7 +2013,7 @@ public class SendGridTest {
 
     Request request = new Request();
     request.method = Method.PATCH;
-    request.endpoint = "mail_settings/spam_check/";
+    request.endpoint = "mail_settings/spam_check";
     request.requestBody = "{\"url\":\"url\",\"max_score\":5,\"enabled\":true}";
     Response response = sg.api(request);
     Assert.assertEquals(200, response.statusCode);
@@ -2031,7 +2031,7 @@ public class SendGridTest {
 
     Request request = new Request();
     request.method = Method.GET;
-    request.endpoint = "mail_settings/spam_check/";
+    request.endpoint = "mail_settings/spam_check";
     Response response = sg.api(request);
     Assert.assertEquals(200, response.statusCode);
   }
@@ -2048,7 +2048,7 @@ public class SendGridTest {
 
     Request request = new Request();
     request.method = Method.PATCH;
-    request.endpoint = "mail_settings/template/";
+    request.endpoint = "mail_settings/template";
     request.requestBody = "{\"html_content\":\"<% body %>\",\"enabled\":true}";
     Response response = sg.api(request);
     Assert.assertEquals(200, response.statusCode);
@@ -2066,7 +2066,7 @@ public class SendGridTest {
 
     Request request = new Request();
     request.method = Method.GET;
-    request.endpoint = "mail_settings/template/";
+    request.endpoint = "mail_settings/template";
     Response response = sg.api(request);
     Assert.assertEquals(200, response.statusCode);
   }
@@ -2083,7 +2083,7 @@ public class SendGridTest {
 
     Request request = new Request();
     request.method = Method.GET;
-    request.endpoint = "mailbox_providers/stats/";
+    request.endpoint = "mailbox_providers/stats";
     Map<String,String> queryParams = new HashMap<String, String>();
     queryParams.put("end_date", "2016-04-01");
     queryParams.put("mailbox_providers", "test_string");
@@ -2108,7 +2108,7 @@ public class SendGridTest {
 
     Request request = new Request();
     request.method = Method.GET;
-    request.endpoint = "partner_settings/";
+    request.endpoint = "partner_settings";
     Map<String,String> queryParams = new HashMap<String, String>();
     queryParams.put("limit", "1");
     queryParams.put("offset", "1");
@@ -2129,7 +2129,7 @@ public class SendGridTest {
 
     Request request = new Request();
     request.method = Method.PATCH;
-    request.endpoint = "partner_settings/new_relic/";
+    request.endpoint = "partner_settings/new_relic";
     request.requestBody = "{\"enable_subuser_statistics\":true,\"enabled\":true,\"license_key\":\"\"}";
     Response response = sg.api(request);
     Assert.assertEquals(200, response.statusCode);
@@ -2147,7 +2147,7 @@ public class SendGridTest {
 
     Request request = new Request();
     request.method = Method.GET;
-    request.endpoint = "partner_settings/new_relic/";
+    request.endpoint = "partner_settings/new_relic";
     Response response = sg.api(request);
     Assert.assertEquals(200, response.statusCode);
   }
@@ -2164,7 +2164,7 @@ public class SendGridTest {
 
     Request request = new Request();
     request.method = Method.GET;
-    request.endpoint = "scopes/";
+    request.endpoint = "scopes";
     Response response = sg.api(request);
     Assert.assertEquals(200, response.statusCode);
   }
@@ -2181,7 +2181,7 @@ public class SendGridTest {
 
     Request request = new Request();
     request.method = Method.GET;
-    request.endpoint = "stats/";
+    request.endpoint = "stats";
     Map<String,String> queryParams = new HashMap<String, String>();
     queryParams.put("aggregated_by", "day");
     queryParams.put("limit", "1");
@@ -2205,7 +2205,7 @@ public class SendGridTest {
 
     Request request = new Request();
     request.method = Method.POST;
-    request.endpoint = "subusers/";
+    request.endpoint = "subusers";
     request.requestBody = "{\"username\":\"John@example.com\",\"ips\":[\"1.1.1.1\",\"2.2.2.2\"],\"password\":\"johns_password\",\"email\":\"John@example.com\"}";
     Response response = sg.api(request);
     Assert.assertEquals(200, response.statusCode);
@@ -2223,7 +2223,7 @@ public class SendGridTest {
 
     Request request = new Request();
     request.method = Method.GET;
-    request.endpoint = "subusers/";
+    request.endpoint = "subusers";
     Map<String,String> queryParams = new HashMap<String, String>();
     queryParams.put("username", "test_string");
     queryParams.put("limit", "0");
@@ -2245,7 +2245,7 @@ public class SendGridTest {
 
     Request request = new Request();
     request.method = Method.GET;
-    request.endpoint = "subusers/reputations/";
+    request.endpoint = "subusers/reputations";
     Map<String,String> queryParams = new HashMap<String, String>();
     queryParams.put("usernames", "test_string");
     request.queryParams = queryParams;
@@ -2265,7 +2265,7 @@ public class SendGridTest {
 
     Request request = new Request();
     request.method = Method.GET;
-    request.endpoint = "subusers/stats/";
+    request.endpoint = "subusers/stats";
     Map<String,String> queryParams = new HashMap<String, String>();
     queryParams.put("end_date", "2016-04-01");
     queryParams.put("aggregated_by", "day");
@@ -2290,7 +2290,7 @@ public class SendGridTest {
 
     Request request = new Request();
     request.method = Method.GET;
-    request.endpoint = "subusers/stats/monthly/";
+    request.endpoint = "subusers/stats/monthly";
     Map<String,String> queryParams = new HashMap<String, String>();
     queryParams.put("subuser", "test_string");
     queryParams.put("limit", "1");
@@ -2315,7 +2315,7 @@ public class SendGridTest {
 
     Request request = new Request();
     request.method = Method.GET;
-    request.endpoint = "subusers/stats/sums/";
+    request.endpoint = "subusers/stats/sums";
     Map<String,String> queryParams = new HashMap<String, String>();
     queryParams.put("end_date", "2016-04-01");
     queryParams.put("aggregated_by", "day");
@@ -2341,7 +2341,7 @@ public class SendGridTest {
 
     Request request = new Request();
     request.method = Method.PATCH;
-    request.endpoint = "subusers/{subuser_name}/";
+    request.endpoint = "subusers/{subuser_name}";
     request.requestBody = "{\"disabled\":false}";
     Response response = sg.api(request);
     Assert.assertEquals(204, response.statusCode);
@@ -2359,7 +2359,7 @@ public class SendGridTest {
 
     Request request = new Request();
     request.method = Method.DELETE;
-    request.endpoint = "subusers/{subuser_name}/";
+    request.endpoint = "subusers/{subuser_name}";
     Response response = sg.api(request);
     Assert.assertEquals(204, response.statusCode);
   }
@@ -2376,7 +2376,7 @@ public class SendGridTest {
 
     Request request = new Request();
     request.method = Method.PUT;
-    request.endpoint = "subusers/{subuser_name}/ips/";
+    request.endpoint = "subusers/{subuser_name}/ips";
     request.requestBody = "[\"127.0.0.1\"]";
     Response response = sg.api(request);
     Assert.assertEquals(200, response.statusCode);
@@ -2394,7 +2394,7 @@ public class SendGridTest {
 
     Request request = new Request();
     request.method = Method.PUT;
-    request.endpoint = "subusers/{subuser_name}/monitor/";
+    request.endpoint = "subusers/{subuser_name}/monitor";
     request.requestBody = "{\"frequency\":500,\"email\":\"example@example.com\"}";
     Response response = sg.api(request);
     Assert.assertEquals(200, response.statusCode);
@@ -2412,7 +2412,7 @@ public class SendGridTest {
 
     Request request = new Request();
     request.method = Method.POST;
-    request.endpoint = "subusers/{subuser_name}/monitor/";
+    request.endpoint = "subusers/{subuser_name}/monitor";
     request.requestBody = "{\"frequency\":50000,\"email\":\"example@example.com\"}";
     Response response = sg.api(request);
     Assert.assertEquals(200, response.statusCode);
@@ -2430,7 +2430,7 @@ public class SendGridTest {
 
     Request request = new Request();
     request.method = Method.GET;
-    request.endpoint = "subusers/{subuser_name}/monitor/";
+    request.endpoint = "subusers/{subuser_name}/monitor";
     Response response = sg.api(request);
     Assert.assertEquals(200, response.statusCode);
   }
@@ -2447,7 +2447,7 @@ public class SendGridTest {
 
     Request request = new Request();
     request.method = Method.DELETE;
-    request.endpoint = "subusers/{subuser_name}/monitor/";
+    request.endpoint = "subusers/{subuser_name}/monitor";
     Response response = sg.api(request);
     Assert.assertEquals(204, response.statusCode);
   }
@@ -2464,7 +2464,7 @@ public class SendGridTest {
 
     Request request = new Request();
     request.method = Method.GET;
-    request.endpoint = "subusers/{subuser_name}/stats/monthly/";
+    request.endpoint = "subusers/{subuser_name}/stats/monthly";
     Map<String,String> queryParams = new HashMap<String, String>();
     queryParams.put("date", "test_string");
     queryParams.put("sort_by_direction", "asc");
@@ -2488,7 +2488,7 @@ public class SendGridTest {
 
     Request request = new Request();
     request.method = Method.GET;
-    request.endpoint = "suppression/blocks/";
+    request.endpoint = "suppression/blocks";
     Map<String,String> queryParams = new HashMap<String, String>();
     queryParams.put("start_time", "1");
     queryParams.put("limit", "1");
@@ -2511,7 +2511,7 @@ public class SendGridTest {
 
     Request request = new Request();
     request.method = Method.DELETE;
-    request.endpoint = "suppression/blocks/";
+    request.endpoint = "suppression/blocks";
     request.requestBody = "{\"emails\":[\"example1@example.com\",\"example2@example.com\"],\"delete_all\":false}";
     Response response = sg.api(request);
     Assert.assertEquals(204, response.statusCode);
@@ -2529,7 +2529,7 @@ public class SendGridTest {
 
     Request request = new Request();
     request.method = Method.GET;
-    request.endpoint = "suppression/blocks/{email}/";
+    request.endpoint = "suppression/blocks/{email}";
     Response response = sg.api(request);
     Assert.assertEquals(200, response.statusCode);
   }
@@ -2546,7 +2546,7 @@ public class SendGridTest {
 
     Request request = new Request();
     request.method = Method.DELETE;
-    request.endpoint = "suppression/blocks/{email}/";
+    request.endpoint = "suppression/blocks/{email}";
     Response response = sg.api(request);
     Assert.assertEquals(204, response.statusCode);
   }
@@ -2563,7 +2563,7 @@ public class SendGridTest {
 
     Request request = new Request();
     request.method = Method.GET;
-    request.endpoint = "suppression/bounces/";
+    request.endpoint = "suppression/bounces";
     Map<String,String> queryParams = new HashMap<String, String>();
     queryParams.put("start_time", "0");
     queryParams.put("end_time", "0");
@@ -2584,7 +2584,7 @@ public class SendGridTest {
 
     Request request = new Request();
     request.method = Method.DELETE;
-    request.endpoint = "suppression/bounces/";
+    request.endpoint = "suppression/bounces";
     request.requestBody = "{\"emails\":[\"example@example.com\",\"example2@example.com\"],\"delete_all\":true}";
     Response response = sg.api(request);
     Assert.assertEquals(204, response.statusCode);
@@ -2602,7 +2602,7 @@ public class SendGridTest {
 
     Request request = new Request();
     request.method = Method.GET;
-    request.endpoint = "suppression/bounces/{email}/";
+    request.endpoint = "suppression/bounces/{email}";
     Response response = sg.api(request);
     Assert.assertEquals(200, response.statusCode);
   }
@@ -2619,7 +2619,7 @@ public class SendGridTest {
 
     Request request = new Request();
     request.method = Method.DELETE;
-    request.endpoint = "suppression/bounces/{email}/";
+    request.endpoint = "suppression/bounces/{email}";
     Map<String,String> queryParams = new HashMap<String, String>();
     queryParams.put("email_address", "example@example.com");
     request.queryParams = queryParams;
@@ -2639,7 +2639,7 @@ public class SendGridTest {
 
     Request request = new Request();
     request.method = Method.GET;
-    request.endpoint = "suppression/invalid_emails/";
+    request.endpoint = "suppression/invalid_emails";
     Map<String,String> queryParams = new HashMap<String, String>();
     queryParams.put("start_time", "1");
     queryParams.put("limit", "1");
@@ -2662,7 +2662,7 @@ public class SendGridTest {
 
     Request request = new Request();
     request.method = Method.DELETE;
-    request.endpoint = "suppression/invalid_emails/";
+    request.endpoint = "suppression/invalid_emails";
     request.requestBody = "{\"emails\":[\"example1@example.com\",\"example2@example.com\"],\"delete_all\":false}";
     Response response = sg.api(request);
     Assert.assertEquals(204, response.statusCode);
@@ -2680,7 +2680,7 @@ public class SendGridTest {
 
     Request request = new Request();
     request.method = Method.GET;
-    request.endpoint = "suppression/invalid_emails/{email}/";
+    request.endpoint = "suppression/invalid_emails/{email}";
     Response response = sg.api(request);
     Assert.assertEquals(200, response.statusCode);
   }
@@ -2697,7 +2697,7 @@ public class SendGridTest {
 
     Request request = new Request();
     request.method = Method.DELETE;
-    request.endpoint = "suppression/invalid_emails/{email}/";
+    request.endpoint = "suppression/invalid_emails/{email}";
     Response response = sg.api(request);
     Assert.assertEquals(204, response.statusCode);
   }
@@ -2714,7 +2714,7 @@ public class SendGridTest {
 
     Request request = new Request();
     request.method = Method.GET;
-    request.endpoint = "suppression/spam_report/{email}/";
+    request.endpoint = "suppression/spam_report/{email}";
     Response response = sg.api(request);
     Assert.assertEquals(200, response.statusCode);
   }
@@ -2731,7 +2731,7 @@ public class SendGridTest {
 
     Request request = new Request();
     request.method = Method.DELETE;
-    request.endpoint = "suppression/spam_report/{email}/";
+    request.endpoint = "suppression/spam_report/{email}";
     Response response = sg.api(request);
     Assert.assertEquals(204, response.statusCode);
   }
@@ -2748,7 +2748,7 @@ public class SendGridTest {
 
     Request request = new Request();
     request.method = Method.GET;
-    request.endpoint = "suppression/spam_reports/";
+    request.endpoint = "suppression/spam_reports";
     Map<String,String> queryParams = new HashMap<String, String>();
     queryParams.put("start_time", "1");
     queryParams.put("limit", "1");
@@ -2771,7 +2771,7 @@ public class SendGridTest {
 
     Request request = new Request();
     request.method = Method.DELETE;
-    request.endpoint = "suppression/spam_reports/";
+    request.endpoint = "suppression/spam_reports";
     request.requestBody = "{\"emails\":[\"example1@example.com\",\"example2@example.com\"],\"delete_all\":false}";
     Response response = sg.api(request);
     Assert.assertEquals(204, response.statusCode);
@@ -2789,7 +2789,7 @@ public class SendGridTest {
 
     Request request = new Request();
     request.method = Method.GET;
-    request.endpoint = "suppression/unsubscribes/";
+    request.endpoint = "suppression/unsubscribes";
     Map<String,String> queryParams = new HashMap<String, String>();
     queryParams.put("start_time", "1");
     queryParams.put("limit", "1");
@@ -2812,7 +2812,7 @@ public class SendGridTest {
 
     Request request = new Request();
     request.method = Method.POST;
-    request.endpoint = "templates/";
+    request.endpoint = "templates";
     request.requestBody = "{\"name\":\"example_name\"}";
     Response response = sg.api(request);
     Assert.assertEquals(201, response.statusCode);
@@ -2830,7 +2830,7 @@ public class SendGridTest {
 
     Request request = new Request();
     request.method = Method.GET;
-    request.endpoint = "templates/";
+    request.endpoint = "templates";
     Response response = sg.api(request);
     Assert.assertEquals(200, response.statusCode);
   }
@@ -2847,7 +2847,7 @@ public class SendGridTest {
 
     Request request = new Request();
     request.method = Method.PATCH;
-    request.endpoint = "templates/{template_id}/";
+    request.endpoint = "templates/{template_id}";
     request.requestBody = "{\"name\":\"new_example_name\"}";
     Response response = sg.api(request);
     Assert.assertEquals(200, response.statusCode);
@@ -2865,7 +2865,7 @@ public class SendGridTest {
 
     Request request = new Request();
     request.method = Method.GET;
-    request.endpoint = "templates/{template_id}/";
+    request.endpoint = "templates/{template_id}";
     Response response = sg.api(request);
     Assert.assertEquals(200, response.statusCode);
   }
@@ -2882,7 +2882,7 @@ public class SendGridTest {
 
     Request request = new Request();
     request.method = Method.DELETE;
-    request.endpoint = "templates/{template_id}/";
+    request.endpoint = "templates/{template_id}";
     Response response = sg.api(request);
     Assert.assertEquals(204, response.statusCode);
   }
@@ -2899,7 +2899,7 @@ public class SendGridTest {
 
     Request request = new Request();
     request.method = Method.POST;
-    request.endpoint = "templates/{template_id}/versions/";
+    request.endpoint = "templates/{template_id}/versions";
     request.requestBody = "{\"name\":\"example_version_name\",\"html_content\":\"<%body%>\",\"plain_content\":\"<%body%>\",\"active\":1,\"template_id\":\"ddb96bbc-9b92-425e-8979-99464621b543\",\"subject\":\"<%subject%>\"}";
     Response response = sg.api(request);
     Assert.assertEquals(201, response.statusCode);
@@ -2917,7 +2917,7 @@ public class SendGridTest {
 
     Request request = new Request();
     request.method = Method.PATCH;
-    request.endpoint = "templates/{template_id}/versions/{version_id}/";
+    request.endpoint = "templates/{template_id}/versions/{version_id}";
     request.requestBody = "{\"active\":1,\"html_content\":\"<%body%>\",\"subject\":\"<%subject%>\",\"name\":\"updated_example_name\",\"plain_content\":\"<%body%>\"}";
     Response response = sg.api(request);
     Assert.assertEquals(200, response.statusCode);
@@ -2935,7 +2935,7 @@ public class SendGridTest {
 
     Request request = new Request();
     request.method = Method.GET;
-    request.endpoint = "templates/{template_id}/versions/{version_id}/";
+    request.endpoint = "templates/{template_id}/versions/{version_id}";
     Response response = sg.api(request);
     Assert.assertEquals(200, response.statusCode);
   }
@@ -2952,7 +2952,7 @@ public class SendGridTest {
 
     Request request = new Request();
     request.method = Method.DELETE;
-    request.endpoint = "templates/{template_id}/versions/{version_id}/";
+    request.endpoint = "templates/{template_id}/versions/{version_id}";
     Response response = sg.api(request);
     Assert.assertEquals(204, response.statusCode);
   }
@@ -2969,7 +2969,7 @@ public class SendGridTest {
 
     Request request = new Request();
     request.method = Method.POST;
-    request.endpoint = "templates/{template_id}/versions/{version_id}/activate/";
+    request.endpoint = "templates/{template_id}/versions/{version_id}/activate";
     Response response = sg.api(request);
     Assert.assertEquals(200, response.statusCode);
   }
@@ -2986,7 +2986,7 @@ public class SendGridTest {
 
     Request request = new Request();
     request.method = Method.GET;
-    request.endpoint = "tracking_settings/";
+    request.endpoint = "tracking_settings";
     Map<String,String> queryParams = new HashMap<String, String>();
     queryParams.put("limit", "1");
     queryParams.put("offset", "1");
@@ -3007,7 +3007,7 @@ public class SendGridTest {
 
     Request request = new Request();
     request.method = Method.PATCH;
-    request.endpoint = "tracking_settings/click/";
+    request.endpoint = "tracking_settings/click";
     request.requestBody = "{\"enabled\":true}";
     Response response = sg.api(request);
     Assert.assertEquals(200, response.statusCode);
@@ -3025,7 +3025,7 @@ public class SendGridTest {
 
     Request request = new Request();
     request.method = Method.GET;
-    request.endpoint = "tracking_settings/click/";
+    request.endpoint = "tracking_settings/click";
     Response response = sg.api(request);
     Assert.assertEquals(200, response.statusCode);
   }
@@ -3042,7 +3042,7 @@ public class SendGridTest {
 
     Request request = new Request();
     request.method = Method.PATCH;
-    request.endpoint = "tracking_settings/google_analytics/";
+    request.endpoint = "tracking_settings/google_analytics";
     request.requestBody = "{\"utm_campaign\":\"website\",\"utm_term\":\"\",\"utm_content\":\"\",\"enabled\":true,\"utm_source\":\"sendgrid.com\",\"utm_medium\":\"email\"}";
     Response response = sg.api(request);
     Assert.assertEquals(200, response.statusCode);
@@ -3060,7 +3060,7 @@ public class SendGridTest {
 
     Request request = new Request();
     request.method = Method.GET;
-    request.endpoint = "tracking_settings/google_analytics/";
+    request.endpoint = "tracking_settings/google_analytics";
     Response response = sg.api(request);
     Assert.assertEquals(200, response.statusCode);
   }
@@ -3077,7 +3077,7 @@ public class SendGridTest {
 
     Request request = new Request();
     request.method = Method.PATCH;
-    request.endpoint = "tracking_settings/open/";
+    request.endpoint = "tracking_settings/open";
     request.requestBody = "{\"enabled\":true}";
     Response response = sg.api(request);
     Assert.assertEquals(200, response.statusCode);
@@ -3095,7 +3095,7 @@ public class SendGridTest {
 
     Request request = new Request();
     request.method = Method.GET;
-    request.endpoint = "tracking_settings/open/";
+    request.endpoint = "tracking_settings/open";
     Response response = sg.api(request);
     Assert.assertEquals(200, response.statusCode);
   }
@@ -3112,7 +3112,7 @@ public class SendGridTest {
 
     Request request = new Request();
     request.method = Method.PATCH;
-    request.endpoint = "tracking_settings/subscription/";
+    request.endpoint = "tracking_settings/subscription";
     request.requestBody = "{\"url\":\"url\",\"html_content\":\"html content\",\"enabled\":true,\"landing\":\"landing page html\",\"replace\":\"replacement tag\",\"plain_content\":\"text content\"}";
     Response response = sg.api(request);
     Assert.assertEquals(200, response.statusCode);
@@ -3130,7 +3130,7 @@ public class SendGridTest {
 
     Request request = new Request();
     request.method = Method.GET;
-    request.endpoint = "tracking_settings/subscription/";
+    request.endpoint = "tracking_settings/subscription";
     Response response = sg.api(request);
     Assert.assertEquals(200, response.statusCode);
   }
@@ -3147,7 +3147,7 @@ public class SendGridTest {
 
     Request request = new Request();
     request.method = Method.GET;
-    request.endpoint = "user/account/";
+    request.endpoint = "user/account";
     Response response = sg.api(request);
     Assert.assertEquals(200, response.statusCode);
   }
@@ -3164,7 +3164,7 @@ public class SendGridTest {
 
     Request request = new Request();
     request.method = Method.GET;
-    request.endpoint = "user/credits/";
+    request.endpoint = "user/credits";
     Response response = sg.api(request);
     Assert.assertEquals(200, response.statusCode);
   }
@@ -3181,7 +3181,7 @@ public class SendGridTest {
 
     Request request = new Request();
     request.method = Method.PUT;
-    request.endpoint = "user/email/";
+    request.endpoint = "user/email";
     request.requestBody = "{\"email\":\"example@example.com\"}";
     Response response = sg.api(request);
     Assert.assertEquals(200, response.statusCode);
@@ -3199,7 +3199,7 @@ public class SendGridTest {
 
     Request request = new Request();
     request.method = Method.GET;
-    request.endpoint = "user/email/";
+    request.endpoint = "user/email";
     Response response = sg.api(request);
     Assert.assertEquals(200, response.statusCode);
   }
@@ -3216,7 +3216,7 @@ public class SendGridTest {
 
     Request request = new Request();
     request.method = Method.PUT;
-    request.endpoint = "user/password/";
+    request.endpoint = "user/password";
     request.requestBody = "{\"new_password\":\"new_password\",\"old_password\":\"old_password\"}";
     Response response = sg.api(request);
     Assert.assertEquals(200, response.statusCode);
@@ -3234,7 +3234,7 @@ public class SendGridTest {
 
     Request request = new Request();
     request.method = Method.PATCH;
-    request.endpoint = "user/profile/";
+    request.endpoint = "user/profile";
     request.requestBody = "{\"city\":\"Orange\",\"first_name\":\"Example\",\"last_name\":\"User\"}";
     Response response = sg.api(request);
     Assert.assertEquals(200, response.statusCode);
@@ -3252,7 +3252,7 @@ public class SendGridTest {
 
     Request request = new Request();
     request.method = Method.GET;
-    request.endpoint = "user/profile/";
+    request.endpoint = "user/profile";
     Response response = sg.api(request);
     Assert.assertEquals(200, response.statusCode);
   }
@@ -3269,7 +3269,7 @@ public class SendGridTest {
 
     Request request = new Request();
     request.method = Method.POST;
-    request.endpoint = "user/scheduled_sends/";
+    request.endpoint = "user/scheduled_sends";
     request.requestBody = "{\"batch_id\":\"YOUR_BATCH_ID\",\"status\":\"pause\"}";
     Response response = sg.api(request);
     Assert.assertEquals(201, response.statusCode);
@@ -3287,7 +3287,7 @@ public class SendGridTest {
 
     Request request = new Request();
     request.method = Method.GET;
-    request.endpoint = "user/scheduled_sends/";
+    request.endpoint = "user/scheduled_sends";
     Response response = sg.api(request);
     Assert.assertEquals(200, response.statusCode);
   }
@@ -3304,7 +3304,7 @@ public class SendGridTest {
 
     Request request = new Request();
     request.method = Method.PATCH;
-    request.endpoint = "user/scheduled_sends/{batch_id}/";
+    request.endpoint = "user/scheduled_sends/{batch_id}";
     request.requestBody = "{\"status\":\"pause\"}";
     Response response = sg.api(request);
     Assert.assertEquals(204, response.statusCode);
@@ -3322,7 +3322,7 @@ public class SendGridTest {
 
     Request request = new Request();
     request.method = Method.GET;
-    request.endpoint = "user/scheduled_sends/{batch_id}/";
+    request.endpoint = "user/scheduled_sends/{batch_id}";
     Response response = sg.api(request);
     Assert.assertEquals(200, response.statusCode);
   }
@@ -3339,7 +3339,7 @@ public class SendGridTest {
 
     Request request = new Request();
     request.method = Method.DELETE;
-    request.endpoint = "user/scheduled_sends/{batch_id}/";
+    request.endpoint = "user/scheduled_sends/{batch_id}";
     Response response = sg.api(request);
     Assert.assertEquals(204, response.statusCode);
   }
@@ -3356,7 +3356,7 @@ public class SendGridTest {
 
     Request request = new Request();
     request.method = Method.PATCH;
-    request.endpoint = "user/settings/enforced_tls/";
+    request.endpoint = "user/settings/enforced_tls";
     request.requestBody = "{\"require_tls\":true,\"require_valid_cert\":false}";
     Response response = sg.api(request);
     Assert.assertEquals(200, response.statusCode);
@@ -3374,7 +3374,7 @@ public class SendGridTest {
 
     Request request = new Request();
     request.method = Method.GET;
-    request.endpoint = "user/settings/enforced_tls/";
+    request.endpoint = "user/settings/enforced_tls";
     Response response = sg.api(request);
     Assert.assertEquals(200, response.statusCode);
   }
@@ -3391,7 +3391,7 @@ public class SendGridTest {
 
     Request request = new Request();
     request.method = Method.PUT;
-    request.endpoint = "user/username/";
+    request.endpoint = "user/username";
     request.requestBody = "{\"username\":\"test_username\"}";
     Response response = sg.api(request);
     Assert.assertEquals(200, response.statusCode);
@@ -3409,7 +3409,7 @@ public class SendGridTest {
 
     Request request = new Request();
     request.method = Method.GET;
-    request.endpoint = "user/username/";
+    request.endpoint = "user/username";
     Response response = sg.api(request);
     Assert.assertEquals(200, response.statusCode);
   }
@@ -3426,7 +3426,7 @@ public class SendGridTest {
 
     Request request = new Request();
     request.method = Method.PATCH;
-    request.endpoint = "user/webhooks/event/settings/";
+    request.endpoint = "user/webhooks/event/settings";
     request.requestBody = "{\"group_resubscribe\":true,\"delivered\":true,\"group_unsubscribe\":true,\"spam_report\":true,\"url\":\"url\",\"enabled\":true,\"bounce\":true,\"deferred\":true,\"unsubscribe\":true,\"dropped\":true,\"open\":true,\"click\":true,\"processed\":true}";
     Response response = sg.api(request);
     Assert.assertEquals(200, response.statusCode);
@@ -3444,7 +3444,7 @@ public class SendGridTest {
 
     Request request = new Request();
     request.method = Method.GET;
-    request.endpoint = "user/webhooks/event/settings/";
+    request.endpoint = "user/webhooks/event/settings";
     Response response = sg.api(request);
     Assert.assertEquals(200, response.statusCode);
   }
@@ -3461,7 +3461,7 @@ public class SendGridTest {
 
     Request request = new Request();
     request.method = Method.POST;
-    request.endpoint = "user/webhooks/event/test/";
+    request.endpoint = "user/webhooks/event/test";
     request.requestBody = "{\"url\":\"url\"}";
     Response response = sg.api(request);
     Assert.assertEquals(204, response.statusCode);
@@ -3479,7 +3479,7 @@ public class SendGridTest {
 
     Request request = new Request();
     request.method = Method.GET;
-    request.endpoint = "user/webhooks/parse/settings/";
+    request.endpoint = "user/webhooks/parse/settings";
     Response response = sg.api(request);
     Assert.assertEquals(200, response.statusCode);
   }
@@ -3496,7 +3496,7 @@ public class SendGridTest {
 
     Request request = new Request();
     request.method = Method.GET;
-    request.endpoint = "user/webhooks/parse/stats/";
+    request.endpoint = "user/webhooks/parse/stats";
     Map<String,String> queryParams = new HashMap<String, String>();
     queryParams.put("aggregated_by", "day");
     queryParams.put("limit", "test_string");
@@ -3520,7 +3520,7 @@ public class SendGridTest {
 
     Request request = new Request();
     request.method = Method.POST;
-    request.endpoint = "whitelabel/domains/";
+    request.endpoint = "whitelabel/domains";
     request.requestBody = "{\"automatic_security\":false,\"username\":\"john@example.com\",\"domain\":\"example.com\",\"default\":true,\"custom_spf\":true,\"ips\":[\"192.168.1.1\",\"192.168.1.2\"],\"subdomain\":\"news\"}";
     Response response = sg.api(request);
     Assert.assertEquals(201, response.statusCode);
@@ -3538,7 +3538,7 @@ public class SendGridTest {
 
     Request request = new Request();
     request.method = Method.GET;
-    request.endpoint = "whitelabel/domains/";
+    request.endpoint = "whitelabel/domains";
     Map<String,String> queryParams = new HashMap<String, String>();
     queryParams.put("username", "test_string");
     queryParams.put("domain", "test_string");
@@ -3562,7 +3562,7 @@ public class SendGridTest {
 
     Request request = new Request();
     request.method = Method.GET;
-    request.endpoint = "whitelabel/domains/default/";
+    request.endpoint = "whitelabel/domains/default";
     Response response = sg.api(request);
     Assert.assertEquals(200, response.statusCode);
   }
@@ -3579,7 +3579,7 @@ public class SendGridTest {
 
     Request request = new Request();
     request.method = Method.GET;
-    request.endpoint = "whitelabel/domains/subuser/";
+    request.endpoint = "whitelabel/domains/subuser";
     Response response = sg.api(request);
     Assert.assertEquals(200, response.statusCode);
   }
@@ -3596,7 +3596,7 @@ public class SendGridTest {
 
     Request request = new Request();
     request.method = Method.DELETE;
-    request.endpoint = "whitelabel/domains/subuser/";
+    request.endpoint = "whitelabel/domains/subuser";
     Response response = sg.api(request);
     Assert.assertEquals(204, response.statusCode);
   }
@@ -3613,7 +3613,7 @@ public class SendGridTest {
 
     Request request = new Request();
     request.method = Method.PATCH;
-    request.endpoint = "whitelabel/domains/{domain_id}/";
+    request.endpoint = "whitelabel/domains/{domain_id}";
     request.requestBody = "{\"default\":false,\"custom_spf\":true}";
     Response response = sg.api(request);
     Assert.assertEquals(200, response.statusCode);
@@ -3631,7 +3631,7 @@ public class SendGridTest {
 
     Request request = new Request();
     request.method = Method.GET;
-    request.endpoint = "whitelabel/domains/{domain_id}/";
+    request.endpoint = "whitelabel/domains/{domain_id}";
     Response response = sg.api(request);
     Assert.assertEquals(200, response.statusCode);
   }
@@ -3648,7 +3648,7 @@ public class SendGridTest {
 
     Request request = new Request();
     request.method = Method.DELETE;
-    request.endpoint = "whitelabel/domains/{domain_id}/";
+    request.endpoint = "whitelabel/domains/{domain_id}";
     Response response = sg.api(request);
     Assert.assertEquals(204, response.statusCode);
   }
@@ -3665,7 +3665,7 @@ public class SendGridTest {
 
     Request request = new Request();
     request.method = Method.POST;
-    request.endpoint = "whitelabel/domains/{domain_id}/subuser/";
+    request.endpoint = "whitelabel/domains/{domain_id}/subuser";
     request.requestBody = "{\"username\":\"jane@example.com\"}";
     Response response = sg.api(request);
     Assert.assertEquals(201, response.statusCode);
@@ -3683,7 +3683,7 @@ public class SendGridTest {
 
     Request request = new Request();
     request.method = Method.POST;
-    request.endpoint = "whitelabel/domains/{id}/ips/";
+    request.endpoint = "whitelabel/domains/{id}/ips";
     request.requestBody = "{\"ip\":\"192.168.0.1\"}";
     Response response = sg.api(request);
     Assert.assertEquals(200, response.statusCode);
@@ -3701,7 +3701,7 @@ public class SendGridTest {
 
     Request request = new Request();
     request.method = Method.DELETE;
-    request.endpoint = "whitelabel/domains/{id}/ips/{ip}/";
+    request.endpoint = "whitelabel/domains/{id}/ips/{ip}";
     Response response = sg.api(request);
     Assert.assertEquals(200, response.statusCode);
   }
@@ -3718,7 +3718,7 @@ public class SendGridTest {
 
     Request request = new Request();
     request.method = Method.POST;
-    request.endpoint = "whitelabel/domains/{id}/validate/";
+    request.endpoint = "whitelabel/domains/{id}/validate";
     Response response = sg.api(request);
     Assert.assertEquals(200, response.statusCode);
   }
@@ -3735,7 +3735,7 @@ public class SendGridTest {
 
     Request request = new Request();
     request.method = Method.POST;
-    request.endpoint = "whitelabel/ips/";
+    request.endpoint = "whitelabel/ips";
     request.requestBody = "{\"ip\":\"192.168.1.1\",\"domain\":\"example.com\",\"subdomain\":\"email\"}";
     Response response = sg.api(request);
     Assert.assertEquals(201, response.statusCode);
@@ -3753,7 +3753,7 @@ public class SendGridTest {
 
     Request request = new Request();
     request.method = Method.GET;
-    request.endpoint = "whitelabel/ips/";
+    request.endpoint = "whitelabel/ips";
     Map<String,String> queryParams = new HashMap<String, String>();
     queryParams.put("ip", "test_string");
     queryParams.put("limit", "1");
@@ -3775,7 +3775,7 @@ public class SendGridTest {
 
     Request request = new Request();
     request.method = Method.GET;
-    request.endpoint = "whitelabel/ips/{id}/";
+    request.endpoint = "whitelabel/ips/{id}";
     Response response = sg.api(request);
     Assert.assertEquals(200, response.statusCode);
   }
@@ -3792,7 +3792,7 @@ public class SendGridTest {
 
     Request request = new Request();
     request.method = Method.DELETE;
-    request.endpoint = "whitelabel/ips/{id}/";
+    request.endpoint = "whitelabel/ips/{id}";
     Response response = sg.api(request);
     Assert.assertEquals(204, response.statusCode);
   }
@@ -3809,7 +3809,7 @@ public class SendGridTest {
 
     Request request = new Request();
     request.method = Method.POST;
-    request.endpoint = "whitelabel/ips/{id}/validate/";
+    request.endpoint = "whitelabel/ips/{id}/validate";
     Response response = sg.api(request);
     Assert.assertEquals(200, response.statusCode);
   }
@@ -3826,7 +3826,7 @@ public class SendGridTest {
 
     Request request = new Request();
     request.method = Method.POST;
-    request.endpoint = "whitelabel/links/";
+    request.endpoint = "whitelabel/links";
     request.requestBody = "{\"default\":true,\"domain\":\"example.com\",\"subdomain\":\"mail\"}";
     Map<String,String> queryParams = new HashMap<String, String>();
     queryParams.put("limit", "1");
@@ -3848,7 +3848,7 @@ public class SendGridTest {
 
     Request request = new Request();
     request.method = Method.GET;
-    request.endpoint = "whitelabel/links/";
+    request.endpoint = "whitelabel/links";
     Map<String,String> queryParams = new HashMap<String, String>();
     queryParams.put("limit", "1");
     request.queryParams = queryParams;
@@ -3868,7 +3868,7 @@ public class SendGridTest {
 
     Request request = new Request();
     request.method = Method.GET;
-    request.endpoint = "whitelabel/links/default/";
+    request.endpoint = "whitelabel/links/default";
     Map<String,String> queryParams = new HashMap<String, String>();
     queryParams.put("domain", "test_string");
     request.queryParams = queryParams;
@@ -3888,7 +3888,7 @@ public class SendGridTest {
 
     Request request = new Request();
     request.method = Method.GET;
-    request.endpoint = "whitelabel/links/subuser/";
+    request.endpoint = "whitelabel/links/subuser";
     Map<String,String> queryParams = new HashMap<String, String>();
     queryParams.put("username", "test_string");
     request.queryParams = queryParams;
@@ -3908,7 +3908,7 @@ public class SendGridTest {
 
     Request request = new Request();
     request.method = Method.DELETE;
-    request.endpoint = "whitelabel/links/subuser/";
+    request.endpoint = "whitelabel/links/subuser";
     Map<String,String> queryParams = new HashMap<String, String>();
     queryParams.put("username", "test_string");
     request.queryParams = queryParams;
@@ -3928,7 +3928,7 @@ public class SendGridTest {
 
     Request request = new Request();
     request.method = Method.PATCH;
-    request.endpoint = "whitelabel/links/{id}/";
+    request.endpoint = "whitelabel/links/{id}";
     request.requestBody = "{\"default\":true}";
     Response response = sg.api(request);
     Assert.assertEquals(200, response.statusCode);
@@ -3946,7 +3946,7 @@ public class SendGridTest {
 
     Request request = new Request();
     request.method = Method.GET;
-    request.endpoint = "whitelabel/links/{id}/";
+    request.endpoint = "whitelabel/links/{id}";
     Response response = sg.api(request);
     Assert.assertEquals(200, response.statusCode);
   }
@@ -3963,7 +3963,7 @@ public class SendGridTest {
 
     Request request = new Request();
     request.method = Method.DELETE;
-    request.endpoint = "whitelabel/links/{id}/";
+    request.endpoint = "whitelabel/links/{id}";
     Response response = sg.api(request);
     Assert.assertEquals(204, response.statusCode);
   }
@@ -3980,7 +3980,7 @@ public class SendGridTest {
 
     Request request = new Request();
     request.method = Method.POST;
-    request.endpoint = "whitelabel/links/{id}/validate/";
+    request.endpoint = "whitelabel/links/{id}/validate";
     Response response = sg.api(request);
     Assert.assertEquals(200, response.statusCode);
   }
@@ -3997,7 +3997,7 @@ public class SendGridTest {
 
     Request request = new Request();
     request.method = Method.POST;
-    request.endpoint = "whitelabel/links/{link_id}/subuser/";
+    request.endpoint = "whitelabel/links/{link_id}/subuser";
     request.requestBody = "{\"username\":\"jane@example.com\"}";
     Response response = sg.api(request);
     Assert.assertEquals(200, response.statusCode);

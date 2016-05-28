@@ -21,7 +21,7 @@ public class Example {
       SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
       Request request = new Request();
       request.method = Method.GET;
-      request.endpoint = "mailbox_providers/stats/";
+      request.endpoint = "mailbox_providers/stats";
       Map<String,String> queryParams = new HashMap<String, String>();
       queryParams.put("end_date", "2016-04-01");
     queryParams.put("mailbox_providers", "test_string");

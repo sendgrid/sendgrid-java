@@ -21,7 +21,7 @@ public class Example {
       SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
       Request request = new Request();
       request.method = Method.GET;
-      request.endpoint = "suppression/blocks/";
+      request.endpoint = "suppression/blocks";
       Map<String,String> queryParams = new HashMap<String, String>();
       queryParams.put("start_time", "1");
     queryParams.put("limit", "1");
@@ -48,7 +48,7 @@ public class Example {
       SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
       Request request = new Request();
       request.method = Method.DELETE;
-      request.endpoint = "suppression/blocks/";
+      request.endpoint = "suppression/blocks";
       request.requestBody = "{\"emails\":[\"example1@example.com\",\"example2@example.com\"],\"delete_all\":false}";
       Response response = sg.api(request);
       System.out.println(response.statusCode);
@@ -70,7 +70,7 @@ public class Example {
       SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
       Request request = new Request();
       request.method = Method.GET;
-      request.endpoint = "suppression/blocks/{email}/";
+      request.endpoint = "suppression/blocks/{email}";
       Response response = sg.api(request);
       System.out.println(response.statusCode);
       System.out.println(response.responseBody);
@@ -91,7 +91,7 @@ public class Example {
       SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
       Request request = new Request();
       request.method = Method.DELETE;
-      request.endpoint = "suppression/blocks/{email}/";
+      request.endpoint = "suppression/blocks/{email}";
       Response response = sg.api(request);
       System.out.println(response.statusCode);
       System.out.println(response.responseBody);
@@ -112,7 +112,7 @@ public class Example {
       SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
       Request request = new Request();
       request.method = Method.GET;
-      request.endpoint = "suppression/bounces/";
+      request.endpoint = "suppression/bounces";
       Map<String,String> queryParams = new HashMap<String, String>();
       queryParams.put("start_time", "0");
     queryParams.put("end_time", "0");
@@ -137,7 +137,7 @@ public class Example {
       SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
       Request request = new Request();
       request.method = Method.DELETE;
-      request.endpoint = "suppression/bounces/";
+      request.endpoint = "suppression/bounces";
       request.requestBody = "{\"emails\":[\"example@example.com\",\"example2@example.com\"],\"delete_all\":true}";
       Response response = sg.api(request);
       System.out.println(response.statusCode);
@@ -159,7 +159,7 @@ public class Example {
       SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
       Request request = new Request();
       request.method = Method.GET;
-      request.endpoint = "suppression/bounces/{email}/";
+      request.endpoint = "suppression/bounces/{email}";
       Response response = sg.api(request);
       System.out.println(response.statusCode);
       System.out.println(response.responseBody);
@@ -180,7 +180,7 @@ public class Example {
       SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
       Request request = new Request();
       request.method = Method.DELETE;
-      request.endpoint = "suppression/bounces/{email}/";
+      request.endpoint = "suppression/bounces/{email}";
       Map<String,String> queryParams = new HashMap<String, String>();
       queryParams.put("email_address", "example@example.com");
       request.queryParams = queryParams;
@@ -204,7 +204,7 @@ public class Example {
       SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
       Request request = new Request();
       request.method = Method.GET;
-      request.endpoint = "suppression/invalid_emails/";
+      request.endpoint = "suppression/invalid_emails";
       Map<String,String> queryParams = new HashMap<String, String>();
       queryParams.put("start_time", "1");
     queryParams.put("limit", "1");
@@ -231,7 +231,7 @@ public class Example {
       SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
       Request request = new Request();
       request.method = Method.DELETE;
-      request.endpoint = "suppression/invalid_emails/";
+      request.endpoint = "suppression/invalid_emails";
       request.requestBody = "{\"emails\":[\"example1@example.com\",\"example2@example.com\"],\"delete_all\":false}";
       Response response = sg.api(request);
       System.out.println(response.statusCode);
@@ -253,7 +253,7 @@ public class Example {
       SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
       Request request = new Request();
       request.method = Method.GET;
-      request.endpoint = "suppression/invalid_emails/{email}/";
+      request.endpoint = "suppression/invalid_emails/{email}";
       Response response = sg.api(request);
       System.out.println(response.statusCode);
       System.out.println(response.responseBody);
@@ -274,7 +274,7 @@ public class Example {
       SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
       Request request = new Request();
       request.method = Method.DELETE;
-      request.endpoint = "suppression/invalid_emails/{email}/";
+      request.endpoint = "suppression/invalid_emails/{email}";
       Response response = sg.api(request);
       System.out.println(response.statusCode);
       System.out.println(response.responseBody);
@@ -295,7 +295,7 @@ public class Example {
       SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
       Request request = new Request();
       request.method = Method.GET;
-      request.endpoint = "suppression/spam_report/{email}/";
+      request.endpoint = "suppression/spam_report/{email}";
       Response response = sg.api(request);
       System.out.println(response.statusCode);
       System.out.println(response.responseBody);
@@ -316,7 +316,7 @@ public class Example {
       SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
       Request request = new Request();
       request.method = Method.DELETE;
-      request.endpoint = "suppression/spam_report/{email}/";
+      request.endpoint = "suppression/spam_report/{email}";
       Response response = sg.api(request);
       System.out.println(response.statusCode);
       System.out.println(response.responseBody);
@@ -337,7 +337,7 @@ public class Example {
       SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
       Request request = new Request();
       request.method = Method.GET;
-      request.endpoint = "suppression/spam_reports/";
+      request.endpoint = "suppression/spam_reports";
       Map<String,String> queryParams = new HashMap<String, String>();
       queryParams.put("start_time", "1");
     queryParams.put("limit", "1");
@@ -364,7 +364,7 @@ public class Example {
       SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
       Request request = new Request();
       request.method = Method.DELETE;
-      request.endpoint = "suppression/spam_reports/";
+      request.endpoint = "suppression/spam_reports";
       request.requestBody = "{\"emails\":[\"example1@example.com\",\"example2@example.com\"],\"delete_all\":false}";
       Response response = sg.api(request);
       System.out.println(response.statusCode);
@@ -386,7 +386,7 @@ public class Example {
       SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
       Request request = new Request();
       request.method = Method.GET;
-      request.endpoint = "suppression/unsubscribes/";
+      request.endpoint = "suppression/unsubscribes";
       Map<String,String> queryParams = new HashMap<String, String>();
       queryParams.put("start_time", "1");
     queryParams.put("limit", "1");

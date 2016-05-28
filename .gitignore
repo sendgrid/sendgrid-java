@@ -9,3 +9,4 @@ repo
 gradle.properties
 target
 *.class
+examples/Example.java
