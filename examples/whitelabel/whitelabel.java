@@ -46,10 +46,10 @@ public class Example {
       request.endpoint = "whitelabel/domains";
       Map<String,String> queryParams = new HashMap<String, String>();
       queryParams.put("username", "test_string");
-    queryParams.put("domain", "test_string");
-    queryParams.put("exclude_subusers", "true");
-    queryParams.put("limit", "1");
-    queryParams.put("offset", "1");
+      queryParams.put("domain", "test_string");
+      queryParams.put("exclude_subusers", "true");
+      queryParams.put("limit", "1");
+      queryParams.put("offset", "1");
       request.queryParams = queryParams;
       Response response = sg.api(request);
       System.out.println(response.statusCode);
@@ -309,8 +309,8 @@ public class Example {
       request.endpoint = "whitelabel/ips";
       Map<String,String> queryParams = new HashMap<String, String>();
       queryParams.put("ip", "test_string");
-    queryParams.put("limit", "1");
-    queryParams.put("offset", "1");
+      queryParams.put("limit", "1");
+      queryParams.put("offset", "1");
       request.queryParams = queryParams;
       Response response = sg.api(request);
       System.out.println(response.statusCode);
@@ -399,7 +399,7 @@ public class Example {
       request.requestBody = "{\"default\":true,\"domain\":\"example.com\",\"subdomain\":\"mail\"}";
       Map<String,String> queryParams = new HashMap<String, String>();
       queryParams.put("limit", "1");
-    queryParams.put("offset", "1");
+      queryParams.put("offset", "1");
       request.queryParams = queryParams;
       Response response = sg.api(request);
       System.out.println(response.statusCode);

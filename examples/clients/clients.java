@@ -24,8 +24,8 @@ public class Example {
       request.endpoint = "clients/stats";
       Map<String,String> queryParams = new HashMap<String, String>();
       queryParams.put("aggregated_by", "day");
-    queryParams.put("start_date", "2016-01-01");
-    queryParams.put("end_date", "2016-04-01");
+      queryParams.put("start_date", "2016-01-01");
+      queryParams.put("end_date", "2016-04-01");
       request.queryParams = queryParams;
       Response response = sg.api(request);
       System.out.println(response.statusCode);
@@ -50,8 +50,8 @@ public class Example {
       request.endpoint = "clients/{client_type}/stats";
       Map<String,String> queryParams = new HashMap<String, String>();
       queryParams.put("aggregated_by", "day");
-    queryParams.put("start_date", "2016-01-01");
-    queryParams.put("end_date", "2016-04-01");
+      queryParams.put("start_date", "2016-01-01");
+      queryParams.put("end_date", "2016-04-01");
       request.queryParams = queryParams;
       Response response = sg.api(request);
       System.out.println(response.statusCode);

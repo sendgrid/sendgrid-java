@@ -24,11 +24,11 @@ public class Example {
       request.endpoint = "browsers/stats";
       Map<String,String> queryParams = new HashMap<String, String>();
       queryParams.put("end_date", "2016-04-01");
-    queryParams.put("aggregated_by", "day");
-    queryParams.put("browsers", "test_string");
-    queryParams.put("limit", "test_string");
-    queryParams.put("offset", "test_string");
-    queryParams.put("start_date", "2016-01-01");
+      queryParams.put("aggregated_by", "day");
+      queryParams.put("browsers", "test_string");
+      queryParams.put("limit", "test_string");
+      queryParams.put("offset", "test_string");
+      queryParams.put("start_date", "2016-01-01");
       request.queryParams = queryParams;
       Response response = sg.api(request);
       System.out.println(response.statusCode);

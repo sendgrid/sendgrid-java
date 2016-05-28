@@ -269,8 +269,8 @@ public class Example {
       request.endpoint = "contactdb/lists/{list_id}/recipients";
       Map<String,String> queryParams = new HashMap<String, String>();
       queryParams.put("page", "1");
-    queryParams.put("page_size", "1");
-    queryParams.put("list_id", "0");
+      queryParams.put("page_size", "1");
+      queryParams.put("list_id", "0");
       request.queryParams = queryParams;
       Response response = sg.api(request);
       System.out.println(response.statusCode);
@@ -316,7 +316,7 @@ public class Example {
       request.endpoint = "contactdb/lists/{list_id}/recipients/{recipient_id}";
       Map<String,String> queryParams = new HashMap<String, String>();
       queryParams.put("recipient_id", "0");
-    queryParams.put("list_id", "0");
+      queryParams.put("list_id", "0");
       request.queryParams = queryParams;
       Response response = sg.api(request);
       System.out.println(response.statusCode);
@@ -385,7 +385,7 @@ public class Example {
       request.endpoint = "contactdb/recipients";
       Map<String,String> queryParams = new HashMap<String, String>();
       queryParams.put("page", "1");
-    queryParams.put("page_size", "1");
+      queryParams.put("page_size", "1");
       request.queryParams = queryParams;
       Response response = sg.api(request);
       System.out.println(response.statusCode);
@@ -698,7 +698,7 @@ public class Example {
       request.endpoint = "contactdb/segments/{segment_id}/recipients";
       Map<String,String> queryParams = new HashMap<String, String>();
       queryParams.put("page", "1");
-    queryParams.put("page_size", "1");
+      queryParams.put("page_size", "1");
       request.queryParams = queryParams;
       Response response = sg.api(request);
       System.out.println(response.statusCode);

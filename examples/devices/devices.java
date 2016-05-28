@@ -24,10 +24,10 @@ public class Example {
       request.endpoint = "devices/stats";
       Map<String,String> queryParams = new HashMap<String, String>();
       queryParams.put("aggregated_by", "day");
-    queryParams.put("limit", "1");
-    queryParams.put("start_date", "2016-01-01");
-    queryParams.put("end_date", "2016-04-01");
-    queryParams.put("offset", "1");
+      queryParams.put("limit", "1");
+      queryParams.put("start_date", "2016-01-01");
+      queryParams.put("end_date", "2016-04-01");
+      queryParams.put("offset", "1");
       request.queryParams = queryParams;
       Response response = sg.api(request);
       System.out.println(response.statusCode);

@@ -24,10 +24,10 @@ public class Example {
       request.endpoint = "ips";
       Map<String,String> queryParams = new HashMap<String, String>();
       queryParams.put("subuser", "test_string");
-    queryParams.put("ip", "test_string");
-    queryParams.put("limit", "1");
-    queryParams.put("exclude_whitelabels", "true");
-    queryParams.put("offset", "1");
+      queryParams.put("ip", "test_string");
+      queryParams.put("limit", "1");
+      queryParams.put("exclude_whitelabels", "true");
+      queryParams.put("offset", "1");
       request.queryParams = queryParams;
       Response response = sg.api(request);
       System.out.println(response.statusCode);

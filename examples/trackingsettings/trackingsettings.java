@@ -24,7 +24,7 @@ public class Example {
       request.endpoint = "tracking_settings";
       Map<String,String> queryParams = new HashMap<String, String>();
       queryParams.put("limit", "1");
-    queryParams.put("offset", "1");
+      queryParams.put("offset", "1");
       request.queryParams = queryParams;
       Response response = sg.api(request);
       System.out.println(response.statusCode);

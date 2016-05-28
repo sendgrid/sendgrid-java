@@ -453,10 +453,10 @@ public class Example {
       request.endpoint = "user/webhooks/parse/stats";
       Map<String,String> queryParams = new HashMap<String, String>();
       queryParams.put("aggregated_by", "day");
-    queryParams.put("limit", "test_string");
-    queryParams.put("start_date", "2016-01-01");
-    queryParams.put("end_date", "2016-04-01");
-    queryParams.put("offset", "test_string");
+      queryParams.put("limit", "test_string");
+      queryParams.put("start_date", "2016-01-01");
+      queryParams.put("end_date", "2016-04-01");
+      queryParams.put("offset", "test_string");
       request.queryParams = queryParams;
       Response response = sg.api(request);
       System.out.println(response.statusCode);
