@@ -17,8 +17,6 @@ import java.util.Map;
 
 public class Example {
   public static void main(String[] args) throws IOException {
-    SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
-    Request request = new Request();
     try {
       SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
       Request request = new Request();
