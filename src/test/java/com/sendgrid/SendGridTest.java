@@ -74,7 +74,7 @@ public class SendGridTest {
     SendGrid sg = new SendGrid("SENDGRID_API_KEY");
     sg.addRequestHeader("X-Mock", "200");
     if(System.getenv("TRAVIS") == "true") {
-      sg.setHost("MOCK_HOST");
+      sg.setHost(System.getenv("MOCK_HOST"));
     } else {
       sg.setHost("localhost:4010");
     }
@@ -94,7 +94,7 @@ public class SendGridTest {
     SendGrid sg = new SendGrid("SENDGRID_API_KEY");
     sg.addRequestHeader("X-Mock", "201");
     if(System.getenv("TRAVIS") == "true") {
-      sg.setHost("MOCK_HOST");
+      sg.setHost(System.getenv("MOCK_HOST"));
     } else {
       sg.setHost("localhost:4010");
     }
@@ -112,7 +112,7 @@ public class SendGridTest {
     SendGrid sg = new SendGrid("SENDGRID_API_KEY");
     sg.addRequestHeader("X-Mock", "200");
     if(System.getenv("TRAVIS") == "true") {
-      sg.setHost("MOCK_HOST");
+      sg.setHost(System.getenv("MOCK_HOST"));
     } else {
       sg.setHost("localhost:4010");
     }
@@ -129,7 +129,7 @@ public class SendGridTest {
     SendGrid sg = new SendGrid("SENDGRID_API_KEY");
     sg.addRequestHeader("X-Mock", "204");
     if(System.getenv("TRAVIS") == "true") {
-      sg.setHost("MOCK_HOST");
+      sg.setHost(System.getenv("MOCK_HOST"));
     } else {
       sg.setHost("localhost:4010");
     }
@@ -147,7 +147,7 @@ public class SendGridTest {
     SendGrid sg = new SendGrid("SENDGRID_API_KEY");
     sg.addRequestHeader("X-Mock", "200");
     if(System.getenv("TRAVIS") == "true") {
-      sg.setHost("MOCK_HOST");
+      sg.setHost(System.getenv("MOCK_HOST"));
     } else {
       sg.setHost("localhost:4010");
     }
@@ -164,7 +164,7 @@ public class SendGridTest {
     SendGrid sg = new SendGrid("SENDGRID_API_KEY");
     sg.addRequestHeader("X-Mock", "204");
     if(System.getenv("TRAVIS") == "true") {
-      sg.setHost("MOCK_HOST");
+      sg.setHost(System.getenv("MOCK_HOST"));
     } else {
       sg.setHost("localhost:4010");
     }
@@ -181,7 +181,7 @@ public class SendGridTest {
     SendGrid sg = new SendGrid("SENDGRID_API_KEY");
     sg.addRequestHeader("X-Mock", "201");
     if(System.getenv("TRAVIS") == "true") {
-      sg.setHost("MOCK_HOST");
+      sg.setHost(System.getenv("MOCK_HOST"));
     } else {
       sg.setHost("localhost:4010");
     }
@@ -199,7 +199,7 @@ public class SendGridTest {
     SendGrid sg = new SendGrid("SENDGRID_API_KEY");
     sg.addRequestHeader("X-Mock", "200");
     if(System.getenv("TRAVIS") == "true") {
-      sg.setHost("MOCK_HOST");
+      sg.setHost(System.getenv("MOCK_HOST"));
     } else {
       sg.setHost("localhost:4010");
     }
@@ -216,7 +216,7 @@ public class SendGridTest {
     SendGrid sg = new SendGrid("SENDGRID_API_KEY");
     sg.addRequestHeader("X-Mock", "200");
     if(System.getenv("TRAVIS") == "true") {
-      sg.setHost("MOCK_HOST");
+      sg.setHost(System.getenv("MOCK_HOST"));
     } else {
       sg.setHost("localhost:4010");
     }
@@ -234,7 +234,7 @@ public class SendGridTest {
     SendGrid sg = new SendGrid("SENDGRID_API_KEY");
     sg.addRequestHeader("X-Mock", "200");
     if(System.getenv("TRAVIS") == "true") {
-      sg.setHost("MOCK_HOST");
+      sg.setHost(System.getenv("MOCK_HOST"));
     } else {
       sg.setHost("localhost:4010");
     }
@@ -252,7 +252,7 @@ public class SendGridTest {
     SendGrid sg = new SendGrid("SENDGRID_API_KEY");
     sg.addRequestHeader("X-Mock", "200");
     if(System.getenv("TRAVIS") == "true") {
-      sg.setHost("MOCK_HOST");
+      sg.setHost(System.getenv("MOCK_HOST"));
     } else {
       sg.setHost("localhost:4010");
     }
@@ -269,7 +269,7 @@ public class SendGridTest {
     SendGrid sg = new SendGrid("SENDGRID_API_KEY");
     sg.addRequestHeader("X-Mock", "204");
     if(System.getenv("TRAVIS") == "true") {
-      sg.setHost("MOCK_HOST");
+      sg.setHost(System.getenv("MOCK_HOST"));
     } else {
       sg.setHost("localhost:4010");
     }
@@ -286,7 +286,7 @@ public class SendGridTest {
     SendGrid sg = new SendGrid("SENDGRID_API_KEY");
     sg.addRequestHeader("X-Mock", "200");
     if(System.getenv("TRAVIS") == "true") {
-      sg.setHost("MOCK_HOST");
+      sg.setHost(System.getenv("MOCK_HOST"));
     } else {
       sg.setHost("localhost:4010");
     }
@@ -304,7 +304,7 @@ public class SendGridTest {
     SendGrid sg = new SendGrid("SENDGRID_API_KEY");
     sg.addRequestHeader("X-Mock", "200");
     if(System.getenv("TRAVIS") == "true") {
-      sg.setHost("MOCK_HOST");
+      sg.setHost(System.getenv("MOCK_HOST"));
     } else {
       sg.setHost("localhost:4010");
     }
@@ -321,7 +321,7 @@ public class SendGridTest {
     SendGrid sg = new SendGrid("SENDGRID_API_KEY");
     sg.addRequestHeader("X-Mock", "201");
     if(System.getenv("TRAVIS") == "true") {
-      sg.setHost("MOCK_HOST");
+      sg.setHost(System.getenv("MOCK_HOST"));
     } else {
       sg.setHost("localhost:4010");
     }
@@ -339,7 +339,7 @@ public class SendGridTest {
     SendGrid sg = new SendGrid("SENDGRID_API_KEY");
     sg.addRequestHeader("X-Mock", "200");
     if(System.getenv("TRAVIS") == "true") {
-      sg.setHost("MOCK_HOST");
+      sg.setHost(System.getenv("MOCK_HOST"));
     } else {
       sg.setHost("localhost:4010");
     }
@@ -356,7 +356,7 @@ public class SendGridTest {
     SendGrid sg = new SendGrid("SENDGRID_API_KEY");
     sg.addRequestHeader("X-Mock", "204");
     if(System.getenv("TRAVIS") == "true") {
-      sg.setHost("MOCK_HOST");
+      sg.setHost(System.getenv("MOCK_HOST"));
     } else {
       sg.setHost("localhost:4010");
     }
@@ -373,7 +373,7 @@ public class SendGridTest {
     SendGrid sg = new SendGrid("SENDGRID_API_KEY");
     sg.addRequestHeader("X-Mock", "201");
     if(System.getenv("TRAVIS") == "true") {
-      sg.setHost("MOCK_HOST");
+      sg.setHost(System.getenv("MOCK_HOST"));
     } else {
       sg.setHost("localhost:4010");
     }
@@ -391,7 +391,7 @@ public class SendGridTest {
     SendGrid sg = new SendGrid("SENDGRID_API_KEY");
     sg.addRequestHeader("X-Mock", "200");
     if(System.getenv("TRAVIS") == "true") {
-      sg.setHost("MOCK_HOST");
+      sg.setHost(System.getenv("MOCK_HOST"));
     } else {
       sg.setHost("localhost:4010");
     }
@@ -408,7 +408,7 @@ public class SendGridTest {
     SendGrid sg = new SendGrid("SENDGRID_API_KEY");
     sg.addRequestHeader("X-Mock", "204");
     if(System.getenv("TRAVIS") == "true") {
-      sg.setHost("MOCK_HOST");
+      sg.setHost(System.getenv("MOCK_HOST"));
     } else {
       sg.setHost("localhost:4010");
     }
@@ -425,7 +425,7 @@ public class SendGridTest {
     SendGrid sg = new SendGrid("SENDGRID_API_KEY");
     sg.addRequestHeader("X-Mock", "201");
     if(System.getenv("TRAVIS") == "true") {
-      sg.setHost("MOCK_HOST");
+      sg.setHost(System.getenv("MOCK_HOST"));
     } else {
       sg.setHost("localhost:4010");
     }
@@ -443,7 +443,7 @@ public class SendGridTest {
     SendGrid sg = new SendGrid("SENDGRID_API_KEY");
     sg.addRequestHeader("X-Mock", "200");
     if(System.getenv("TRAVIS") == "true") {
-      sg.setHost("MOCK_HOST");
+      sg.setHost(System.getenv("MOCK_HOST"));
     } else {
       sg.setHost("localhost:4010");
     }
@@ -460,7 +460,7 @@ public class SendGridTest {
     SendGrid sg = new SendGrid("SENDGRID_API_KEY");
     sg.addRequestHeader("X-Mock", "204");
     if(System.getenv("TRAVIS") == "true") {
-      sg.setHost("MOCK_HOST");
+      sg.setHost(System.getenv("MOCK_HOST"));
     } else {
       sg.setHost("localhost:4010");
     }
@@ -477,7 +477,7 @@ public class SendGridTest {
     SendGrid sg = new SendGrid("SENDGRID_API_KEY");
     sg.addRequestHeader("X-Mock", "200");
     if(System.getenv("TRAVIS") == "true") {
-      sg.setHost("MOCK_HOST");
+      sg.setHost(System.getenv("MOCK_HOST"));
     } else {
       sg.setHost("localhost:4010");
     }
@@ -502,7 +502,7 @@ public class SendGridTest {
     SendGrid sg = new SendGrid("SENDGRID_API_KEY");
     sg.addRequestHeader("X-Mock", "201");
     if(System.getenv("TRAVIS") == "true") {
-      sg.setHost("MOCK_HOST");
+      sg.setHost(System.getenv("MOCK_HOST"));
     } else {
       sg.setHost("localhost:4010");
     }
@@ -520,7 +520,7 @@ public class SendGridTest {
     SendGrid sg = new SendGrid("SENDGRID_API_KEY");
     sg.addRequestHeader("X-Mock", "200");
     if(System.getenv("TRAVIS") == "true") {
-      sg.setHost("MOCK_HOST");
+      sg.setHost(System.getenv("MOCK_HOST"));
     } else {
       sg.setHost("localhost:4010");
     }
@@ -541,7 +541,7 @@ public class SendGridTest {
     SendGrid sg = new SendGrid("SENDGRID_API_KEY");
     sg.addRequestHeader("X-Mock", "200");
     if(System.getenv("TRAVIS") == "true") {
-      sg.setHost("MOCK_HOST");
+      sg.setHost(System.getenv("MOCK_HOST"));
     } else {
       sg.setHost("localhost:4010");
     }
@@ -559,7 +559,7 @@ public class SendGridTest {
     SendGrid sg = new SendGrid("SENDGRID_API_KEY");
     sg.addRequestHeader("X-Mock", "200");
     if(System.getenv("TRAVIS") == "true") {
-      sg.setHost("MOCK_HOST");
+      sg.setHost(System.getenv("MOCK_HOST"));
     } else {
       sg.setHost("localhost:4010");
     }
@@ -576,7 +576,7 @@ public class SendGridTest {
     SendGrid sg = new SendGrid("SENDGRID_API_KEY");
     sg.addRequestHeader("X-Mock", "204");
     if(System.getenv("TRAVIS") == "true") {
-      sg.setHost("MOCK_HOST");
+      sg.setHost(System.getenv("MOCK_HOST"));
     } else {
       sg.setHost("localhost:4010");
     }
@@ -593,7 +593,7 @@ public class SendGridTest {
     SendGrid sg = new SendGrid("SENDGRID_API_KEY");
     sg.addRequestHeader("X-Mock", "200");
     if(System.getenv("TRAVIS") == "true") {
-      sg.setHost("MOCK_HOST");
+      sg.setHost(System.getenv("MOCK_HOST"));
     } else {
       sg.setHost("localhost:4010");
     }
@@ -611,7 +611,7 @@ public class SendGridTest {
     SendGrid sg = new SendGrid("SENDGRID_API_KEY");
     sg.addRequestHeader("X-Mock", "201");
     if(System.getenv("TRAVIS") == "true") {
-      sg.setHost("MOCK_HOST");
+      sg.setHost(System.getenv("MOCK_HOST"));
     } else {
       sg.setHost("localhost:4010");
     }
@@ -629,7 +629,7 @@ public class SendGridTest {
     SendGrid sg = new SendGrid("SENDGRID_API_KEY");
     sg.addRequestHeader("X-Mock", "200");
     if(System.getenv("TRAVIS") == "true") {
-      sg.setHost("MOCK_HOST");
+      sg.setHost(System.getenv("MOCK_HOST"));
     } else {
       sg.setHost("localhost:4010");
     }
@@ -646,7 +646,7 @@ public class SendGridTest {
     SendGrid sg = new SendGrid("SENDGRID_API_KEY");
     sg.addRequestHeader("X-Mock", "204");
     if(System.getenv("TRAVIS") == "true") {
-      sg.setHost("MOCK_HOST");
+      sg.setHost(System.getenv("MOCK_HOST"));
     } else {
       sg.setHost("localhost:4010");
     }
@@ -663,7 +663,7 @@ public class SendGridTest {
     SendGrid sg = new SendGrid("SENDGRID_API_KEY");
     sg.addRequestHeader("X-Mock", "201");
     if(System.getenv("TRAVIS") == "true") {
-      sg.setHost("MOCK_HOST");
+      sg.setHost(System.getenv("MOCK_HOST"));
     } else {
       sg.setHost("localhost:4010");
     }
@@ -680,7 +680,7 @@ public class SendGridTest {
     SendGrid sg = new SendGrid("SENDGRID_API_KEY");
     sg.addRequestHeader("X-Mock", "204");
     if(System.getenv("TRAVIS") == "true") {
-      sg.setHost("MOCK_HOST");
+      sg.setHost(System.getenv("MOCK_HOST"));
     } else {
       sg.setHost("localhost:4010");
     }
@@ -698,7 +698,7 @@ public class SendGridTest {
     SendGrid sg = new SendGrid("SENDGRID_API_KEY");
     sg.addRequestHeader("X-Mock", "200");
     if(System.getenv("TRAVIS") == "true") {
-      sg.setHost("MOCK_HOST");
+      sg.setHost(System.getenv("MOCK_HOST"));
     } else {
       sg.setHost("localhost:4010");
     }
@@ -720,7 +720,7 @@ public class SendGridTest {
     SendGrid sg = new SendGrid("SENDGRID_API_KEY");
     sg.addRequestHeader("X-Mock", "200");
     if(System.getenv("TRAVIS") == "true") {
-      sg.setHost("MOCK_HOST");
+      sg.setHost(System.getenv("MOCK_HOST"));
     } else {
       sg.setHost("localhost:4010");
     }
@@ -745,7 +745,7 @@ public class SendGridTest {
     SendGrid sg = new SendGrid("SENDGRID_API_KEY");
     sg.addRequestHeader("X-Mock", "200");
     if(System.getenv("TRAVIS") == "true") {
-      sg.setHost("MOCK_HOST");
+      sg.setHost(System.getenv("MOCK_HOST"));
     } else {
       sg.setHost("localhost:4010");
     }
@@ -771,7 +771,7 @@ public class SendGridTest {
     SendGrid sg = new SendGrid("SENDGRID_API_KEY");
     sg.addRequestHeader("X-Mock", "200");
     if(System.getenv("TRAVIS") == "true") {
-      sg.setHost("MOCK_HOST");
+      sg.setHost(System.getenv("MOCK_HOST"));
     } else {
       sg.setHost("localhost:4010");
     }
@@ -793,7 +793,7 @@ public class SendGridTest {
     SendGrid sg = new SendGrid("SENDGRID_API_KEY");
     sg.addRequestHeader("X-Mock", "200");
     if(System.getenv("TRAVIS") == "true") {
-      sg.setHost("MOCK_HOST");
+      sg.setHost(System.getenv("MOCK_HOST"));
     } else {
       sg.setHost("localhost:4010");
     }
@@ -815,7 +815,7 @@ public class SendGridTest {
     SendGrid sg = new SendGrid("SENDGRID_API_KEY");
     sg.addRequestHeader("X-Mock", "201");
     if(System.getenv("TRAVIS") == "true") {
-      sg.setHost("MOCK_HOST");
+      sg.setHost(System.getenv("MOCK_HOST"));
     } else {
       sg.setHost("localhost:4010");
     }
@@ -833,7 +833,7 @@ public class SendGridTest {
     SendGrid sg = new SendGrid("SENDGRID_API_KEY");
     sg.addRequestHeader("X-Mock", "200");
     if(System.getenv("TRAVIS") == "true") {
-      sg.setHost("MOCK_HOST");
+      sg.setHost(System.getenv("MOCK_HOST"));
     } else {
       sg.setHost("localhost:4010");
     }
@@ -850,7 +850,7 @@ public class SendGridTest {
     SendGrid sg = new SendGrid("SENDGRID_API_KEY");
     sg.addRequestHeader("X-Mock", "200");
     if(System.getenv("TRAVIS") == "true") {
-      sg.setHost("MOCK_HOST");
+      sg.setHost(System.getenv("MOCK_HOST"));
     } else {
       sg.setHost("localhost:4010");
     }
@@ -867,7 +867,7 @@ public class SendGridTest {
     SendGrid sg = new SendGrid("SENDGRID_API_KEY");
     sg.addRequestHeader("X-Mock", "202");
     if(System.getenv("TRAVIS") == "true") {
-      sg.setHost("MOCK_HOST");
+      sg.setHost(System.getenv("MOCK_HOST"));
     } else {
       sg.setHost("localhost:4010");
     }
@@ -884,7 +884,7 @@ public class SendGridTest {
     SendGrid sg = new SendGrid("SENDGRID_API_KEY");
     sg.addRequestHeader("X-Mock", "201");
     if(System.getenv("TRAVIS") == "true") {
-      sg.setHost("MOCK_HOST");
+      sg.setHost(System.getenv("MOCK_HOST"));
     } else {
       sg.setHost("localhost:4010");
     }
@@ -902,7 +902,7 @@ public class SendGridTest {
     SendGrid sg = new SendGrid("SENDGRID_API_KEY");
     sg.addRequestHeader("X-Mock", "200");
     if(System.getenv("TRAVIS") == "true") {
-      sg.setHost("MOCK_HOST");
+      sg.setHost(System.getenv("MOCK_HOST"));
     } else {
       sg.setHost("localhost:4010");
     }
@@ -919,7 +919,7 @@ public class SendGridTest {
     SendGrid sg = new SendGrid("SENDGRID_API_KEY");
     sg.addRequestHeader("X-Mock", "204");
     if(System.getenv("TRAVIS") == "true") {
-      sg.setHost("MOCK_HOST");
+      sg.setHost(System.getenv("MOCK_HOST"));
     } else {
       sg.setHost("localhost:4010");
     }
@@ -937,7 +937,7 @@ public class SendGridTest {
     SendGrid sg = new SendGrid("SENDGRID_API_KEY");
     sg.addRequestHeader("X-Mock", "200");
     if(System.getenv("TRAVIS") == "true") {
-      sg.setHost("MOCK_HOST");
+      sg.setHost(System.getenv("MOCK_HOST"));
     } else {
       sg.setHost("localhost:4010");
     }
@@ -958,7 +958,7 @@ public class SendGridTest {
     SendGrid sg = new SendGrid("SENDGRID_API_KEY");
     sg.addRequestHeader("X-Mock", "200");
     if(System.getenv("TRAVIS") == "true") {
-      sg.setHost("MOCK_HOST");
+      sg.setHost(System.getenv("MOCK_HOST"));
     } else {
       sg.setHost("localhost:4010");
     }
@@ -978,7 +978,7 @@ public class SendGridTest {
     SendGrid sg = new SendGrid("SENDGRID_API_KEY");
     sg.addRequestHeader("X-Mock", "202");
     if(System.getenv("TRAVIS") == "true") {
-      sg.setHost("MOCK_HOST");
+      sg.setHost(System.getenv("MOCK_HOST"));
     } else {
       sg.setHost("localhost:4010");
     }
@@ -998,7 +998,7 @@ public class SendGridTest {
     SendGrid sg = new SendGrid("SENDGRID_API_KEY");
     sg.addRequestHeader("X-Mock", "201");
     if(System.getenv("TRAVIS") == "true") {
-      sg.setHost("MOCK_HOST");
+      sg.setHost(System.getenv("MOCK_HOST"));
     } else {
       sg.setHost("localhost:4010");
     }
@@ -1016,7 +1016,7 @@ public class SendGridTest {
     SendGrid sg = new SendGrid("SENDGRID_API_KEY");
     sg.addRequestHeader("X-Mock", "200");
     if(System.getenv("TRAVIS") == "true") {
-      sg.setHost("MOCK_HOST");
+      sg.setHost(System.getenv("MOCK_HOST"));
     } else {
       sg.setHost("localhost:4010");
     }
@@ -1038,7 +1038,7 @@ public class SendGridTest {
     SendGrid sg = new SendGrid("SENDGRID_API_KEY");
     sg.addRequestHeader("X-Mock", "201");
     if(System.getenv("TRAVIS") == "true") {
-      sg.setHost("MOCK_HOST");
+      sg.setHost(System.getenv("MOCK_HOST"));
     } else {
       sg.setHost("localhost:4010");
     }
@@ -1055,7 +1055,7 @@ public class SendGridTest {
     SendGrid sg = new SendGrid("SENDGRID_API_KEY");
     sg.addRequestHeader("X-Mock", "204");
     if(System.getenv("TRAVIS") == "true") {
-      sg.setHost("MOCK_HOST");
+      sg.setHost(System.getenv("MOCK_HOST"));
     } else {
       sg.setHost("localhost:4010");
     }
@@ -1076,7 +1076,7 @@ public class SendGridTest {
     SendGrid sg = new SendGrid("SENDGRID_API_KEY");
     sg.addRequestHeader("X-Mock", "201");
     if(System.getenv("TRAVIS") == "true") {
-      sg.setHost("MOCK_HOST");
+      sg.setHost(System.getenv("MOCK_HOST"));
     } else {
       sg.setHost("localhost:4010");
     }
@@ -1094,7 +1094,7 @@ public class SendGridTest {
     SendGrid sg = new SendGrid("SENDGRID_API_KEY");
     sg.addRequestHeader("X-Mock", "201");
     if(System.getenv("TRAVIS") == "true") {
-      sg.setHost("MOCK_HOST");
+      sg.setHost(System.getenv("MOCK_HOST"));
     } else {
       sg.setHost("localhost:4010");
     }
@@ -1112,7 +1112,7 @@ public class SendGridTest {
     SendGrid sg = new SendGrid("SENDGRID_API_KEY");
     sg.addRequestHeader("X-Mock", "200");
     if(System.getenv("TRAVIS") == "true") {
-      sg.setHost("MOCK_HOST");
+      sg.setHost(System.getenv("MOCK_HOST"));
     } else {
       sg.setHost("localhost:4010");
     }
@@ -1133,7 +1133,7 @@ public class SendGridTest {
     SendGrid sg = new SendGrid("SENDGRID_API_KEY");
     sg.addRequestHeader("X-Mock", "200");
     if(System.getenv("TRAVIS") == "true") {
-      sg.setHost("MOCK_HOST");
+      sg.setHost(System.getenv("MOCK_HOST"));
     } else {
       sg.setHost("localhost:4010");
     }
@@ -1151,7 +1151,7 @@ public class SendGridTest {
     SendGrid sg = new SendGrid("SENDGRID_API_KEY");
     sg.addRequestHeader("X-Mock", "200");
     if(System.getenv("TRAVIS") == "true") {
-      sg.setHost("MOCK_HOST");
+      sg.setHost(System.getenv("MOCK_HOST"));
     } else {
       sg.setHost("localhost:4010");
     }
@@ -1168,7 +1168,7 @@ public class SendGridTest {
     SendGrid sg = new SendGrid("SENDGRID_API_KEY");
     sg.addRequestHeader("X-Mock", "200");
     if(System.getenv("TRAVIS") == "true") {
-      sg.setHost("MOCK_HOST");
+      sg.setHost(System.getenv("MOCK_HOST"));
     } else {
       sg.setHost("localhost:4010");
     }
@@ -1185,7 +1185,7 @@ public class SendGridTest {
     SendGrid sg = new SendGrid("SENDGRID_API_KEY");
     sg.addRequestHeader("X-Mock", "200");
     if(System.getenv("TRAVIS") == "true") {
-      sg.setHost("MOCK_HOST");
+      sg.setHost(System.getenv("MOCK_HOST"));
     } else {
       sg.setHost("localhost:4010");
     }
@@ -1205,7 +1205,7 @@ public class SendGridTest {
     SendGrid sg = new SendGrid("SENDGRID_API_KEY");
     sg.addRequestHeader("X-Mock", "200");
     if(System.getenv("TRAVIS") == "true") {
-      sg.setHost("MOCK_HOST");
+      sg.setHost(System.getenv("MOCK_HOST"));
     } else {
       sg.setHost("localhost:4010");
     }
@@ -1222,7 +1222,7 @@ public class SendGridTest {
     SendGrid sg = new SendGrid("SENDGRID_API_KEY");
     sg.addRequestHeader("X-Mock", "204");
     if(System.getenv("TRAVIS") == "true") {
-      sg.setHost("MOCK_HOST");
+      sg.setHost(System.getenv("MOCK_HOST"));
     } else {
       sg.setHost("localhost:4010");
     }
@@ -1239,7 +1239,7 @@ public class SendGridTest {
     SendGrid sg = new SendGrid("SENDGRID_API_KEY");
     sg.addRequestHeader("X-Mock", "200");
     if(System.getenv("TRAVIS") == "true") {
-      sg.setHost("MOCK_HOST");
+      sg.setHost(System.getenv("MOCK_HOST"));
     } else {
       sg.setHost("localhost:4010");
     }
@@ -1256,7 +1256,7 @@ public class SendGridTest {
     SendGrid sg = new SendGrid("SENDGRID_API_KEY");
     sg.addRequestHeader("X-Mock", "200");
     if(System.getenv("TRAVIS") == "true") {
-      sg.setHost("MOCK_HOST");
+      sg.setHost(System.getenv("MOCK_HOST"));
     } else {
       sg.setHost("localhost:4010");
     }
@@ -1273,7 +1273,7 @@ public class SendGridTest {
     SendGrid sg = new SendGrid("SENDGRID_API_KEY");
     sg.addRequestHeader("X-Mock", "200");
     if(System.getenv("TRAVIS") == "true") {
-      sg.setHost("MOCK_HOST");
+      sg.setHost(System.getenv("MOCK_HOST"));
     } else {
       sg.setHost("localhost:4010");
     }
@@ -1291,7 +1291,7 @@ public class SendGridTest {
     SendGrid sg = new SendGrid("SENDGRID_API_KEY");
     sg.addRequestHeader("X-Mock", "200");
     if(System.getenv("TRAVIS") == "true") {
-      sg.setHost("MOCK_HOST");
+      sg.setHost(System.getenv("MOCK_HOST"));
     } else {
       sg.setHost("localhost:4010");
     }
@@ -1308,7 +1308,7 @@ public class SendGridTest {
     SendGrid sg = new SendGrid("SENDGRID_API_KEY");
     sg.addRequestHeader("X-Mock", "200");
     if(System.getenv("TRAVIS") == "true") {
-      sg.setHost("MOCK_HOST");
+      sg.setHost(System.getenv("MOCK_HOST"));
     } else {
       sg.setHost("localhost:4010");
     }
@@ -1329,7 +1329,7 @@ public class SendGridTest {
     SendGrid sg = new SendGrid("SENDGRID_API_KEY");
     sg.addRequestHeader("X-Mock", "200");
     if(System.getenv("TRAVIS") == "true") {
-      sg.setHost("MOCK_HOST");
+      sg.setHost(System.getenv("MOCK_HOST"));
     } else {
       sg.setHost("localhost:4010");
     }
@@ -1349,7 +1349,7 @@ public class SendGridTest {
     SendGrid sg = new SendGrid("SENDGRID_API_KEY");
     sg.addRequestHeader("X-Mock", "204");
     if(System.getenv("TRAVIS") == "true") {
-      sg.setHost("MOCK_HOST");
+      sg.setHost(System.getenv("MOCK_HOST"));
     } else {
       sg.setHost("localhost:4010");
     }
@@ -1369,7 +1369,7 @@ public class SendGridTest {
     SendGrid sg = new SendGrid("SENDGRID_API_KEY");
     sg.addRequestHeader("X-Mock", "200");
     if(System.getenv("TRAVIS") == "true") {
-      sg.setHost("MOCK_HOST");
+      sg.setHost(System.getenv("MOCK_HOST"));
     } else {
       sg.setHost("localhost:4010");
     }
@@ -1390,7 +1390,7 @@ public class SendGridTest {
     SendGrid sg = new SendGrid("SENDGRID_API_KEY");
     sg.addRequestHeader("X-Mock", "200");
     if(System.getenv("TRAVIS") == "true") {
-      sg.setHost("MOCK_HOST");
+      sg.setHost(System.getenv("MOCK_HOST"));
     } else {
       sg.setHost("localhost:4010");
     }
@@ -1414,7 +1414,7 @@ public class SendGridTest {
     SendGrid sg = new SendGrid("SENDGRID_API_KEY");
     sg.addRequestHeader("X-Mock", "200");
     if(System.getenv("TRAVIS") == "true") {
-      sg.setHost("MOCK_HOST");
+      sg.setHost(System.getenv("MOCK_HOST"));
     } else {
       sg.setHost("localhost:4010");
     }
@@ -1439,7 +1439,7 @@ public class SendGridTest {
     SendGrid sg = new SendGrid("SENDGRID_API_KEY");
     sg.addRequestHeader("X-Mock", "200");
     if(System.getenv("TRAVIS") == "true") {
-      sg.setHost("MOCK_HOST");
+      sg.setHost(System.getenv("MOCK_HOST"));
     } else {
       sg.setHost("localhost:4010");
     }
@@ -1463,7 +1463,7 @@ public class SendGridTest {
     SendGrid sg = new SendGrid("SENDGRID_API_KEY");
     sg.addRequestHeader("X-Mock", "200");
     if(System.getenv("TRAVIS") == "true") {
-      sg.setHost("MOCK_HOST");
+      sg.setHost(System.getenv("MOCK_HOST"));
     } else {
       sg.setHost("localhost:4010");
     }
@@ -1480,7 +1480,7 @@ public class SendGridTest {
     SendGrid sg = new SendGrid("SENDGRID_API_KEY");
     sg.addRequestHeader("X-Mock", "200");
     if(System.getenv("TRAVIS") == "true") {
-      sg.setHost("MOCK_HOST");
+      sg.setHost(System.getenv("MOCK_HOST"));
     } else {
       sg.setHost("localhost:4010");
     }
@@ -1498,7 +1498,7 @@ public class SendGridTest {
     SendGrid sg = new SendGrid("SENDGRID_API_KEY");
     sg.addRequestHeader("X-Mock", "200");
     if(System.getenv("TRAVIS") == "true") {
-      sg.setHost("MOCK_HOST");
+      sg.setHost(System.getenv("MOCK_HOST"));
     } else {
       sg.setHost("localhost:4010");
     }
@@ -1515,7 +1515,7 @@ public class SendGridTest {
     SendGrid sg = new SendGrid("SENDGRID_API_KEY");
     sg.addRequestHeader("X-Mock", "200");
     if(System.getenv("TRAVIS") == "true") {
-      sg.setHost("MOCK_HOST");
+      sg.setHost(System.getenv("MOCK_HOST"));
     } else {
       sg.setHost("localhost:4010");
     }
@@ -1533,7 +1533,7 @@ public class SendGridTest {
     SendGrid sg = new SendGrid("SENDGRID_API_KEY");
     sg.addRequestHeader("X-Mock", "200");
     if(System.getenv("TRAVIS") == "true") {
-      sg.setHost("MOCK_HOST");
+      sg.setHost(System.getenv("MOCK_HOST"));
     } else {
       sg.setHost("localhost:4010");
     }
@@ -1550,7 +1550,7 @@ public class SendGridTest {
     SendGrid sg = new SendGrid("SENDGRID_API_KEY");
     sg.addRequestHeader("X-Mock", "204");
     if(System.getenv("TRAVIS") == "true") {
-      sg.setHost("MOCK_HOST");
+      sg.setHost(System.getenv("MOCK_HOST"));
     } else {
       sg.setHost("localhost:4010");
     }
@@ -1567,7 +1567,7 @@ public class SendGridTest {
     SendGrid sg = new SendGrid("SENDGRID_API_KEY");
     sg.addRequestHeader("X-Mock", "201");
     if(System.getenv("TRAVIS") == "true") {
-      sg.setHost("MOCK_HOST");
+      sg.setHost(System.getenv("MOCK_HOST"));
     } else {
       sg.setHost("localhost:4010");
     }
@@ -1585,7 +1585,7 @@ public class SendGridTest {
     SendGrid sg = new SendGrid("SENDGRID_API_KEY");
     sg.addRequestHeader("X-Mock", "204");
     if(System.getenv("TRAVIS") == "true") {
-      sg.setHost("MOCK_HOST");
+      sg.setHost(System.getenv("MOCK_HOST"));
     } else {
       sg.setHost("localhost:4010");
     }
@@ -1602,7 +1602,7 @@ public class SendGridTest {
     SendGrid sg = new SendGrid("SENDGRID_API_KEY");
     sg.addRequestHeader("X-Mock", "200");
     if(System.getenv("TRAVIS") == "true") {
-      sg.setHost("MOCK_HOST");
+      sg.setHost(System.getenv("MOCK_HOST"));
     } else {
       sg.setHost("localhost:4010");
     }
@@ -1620,7 +1620,7 @@ public class SendGridTest {
     SendGrid sg = new SendGrid("SENDGRID_API_KEY");
     sg.addRequestHeader("X-Mock", "200");
     if(System.getenv("TRAVIS") == "true") {
-      sg.setHost("MOCK_HOST");
+      sg.setHost(System.getenv("MOCK_HOST"));
     } else {
       sg.setHost("localhost:4010");
     }
@@ -1637,7 +1637,7 @@ public class SendGridTest {
     SendGrid sg = new SendGrid("SENDGRID_API_KEY");
     sg.addRequestHeader("X-Mock", "200");
     if(System.getenv("TRAVIS") == "true") {
-      sg.setHost("MOCK_HOST");
+      sg.setHost(System.getenv("MOCK_HOST"));
     } else {
       sg.setHost("localhost:4010");
     }
@@ -1654,7 +1654,7 @@ public class SendGridTest {
     SendGrid sg = new SendGrid("SENDGRID_API_KEY");
     sg.addRequestHeader("X-Mock", "204");
     if(System.getenv("TRAVIS") == "true") {
-      sg.setHost("MOCK_HOST");
+      sg.setHost(System.getenv("MOCK_HOST"));
     } else {
       sg.setHost("localhost:4010");
     }
@@ -1671,7 +1671,7 @@ public class SendGridTest {
     SendGrid sg = new SendGrid("SENDGRID_API_KEY");
     sg.addRequestHeader("X-Mock", "200");
     if(System.getenv("TRAVIS") == "true") {
-      sg.setHost("MOCK_HOST");
+      sg.setHost(System.getenv("MOCK_HOST"));
     } else {
       sg.setHost("localhost:4010");
     }
@@ -1688,7 +1688,7 @@ public class SendGridTest {
     SendGrid sg = new SendGrid("SENDGRID_API_KEY");
     sg.addRequestHeader("X-Mock", "201");
     if(System.getenv("TRAVIS") == "true") {
-      sg.setHost("MOCK_HOST");
+      sg.setHost(System.getenv("MOCK_HOST"));
     } else {
       sg.setHost("localhost:4010");
     }
@@ -1705,7 +1705,7 @@ public class SendGridTest {
     SendGrid sg = new SendGrid("SENDGRID_API_KEY");
     sg.addRequestHeader("X-Mock", "200");
     if(System.getenv("TRAVIS") == "true") {
-      sg.setHost("MOCK_HOST");
+      sg.setHost(System.getenv("MOCK_HOST"));
     } else {
       sg.setHost("localhost:4010");
     }
@@ -1722,7 +1722,7 @@ public class SendGridTest {
     SendGrid sg = new SendGrid("SENDGRID_API_KEY");
     sg.addRequestHeader("X-Mock", "202");
     if(System.getenv("TRAVIS") == "true") {
-      sg.setHost("MOCK_HOST");
+      sg.setHost(System.getenv("MOCK_HOST"));
     } else {
       sg.setHost("localhost:4010");
     }
@@ -1740,7 +1740,7 @@ public class SendGridTest {
     SendGrid sg = new SendGrid("SENDGRID_API_KEY");
     sg.addRequestHeader("X-Mock", "200");
     if(System.getenv("TRAVIS") == "true") {
-      sg.setHost("MOCK_HOST");
+      sg.setHost(System.getenv("MOCK_HOST"));
     } else {
       sg.setHost("localhost:4010");
     }
@@ -1761,7 +1761,7 @@ public class SendGridTest {
     SendGrid sg = new SendGrid("SENDGRID_API_KEY");
     sg.addRequestHeader("X-Mock", "200");
     if(System.getenv("TRAVIS") == "true") {
-      sg.setHost("MOCK_HOST");
+      sg.setHost(System.getenv("MOCK_HOST"));
     } else {
       sg.setHost("localhost:4010");
     }
@@ -1779,7 +1779,7 @@ public class SendGridTest {
     SendGrid sg = new SendGrid("SENDGRID_API_KEY");
     sg.addRequestHeader("X-Mock", "200");
     if(System.getenv("TRAVIS") == "true") {
-      sg.setHost("MOCK_HOST");
+      sg.setHost(System.getenv("MOCK_HOST"));
     } else {
       sg.setHost("localhost:4010");
     }
@@ -1796,7 +1796,7 @@ public class SendGridTest {
     SendGrid sg = new SendGrid("SENDGRID_API_KEY");
     sg.addRequestHeader("X-Mock", "200");
     if(System.getenv("TRAVIS") == "true") {
-      sg.setHost("MOCK_HOST");
+      sg.setHost(System.getenv("MOCK_HOST"));
     } else {
       sg.setHost("localhost:4010");
     }
@@ -1814,7 +1814,7 @@ public class SendGridTest {
     SendGrid sg = new SendGrid("SENDGRID_API_KEY");
     sg.addRequestHeader("X-Mock", "200");
     if(System.getenv("TRAVIS") == "true") {
-      sg.setHost("MOCK_HOST");
+      sg.setHost(System.getenv("MOCK_HOST"));
     } else {
       sg.setHost("localhost:4010");
     }
@@ -1831,7 +1831,7 @@ public class SendGridTest {
     SendGrid sg = new SendGrid("SENDGRID_API_KEY");
     sg.addRequestHeader("X-Mock", "200");
     if(System.getenv("TRAVIS") == "true") {
-      sg.setHost("MOCK_HOST");
+      sg.setHost(System.getenv("MOCK_HOST"));
     } else {
       sg.setHost("localhost:4010");
     }
@@ -1849,7 +1849,7 @@ public class SendGridTest {
     SendGrid sg = new SendGrid("SENDGRID_API_KEY");
     sg.addRequestHeader("X-Mock", "200");
     if(System.getenv("TRAVIS") == "true") {
-      sg.setHost("MOCK_HOST");
+      sg.setHost(System.getenv("MOCK_HOST"));
     } else {
       sg.setHost("localhost:4010");
     }
@@ -1866,7 +1866,7 @@ public class SendGridTest {
     SendGrid sg = new SendGrid("SENDGRID_API_KEY");
     sg.addRequestHeader("X-Mock", "200");
     if(System.getenv("TRAVIS") == "true") {
-      sg.setHost("MOCK_HOST");
+      sg.setHost(System.getenv("MOCK_HOST"));
     } else {
       sg.setHost("localhost:4010");
     }
@@ -1884,7 +1884,7 @@ public class SendGridTest {
     SendGrid sg = new SendGrid("SENDGRID_API_KEY");
     sg.addRequestHeader("X-Mock", "200");
     if(System.getenv("TRAVIS") == "true") {
-      sg.setHost("MOCK_HOST");
+      sg.setHost(System.getenv("MOCK_HOST"));
     } else {
       sg.setHost("localhost:4010");
     }
@@ -1901,7 +1901,7 @@ public class SendGridTest {
     SendGrid sg = new SendGrid("SENDGRID_API_KEY");
     sg.addRequestHeader("X-Mock", "200");
     if(System.getenv("TRAVIS") == "true") {
-      sg.setHost("MOCK_HOST");
+      sg.setHost(System.getenv("MOCK_HOST"));
     } else {
       sg.setHost("localhost:4010");
     }
@@ -1919,7 +1919,7 @@ public class SendGridTest {
     SendGrid sg = new SendGrid("SENDGRID_API_KEY");
     sg.addRequestHeader("X-Mock", "200");
     if(System.getenv("TRAVIS") == "true") {
-      sg.setHost("MOCK_HOST");
+      sg.setHost(System.getenv("MOCK_HOST"));
     } else {
       sg.setHost("localhost:4010");
     }
@@ -1936,7 +1936,7 @@ public class SendGridTest {
     SendGrid sg = new SendGrid("SENDGRID_API_KEY");
     sg.addRequestHeader("X-Mock", "200");
     if(System.getenv("TRAVIS") == "true") {
-      sg.setHost("MOCK_HOST");
+      sg.setHost(System.getenv("MOCK_HOST"));
     } else {
       sg.setHost("localhost:4010");
     }
@@ -1954,7 +1954,7 @@ public class SendGridTest {
     SendGrid sg = new SendGrid("SENDGRID_API_KEY");
     sg.addRequestHeader("X-Mock", "200");
     if(System.getenv("TRAVIS") == "true") {
-      sg.setHost("MOCK_HOST");
+      sg.setHost(System.getenv("MOCK_HOST"));
     } else {
       sg.setHost("localhost:4010");
     }
@@ -1971,7 +1971,7 @@ public class SendGridTest {
     SendGrid sg = new SendGrid("SENDGRID_API_KEY");
     sg.addRequestHeader("X-Mock", "200");
     if(System.getenv("TRAVIS") == "true") {
-      sg.setHost("MOCK_HOST");
+      sg.setHost(System.getenv("MOCK_HOST"));
     } else {
       sg.setHost("localhost:4010");
     }
@@ -1989,7 +1989,7 @@ public class SendGridTest {
     SendGrid sg = new SendGrid("SENDGRID_API_KEY");
     sg.addRequestHeader("X-Mock", "200");
     if(System.getenv("TRAVIS") == "true") {
-      sg.setHost("MOCK_HOST");
+      sg.setHost(System.getenv("MOCK_HOST"));
     } else {
       sg.setHost("localhost:4010");
     }
@@ -2006,7 +2006,7 @@ public class SendGridTest {
     SendGrid sg = new SendGrid("SENDGRID_API_KEY");
     sg.addRequestHeader("X-Mock", "200");
     if(System.getenv("TRAVIS") == "true") {
-      sg.setHost("MOCK_HOST");
+      sg.setHost(System.getenv("MOCK_HOST"));
     } else {
       sg.setHost("localhost:4010");
     }
@@ -2024,7 +2024,7 @@ public class SendGridTest {
     SendGrid sg = new SendGrid("SENDGRID_API_KEY");
     sg.addRequestHeader("X-Mock", "200");
     if(System.getenv("TRAVIS") == "true") {
-      sg.setHost("MOCK_HOST");
+      sg.setHost(System.getenv("MOCK_HOST"));
     } else {
       sg.setHost("localhost:4010");
     }
@@ -2041,7 +2041,7 @@ public class SendGridTest {
     SendGrid sg = new SendGrid("SENDGRID_API_KEY");
     sg.addRequestHeader("X-Mock", "200");
     if(System.getenv("TRAVIS") == "true") {
-      sg.setHost("MOCK_HOST");
+      sg.setHost(System.getenv("MOCK_HOST"));
     } else {
       sg.setHost("localhost:4010");
     }
@@ -2059,7 +2059,7 @@ public class SendGridTest {
     SendGrid sg = new SendGrid("SENDGRID_API_KEY");
     sg.addRequestHeader("X-Mock", "200");
     if(System.getenv("TRAVIS") == "true") {
-      sg.setHost("MOCK_HOST");
+      sg.setHost(System.getenv("MOCK_HOST"));
     } else {
       sg.setHost("localhost:4010");
     }
@@ -2076,7 +2076,7 @@ public class SendGridTest {
     SendGrid sg = new SendGrid("SENDGRID_API_KEY");
     sg.addRequestHeader("X-Mock", "200");
     if(System.getenv("TRAVIS") == "true") {
-      sg.setHost("MOCK_HOST");
+      sg.setHost(System.getenv("MOCK_HOST"));
     } else {
       sg.setHost("localhost:4010");
     }
@@ -2101,7 +2101,7 @@ public class SendGridTest {
     SendGrid sg = new SendGrid("SENDGRID_API_KEY");
     sg.addRequestHeader("X-Mock", "200");
     if(System.getenv("TRAVIS") == "true") {
-      sg.setHost("MOCK_HOST");
+      sg.setHost(System.getenv("MOCK_HOST"));
     } else {
       sg.setHost("localhost:4010");
     }
@@ -2122,7 +2122,7 @@ public class SendGridTest {
     SendGrid sg = new SendGrid("SENDGRID_API_KEY");
     sg.addRequestHeader("X-Mock", "200");
     if(System.getenv("TRAVIS") == "true") {
-      sg.setHost("MOCK_HOST");
+      sg.setHost(System.getenv("MOCK_HOST"));
     } else {
       sg.setHost("localhost:4010");
     }
@@ -2140,7 +2140,7 @@ public class SendGridTest {
     SendGrid sg = new SendGrid("SENDGRID_API_KEY");
     sg.addRequestHeader("X-Mock", "200");
     if(System.getenv("TRAVIS") == "true") {
-      sg.setHost("MOCK_HOST");
+      sg.setHost(System.getenv("MOCK_HOST"));
     } else {
       sg.setHost("localhost:4010");
     }
@@ -2157,7 +2157,7 @@ public class SendGridTest {
     SendGrid sg = new SendGrid("SENDGRID_API_KEY");
     sg.addRequestHeader("X-Mock", "200");
     if(System.getenv("TRAVIS") == "true") {
-      sg.setHost("MOCK_HOST");
+      sg.setHost(System.getenv("MOCK_HOST"));
     } else {
       sg.setHost("localhost:4010");
     }
@@ -2174,7 +2174,7 @@ public class SendGridTest {
     SendGrid sg = new SendGrid("SENDGRID_API_KEY");
     sg.addRequestHeader("X-Mock", "200");
     if(System.getenv("TRAVIS") == "true") {
-      sg.setHost("MOCK_HOST");
+      sg.setHost(System.getenv("MOCK_HOST"));
     } else {
       sg.setHost("localhost:4010");
     }
@@ -2198,7 +2198,7 @@ public class SendGridTest {
     SendGrid sg = new SendGrid("SENDGRID_API_KEY");
     sg.addRequestHeader("X-Mock", "200");
     if(System.getenv("TRAVIS") == "true") {
-      sg.setHost("MOCK_HOST");
+      sg.setHost(System.getenv("MOCK_HOST"));
     } else {
       sg.setHost("localhost:4010");
     }
@@ -2216,7 +2216,7 @@ public class SendGridTest {
     SendGrid sg = new SendGrid("SENDGRID_API_KEY");
     sg.addRequestHeader("X-Mock", "200");
     if(System.getenv("TRAVIS") == "true") {
-      sg.setHost("MOCK_HOST");
+      sg.setHost(System.getenv("MOCK_HOST"));
     } else {
       sg.setHost("localhost:4010");
     }
@@ -2238,7 +2238,7 @@ public class SendGridTest {
     SendGrid sg = new SendGrid("SENDGRID_API_KEY");
     sg.addRequestHeader("X-Mock", "200");
     if(System.getenv("TRAVIS") == "true") {
-      sg.setHost("MOCK_HOST");
+      sg.setHost(System.getenv("MOCK_HOST"));
     } else {
       sg.setHost("localhost:4010");
     }
@@ -2258,7 +2258,7 @@ public class SendGridTest {
     SendGrid sg = new SendGrid("SENDGRID_API_KEY");
     sg.addRequestHeader("X-Mock", "200");
     if(System.getenv("TRAVIS") == "true") {
-      sg.setHost("MOCK_HOST");
+      sg.setHost(System.getenv("MOCK_HOST"));
     } else {
       sg.setHost("localhost:4010");
     }
@@ -2283,7 +2283,7 @@ public class SendGridTest {
     SendGrid sg = new SendGrid("SENDGRID_API_KEY");
     sg.addRequestHeader("X-Mock", "200");
     if(System.getenv("TRAVIS") == "true") {
-      sg.setHost("MOCK_HOST");
+      sg.setHost(System.getenv("MOCK_HOST"));
     } else {
       sg.setHost("localhost:4010");
     }
@@ -2308,7 +2308,7 @@ public class SendGridTest {
     SendGrid sg = new SendGrid("SENDGRID_API_KEY");
     sg.addRequestHeader("X-Mock", "200");
     if(System.getenv("TRAVIS") == "true") {
-      sg.setHost("MOCK_HOST");
+      sg.setHost(System.getenv("MOCK_HOST"));
     } else {
       sg.setHost("localhost:4010");
     }
@@ -2334,7 +2334,7 @@ public class SendGridTest {
     SendGrid sg = new SendGrid("SENDGRID_API_KEY");
     sg.addRequestHeader("X-Mock", "204");
     if(System.getenv("TRAVIS") == "true") {
-      sg.setHost("MOCK_HOST");
+      sg.setHost(System.getenv("MOCK_HOST"));
     } else {
       sg.setHost("localhost:4010");
     }
@@ -2352,7 +2352,7 @@ public class SendGridTest {
     SendGrid sg = new SendGrid("SENDGRID_API_KEY");
     sg.addRequestHeader("X-Mock", "204");
     if(System.getenv("TRAVIS") == "true") {
-      sg.setHost("MOCK_HOST");
+      sg.setHost(System.getenv("MOCK_HOST"));
     } else {
       sg.setHost("localhost:4010");
     }
@@ -2369,7 +2369,7 @@ public class SendGridTest {
     SendGrid sg = new SendGrid("SENDGRID_API_KEY");
     sg.addRequestHeader("X-Mock", "200");
     if(System.getenv("TRAVIS") == "true") {
-      sg.setHost("MOCK_HOST");
+      sg.setHost(System.getenv("MOCK_HOST"));
     } else {
       sg.setHost("localhost:4010");
     }
@@ -2387,7 +2387,7 @@ public class SendGridTest {
     SendGrid sg = new SendGrid("SENDGRID_API_KEY");
     sg.addRequestHeader("X-Mock", "200");
     if(System.getenv("TRAVIS") == "true") {
-      sg.setHost("MOCK_HOST");
+      sg.setHost(System.getenv("MOCK_HOST"));
     } else {
       sg.setHost("localhost:4010");
     }
@@ -2405,7 +2405,7 @@ public class SendGridTest {
     SendGrid sg = new SendGrid("SENDGRID_API_KEY");
     sg.addRequestHeader("X-Mock", "200");
     if(System.getenv("TRAVIS") == "true") {
-      sg.setHost("MOCK_HOST");
+      sg.setHost(System.getenv("MOCK_HOST"));
     } else {
       sg.setHost("localhost:4010");
     }
@@ -2423,7 +2423,7 @@ public class SendGridTest {
     SendGrid sg = new SendGrid("SENDGRID_API_KEY");
     sg.addRequestHeader("X-Mock", "200");
     if(System.getenv("TRAVIS") == "true") {
-      sg.setHost("MOCK_HOST");
+      sg.setHost(System.getenv("MOCK_HOST"));
     } else {
       sg.setHost("localhost:4010");
     }
@@ -2440,7 +2440,7 @@ public class SendGridTest {
     SendGrid sg = new SendGrid("SENDGRID_API_KEY");
     sg.addRequestHeader("X-Mock", "204");
     if(System.getenv("TRAVIS") == "true") {
-      sg.setHost("MOCK_HOST");
+      sg.setHost(System.getenv("MOCK_HOST"));
     } else {
       sg.setHost("localhost:4010");
     }
@@ -2457,7 +2457,7 @@ public class SendGridTest {
     SendGrid sg = new SendGrid("SENDGRID_API_KEY");
     sg.addRequestHeader("X-Mock", "200");
     if(System.getenv("TRAVIS") == "true") {
-      sg.setHost("MOCK_HOST");
+      sg.setHost(System.getenv("MOCK_HOST"));
     } else {
       sg.setHost("localhost:4010");
     }
@@ -2481,7 +2481,7 @@ public class SendGridTest {
     SendGrid sg = new SendGrid("SENDGRID_API_KEY");
     sg.addRequestHeader("X-Mock", "200");
     if(System.getenv("TRAVIS") == "true") {
-      sg.setHost("MOCK_HOST");
+      sg.setHost(System.getenv("MOCK_HOST"));
     } else {
       sg.setHost("localhost:4010");
     }
@@ -2504,7 +2504,7 @@ public class SendGridTest {
     SendGrid sg = new SendGrid("SENDGRID_API_KEY");
     sg.addRequestHeader("X-Mock", "204");
     if(System.getenv("TRAVIS") == "true") {
-      sg.setHost("MOCK_HOST");
+      sg.setHost(System.getenv("MOCK_HOST"));
     } else {
       sg.setHost("localhost:4010");
     }
@@ -2522,7 +2522,7 @@ public class SendGridTest {
     SendGrid sg = new SendGrid("SENDGRID_API_KEY");
     sg.addRequestHeader("X-Mock", "200");
     if(System.getenv("TRAVIS") == "true") {
-      sg.setHost("MOCK_HOST");
+      sg.setHost(System.getenv("MOCK_HOST"));
     } else {
       sg.setHost("localhost:4010");
     }
@@ -2539,7 +2539,7 @@ public class SendGridTest {
     SendGrid sg = new SendGrid("SENDGRID_API_KEY");
     sg.addRequestHeader("X-Mock", "204");
     if(System.getenv("TRAVIS") == "true") {
-      sg.setHost("MOCK_HOST");
+      sg.setHost(System.getenv("MOCK_HOST"));
     } else {
       sg.setHost("localhost:4010");
     }
@@ -2556,7 +2556,7 @@ public class SendGridTest {
     SendGrid sg = new SendGrid("SENDGRID_API_KEY");
     sg.addRequestHeader("X-Mock", "200");
     if(System.getenv("TRAVIS") == "true") {
-      sg.setHost("MOCK_HOST");
+      sg.setHost(System.getenv("MOCK_HOST"));
     } else {
       sg.setHost("localhost:4010");
     }
@@ -2577,7 +2577,7 @@ public class SendGridTest {
     SendGrid sg = new SendGrid("SENDGRID_API_KEY");
     sg.addRequestHeader("X-Mock", "204");
     if(System.getenv("TRAVIS") == "true") {
-      sg.setHost("MOCK_HOST");
+      sg.setHost(System.getenv("MOCK_HOST"));
     } else {
       sg.setHost("localhost:4010");
     }
@@ -2595,7 +2595,7 @@ public class SendGridTest {
     SendGrid sg = new SendGrid("SENDGRID_API_KEY");
     sg.addRequestHeader("X-Mock", "200");
     if(System.getenv("TRAVIS") == "true") {
-      sg.setHost("MOCK_HOST");
+      sg.setHost(System.getenv("MOCK_HOST"));
     } else {
       sg.setHost("localhost:4010");
     }
@@ -2612,7 +2612,7 @@ public class SendGridTest {
     SendGrid sg = new SendGrid("SENDGRID_API_KEY");
     sg.addRequestHeader("X-Mock", "204");
     if(System.getenv("TRAVIS") == "true") {
-      sg.setHost("MOCK_HOST");
+      sg.setHost(System.getenv("MOCK_HOST"));
     } else {
       sg.setHost("localhost:4010");
     }
@@ -2632,7 +2632,7 @@ public class SendGridTest {
     SendGrid sg = new SendGrid("SENDGRID_API_KEY");
     sg.addRequestHeader("X-Mock", "200");
     if(System.getenv("TRAVIS") == "true") {
-      sg.setHost("MOCK_HOST");
+      sg.setHost(System.getenv("MOCK_HOST"));
     } else {
       sg.setHost("localhost:4010");
     }
@@ -2655,7 +2655,7 @@ public class SendGridTest {
     SendGrid sg = new SendGrid("SENDGRID_API_KEY");
     sg.addRequestHeader("X-Mock", "204");
     if(System.getenv("TRAVIS") == "true") {
-      sg.setHost("MOCK_HOST");
+      sg.setHost(System.getenv("MOCK_HOST"));
     } else {
       sg.setHost("localhost:4010");
     }
@@ -2673,7 +2673,7 @@ public class SendGridTest {
     SendGrid sg = new SendGrid("SENDGRID_API_KEY");
     sg.addRequestHeader("X-Mock", "200");
     if(System.getenv("TRAVIS") == "true") {
-      sg.setHost("MOCK_HOST");
+      sg.setHost(System.getenv("MOCK_HOST"));
     } else {
       sg.setHost("localhost:4010");
     }
@@ -2690,7 +2690,7 @@ public class SendGridTest {
     SendGrid sg = new SendGrid("SENDGRID_API_KEY");
     sg.addRequestHeader("X-Mock", "204");
     if(System.getenv("TRAVIS") == "true") {
-      sg.setHost("MOCK_HOST");
+      sg.setHost(System.getenv("MOCK_HOST"));
     } else {
       sg.setHost("localhost:4010");
     }
@@ -2707,7 +2707,7 @@ public class SendGridTest {
     SendGrid sg = new SendGrid("SENDGRID_API_KEY");
     sg.addRequestHeader("X-Mock", "200");
     if(System.getenv("TRAVIS") == "true") {
-      sg.setHost("MOCK_HOST");
+      sg.setHost(System.getenv("MOCK_HOST"));
     } else {
       sg.setHost("localhost:4010");
     }
@@ -2724,7 +2724,7 @@ public class SendGridTest {
     SendGrid sg = new SendGrid("SENDGRID_API_KEY");
     sg.addRequestHeader("X-Mock", "204");
     if(System.getenv("TRAVIS") == "true") {
-      sg.setHost("MOCK_HOST");
+      sg.setHost(System.getenv("MOCK_HOST"));
     } else {
       sg.setHost("localhost:4010");
     }
@@ -2741,7 +2741,7 @@ public class SendGridTest {
     SendGrid sg = new SendGrid("SENDGRID_API_KEY");
     sg.addRequestHeader("X-Mock", "200");
     if(System.getenv("TRAVIS") == "true") {
-      sg.setHost("MOCK_HOST");
+      sg.setHost(System.getenv("MOCK_HOST"));
     } else {
       sg.setHost("localhost:4010");
     }
@@ -2764,7 +2764,7 @@ public class SendGridTest {
     SendGrid sg = new SendGrid("SENDGRID_API_KEY");
     sg.addRequestHeader("X-Mock", "204");
     if(System.getenv("TRAVIS") == "true") {
-      sg.setHost("MOCK_HOST");
+      sg.setHost(System.getenv("MOCK_HOST"));
     } else {
       sg.setHost("localhost:4010");
     }
@@ -2782,7 +2782,7 @@ public class SendGridTest {
     SendGrid sg = new SendGrid("SENDGRID_API_KEY");
     sg.addRequestHeader("X-Mock", "200");
     if(System.getenv("TRAVIS") == "true") {
-      sg.setHost("MOCK_HOST");
+      sg.setHost(System.getenv("MOCK_HOST"));
     } else {
       sg.setHost("localhost:4010");
     }
@@ -2805,7 +2805,7 @@ public class SendGridTest {
     SendGrid sg = new SendGrid("SENDGRID_API_KEY");
     sg.addRequestHeader("X-Mock", "201");
     if(System.getenv("TRAVIS") == "true") {
-      sg.setHost("MOCK_HOST");
+      sg.setHost(System.getenv("MOCK_HOST"));
     } else {
       sg.setHost("localhost:4010");
     }
@@ -2823,7 +2823,7 @@ public class SendGridTest {
     SendGrid sg = new SendGrid("SENDGRID_API_KEY");
     sg.addRequestHeader("X-Mock", "200");
     if(System.getenv("TRAVIS") == "true") {
-      sg.setHost("MOCK_HOST");
+      sg.setHost(System.getenv("MOCK_HOST"));
     } else {
       sg.setHost("localhost:4010");
     }
@@ -2840,7 +2840,7 @@ public class SendGridTest {
     SendGrid sg = new SendGrid("SENDGRID_API_KEY");
     sg.addRequestHeader("X-Mock", "200");
     if(System.getenv("TRAVIS") == "true") {
-      sg.setHost("MOCK_HOST");
+      sg.setHost(System.getenv("MOCK_HOST"));
     } else {
       sg.setHost("localhost:4010");
     }
@@ -2858,7 +2858,7 @@ public class SendGridTest {
     SendGrid sg = new SendGrid("SENDGRID_API_KEY");
     sg.addRequestHeader("X-Mock", "200");
     if(System.getenv("TRAVIS") == "true") {
-      sg.setHost("MOCK_HOST");
+      sg.setHost(System.getenv("MOCK_HOST"));
     } else {
       sg.setHost("localhost:4010");
     }
@@ -2875,7 +2875,7 @@ public class SendGridTest {
     SendGrid sg = new SendGrid("SENDGRID_API_KEY");
     sg.addRequestHeader("X-Mock", "204");
     if(System.getenv("TRAVIS") == "true") {
-      sg.setHost("MOCK_HOST");
+      sg.setHost(System.getenv("MOCK_HOST"));
     } else {
       sg.setHost("localhost:4010");
     }
@@ -2892,7 +2892,7 @@ public class SendGridTest {
     SendGrid sg = new SendGrid("SENDGRID_API_KEY");
     sg.addRequestHeader("X-Mock", "201");
     if(System.getenv("TRAVIS") == "true") {
-      sg.setHost("MOCK_HOST");
+      sg.setHost(System.getenv("MOCK_HOST"));
     } else {
       sg.setHost("localhost:4010");
     }
@@ -2910,7 +2910,7 @@ public class SendGridTest {
     SendGrid sg = new SendGrid("SENDGRID_API_KEY");
     sg.addRequestHeader("X-Mock", "200");
     if(System.getenv("TRAVIS") == "true") {
-      sg.setHost("MOCK_HOST");
+      sg.setHost(System.getenv("MOCK_HOST"));
     } else {
       sg.setHost("localhost:4010");
     }
@@ -2928,7 +2928,7 @@ public class SendGridTest {
     SendGrid sg = new SendGrid("SENDGRID_API_KEY");
     sg.addRequestHeader("X-Mock", "200");
     if(System.getenv("TRAVIS") == "true") {
-      sg.setHost("MOCK_HOST");
+      sg.setHost(System.getenv("MOCK_HOST"));
     } else {
       sg.setHost("localhost:4010");
     }
@@ -2945,7 +2945,7 @@ public class SendGridTest {
     SendGrid sg = new SendGrid("SENDGRID_API_KEY");
     sg.addRequestHeader("X-Mock", "204");
     if(System.getenv("TRAVIS") == "true") {
-      sg.setHost("MOCK_HOST");
+      sg.setHost(System.getenv("MOCK_HOST"));
     } else {
       sg.setHost("localhost:4010");
     }
@@ -2962,7 +2962,7 @@ public class SendGridTest {
     SendGrid sg = new SendGrid("SENDGRID_API_KEY");
     sg.addRequestHeader("X-Mock", "200");
     if(System.getenv("TRAVIS") == "true") {
-      sg.setHost("MOCK_HOST");
+      sg.setHost(System.getenv("MOCK_HOST"));
     } else {
       sg.setHost("localhost:4010");
     }
@@ -2979,7 +2979,7 @@ public class SendGridTest {
     SendGrid sg = new SendGrid("SENDGRID_API_KEY");
     sg.addRequestHeader("X-Mock", "200");
     if(System.getenv("TRAVIS") == "true") {
-      sg.setHost("MOCK_HOST");
+      sg.setHost(System.getenv("MOCK_HOST"));
     } else {
       sg.setHost("localhost:4010");
     }
@@ -3000,7 +3000,7 @@ public class SendGridTest {
     SendGrid sg = new SendGrid("SENDGRID_API_KEY");
     sg.addRequestHeader("X-Mock", "200");
     if(System.getenv("TRAVIS") == "true") {
-      sg.setHost("MOCK_HOST");
+      sg.setHost(System.getenv("MOCK_HOST"));
     } else {
       sg.setHost("localhost:4010");
     }
@@ -3018,7 +3018,7 @@ public class SendGridTest {
     SendGrid sg = new SendGrid("SENDGRID_API_KEY");
     sg.addRequestHeader("X-Mock", "200");
     if(System.getenv("TRAVIS") == "true") {
-      sg.setHost("MOCK_HOST");
+      sg.setHost(System.getenv("MOCK_HOST"));
     } else {
       sg.setHost("localhost:4010");
     }
@@ -3035,7 +3035,7 @@ public class SendGridTest {
     SendGrid sg = new SendGrid("SENDGRID_API_KEY");
     sg.addRequestHeader("X-Mock", "200");
     if(System.getenv("TRAVIS") == "true") {
-      sg.setHost("MOCK_HOST");
+      sg.setHost(System.getenv("MOCK_HOST"));
     } else {
       sg.setHost("localhost:4010");
     }
@@ -3053,7 +3053,7 @@ public class SendGridTest {
     SendGrid sg = new SendGrid("SENDGRID_API_KEY");
     sg.addRequestHeader("X-Mock", "200");
     if(System.getenv("TRAVIS") == "true") {
-      sg.setHost("MOCK_HOST");
+      sg.setHost(System.getenv("MOCK_HOST"));
     } else {
       sg.setHost("localhost:4010");
     }
@@ -3070,7 +3070,7 @@ public class SendGridTest {
     SendGrid sg = new SendGrid("SENDGRID_API_KEY");
     sg.addRequestHeader("X-Mock", "200");
     if(System.getenv("TRAVIS") == "true") {
-      sg.setHost("MOCK_HOST");
+      sg.setHost(System.getenv("MOCK_HOST"));
     } else {
       sg.setHost("localhost:4010");
     }
@@ -3088,7 +3088,7 @@ public class SendGridTest {
     SendGrid sg = new SendGrid("SENDGRID_API_KEY");
     sg.addRequestHeader("X-Mock", "200");
     if(System.getenv("TRAVIS") == "true") {
-      sg.setHost("MOCK_HOST");
+      sg.setHost(System.getenv("MOCK_HOST"));
     } else {
       sg.setHost("localhost:4010");
     }
@@ -3105,7 +3105,7 @@ public class SendGridTest {
     SendGrid sg = new SendGrid("SENDGRID_API_KEY");
     sg.addRequestHeader("X-Mock", "200");
     if(System.getenv("TRAVIS") == "true") {
-      sg.setHost("MOCK_HOST");
+      sg.setHost(System.getenv("MOCK_HOST"));
     } else {
       sg.setHost("localhost:4010");
     }
@@ -3123,7 +3123,7 @@ public class SendGridTest {
     SendGrid sg = new SendGrid("SENDGRID_API_KEY");
     sg.addRequestHeader("X-Mock", "200");
     if(System.getenv("TRAVIS") == "true") {
-      sg.setHost("MOCK_HOST");
+      sg.setHost(System.getenv("MOCK_HOST"));
     } else {
       sg.setHost("localhost:4010");
     }
@@ -3140,7 +3140,7 @@ public class SendGridTest {
     SendGrid sg = new SendGrid("SENDGRID_API_KEY");
     sg.addRequestHeader("X-Mock", "200");
     if(System.getenv("TRAVIS") == "true") {
-      sg.setHost("MOCK_HOST");
+      sg.setHost(System.getenv("MOCK_HOST"));
     } else {
       sg.setHost("localhost:4010");
     }
@@ -3157,7 +3157,7 @@ public class SendGridTest {
     SendGrid sg = new SendGrid("SENDGRID_API_KEY");
     sg.addRequestHeader("X-Mock", "200");
     if(System.getenv("TRAVIS") == "true") {
-      sg.setHost("MOCK_HOST");
+      sg.setHost(System.getenv("MOCK_HOST"));
     } else {
       sg.setHost("localhost:4010");
     }
@@ -3174,7 +3174,7 @@ public class SendGridTest {
     SendGrid sg = new SendGrid("SENDGRID_API_KEY");
     sg.addRequestHeader("X-Mock", "200");
     if(System.getenv("TRAVIS") == "true") {
-      sg.setHost("MOCK_HOST");
+      sg.setHost(System.getenv("MOCK_HOST"));
     } else {
       sg.setHost("localhost:4010");
     }
@@ -3192,7 +3192,7 @@ public class SendGridTest {
     SendGrid sg = new SendGrid("SENDGRID_API_KEY");
     sg.addRequestHeader("X-Mock", "200");
     if(System.getenv("TRAVIS") == "true") {
-      sg.setHost("MOCK_HOST");
+      sg.setHost(System.getenv("MOCK_HOST"));
     } else {
       sg.setHost("localhost:4010");
     }
@@ -3209,7 +3209,7 @@ public class SendGridTest {
     SendGrid sg = new SendGrid("SENDGRID_API_KEY");
     sg.addRequestHeader("X-Mock", "200");
     if(System.getenv("TRAVIS") == "true") {
-      sg.setHost("MOCK_HOST");
+      sg.setHost(System.getenv("MOCK_HOST"));
     } else {
       sg.setHost("localhost:4010");
     }
@@ -3227,7 +3227,7 @@ public class SendGridTest {
     SendGrid sg = new SendGrid("SENDGRID_API_KEY");
     sg.addRequestHeader("X-Mock", "200");
     if(System.getenv("TRAVIS") == "true") {
-      sg.setHost("MOCK_HOST");
+      sg.setHost(System.getenv("MOCK_HOST"));
     } else {
       sg.setHost("localhost:4010");
     }
@@ -3245,7 +3245,7 @@ public class SendGridTest {
     SendGrid sg = new SendGrid("SENDGRID_API_KEY");
     sg.addRequestHeader("X-Mock", "200");
     if(System.getenv("TRAVIS") == "true") {
-      sg.setHost("MOCK_HOST");
+      sg.setHost(System.getenv("MOCK_HOST"));
     } else {
       sg.setHost("localhost:4010");
     }
@@ -3262,7 +3262,7 @@ public class SendGridTest {
     SendGrid sg = new SendGrid("SENDGRID_API_KEY");
     sg.addRequestHeader("X-Mock", "201");
     if(System.getenv("TRAVIS") == "true") {
-      sg.setHost("MOCK_HOST");
+      sg.setHost(System.getenv("MOCK_HOST"));
     } else {
       sg.setHost("localhost:4010");
     }
@@ -3280,7 +3280,7 @@ public class SendGridTest {
     SendGrid sg = new SendGrid("SENDGRID_API_KEY");
     sg.addRequestHeader("X-Mock", "200");
     if(System.getenv("TRAVIS") == "true") {
-      sg.setHost("MOCK_HOST");
+      sg.setHost(System.getenv("MOCK_HOST"));
     } else {
       sg.setHost("localhost:4010");
     }
@@ -3297,7 +3297,7 @@ public class SendGridTest {
     SendGrid sg = new SendGrid("SENDGRID_API_KEY");
     sg.addRequestHeader("X-Mock", "204");
     if(System.getenv("TRAVIS") == "true") {
-      sg.setHost("MOCK_HOST");
+      sg.setHost(System.getenv("MOCK_HOST"));
     } else {
       sg.setHost("localhost:4010");
     }
@@ -3315,7 +3315,7 @@ public class SendGridTest {
     SendGrid sg = new SendGrid("SENDGRID_API_KEY");
     sg.addRequestHeader("X-Mock", "200");
     if(System.getenv("TRAVIS") == "true") {
-      sg.setHost("MOCK_HOST");
+      sg.setHost(System.getenv("MOCK_HOST"));
     } else {
       sg.setHost("localhost:4010");
     }
@@ -3332,7 +3332,7 @@ public class SendGridTest {
     SendGrid sg = new SendGrid("SENDGRID_API_KEY");
     sg.addRequestHeader("X-Mock", "204");
     if(System.getenv("TRAVIS") == "true") {
-      sg.setHost("MOCK_HOST");
+      sg.setHost(System.getenv("MOCK_HOST"));
     } else {
       sg.setHost("localhost:4010");
     }
@@ -3349,7 +3349,7 @@ public class SendGridTest {
     SendGrid sg = new SendGrid("SENDGRID_API_KEY");
     sg.addRequestHeader("X-Mock", "200");
     if(System.getenv("TRAVIS") == "true") {
-      sg.setHost("MOCK_HOST");
+      sg.setHost(System.getenv("MOCK_HOST"));
     } else {
       sg.setHost("localhost:4010");
     }
@@ -3367,7 +3367,7 @@ public class SendGridTest {
     SendGrid sg = new SendGrid("SENDGRID_API_KEY");
     sg.addRequestHeader("X-Mock", "200");
     if(System.getenv("TRAVIS") == "true") {
-      sg.setHost("MOCK_HOST");
+      sg.setHost(System.getenv("MOCK_HOST"));
     } else {
       sg.setHost("localhost:4010");
     }
@@ -3384,7 +3384,7 @@ public class SendGridTest {
     SendGrid sg = new SendGrid("SENDGRID_API_KEY");
     sg.addRequestHeader("X-Mock", "200");
     if(System.getenv("TRAVIS") == "true") {
-      sg.setHost("MOCK_HOST");
+      sg.setHost(System.getenv("MOCK_HOST"));
     } else {
       sg.setHost("localhost:4010");
     }
@@ -3402,7 +3402,7 @@ public class SendGridTest {
     SendGrid sg = new SendGrid("SENDGRID_API_KEY");
     sg.addRequestHeader("X-Mock", "200");
     if(System.getenv("TRAVIS") == "true") {
-      sg.setHost("MOCK_HOST");
+      sg.setHost(System.getenv("MOCK_HOST"));
     } else {
       sg.setHost("localhost:4010");
     }
@@ -3419,7 +3419,7 @@ public class SendGridTest {
     SendGrid sg = new SendGrid("SENDGRID_API_KEY");
     sg.addRequestHeader("X-Mock", "200");
     if(System.getenv("TRAVIS") == "true") {
-      sg.setHost("MOCK_HOST");
+      sg.setHost(System.getenv("MOCK_HOST"));
     } else {
       sg.setHost("localhost:4010");
     }
@@ -3437,7 +3437,7 @@ public class SendGridTest {
     SendGrid sg = new SendGrid("SENDGRID_API_KEY");
     sg.addRequestHeader("X-Mock", "200");
     if(System.getenv("TRAVIS") == "true") {
-      sg.setHost("MOCK_HOST");
+      sg.setHost(System.getenv("MOCK_HOST"));
     } else {
       sg.setHost("localhost:4010");
     }
@@ -3454,7 +3454,7 @@ public class SendGridTest {
     SendGrid sg = new SendGrid("SENDGRID_API_KEY");
     sg.addRequestHeader("X-Mock", "204");
     if(System.getenv("TRAVIS") == "true") {
-      sg.setHost("MOCK_HOST");
+      sg.setHost(System.getenv("MOCK_HOST"));
     } else {
       sg.setHost("localhost:4010");
     }
@@ -3472,7 +3472,7 @@ public class SendGridTest {
     SendGrid sg = new SendGrid("SENDGRID_API_KEY");
     sg.addRequestHeader("X-Mock", "200");
     if(System.getenv("TRAVIS") == "true") {
-      sg.setHost("MOCK_HOST");
+      sg.setHost(System.getenv("MOCK_HOST"));
     } else {
       sg.setHost("localhost:4010");
     }
@@ -3489,7 +3489,7 @@ public class SendGridTest {
     SendGrid sg = new SendGrid("SENDGRID_API_KEY");
     sg.addRequestHeader("X-Mock", "200");
     if(System.getenv("TRAVIS") == "true") {
-      sg.setHost("MOCK_HOST");
+      sg.setHost(System.getenv("MOCK_HOST"));
     } else {
       sg.setHost("localhost:4010");
     }
@@ -3513,7 +3513,7 @@ public class SendGridTest {
     SendGrid sg = new SendGrid("SENDGRID_API_KEY");
     sg.addRequestHeader("X-Mock", "201");
     if(System.getenv("TRAVIS") == "true") {
-      sg.setHost("MOCK_HOST");
+      sg.setHost(System.getenv("MOCK_HOST"));
     } else {
       sg.setHost("localhost:4010");
     }
@@ -3531,7 +3531,7 @@ public class SendGridTest {
     SendGrid sg = new SendGrid("SENDGRID_API_KEY");
     sg.addRequestHeader("X-Mock", "200");
     if(System.getenv("TRAVIS") == "true") {
-      sg.setHost("MOCK_HOST");
+      sg.setHost(System.getenv("MOCK_HOST"));
     } else {
       sg.setHost("localhost:4010");
     }
@@ -3555,7 +3555,7 @@ public class SendGridTest {
     SendGrid sg = new SendGrid("SENDGRID_API_KEY");
     sg.addRequestHeader("X-Mock", "200");
     if(System.getenv("TRAVIS") == "true") {
-      sg.setHost("MOCK_HOST");
+      sg.setHost(System.getenv("MOCK_HOST"));
     } else {
       sg.setHost("localhost:4010");
     }
@@ -3572,7 +3572,7 @@ public class SendGridTest {
     SendGrid sg = new SendGrid("SENDGRID_API_KEY");
     sg.addRequestHeader("X-Mock", "200");
     if(System.getenv("TRAVIS") == "true") {
-      sg.setHost("MOCK_HOST");
+      sg.setHost(System.getenv("MOCK_HOST"));
     } else {
       sg.setHost("localhost:4010");
     }
@@ -3589,7 +3589,7 @@ public class SendGridTest {
     SendGrid sg = new SendGrid("SENDGRID_API_KEY");
     sg.addRequestHeader("X-Mock", "204");
     if(System.getenv("TRAVIS") == "true") {
-      sg.setHost("MOCK_HOST");
+      sg.setHost(System.getenv("MOCK_HOST"));
     } else {
       sg.setHost("localhost:4010");
     }
@@ -3606,7 +3606,7 @@ public class SendGridTest {
     SendGrid sg = new SendGrid("SENDGRID_API_KEY");
     sg.addRequestHeader("X-Mock", "200");
     if(System.getenv("TRAVIS") == "true") {
-      sg.setHost("MOCK_HOST");
+      sg.setHost(System.getenv("MOCK_HOST"));
     } else {
       sg.setHost("localhost:4010");
     }
@@ -3624,7 +3624,7 @@ public class SendGridTest {
     SendGrid sg = new SendGrid("SENDGRID_API_KEY");
     sg.addRequestHeader("X-Mock", "200");
     if(System.getenv("TRAVIS") == "true") {
-      sg.setHost("MOCK_HOST");
+      sg.setHost(System.getenv("MOCK_HOST"));
     } else {
       sg.setHost("localhost:4010");
     }
@@ -3641,7 +3641,7 @@ public class SendGridTest {
     SendGrid sg = new SendGrid("SENDGRID_API_KEY");
     sg.addRequestHeader("X-Mock", "204");
     if(System.getenv("TRAVIS") == "true") {
-      sg.setHost("MOCK_HOST");
+      sg.setHost(System.getenv("MOCK_HOST"));
     } else {
       sg.setHost("localhost:4010");
     }
@@ -3658,7 +3658,7 @@ public class SendGridTest {
     SendGrid sg = new SendGrid("SENDGRID_API_KEY");
     sg.addRequestHeader("X-Mock", "201");
     if(System.getenv("TRAVIS") == "true") {
-      sg.setHost("MOCK_HOST");
+      sg.setHost(System.getenv("MOCK_HOST"));
     } else {
       sg.setHost("localhost:4010");
     }
@@ -3676,7 +3676,7 @@ public class SendGridTest {
     SendGrid sg = new SendGrid("SENDGRID_API_KEY");
     sg.addRequestHeader("X-Mock", "200");
     if(System.getenv("TRAVIS") == "true") {
-      sg.setHost("MOCK_HOST");
+      sg.setHost(System.getenv("MOCK_HOST"));
     } else {
       sg.setHost("localhost:4010");
     }
@@ -3694,7 +3694,7 @@ public class SendGridTest {
     SendGrid sg = new SendGrid("SENDGRID_API_KEY");
     sg.addRequestHeader("X-Mock", "200");
     if(System.getenv("TRAVIS") == "true") {
-      sg.setHost("MOCK_HOST");
+      sg.setHost(System.getenv("MOCK_HOST"));
     } else {
       sg.setHost("localhost:4010");
     }
@@ -3711,7 +3711,7 @@ public class SendGridTest {
     SendGrid sg = new SendGrid("SENDGRID_API_KEY");
     sg.addRequestHeader("X-Mock", "200");
     if(System.getenv("TRAVIS") == "true") {
-      sg.setHost("MOCK_HOST");
+      sg.setHost(System.getenv("MOCK_HOST"));
     } else {
       sg.setHost("localhost:4010");
     }
@@ -3728,7 +3728,7 @@ public class SendGridTest {
     SendGrid sg = new SendGrid("SENDGRID_API_KEY");
     sg.addRequestHeader("X-Mock", "201");
     if(System.getenv("TRAVIS") == "true") {
-      sg.setHost("MOCK_HOST");
+      sg.setHost(System.getenv("MOCK_HOST"));
     } else {
       sg.setHost("localhost:4010");
     }
@@ -3746,7 +3746,7 @@ public class SendGridTest {
     SendGrid sg = new SendGrid("SENDGRID_API_KEY");
     sg.addRequestHeader("X-Mock", "200");
     if(System.getenv("TRAVIS") == "true") {
-      sg.setHost("MOCK_HOST");
+      sg.setHost(System.getenv("MOCK_HOST"));
     } else {
       sg.setHost("localhost:4010");
     }
@@ -3768,7 +3768,7 @@ public class SendGridTest {
     SendGrid sg = new SendGrid("SENDGRID_API_KEY");
     sg.addRequestHeader("X-Mock", "200");
     if(System.getenv("TRAVIS") == "true") {
-      sg.setHost("MOCK_HOST");
+      sg.setHost(System.getenv("MOCK_HOST"));
     } else {
       sg.setHost("localhost:4010");
     }
@@ -3785,7 +3785,7 @@ public class SendGridTest {
     SendGrid sg = new SendGrid("SENDGRID_API_KEY");
     sg.addRequestHeader("X-Mock", "204");
     if(System.getenv("TRAVIS") == "true") {
-      sg.setHost("MOCK_HOST");
+      sg.setHost(System.getenv("MOCK_HOST"));
     } else {
       sg.setHost("localhost:4010");
     }
@@ -3802,7 +3802,7 @@ public class SendGridTest {
     SendGrid sg = new SendGrid("SENDGRID_API_KEY");
     sg.addRequestHeader("X-Mock", "200");
     if(System.getenv("TRAVIS") == "true") {
-      sg.setHost("MOCK_HOST");
+      sg.setHost(System.getenv("MOCK_HOST"));
     } else {
       sg.setHost("localhost:4010");
     }
@@ -3819,7 +3819,7 @@ public class SendGridTest {
     SendGrid sg = new SendGrid("SENDGRID_API_KEY");
     sg.addRequestHeader("X-Mock", "201");
     if(System.getenv("TRAVIS") == "true") {
-      sg.setHost("MOCK_HOST");
+      sg.setHost(System.getenv("MOCK_HOST"));
     } else {
       sg.setHost("localhost:4010");
     }
@@ -3841,7 +3841,7 @@ public class SendGridTest {
     SendGrid sg = new SendGrid("SENDGRID_API_KEY");
     sg.addRequestHeader("X-Mock", "200");
     if(System.getenv("TRAVIS") == "true") {
-      sg.setHost("MOCK_HOST");
+      sg.setHost(System.getenv("MOCK_HOST"));
     } else {
       sg.setHost("localhost:4010");
     }
@@ -3861,7 +3861,7 @@ public class SendGridTest {
     SendGrid sg = new SendGrid("SENDGRID_API_KEY");
     sg.addRequestHeader("X-Mock", "200");
     if(System.getenv("TRAVIS") == "true") {
-      sg.setHost("MOCK_HOST");
+      sg.setHost(System.getenv("MOCK_HOST"));
     } else {
       sg.setHost("localhost:4010");
     }
@@ -3881,7 +3881,7 @@ public class SendGridTest {
     SendGrid sg = new SendGrid("SENDGRID_API_KEY");
     sg.addRequestHeader("X-Mock", "200");
     if(System.getenv("TRAVIS") == "true") {
-      sg.setHost("MOCK_HOST");
+      sg.setHost(System.getenv("MOCK_HOST"));
     } else {
       sg.setHost("localhost:4010");
     }
@@ -3901,7 +3901,7 @@ public class SendGridTest {
     SendGrid sg = new SendGrid("SENDGRID_API_KEY");
     sg.addRequestHeader("X-Mock", "204");
     if(System.getenv("TRAVIS") == "true") {
-      sg.setHost("MOCK_HOST");
+      sg.setHost(System.getenv("MOCK_HOST"));
     } else {
       sg.setHost("localhost:4010");
     }
@@ -3921,7 +3921,7 @@ public class SendGridTest {
     SendGrid sg = new SendGrid("SENDGRID_API_KEY");
     sg.addRequestHeader("X-Mock", "200");
     if(System.getenv("TRAVIS") == "true") {
-      sg.setHost("MOCK_HOST");
+      sg.setHost(System.getenv("MOCK_HOST"));
     } else {
       sg.setHost("localhost:4010");
     }
@@ -3939,7 +3939,7 @@ public class SendGridTest {
     SendGrid sg = new SendGrid("SENDGRID_API_KEY");
     sg.addRequestHeader("X-Mock", "200");
     if(System.getenv("TRAVIS") == "true") {
-      sg.setHost("MOCK_HOST");
+      sg.setHost(System.getenv("MOCK_HOST"));
     } else {
       sg.setHost("localhost:4010");
     }
@@ -3956,7 +3956,7 @@ public class SendGridTest {
     SendGrid sg = new SendGrid("SENDGRID_API_KEY");
     sg.addRequestHeader("X-Mock", "204");
     if(System.getenv("TRAVIS") == "true") {
-      sg.setHost("MOCK_HOST");
+      sg.setHost(System.getenv("MOCK_HOST"));
     } else {
       sg.setHost("localhost:4010");
     }
@@ -3973,7 +3973,7 @@ public class SendGridTest {
     SendGrid sg = new SendGrid("SENDGRID_API_KEY");
     sg.addRequestHeader("X-Mock", "200");
     if(System.getenv("TRAVIS") == "true") {
-      sg.setHost("MOCK_HOST");
+      sg.setHost(System.getenv("MOCK_HOST"));
     } else {
       sg.setHost("localhost:4010");
     }
@@ -3990,7 +3990,7 @@ public class SendGridTest {
     SendGrid sg = new SendGrid("SENDGRID_API_KEY");
     sg.addRequestHeader("X-Mock", "200");
     if(System.getenv("TRAVIS") == "true") {
-      sg.setHost("MOCK_HOST");
+      sg.setHost(System.getenv("MOCK_HOST"));
     } else {
       sg.setHost("localhost:4010");
     }
