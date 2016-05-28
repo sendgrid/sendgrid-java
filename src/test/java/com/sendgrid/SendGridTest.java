@@ -76,8 +76,7 @@ public class SendGridTest {
     if(System.getenv("TRAVIS") == "true") {
       sg.setHost("MOCK_HOST");
     } else {
-      //sg.setHost("localhost:4010");
-      sg.setHost("e9sk3d3bfaikbpdq7.stoplight-proxy.io");
+      sg.setHost("localhost:4010");
     }
 
     Request request = new Request();
@@ -97,8 +96,7 @@ public class SendGridTest {
     if(System.getenv("TRAVIS") == "true") {
       sg.setHost("MOCK_HOST");
     } else {
-      //sg.setHost("localhost:4010");
-      sg.setHost("e9sk3d3bfaikbpdq7.stoplight-proxy.io");
+      sg.setHost("localhost:4010");
     }
 
     Request request = new Request();
@@ -116,8 +114,7 @@ public class SendGridTest {
     if(System.getenv("TRAVIS") == "true") {
       sg.setHost("MOCK_HOST");
     } else {
-      //sg.setHost("localhost:4010");
-      sg.setHost("e9sk3d3bfaikbpdq7.stoplight-proxy.io");
+      sg.setHost("localhost:4010");
     }
 
     Request request = new Request();
@@ -134,8 +131,7 @@ public class SendGridTest {
     if(System.getenv("TRAVIS") == "true") {
       sg.setHost("MOCK_HOST");
     } else {
-      //sg.setHost("localhost:4010");
-      sg.setHost("e9sk3d3bfaikbpdq7.stoplight-proxy.io");
+      sg.setHost("localhost:4010");
     }
 
     Request request = new Request();
@@ -153,8 +149,7 @@ public class SendGridTest {
     if(System.getenv("TRAVIS") == "true") {
       sg.setHost("MOCK_HOST");
     } else {
-      //sg.setHost("localhost:4010");
-      sg.setHost("e9sk3d3bfaikbpdq7.stoplight-proxy.io");
+      sg.setHost("localhost:4010");
     }
 
     Request request = new Request();
@@ -171,8 +166,7 @@ public class SendGridTest {
     if(System.getenv("TRAVIS") == "true") {
       sg.setHost("MOCK_HOST");
     } else {
-      //sg.setHost("localhost:4010");
-      sg.setHost("e9sk3d3bfaikbpdq7.stoplight-proxy.io");
+      sg.setHost("localhost:4010");
     }
 
     Request request = new Request();
@@ -189,8 +183,7 @@ public class SendGridTest {
     if(System.getenv("TRAVIS") == "true") {
       sg.setHost("MOCK_HOST");
     } else {
-      //sg.setHost("localhost:4010");
-      sg.setHost("e9sk3d3bfaikbpdq7.stoplight-proxy.io");
+      sg.setHost("localhost:4010");
     }
 
     Request request = new Request();
@@ -208,8 +201,7 @@ public class SendGridTest {
     if(System.getenv("TRAVIS") == "true") {
       sg.setHost("MOCK_HOST");
     } else {
-      //sg.setHost("localhost:4010");
-      sg.setHost("e9sk3d3bfaikbpdq7.stoplight-proxy.io");
+      sg.setHost("localhost:4010");
     }
 
     Request request = new Request();
@@ -226,8 +218,7 @@ public class SendGridTest {
     if(System.getenv("TRAVIS") == "true") {
       sg.setHost("MOCK_HOST");
     } else {
-      //sg.setHost("localhost:4010");
-      sg.setHost("e9sk3d3bfaikbpdq7.stoplight-proxy.io");
+      sg.setHost("localhost:4010");
     }
 
     Request request = new Request();
@@ -245,8 +236,7 @@ public class SendGridTest {
     if(System.getenv("TRAVIS") == "true") {
       sg.setHost("MOCK_HOST");
     } else {
-      //sg.setHost("localhost:4010");
-      sg.setHost("e9sk3d3bfaikbpdq7.stoplight-proxy.io");
+      sg.setHost("localhost:4010");
     }
 
     Request request = new Request();
@@ -264,8 +254,7 @@ public class SendGridTest {
     if(System.getenv("TRAVIS") == "true") {
       sg.setHost("MOCK_HOST");
     } else {
-      //sg.setHost("localhost:4010");
-      sg.setHost("e9sk3d3bfaikbpdq7.stoplight-proxy.io");
+      sg.setHost("localhost:4010");
     }
 
     Request request = new Request();
@@ -282,8 +271,7 @@ public class SendGridTest {
     if(System.getenv("TRAVIS") == "true") {
       sg.setHost("MOCK_HOST");
     } else {
-      //sg.setHost("localhost:4010");
-      sg.setHost("e9sk3d3bfaikbpdq7.stoplight-proxy.io");
+      sg.setHost("localhost:4010");
     }
 
     Request request = new Request();
@@ -300,8 +288,7 @@ public class SendGridTest {
     if(System.getenv("TRAVIS") == "true") {
       sg.setHost("MOCK_HOST");
     } else {
-      //sg.setHost("localhost:4010");
-      sg.setHost("e9sk3d3bfaikbpdq7.stoplight-proxy.io");
+      sg.setHost("localhost:4010");
     }
 
     Request request = new Request();
@@ -319,8 +306,7 @@ public class SendGridTest {
     if(System.getenv("TRAVIS") == "true") {
       sg.setHost("MOCK_HOST");
     } else {
-      //sg.setHost("localhost:4010");
-      sg.setHost("e9sk3d3bfaikbpdq7.stoplight-proxy.io");
+      sg.setHost("localhost:4010");
     }
 
     Request request = new Request();
@@ -337,8 +323,7 @@ public class SendGridTest {
     if(System.getenv("TRAVIS") == "true") {
       sg.setHost("MOCK_HOST");
     } else {
-      //sg.setHost("localhost:4010");
-      sg.setHost("e9sk3d3bfaikbpdq7.stoplight-proxy.io");
+      sg.setHost("localhost:4010");
     }
 
     Request request = new Request();
@@ -356,8 +341,7 @@ public class SendGridTest {
     if(System.getenv("TRAVIS") == "true") {
       sg.setHost("MOCK_HOST");
     } else {
-      //sg.setHost("localhost:4010");
-      sg.setHost("e9sk3d3bfaikbpdq7.stoplight-proxy.io");
+      sg.setHost("localhost:4010");
     }
 
     Request request = new Request();
@@ -374,8 +358,7 @@ public class SendGridTest {
     if(System.getenv("TRAVIS") == "true") {
       sg.setHost("MOCK_HOST");
     } else {
-      //sg.setHost("localhost:4010");
-      sg.setHost("e9sk3d3bfaikbpdq7.stoplight-proxy.io");
+      sg.setHost("localhost:4010");
     }
 
     Request request = new Request();
@@ -392,8 +375,7 @@ public class SendGridTest {
     if(System.getenv("TRAVIS") == "true") {
       sg.setHost("MOCK_HOST");
     } else {
-      //sg.setHost("localhost:4010");
-      sg.setHost("e9sk3d3bfaikbpdq7.stoplight-proxy.io");
+      sg.setHost("localhost:4010");
     }
 
     Request request = new Request();
@@ -411,8 +393,7 @@ public class SendGridTest {
     if(System.getenv("TRAVIS") == "true") {
       sg.setHost("MOCK_HOST");
     } else {
-      //sg.setHost("localhost:4010");
-      sg.setHost("e9sk3d3bfaikbpdq7.stoplight-proxy.io");
+      sg.setHost("localhost:4010");
     }
 
     Request request = new Request();
@@ -429,8 +410,7 @@ public class SendGridTest {
     if(System.getenv("TRAVIS") == "true") {
       sg.setHost("MOCK_HOST");
     } else {
-      //sg.setHost("localhost:4010");
-      sg.setHost("e9sk3d3bfaikbpdq7.stoplight-proxy.io");
+      sg.setHost("localhost:4010");
     }
 
     Request request = new Request();
@@ -447,8 +427,7 @@ public class SendGridTest {
     if(System.getenv("TRAVIS") == "true") {
       sg.setHost("MOCK_HOST");
     } else {
-      //sg.setHost("localhost:4010");
-      sg.setHost("e9sk3d3bfaikbpdq7.stoplight-proxy.io");
+      sg.setHost("localhost:4010");
     }
 
     Request request = new Request();
@@ -466,8 +445,7 @@ public class SendGridTest {
     if(System.getenv("TRAVIS") == "true") {
       sg.setHost("MOCK_HOST");
     } else {
-      //sg.setHost("localhost:4010");
-      sg.setHost("e9sk3d3bfaikbpdq7.stoplight-proxy.io");
+      sg.setHost("localhost:4010");
     }
 
     Request request = new Request();
@@ -484,8 +462,7 @@ public class SendGridTest {
     if(System.getenv("TRAVIS") == "true") {
       sg.setHost("MOCK_HOST");
     } else {
-      //sg.setHost("localhost:4010");
-      sg.setHost("e9sk3d3bfaikbpdq7.stoplight-proxy.io");
+      sg.setHost("localhost:4010");
     }
 
     Request request = new Request();
@@ -502,8 +479,7 @@ public class SendGridTest {
     if(System.getenv("TRAVIS") == "true") {
       sg.setHost("MOCK_HOST");
     } else {
-      //sg.setHost("localhost:4010");
-      sg.setHost("e9sk3d3bfaikbpdq7.stoplight-proxy.io");
+      sg.setHost("localhost:4010");
     }
 
     Request request = new Request();
@@ -528,8 +504,7 @@ public class SendGridTest {
     if(System.getenv("TRAVIS") == "true") {
       sg.setHost("MOCK_HOST");
     } else {
-      //sg.setHost("localhost:4010");
-      sg.setHost("e9sk3d3bfaikbpdq7.stoplight-proxy.io");
+      sg.setHost("localhost:4010");
     }
 
     Request request = new Request();
@@ -547,8 +522,7 @@ public class SendGridTest {
     if(System.getenv("TRAVIS") == "true") {
       sg.setHost("MOCK_HOST");
     } else {
-      //sg.setHost("localhost:4010");
-      sg.setHost("e9sk3d3bfaikbpdq7.stoplight-proxy.io");
+      sg.setHost("localhost:4010");
     }
 
     Request request = new Request();
@@ -569,8 +543,7 @@ public class SendGridTest {
     if(System.getenv("TRAVIS") == "true") {
       sg.setHost("MOCK_HOST");
     } else {
-      //sg.setHost("localhost:4010");
-      sg.setHost("e9sk3d3bfaikbpdq7.stoplight-proxy.io");
+      sg.setHost("localhost:4010");
     }
 
     Request request = new Request();
@@ -588,8 +561,7 @@ public class SendGridTest {
     if(System.getenv("TRAVIS") == "true") {
       sg.setHost("MOCK_HOST");
     } else {
-      //sg.setHost("localhost:4010");
-      sg.setHost("e9sk3d3bfaikbpdq7.stoplight-proxy.io");
+      sg.setHost("localhost:4010");
     }
 
     Request request = new Request();
@@ -606,8 +578,7 @@ public class SendGridTest {
     if(System.getenv("TRAVIS") == "true") {
       sg.setHost("MOCK_HOST");
     } else {
-      //sg.setHost("localhost:4010");
-      sg.setHost("e9sk3d3bfaikbpdq7.stoplight-proxy.io");
+      sg.setHost("localhost:4010");
     }
 
     Request request = new Request();
@@ -624,8 +595,7 @@ public class SendGridTest {
     if(System.getenv("TRAVIS") == "true") {
       sg.setHost("MOCK_HOST");
     } else {
-      //sg.setHost("localhost:4010");
-      sg.setHost("e9sk3d3bfaikbpdq7.stoplight-proxy.io");
+      sg.setHost("localhost:4010");
     }
 
     Request request = new Request();
@@ -643,8 +613,7 @@ public class SendGridTest {
     if(System.getenv("TRAVIS") == "true") {
       sg.setHost("MOCK_HOST");
     } else {
-      //sg.setHost("localhost:4010");
-      sg.setHost("e9sk3d3bfaikbpdq7.stoplight-proxy.io");
+      sg.setHost("localhost:4010");
     }
 
     Request request = new Request();
@@ -662,8 +631,7 @@ public class SendGridTest {
     if(System.getenv("TRAVIS") == "true") {
       sg.setHost("MOCK_HOST");
     } else {
-      //sg.setHost("localhost:4010");
-      sg.setHost("e9sk3d3bfaikbpdq7.stoplight-proxy.io");
+      sg.setHost("localhost:4010");
     }
 
     Request request = new Request();
@@ -680,8 +648,7 @@ public class SendGridTest {
     if(System.getenv("TRAVIS") == "true") {
       sg.setHost("MOCK_HOST");
     } else {
-      //sg.setHost("localhost:4010");
-      sg.setHost("e9sk3d3bfaikbpdq7.stoplight-proxy.io");
+      sg.setHost("localhost:4010");
     }
 
     Request request = new Request();
@@ -698,8 +665,7 @@ public class SendGridTest {
     if(System.getenv("TRAVIS") == "true") {
       sg.setHost("MOCK_HOST");
     } else {
-      //sg.setHost("localhost:4010");
-      sg.setHost("e9sk3d3bfaikbpdq7.stoplight-proxy.io");
+      sg.setHost("localhost:4010");
     }
 
     Request request = new Request();
@@ -716,8 +682,7 @@ public class SendGridTest {
     if(System.getenv("TRAVIS") == "true") {
       sg.setHost("MOCK_HOST");
     } else {
-      //sg.setHost("localhost:4010");
-      sg.setHost("e9sk3d3bfaikbpdq7.stoplight-proxy.io");
+      sg.setHost("localhost:4010");
     }
 
     Request request = new Request();
@@ -735,8 +700,7 @@ public class SendGridTest {
     if(System.getenv("TRAVIS") == "true") {
       sg.setHost("MOCK_HOST");
     } else {
-      //sg.setHost("localhost:4010");
-      sg.setHost("e9sk3d3bfaikbpdq7.stoplight-proxy.io");
+      sg.setHost("localhost:4010");
     }
 
     Request request = new Request();
@@ -758,8 +722,7 @@ public class SendGridTest {
     if(System.getenv("TRAVIS") == "true") {
       sg.setHost("MOCK_HOST");
     } else {
-      //sg.setHost("localhost:4010");
-      sg.setHost("e9sk3d3bfaikbpdq7.stoplight-proxy.io");
+      sg.setHost("localhost:4010");
     }
 
     Request request = new Request();
@@ -784,8 +747,7 @@ public class SendGridTest {
     if(System.getenv("TRAVIS") == "true") {
       sg.setHost("MOCK_HOST");
     } else {
-      //sg.setHost("localhost:4010");
-      sg.setHost("e9sk3d3bfaikbpdq7.stoplight-proxy.io");
+      sg.setHost("localhost:4010");
     }
 
     Request request = new Request();
@@ -811,8 +773,7 @@ public class SendGridTest {
     if(System.getenv("TRAVIS") == "true") {
       sg.setHost("MOCK_HOST");
     } else {
-      //sg.setHost("localhost:4010");
-      sg.setHost("e9sk3d3bfaikbpdq7.stoplight-proxy.io");
+      sg.setHost("localhost:4010");
     }
 
     Request request = new Request();
@@ -834,8 +795,7 @@ public class SendGridTest {
     if(System.getenv("TRAVIS") == "true") {
       sg.setHost("MOCK_HOST");
     } else {
-      //sg.setHost("localhost:4010");
-      sg.setHost("e9sk3d3bfaikbpdq7.stoplight-proxy.io");
+      sg.setHost("localhost:4010");
     }
 
     Request request = new Request();
@@ -857,8 +817,7 @@ public class SendGridTest {
     if(System.getenv("TRAVIS") == "true") {
       sg.setHost("MOCK_HOST");
     } else {
-      //sg.setHost("localhost:4010");
-      sg.setHost("e9sk3d3bfaikbpdq7.stoplight-proxy.io");
+      sg.setHost("localhost:4010");
     }
 
     Request request = new Request();
@@ -876,8 +835,7 @@ public class SendGridTest {
     if(System.getenv("TRAVIS") == "true") {
       sg.setHost("MOCK_HOST");
     } else {
-      //sg.setHost("localhost:4010");
-      sg.setHost("e9sk3d3bfaikbpdq7.stoplight-proxy.io");
+      sg.setHost("localhost:4010");
     }
 
     Request request = new Request();
@@ -894,8 +852,7 @@ public class SendGridTest {
     if(System.getenv("TRAVIS") == "true") {
       sg.setHost("MOCK_HOST");
     } else {
-      //sg.setHost("localhost:4010");
-      sg.setHost("e9sk3d3bfaikbpdq7.stoplight-proxy.io");
+      sg.setHost("localhost:4010");
     }
 
     Request request = new Request();
@@ -912,8 +869,7 @@ public class SendGridTest {
     if(System.getenv("TRAVIS") == "true") {
       sg.setHost("MOCK_HOST");
     } else {
-      //sg.setHost("localhost:4010");
-      sg.setHost("e9sk3d3bfaikbpdq7.stoplight-proxy.io");
+      sg.setHost("localhost:4010");
     }
 
     Request request = new Request();
@@ -930,8 +886,7 @@ public class SendGridTest {
     if(System.getenv("TRAVIS") == "true") {
       sg.setHost("MOCK_HOST");
     } else {
-      //sg.setHost("localhost:4010");
-      sg.setHost("e9sk3d3bfaikbpdq7.stoplight-proxy.io");
+      sg.setHost("localhost:4010");
     }
 
     Request request = new Request();
@@ -949,8 +904,7 @@ public class SendGridTest {
     if(System.getenv("TRAVIS") == "true") {
       sg.setHost("MOCK_HOST");
     } else {
-      //sg.setHost("localhost:4010");
-      sg.setHost("e9sk3d3bfaikbpdq7.stoplight-proxy.io");
+      sg.setHost("localhost:4010");
     }
 
     Request request = new Request();
@@ -967,8 +921,7 @@ public class SendGridTest {
     if(System.getenv("TRAVIS") == "true") {
       sg.setHost("MOCK_HOST");
     } else {
-      //sg.setHost("localhost:4010");
-      sg.setHost("e9sk3d3bfaikbpdq7.stoplight-proxy.io");
+      sg.setHost("localhost:4010");
     }
 
     Request request = new Request();
@@ -986,8 +939,7 @@ public class SendGridTest {
     if(System.getenv("TRAVIS") == "true") {
       sg.setHost("MOCK_HOST");
     } else {
-      //sg.setHost("localhost:4010");
-      sg.setHost("e9sk3d3bfaikbpdq7.stoplight-proxy.io");
+      sg.setHost("localhost:4010");
     }
 
     Request request = new Request();
@@ -1008,8 +960,7 @@ public class SendGridTest {
     if(System.getenv("TRAVIS") == "true") {
       sg.setHost("MOCK_HOST");
     } else {
-      //sg.setHost("localhost:4010");
-      sg.setHost("e9sk3d3bfaikbpdq7.stoplight-proxy.io");
+      sg.setHost("localhost:4010");
     }
 
     Request request = new Request();
@@ -1029,8 +980,7 @@ public class SendGridTest {
     if(System.getenv("TRAVIS") == "true") {
       sg.setHost("MOCK_HOST");
     } else {
-      //sg.setHost("localhost:4010");
-      sg.setHost("e9sk3d3bfaikbpdq7.stoplight-proxy.io");
+      sg.setHost("localhost:4010");
     }
 
     Request request = new Request();
@@ -1050,8 +1000,7 @@ public class SendGridTest {
     if(System.getenv("TRAVIS") == "true") {
       sg.setHost("MOCK_HOST");
     } else {
-      //sg.setHost("localhost:4010");
-      sg.setHost("e9sk3d3bfaikbpdq7.stoplight-proxy.io");
+      sg.setHost("localhost:4010");
     }
 
     Request request = new Request();
@@ -1069,8 +1018,7 @@ public class SendGridTest {
     if(System.getenv("TRAVIS") == "true") {
       sg.setHost("MOCK_HOST");
     } else {
-      //sg.setHost("localhost:4010");
-      sg.setHost("e9sk3d3bfaikbpdq7.stoplight-proxy.io");
+      sg.setHost("localhost:4010");
     }
 
     Request request = new Request();
@@ -1092,8 +1040,7 @@ public class SendGridTest {
     if(System.getenv("TRAVIS") == "true") {
       sg.setHost("MOCK_HOST");
     } else {
-      //sg.setHost("localhost:4010");
-      sg.setHost("e9sk3d3bfaikbpdq7.stoplight-proxy.io");
+      sg.setHost("localhost:4010");
     }
 
     Request request = new Request();
@@ -1110,8 +1057,7 @@ public class SendGridTest {
     if(System.getenv("TRAVIS") == "true") {
       sg.setHost("MOCK_HOST");
     } else {
-      //sg.setHost("localhost:4010");
-      sg.setHost("e9sk3d3bfaikbpdq7.stoplight-proxy.io");
+      sg.setHost("localhost:4010");
     }
 
     Request request = new Request();
@@ -1132,8 +1078,7 @@ public class SendGridTest {
     if(System.getenv("TRAVIS") == "true") {
       sg.setHost("MOCK_HOST");
     } else {
-      //sg.setHost("localhost:4010");
-      sg.setHost("e9sk3d3bfaikbpdq7.stoplight-proxy.io");
+      sg.setHost("localhost:4010");
     }
 
     Request request = new Request();
@@ -1151,8 +1096,7 @@ public class SendGridTest {
     if(System.getenv("TRAVIS") == "true") {
       sg.setHost("MOCK_HOST");
     } else {
-      //sg.setHost("localhost:4010");
-      sg.setHost("e9sk3d3bfaikbpdq7.stoplight-proxy.io");
+      sg.setHost("localhost:4010");
     }
 
     Request request = new Request();
@@ -1170,8 +1114,7 @@ public class SendGridTest {
     if(System.getenv("TRAVIS") == "true") {
       sg.setHost("MOCK_HOST");
     } else {
-      //sg.setHost("localhost:4010");
-      sg.setHost("e9sk3d3bfaikbpdq7.stoplight-proxy.io");
+      sg.setHost("localhost:4010");
     }
 
     Request request = new Request();
@@ -1192,8 +1135,7 @@ public class SendGridTest {
     if(System.getenv("TRAVIS") == "true") {
       sg.setHost("MOCK_HOST");
     } else {
-      //sg.setHost("localhost:4010");
-      sg.setHost("e9sk3d3bfaikbpdq7.stoplight-proxy.io");
+      sg.setHost("localhost:4010");
     }
 
     Request request = new Request();
@@ -1211,8 +1153,7 @@ public class SendGridTest {
     if(System.getenv("TRAVIS") == "true") {
       sg.setHost("MOCK_HOST");
     } else {
-      //sg.setHost("localhost:4010");
-      sg.setHost("e9sk3d3bfaikbpdq7.stoplight-proxy.io");
+      sg.setHost("localhost:4010");
     }
 
     Request request = new Request();
@@ -1229,8 +1170,7 @@ public class SendGridTest {
     if(System.getenv("TRAVIS") == "true") {
       sg.setHost("MOCK_HOST");
     } else {
-      //sg.setHost("localhost:4010");
-      sg.setHost("e9sk3d3bfaikbpdq7.stoplight-proxy.io");
+      sg.setHost("localhost:4010");
     }
 
     Request request = new Request();
@@ -1247,8 +1187,7 @@ public class SendGridTest {
     if(System.getenv("TRAVIS") == "true") {
       sg.setHost("MOCK_HOST");
     } else {
-      //sg.setHost("localhost:4010");
-      sg.setHost("e9sk3d3bfaikbpdq7.stoplight-proxy.io");
+      sg.setHost("localhost:4010");
     }
 
     Request request = new Request();
@@ -1268,8 +1207,7 @@ public class SendGridTest {
     if(System.getenv("TRAVIS") == "true") {
       sg.setHost("MOCK_HOST");
     } else {
-      //sg.setHost("localhost:4010");
-      sg.setHost("e9sk3d3bfaikbpdq7.stoplight-proxy.io");
+      sg.setHost("localhost:4010");
     }
 
     Request request = new Request();
@@ -1286,8 +1224,7 @@ public class SendGridTest {
     if(System.getenv("TRAVIS") == "true") {
       sg.setHost("MOCK_HOST");
     } else {
-      //sg.setHost("localhost:4010");
-      sg.setHost("e9sk3d3bfaikbpdq7.stoplight-proxy.io");
+      sg.setHost("localhost:4010");
     }
 
     Request request = new Request();
@@ -1304,8 +1241,7 @@ public class SendGridTest {
     if(System.getenv("TRAVIS") == "true") {
       sg.setHost("MOCK_HOST");
     } else {
-      //sg.setHost("localhost:4010");
-      sg.setHost("e9sk3d3bfaikbpdq7.stoplight-proxy.io");
+      sg.setHost("localhost:4010");
     }
 
     Request request = new Request();
@@ -1322,8 +1258,7 @@ public class SendGridTest {
     if(System.getenv("TRAVIS") == "true") {
       sg.setHost("MOCK_HOST");
     } else {
-      //sg.setHost("localhost:4010");
-      sg.setHost("e9sk3d3bfaikbpdq7.stoplight-proxy.io");
+      sg.setHost("localhost:4010");
     }
 
     Request request = new Request();
@@ -1340,8 +1275,7 @@ public class SendGridTest {
     if(System.getenv("TRAVIS") == "true") {
       sg.setHost("MOCK_HOST");
     } else {
-      //sg.setHost("localhost:4010");
-      sg.setHost("e9sk3d3bfaikbpdq7.stoplight-proxy.io");
+      sg.setHost("localhost:4010");
     }
 
     Request request = new Request();
@@ -1359,8 +1293,7 @@ public class SendGridTest {
     if(System.getenv("TRAVIS") == "true") {
       sg.setHost("MOCK_HOST");
     } else {
-      //sg.setHost("localhost:4010");
-      sg.setHost("e9sk3d3bfaikbpdq7.stoplight-proxy.io");
+      sg.setHost("localhost:4010");
     }
 
     Request request = new Request();
@@ -1377,8 +1310,7 @@ public class SendGridTest {
     if(System.getenv("TRAVIS") == "true") {
       sg.setHost("MOCK_HOST");
     } else {
-      //sg.setHost("localhost:4010");
-      sg.setHost("e9sk3d3bfaikbpdq7.stoplight-proxy.io");
+      sg.setHost("localhost:4010");
     }
 
     Request request = new Request();
@@ -1399,8 +1331,7 @@ public class SendGridTest {
     if(System.getenv("TRAVIS") == "true") {
       sg.setHost("MOCK_HOST");
     } else {
-      //sg.setHost("localhost:4010");
-      sg.setHost("e9sk3d3bfaikbpdq7.stoplight-proxy.io");
+      sg.setHost("localhost:4010");
     }
 
     Request request = new Request();
@@ -1420,8 +1351,7 @@ public class SendGridTest {
     if(System.getenv("TRAVIS") == "true") {
       sg.setHost("MOCK_HOST");
     } else {
-      //sg.setHost("localhost:4010");
-      sg.setHost("e9sk3d3bfaikbpdq7.stoplight-proxy.io");
+      sg.setHost("localhost:4010");
     }
 
     Request request = new Request();
@@ -1441,8 +1371,7 @@ public class SendGridTest {
     if(System.getenv("TRAVIS") == "true") {
       sg.setHost("MOCK_HOST");
     } else {
-      //sg.setHost("localhost:4010");
-      sg.setHost("e9sk3d3bfaikbpdq7.stoplight-proxy.io");
+      sg.setHost("localhost:4010");
     }
 
     Request request = new Request();
@@ -1463,8 +1392,7 @@ public class SendGridTest {
     if(System.getenv("TRAVIS") == "true") {
       sg.setHost("MOCK_HOST");
     } else {
-      //sg.setHost("localhost:4010");
-      sg.setHost("e9sk3d3bfaikbpdq7.stoplight-proxy.io");
+      sg.setHost("localhost:4010");
     }
 
     Request request = new Request();
@@ -1488,8 +1416,7 @@ public class SendGridTest {
     if(System.getenv("TRAVIS") == "true") {
       sg.setHost("MOCK_HOST");
     } else {
-      //sg.setHost("localhost:4010");
-      sg.setHost("e9sk3d3bfaikbpdq7.stoplight-proxy.io");
+      sg.setHost("localhost:4010");
     }
 
     Request request = new Request();
@@ -1514,8 +1441,7 @@ public class SendGridTest {
     if(System.getenv("TRAVIS") == "true") {
       sg.setHost("MOCK_HOST");
     } else {
-      //sg.setHost("localhost:4010");
-      sg.setHost("e9sk3d3bfaikbpdq7.stoplight-proxy.io");
+      sg.setHost("localhost:4010");
     }
 
     Request request = new Request();
@@ -1539,8 +1465,7 @@ public class SendGridTest {
     if(System.getenv("TRAVIS") == "true") {
       sg.setHost("MOCK_HOST");
     } else {
-      //sg.setHost("localhost:4010");
-      sg.setHost("e9sk3d3bfaikbpdq7.stoplight-proxy.io");
+      sg.setHost("localhost:4010");
     }
 
     Request request = new Request();
@@ -1557,8 +1482,7 @@ public class SendGridTest {
     if(System.getenv("TRAVIS") == "true") {
       sg.setHost("MOCK_HOST");
     } else {
-      //sg.setHost("localhost:4010");
-      sg.setHost("e9sk3d3bfaikbpdq7.stoplight-proxy.io");
+      sg.setHost("localhost:4010");
     }
 
     Request request = new Request();
@@ -1576,8 +1500,7 @@ public class SendGridTest {
     if(System.getenv("TRAVIS") == "true") {
       sg.setHost("MOCK_HOST");
     } else {
-      //sg.setHost("localhost:4010");
-      sg.setHost("e9sk3d3bfaikbpdq7.stoplight-proxy.io");
+      sg.setHost("localhost:4010");
     }
 
     Request request = new Request();
@@ -1594,8 +1517,7 @@ public class SendGridTest {
     if(System.getenv("TRAVIS") == "true") {
       sg.setHost("MOCK_HOST");
     } else {
-      //sg.setHost("localhost:4010");
-      sg.setHost("e9sk3d3bfaikbpdq7.stoplight-proxy.io");
+      sg.setHost("localhost:4010");
     }
 
     Request request = new Request();
@@ -1613,8 +1535,7 @@ public class SendGridTest {
     if(System.getenv("TRAVIS") == "true") {
       sg.setHost("MOCK_HOST");
     } else {
-      //sg.setHost("localhost:4010");
-      sg.setHost("e9sk3d3bfaikbpdq7.stoplight-proxy.io");
+      sg.setHost("localhost:4010");
     }
 
     Request request = new Request();
@@ -1631,8 +1552,7 @@ public class SendGridTest {
     if(System.getenv("TRAVIS") == "true") {
       sg.setHost("MOCK_HOST");
     } else {
-      //sg.setHost("localhost:4010");
-      sg.setHost("e9sk3d3bfaikbpdq7.stoplight-proxy.io");
+      sg.setHost("localhost:4010");
     }
 
     Request request = new Request();
@@ -1649,8 +1569,7 @@ public class SendGridTest {
     if(System.getenv("TRAVIS") == "true") {
       sg.setHost("MOCK_HOST");
     } else {
-      //sg.setHost("localhost:4010");
-      sg.setHost("e9sk3d3bfaikbpdq7.stoplight-proxy.io");
+      sg.setHost("localhost:4010");
     }
 
     Request request = new Request();
@@ -1668,8 +1587,7 @@ public class SendGridTest {
     if(System.getenv("TRAVIS") == "true") {
       sg.setHost("MOCK_HOST");
     } else {
-      //sg.setHost("localhost:4010");
-      sg.setHost("e9sk3d3bfaikbpdq7.stoplight-proxy.io");
+      sg.setHost("localhost:4010");
     }
 
     Request request = new Request();
@@ -1686,8 +1604,7 @@ public class SendGridTest {
     if(System.getenv("TRAVIS") == "true") {
       sg.setHost("MOCK_HOST");
     } else {
-      //sg.setHost("localhost:4010");
-      sg.setHost("e9sk3d3bfaikbpdq7.stoplight-proxy.io");
+      sg.setHost("localhost:4010");
     }
 
     Request request = new Request();
@@ -1705,8 +1622,7 @@ public class SendGridTest {
     if(System.getenv("TRAVIS") == "true") {
       sg.setHost("MOCK_HOST");
     } else {
-      //sg.setHost("localhost:4010");
-      sg.setHost("e9sk3d3bfaikbpdq7.stoplight-proxy.io");
+      sg.setHost("localhost:4010");
     }
 
     Request request = new Request();
@@ -1723,8 +1639,7 @@ public class SendGridTest {
     if(System.getenv("TRAVIS") == "true") {
       sg.setHost("MOCK_HOST");
     } else {
-      //sg.setHost("localhost:4010");
-      sg.setHost("e9sk3d3bfaikbpdq7.stoplight-proxy.io");
+      sg.setHost("localhost:4010");
     }
 
     Request request = new Request();
@@ -1741,8 +1656,7 @@ public class SendGridTest {
     if(System.getenv("TRAVIS") == "true") {
       sg.setHost("MOCK_HOST");
     } else {
-      //sg.setHost("localhost:4010");
-      sg.setHost("e9sk3d3bfaikbpdq7.stoplight-proxy.io");
+      sg.setHost("localhost:4010");
     }
 
     Request request = new Request();
@@ -1759,8 +1673,7 @@ public class SendGridTest {
     if(System.getenv("TRAVIS") == "true") {
       sg.setHost("MOCK_HOST");
     } else {
-      //sg.setHost("localhost:4010");
-      sg.setHost("e9sk3d3bfaikbpdq7.stoplight-proxy.io");
+      sg.setHost("localhost:4010");
     }
 
     Request request = new Request();
@@ -1777,8 +1690,7 @@ public class SendGridTest {
     if(System.getenv("TRAVIS") == "true") {
       sg.setHost("MOCK_HOST");
     } else {
-      //sg.setHost("localhost:4010");
-      sg.setHost("e9sk3d3bfaikbpdq7.stoplight-proxy.io");
+      sg.setHost("localhost:4010");
     }
 
     Request request = new Request();
@@ -1795,8 +1707,7 @@ public class SendGridTest {
     if(System.getenv("TRAVIS") == "true") {
       sg.setHost("MOCK_HOST");
     } else {
-      //sg.setHost("localhost:4010");
-      sg.setHost("e9sk3d3bfaikbpdq7.stoplight-proxy.io");
+      sg.setHost("localhost:4010");
     }
 
     Request request = new Request();
@@ -1813,8 +1724,7 @@ public class SendGridTest {
     if(System.getenv("TRAVIS") == "true") {
       sg.setHost("MOCK_HOST");
     } else {
-      //sg.setHost("localhost:4010");
-      sg.setHost("e9sk3d3bfaikbpdq7.stoplight-proxy.io");
+      sg.setHost("localhost:4010");
     }
 
     Request request = new Request();
@@ -1832,8 +1742,7 @@ public class SendGridTest {
     if(System.getenv("TRAVIS") == "true") {
       sg.setHost("MOCK_HOST");
     } else {
-      //sg.setHost("localhost:4010");
-      sg.setHost("e9sk3d3bfaikbpdq7.stoplight-proxy.io");
+      sg.setHost("localhost:4010");
     }
 
     Request request = new Request();
@@ -1854,8 +1763,7 @@ public class SendGridTest {
     if(System.getenv("TRAVIS") == "true") {
       sg.setHost("MOCK_HOST");
     } else {
-      //sg.setHost("localhost:4010");
-      sg.setHost("e9sk3d3bfaikbpdq7.stoplight-proxy.io");
+      sg.setHost("localhost:4010");
     }
 
     Request request = new Request();
@@ -1873,8 +1781,7 @@ public class SendGridTest {
     if(System.getenv("TRAVIS") == "true") {
       sg.setHost("MOCK_HOST");
     } else {
-      //sg.setHost("localhost:4010");
-      sg.setHost("e9sk3d3bfaikbpdq7.stoplight-proxy.io");
+      sg.setHost("localhost:4010");
     }
 
     Request request = new Request();
@@ -1891,8 +1798,7 @@ public class SendGridTest {
     if(System.getenv("TRAVIS") == "true") {
       sg.setHost("MOCK_HOST");
     } else {
-      //sg.setHost("localhost:4010");
-      sg.setHost("e9sk3d3bfaikbpdq7.stoplight-proxy.io");
+      sg.setHost("localhost:4010");
     }
 
     Request request = new Request();
@@ -1910,8 +1816,7 @@ public class SendGridTest {
     if(System.getenv("TRAVIS") == "true") {
       sg.setHost("MOCK_HOST");
     } else {
-      //sg.setHost("localhost:4010");
-      sg.setHost("e9sk3d3bfaikbpdq7.stoplight-proxy.io");
+      sg.setHost("localhost:4010");
     }
 
     Request request = new Request();
@@ -1928,8 +1833,7 @@ public class SendGridTest {
     if(System.getenv("TRAVIS") == "true") {
       sg.setHost("MOCK_HOST");
     } else {
-      //sg.setHost("localhost:4010");
-      sg.setHost("e9sk3d3bfaikbpdq7.stoplight-proxy.io");
+      sg.setHost("localhost:4010");
     }
 
     Request request = new Request();
@@ -1947,8 +1851,7 @@ public class SendGridTest {
     if(System.getenv("TRAVIS") == "true") {
       sg.setHost("MOCK_HOST");
     } else {
-      //sg.setHost("localhost:4010");
-      sg.setHost("e9sk3d3bfaikbpdq7.stoplight-proxy.io");
+      sg.setHost("localhost:4010");
     }
 
     Request request = new Request();
@@ -1965,8 +1868,7 @@ public class SendGridTest {
     if(System.getenv("TRAVIS") == "true") {
       sg.setHost("MOCK_HOST");
     } else {
-      //sg.setHost("localhost:4010");
-      sg.setHost("e9sk3d3bfaikbpdq7.stoplight-proxy.io");
+      sg.setHost("localhost:4010");
     }
 
     Request request = new Request();
@@ -1984,8 +1886,7 @@ public class SendGridTest {
     if(System.getenv("TRAVIS") == "true") {
       sg.setHost("MOCK_HOST");
     } else {
-      //sg.setHost("localhost:4010");
-      sg.setHost("e9sk3d3bfaikbpdq7.stoplight-proxy.io");
+      sg.setHost("localhost:4010");
     }
 
     Request request = new Request();
@@ -2002,8 +1903,7 @@ public class SendGridTest {
     if(System.getenv("TRAVIS") == "true") {
       sg.setHost("MOCK_HOST");
     } else {
-      //sg.setHost("localhost:4010");
-      sg.setHost("e9sk3d3bfaikbpdq7.stoplight-proxy.io");
+      sg.setHost("localhost:4010");
     }
 
     Request request = new Request();
@@ -2021,8 +1921,7 @@ public class SendGridTest {
     if(System.getenv("TRAVIS") == "true") {
       sg.setHost("MOCK_HOST");
     } else {
-      //sg.setHost("localhost:4010");
-      sg.setHost("e9sk3d3bfaikbpdq7.stoplight-proxy.io");
+      sg.setHost("localhost:4010");
     }
 
     Request request = new Request();
@@ -2039,8 +1938,7 @@ public class SendGridTest {
     if(System.getenv("TRAVIS") == "true") {
       sg.setHost("MOCK_HOST");
     } else {
-      //sg.setHost("localhost:4010");
-      sg.setHost("e9sk3d3bfaikbpdq7.stoplight-proxy.io");
+      sg.setHost("localhost:4010");
     }
 
     Request request = new Request();
@@ -2058,8 +1956,7 @@ public class SendGridTest {
     if(System.getenv("TRAVIS") == "true") {
       sg.setHost("MOCK_HOST");
     } else {
-      //sg.setHost("localhost:4010");
-      sg.setHost("e9sk3d3bfaikbpdq7.stoplight-proxy.io");
+      sg.setHost("localhost:4010");
     }
 
     Request request = new Request();
@@ -2076,8 +1973,7 @@ public class SendGridTest {
     if(System.getenv("TRAVIS") == "true") {
       sg.setHost("MOCK_HOST");
     } else {
-      //sg.setHost("localhost:4010");
-      sg.setHost("e9sk3d3bfaikbpdq7.stoplight-proxy.io");
+      sg.setHost("localhost:4010");
     }
 
     Request request = new Request();
@@ -2095,8 +1991,7 @@ public class SendGridTest {
     if(System.getenv("TRAVIS") == "true") {
       sg.setHost("MOCK_HOST");
     } else {
-      //sg.setHost("localhost:4010");
-      sg.setHost("e9sk3d3bfaikbpdq7.stoplight-proxy.io");
+      sg.setHost("localhost:4010");
     }
 
     Request request = new Request();
@@ -2113,8 +2008,7 @@ public class SendGridTest {
     if(System.getenv("TRAVIS") == "true") {
       sg.setHost("MOCK_HOST");
     } else {
-      //sg.setHost("localhost:4010");
-      sg.setHost("e9sk3d3bfaikbpdq7.stoplight-proxy.io");
+      sg.setHost("localhost:4010");
     }
 
     Request request = new Request();
@@ -2132,8 +2026,7 @@ public class SendGridTest {
     if(System.getenv("TRAVIS") == "true") {
       sg.setHost("MOCK_HOST");
     } else {
-      //sg.setHost("localhost:4010");
-      sg.setHost("e9sk3d3bfaikbpdq7.stoplight-proxy.io");
+      sg.setHost("localhost:4010");
     }
 
     Request request = new Request();
@@ -2150,8 +2043,7 @@ public class SendGridTest {
     if(System.getenv("TRAVIS") == "true") {
       sg.setHost("MOCK_HOST");
     } else {
-      //sg.setHost("localhost:4010");
-      sg.setHost("e9sk3d3bfaikbpdq7.stoplight-proxy.io");
+      sg.setHost("localhost:4010");
     }
 
     Request request = new Request();
@@ -2169,8 +2061,7 @@ public class SendGridTest {
     if(System.getenv("TRAVIS") == "true") {
       sg.setHost("MOCK_HOST");
     } else {
-      //sg.setHost("localhost:4010");
-      sg.setHost("e9sk3d3bfaikbpdq7.stoplight-proxy.io");
+      sg.setHost("localhost:4010");
     }
 
     Request request = new Request();
@@ -2187,8 +2078,7 @@ public class SendGridTest {
     if(System.getenv("TRAVIS") == "true") {
       sg.setHost("MOCK_HOST");
     } else {
-      //sg.setHost("localhost:4010");
-      sg.setHost("e9sk3d3bfaikbpdq7.stoplight-proxy.io");
+      sg.setHost("localhost:4010");
     }
 
     Request request = new Request();
@@ -2213,8 +2103,7 @@ public class SendGridTest {
     if(System.getenv("TRAVIS") == "true") {
       sg.setHost("MOCK_HOST");
     } else {
-      //sg.setHost("localhost:4010");
-      sg.setHost("e9sk3d3bfaikbpdq7.stoplight-proxy.io");
+      sg.setHost("localhost:4010");
     }
 
     Request request = new Request();
@@ -2235,8 +2124,7 @@ public class SendGridTest {
     if(System.getenv("TRAVIS") == "true") {
       sg.setHost("MOCK_HOST");
     } else {
-      //sg.setHost("localhost:4010");
-      sg.setHost("e9sk3d3bfaikbpdq7.stoplight-proxy.io");
+      sg.setHost("localhost:4010");
     }
 
     Request request = new Request();
@@ -2254,8 +2142,7 @@ public class SendGridTest {
     if(System.getenv("TRAVIS") == "true") {
       sg.setHost("MOCK_HOST");
     } else {
-      //sg.setHost("localhost:4010");
-      sg.setHost("e9sk3d3bfaikbpdq7.stoplight-proxy.io");
+      sg.setHost("localhost:4010");
     }
 
     Request request = new Request();
@@ -2272,8 +2159,7 @@ public class SendGridTest {
     if(System.getenv("TRAVIS") == "true") {
       sg.setHost("MOCK_HOST");
     } else {
-      //sg.setHost("localhost:4010");
-      sg.setHost("e9sk3d3bfaikbpdq7.stoplight-proxy.io");
+      sg.setHost("localhost:4010");
     }
 
     Request request = new Request();
@@ -2290,8 +2176,7 @@ public class SendGridTest {
     if(System.getenv("TRAVIS") == "true") {
       sg.setHost("MOCK_HOST");
     } else {
-      //sg.setHost("localhost:4010");
-      sg.setHost("e9sk3d3bfaikbpdq7.stoplight-proxy.io");
+      sg.setHost("localhost:4010");
     }
 
     Request request = new Request();
@@ -2315,8 +2200,7 @@ public class SendGridTest {
     if(System.getenv("TRAVIS") == "true") {
       sg.setHost("MOCK_HOST");
     } else {
-      //sg.setHost("localhost:4010");
-      sg.setHost("e9sk3d3bfaikbpdq7.stoplight-proxy.io");
+      sg.setHost("localhost:4010");
     }
 
     Request request = new Request();
@@ -2334,8 +2218,7 @@ public class SendGridTest {
     if(System.getenv("TRAVIS") == "true") {
       sg.setHost("MOCK_HOST");
     } else {
-      //sg.setHost("localhost:4010");
-      sg.setHost("e9sk3d3bfaikbpdq7.stoplight-proxy.io");
+      sg.setHost("localhost:4010");
     }
 
     Request request = new Request();
@@ -2357,8 +2240,7 @@ public class SendGridTest {
     if(System.getenv("TRAVIS") == "true") {
       sg.setHost("MOCK_HOST");
     } else {
-      //sg.setHost("localhost:4010");
-      sg.setHost("e9sk3d3bfaikbpdq7.stoplight-proxy.io");
+      sg.setHost("localhost:4010");
     }
 
     Request request = new Request();
@@ -2378,8 +2260,7 @@ public class SendGridTest {
     if(System.getenv("TRAVIS") == "true") {
       sg.setHost("MOCK_HOST");
     } else {
-      //sg.setHost("localhost:4010");
-      sg.setHost("e9sk3d3bfaikbpdq7.stoplight-proxy.io");
+      sg.setHost("localhost:4010");
     }
 
     Request request = new Request();
@@ -2404,8 +2285,7 @@ public class SendGridTest {
     if(System.getenv("TRAVIS") == "true") {
       sg.setHost("MOCK_HOST");
     } else {
-      //sg.setHost("localhost:4010");
-      sg.setHost("e9sk3d3bfaikbpdq7.stoplight-proxy.io");
+      sg.setHost("localhost:4010");
     }
 
     Request request = new Request();
@@ -2430,8 +2310,7 @@ public class SendGridTest {
     if(System.getenv("TRAVIS") == "true") {
       sg.setHost("MOCK_HOST");
     } else {
-      //sg.setHost("localhost:4010");
-      sg.setHost("e9sk3d3bfaikbpdq7.stoplight-proxy.io");
+      sg.setHost("localhost:4010");
     }
 
     Request request = new Request();
@@ -2457,8 +2336,7 @@ public class SendGridTest {
     if(System.getenv("TRAVIS") == "true") {
       sg.setHost("MOCK_HOST");
     } else {
-      //sg.setHost("localhost:4010");
-      sg.setHost("e9sk3d3bfaikbpdq7.stoplight-proxy.io");
+      sg.setHost("localhost:4010");
     }
 
     Request request = new Request();
@@ -2476,8 +2354,7 @@ public class SendGridTest {
     if(System.getenv("TRAVIS") == "true") {
       sg.setHost("MOCK_HOST");
     } else {
-      //sg.setHost("localhost:4010");
-      sg.setHost("e9sk3d3bfaikbpdq7.stoplight-proxy.io");
+      sg.setHost("localhost:4010");
     }
 
     Request request = new Request();
@@ -2494,8 +2371,7 @@ public class SendGridTest {
     if(System.getenv("TRAVIS") == "true") {
       sg.setHost("MOCK_HOST");
     } else {
-      //sg.setHost("localhost:4010");
-      sg.setHost("e9sk3d3bfaikbpdq7.stoplight-proxy.io");
+      sg.setHost("localhost:4010");
     }
 
     Request request = new Request();
@@ -2513,8 +2389,7 @@ public class SendGridTest {
     if(System.getenv("TRAVIS") == "true") {
       sg.setHost("MOCK_HOST");
     } else {
-      //sg.setHost("localhost:4010");
-      sg.setHost("e9sk3d3bfaikbpdq7.stoplight-proxy.io");
+      sg.setHost("localhost:4010");
     }
 
     Request request = new Request();
@@ -2532,8 +2407,7 @@ public class SendGridTest {
     if(System.getenv("TRAVIS") == "true") {
       sg.setHost("MOCK_HOST");
     } else {
-      //sg.setHost("localhost:4010");
-      sg.setHost("e9sk3d3bfaikbpdq7.stoplight-proxy.io");
+      sg.setHost("localhost:4010");
     }
 
     Request request = new Request();
@@ -2551,8 +2425,7 @@ public class SendGridTest {
     if(System.getenv("TRAVIS") == "true") {
       sg.setHost("MOCK_HOST");
     } else {
-      //sg.setHost("localhost:4010");
-      sg.setHost("e9sk3d3bfaikbpdq7.stoplight-proxy.io");
+      sg.setHost("localhost:4010");
     }
 
     Request request = new Request();
@@ -2569,8 +2442,7 @@ public class SendGridTest {
     if(System.getenv("TRAVIS") == "true") {
       sg.setHost("MOCK_HOST");
     } else {
-      //sg.setHost("localhost:4010");
-      sg.setHost("e9sk3d3bfaikbpdq7.stoplight-proxy.io");
+      sg.setHost("localhost:4010");
     }
 
     Request request = new Request();
@@ -2587,8 +2459,7 @@ public class SendGridTest {
     if(System.getenv("TRAVIS") == "true") {
       sg.setHost("MOCK_HOST");
     } else {
-      //sg.setHost("localhost:4010");
-      sg.setHost("e9sk3d3bfaikbpdq7.stoplight-proxy.io");
+      sg.setHost("localhost:4010");
     }
 
     Request request = new Request();
@@ -2612,8 +2483,7 @@ public class SendGridTest {
     if(System.getenv("TRAVIS") == "true") {
       sg.setHost("MOCK_HOST");
     } else {
-      //sg.setHost("localhost:4010");
-      sg.setHost("e9sk3d3bfaikbpdq7.stoplight-proxy.io");
+      sg.setHost("localhost:4010");
     }
 
     Request request = new Request();
@@ -2636,8 +2506,7 @@ public class SendGridTest {
     if(System.getenv("TRAVIS") == "true") {
       sg.setHost("MOCK_HOST");
     } else {
-      //sg.setHost("localhost:4010");
-      sg.setHost("e9sk3d3bfaikbpdq7.stoplight-proxy.io");
+      sg.setHost("localhost:4010");
     }
 
     Request request = new Request();
@@ -2655,8 +2524,7 @@ public class SendGridTest {
     if(System.getenv("TRAVIS") == "true") {
       sg.setHost("MOCK_HOST");
     } else {
-      //sg.setHost("localhost:4010");
-      sg.setHost("e9sk3d3bfaikbpdq7.stoplight-proxy.io");
+      sg.setHost("localhost:4010");
     }
 
     Request request = new Request();
@@ -2673,8 +2541,7 @@ public class SendGridTest {
     if(System.getenv("TRAVIS") == "true") {
       sg.setHost("MOCK_HOST");
     } else {
-      //sg.setHost("localhost:4010");
-      sg.setHost("e9sk3d3bfaikbpdq7.stoplight-proxy.io");
+      sg.setHost("localhost:4010");
     }
 
     Request request = new Request();
@@ -2691,8 +2558,7 @@ public class SendGridTest {
     if(System.getenv("TRAVIS") == "true") {
       sg.setHost("MOCK_HOST");
     } else {
-      //sg.setHost("localhost:4010");
-      sg.setHost("e9sk3d3bfaikbpdq7.stoplight-proxy.io");
+      sg.setHost("localhost:4010");
     }
 
     Request request = new Request();
@@ -2713,8 +2579,7 @@ public class SendGridTest {
     if(System.getenv("TRAVIS") == "true") {
       sg.setHost("MOCK_HOST");
     } else {
-      //sg.setHost("localhost:4010");
-      sg.setHost("e9sk3d3bfaikbpdq7.stoplight-proxy.io");
+      sg.setHost("localhost:4010");
     }
 
     Request request = new Request();
@@ -2732,8 +2597,7 @@ public class SendGridTest {
     if(System.getenv("TRAVIS") == "true") {
       sg.setHost("MOCK_HOST");
     } else {
-      //sg.setHost("localhost:4010");
-      sg.setHost("e9sk3d3bfaikbpdq7.stoplight-proxy.io");
+      sg.setHost("localhost:4010");
     }
 
     Request request = new Request();
@@ -2750,8 +2614,7 @@ public class SendGridTest {
     if(System.getenv("TRAVIS") == "true") {
       sg.setHost("MOCK_HOST");
     } else {
-      //sg.setHost("localhost:4010");
-      sg.setHost("e9sk3d3bfaikbpdq7.stoplight-proxy.io");
+      sg.setHost("localhost:4010");
     }
 
     Request request = new Request();
@@ -2771,8 +2634,7 @@ public class SendGridTest {
     if(System.getenv("TRAVIS") == "true") {
       sg.setHost("MOCK_HOST");
     } else {
-      //sg.setHost("localhost:4010");
-      sg.setHost("e9sk3d3bfaikbpdq7.stoplight-proxy.io");
+      sg.setHost("localhost:4010");
     }
 
     Request request = new Request();
@@ -2795,8 +2657,7 @@ public class SendGridTest {
     if(System.getenv("TRAVIS") == "true") {
       sg.setHost("MOCK_HOST");
     } else {
-      //sg.setHost("localhost:4010");
-      sg.setHost("e9sk3d3bfaikbpdq7.stoplight-proxy.io");
+      sg.setHost("localhost:4010");
     }
 
     Request request = new Request();
@@ -2814,8 +2675,7 @@ public class SendGridTest {
     if(System.getenv("TRAVIS") == "true") {
       sg.setHost("MOCK_HOST");
     } else {
-      //sg.setHost("localhost:4010");
-      sg.setHost("e9sk3d3bfaikbpdq7.stoplight-proxy.io");
+      sg.setHost("localhost:4010");
     }
 
     Request request = new Request();
@@ -2832,8 +2692,7 @@ public class SendGridTest {
     if(System.getenv("TRAVIS") == "true") {
       sg.setHost("MOCK_HOST");
     } else {
-      //sg.setHost("localhost:4010");
-      sg.setHost("e9sk3d3bfaikbpdq7.stoplight-proxy.io");
+      sg.setHost("localhost:4010");
     }
 
     Request request = new Request();
@@ -2850,8 +2709,7 @@ public class SendGridTest {
     if(System.getenv("TRAVIS") == "true") {
       sg.setHost("MOCK_HOST");
     } else {
-      //sg.setHost("localhost:4010");
-      sg.setHost("e9sk3d3bfaikbpdq7.stoplight-proxy.io");
+      sg.setHost("localhost:4010");
     }
 
     Request request = new Request();
@@ -2868,8 +2726,7 @@ public class SendGridTest {
     if(System.getenv("TRAVIS") == "true") {
       sg.setHost("MOCK_HOST");
     } else {
-      //sg.setHost("localhost:4010");
-      sg.setHost("e9sk3d3bfaikbpdq7.stoplight-proxy.io");
+      sg.setHost("localhost:4010");
     }
 
     Request request = new Request();
@@ -2886,8 +2743,7 @@ public class SendGridTest {
     if(System.getenv("TRAVIS") == "true") {
       sg.setHost("MOCK_HOST");
     } else {
-      //sg.setHost("localhost:4010");
-      sg.setHost("e9sk3d3bfaikbpdq7.stoplight-proxy.io");
+      sg.setHost("localhost:4010");
     }
 
     Request request = new Request();
@@ -2910,8 +2766,7 @@ public class SendGridTest {
     if(System.getenv("TRAVIS") == "true") {
       sg.setHost("MOCK_HOST");
     } else {
-      //sg.setHost("localhost:4010");
-      sg.setHost("e9sk3d3bfaikbpdq7.stoplight-proxy.io");
+      sg.setHost("localhost:4010");
     }
 
     Request request = new Request();
@@ -2929,8 +2784,7 @@ public class SendGridTest {
     if(System.getenv("TRAVIS") == "true") {
       sg.setHost("MOCK_HOST");
     } else {
-      //sg.setHost("localhost:4010");
-      sg.setHost("e9sk3d3bfaikbpdq7.stoplight-proxy.io");
+      sg.setHost("localhost:4010");
     }
 
     Request request = new Request();
@@ -2953,8 +2807,7 @@ public class SendGridTest {
     if(System.getenv("TRAVIS") == "true") {
       sg.setHost("MOCK_HOST");
     } else {
-      //sg.setHost("localhost:4010");
-      sg.setHost("e9sk3d3bfaikbpdq7.stoplight-proxy.io");
+      sg.setHost("localhost:4010");
     }
 
     Request request = new Request();
@@ -2972,8 +2825,7 @@ public class SendGridTest {
     if(System.getenv("TRAVIS") == "true") {
       sg.setHost("MOCK_HOST");
     } else {
-      //sg.setHost("localhost:4010");
-      sg.setHost("e9sk3d3bfaikbpdq7.stoplight-proxy.io");
+      sg.setHost("localhost:4010");
     }
 
     Request request = new Request();
@@ -2990,8 +2842,7 @@ public class SendGridTest {
     if(System.getenv("TRAVIS") == "true") {
       sg.setHost("MOCK_HOST");
     } else {
-      //sg.setHost("localhost:4010");
-      sg.setHost("e9sk3d3bfaikbpdq7.stoplight-proxy.io");
+      sg.setHost("localhost:4010");
     }
 
     Request request = new Request();
@@ -3009,8 +2860,7 @@ public class SendGridTest {
     if(System.getenv("TRAVIS") == "true") {
       sg.setHost("MOCK_HOST");
     } else {
-      //sg.setHost("localhost:4010");
-      sg.setHost("e9sk3d3bfaikbpdq7.stoplight-proxy.io");
+      sg.setHost("localhost:4010");
     }
 
     Request request = new Request();
@@ -3027,8 +2877,7 @@ public class SendGridTest {
     if(System.getenv("TRAVIS") == "true") {
       sg.setHost("MOCK_HOST");
     } else {
-      //sg.setHost("localhost:4010");
-      sg.setHost("e9sk3d3bfaikbpdq7.stoplight-proxy.io");
+      sg.setHost("localhost:4010");
     }
 
     Request request = new Request();
@@ -3045,8 +2894,7 @@ public class SendGridTest {
     if(System.getenv("TRAVIS") == "true") {
       sg.setHost("MOCK_HOST");
     } else {
-      //sg.setHost("localhost:4010");
-      sg.setHost("e9sk3d3bfaikbpdq7.stoplight-proxy.io");
+      sg.setHost("localhost:4010");
     }
 
     Request request = new Request();
@@ -3064,8 +2912,7 @@ public class SendGridTest {
     if(System.getenv("TRAVIS") == "true") {
       sg.setHost("MOCK_HOST");
     } else {
-      //sg.setHost("localhost:4010");
-      sg.setHost("e9sk3d3bfaikbpdq7.stoplight-proxy.io");
+      sg.setHost("localhost:4010");
     }
 
     Request request = new Request();
@@ -3083,8 +2930,7 @@ public class SendGridTest {
     if(System.getenv("TRAVIS") == "true") {
       sg.setHost("MOCK_HOST");
     } else {
-      //sg.setHost("localhost:4010");
-      sg.setHost("e9sk3d3bfaikbpdq7.stoplight-proxy.io");
+      sg.setHost("localhost:4010");
     }
 
     Request request = new Request();
@@ -3101,8 +2947,7 @@ public class SendGridTest {
     if(System.getenv("TRAVIS") == "true") {
       sg.setHost("MOCK_HOST");
     } else {
-      //sg.setHost("localhost:4010");
-      sg.setHost("e9sk3d3bfaikbpdq7.stoplight-proxy.io");
+      sg.setHost("localhost:4010");
     }
 
     Request request = new Request();
@@ -3119,8 +2964,7 @@ public class SendGridTest {
     if(System.getenv("TRAVIS") == "true") {
       sg.setHost("MOCK_HOST");
     } else {
-      //sg.setHost("localhost:4010");
-      sg.setHost("e9sk3d3bfaikbpdq7.stoplight-proxy.io");
+      sg.setHost("localhost:4010");
     }
 
     Request request = new Request();
@@ -3137,8 +2981,7 @@ public class SendGridTest {
     if(System.getenv("TRAVIS") == "true") {
       sg.setHost("MOCK_HOST");
     } else {
-      //sg.setHost("localhost:4010");
-      sg.setHost("e9sk3d3bfaikbpdq7.stoplight-proxy.io");
+      sg.setHost("localhost:4010");
     }
 
     Request request = new Request();
@@ -3159,8 +3002,7 @@ public class SendGridTest {
     if(System.getenv("TRAVIS") == "true") {
       sg.setHost("MOCK_HOST");
     } else {
-      //sg.setHost("localhost:4010");
-      sg.setHost("e9sk3d3bfaikbpdq7.stoplight-proxy.io");
+      sg.setHost("localhost:4010");
     }
 
     Request request = new Request();
@@ -3178,8 +3020,7 @@ public class SendGridTest {
     if(System.getenv("TRAVIS") == "true") {
       sg.setHost("MOCK_HOST");
     } else {
-      //sg.setHost("localhost:4010");
-      sg.setHost("e9sk3d3bfaikbpdq7.stoplight-proxy.io");
+      sg.setHost("localhost:4010");
     }
 
     Request request = new Request();
@@ -3196,8 +3037,7 @@ public class SendGridTest {
     if(System.getenv("TRAVIS") == "true") {
       sg.setHost("MOCK_HOST");
     } else {
-      //sg.setHost("localhost:4010");
-      sg.setHost("e9sk3d3bfaikbpdq7.stoplight-proxy.io");
+      sg.setHost("localhost:4010");
     }
 
     Request request = new Request();
@@ -3215,8 +3055,7 @@ public class SendGridTest {
     if(System.getenv("TRAVIS") == "true") {
       sg.setHost("MOCK_HOST");
     } else {
-      //sg.setHost("localhost:4010");
-      sg.setHost("e9sk3d3bfaikbpdq7.stoplight-proxy.io");
+      sg.setHost("localhost:4010");
     }
 
     Request request = new Request();
@@ -3233,8 +3072,7 @@ public class SendGridTest {
     if(System.getenv("TRAVIS") == "true") {
       sg.setHost("MOCK_HOST");
     } else {
-      //sg.setHost("localhost:4010");
-      sg.setHost("e9sk3d3bfaikbpdq7.stoplight-proxy.io");
+      sg.setHost("localhost:4010");
     }
 
     Request request = new Request();
@@ -3252,8 +3090,7 @@ public class SendGridTest {
     if(System.getenv("TRAVIS") == "true") {
       sg.setHost("MOCK_HOST");
     } else {
-      //sg.setHost("localhost:4010");
-      sg.setHost("e9sk3d3bfaikbpdq7.stoplight-proxy.io");
+      sg.setHost("localhost:4010");
     }
 
     Request request = new Request();
@@ -3270,8 +3107,7 @@ public class SendGridTest {
     if(System.getenv("TRAVIS") == "true") {
       sg.setHost("MOCK_HOST");
     } else {
-      //sg.setHost("localhost:4010");
-      sg.setHost("e9sk3d3bfaikbpdq7.stoplight-proxy.io");
+      sg.setHost("localhost:4010");
     }
 
     Request request = new Request();
@@ -3289,8 +3125,7 @@ public class SendGridTest {
     if(System.getenv("TRAVIS") == "true") {
       sg.setHost("MOCK_HOST");
     } else {
-      //sg.setHost("localhost:4010");
-      sg.setHost("e9sk3d3bfaikbpdq7.stoplight-proxy.io");
+      sg.setHost("localhost:4010");
     }
 
     Request request = new Request();
@@ -3307,8 +3142,7 @@ public class SendGridTest {
     if(System.getenv("TRAVIS") == "true") {
       sg.setHost("MOCK_HOST");
     } else {
-      //sg.setHost("localhost:4010");
-      sg.setHost("e9sk3d3bfaikbpdq7.stoplight-proxy.io");
+      sg.setHost("localhost:4010");
     }
 
     Request request = new Request();
@@ -3325,8 +3159,7 @@ public class SendGridTest {
     if(System.getenv("TRAVIS") == "true") {
       sg.setHost("MOCK_HOST");
     } else {
-      //sg.setHost("localhost:4010");
-      sg.setHost("e9sk3d3bfaikbpdq7.stoplight-proxy.io");
+      sg.setHost("localhost:4010");
     }
 
     Request request = new Request();
@@ -3343,8 +3176,7 @@ public class SendGridTest {
     if(System.getenv("TRAVIS") == "true") {
       sg.setHost("MOCK_HOST");
     } else {
-      //sg.setHost("localhost:4010");
-      sg.setHost("e9sk3d3bfaikbpdq7.stoplight-proxy.io");
+      sg.setHost("localhost:4010");
     }
 
     Request request = new Request();
@@ -3362,8 +3194,7 @@ public class SendGridTest {
     if(System.getenv("TRAVIS") == "true") {
       sg.setHost("MOCK_HOST");
     } else {
-      //sg.setHost("localhost:4010");
-      sg.setHost("e9sk3d3bfaikbpdq7.stoplight-proxy.io");
+      sg.setHost("localhost:4010");
     }
 
     Request request = new Request();
@@ -3380,8 +3211,7 @@ public class SendGridTest {
     if(System.getenv("TRAVIS") == "true") {
       sg.setHost("MOCK_HOST");
     } else {
-      //sg.setHost("localhost:4010");
-      sg.setHost("e9sk3d3bfaikbpdq7.stoplight-proxy.io");
+      sg.setHost("localhost:4010");
     }
 
     Request request = new Request();
@@ -3399,8 +3229,7 @@ public class SendGridTest {
     if(System.getenv("TRAVIS") == "true") {
       sg.setHost("MOCK_HOST");
     } else {
-      //sg.setHost("localhost:4010");
-      sg.setHost("e9sk3d3bfaikbpdq7.stoplight-proxy.io");
+      sg.setHost("localhost:4010");
     }
 
     Request request = new Request();
@@ -3418,8 +3247,7 @@ public class SendGridTest {
     if(System.getenv("TRAVIS") == "true") {
       sg.setHost("MOCK_HOST");
     } else {
-      //sg.setHost("localhost:4010");
-      sg.setHost("e9sk3d3bfaikbpdq7.stoplight-proxy.io");
+      sg.setHost("localhost:4010");
     }
 
     Request request = new Request();
@@ -3436,8 +3264,7 @@ public class SendGridTest {
     if(System.getenv("TRAVIS") == "true") {
       sg.setHost("MOCK_HOST");
     } else {
-      //sg.setHost("localhost:4010");
-      sg.setHost("e9sk3d3bfaikbpdq7.stoplight-proxy.io");
+      sg.setHost("localhost:4010");
     }
 
     Request request = new Request();
@@ -3455,8 +3282,7 @@ public class SendGridTest {
     if(System.getenv("TRAVIS") == "true") {
       sg.setHost("MOCK_HOST");
     } else {
-      //sg.setHost("localhost:4010");
-      sg.setHost("e9sk3d3bfaikbpdq7.stoplight-proxy.io");
+      sg.setHost("localhost:4010");
     }
 
     Request request = new Request();
@@ -3473,8 +3299,7 @@ public class SendGridTest {
     if(System.getenv("TRAVIS") == "true") {
       sg.setHost("MOCK_HOST");
     } else {
-      //sg.setHost("localhost:4010");
-      sg.setHost("e9sk3d3bfaikbpdq7.stoplight-proxy.io");
+      sg.setHost("localhost:4010");
     }
 
     Request request = new Request();
@@ -3492,8 +3317,7 @@ public class SendGridTest {
     if(System.getenv("TRAVIS") == "true") {
       sg.setHost("MOCK_HOST");
     } else {
-      //sg.setHost("localhost:4010");
-      sg.setHost("e9sk3d3bfaikbpdq7.stoplight-proxy.io");
+      sg.setHost("localhost:4010");
     }
 
     Request request = new Request();
@@ -3510,8 +3334,7 @@ public class SendGridTest {
     if(System.getenv("TRAVIS") == "true") {
       sg.setHost("MOCK_HOST");
     } else {
-      //sg.setHost("localhost:4010");
-      sg.setHost("e9sk3d3bfaikbpdq7.stoplight-proxy.io");
+      sg.setHost("localhost:4010");
     }
 
     Request request = new Request();
@@ -3528,8 +3351,7 @@ public class SendGridTest {
     if(System.getenv("TRAVIS") == "true") {
       sg.setHost("MOCK_HOST");
     } else {
-      //sg.setHost("localhost:4010");
-      sg.setHost("e9sk3d3bfaikbpdq7.stoplight-proxy.io");
+      sg.setHost("localhost:4010");
     }
 
     Request request = new Request();
@@ -3547,8 +3369,7 @@ public class SendGridTest {
     if(System.getenv("TRAVIS") == "true") {
       sg.setHost("MOCK_HOST");
     } else {
-      //sg.setHost("localhost:4010");
-      sg.setHost("e9sk3d3bfaikbpdq7.stoplight-proxy.io");
+      sg.setHost("localhost:4010");
     }
 
     Request request = new Request();
@@ -3565,8 +3386,7 @@ public class SendGridTest {
     if(System.getenv("TRAVIS") == "true") {
       sg.setHost("MOCK_HOST");
     } else {
-      //sg.setHost("localhost:4010");
-      sg.setHost("e9sk3d3bfaikbpdq7.stoplight-proxy.io");
+      sg.setHost("localhost:4010");
     }
 
     Request request = new Request();
@@ -3584,8 +3404,7 @@ public class SendGridTest {
     if(System.getenv("TRAVIS") == "true") {
       sg.setHost("MOCK_HOST");
     } else {
-      //sg.setHost("localhost:4010");
-      sg.setHost("e9sk3d3bfaikbpdq7.stoplight-proxy.io");
+      sg.setHost("localhost:4010");
     }
 
     Request request = new Request();
@@ -3602,8 +3421,7 @@ public class SendGridTest {
     if(System.getenv("TRAVIS") == "true") {
       sg.setHost("MOCK_HOST");
     } else {
-      //sg.setHost("localhost:4010");
-      sg.setHost("e9sk3d3bfaikbpdq7.stoplight-proxy.io");
+      sg.setHost("localhost:4010");
     }
 
     Request request = new Request();
@@ -3621,8 +3439,7 @@ public class SendGridTest {
     if(System.getenv("TRAVIS") == "true") {
       sg.setHost("MOCK_HOST");
     } else {
-      //sg.setHost("localhost:4010");
-      sg.setHost("e9sk3d3bfaikbpdq7.stoplight-proxy.io");
+      sg.setHost("localhost:4010");
     }
 
     Request request = new Request();
@@ -3639,8 +3456,7 @@ public class SendGridTest {
     if(System.getenv("TRAVIS") == "true") {
       sg.setHost("MOCK_HOST");
     } else {
-      //sg.setHost("localhost:4010");
-      sg.setHost("e9sk3d3bfaikbpdq7.stoplight-proxy.io");
+      sg.setHost("localhost:4010");
     }
 
     Request request = new Request();
@@ -3658,8 +3474,7 @@ public class SendGridTest {
     if(System.getenv("TRAVIS") == "true") {
       sg.setHost("MOCK_HOST");
     } else {
-      //sg.setHost("localhost:4010");
-      sg.setHost("e9sk3d3bfaikbpdq7.stoplight-proxy.io");
+      sg.setHost("localhost:4010");
     }
 
     Request request = new Request();
@@ -3676,8 +3491,7 @@ public class SendGridTest {
     if(System.getenv("TRAVIS") == "true") {
       sg.setHost("MOCK_HOST");
     } else {
-      //sg.setHost("localhost:4010");
-      sg.setHost("e9sk3d3bfaikbpdq7.stoplight-proxy.io");
+      sg.setHost("localhost:4010");
     }
 
     Request request = new Request();
@@ -3701,8 +3515,7 @@ public class SendGridTest {
     if(System.getenv("TRAVIS") == "true") {
       sg.setHost("MOCK_HOST");
     } else {
-      //sg.setHost("localhost:4010");
-      sg.setHost("e9sk3d3bfaikbpdq7.stoplight-proxy.io");
+      sg.setHost("localhost:4010");
     }
 
     Request request = new Request();
@@ -3720,8 +3533,7 @@ public class SendGridTest {
     if(System.getenv("TRAVIS") == "true") {
       sg.setHost("MOCK_HOST");
     } else {
-      //sg.setHost("localhost:4010");
-      sg.setHost("e9sk3d3bfaikbpdq7.stoplight-proxy.io");
+      sg.setHost("localhost:4010");
     }
 
     Request request = new Request();
@@ -3745,8 +3557,7 @@ public class SendGridTest {
     if(System.getenv("TRAVIS") == "true") {
       sg.setHost("MOCK_HOST");
     } else {
-      //sg.setHost("localhost:4010");
-      sg.setHost("e9sk3d3bfaikbpdq7.stoplight-proxy.io");
+      sg.setHost("localhost:4010");
     }
 
     Request request = new Request();
@@ -3763,8 +3574,7 @@ public class SendGridTest {
     if(System.getenv("TRAVIS") == "true") {
       sg.setHost("MOCK_HOST");
     } else {
-      //sg.setHost("localhost:4010");
-      sg.setHost("e9sk3d3bfaikbpdq7.stoplight-proxy.io");
+      sg.setHost("localhost:4010");
     }
 
     Request request = new Request();
@@ -3781,8 +3591,7 @@ public class SendGridTest {
     if(System.getenv("TRAVIS") == "true") {
       sg.setHost("MOCK_HOST");
     } else {
-      //sg.setHost("localhost:4010");
-      sg.setHost("e9sk3d3bfaikbpdq7.stoplight-proxy.io");
+      sg.setHost("localhost:4010");
     }
 
     Request request = new Request();
@@ -3799,8 +3608,7 @@ public class SendGridTest {
     if(System.getenv("TRAVIS") == "true") {
       sg.setHost("MOCK_HOST");
     } else {
-      //sg.setHost("localhost:4010");
-      sg.setHost("e9sk3d3bfaikbpdq7.stoplight-proxy.io");
+      sg.setHost("localhost:4010");
     }
 
     Request request = new Request();
@@ -3818,8 +3626,7 @@ public class SendGridTest {
     if(System.getenv("TRAVIS") == "true") {
       sg.setHost("MOCK_HOST");
     } else {
-      //sg.setHost("localhost:4010");
-      sg.setHost("e9sk3d3bfaikbpdq7.stoplight-proxy.io");
+      sg.setHost("localhost:4010");
     }
 
     Request request = new Request();
@@ -3836,8 +3643,7 @@ public class SendGridTest {
     if(System.getenv("TRAVIS") == "true") {
       sg.setHost("MOCK_HOST");
     } else {
-      //sg.setHost("localhost:4010");
-      sg.setHost("e9sk3d3bfaikbpdq7.stoplight-proxy.io");
+      sg.setHost("localhost:4010");
     }
 
     Request request = new Request();
@@ -3854,8 +3660,7 @@ public class SendGridTest {
     if(System.getenv("TRAVIS") == "true") {
       sg.setHost("MOCK_HOST");
     } else {
-      //sg.setHost("localhost:4010");
-      sg.setHost("e9sk3d3bfaikbpdq7.stoplight-proxy.io");
+      sg.setHost("localhost:4010");
     }
 
     Request request = new Request();
@@ -3873,8 +3678,7 @@ public class SendGridTest {
     if(System.getenv("TRAVIS") == "true") {
       sg.setHost("MOCK_HOST");
     } else {
-      //sg.setHost("localhost:4010");
-      sg.setHost("e9sk3d3bfaikbpdq7.stoplight-proxy.io");
+      sg.setHost("localhost:4010");
     }
 
     Request request = new Request();
@@ -3892,8 +3696,7 @@ public class SendGridTest {
     if(System.getenv("TRAVIS") == "true") {
       sg.setHost("MOCK_HOST");
     } else {
-      //sg.setHost("localhost:4010");
-      sg.setHost("e9sk3d3bfaikbpdq7.stoplight-proxy.io");
+      sg.setHost("localhost:4010");
     }
 
     Request request = new Request();
@@ -3910,8 +3713,7 @@ public class SendGridTest {
     if(System.getenv("TRAVIS") == "true") {
       sg.setHost("MOCK_HOST");
     } else {
-      //sg.setHost("localhost:4010");
-      sg.setHost("e9sk3d3bfaikbpdq7.stoplight-proxy.io");
+      sg.setHost("localhost:4010");
     }
 
     Request request = new Request();
@@ -3928,8 +3730,7 @@ public class SendGridTest {
     if(System.getenv("TRAVIS") == "true") {
       sg.setHost("MOCK_HOST");
     } else {
-      //sg.setHost("localhost:4010");
-      sg.setHost("e9sk3d3bfaikbpdq7.stoplight-proxy.io");
+      sg.setHost("localhost:4010");
     }
 
     Request request = new Request();
@@ -3947,8 +3748,7 @@ public class SendGridTest {
     if(System.getenv("TRAVIS") == "true") {
       sg.setHost("MOCK_HOST");
     } else {
-      //sg.setHost("localhost:4010");
-      sg.setHost("e9sk3d3bfaikbpdq7.stoplight-proxy.io");
+      sg.setHost("localhost:4010");
     }
 
     Request request = new Request();
@@ -3970,8 +3770,7 @@ public class SendGridTest {
     if(System.getenv("TRAVIS") == "true") {
       sg.setHost("MOCK_HOST");
     } else {
-      //sg.setHost("localhost:4010");
-      sg.setHost("e9sk3d3bfaikbpdq7.stoplight-proxy.io");
+      sg.setHost("localhost:4010");
     }
 
     Request request = new Request();
@@ -3988,8 +3787,7 @@ public class SendGridTest {
     if(System.getenv("TRAVIS") == "true") {
       sg.setHost("MOCK_HOST");
     } else {
-      //sg.setHost("localhost:4010");
-      sg.setHost("e9sk3d3bfaikbpdq7.stoplight-proxy.io");
+      sg.setHost("localhost:4010");
     }
 
     Request request = new Request();
@@ -4006,8 +3804,7 @@ public class SendGridTest {
     if(System.getenv("TRAVIS") == "true") {
       sg.setHost("MOCK_HOST");
     } else {
-      //sg.setHost("localhost:4010");
-      sg.setHost("e9sk3d3bfaikbpdq7.stoplight-proxy.io");
+      sg.setHost("localhost:4010");
     }
 
     Request request = new Request();
@@ -4024,8 +3821,7 @@ public class SendGridTest {
     if(System.getenv("TRAVIS") == "true") {
       sg.setHost("MOCK_HOST");
     } else {
-      //sg.setHost("localhost:4010");
-      sg.setHost("e9sk3d3bfaikbpdq7.stoplight-proxy.io");
+      sg.setHost("localhost:4010");
     }
 
     Request request = new Request();
@@ -4047,8 +3843,7 @@ public class SendGridTest {
     if(System.getenv("TRAVIS") == "true") {
       sg.setHost("MOCK_HOST");
     } else {
-      //sg.setHost("localhost:4010");
-      sg.setHost("e9sk3d3bfaikbpdq7.stoplight-proxy.io");
+      sg.setHost("localhost:4010");
     }
 
     Request request = new Request();
@@ -4068,8 +3863,7 @@ public class SendGridTest {
     if(System.getenv("TRAVIS") == "true") {
       sg.setHost("MOCK_HOST");
     } else {
-      //sg.setHost("localhost:4010");
-      sg.setHost("e9sk3d3bfaikbpdq7.stoplight-proxy.io");
+      sg.setHost("localhost:4010");
     }
 
     Request request = new Request();
@@ -4089,8 +3883,7 @@ public class SendGridTest {
     if(System.getenv("TRAVIS") == "true") {
       sg.setHost("MOCK_HOST");
     } else {
-      //sg.setHost("localhost:4010");
-      sg.setHost("e9sk3d3bfaikbpdq7.stoplight-proxy.io");
+      sg.setHost("localhost:4010");
     }
 
     Request request = new Request();
@@ -4110,8 +3903,7 @@ public class SendGridTest {
     if(System.getenv("TRAVIS") == "true") {
       sg.setHost("MOCK_HOST");
     } else {
-      //sg.setHost("localhost:4010");
-      sg.setHost("e9sk3d3bfaikbpdq7.stoplight-proxy.io");
+      sg.setHost("localhost:4010");
     }
 
     Request request = new Request();
@@ -4131,8 +3923,7 @@ public class SendGridTest {
     if(System.getenv("TRAVIS") == "true") {
       sg.setHost("MOCK_HOST");
     } else {
-      //sg.setHost("localhost:4010");
-      sg.setHost("e9sk3d3bfaikbpdq7.stoplight-proxy.io");
+      sg.setHost("localhost:4010");
     }
 
     Request request = new Request();
@@ -4150,8 +3941,7 @@ public class SendGridTest {
     if(System.getenv("TRAVIS") == "true") {
       sg.setHost("MOCK_HOST");
     } else {
-      //sg.setHost("localhost:4010");
-      sg.setHost("e9sk3d3bfaikbpdq7.stoplight-proxy.io");
+      sg.setHost("localhost:4010");
     }
 
     Request request = new Request();
@@ -4168,8 +3958,7 @@ public class SendGridTest {
     if(System.getenv("TRAVIS") == "true") {
       sg.setHost("MOCK_HOST");
     } else {
-      //sg.setHost("localhost:4010");
-      sg.setHost("e9sk3d3bfaikbpdq7.stoplight-proxy.io");
+      sg.setHost("localhost:4010");
     }
 
     Request request = new Request();
@@ -4186,8 +3975,7 @@ public class SendGridTest {
     if(System.getenv("TRAVIS") == "true") {
       sg.setHost("MOCK_HOST");
     } else {
-      //sg.setHost("localhost:4010");
-      sg.setHost("e9sk3d3bfaikbpdq7.stoplight-proxy.io");
+      sg.setHost("localhost:4010");
     }
 
     Request request = new Request();
@@ -4204,8 +3992,7 @@ public class SendGridTest {
     if(System.getenv("TRAVIS") == "true") {
       sg.setHost("MOCK_HOST");
     } else {
-      //sg.setHost("localhost:4010");
-      sg.setHost("e9sk3d3bfaikbpdq7.stoplight-proxy.io");
+      sg.setHost("localhost:4010");
     }
 
     Request request = new Request();
