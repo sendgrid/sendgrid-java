@@ -66,7 +66,6 @@ For more information, please see our [User Guide](http://sendgrid.com/docs/User_
 ### GET /access_settings/activity
 
 ```java
-  Request request = new Request();
   try {
     SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
     Request request = new Request();
@@ -96,7 +95,6 @@ For more information, please see our [User Guide](http://sendgrid.com/docs/User_
 ### POST /access_settings/whitelist
 
 ```java
-  Request request = new Request();
   try {
     SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
     Request request = new Request();
@@ -122,7 +120,6 @@ For more information, please see our [User Guide](http://sendgrid.com/docs/User_
 ### GET /access_settings/whitelist
 
 ```java
-  Request request = new Request();
   try {
     SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
     Request request = new Request();
@@ -149,7 +146,6 @@ For more information, please see our [User Guide](http://sendgrid.com/docs/User_
 ### DELETE /access_settings/whitelist
 
 ```java
-  Request request = new Request();
   try {
     SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
     Request request = new Request();
@@ -177,7 +173,6 @@ For more information, please see our [User Guide](http://sendgrid.com/docs/User_
 ### GET /access_settings/whitelist/{rule_id}
 
 ```java
-  Request request = new Request();
   try {
     SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
     Request request = new Request();
@@ -204,7 +199,6 @@ For more information, please see our [User Guide](http://sendgrid.com/docs/User_
 ### DELETE /access_settings/whitelist/{rule_id}
 
 ```java
-  Request request = new Request();
   try {
     SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
     Request request = new Request();
@@ -236,7 +230,6 @@ See the [API Key Permissions List](https://sendgrid.com/docs/API_Reference/Web_A
 ### POST /api_keys
 
 ```java
-  Request request = new Request();
   try {
     SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
     Request request = new Request();
@@ -260,7 +253,6 @@ The API Keys feature allows customers to be able to generate an API Key credenti
 ### GET /api_keys
 
 ```java
-  Request request = new Request();
   try {
     SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
     Request request = new Request();
@@ -287,7 +279,6 @@ The API Keys feature allows customers to be able to generate an API Key credenti
 ### PUT /api_keys/{api_key_id}
 
 ```java
-  Request request = new Request();
   try {
     SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
     Request request = new Request();
@@ -319,7 +310,6 @@ The API Keys feature allows customers to be able to generate an API Key credenti
 ### PATCH /api_keys/{api_key_id}
 
 ```java
-  Request request = new Request();
   try {
     SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
     Request request = new Request();
@@ -343,7 +333,6 @@ If the API Key ID does not exist an HTTP 404 will be returned.
 ### GET /api_keys/{api_key_id}
 
 ```java
-  Request request = new Request();
   try {
     SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
     Request request = new Request();
@@ -374,7 +363,6 @@ The API Keys feature allows customers to be able to generate an API Key credenti
 ### DELETE /api_keys/{api_key_id}
 
 ```java
-  Request request = new Request();
   try {
     SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
     Request request = new Request();
@@ -404,7 +392,6 @@ Each user can create up to 25 different suppression groups.
 ### POST /asm/groups
 
 ```java
-  Request request = new Request();
   try {
     SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
     Request request = new Request();
@@ -432,7 +419,6 @@ Each user can create up to 25 different suppression groups.
 ### GET /asm/groups
 
 ```java
-  Request request = new Request();
   try {
     SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
     Request request = new Request();
@@ -459,7 +445,6 @@ Each user can create up to 25 different suppression groups.
 ### PATCH /asm/groups/{group_id}
 
 ```java
-  Request request = new Request();
   try {
     SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
     Request request = new Request();
@@ -487,7 +472,6 @@ Each user can create up to 25 different suppression groups.
 ### GET /asm/groups/{group_id}
 
 ```java
-  Request request = new Request();
   try {
     SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
     Request request = new Request();
@@ -516,7 +500,6 @@ Each user can create up to 25 different suppression groups.
 ### DELETE /asm/groups/{group_id}
 
 ```java
-  Request request = new Request();
   try {
     SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
     Request request = new Request();
@@ -541,7 +524,6 @@ Suppressions are recipient email addresses that are added to [unsubscribe groups
 ### POST /asm/groups/{group_id}/suppressions
 
 ```java
-  Request request = new Request();
   try {
     SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
     Request request = new Request();
@@ -565,7 +547,6 @@ Suppressions are recipient email addresses that are added to [unsubscribe groups
 ### GET /asm/groups/{group_id}/suppressions
 
 ```java
-  Request request = new Request();
   try {
     SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
     Request request = new Request();
@@ -588,7 +569,6 @@ Suppressions are recipient email addresses that are added to [unsubscribe groups
 ### DELETE /asm/groups/{group_id}/suppressions/{email}
 
 ```java
-  Request request = new Request();
   try {
     SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
     Request request = new Request();
@@ -611,7 +591,6 @@ A global suppression (or global unsubscribe) is an email address of a recipient 
 ### POST /asm/suppressions/global
 
 ```java
-  Request request = new Request();
   try {
     SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
     Request request = new Request();
@@ -637,7 +616,6 @@ A global suppression (or global unsubscribe) is an email address of a recipient 
 ### GET /asm/suppressions/global/{email}
 
 ```java
-  Request request = new Request();
   try {
     SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
     Request request = new Request();
@@ -660,7 +638,6 @@ A global suppression (or global unsubscribe) is an email address of a recipient 
 ### DELETE /asm/suppressions/global/{email}
 
 ```java
-  Request request = new Request();
   try {
     SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
     Request request = new Request();
@@ -688,7 +665,6 @@ Advanced Stats provide a more in-depth view of your email statistics and the act
 ### GET /browsers/stats
 
 ```java
-  Request request = new Request();
   try {
     SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
     Request request = new Request();
@@ -696,11 +672,11 @@ Advanced Stats provide a more in-depth view of your email statistics and the act
     request.endpoint = "browsers/stats";
     Map<String,String> queryParams = new HashMap<String, String>();
     queryParams.put("end_date", "2016-04-01");
-    queryParams.put("aggregated_by", "day");
-    queryParams.put("browsers", "test_string");
-    queryParams.put("limit", "test_string");
-    queryParams.put("offset", "test_string");
-    queryParams.put("start_date", "2016-01-01");
+      queryParams.put("aggregated_by", "day");
+      queryParams.put("browsers", "test_string");
+      queryParams.put("limit", "test_string");
+      queryParams.put("offset", "test_string");
+      queryParams.put("start_date", "2016-01-01");
     request.queryParams = queryParams;
     Response response = sg.api(request);
     System.out.println(response.statusCode);
@@ -728,7 +704,6 @@ For more information:
 ### POST /campaigns
 
 ```java
-  Request request = new Request();
   try {
     SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
     Request request = new Request();
@@ -758,7 +733,6 @@ For more information:
 ### GET /campaigns
 
 ```java
-  Request request = new Request();
   try {
     SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
     Request request = new Request();
@@ -766,7 +740,7 @@ For more information:
     request.endpoint = "campaigns";
     Map<String,String> queryParams = new HashMap<String, String>();
     queryParams.put("limit", "0");
-    queryParams.put("offset", "0");
+      queryParams.put("offset", "0");
     request.queryParams = queryParams;
     Response response = sg.api(request);
     System.out.println(response.statusCode);
@@ -787,7 +761,6 @@ For more information:
 ### PATCH /campaigns/{campaign_id}
 
 ```java
-  Request request = new Request();
   try {
     SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
     Request request = new Request();
@@ -815,7 +788,6 @@ For more information:
 ### GET /campaigns/{campaign_id}
 
 ```java
-  Request request = new Request();
   try {
     SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
     Request request = new Request();
@@ -842,7 +814,6 @@ For more information:
 ### DELETE /campaigns/{campaign_id}
 
 ```java
-  Request request = new Request();
   try {
     SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
     Request request = new Request();
@@ -867,7 +838,6 @@ For more information:
 ### PATCH /campaigns/{campaign_id}/schedules
 
 ```java
-  Request request = new Request();
   try {
     SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
     Request request = new Request();
@@ -893,7 +863,6 @@ For more information:
 ### POST /campaigns/{campaign_id}/schedules
 
 ```java
-  Request request = new Request();
   try {
     SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
     Request request = new Request();
@@ -919,7 +888,6 @@ For more information:
 ### GET /campaigns/{campaign_id}/schedules
 
 ```java
-  Request request = new Request();
   try {
     SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
     Request request = new Request();
@@ -947,7 +915,6 @@ For more information:
 ### DELETE /campaigns/{campaign_id}/schedules
 
 ```java
-  Request request = new Request();
   try {
     SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
     Request request = new Request();
@@ -974,7 +941,6 @@ For more information:
 ### POST /campaigns/{campaign_id}/schedules/now
 
 ```java
-  Request request = new Request();
   try {
     SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
     Request request = new Request();
@@ -1001,7 +967,6 @@ For more information:
 ### POST /campaigns/{campaign_id}/schedules/test
 
 ```java
-  Request request = new Request();
   try {
     SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
     Request request = new Request();
@@ -1028,7 +993,6 @@ Categories can help organize your email analytics by enabling you to tag emails 
 ### GET /categories
 
 ```java
-  Request request = new Request();
   try {
     SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
     Request request = new Request();
@@ -1036,8 +1000,8 @@ Categories can help organize your email analytics by enabling you to tag emails 
     request.endpoint = "categories";
     Map<String,String> queryParams = new HashMap<String, String>();
     queryParams.put("category", "test_string");
-    queryParams.put("limit", "1");
-    queryParams.put("offset", "1");
+      queryParams.put("limit", "1");
+      queryParams.put("offset", "1");
     request.queryParams = queryParams;
     Response response = sg.api(request);
     System.out.println(response.statusCode);
@@ -1058,7 +1022,6 @@ Categories allow you to group your emails together according to broad topics tha
 ### GET /categories/stats
 
 ```java
-  Request request = new Request();
   try {
     SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
     Request request = new Request();
@@ -1066,11 +1029,11 @@ Categories allow you to group your emails together according to broad topics tha
     request.endpoint = "categories/stats";
     Map<String,String> queryParams = new HashMap<String, String>();
     queryParams.put("end_date", "2016-04-01");
-    queryParams.put("aggregated_by", "day");
-    queryParams.put("limit", "1");
-    queryParams.put("offset", "1");
-    queryParams.put("start_date", "2016-01-01");
-    queryParams.put("categories", "test_string");
+      queryParams.put("aggregated_by", "day");
+      queryParams.put("limit", "1");
+      queryParams.put("offset", "1");
+      queryParams.put("start_date", "2016-01-01");
+      queryParams.put("categories", "test_string");
     request.queryParams = queryParams;
     Response response = sg.api(request);
     System.out.println(response.statusCode);
@@ -1091,7 +1054,6 @@ Categories allow you to group your emails together according to broad topics tha
 ### GET /categories/stats/sums
 
 ```java
-  Request request = new Request();
   try {
     SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
     Request request = new Request();
@@ -1099,12 +1061,12 @@ Categories allow you to group your emails together according to broad topics tha
     request.endpoint = "categories/stats/sums";
     Map<String,String> queryParams = new HashMap<String, String>();
     queryParams.put("end_date", "2016-04-01");
-    queryParams.put("aggregated_by", "day");
-    queryParams.put("limit", "1");
-    queryParams.put("sort_by_metric", "test_string");
-    queryParams.put("offset", "1");
-    queryParams.put("start_date", "2016-01-01");
-    queryParams.put("sort_by_direction", "asc");
+      queryParams.put("aggregated_by", "day");
+      queryParams.put("limit", "1");
+      queryParams.put("sort_by_metric", "test_string");
+      queryParams.put("offset", "1");
+      queryParams.put("start_date", "2016-01-01");
+      queryParams.put("sort_by_direction", "asc");
     request.queryParams = queryParams;
     Response response = sg.api(request);
     System.out.println(response.statusCode);
@@ -1128,7 +1090,6 @@ Advanced Stats provide a more in-depth view of your email statistics and the act
 ### GET /clients/stats
 
 ```java
-  Request request = new Request();
   try {
     SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
     Request request = new Request();
@@ -1136,8 +1097,8 @@ Advanced Stats provide a more in-depth view of your email statistics and the act
     request.endpoint = "clients/stats";
     Map<String,String> queryParams = new HashMap<String, String>();
     queryParams.put("aggregated_by", "day");
-    queryParams.put("start_date", "2016-01-01");
-    queryParams.put("end_date", "2016-04-01");
+      queryParams.put("start_date", "2016-01-01");
+      queryParams.put("end_date", "2016-04-01");
     request.queryParams = queryParams;
     Response response = sg.api(request);
     System.out.println(response.statusCode);
@@ -1164,7 +1125,6 @@ Advanced Stats provide a more in-depth view of your email statistics and the act
 ### GET /clients/{client_type}/stats
 
 ```java
-  Request request = new Request();
   try {
     SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
     Request request = new Request();
@@ -1172,8 +1132,8 @@ Advanced Stats provide a more in-depth view of your email statistics and the act
     request.endpoint = "clients/{client_type}/stats";
     Map<String,String> queryParams = new HashMap<String, String>();
     queryParams.put("aggregated_by", "day");
-    queryParams.put("start_date", "2016-01-01");
-    queryParams.put("end_date", "2016-04-01");
+      queryParams.put("start_date", "2016-01-01");
+      queryParams.put("end_date", "2016-04-01");
     request.queryParams = queryParams;
     Response response = sg.api(request);
     System.out.println(response.statusCode);
@@ -1195,7 +1155,6 @@ The contactdb is a database of your contacts for [SendGrid Marketing Campaigns](
 ### POST /contactdb/custom_fields
 
 ```java
-  Request request = new Request();
   try {
     SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
     Request request = new Request();
@@ -1219,7 +1178,6 @@ The contactdb is a database of your contacts for [SendGrid Marketing Campaigns](
 ### GET /contactdb/custom_fields
 
 ```java
-  Request request = new Request();
   try {
     SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
     Request request = new Request();
@@ -1242,7 +1200,6 @@ The contactdb is a database of your contacts for [SendGrid Marketing Campaigns](
 ### GET /contactdb/custom_fields/{custom_field_id}
 
 ```java
-  Request request = new Request();
   try {
     SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
     Request request = new Request();
@@ -1265,7 +1222,6 @@ The contactdb is a database of your contacts for [SendGrid Marketing Campaigns](
 ### DELETE /contactdb/custom_fields/{custom_field_id}
 
 ```java
-  Request request = new Request();
   try {
     SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
     Request request = new Request();
@@ -1288,7 +1244,6 @@ The Contacts API helps you manage your [Marketing Campaigns](https://sendgrid.co
 ### POST /contactdb/lists
 
 ```java
-  Request request = new Request();
   try {
     SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
     Request request = new Request();
@@ -1312,7 +1267,6 @@ The Contacts API helps you manage your [Marketing Campaigns](https://sendgrid.co
 ### GET /contactdb/lists
 
 ```java
-  Request request = new Request();
   try {
     SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
     Request request = new Request();
@@ -1335,7 +1289,6 @@ The Contacts API helps you manage your [Marketing Campaigns](https://sendgrid.co
 ### DELETE /contactdb/lists
 
 ```java
-  Request request = new Request();
   try {
     SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
     Request request = new Request();
@@ -1360,7 +1313,6 @@ The Contacts API helps you manage your [Marketing Campaigns](https://sendgrid.co
 ### PATCH /contactdb/lists/{list_id}
 
 ```java
-  Request request = new Request();
   try {
     SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
     Request request = new Request();
@@ -1387,7 +1339,6 @@ The Contacts API helps you manage your [Marketing Campaigns](https://sendgrid.co
 ### GET /contactdb/lists/{list_id}
 
 ```java
-  Request request = new Request();
   try {
     SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
     Request request = new Request();
@@ -1413,7 +1364,6 @@ The Contacts API helps you manage your [Marketing Campaigns](https://sendgrid.co
 ### DELETE /contactdb/lists/{list_id}
 
 ```java
-  Request request = new Request();
   try {
     SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
     Request request = new Request();
@@ -1441,7 +1391,6 @@ The Contacts API helps you manage your [Marketing Campaigns](https://sendgrid.co
 ### POST /contactdb/lists/{list_id}/recipients
 
 ```java
-  Request request = new Request();
   try {
     SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
     Request request = new Request();
@@ -1465,7 +1414,6 @@ The Contacts API helps you manage your [Marketing Campaigns](https://sendgrid.co
 ### GET /contactdb/lists/{list_id}/recipients
 
 ```java
-  Request request = new Request();
   try {
     SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
     Request request = new Request();
@@ -1473,8 +1421,8 @@ The Contacts API helps you manage your [Marketing Campaigns](https://sendgrid.co
     request.endpoint = "contactdb/lists/{list_id}/recipients";
     Map<String,String> queryParams = new HashMap<String, String>();
     queryParams.put("page", "1");
-    queryParams.put("page_size", "1");
-    queryParams.put("list_id", "0");
+      queryParams.put("page_size", "1");
+      queryParams.put("list_id", "0");
     request.queryParams = queryParams;
     Response response = sg.api(request);
     System.out.println(response.statusCode);
@@ -1493,7 +1441,6 @@ The Contacts API helps you manage your [Marketing Campaigns](https://sendgrid.co
 ### POST /contactdb/lists/{list_id}/recipients/{recipient_id}
 
 ```java
-  Request request = new Request();
   try {
     SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
     Request request = new Request();
@@ -1516,7 +1463,6 @@ The Contacts API helps you manage your [Marketing Campaigns](https://sendgrid.co
 ### DELETE /contactdb/lists/{list_id}/recipients/{recipient_id}
 
 ```java
-  Request request = new Request();
   try {
     SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
     Request request = new Request();
@@ -1524,7 +1470,7 @@ The Contacts API helps you manage your [Marketing Campaigns](https://sendgrid.co
     request.endpoint = "contactdb/lists/{list_id}/recipients/{recipient_id}";
     Map<String,String> queryParams = new HashMap<String, String>();
     queryParams.put("recipient_id", "0");
-    queryParams.put("list_id", "0");
+      queryParams.put("list_id", "0");
     request.queryParams = queryParams;
     Response response = sg.api(request);
     System.out.println(response.statusCode);
@@ -1547,7 +1493,6 @@ The contactdb is a database of your contacts for [SendGrid Marketing Campaigns](
 ### PATCH /contactdb/recipients
 
 ```java
-  Request request = new Request();
   try {
     SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
     Request request = new Request();
@@ -1573,7 +1518,6 @@ The Contacts API helps you manage your [Marketing Campaigns](https://sendgrid.co
 ### POST /contactdb/recipients
 
 ```java
-  Request request = new Request();
   try {
     SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
     Request request = new Request();
@@ -1600,7 +1544,6 @@ The Contacts API helps you manage your [Marketing Campaigns](https://sendgrid.co
 ### GET /contactdb/recipients
 
 ```java
-  Request request = new Request();
   try {
     SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
     Request request = new Request();
@@ -1608,7 +1551,7 @@ The Contacts API helps you manage your [Marketing Campaigns](https://sendgrid.co
     request.endpoint = "contactdb/recipients";
     Map<String,String> queryParams = new HashMap<String, String>();
     queryParams.put("page", "1");
-    queryParams.put("page_size", "1");
+      queryParams.put("page_size", "1");
     request.queryParams = queryParams;
     Response response = sg.api(request);
     System.out.println(response.statusCode);
@@ -1629,7 +1572,6 @@ The contactdb is a database of your contacts for [SendGrid Marketing Campaigns](
 ### DELETE /contactdb/recipients
 
 ```java
-  Request request = new Request();
   try {
     SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
     Request request = new Request();
@@ -1655,7 +1597,6 @@ The Contacts API helps you manage your [Marketing Campaigns](https://sendgrid.co
 ### GET /contactdb/recipients/billable_count
 
 ```java
-  Request request = new Request();
   try {
     SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
     Request request = new Request();
@@ -1678,7 +1619,6 @@ The contactdb is a database of your contacts for [SendGrid Marketing Campaigns](
 ### GET /contactdb/recipients/count
 
 ```java
-  Request request = new Request();
   try {
     SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
     Request request = new Request();
@@ -1710,7 +1650,6 @@ The contactdb is a database of your contacts for [SendGrid Marketing Campaigns](
 ### GET /contactdb/recipients/search
 
 ```java
-  Request request = new Request();
   try {
     SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
     Request request = new Request();
@@ -1736,7 +1675,6 @@ The Contacts API helps you manage your [Marketing Campaigns](https://sendgrid.co
 ### GET /contactdb/recipients/{recipient_id}
 
 ```java
-  Request request = new Request();
   try {
     SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
     Request request = new Request();
@@ -1759,7 +1697,6 @@ The Contacts API helps you manage your [Marketing Campaigns](https://sendgrid.co
 ### DELETE /contactdb/recipients/{recipient_id}
 
 ```java
-  Request request = new Request();
   try {
     SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
     Request request = new Request();
@@ -1784,7 +1721,6 @@ The Contacts API helps you manage your [Marketing Campaigns](https://sendgrid.co
 ### GET /contactdb/recipients/{recipient_id}/lists
 
 ```java
-  Request request = new Request();
   try {
     SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
     Request request = new Request();
@@ -1807,7 +1743,6 @@ The contactdb is a database of your contacts for [SendGrid Marketing Campaigns](
 ### GET /contactdb/reserved_fields
 
 ```java
-  Request request = new Request();
   try {
     SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
     Request request = new Request();
@@ -1850,7 +1785,6 @@ For more information about segments in Marketing Campaigns, please see our [User
 ### POST /contactdb/segments
 
 ```java
-  Request request = new Request();
   try {
     SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
     Request request = new Request();
@@ -1876,7 +1810,6 @@ For more information about segments in Marketing Campaigns, please see our [User
 ### GET /contactdb/segments
 
 ```java
-  Request request = new Request();
   try {
     SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
     Request request = new Request();
@@ -1901,7 +1834,6 @@ For more information about segments in Marketing Campaigns, please see our [User
 ### PATCH /contactdb/segments/{segment_id}
 
 ```java
-  Request request = new Request();
   try {
     SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
     Request request = new Request();
@@ -1930,7 +1862,6 @@ For more information about segments in Marketing Campaigns, please see our [User
 ### GET /contactdb/segments/{segment_id}
 
 ```java
-  Request request = new Request();
   try {
     SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
     Request request = new Request();
@@ -1960,7 +1891,6 @@ For more information about segments in Marketing Campaigns, please see our [User
 ### DELETE /contactdb/segments/{segment_id}
 
 ```java
-  Request request = new Request();
   try {
     SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
     Request request = new Request();
@@ -1988,7 +1918,6 @@ For more information about segments in Marketing Campaigns, please see our [User
 ### GET /contactdb/segments/{segment_id}/recipients
 
 ```java
-  Request request = new Request();
   try {
     SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
     Request request = new Request();
@@ -1996,7 +1925,7 @@ For more information about segments in Marketing Campaigns, please see our [User
     request.endpoint = "contactdb/segments/{segment_id}/recipients";
     Map<String,String> queryParams = new HashMap<String, String>();
     queryParams.put("page", "1");
-    queryParams.put("page_size", "1");
+      queryParams.put("page_size", "1");
     request.queryParams = queryParams;
     Response response = sg.api(request);
     System.out.println(response.statusCode);
@@ -2029,7 +1958,6 @@ Advanced Stats provide a more in-depth view of your email statistics and the act
 ### GET /devices/stats
 
 ```java
-  Request request = new Request();
   try {
     SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
     Request request = new Request();
@@ -2037,10 +1965,10 @@ Advanced Stats provide a more in-depth view of your email statistics and the act
     request.endpoint = "devices/stats";
     Map<String,String> queryParams = new HashMap<String, String>();
     queryParams.put("aggregated_by", "day");
-    queryParams.put("limit", "1");
-    queryParams.put("start_date", "2016-01-01");
-    queryParams.put("end_date", "2016-04-01");
-    queryParams.put("offset", "1");
+      queryParams.put("limit", "1");
+      queryParams.put("start_date", "2016-01-01");
+      queryParams.put("end_date", "2016-04-01");
+      queryParams.put("offset", "1");
     request.queryParams = queryParams;
     Response response = sg.api(request);
     System.out.println(response.statusCode);
@@ -2064,7 +1992,6 @@ Advanced Stats provide a more in-depth view of your email statistics and the act
 ### GET /geo/stats
 
 ```java
-  Request request = new Request();
   try {
     SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
     Request request = new Request();
@@ -2072,11 +1999,11 @@ Advanced Stats provide a more in-depth view of your email statistics and the act
     request.endpoint = "geo/stats";
     Map<String,String> queryParams = new HashMap<String, String>();
     queryParams.put("end_date", "2016-04-01");
-    queryParams.put("country", "US");
-    queryParams.put("aggregated_by", "day");
-    queryParams.put("limit", "1");
-    queryParams.put("offset", "1");
-    queryParams.put("start_date", "2016-01-01");
+      queryParams.put("country", "US");
+      queryParams.put("aggregated_by", "day");
+      queryParams.put("limit", "1");
+      queryParams.put("offset", "1");
+      queryParams.put("start_date", "2016-01-01");
     request.queryParams = queryParams;
     Response response = sg.api(request);
     System.out.println(response.statusCode);
@@ -2100,7 +2027,6 @@ A single IP address or a range of IP addresses may be dedicated to an account in
 ### GET /ips
 
 ```java
-  Request request = new Request();
   try {
     SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
     Request request = new Request();
@@ -2108,10 +2034,10 @@ A single IP address or a range of IP addresses may be dedicated to an account in
     request.endpoint = "ips";
     Map<String,String> queryParams = new HashMap<String, String>();
     queryParams.put("subuser", "test_string");
-    queryParams.put("ip", "test_string");
-    queryParams.put("limit", "1");
-    queryParams.put("exclude_whitelabels", "true");
-    queryParams.put("offset", "1");
+      queryParams.put("ip", "test_string");
+      queryParams.put("limit", "1");
+      queryParams.put("exclude_whitelabels", "true");
+      queryParams.put("offset", "1");
     request.queryParams = queryParams;
     Response response = sg.api(request);
     System.out.println(response.statusCode);
@@ -2130,7 +2056,6 @@ A single IP address or a range of IP addresses may be dedicated to an account in
 ### GET /ips/assigned
 
 ```java
-  Request request = new Request();
   try {
     SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
     Request request = new Request();
@@ -2159,7 +2084,6 @@ If an IP pool is NOT specified for an email, it will use any IP available, inclu
 ### POST /ips/pools
 
 ```java
-  Request request = new Request();
   try {
     SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
     Request request = new Request();
@@ -2187,7 +2111,6 @@ If an IP pool is NOT specified for an email, it will use any IP available, inclu
 ### GET /ips/pools
 
 ```java
-  Request request = new Request();
   try {
     SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
     Request request = new Request();
@@ -2214,7 +2137,6 @@ If an IP pool is NOT specified for an email, it will use any IP available, inclu
 ### PUT /ips/pools/{pool_name}
 
 ```java
-  Request request = new Request();
   try {
     SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
     Request request = new Request();
@@ -2242,7 +2164,6 @@ If an IP pool is NOT specified for an email, it will use any IP available, inclu
 ### GET /ips/pools/{pool_name}
 
 ```java
-  Request request = new Request();
   try {
     SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
     Request request = new Request();
@@ -2269,7 +2190,6 @@ If an IP pool is NOT specified for an email, it will use any IP available, inclu
 ### DELETE /ips/pools/{pool_name}
 
 ```java
-  Request request = new Request();
   try {
     SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
     Request request = new Request();
@@ -2294,7 +2214,6 @@ A single IP address or a range of IP addresses may be dedicated to an account in
 ### POST /ips/pools/{pool_name}/ips
 
 ```java
-  Request request = new Request();
   try {
     SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
     Request request = new Request();
@@ -2320,7 +2239,6 @@ A single IP address or a range of IP addresses may be dedicated to an account in
 ### DELETE /ips/pools/{pool_name}/ips/{ip}
 
 ```java
-  Request request = new Request();
   try {
     SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
     Request request = new Request();
@@ -2345,7 +2263,6 @@ For more general information about warming up IPs, please see our [Classroom](ht
 ### POST /ips/warmup
 
 ```java
-  Request request = new Request();
   try {
     SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
     Request request = new Request();
@@ -2371,7 +2288,6 @@ For more general information about warming up IPs, please see our [Classroom](ht
 ### GET /ips/warmup
 
 ```java
-  Request request = new Request();
   try {
     SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
     Request request = new Request();
@@ -2396,7 +2312,6 @@ For more general information about warming up IPs, please see our [Classroom](ht
 ### GET /ips/warmup/{ip_address}
 
 ```java
-  Request request = new Request();
   try {
     SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
     Request request = new Request();
@@ -2421,7 +2336,6 @@ For more general information about warming up IPs, please see our [Classroom](ht
 ### DELETE /ips/warmup/{ip_address}
 
 ```java
-  Request request = new Request();
   try {
     SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
     Request request = new Request();
@@ -2446,7 +2360,6 @@ A single IP address or a range of IP addresses may be dedicated to an account in
 ### GET /ips/{ip_address}
 
 ```java
-  Request request = new Request();
   try {
     SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
     Request request = new Request();
@@ -2476,7 +2389,6 @@ More Information:
 ### POST /mail/batch
 
 ```java
-  Request request = new Request();
   try {
     SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
     Request request = new Request();
@@ -2503,7 +2415,6 @@ More Information:
 ### GET /mail/batch/{batch_id}
 
 ```java
-  Request request = new Request();
   try {
     SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
     Request request = new Request();
@@ -2531,7 +2442,6 @@ For more detailed information about how to use the v3 Mail Send endpoint, please
 ### POST /mail/send/beta
 
 ```java
-  Request request = new Request();
   try {
     SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
     Request request = new Request();
@@ -2558,7 +2468,6 @@ Mail settings allow you to tell SendGrid specific things to do to every email th
 ### GET /mail_settings
 
 ```java
-  Request request = new Request();
   try {
     SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
     Request request = new Request();
@@ -2566,7 +2475,7 @@ Mail settings allow you to tell SendGrid specific things to do to every email th
     request.endpoint = "mail_settings";
     Map<String,String> queryParams = new HashMap<String, String>();
     queryParams.put("limit", "1");
-    queryParams.put("offset", "1");
+      queryParams.put("offset", "1");
     request.queryParams = queryParams;
     Response response = sg.api(request);
     System.out.println(response.statusCode);
@@ -2587,7 +2496,6 @@ Mail settings allow you to tell SendGrid specific things to do to every email th
 ### PATCH /mail_settings/address_whitelist
 
 ```java
-  Request request = new Request();
   try {
     SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
     Request request = new Request();
@@ -2613,7 +2521,6 @@ Mail settings allow you to tell SendGrid specific things to do to every email th
 ### GET /mail_settings/address_whitelist
 
 ```java
-  Request request = new Request();
   try {
     SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
     Request request = new Request();
@@ -2638,7 +2545,6 @@ Mail settings allow you to tell SendGrid specific things to do to every email th
 ### PATCH /mail_settings/bcc
 
 ```java
-  Request request = new Request();
   try {
     SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
     Request request = new Request();
@@ -2664,7 +2570,6 @@ Mail settings allow you to tell SendGrid specific things to do to every email th
 ### GET /mail_settings/bcc
 
 ```java
-  Request request = new Request();
   try {
     SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
     Request request = new Request();
@@ -2689,7 +2594,6 @@ Mail settings allow you to tell SendGrid specific things to do to every email th
 ### PATCH /mail_settings/bounce_purge
 
 ```java
-  Request request = new Request();
   try {
     SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
     Request request = new Request();
@@ -2715,7 +2619,6 @@ Mail settings allow you to tell SendGrid specific things to do to every email th
 ### GET /mail_settings/bounce_purge
 
 ```java
-  Request request = new Request();
   try {
     SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
     Request request = new Request();
@@ -2740,7 +2643,6 @@ Mail settings allow you to tell SendGrid specific things to do to every email th
 ### PATCH /mail_settings/footer
 
 ```java
-  Request request = new Request();
   try {
     SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
     Request request = new Request();
@@ -2766,7 +2668,6 @@ Mail settings allow you to tell SendGrid specific things to do to every email th
 ### GET /mail_settings/footer
 
 ```java
-  Request request = new Request();
   try {
     SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
     Request request = new Request();
@@ -2791,7 +2692,6 @@ Mail settings allow you to tell SendGrid specific things to do to every email th
 ### PATCH /mail_settings/forward_bounce
 
 ```java
-  Request request = new Request();
   try {
     SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
     Request request = new Request();
@@ -2817,7 +2717,6 @@ Mail settings allow you to tell SendGrid specific things to do to every email th
 ### GET /mail_settings/forward_bounce
 
 ```java
-  Request request = new Request();
   try {
     SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
     Request request = new Request();
@@ -2842,7 +2741,6 @@ Mail settings allow you to tell SendGrid specific things to do to every email th
 ### PATCH /mail_settings/forward_spam
 
 ```java
-  Request request = new Request();
   try {
     SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
     Request request = new Request();
@@ -2868,7 +2766,6 @@ Mail settings allow you to tell SendGrid specific things to do to every email th
 ### GET /mail_settings/forward_spam
 
 ```java
-  Request request = new Request();
   try {
     SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
     Request request = new Request();
@@ -2893,7 +2790,6 @@ Mail settings allow you to tell SendGrid specific things to do to every email th
 ### PATCH /mail_settings/plain_content
 
 ```java
-  Request request = new Request();
   try {
     SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
     Request request = new Request();
@@ -2919,7 +2815,6 @@ Mail settings allow you to tell SendGrid specific things to do to every email th
 ### GET /mail_settings/plain_content
 
 ```java
-  Request request = new Request();
   try {
     SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
     Request request = new Request();
@@ -2944,7 +2839,6 @@ Mail settings allow you to tell SendGrid specific things to do to every email th
 ### PATCH /mail_settings/spam_check
 
 ```java
-  Request request = new Request();
   try {
     SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
     Request request = new Request();
@@ -2970,7 +2864,6 @@ Mail settings allow you to tell SendGrid specific things to do to every email th
 ### GET /mail_settings/spam_check
 
 ```java
-  Request request = new Request();
   try {
     SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
     Request request = new Request();
@@ -2997,7 +2890,6 @@ Mail settings allow you to tell SendGrid specific things to do to every email th
 ### PATCH /mail_settings/template
 
 ```java
-  Request request = new Request();
   try {
     SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
     Request request = new Request();
@@ -3025,7 +2917,6 @@ Mail settings allow you to tell SendGrid specific things to do to every email th
 ### GET /mail_settings/template
 
 ```java
-  Request request = new Request();
   try {
     SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
     Request request = new Request();
@@ -3053,7 +2944,6 @@ Advanced Stats provide a more in-depth view of your email statistics and the act
 ### GET /mailbox_providers/stats
 
 ```java
-  Request request = new Request();
   try {
     SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
     Request request = new Request();
@@ -3061,11 +2951,11 @@ Advanced Stats provide a more in-depth view of your email statistics and the act
     request.endpoint = "mailbox_providers/stats";
     Map<String,String> queryParams = new HashMap<String, String>();
     queryParams.put("end_date", "2016-04-01");
-    queryParams.put("mailbox_providers", "test_string");
-    queryParams.put("aggregated_by", "day");
-    queryParams.put("limit", "1");
-    queryParams.put("offset", "1");
-    queryParams.put("start_date", "2016-01-01");
+      queryParams.put("mailbox_providers", "test_string");
+      queryParams.put("aggregated_by", "day");
+      queryParams.put("limit", "1");
+      queryParams.put("offset", "1");
+      queryParams.put("start_date", "2016-01-01");
     request.queryParams = queryParams;
     Response response = sg.api(request);
     System.out.println(response.statusCode);
@@ -3087,7 +2977,6 @@ Our partner settings allow you to integrate your SendGrid account with our partn
 ### GET /partner_settings
 
 ```java
-  Request request = new Request();
   try {
     SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
     Request request = new Request();
@@ -3095,7 +2984,7 @@ Our partner settings allow you to integrate your SendGrid account with our partn
     request.endpoint = "partner_settings";
     Map<String,String> queryParams = new HashMap<String, String>();
     queryParams.put("limit", "1");
-    queryParams.put("offset", "1");
+      queryParams.put("offset", "1");
     request.queryParams = queryParams;
     Response response = sg.api(request);
     System.out.println(response.statusCode);
@@ -3116,7 +3005,6 @@ By integrating with New Relic, you can send your SendGrid email statistics to yo
 ### PATCH /partner_settings/new_relic
 
 ```java
-  Request request = new Request();
   try {
     SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
     Request request = new Request();
@@ -3142,7 +3030,6 @@ By integrating with New Relic, you can send your SendGrid email statistics to yo
 ### GET /partner_settings/new_relic
 
 ```java
-  Request request = new Request();
   try {
     SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
     Request request = new Request();
@@ -3168,7 +3055,6 @@ API Keys can be used to authenticate the use of [SendGrids v3 Web API](https://s
 ### GET /scopes
 
 ```java
-  Request request = new Request();
   try {
     SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
     Request request = new Request();
@@ -3194,7 +3080,6 @@ Parent accounts will see aggregated stats for their account and all subuser acco
 ### GET /stats
 
 ```java
-  Request request = new Request();
   try {
     SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
     Request request = new Request();
@@ -3202,10 +3087,10 @@ Parent accounts will see aggregated stats for their account and all subuser acco
     request.endpoint = "stats";
     Map<String,String> queryParams = new HashMap<String, String>();
     queryParams.put("aggregated_by", "day");
-    queryParams.put("limit", "1");
-    queryParams.put("start_date", "2016-01-01");
-    queryParams.put("end_date", "2016-04-01");
-    queryParams.put("offset", "1");
+      queryParams.put("limit", "1");
+      queryParams.put("start_date", "2016-01-01");
+      queryParams.put("end_date", "2016-04-01");
+      queryParams.put("offset", "1");
     request.queryParams = queryParams;
     Response response = sg.api(request);
     System.out.println(response.statusCode);
@@ -3230,7 +3115,6 @@ For more information about Subusers:
 ### POST /subusers
 
 ```java
-  Request request = new Request();
   try {
     SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
     Request request = new Request();
@@ -3257,7 +3141,6 @@ For more information about Subusers:
 ### GET /subusers
 
 ```java
-  Request request = new Request();
   try {
     SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
     Request request = new Request();
@@ -3265,8 +3148,8 @@ For more information about Subusers:
     request.endpoint = "subusers";
     Map<String,String> queryParams = new HashMap<String, String>();
     queryParams.put("username", "test_string");
-    queryParams.put("limit", "0");
-    queryParams.put("offset", "0");
+      queryParams.put("limit", "0");
+      queryParams.put("offset", "0");
     request.queryParams = queryParams;
     Response response = sg.api(request);
     System.out.println(response.statusCode);
@@ -3285,7 +3168,6 @@ This endpoint allows you to request the reputations for your subusers.
 ### GET /subusers/reputations
 
 ```java
-  Request request = new Request();
   try {
     SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
     Request request = new Request();
@@ -3315,7 +3197,6 @@ For more information, see our [User Guide](https://sendgrid.com/docs/User_Guide/
 ### GET /subusers/stats
 
 ```java
-  Request request = new Request();
   try {
     SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
     Request request = new Request();
@@ -3323,11 +3204,11 @@ For more information, see our [User Guide](https://sendgrid.com/docs/User_Guide/
     request.endpoint = "subusers/stats";
     Map<String,String> queryParams = new HashMap<String, String>();
     queryParams.put("end_date", "2016-04-01");
-    queryParams.put("aggregated_by", "day");
-    queryParams.put("limit", "1");
-    queryParams.put("offset", "1");
-    queryParams.put("start_date", "2016-01-01");
-    queryParams.put("subusers", "test_string");
+      queryParams.put("aggregated_by", "day");
+      queryParams.put("limit", "1");
+      queryParams.put("offset", "1");
+      queryParams.put("start_date", "2016-01-01");
+      queryParams.put("subusers", "test_string");
     request.queryParams = queryParams;
     Response response = sg.api(request);
     System.out.println(response.statusCode);
@@ -3351,7 +3232,6 @@ For more information, see our [User Guide](https://sendgrid.com/docs/User_Guide/
 ### GET /subusers/stats/monthly
 
 ```java
-  Request request = new Request();
   try {
     SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
     Request request = new Request();
@@ -3359,11 +3239,11 @@ For more information, see our [User Guide](https://sendgrid.com/docs/User_Guide/
     request.endpoint = "subusers/stats/monthly";
     Map<String,String> queryParams = new HashMap<String, String>();
     queryParams.put("subuser", "test_string");
-    queryParams.put("limit", "1");
-    queryParams.put("sort_by_metric", "test_string");
-    queryParams.put("offset", "1");
-    queryParams.put("date", "test_string");
-    queryParams.put("sort_by_direction", "asc");
+      queryParams.put("limit", "1");
+      queryParams.put("sort_by_metric", "test_string");
+      queryParams.put("offset", "1");
+      queryParams.put("date", "test_string");
+      queryParams.put("sort_by_direction", "asc");
     request.queryParams = queryParams;
     Response response = sg.api(request);
     System.out.println(response.statusCode);
@@ -3385,7 +3265,6 @@ For more information, see our [User Guide](https://sendgrid.com/docs/User_Guide/
 ### GET /subusers/stats/sums
 
 ```java
-  Request request = new Request();
   try {
     SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
     Request request = new Request();
@@ -3393,12 +3272,12 @@ For more information, see our [User Guide](https://sendgrid.com/docs/User_Guide/
     request.endpoint = "subusers/stats/sums";
     Map<String,String> queryParams = new HashMap<String, String>();
     queryParams.put("end_date", "2016-04-01");
-    queryParams.put("aggregated_by", "day");
-    queryParams.put("limit", "1");
-    queryParams.put("sort_by_metric", "test_string");
-    queryParams.put("offset", "1");
-    queryParams.put("start_date", "2016-01-01");
-    queryParams.put("sort_by_direction", "asc");
+      queryParams.put("aggregated_by", "day");
+      queryParams.put("limit", "1");
+      queryParams.put("sort_by_metric", "test_string");
+      queryParams.put("offset", "1");
+      queryParams.put("start_date", "2016-01-01");
+      queryParams.put("sort_by_direction", "asc");
     request.queryParams = queryParams;
     Response response = sg.api(request);
     System.out.println(response.statusCode);
@@ -3420,7 +3299,6 @@ For more information about Subusers:
 ### PATCH /subusers/{subuser_name}
 
 ```java
-  Request request = new Request();
   try {
     SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
     Request request = new Request();
@@ -3447,7 +3325,6 @@ For more information about Subusers:
 ### DELETE /subusers/{subuser_name}
 
 ```java
-  Request request = new Request();
   try {
     SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
     Request request = new Request();
@@ -3473,7 +3350,6 @@ More information:
 ### PUT /subusers/{subuser_name}/ips
 
 ```java
-  Request request = new Request();
   try {
     SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
     Request request = new Request();
@@ -3495,7 +3371,6 @@ Subuser monitor settings allow you to receive a sample of an outgoing message by
 ### PUT /subusers/{subuser_name}/monitor
 
 ```java
-  Request request = new Request();
   try {
     SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
     Request request = new Request();
@@ -3517,7 +3392,6 @@ Subuser monitor settings allow you to receive a sample of an outgoing message by
 ### POST /subusers/{subuser_name}/monitor
 
 ```java
-  Request request = new Request();
   try {
     SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
     Request request = new Request();
@@ -3539,7 +3413,6 @@ Subuser monitor settings allow you to receive a sample of an outgoing message by
 ### GET /subusers/{subuser_name}/monitor
 
 ```java
-  Request request = new Request();
   try {
     SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
     Request request = new Request();
@@ -3560,7 +3433,6 @@ Subuser monitor settings allow you to receive a sample of an outgoing message by
 ### DELETE /subusers/{subuser_name}/monitor
 
 ```java
-  Request request = new Request();
   try {
     SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
     Request request = new Request();
@@ -3588,7 +3460,6 @@ For more information, see our [User Guide](https://sendgrid.com/docs/User_Guide/
 ### GET /subusers/{subuser_name}/stats/monthly
 
 ```java
-  Request request = new Request();
   try {
     SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
     Request request = new Request();
@@ -3596,10 +3467,10 @@ For more information, see our [User Guide](https://sendgrid.com/docs/User_Guide/
     request.endpoint = "subusers/{subuser_name}/stats/monthly";
     Map<String,String> queryParams = new HashMap<String, String>();
     queryParams.put("date", "test_string");
-    queryParams.put("sort_by_direction", "asc");
-    queryParams.put("limit", "0");
-    queryParams.put("sort_by_metric", "test_string");
-    queryParams.put("offset", "1");
+      queryParams.put("sort_by_direction", "asc");
+      queryParams.put("limit", "0");
+      queryParams.put("sort_by_metric", "test_string");
+      queryParams.put("offset", "1");
     request.queryParams = queryParams;
     Response response = sg.api(request);
     System.out.println(response.statusCode);
@@ -3623,7 +3494,6 @@ For more information, please see our [User Guide](https://sendgrid.com/docs/User
 ### GET /suppression/blocks
 
 ```java
-  Request request = new Request();
   try {
     SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
     Request request = new Request();
@@ -3631,9 +3501,9 @@ For more information, please see our [User Guide](https://sendgrid.com/docs/User
     request.endpoint = "suppression/blocks";
     Map<String,String> queryParams = new HashMap<String, String>();
     queryParams.put("start_time", "1");
-    queryParams.put("limit", "1");
-    queryParams.put("end_time", "1");
-    queryParams.put("offset", "1");
+      queryParams.put("limit", "1");
+      queryParams.put("end_time", "1");
+      queryParams.put("offset", "1");
     request.queryParams = queryParams;
     Response response = sg.api(request);
     System.out.println(response.statusCode);
@@ -3659,7 +3529,6 @@ For more information, please see our [User Guide](https://sendgrid.com/docs/User
 ### DELETE /suppression/blocks
 
 ```java
-  Request request = new Request();
   try {
     SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
     Request request = new Request();
@@ -3685,7 +3554,6 @@ For more information, please see our [User Guide](https://sendgrid.com/docs/User
 ### GET /suppression/blocks/{email}
 
 ```java
-  Request request = new Request();
   try {
     SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
     Request request = new Request();
@@ -3710,7 +3578,6 @@ For more information, please see our [User Guide](https://sendgrid.com/docs/User
 ### DELETE /suppression/blocks/{email}
 
 ```java
-  Request request = new Request();
   try {
     SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
     Request request = new Request();
@@ -3738,7 +3605,6 @@ For more information see:
 ### GET /suppression/bounces
 
 ```java
-  Request request = new Request();
   try {
     SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
     Request request = new Request();
@@ -3746,7 +3612,7 @@ For more information see:
     request.endpoint = "suppression/bounces";
     Map<String,String> queryParams = new HashMap<String, String>();
     queryParams.put("start_time", "0");
-    queryParams.put("end_time", "0");
+      queryParams.put("end_time", "0");
     request.queryParams = queryParams;
     Response response = sg.api(request);
     System.out.println(response.statusCode);
@@ -3773,7 +3639,6 @@ Note: the `delete_all` and `emails` parameters should be used independently of e
 ### DELETE /suppression/bounces
 
 ```java
-  Request request = new Request();
   try {
     SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
     Request request = new Request();
@@ -3803,7 +3668,6 @@ For more information see:
 ### GET /suppression/bounces/{email}
 
 ```java
-  Request request = new Request();
   try {
     SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
     Request request = new Request();
@@ -3832,7 +3696,6 @@ For more information see:
 ### DELETE /suppression/bounces/{email}
 
 ```java
-  Request request = new Request();
   try {
     SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
     Request request = new Request();
@@ -3862,7 +3725,6 @@ For more information, please see our [User Guide](https://sendgrid.com/docs/User
 ### GET /suppression/invalid_emails
 
 ```java
-  Request request = new Request();
   try {
     SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
     Request request = new Request();
@@ -3870,9 +3732,9 @@ For more information, please see our [User Guide](https://sendgrid.com/docs/User
     request.endpoint = "suppression/invalid_emails";
     Map<String,String> queryParams = new HashMap<String, String>();
     queryParams.put("start_time", "1");
-    queryParams.put("limit", "1");
-    queryParams.put("end_time", "1");
-    queryParams.put("offset", "1");
+      queryParams.put("limit", "1");
+      queryParams.put("end_time", "1");
+      queryParams.put("offset", "1");
     request.queryParams = queryParams;
     Response response = sg.api(request);
     System.out.println(response.statusCode);
@@ -3900,7 +3762,6 @@ For more information, please see our [User Guide](https://sendgrid.com/docs/User
 ### DELETE /suppression/invalid_emails
 
 ```java
-  Request request = new Request();
   try {
     SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
     Request request = new Request();
@@ -3928,7 +3789,6 @@ For more information, please see our [User Guide](https://sendgrid.com/docs/User
 ### GET /suppression/invalid_emails/{email}
 
 ```java
-  Request request = new Request();
   try {
     SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
     Request request = new Request();
@@ -3955,7 +3815,6 @@ For more information, please see our [User Guide](https://sendgrid.com/docs/User
 ### DELETE /suppression/invalid_emails/{email}
 
 ```java
-  Request request = new Request();
   try {
     SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
     Request request = new Request();
@@ -3980,7 +3839,6 @@ For more information, please see our [User Guide](https://sendgrid.com/docs/User
 ### GET /suppression/spam_report/{email}
 
 ```java
-  Request request = new Request();
   try {
     SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
     Request request = new Request();
@@ -4005,7 +3863,6 @@ For more information, please see our [User Guide](https://sendgrid.com/docs/User
 ### DELETE /suppression/spam_report/{email}
 
 ```java
-  Request request = new Request();
   try {
     SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
     Request request = new Request();
@@ -4030,7 +3887,6 @@ For more information, please see our [User Guide](https://sendgrid.com/docs/User
 ### GET /suppression/spam_reports
 
 ```java
-  Request request = new Request();
   try {
     SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
     Request request = new Request();
@@ -4038,9 +3894,9 @@ For more information, please see our [User Guide](https://sendgrid.com/docs/User
     request.endpoint = "suppression/spam_reports";
     Map<String,String> queryParams = new HashMap<String, String>();
     queryParams.put("start_time", "1");
-    queryParams.put("limit", "1");
-    queryParams.put("end_time", "1");
-    queryParams.put("offset", "1");
+      queryParams.put("limit", "1");
+      queryParams.put("end_time", "1");
+      queryParams.put("offset", "1");
     request.queryParams = queryParams;
     Response response = sg.api(request);
     System.out.println(response.statusCode);
@@ -4066,7 +3922,6 @@ For more information, please see our [User Guide](https://sendgrid.com/docs/User
 ### DELETE /suppression/spam_reports
 
 ```java
-  Request request = new Request();
   try {
     SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
     Request request = new Request();
@@ -4090,7 +3945,6 @@ A global suppression (or global unsubscribe) is an email address of a recipient 
 ### GET /suppression/unsubscribes
 
 ```java
-  Request request = new Request();
   try {
     SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
     Request request = new Request();
@@ -4098,9 +3952,9 @@ A global suppression (or global unsubscribe) is an email address of a recipient 
     request.endpoint = "suppression/unsubscribes";
     Map<String,String> queryParams = new HashMap<String, String>();
     queryParams.put("start_time", "1");
-    queryParams.put("limit", "1");
-    queryParams.put("end_time", "1");
-    queryParams.put("offset", "1");
+      queryParams.put("limit", "1");
+      queryParams.put("end_time", "1");
+      queryParams.put("offset", "1");
     request.queryParams = queryParams;
     Response response = sg.api(request);
     System.out.println(response.statusCode);
@@ -4124,7 +3978,6 @@ Transactional templates are templates created specifically for transactional ema
 ### POST /templates
 
 ```java
-  Request request = new Request();
   try {
     SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
     Request request = new Request();
@@ -4150,7 +4003,6 @@ Transactional templates are templates created specifically for transactional ema
 ### GET /templates
 
 ```java
-  Request request = new Request();
   try {
     SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
     Request request = new Request();
@@ -4176,7 +4028,6 @@ Transactional templates are templates created specifically for transactional ema
 ### PATCH /templates/{template_id}
 
 ```java
-  Request request = new Request();
   try {
     SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
     Request request = new Request();
@@ -4203,7 +4054,6 @@ Transactional templates are templates created specifically for transactional ema
 ### GET /templates/{template_id}
 
 ```java
-  Request request = new Request();
   try {
     SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
     Request request = new Request();
@@ -4229,7 +4079,6 @@ Transactional templates are templates created specifically for transactional ema
 ### DELETE /templates/{template_id}
 
 ```java
-  Request request = new Request();
   try {
     SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
     Request request = new Request();
@@ -4255,7 +4104,6 @@ For more information about transactional templates, please see our [User Guide](
 ### POST /templates/{template_id}/versions
 
 ```java
-  Request request = new Request();
   try {
     SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
     Request request = new Request();
@@ -4287,7 +4135,6 @@ For more information about transactional templates, please see our [User Guide](
 ### PATCH /templates/{template_id}/versions/{version_id}
 
 ```java
-  Request request = new Request();
   try {
     SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
     Request request = new Request();
@@ -4319,7 +4166,6 @@ For more information about transactional templates, please see our [User Guide](
 ### GET /templates/{template_id}/versions/{version_id}
 
 ```java
-  Request request = new Request();
   try {
     SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
     Request request = new Request();
@@ -4350,7 +4196,6 @@ For more information about transactional templates, please see our [User Guide](
 ### DELETE /templates/{template_id}/versions/{version_id}
 
 ```java
-  Request request = new Request();
   try {
     SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
     Request request = new Request();
@@ -4382,7 +4227,6 @@ For more information about transactional templates, please see our [User Guide](
 ### POST /templates/{template_id}/versions/{version_id}/activate
 
 ```java
-  Request request = new Request();
   try {
     SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
     Request request = new Request();
@@ -4410,7 +4254,6 @@ For more information about tracking, please see our [User Guide](https://sendgri
 ### GET /tracking_settings
 
 ```java
-  Request request = new Request();
   try {
     SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
     Request request = new Request();
@@ -4418,7 +4261,7 @@ For more information about tracking, please see our [User Guide](https://sendgri
     request.endpoint = "tracking_settings";
     Map<String,String> queryParams = new HashMap<String, String>();
     queryParams.put("limit", "1");
-    queryParams.put("offset", "1");
+      queryParams.put("offset", "1");
     request.queryParams = queryParams;
     Response response = sg.api(request);
     System.out.println(response.statusCode);
@@ -4439,7 +4282,6 @@ For more information about tracking, please see our [User Guide](https://sendgri
 ### PATCH /tracking_settings/click
 
 ```java
-  Request request = new Request();
   try {
     SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
     Request request = new Request();
@@ -4465,7 +4307,6 @@ For more information about tracking, please see our [User Guide](https://sendgri
 ### GET /tracking_settings/click
 
 ```java
-  Request request = new Request();
   try {
     SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
     Request request = new Request();
@@ -4494,7 +4335,6 @@ For more information about tracking, please see our [User Guide](https://sendgri
 ### PATCH /tracking_settings/google_analytics
 
 ```java
-  Request request = new Request();
   try {
     SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
     Request request = new Request();
@@ -4524,7 +4364,6 @@ For more information about tracking, please see our [User Guide](https://sendgri
 ### GET /tracking_settings/google_analytics
 
 ```java
-  Request request = new Request();
   try {
     SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
     Request request = new Request();
@@ -4551,7 +4390,6 @@ For more information about tracking, please see our [User Guide](https://sendgri
 ### PATCH /tracking_settings/open
 
 ```java
-  Request request = new Request();
   try {
     SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
     Request request = new Request();
@@ -4579,7 +4417,6 @@ For more information about tracking, please see our [User Guide](https://sendgri
 ### GET /tracking_settings/open
 
 ```java
-  Request request = new Request();
   try {
     SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
     Request request = new Request();
@@ -4606,7 +4443,6 @@ For more information about tracking, please see our [User Guide](https://sendgri
 ### PATCH /tracking_settings/subscription
 
 ```java
-  Request request = new Request();
   try {
     SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
     Request request = new Request();
@@ -4634,7 +4470,6 @@ For more information about tracking, please see our [User Guide](https://sendgri
 ### GET /tracking_settings/subscription
 
 ```java
-  Request request = new Request();
   try {
     SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
     Request request = new Request();
@@ -4666,7 +4501,6 @@ For more information about your user profile:
 ### GET /user/account
 
 ```java
-  Request request = new Request();
   try {
     SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
     Request request = new Request();
@@ -4689,7 +4523,6 @@ Your monthly credit allotment limits the number of emails you may send before in
 ### GET /user/credits
 
 ```java
-  Request request = new Request();
   try {
     SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
     Request request = new Request();
@@ -4716,7 +4549,6 @@ For more information about your user profile:
 ### PUT /user/email
 
 ```java
-  Request request = new Request();
   try {
     SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
     Request request = new Request();
@@ -4744,7 +4576,6 @@ For more information about your user profile:
 ### GET /user/email
 
 ```java
-  Request request = new Request();
   try {
     SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
     Request request = new Request();
@@ -4771,7 +4602,6 @@ For more information about your user profile:
 ### PUT /user/password
 
 ```java
-  Request request = new Request();
   try {
     SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
     Request request = new Request();
@@ -4801,7 +4631,6 @@ It should be noted that any one or more of the parameters can be updated via the
 ### PATCH /user/profile
 
 ```java
-  Request request = new Request();
   try {
     SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
     Request request = new Request();
@@ -4827,7 +4656,6 @@ For more information about your user profile:
 ### GET /user/profile
 
 ```java
-  Request request = new Request();
   try {
     SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
     Request request = new Request();
@@ -4853,7 +4681,6 @@ The Cancel Scheduled Sends feature allows the customer to cancel a scheduled sen
 ### POST /user/scheduled_sends
 
 ```java
-  Request request = new Request();
   try {
     SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
     Request request = new Request();
@@ -4877,7 +4704,6 @@ The Cancel Scheduled Sends feature allows the customer to cancel a scheduled sen
 ### GET /user/scheduled_sends
 
 ```java
-  Request request = new Request();
   try {
     SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
     Request request = new Request();
@@ -4900,7 +4726,6 @@ The Cancel Scheduled Sends feature allows the customer to cancel a scheduled sen
 ### PATCH /user/scheduled_sends/{batch_id}
 
 ```java
-  Request request = new Request();
   try {
     SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
     Request request = new Request();
@@ -4924,7 +4749,6 @@ The Cancel Scheduled Sends feature allows the customer to cancel a scheduled sen
 ### GET /user/scheduled_sends/{batch_id}
 
 ```java
-  Request request = new Request();
   try {
     SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
     Request request = new Request();
@@ -4947,7 +4771,6 @@ The Cancel Scheduled Sends feature allows the customer to cancel a scheduled sen
 ### DELETE /user/scheduled_sends/{batch_id}
 
 ```java
-  Request request = new Request();
   try {
     SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
     Request request = new Request();
@@ -4972,7 +4795,6 @@ The Enforced TLS settings specify whether or not the recipient is required to su
 ### PATCH /user/settings/enforced_tls
 
 ```java
-  Request request = new Request();
   try {
     SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
     Request request = new Request();
@@ -4998,7 +4820,6 @@ The Enforced TLS settings specify whether or not the recipient is required to su
 ### GET /user/settings/enforced_tls
 
 ```java
-  Request request = new Request();
   try {
     SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
     Request request = new Request();
@@ -5025,7 +4846,6 @@ For more information about your user profile:
 ### PUT /user/username
 
 ```java
-  Request request = new Request();
   try {
     SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
     Request request = new Request();
@@ -5053,7 +4873,6 @@ For more information about your user profile:
 ### GET /user/username
 
 ```java
-  Request request = new Request();
   try {
     SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
     Request request = new Request();
@@ -5080,7 +4899,6 @@ Common uses of this data are to remove unsubscribes, react to spam reports, dete
 ### PATCH /user/webhooks/event/settings
 
 ```java
-  Request request = new Request();
   try {
     SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
     Request request = new Request();
@@ -5108,7 +4926,6 @@ Common uses of this data are to remove unsubscribes, react to spam reports, dete
 ### GET /user/webhooks/event/settings
 
 ```java
-  Request request = new Request();
   try {
     SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
     Request request = new Request();
@@ -5133,7 +4950,6 @@ Common uses of this data are to remove unsubscribes, react to spam reports, dete
 ### POST /user/webhooks/event/test
 
 ```java
-  Request request = new Request();
   try {
     SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
     Request request = new Request();
@@ -5157,7 +4973,6 @@ SendGrid can parse the attachments and contents of incoming emails. The Parse AP
 ### GET /user/webhooks/parse/settings
 
 ```java
-  Request request = new Request();
   try {
     SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
     Request request = new Request();
@@ -5182,7 +4997,6 @@ There are a number of pre-made integrations for the SendGrid Parse Webhook which
 ### GET /user/webhooks/parse/stats
 
 ```java
-  Request request = new Request();
   try {
     SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
     Request request = new Request();
@@ -5190,10 +5004,10 @@ There are a number of pre-made integrations for the SendGrid Parse Webhook which
     request.endpoint = "user/webhooks/parse/stats";
     Map<String,String> queryParams = new HashMap<String, String>();
     queryParams.put("aggregated_by", "day");
-    queryParams.put("limit", "test_string");
-    queryParams.put("start_date", "2016-01-01");
-    queryParams.put("end_date", "2016-04-01");
-    queryParams.put("offset", "test_string");
+      queryParams.put("limit", "test_string");
+      queryParams.put("start_date", "2016-01-01");
+      queryParams.put("end_date", "2016-04-01");
+      queryParams.put("offset", "test_string");
     request.queryParams = queryParams;
     Response response = sg.api(request);
     System.out.println(response.statusCode);
@@ -5221,7 +5035,6 @@ For more information on whitelabeling, please see our [User Guide](https://sendg
 ### POST /whitelabel/domains
 
 ```java
-  Request request = new Request();
   try {
     SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
     Request request = new Request();
@@ -5248,7 +5061,6 @@ For more information on whitelabeling, please see our [User Guide](https://sendg
 ### GET /whitelabel/domains
 
 ```java
-  Request request = new Request();
   try {
     SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
     Request request = new Request();
@@ -5256,10 +5068,10 @@ For more information on whitelabeling, please see our [User Guide](https://sendg
     request.endpoint = "whitelabel/domains";
     Map<String,String> queryParams = new HashMap<String, String>();
     queryParams.put("username", "test_string");
-    queryParams.put("domain", "test_string");
-    queryParams.put("exclude_subusers", "true");
-    queryParams.put("limit", "1");
-    queryParams.put("offset", "1");
+      queryParams.put("domain", "test_string");
+      queryParams.put("exclude_subusers", "true");
+      queryParams.put("limit", "1");
+      queryParams.put("offset", "1");
     request.queryParams = queryParams;
     Response response = sg.api(request);
     System.out.println(response.statusCode);
@@ -5285,7 +5097,6 @@ For more information on whitelabeling, please see our [User Guide](https://sendg
 ### GET /whitelabel/domains/default
 
 ```java
-  Request request = new Request();
   try {
     SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
     Request request = new Request();
@@ -5317,7 +5128,6 @@ For more information on whitelabeling, please see our [User Guide](https://sendg
 ### GET /whitelabel/domains/subuser
 
 ```java
-  Request request = new Request();
   try {
     SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
     Request request = new Request();
@@ -5349,7 +5159,6 @@ For more information on whitelabeling, please see our [User Guide](https://sendg
 ### DELETE /whitelabel/domains/subuser
 
 ```java
-  Request request = new Request();
   try {
     SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
     Request request = new Request();
@@ -5374,7 +5183,6 @@ For more information on whitelabeling, please see our [User Guide](https://sendg
 ### PATCH /whitelabel/domains/{domain_id}
 
 ```java
-  Request request = new Request();
   try {
     SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
     Request request = new Request();
@@ -5401,7 +5209,6 @@ For more information on whitelabeling, please see our [User Guide](https://sendg
 ### GET /whitelabel/domains/{domain_id}
 
 ```java
-  Request request = new Request();
   try {
     SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
     Request request = new Request();
@@ -5426,7 +5233,6 @@ For more information on whitelabeling, please see our [User Guide](https://sendg
 ### DELETE /whitelabel/domains/{domain_id}
 
 ```java
-  Request request = new Request();
   try {
     SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
     Request request = new Request();
@@ -5458,7 +5264,6 @@ For more information on whitelabeling, please see our [User Guide](https://sendg
 ### POST /whitelabel/domains/{domain_id}/subuser
 
 ```java
-  Request request = new Request();
   try {
     SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
     Request request = new Request();
@@ -5489,7 +5294,6 @@ For more information on whitelabeling, please see our [User Guide](https://sendg
 ### POST /whitelabel/domains/{id}/ips
 
 ```java
-  Request request = new Request();
   try {
     SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
     Request request = new Request();
@@ -5521,7 +5325,6 @@ For more information on whitelabeling, please see our [User Guide](https://sendg
 ### DELETE /whitelabel/domains/{id}/ips/{ip}
 
 ```java
-  Request request = new Request();
   try {
     SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
     Request request = new Request();
@@ -5551,7 +5354,6 @@ For more information on whitelabeling, please see our [User Guide](https://sendg
 ### POST /whitelabel/domains/{id}/validate
 
 ```java
-  Request request = new Request();
   try {
     SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
     Request request = new Request();
@@ -5578,7 +5380,6 @@ For more information, please see our [User Guide](https://sendgrid.com/docs/API_
 ### POST /whitelabel/ips
 
 ```java
-  Request request = new Request();
   try {
     SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
     Request request = new Request();
@@ -5606,7 +5407,6 @@ For more information, please see our [User Guide](https://sendgrid.com/docs/API_
 ### GET /whitelabel/ips
 
 ```java
-  Request request = new Request();
   try {
     SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
     Request request = new Request();
@@ -5614,8 +5414,8 @@ For more information, please see our [User Guide](https://sendgrid.com/docs/API_
     request.endpoint = "whitelabel/ips";
     Map<String,String> queryParams = new HashMap<String, String>();
     queryParams.put("ip", "test_string");
-    queryParams.put("limit", "1");
-    queryParams.put("offset", "1");
+      queryParams.put("limit", "1");
+      queryParams.put("offset", "1");
     request.queryParams = queryParams;
     Response response = sg.api(request);
     System.out.println(response.statusCode);
@@ -5636,7 +5436,6 @@ For more information, please see our [User Guide](https://sendgrid.com/docs/API_
 ### GET /whitelabel/ips/{id}
 
 ```java
-  Request request = new Request();
   try {
     SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
     Request request = new Request();
@@ -5661,7 +5460,6 @@ For more information, please see our [User Guide](https://sendgrid.com/docs/API_
 ### DELETE /whitelabel/ips/{id}
 
 ```java
-  Request request = new Request();
   try {
     SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
     Request request = new Request();
@@ -5686,7 +5484,6 @@ For more information, please see our [User Guide](https://sendgrid.com/docs/API_
 ### POST /whitelabel/ips/{id}/validate
 
 ```java
-  Request request = new Request();
   try {
     SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
     Request request = new Request();
@@ -5711,7 +5508,6 @@ For more information, please see our [User Guide](https://sendgrid.com/docs/API_
 ### POST /whitelabel/links
 
 ```java
-  Request request = new Request();
   try {
     SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
     Request request = new Request();
@@ -5720,7 +5516,7 @@ For more information, please see our [User Guide](https://sendgrid.com/docs/API_
     request.requestBody = "{\"default\":true,\"domain\":\"example.com\",\"subdomain\":\"mail\"}";
     Map<String,String> queryParams = new HashMap<String, String>();
     queryParams.put("limit", "1");
-    queryParams.put("offset", "1");
+      queryParams.put("offset", "1");
     request.queryParams = queryParams;
     Response response = sg.api(request);
     System.out.println(response.statusCode);
@@ -5741,7 +5537,6 @@ For more information, please see our [User Guide](https://sendgrid.com/docs/API_
 ### GET /whitelabel/links
 
 ```java
-  Request request = new Request();
   try {
     SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
     Request request = new Request();
@@ -5776,7 +5571,6 @@ For more information, please see our [User Guide](https://sendgrid.com/docs/API_
 ### GET /whitelabel/links/default
 
 ```java
-  Request request = new Request();
   try {
     SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
     Request request = new Request();
@@ -5808,7 +5602,6 @@ For more information, please see our [User Guide](https://sendgrid.com/docs/API_
 ### GET /whitelabel/links/subuser
 
 ```java
-  Request request = new Request();
   try {
     SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
     Request request = new Request();
@@ -5840,7 +5633,6 @@ For more information, please see our [User Guide](https://sendgrid.com/docs/API_
 ### DELETE /whitelabel/links/subuser
 
 ```java
-  Request request = new Request();
   try {
     SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
     Request request = new Request();
@@ -5868,7 +5660,6 @@ For more information, please see our [User Guide](https://sendgrid.com/docs/API_
 ### PATCH /whitelabel/links/{id}
 
 ```java
-  Request request = new Request();
   try {
     SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
     Request request = new Request();
@@ -5894,7 +5685,6 @@ For more information, please see our [User Guide](https://sendgrid.com/docs/API_
 ### GET /whitelabel/links/{id}
 
 ```java
-  Request request = new Request();
   try {
     SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
     Request request = new Request();
@@ -5919,7 +5709,6 @@ For more information, please see our [User Guide](https://sendgrid.com/docs/API_
 ### DELETE /whitelabel/links/{id}
 
 ```java
-  Request request = new Request();
   try {
     SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
     Request request = new Request();
@@ -5944,7 +5733,6 @@ For more information, please see our [User Guide](https://sendgrid.com/docs/API_
 ### POST /whitelabel/links/{id}/validate
 
 ```java
-  Request request = new Request();
   try {
     SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
     Request request = new Request();
@@ -5973,7 +5761,6 @@ For more information, please see our [User Guide](https://sendgrid.com/docs/API_
 ### POST /whitelabel/links/{link_id}/subuser
 
 ```java
-  Request request = new Request();
   try {
     SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
     Request request = new Request();
