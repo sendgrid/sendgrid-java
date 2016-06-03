@@ -28,8 +28,8 @@ public class Example {
       request.queryParams = queryParams;
       Response response = sg.api(request);
       System.out.println(response.statusCode);
-      System.out.println(response.responseBody);
-      System.out.println(response.responseHeaders);
+      System.out.println(response.body);
+      System.out.println(response.headers);
     } catch (IOException ex) {
       throw ex;
     }
@@ -47,11 +47,11 @@ public class Example {
       Request request = new Request();
       request.method = Method.PATCH;
       request.endpoint = "partner_settings/new_relic";
-      request.requestBody = "{\"enable_subuser_statistics\":true,\"enabled\":true,\"license_key\":\"\"}";
+      request.body = "{\"enable_subuser_statistics\":true,\"enabled\":true,\"license_key\":\"\"}";
       Response response = sg.api(request);
       System.out.println(response.statusCode);
-      System.out.println(response.responseBody);
-      System.out.println(response.responseHeaders);
+      System.out.println(response.body);
+      System.out.println(response.headers);
     } catch (IOException ex) {
       throw ex;
     }
@@ -71,8 +71,8 @@ public class Example {
       request.endpoint = "partner_settings/new_relic";
       Response response = sg.api(request);
       System.out.println(response.statusCode);
-      System.out.println(response.responseBody);
-      System.out.println(response.responseHeaders);
+      System.out.println(response.body);
+      System.out.println(response.headers);
     } catch (IOException ex) {
       throw ex;
     }

@@ -30,8 +30,8 @@ public class Example {
       request.queryParams = queryParams;
       Response response = sg.api(request);
       System.out.println(response.statusCode);
-      System.out.println(response.responseBody);
-      System.out.println(response.responseHeaders);
+      System.out.println(response.body);
+      System.out.println(response.headers);
     } catch (IOException ex) {
       throw ex;
     }
@@ -49,11 +49,11 @@ public class Example {
       Request request = new Request();
       request.method = Method.DELETE;
       request.endpoint = "suppression/blocks";
-      request.requestBody = "{\"emails\":[\"example1@example.com\",\"example2@example.com\"],\"delete_all\":false}";
+      request.body = "{\"emails\":[\"example1@example.com\",\"example2@example.com\"],\"delete_all\":false}";
       Response response = sg.api(request);
       System.out.println(response.statusCode);
-      System.out.println(response.responseBody);
-      System.out.println(response.responseHeaders);
+      System.out.println(response.body);
+      System.out.println(response.headers);
     } catch (IOException ex) {
       throw ex;
     }
@@ -73,8 +73,8 @@ public class Example {
       request.endpoint = "suppression/blocks/{email}";
       Response response = sg.api(request);
       System.out.println(response.statusCode);
-      System.out.println(response.responseBody);
-      System.out.println(response.responseHeaders);
+      System.out.println(response.body);
+      System.out.println(response.headers);
     } catch (IOException ex) {
       throw ex;
     }
@@ -94,8 +94,8 @@ public class Example {
       request.endpoint = "suppression/blocks/{email}";
       Response response = sg.api(request);
       System.out.println(response.statusCode);
-      System.out.println(response.responseBody);
-      System.out.println(response.responseHeaders);
+      System.out.println(response.body);
+      System.out.println(response.headers);
     } catch (IOException ex) {
       throw ex;
     }
@@ -119,8 +119,8 @@ public class Example {
       request.queryParams = queryParams;
       Response response = sg.api(request);
       System.out.println(response.statusCode);
-      System.out.println(response.responseBody);
-      System.out.println(response.responseHeaders);
+      System.out.println(response.body);
+      System.out.println(response.headers);
     } catch (IOException ex) {
       throw ex;
     }
@@ -138,11 +138,11 @@ public class Example {
       Request request = new Request();
       request.method = Method.DELETE;
       request.endpoint = "suppression/bounces";
-      request.requestBody = "{\"emails\":[\"example@example.com\",\"example2@example.com\"],\"delete_all\":true}";
+      request.body = "{\"emails\":[\"example@example.com\",\"example2@example.com\"],\"delete_all\":true}";
       Response response = sg.api(request);
       System.out.println(response.statusCode);
-      System.out.println(response.responseBody);
-      System.out.println(response.responseHeaders);
+      System.out.println(response.body);
+      System.out.println(response.headers);
     } catch (IOException ex) {
       throw ex;
     }
@@ -162,8 +162,8 @@ public class Example {
       request.endpoint = "suppression/bounces/{email}";
       Response response = sg.api(request);
       System.out.println(response.statusCode);
-      System.out.println(response.responseBody);
-      System.out.println(response.responseHeaders);
+      System.out.println(response.body);
+      System.out.println(response.headers);
     } catch (IOException ex) {
       throw ex;
     }
@@ -186,8 +186,8 @@ public class Example {
       request.queryParams = queryParams;
       Response response = sg.api(request);
       System.out.println(response.statusCode);
-      System.out.println(response.responseBody);
-      System.out.println(response.responseHeaders);
+      System.out.println(response.body);
+      System.out.println(response.headers);
     } catch (IOException ex) {
       throw ex;
     }
@@ -213,8 +213,8 @@ public class Example {
       request.queryParams = queryParams;
       Response response = sg.api(request);
       System.out.println(response.statusCode);
-      System.out.println(response.responseBody);
-      System.out.println(response.responseHeaders);
+      System.out.println(response.body);
+      System.out.println(response.headers);
     } catch (IOException ex) {
       throw ex;
     }
@@ -232,11 +232,11 @@ public class Example {
       Request request = new Request();
       request.method = Method.DELETE;
       request.endpoint = "suppression/invalid_emails";
-      request.requestBody = "{\"emails\":[\"example1@example.com\",\"example2@example.com\"],\"delete_all\":false}";
+      request.body = "{\"emails\":[\"example1@example.com\",\"example2@example.com\"],\"delete_all\":false}";
       Response response = sg.api(request);
       System.out.println(response.statusCode);
-      System.out.println(response.responseBody);
-      System.out.println(response.responseHeaders);
+      System.out.println(response.body);
+      System.out.println(response.headers);
     } catch (IOException ex) {
       throw ex;
     }
@@ -256,8 +256,8 @@ public class Example {
       request.endpoint = "suppression/invalid_emails/{email}";
       Response response = sg.api(request);
       System.out.println(response.statusCode);
-      System.out.println(response.responseBody);
-      System.out.println(response.responseHeaders);
+      System.out.println(response.body);
+      System.out.println(response.headers);
     } catch (IOException ex) {
       throw ex;
     }
@@ -277,8 +277,8 @@ public class Example {
       request.endpoint = "suppression/invalid_emails/{email}";
       Response response = sg.api(request);
       System.out.println(response.statusCode);
-      System.out.println(response.responseBody);
-      System.out.println(response.responseHeaders);
+      System.out.println(response.body);
+      System.out.println(response.headers);
     } catch (IOException ex) {
       throw ex;
     }
@@ -298,8 +298,8 @@ public class Example {
       request.endpoint = "suppression/spam_report/{email}";
       Response response = sg.api(request);
       System.out.println(response.statusCode);
-      System.out.println(response.responseBody);
-      System.out.println(response.responseHeaders);
+      System.out.println(response.body);
+      System.out.println(response.headers);
     } catch (IOException ex) {
       throw ex;
     }
@@ -319,8 +319,8 @@ public class Example {
       request.endpoint = "suppression/spam_report/{email}";
       Response response = sg.api(request);
       System.out.println(response.statusCode);
-      System.out.println(response.responseBody);
-      System.out.println(response.responseHeaders);
+      System.out.println(response.body);
+      System.out.println(response.headers);
     } catch (IOException ex) {
       throw ex;
     }
@@ -346,8 +346,8 @@ public class Example {
       request.queryParams = queryParams;
       Response response = sg.api(request);
       System.out.println(response.statusCode);
-      System.out.println(response.responseBody);
-      System.out.println(response.responseHeaders);
+      System.out.println(response.body);
+      System.out.println(response.headers);
     } catch (IOException ex) {
       throw ex;
     }
@@ -365,11 +365,11 @@ public class Example {
       Request request = new Request();
       request.method = Method.DELETE;
       request.endpoint = "suppression/spam_reports";
-      request.requestBody = "{\"emails\":[\"example1@example.com\",\"example2@example.com\"],\"delete_all\":false}";
+      request.body = "{\"emails\":[\"example1@example.com\",\"example2@example.com\"],\"delete_all\":false}";
       Response response = sg.api(request);
       System.out.println(response.statusCode);
-      System.out.println(response.responseBody);
-      System.out.println(response.responseHeaders);
+      System.out.println(response.body);
+      System.out.println(response.headers);
     } catch (IOException ex) {
       throw ex;
     }
@@ -395,8 +395,8 @@ public class Example {
       request.queryParams = queryParams;
       Response response = sg.api(request);
       System.out.println(response.statusCode);
-      System.out.println(response.responseBody);
-      System.out.println(response.responseHeaders);
+      System.out.println(response.body);
+      System.out.println(response.headers);
     } catch (IOException ex) {
       throw ex;
     }

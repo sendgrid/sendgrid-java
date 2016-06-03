@@ -24,8 +24,8 @@ public class Example {
       request.endpoint = "user/account";
       Response response = sg.api(request);
       System.out.println(response.statusCode);
-      System.out.println(response.responseBody);
-      System.out.println(response.responseHeaders);
+      System.out.println(response.body);
+      System.out.println(response.headers);
     } catch (IOException ex) {
       throw ex;
     }
@@ -45,8 +45,8 @@ public class Example {
       request.endpoint = "user/credits";
       Response response = sg.api(request);
       System.out.println(response.statusCode);
-      System.out.println(response.responseBody);
-      System.out.println(response.responseHeaders);
+      System.out.println(response.body);
+      System.out.println(response.headers);
     } catch (IOException ex) {
       throw ex;
     }
@@ -64,11 +64,11 @@ public class Example {
       Request request = new Request();
       request.method = Method.PUT;
       request.endpoint = "user/email";
-      request.requestBody = "{\"email\":\"example@example.com\"}";
+      request.body = "{\"email\":\"example@example.com\"}";
       Response response = sg.api(request);
       System.out.println(response.statusCode);
-      System.out.println(response.responseBody);
-      System.out.println(response.responseHeaders);
+      System.out.println(response.body);
+      System.out.println(response.headers);
     } catch (IOException ex) {
       throw ex;
     }
@@ -88,8 +88,8 @@ public class Example {
       request.endpoint = "user/email";
       Response response = sg.api(request);
       System.out.println(response.statusCode);
-      System.out.println(response.responseBody);
-      System.out.println(response.responseHeaders);
+      System.out.println(response.body);
+      System.out.println(response.headers);
     } catch (IOException ex) {
       throw ex;
     }
@@ -107,11 +107,11 @@ public class Example {
       Request request = new Request();
       request.method = Method.PUT;
       request.endpoint = "user/password";
-      request.requestBody = "{\"new_password\":\"new_password\",\"old_password\":\"old_password\"}";
+      request.body = "{\"new_password\":\"new_password\",\"old_password\":\"old_password\"}";
       Response response = sg.api(request);
       System.out.println(response.statusCode);
-      System.out.println(response.responseBody);
-      System.out.println(response.responseHeaders);
+      System.out.println(response.body);
+      System.out.println(response.headers);
     } catch (IOException ex) {
       throw ex;
     }
@@ -129,11 +129,11 @@ public class Example {
       Request request = new Request();
       request.method = Method.PATCH;
       request.endpoint = "user/profile";
-      request.requestBody = "{\"city\":\"Orange\",\"first_name\":\"Example\",\"last_name\":\"User\"}";
+      request.body = "{\"city\":\"Orange\",\"first_name\":\"Example\",\"last_name\":\"User\"}";
       Response response = sg.api(request);
       System.out.println(response.statusCode);
-      System.out.println(response.responseBody);
-      System.out.println(response.responseHeaders);
+      System.out.println(response.body);
+      System.out.println(response.headers);
     } catch (IOException ex) {
       throw ex;
     }
@@ -153,8 +153,8 @@ public class Example {
       request.endpoint = "user/profile";
       Response response = sg.api(request);
       System.out.println(response.statusCode);
-      System.out.println(response.responseBody);
-      System.out.println(response.responseHeaders);
+      System.out.println(response.body);
+      System.out.println(response.headers);
     } catch (IOException ex) {
       throw ex;
     }
@@ -172,11 +172,11 @@ public class Example {
       Request request = new Request();
       request.method = Method.POST;
       request.endpoint = "user/scheduled_sends";
-      request.requestBody = "{\"batch_id\":\"YOUR_BATCH_ID\",\"status\":\"pause\"}";
+      request.body = "{\"batch_id\":\"YOUR_BATCH_ID\",\"status\":\"pause\"}";
       Response response = sg.api(request);
       System.out.println(response.statusCode);
-      System.out.println(response.responseBody);
-      System.out.println(response.responseHeaders);
+      System.out.println(response.body);
+      System.out.println(response.headers);
     } catch (IOException ex) {
       throw ex;
     }
@@ -196,8 +196,8 @@ public class Example {
       request.endpoint = "user/scheduled_sends";
       Response response = sg.api(request);
       System.out.println(response.statusCode);
-      System.out.println(response.responseBody);
-      System.out.println(response.responseHeaders);
+      System.out.println(response.body);
+      System.out.println(response.headers);
     } catch (IOException ex) {
       throw ex;
     }
@@ -215,11 +215,11 @@ public class Example {
       Request request = new Request();
       request.method = Method.PATCH;
       request.endpoint = "user/scheduled_sends/{batch_id}";
-      request.requestBody = "{\"status\":\"pause\"}";
+      request.body = "{\"status\":\"pause\"}";
       Response response = sg.api(request);
       System.out.println(response.statusCode);
-      System.out.println(response.responseBody);
-      System.out.println(response.responseHeaders);
+      System.out.println(response.body);
+      System.out.println(response.headers);
     } catch (IOException ex) {
       throw ex;
     }
@@ -239,8 +239,8 @@ public class Example {
       request.endpoint = "user/scheduled_sends/{batch_id}";
       Response response = sg.api(request);
       System.out.println(response.statusCode);
-      System.out.println(response.responseBody);
-      System.out.println(response.responseHeaders);
+      System.out.println(response.body);
+      System.out.println(response.headers);
     } catch (IOException ex) {
       throw ex;
     }
@@ -260,8 +260,8 @@ public class Example {
       request.endpoint = "user/scheduled_sends/{batch_id}";
       Response response = sg.api(request);
       System.out.println(response.statusCode);
-      System.out.println(response.responseBody);
-      System.out.println(response.responseHeaders);
+      System.out.println(response.body);
+      System.out.println(response.headers);
     } catch (IOException ex) {
       throw ex;
     }
@@ -279,11 +279,11 @@ public class Example {
       Request request = new Request();
       request.method = Method.PATCH;
       request.endpoint = "user/settings/enforced_tls";
-      request.requestBody = "{\"require_tls\":true,\"require_valid_cert\":false}";
+      request.body = "{\"require_tls\":true,\"require_valid_cert\":false}";
       Response response = sg.api(request);
       System.out.println(response.statusCode);
-      System.out.println(response.responseBody);
-      System.out.println(response.responseHeaders);
+      System.out.println(response.body);
+      System.out.println(response.headers);
     } catch (IOException ex) {
       throw ex;
     }
@@ -303,8 +303,8 @@ public class Example {
       request.endpoint = "user/settings/enforced_tls";
       Response response = sg.api(request);
       System.out.println(response.statusCode);
-      System.out.println(response.responseBody);
-      System.out.println(response.responseHeaders);
+      System.out.println(response.body);
+      System.out.println(response.headers);
     } catch (IOException ex) {
       throw ex;
     }
@@ -322,11 +322,11 @@ public class Example {
       Request request = new Request();
       request.method = Method.PUT;
       request.endpoint = "user/username";
-      request.requestBody = "{\"username\":\"test_username\"}";
+      request.body = "{\"username\":\"test_username\"}";
       Response response = sg.api(request);
       System.out.println(response.statusCode);
-      System.out.println(response.responseBody);
-      System.out.println(response.responseHeaders);
+      System.out.println(response.body);
+      System.out.println(response.headers);
     } catch (IOException ex) {
       throw ex;
     }
@@ -346,8 +346,8 @@ public class Example {
       request.endpoint = "user/username";
       Response response = sg.api(request);
       System.out.println(response.statusCode);
-      System.out.println(response.responseBody);
-      System.out.println(response.responseHeaders);
+      System.out.println(response.body);
+      System.out.println(response.headers);
     } catch (IOException ex) {
       throw ex;
     }
@@ -365,11 +365,11 @@ public class Example {
       Request request = new Request();
       request.method = Method.PATCH;
       request.endpoint = "user/webhooks/event/settings";
-      request.requestBody = "{\"group_resubscribe\":true,\"delivered\":true,\"group_unsubscribe\":true,\"spam_report\":true,\"url\":\"url\",\"enabled\":true,\"bounce\":true,\"deferred\":true,\"unsubscribe\":true,\"dropped\":true,\"open\":true,\"click\":true,\"processed\":true}";
+      request.body = "{\"group_resubscribe\":true,\"delivered\":true,\"group_unsubscribe\":true,\"spam_report\":true,\"url\":\"url\",\"enabled\":true,\"bounce\":true,\"deferred\":true,\"unsubscribe\":true,\"dropped\":true,\"open\":true,\"click\":true,\"processed\":true}";
       Response response = sg.api(request);
       System.out.println(response.statusCode);
-      System.out.println(response.responseBody);
-      System.out.println(response.responseHeaders);
+      System.out.println(response.body);
+      System.out.println(response.headers);
     } catch (IOException ex) {
       throw ex;
     }
@@ -389,8 +389,8 @@ public class Example {
       request.endpoint = "user/webhooks/event/settings";
       Response response = sg.api(request);
       System.out.println(response.statusCode);
-      System.out.println(response.responseBody);
-      System.out.println(response.responseHeaders);
+      System.out.println(response.body);
+      System.out.println(response.headers);
     } catch (IOException ex) {
       throw ex;
     }
@@ -408,11 +408,11 @@ public class Example {
       Request request = new Request();
       request.method = Method.POST;
       request.endpoint = "user/webhooks/event/test";
-      request.requestBody = "{\"url\":\"url\"}";
+      request.body = "{\"url\":\"url\"}";
       Response response = sg.api(request);
       System.out.println(response.statusCode);
-      System.out.println(response.responseBody);
-      System.out.println(response.responseHeaders);
+      System.out.println(response.body);
+      System.out.println(response.headers);
     } catch (IOException ex) {
       throw ex;
     }
@@ -432,8 +432,8 @@ public class Example {
       request.endpoint = "user/webhooks/parse/settings";
       Response response = sg.api(request);
       System.out.println(response.statusCode);
-      System.out.println(response.responseBody);
-      System.out.println(response.responseHeaders);
+      System.out.println(response.body);
+      System.out.println(response.headers);
     } catch (IOException ex) {
       throw ex;
     }
@@ -460,8 +460,8 @@ public class Example {
       request.queryParams = queryParams;
       Response response = sg.api(request);
       System.out.println(response.statusCode);
-      System.out.println(response.responseBody);
-      System.out.println(response.responseHeaders);
+      System.out.println(response.body);
+      System.out.println(response.headers);
     } catch (IOException ex) {
       throw ex;
     }

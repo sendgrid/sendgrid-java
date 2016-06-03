@@ -31,8 +31,8 @@ public class Example {
       request.queryParams = queryParams;
       Response response = sg.api(request);
       System.out.println(response.statusCode);
-      System.out.println(response.responseBody);
-      System.out.println(response.responseHeaders);
+      System.out.println(response.body);
+      System.out.println(response.headers);
     } catch (IOException ex) {
       throw ex;
     }
@@ -52,8 +52,8 @@ public class Example {
       request.endpoint = "ips/assigned";
       Response response = sg.api(request);
       System.out.println(response.statusCode);
-      System.out.println(response.responseBody);
-      System.out.println(response.responseHeaders);
+      System.out.println(response.body);
+      System.out.println(response.headers);
     } catch (IOException ex) {
       throw ex;
     }
@@ -71,11 +71,11 @@ public class Example {
       Request request = new Request();
       request.method = Method.POST;
       request.endpoint = "ips/pools";
-      request.requestBody = "{\"name\":\"marketing\"}";
+      request.body = "{\"name\":\"marketing\"}";
       Response response = sg.api(request);
       System.out.println(response.statusCode);
-      System.out.println(response.responseBody);
-      System.out.println(response.responseHeaders);
+      System.out.println(response.body);
+      System.out.println(response.headers);
     } catch (IOException ex) {
       throw ex;
     }
@@ -95,8 +95,8 @@ public class Example {
       request.endpoint = "ips/pools";
       Response response = sg.api(request);
       System.out.println(response.statusCode);
-      System.out.println(response.responseBody);
-      System.out.println(response.responseHeaders);
+      System.out.println(response.body);
+      System.out.println(response.headers);
     } catch (IOException ex) {
       throw ex;
     }
@@ -114,11 +114,11 @@ public class Example {
       Request request = new Request();
       request.method = Method.PUT;
       request.endpoint = "ips/pools/{pool_name}";
-      request.requestBody = "{\"name\":\"new_pool_name\"}";
+      request.body = "{\"name\":\"new_pool_name\"}";
       Response response = sg.api(request);
       System.out.println(response.statusCode);
-      System.out.println(response.responseBody);
-      System.out.println(response.responseHeaders);
+      System.out.println(response.body);
+      System.out.println(response.headers);
     } catch (IOException ex) {
       throw ex;
     }
@@ -138,8 +138,8 @@ public class Example {
       request.endpoint = "ips/pools/{pool_name}";
       Response response = sg.api(request);
       System.out.println(response.statusCode);
-      System.out.println(response.responseBody);
-      System.out.println(response.responseHeaders);
+      System.out.println(response.body);
+      System.out.println(response.headers);
     } catch (IOException ex) {
       throw ex;
     }
@@ -159,8 +159,8 @@ public class Example {
       request.endpoint = "ips/pools/{pool_name}";
       Response response = sg.api(request);
       System.out.println(response.statusCode);
-      System.out.println(response.responseBody);
-      System.out.println(response.responseHeaders);
+      System.out.println(response.body);
+      System.out.println(response.headers);
     } catch (IOException ex) {
       throw ex;
     }
@@ -178,11 +178,11 @@ public class Example {
       Request request = new Request();
       request.method = Method.POST;
       request.endpoint = "ips/pools/{pool_name}/ips";
-      request.requestBody = "{\"ip\":\"0.0.0.0\"}";
+      request.body = "{\"ip\":\"0.0.0.0\"}";
       Response response = sg.api(request);
       System.out.println(response.statusCode);
-      System.out.println(response.responseBody);
-      System.out.println(response.responseHeaders);
+      System.out.println(response.body);
+      System.out.println(response.headers);
     } catch (IOException ex) {
       throw ex;
     }
@@ -202,8 +202,8 @@ public class Example {
       request.endpoint = "ips/pools/{pool_name}/ips/{ip}";
       Response response = sg.api(request);
       System.out.println(response.statusCode);
-      System.out.println(response.responseBody);
-      System.out.println(response.responseHeaders);
+      System.out.println(response.body);
+      System.out.println(response.headers);
     } catch (IOException ex) {
       throw ex;
     }
@@ -221,11 +221,11 @@ public class Example {
       Request request = new Request();
       request.method = Method.POST;
       request.endpoint = "ips/warmup";
-      request.requestBody = "{\"ip\":\"0.0.0.0\"}";
+      request.body = "{\"ip\":\"0.0.0.0\"}";
       Response response = sg.api(request);
       System.out.println(response.statusCode);
-      System.out.println(response.responseBody);
-      System.out.println(response.responseHeaders);
+      System.out.println(response.body);
+      System.out.println(response.headers);
     } catch (IOException ex) {
       throw ex;
     }
@@ -245,8 +245,8 @@ public class Example {
       request.endpoint = "ips/warmup";
       Response response = sg.api(request);
       System.out.println(response.statusCode);
-      System.out.println(response.responseBody);
-      System.out.println(response.responseHeaders);
+      System.out.println(response.body);
+      System.out.println(response.headers);
     } catch (IOException ex) {
       throw ex;
     }
@@ -266,8 +266,8 @@ public class Example {
       request.endpoint = "ips/warmup/{ip_address}";
       Response response = sg.api(request);
       System.out.println(response.statusCode);
-      System.out.println(response.responseBody);
-      System.out.println(response.responseHeaders);
+      System.out.println(response.body);
+      System.out.println(response.headers);
     } catch (IOException ex) {
       throw ex;
     }
@@ -287,8 +287,8 @@ public class Example {
       request.endpoint = "ips/warmup/{ip_address}";
       Response response = sg.api(request);
       System.out.println(response.statusCode);
-      System.out.println(response.responseBody);
-      System.out.println(response.responseHeaders);
+      System.out.println(response.body);
+      System.out.println(response.headers);
     } catch (IOException ex) {
       throw ex;
     }
@@ -308,8 +308,8 @@ public class Example {
       request.endpoint = "ips/{ip_address}";
       Response response = sg.api(request);
       System.out.println(response.statusCode);
-      System.out.println(response.responseBody);
-      System.out.println(response.responseHeaders);
+      System.out.println(response.body);
+      System.out.println(response.headers);
     } catch (IOException ex) {
       throw ex;
     }

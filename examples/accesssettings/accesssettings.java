@@ -27,8 +27,8 @@ public class Example {
       request.queryParams = queryParams;
       Response response = sg.api(request);
       System.out.println(response.statusCode);
-      System.out.println(response.responseBody);
-      System.out.println(response.responseHeaders);
+      System.out.println(response.body);
+      System.out.println(response.headers);
     } catch (IOException ex) {
       throw ex;
     }
@@ -46,11 +46,11 @@ public class Example {
       Request request = new Request();
       request.method = Method.POST;
       request.endpoint = "access_settings/whitelist";
-      request.requestBody = "{\"ips\":[{\"ip\":\"192.168.1.1\"},{\"ip\":\"192.*.*.*\"},{\"ip\":\"192.168.1.3/32\"}]}";
+      request.body = "{\"ips\":[{\"ip\":\"192.168.1.1\"},{\"ip\":\"192.*.*.*\"},{\"ip\":\"192.168.1.3/32\"}]}";
       Response response = sg.api(request);
       System.out.println(response.statusCode);
-      System.out.println(response.responseBody);
-      System.out.println(response.responseHeaders);
+      System.out.println(response.body);
+      System.out.println(response.headers);
     } catch (IOException ex) {
       throw ex;
     }
@@ -70,8 +70,8 @@ public class Example {
       request.endpoint = "access_settings/whitelist";
       Response response = sg.api(request);
       System.out.println(response.statusCode);
-      System.out.println(response.responseBody);
-      System.out.println(response.responseHeaders);
+      System.out.println(response.body);
+      System.out.println(response.headers);
     } catch (IOException ex) {
       throw ex;
     }
@@ -89,11 +89,11 @@ public class Example {
       Request request = new Request();
       request.method = Method.DELETE;
       request.endpoint = "access_settings/whitelist";
-      request.requestBody = "{\"ids\":[1,2,3]}";
+      request.body = "{\"ids\":[1,2,3]}";
       Response response = sg.api(request);
       System.out.println(response.statusCode);
-      System.out.println(response.responseBody);
-      System.out.println(response.responseHeaders);
+      System.out.println(response.body);
+      System.out.println(response.headers);
     } catch (IOException ex) {
       throw ex;
     }
@@ -113,8 +113,8 @@ public class Example {
       request.endpoint = "access_settings/whitelist/{rule_id}";
       Response response = sg.api(request);
       System.out.println(response.statusCode);
-      System.out.println(response.responseBody);
-      System.out.println(response.responseHeaders);
+      System.out.println(response.body);
+      System.out.println(response.headers);
     } catch (IOException ex) {
       throw ex;
     }
@@ -134,8 +134,8 @@ public class Example {
       request.endpoint = "access_settings/whitelist/{rule_id}";
       Response response = sg.api(request);
       System.out.println(response.statusCode);
-      System.out.println(response.responseBody);
-      System.out.println(response.responseHeaders);
+      System.out.println(response.body);
+      System.out.println(response.headers);
     } catch (IOException ex) {
       throw ex;
     }

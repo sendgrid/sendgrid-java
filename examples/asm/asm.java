@@ -22,11 +22,11 @@ public class Example {
       Request request = new Request();
       request.method = Method.POST;
       request.endpoint = "asm/groups";
-      request.requestBody = "{\"is_default\":false,\"description\":\"A group description\",\"name\":\"A group name\"}";
+      request.body = "{\"is_default\":false,\"description\":\"A group description\",\"name\":\"A group name\"}";
       Response response = sg.api(request);
       System.out.println(response.statusCode);
-      System.out.println(response.responseBody);
-      System.out.println(response.responseHeaders);
+      System.out.println(response.body);
+      System.out.println(response.headers);
     } catch (IOException ex) {
       throw ex;
     }
@@ -46,8 +46,8 @@ public class Example {
       request.endpoint = "asm/groups";
       Response response = sg.api(request);
       System.out.println(response.statusCode);
-      System.out.println(response.responseBody);
-      System.out.println(response.responseHeaders);
+      System.out.println(response.body);
+      System.out.println(response.headers);
     } catch (IOException ex) {
       throw ex;
     }
@@ -65,11 +65,11 @@ public class Example {
       Request request = new Request();
       request.method = Method.PATCH;
       request.endpoint = "asm/groups/{group_id}";
-      request.requestBody = "{\"description\":\"Suggestions for items our users might like.\",\"name\":\"Item Suggestions\",\"id\":103}";
+      request.body = "{\"description\":\"Suggestions for items our users might like.\",\"name\":\"Item Suggestions\",\"id\":103}";
       Response response = sg.api(request);
       System.out.println(response.statusCode);
-      System.out.println(response.responseBody);
-      System.out.println(response.responseHeaders);
+      System.out.println(response.body);
+      System.out.println(response.headers);
     } catch (IOException ex) {
       throw ex;
     }
@@ -89,8 +89,8 @@ public class Example {
       request.endpoint = "asm/groups/{group_id}";
       Response response = sg.api(request);
       System.out.println(response.statusCode);
-      System.out.println(response.responseBody);
-      System.out.println(response.responseHeaders);
+      System.out.println(response.body);
+      System.out.println(response.headers);
     } catch (IOException ex) {
       throw ex;
     }
@@ -110,8 +110,8 @@ public class Example {
       request.endpoint = "asm/groups/{group_id}";
       Response response = sg.api(request);
       System.out.println(response.statusCode);
-      System.out.println(response.responseBody);
-      System.out.println(response.responseHeaders);
+      System.out.println(response.body);
+      System.out.println(response.headers);
     } catch (IOException ex) {
       throw ex;
     }
@@ -129,11 +129,11 @@ public class Example {
       Request request = new Request();
       request.method = Method.POST;
       request.endpoint = "asm/groups/{group_id}/suppressions";
-      request.requestBody = "{\"recipient_emails\":[\"test1@example.com\",\"test2@example.com\"]}";
+      request.body = "{\"recipient_emails\":[\"test1@example.com\",\"test2@example.com\"]}";
       Response response = sg.api(request);
       System.out.println(response.statusCode);
-      System.out.println(response.responseBody);
-      System.out.println(response.responseHeaders);
+      System.out.println(response.body);
+      System.out.println(response.headers);
     } catch (IOException ex) {
       throw ex;
     }
@@ -153,8 +153,8 @@ public class Example {
       request.endpoint = "asm/groups/{group_id}/suppressions";
       Response response = sg.api(request);
       System.out.println(response.statusCode);
-      System.out.println(response.responseBody);
-      System.out.println(response.responseHeaders);
+      System.out.println(response.body);
+      System.out.println(response.headers);
     } catch (IOException ex) {
       throw ex;
     }
@@ -174,8 +174,8 @@ public class Example {
       request.endpoint = "asm/groups/{group_id}/suppressions/{email}";
       Response response = sg.api(request);
       System.out.println(response.statusCode);
-      System.out.println(response.responseBody);
-      System.out.println(response.responseHeaders);
+      System.out.println(response.body);
+      System.out.println(response.headers);
     } catch (IOException ex) {
       throw ex;
     }
@@ -193,11 +193,11 @@ public class Example {
       Request request = new Request();
       request.method = Method.POST;
       request.endpoint = "asm/suppressions/global";
-      request.requestBody = "{\"recipient_emails\":[\"test1@example.com\",\"test2@example.com\"]}";
+      request.body = "{\"recipient_emails\":[\"test1@example.com\",\"test2@example.com\"]}";
       Response response = sg.api(request);
       System.out.println(response.statusCode);
-      System.out.println(response.responseBody);
-      System.out.println(response.responseHeaders);
+      System.out.println(response.body);
+      System.out.println(response.headers);
     } catch (IOException ex) {
       throw ex;
     }
@@ -217,8 +217,8 @@ public class Example {
       request.endpoint = "asm/suppressions/global/{email}";
       Response response = sg.api(request);
       System.out.println(response.statusCode);
-      System.out.println(response.responseBody);
-      System.out.println(response.responseHeaders);
+      System.out.println(response.body);
+      System.out.println(response.headers);
     } catch (IOException ex) {
       throw ex;
     }
@@ -238,8 +238,8 @@ public class Example {
       request.endpoint = "asm/suppressions/global/{email}";
       Response response = sg.api(request);
       System.out.println(response.statusCode);
-      System.out.println(response.responseBody);
-      System.out.println(response.responseHeaders);
+      System.out.println(response.body);
+      System.out.println(response.headers);
     } catch (IOException ex) {
       throw ex;
     }

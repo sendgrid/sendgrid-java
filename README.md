@@ -147,11 +147,11 @@ Request request = new Request();
 try {
   request.method = Method.POST;
   request.endpoint = "mail/send/beta";
-  request.requestBody = mail.build();
+  request.body = mail.build();
   Response response = sg.api(request);
   System.out.println(response.statusCode);
-  System.out.println(response.responseBody);
-  System.out.println(response.responseHeaders);
+  System.out.println(response.body);
+  System.out.println(response.headers);
 } catch (IOException ex) {
   throw ex;
 }
@@ -171,8 +171,8 @@ try {
   request.endpoint = "api_keys";
   Response response = sg.api(request);
   System.out.println(response.statusCode);
-  System.out.println(response.responseBody);
-  System.out.println(response.responseHeaders);
+  System.out.println(response.body);
+  System.out.println(response.headers);
 } catch (IOException ex) {
   throw ex;
 }

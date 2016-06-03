@@ -15,7 +15,7 @@ import java.util.Map;
 public class SendGrid {
   private static final String VERSION = "3.0.0";
   private static final String USER_AGENT = "sendgrid/" + VERSION + ";java";
-  
+
   private String apiKey;
   private String host;
   private String version;
@@ -39,26 +39,26 @@ public class SendGrid {
   public String getLibraryVersion() {
     return this.VERSION;
   }
-  
+
   public String getVersion() {
     return this.version;
   }
-  
+
   public void setVersion(String version) {
     this.version = version;
   }
-  
+
   public Map<String,String> getRequestHeaders() {
     return this.requestHeaders;
   }
-  
+
   public Map<String,String> addRequestHeader(String key, String value) {
-    this.requestHeaders.put(key, value); 
+    this.requestHeaders.put(key, value);
     return getRequestHeaders();
   }
-  
+
   public Map<String,String> removeRequestHeader(String key) {
-    this.requestHeaders.remove(key); 
+    this.requestHeaders.remove(key);
     return getRequestHeaders();
   }
 
@@ -72,7 +72,7 @@ public class SendGrid {
 
   /**
     * Class makeCall makes the call to the SendGrid API, override this method for testing.
-    */    
+    */
   public Response makeCall(Request request) throws IOException {
     Response response = new Response();
     try {
@@ -82,7 +82,7 @@ public class SendGrid {
     }
     return response;
   }
-  
+
   /**
     * Class api sets up the request to the SendGrid API, this is main interface.
     */
@@ -91,10 +91,10 @@ public class SendGrid {
     req.method = request.method;
     req.baseUri = this.host;
     req.endpoint = "/" + version + "/" + request.endpoint;
-    req.requestBody = request.requestBody;
-    req.requestHeaders = this.requestHeaders;
-    req.queryParams = request.queryParams;       
-    
+    req.body = request.body;
+    req.headers = this.requestHeaders;
+    req.queryParams = request.queryParams;
+
     return makeCall(req);
   }
 }
