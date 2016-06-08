@@ -11,9 +11,10 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
-##################################################
-# Retrieve all categories #
-# GET /categories #
+//////////////////////////////////////////////////////////////////
+// Retrieve all categories
+// GET /categories
+
 
 public class Example {
   public static void main(String[] args) throws IOException {
@@ -37,9 +38,10 @@ public class Example {
   }
 }
 
-##################################################
-# Retrieve Email Statistics for Categories #
-# GET /categories/stats #
+//////////////////////////////////////////////////////////////////
+// Retrieve Email Statistics for Categories
+// GET /categories/stats
+
 
 public class Example {
   public static void main(String[] args) throws IOException {
@@ -66,9 +68,10 @@ public class Example {
   }
 }
 
-##################################################
-# Retrieve sums of email stats for each category [Needs: Stats object defined, has category ID?] #
-# GET /categories/stats/sums #
+//////////////////////////////////////////////////////////////////
+// Retrieve sums of email stats for each category [Needs: Stats object defined, has category ID?]
+// GET /categories/stats/sums
+
 
 public class Example {
   public static void main(String[] args) throws IOException {

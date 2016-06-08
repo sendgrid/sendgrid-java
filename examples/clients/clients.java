@@ -11,9 +11,10 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
-##################################################
-# Retrieve email statistics by client type. #
-# GET /clients/stats #
+//////////////////////////////////////////////////////////////////
+// Retrieve email statistics by client type.
+// GET /clients/stats
+
 
 public class Example {
   public static void main(String[] args) throws IOException {
@@ -37,9 +38,10 @@ public class Example {
   }
 }
 
-##################################################
-# Retrieve stats by a specific client type. #
-# GET /clients/{client_type}/stats #
+//////////////////////////////////////////////////////////////////
+// Retrieve stats by a specific client type.
+// GET /clients/{client_type}/stats
+
 
 public class Example {
   public static void main(String[] args) throws IOException {

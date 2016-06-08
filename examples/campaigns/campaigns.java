@@ -11,9 +11,10 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
-##################################################
-# Create a Campaign #
-# POST /campaigns #
+//////////////////////////////////////////////////////////////////
+// Create a Campaign
+// POST /campaigns
+
 
 public class Example {
   public static void main(String[] args) throws IOException {
@@ -33,9 +34,10 @@ public class Example {
   }
 }
 
-##################################################
-# Retrieve all Campaigns #
-# GET /campaigns #
+//////////////////////////////////////////////////////////////////
+// Retrieve all Campaigns
+// GET /campaigns
+
 
 public class Example {
   public static void main(String[] args) throws IOException {
@@ -58,9 +60,10 @@ public class Example {
   }
 }
 
-##################################################
-# Update a Campaign #
-# PATCH /campaigns/{campaign_id} #
+//////////////////////////////////////////////////////////////////
+// Update a Campaign
+// PATCH /campaigns/{campaign_id}
+
 
 public class Example {
   public static void main(String[] args) throws IOException {
@@ -80,9 +83,10 @@ public class Example {
   }
 }
 
-##################################################
-# Retrieve a single campaign #
-# GET /campaigns/{campaign_id} #
+//////////////////////////////////////////////////////////////////
+// Retrieve a single campaign
+// GET /campaigns/{campaign_id}
+
 
 public class Example {
   public static void main(String[] args) throws IOException {
@@ -101,9 +105,10 @@ public class Example {
   }
 }
 
-##################################################
-# Delete a Campaign #
-# DELETE /campaigns/{campaign_id} #
+//////////////////////////////////////////////////////////////////
+// Delete a Campaign
+// DELETE /campaigns/{campaign_id}
+
 
 public class Example {
   public static void main(String[] args) throws IOException {
@@ -122,9 +127,10 @@ public class Example {
   }
 }
 
-##################################################
-# Update a Scheduled Campaign #
-# PATCH /campaigns/{campaign_id}/schedules #
+//////////////////////////////////////////////////////////////////
+// Update a Scheduled Campaign
+// PATCH /campaigns/{campaign_id}/schedules
+
 
 public class Example {
   public static void main(String[] args) throws IOException {
@@ -144,9 +150,10 @@ public class Example {
   }
 }
 
-##################################################
-# Schedule a Campaign #
-# POST /campaigns/{campaign_id}/schedules #
+//////////////////////////////////////////////////////////////////
+// Schedule a Campaign
+// POST /campaigns/{campaign_id}/schedules
+
 
 public class Example {
   public static void main(String[] args) throws IOException {
@@ -166,9 +173,10 @@ public class Example {
   }
 }
 
-##################################################
-# View Scheduled Time of a Campaign #
-# GET /campaigns/{campaign_id}/schedules #
+//////////////////////////////////////////////////////////////////
+// View Scheduled Time of a Campaign
+// GET /campaigns/{campaign_id}/schedules
+
 
 public class Example {
   public static void main(String[] args) throws IOException {
@@ -187,9 +195,10 @@ public class Example {
   }
 }
 
-##################################################
-# Unschedule a Scheduled Campaign #
-# DELETE /campaigns/{campaign_id}/schedules #
+//////////////////////////////////////////////////////////////////
+// Unschedule a Scheduled Campaign
+// DELETE /campaigns/{campaign_id}/schedules
+
 
 public class Example {
   public static void main(String[] args) throws IOException {
@@ -208,9 +217,10 @@ public class Example {
   }
 }
 
-##################################################
-# Send a Campaign #
-# POST /campaigns/{campaign_id}/schedules/now #
+//////////////////////////////////////////////////////////////////
+// Send a Campaign
+// POST /campaigns/{campaign_id}/schedules/now
+
 
 public class Example {
   public static void main(String[] args) throws IOException {
@@ -229,9 +239,10 @@ public class Example {
   }
 }
 
-##################################################
-# Send a Test Campaign #
-# POST /campaigns/{campaign_id}/schedules/test #
+//////////////////////////////////////////////////////////////////
+// Send a Test Campaign
+// POST /campaigns/{campaign_id}/schedules/test
+
 
 public class Example {
   public static void main(String[] args) throws IOException {

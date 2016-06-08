@@ -11,9 +11,10 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
-##################################################
-# Returns a list of all partner settings. #
-# GET /partner_settings #
+//////////////////////////////////////////////////////////////////
+// Returns a list of all partner settings.
+// GET /partner_settings
+
 
 public class Example {
   public static void main(String[] args) throws IOException {
@@ -36,9 +37,10 @@ public class Example {
   }
 }
 
-##################################################
-# Updates New Relic partner settings. #
-# PATCH /partner_settings/new_relic #
+//////////////////////////////////////////////////////////////////
+// Updates New Relic partner settings.
+// PATCH /partner_settings/new_relic
+
 
 public class Example {
   public static void main(String[] args) throws IOException {
@@ -58,9 +60,10 @@ public class Example {
   }
 }
 
-##################################################
-# Returns all New Relic partner settings. #
-# GET /partner_settings/new_relic #
+//////////////////////////////////////////////////////////////////
+// Returns all New Relic partner settings.
+// GET /partner_settings/new_relic
+
 
 public class Example {
   public static void main(String[] args) throws IOException {

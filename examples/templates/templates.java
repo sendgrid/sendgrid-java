@@ -11,9 +11,10 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
-##################################################
-# Create a transactional template. #
-# POST /templates #
+//////////////////////////////////////////////////////////////////
+// Create a transactional template.
+// POST /templates
+
 
 public class Example {
   public static void main(String[] args) throws IOException {
@@ -33,9 +34,10 @@ public class Example {
   }
 }
 
-##################################################
-# Retrieve all transactional templates. #
-# GET /templates #
+//////////////////////////////////////////////////////////////////
+// Retrieve all transactional templates.
+// GET /templates
+
 
 public class Example {
   public static void main(String[] args) throws IOException {
@@ -54,9 +56,10 @@ public class Example {
   }
 }
 
-##################################################
-# Edit a transactional template. #
-# PATCH /templates/{template_id} #
+//////////////////////////////////////////////////////////////////
+// Edit a transactional template.
+// PATCH /templates/{template_id}
+
 
 public class Example {
   public static void main(String[] args) throws IOException {
@@ -76,9 +79,10 @@ public class Example {
   }
 }
 
-##################################################
-# Retrieve a single transactional template. #
-# GET /templates/{template_id} #
+//////////////////////////////////////////////////////////////////
+// Retrieve a single transactional template.
+// GET /templates/{template_id}
+
 
 public class Example {
   public static void main(String[] args) throws IOException {
@@ -97,9 +101,10 @@ public class Example {
   }
 }
 
-##################################################
-# Delete a template. #
-# DELETE /templates/{template_id} #
+//////////////////////////////////////////////////////////////////
+// Delete a template.
+// DELETE /templates/{template_id}
+
 
 public class Example {
   public static void main(String[] args) throws IOException {
@@ -118,9 +123,10 @@ public class Example {
   }
 }
 
-##################################################
-# Create a new transactional template version. #
-# POST /templates/{template_id}/versions #
+//////////////////////////////////////////////////////////////////
+// Create a new transactional template version.
+// POST /templates/{template_id}/versions
+
 
 public class Example {
   public static void main(String[] args) throws IOException {
@@ -140,9 +146,10 @@ public class Example {
   }
 }
 
-##################################################
-# Edit a transactional template version. #
-# PATCH /templates/{template_id}/versions/{version_id} #
+//////////////////////////////////////////////////////////////////
+// Edit a transactional template version.
+// PATCH /templates/{template_id}/versions/{version_id}
+
 
 public class Example {
   public static void main(String[] args) throws IOException {
@@ -162,9 +169,10 @@ public class Example {
   }
 }
 
-##################################################
-# Retrieve a specific transactional template version. #
-# GET /templates/{template_id}/versions/{version_id} #
+//////////////////////////////////////////////////////////////////
+// Retrieve a specific transactional template version.
+// GET /templates/{template_id}/versions/{version_id}
+
 
 public class Example {
   public static void main(String[] args) throws IOException {
@@ -183,9 +191,10 @@ public class Example {
   }
 }
 
-##################################################
-# Delete a transactional template version. #
-# DELETE /templates/{template_id}/versions/{version_id} #
+//////////////////////////////////////////////////////////////////
+// Delete a transactional template version.
+// DELETE /templates/{template_id}/versions/{version_id}
+
 
 public class Example {
   public static void main(String[] args) throws IOException {
@@ -204,9 +213,10 @@ public class Example {
   }
 }
 
-##################################################
-# Activate a transactional template version. #
-# POST /templates/{template_id}/versions/{version_id}/activate #
+//////////////////////////////////////////////////////////////////
+// Activate a transactional template version.
+// POST /templates/{template_id}/versions/{version_id}/activate
+
 
 public class Example {
   public static void main(String[] args) throws IOException {

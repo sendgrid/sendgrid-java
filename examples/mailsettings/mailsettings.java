@@ -11,9 +11,10 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
-##################################################
-# Retrieve all mail settings #
-# GET /mail_settings #
+//////////////////////////////////////////////////////////////////
+// Retrieve all mail settings
+// GET /mail_settings
+
 
 public class Example {
   public static void main(String[] args) throws IOException {
@@ -36,9 +37,10 @@ public class Example {
   }
 }
 
-##################################################
-# Update address whitelist mail settings #
-# PATCH /mail_settings/address_whitelist #
+//////////////////////////////////////////////////////////////////
+// Update address whitelist mail settings
+// PATCH /mail_settings/address_whitelist
+
 
 public class Example {
   public static void main(String[] args) throws IOException {
@@ -58,9 +60,10 @@ public class Example {
   }
 }
 
-##################################################
-# Retrieve address whitelist mail settings #
-# GET /mail_settings/address_whitelist #
+//////////////////////////////////////////////////////////////////
+// Retrieve address whitelist mail settings
+// GET /mail_settings/address_whitelist
+
 
 public class Example {
   public static void main(String[] args) throws IOException {
@@ -79,9 +82,10 @@ public class Example {
   }
 }
 
-##################################################
-# Update BCC mail settings #
-# PATCH /mail_settings/bcc #
+//////////////////////////////////////////////////////////////////
+// Update BCC mail settings
+// PATCH /mail_settings/bcc
+
 
 public class Example {
   public static void main(String[] args) throws IOException {
@@ -101,9 +105,10 @@ public class Example {
   }
 }
 
-##################################################
-# Retrieve all BCC mail settings #
-# GET /mail_settings/bcc #
+//////////////////////////////////////////////////////////////////
+// Retrieve all BCC mail settings
+// GET /mail_settings/bcc
+
 
 public class Example {
   public static void main(String[] args) throws IOException {
@@ -122,9 +127,10 @@ public class Example {
   }
 }
 
-##################################################
-# Update bounce purge mail settings #
-# PATCH /mail_settings/bounce_purge #
+//////////////////////////////////////////////////////////////////
+// Update bounce purge mail settings
+// PATCH /mail_settings/bounce_purge
+
 
 public class Example {
   public static void main(String[] args) throws IOException {
@@ -144,9 +150,10 @@ public class Example {
   }
 }
 
-##################################################
-# Retrieve bounce purge mail settings #
-# GET /mail_settings/bounce_purge #
+//////////////////////////////////////////////////////////////////
+// Retrieve bounce purge mail settings
+// GET /mail_settings/bounce_purge
+
 
 public class Example {
   public static void main(String[] args) throws IOException {
@@ -165,9 +172,10 @@ public class Example {
   }
 }
 
-##################################################
-# Update footer mail settings #
-# PATCH /mail_settings/footer #
+//////////////////////////////////////////////////////////////////
+// Update footer mail settings
+// PATCH /mail_settings/footer
+
 
 public class Example {
   public static void main(String[] args) throws IOException {
@@ -187,9 +195,10 @@ public class Example {
   }
 }
 
-##################################################
-# Retrieve footer mail settings #
-# GET /mail_settings/footer #
+//////////////////////////////////////////////////////////////////
+// Retrieve footer mail settings
+// GET /mail_settings/footer
+
 
 public class Example {
   public static void main(String[] args) throws IOException {
@@ -208,9 +217,10 @@ public class Example {
   }
 }
 
-##################################################
-# Update forward bounce mail settings #
-# PATCH /mail_settings/forward_bounce #
+//////////////////////////////////////////////////////////////////
+// Update forward bounce mail settings
+// PATCH /mail_settings/forward_bounce
+
 
 public class Example {
   public static void main(String[] args) throws IOException {
@@ -230,9 +240,10 @@ public class Example {
   }
 }
 
-##################################################
-# Retrieve forward bounce mail settings #
-# GET /mail_settings/forward_bounce #
+//////////////////////////////////////////////////////////////////
+// Retrieve forward bounce mail settings
+// GET /mail_settings/forward_bounce
+
 
 public class Example {
   public static void main(String[] args) throws IOException {
@@ -251,9 +262,10 @@ public class Example {
   }
 }
 
-##################################################
-# Update forward spam mail settings #
-# PATCH /mail_settings/forward_spam #
+//////////////////////////////////////////////////////////////////
+// Update forward spam mail settings
+// PATCH /mail_settings/forward_spam
+
 
 public class Example {
   public static void main(String[] args) throws IOException {
@@ -273,9 +285,10 @@ public class Example {
   }
 }
 
-##################################################
-# Retrieve forward spam mail settings #
-# GET /mail_settings/forward_spam #
+//////////////////////////////////////////////////////////////////
+// Retrieve forward spam mail settings
+// GET /mail_settings/forward_spam
+
 
 public class Example {
   public static void main(String[] args) throws IOException {
@@ -294,9 +307,10 @@ public class Example {
   }
 }
 
-##################################################
-# Update plain content mail settings #
-# PATCH /mail_settings/plain_content #
+//////////////////////////////////////////////////////////////////
+// Update plain content mail settings
+// PATCH /mail_settings/plain_content
+
 
 public class Example {
   public static void main(String[] args) throws IOException {
@@ -316,9 +330,10 @@ public class Example {
   }
 }
 
-##################################################
-# Retrieve plain content mail settings #
-# GET /mail_settings/plain_content #
+//////////////////////////////////////////////////////////////////
+// Retrieve plain content mail settings
+// GET /mail_settings/plain_content
+
 
 public class Example {
   public static void main(String[] args) throws IOException {
@@ -337,9 +352,10 @@ public class Example {
   }
 }
 
-##################################################
-# Update spam check mail settings #
-# PATCH /mail_settings/spam_check #
+//////////////////////////////////////////////////////////////////
+// Update spam check mail settings
+// PATCH /mail_settings/spam_check
+
 
 public class Example {
   public static void main(String[] args) throws IOException {
@@ -359,9 +375,10 @@ public class Example {
   }
 }
 
-##################################################
-# Retrieve spam check mail settings #
-# GET /mail_settings/spam_check #
+//////////////////////////////////////////////////////////////////
+// Retrieve spam check mail settings
+// GET /mail_settings/spam_check
+
 
 public class Example {
   public static void main(String[] args) throws IOException {
@@ -380,9 +397,10 @@ public class Example {
   }
 }
 
-##################################################
-# Update template mail settings #
-# PATCH /mail_settings/template #
+//////////////////////////////////////////////////////////////////
+// Update template mail settings
+// PATCH /mail_settings/template
+
 
 public class Example {
   public static void main(String[] args) throws IOException {
@@ -402,9 +420,10 @@ public class Example {
   }
 }
 
-##################################################
-# Retrieve legacy template mail settings #
-# GET /mail_settings/template #
+//////////////////////////////////////////////////////////////////
+// Retrieve legacy template mail settings
+// GET /mail_settings/template
+
 
 public class Example {
   public static void main(String[] args) throws IOException {

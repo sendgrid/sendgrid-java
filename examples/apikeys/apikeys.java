@@ -11,9 +11,10 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
-##################################################
-# Create API keys #
-# POST /api_keys #
+//////////////////////////////////////////////////////////////////
+// Create API keys
+// POST /api_keys
+
 
 public class Example {
   public static void main(String[] args) throws IOException {
@@ -33,9 +34,10 @@ public class Example {
   }
 }
 
-##################################################
-# Retrieve all API Keys belonging to the authenticated user #
-# GET /api_keys #
+//////////////////////////////////////////////////////////////////
+// Retrieve all API Keys belonging to the authenticated user
+// GET /api_keys
+
 
 public class Example {
   public static void main(String[] args) throws IOException {
@@ -54,9 +56,10 @@ public class Example {
   }
 }
 
-##################################################
-# Update the name & scopes of an API Key #
-# PUT /api_keys/{api_key_id} #
+//////////////////////////////////////////////////////////////////
+// Update the name & scopes of an API Key
+// PUT /api_keys/{api_key_id}
+
 
 public class Example {
   public static void main(String[] args) throws IOException {
@@ -76,9 +79,10 @@ public class Example {
   }
 }
 
-##################################################
-# Update API keys #
-# PATCH /api_keys/{api_key_id} #
+//////////////////////////////////////////////////////////////////
+// Update API keys
+// PATCH /api_keys/{api_key_id}
+
 
 public class Example {
   public static void main(String[] args) throws IOException {
@@ -98,9 +102,10 @@ public class Example {
   }
 }
 
-##################################################
-# Retrieve an existing API Key #
-# GET /api_keys/{api_key_id} #
+//////////////////////////////////////////////////////////////////
+// Retrieve an existing API Key
+// GET /api_keys/{api_key_id}
+
 
 public class Example {
   public static void main(String[] args) throws IOException {
@@ -119,9 +124,10 @@ public class Example {
   }
 }
 
-##################################################
-# Delete API keys #
-# DELETE /api_keys/{api_key_id} #
+//////////////////////////////////////////////////////////////////
+// Delete API keys
+// DELETE /api_keys/{api_key_id}
+
 
 public class Example {
   public static void main(String[] args) throws IOException {

@@ -11,9 +11,10 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
-##################################################
-# Create Subuser #
-# POST /subusers #
+//////////////////////////////////////////////////////////////////
+// Create Subuser
+// POST /subusers
+
 
 public class Example {
   public static void main(String[] args) throws IOException {
@@ -33,9 +34,10 @@ public class Example {
   }
 }
 
-##################################################
-# List all Subusers #
-# GET /subusers #
+//////////////////////////////////////////////////////////////////
+// List all Subusers
+// GET /subusers
+
 
 public class Example {
   public static void main(String[] args) throws IOException {
@@ -59,9 +61,10 @@ public class Example {
   }
 }
 
-##################################################
-# Retrieve Subuser Reputations #
-# GET /subusers/reputations #
+//////////////////////////////////////////////////////////////////
+// Retrieve Subuser Reputations
+// GET /subusers/reputations
+
 
 public class Example {
   public static void main(String[] args) throws IOException {
@@ -83,9 +86,10 @@ public class Example {
   }
 }
 
-##################################################
-# Retrieve email statistics for your subusers. #
-# GET /subusers/stats #
+//////////////////////////////////////////////////////////////////
+// Retrieve email statistics for your subusers.
+// GET /subusers/stats
+
 
 public class Example {
   public static void main(String[] args) throws IOException {
@@ -112,9 +116,10 @@ public class Example {
   }
 }
 
-##################################################
-# Retrieve monthly stats for all subusers #
-# GET /subusers/stats/monthly #
+//////////////////////////////////////////////////////////////////
+// Retrieve monthly stats for all subusers
+// GET /subusers/stats/monthly
+
 
 public class Example {
   public static void main(String[] args) throws IOException {
@@ -141,9 +146,10 @@ public class Example {
   }
 }
 
-##################################################
-#  Retrieve the totals for each email statistic metric for all subusers. #
-# GET /subusers/stats/sums #
+//////////////////////////////////////////////////////////////////
+//  Retrieve the totals for each email statistic metric for all subusers.
+// GET /subusers/stats/sums
+
 
 public class Example {
   public static void main(String[] args) throws IOException {
@@ -171,9 +177,10 @@ public class Example {
   }
 }
 
-##################################################
-# Enable/disable a subuser #
-# PATCH /subusers/{subuser_name} #
+//////////////////////////////////////////////////////////////////
+// Enable/disable a subuser
+// PATCH /subusers/{subuser_name}
+
 
 public class Example {
   public static void main(String[] args) throws IOException {
@@ -193,9 +200,10 @@ public class Example {
   }
 }
 
-##################################################
-# Delete a subuser #
-# DELETE /subusers/{subuser_name} #
+//////////////////////////////////////////////////////////////////
+// Delete a subuser
+// DELETE /subusers/{subuser_name}
+
 
 public class Example {
   public static void main(String[] args) throws IOException {
@@ -214,9 +222,10 @@ public class Example {
   }
 }
 
-##################################################
-# Update IPs assigned to a subuser #
-# PUT /subusers/{subuser_name}/ips #
+//////////////////////////////////////////////////////////////////
+// Update IPs assigned to a subuser
+// PUT /subusers/{subuser_name}/ips
+
 
 public class Example {
   public static void main(String[] args) throws IOException {
@@ -236,9 +245,10 @@ public class Example {
   }
 }
 
-##################################################
-# Update Monitor Settings for a subuser #
-# PUT /subusers/{subuser_name}/monitor #
+//////////////////////////////////////////////////////////////////
+// Update Monitor Settings for a subuser
+// PUT /subusers/{subuser_name}/monitor
+
 
 public class Example {
   public static void main(String[] args) throws IOException {
@@ -258,9 +268,10 @@ public class Example {
   }
 }
 
-##################################################
-# Create monitor settings #
-# POST /subusers/{subuser_name}/monitor #
+//////////////////////////////////////////////////////////////////
+// Create monitor settings
+// POST /subusers/{subuser_name}/monitor
+
 
 public class Example {
   public static void main(String[] args) throws IOException {
@@ -280,9 +291,10 @@ public class Example {
   }
 }
 
-##################################################
-# Retrieve monitor settings for a subuser #
-# GET /subusers/{subuser_name}/monitor #
+//////////////////////////////////////////////////////////////////
+// Retrieve monitor settings for a subuser
+// GET /subusers/{subuser_name}/monitor
+
 
 public class Example {
   public static void main(String[] args) throws IOException {
@@ -301,9 +313,10 @@ public class Example {
   }
 }
 
-##################################################
-# Delete monitor settings #
-# DELETE /subusers/{subuser_name}/monitor #
+//////////////////////////////////////////////////////////////////
+// Delete monitor settings
+// DELETE /subusers/{subuser_name}/monitor
+
 
 public class Example {
   public static void main(String[] args) throws IOException {
@@ -322,9 +335,10 @@ public class Example {
   }
 }
 
-##################################################
-# Retrieve the monthly email statistics for a single subuser #
-# GET /subusers/{subuser_name}/stats/monthly #
+//////////////////////////////////////////////////////////////////
+// Retrieve the monthly email statistics for a single subuser
+// GET /subusers/{subuser_name}/stats/monthly
+
 
 public class Example {
   public static void main(String[] args) throws IOException {

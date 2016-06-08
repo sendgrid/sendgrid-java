@@ -11,9 +11,10 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
-##################################################
-# Retrieve email statistics by mailbox provider. #
-# GET /mailbox_providers/stats #
+//////////////////////////////////////////////////////////////////
+// Retrieve email statistics by mailbox provider.
+// GET /mailbox_providers/stats
+
 
 public class Example {
   public static void main(String[] args) throws IOException {

@@ -11,9 +11,10 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
-##################################################
-# Create a domain whitelabel. #
-# POST /whitelabel/domains #
+//////////////////////////////////////////////////////////////////
+// Create a domain whitelabel.
+// POST /whitelabel/domains
+
 
 public class Example {
   public static void main(String[] args) throws IOException {
@@ -33,9 +34,10 @@ public class Example {
   }
 }
 
-##################################################
-# List all domain whitelabels. #
-# GET /whitelabel/domains #
+//////////////////////////////////////////////////////////////////
+// List all domain whitelabels.
+// GET /whitelabel/domains
+
 
 public class Example {
   public static void main(String[] args) throws IOException {
@@ -61,9 +63,10 @@ public class Example {
   }
 }
 
-##################################################
-# Get the default domain whitelabel. #
-# GET /whitelabel/domains/default #
+//////////////////////////////////////////////////////////////////
+// Get the default domain whitelabel.
+// GET /whitelabel/domains/default
+
 
 public class Example {
   public static void main(String[] args) throws IOException {
@@ -82,9 +85,10 @@ public class Example {
   }
 }
 
-##################################################
-# List the domain whitelabel associated with the given user. #
-# GET /whitelabel/domains/subuser #
+//////////////////////////////////////////////////////////////////
+// List the domain whitelabel associated with the given user.
+// GET /whitelabel/domains/subuser
+
 
 public class Example {
   public static void main(String[] args) throws IOException {
@@ -103,9 +107,10 @@ public class Example {
   }
 }
 
-##################################################
-# Disassociate a domain whitelabel from a given user. #
-# DELETE /whitelabel/domains/subuser #
+//////////////////////////////////////////////////////////////////
+// Disassociate a domain whitelabel from a given user.
+// DELETE /whitelabel/domains/subuser
+
 
 public class Example {
   public static void main(String[] args) throws IOException {
@@ -124,9 +129,10 @@ public class Example {
   }
 }
 
-##################################################
-# Update a domain whitelabel. #
-# PATCH /whitelabel/domains/{domain_id} #
+//////////////////////////////////////////////////////////////////
+// Update a domain whitelabel.
+// PATCH /whitelabel/domains/{domain_id}
+
 
 public class Example {
   public static void main(String[] args) throws IOException {
@@ -146,9 +152,10 @@ public class Example {
   }
 }
 
-##################################################
-# Retrieve a domain whitelabel. #
-# GET /whitelabel/domains/{domain_id} #
+//////////////////////////////////////////////////////////////////
+// Retrieve a domain whitelabel.
+// GET /whitelabel/domains/{domain_id}
+
 
 public class Example {
   public static void main(String[] args) throws IOException {
@@ -167,9 +174,10 @@ public class Example {
   }
 }
 
-##################################################
-# Delete a domain whitelabel. #
-# DELETE /whitelabel/domains/{domain_id} #
+//////////////////////////////////////////////////////////////////
+// Delete a domain whitelabel.
+// DELETE /whitelabel/domains/{domain_id}
+
 
 public class Example {
   public static void main(String[] args) throws IOException {
@@ -188,9 +196,10 @@ public class Example {
   }
 }
 
-##################################################
-# Associate a domain whitelabel with a given user. #
-# POST /whitelabel/domains/{domain_id}/subuser #
+//////////////////////////////////////////////////////////////////
+// Associate a domain whitelabel with a given user.
+// POST /whitelabel/domains/{domain_id}/subuser
+
 
 public class Example {
   public static void main(String[] args) throws IOException {
@@ -210,9 +219,10 @@ public class Example {
   }
 }
 
-##################################################
-# Add an IP to a domain whitelabel. #
-# POST /whitelabel/domains/{id}/ips #
+//////////////////////////////////////////////////////////////////
+// Add an IP to a domain whitelabel.
+// POST /whitelabel/domains/{id}/ips
+
 
 public class Example {
   public static void main(String[] args) throws IOException {
@@ -232,9 +242,10 @@ public class Example {
   }
 }
 
-##################################################
-# Remove an IP from a domain whitelabel. #
-# DELETE /whitelabel/domains/{id}/ips/{ip} #
+//////////////////////////////////////////////////////////////////
+// Remove an IP from a domain whitelabel.
+// DELETE /whitelabel/domains/{id}/ips/{ip}
+
 
 public class Example {
   public static void main(String[] args) throws IOException {
@@ -253,9 +264,10 @@ public class Example {
   }
 }
 
-##################################################
-# Validate a domain whitelabel. #
-# POST /whitelabel/domains/{id}/validate #
+//////////////////////////////////////////////////////////////////
+// Validate a domain whitelabel.
+// POST /whitelabel/domains/{id}/validate
+
 
 public class Example {
   public static void main(String[] args) throws IOException {
@@ -274,9 +286,10 @@ public class Example {
   }
 }
 
-##################################################
-# Create an IP whitelabel #
-# POST /whitelabel/ips #
+//////////////////////////////////////////////////////////////////
+// Create an IP whitelabel
+// POST /whitelabel/ips
+
 
 public class Example {
   public static void main(String[] args) throws IOException {
@@ -296,9 +309,10 @@ public class Example {
   }
 }
 
-##################################################
-# Retrieve all IP whitelabels #
-# GET /whitelabel/ips #
+//////////////////////////////////////////////////////////////////
+// Retrieve all IP whitelabels
+// GET /whitelabel/ips
+
 
 public class Example {
   public static void main(String[] args) throws IOException {
@@ -322,9 +336,10 @@ public class Example {
   }
 }
 
-##################################################
-# Retrieve an IP whitelabel #
-# GET /whitelabel/ips/{id} #
+//////////////////////////////////////////////////////////////////
+// Retrieve an IP whitelabel
+// GET /whitelabel/ips/{id}
+
 
 public class Example {
   public static void main(String[] args) throws IOException {
@@ -343,9 +358,10 @@ public class Example {
   }
 }
 
-##################################################
-# Delete an IP whitelabel #
-# DELETE /whitelabel/ips/{id} #
+//////////////////////////////////////////////////////////////////
+// Delete an IP whitelabel
+// DELETE /whitelabel/ips/{id}
+
 
 public class Example {
   public static void main(String[] args) throws IOException {
@@ -364,9 +380,10 @@ public class Example {
   }
 }
 
-##################################################
-# Validate an IP whitelabel #
-# POST /whitelabel/ips/{id}/validate #
+//////////////////////////////////////////////////////////////////
+// Validate an IP whitelabel
+// POST /whitelabel/ips/{id}/validate
+
 
 public class Example {
   public static void main(String[] args) throws IOException {
@@ -385,9 +402,10 @@ public class Example {
   }
 }
 
-##################################################
-# Create a Link Whitelabel #
-# POST /whitelabel/links #
+//////////////////////////////////////////////////////////////////
+// Create a Link Whitelabel
+// POST /whitelabel/links
+
 
 public class Example {
   public static void main(String[] args) throws IOException {
@@ -411,9 +429,10 @@ public class Example {
   }
 }
 
-##################################################
-# Retrieve all link whitelabels #
-# GET /whitelabel/links #
+//////////////////////////////////////////////////////////////////
+// Retrieve all link whitelabels
+// GET /whitelabel/links
+
 
 public class Example {
   public static void main(String[] args) throws IOException {
@@ -435,9 +454,10 @@ public class Example {
   }
 }
 
-##################################################
-# Retrieve a Default Link Whitelabel #
-# GET /whitelabel/links/default #
+//////////////////////////////////////////////////////////////////
+// Retrieve a Default Link Whitelabel
+// GET /whitelabel/links/default
+
 
 public class Example {
   public static void main(String[] args) throws IOException {
@@ -459,9 +479,10 @@ public class Example {
   }
 }
 
-##################################################
-# Retrieve Associated Link Whitelabel #
-# GET /whitelabel/links/subuser #
+//////////////////////////////////////////////////////////////////
+// Retrieve Associated Link Whitelabel
+// GET /whitelabel/links/subuser
+
 
 public class Example {
   public static void main(String[] args) throws IOException {
@@ -483,9 +504,10 @@ public class Example {
   }
 }
 
-##################################################
-# Disassociate a Link Whitelabel #
-# DELETE /whitelabel/links/subuser #
+//////////////////////////////////////////////////////////////////
+// Disassociate a Link Whitelabel
+// DELETE /whitelabel/links/subuser
+
 
 public class Example {
   public static void main(String[] args) throws IOException {
@@ -507,9 +529,10 @@ public class Example {
   }
 }
 
-##################################################
-# Update a Link Whitelabel #
-# PATCH /whitelabel/links/{id} #
+//////////////////////////////////////////////////////////////////
+// Update a Link Whitelabel
+// PATCH /whitelabel/links/{id}
+
 
 public class Example {
   public static void main(String[] args) throws IOException {
@@ -529,9 +552,10 @@ public class Example {
   }
 }
 
-##################################################
-# Retrieve a Link Whitelabel #
-# GET /whitelabel/links/{id} #
+//////////////////////////////////////////////////////////////////
+// Retrieve a Link Whitelabel
+// GET /whitelabel/links/{id}
+
 
 public class Example {
   public static void main(String[] args) throws IOException {
@@ -550,9 +574,10 @@ public class Example {
   }
 }
 
-##################################################
-# Delete a Link Whitelabel #
-# DELETE /whitelabel/links/{id} #
+//////////////////////////////////////////////////////////////////
+// Delete a Link Whitelabel
+// DELETE /whitelabel/links/{id}
+
 
 public class Example {
   public static void main(String[] args) throws IOException {
@@ -571,9 +596,10 @@ public class Example {
   }
 }
 
-##################################################
-# Validate a Link Whitelabel #
-# POST /whitelabel/links/{id}/validate #
+//////////////////////////////////////////////////////////////////
+// Validate a Link Whitelabel
+// POST /whitelabel/links/{id}/validate
+
 
 public class Example {
   public static void main(String[] args) throws IOException {
@@ -592,9 +618,10 @@ public class Example {
   }
 }
 
-##################################################
-# Associate a Link Whitelabel #
-# POST /whitelabel/links/{link_id}/subuser #
+//////////////////////////////////////////////////////////////////
+// Associate a Link Whitelabel
+// POST /whitelabel/links/{link_id}/subuser
+
 
 public class Example {
   public static void main(String[] args) throws IOException {

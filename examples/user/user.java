@@ -11,9 +11,10 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
-##################################################
-# Get a user's account information. #
-# GET /user/account #
+//////////////////////////////////////////////////////////////////
+// Get a user's account information.
+// GET /user/account
+
 
 public class Example {
   public static void main(String[] args) throws IOException {
@@ -32,9 +33,10 @@ public class Example {
   }
 }
 
-##################################################
-# Retrieve your credit balance #
-# GET /user/credits #
+//////////////////////////////////////////////////////////////////
+// Retrieve your credit balance
+// GET /user/credits
+
 
 public class Example {
   public static void main(String[] args) throws IOException {
@@ -53,9 +55,10 @@ public class Example {
   }
 }
 
-##################################################
-# Update your account email address #
-# PUT /user/email #
+//////////////////////////////////////////////////////////////////
+// Update your account email address
+// PUT /user/email
+
 
 public class Example {
   public static void main(String[] args) throws IOException {
@@ -75,9 +78,10 @@ public class Example {
   }
 }
 
-##################################################
-# Retrieve your account email address #
-# GET /user/email #
+//////////////////////////////////////////////////////////////////
+// Retrieve your account email address
+// GET /user/email
+
 
 public class Example {
   public static void main(String[] args) throws IOException {
@@ -96,9 +100,10 @@ public class Example {
   }
 }
 
-##################################################
-# Update your password #
-# PUT /user/password #
+//////////////////////////////////////////////////////////////////
+// Update your password
+// PUT /user/password
+
 
 public class Example {
   public static void main(String[] args) throws IOException {
@@ -118,9 +123,10 @@ public class Example {
   }
 }
 
-##################################################
-# Update a user's profile #
-# PATCH /user/profile #
+//////////////////////////////////////////////////////////////////
+// Update a user's profile
+// PATCH /user/profile
+
 
 public class Example {
   public static void main(String[] args) throws IOException {
@@ -140,9 +146,10 @@ public class Example {
   }
 }
 
-##################################################
-# Get a user's profile #
-# GET /user/profile #
+//////////////////////////////////////////////////////////////////
+// Get a user's profile
+// GET /user/profile
+
 
 public class Example {
   public static void main(String[] args) throws IOException {
@@ -161,9 +168,10 @@ public class Example {
   }
 }
 
-##################################################
-# Cancel or pause a scheduled send #
-# POST /user/scheduled_sends #
+//////////////////////////////////////////////////////////////////
+// Cancel or pause a scheduled send
+// POST /user/scheduled_sends
+
 
 public class Example {
   public static void main(String[] args) throws IOException {
@@ -183,9 +191,10 @@ public class Example {
   }
 }
 
-##################################################
-# Retrieve all scheduled sends #
-# GET /user/scheduled_sends #
+//////////////////////////////////////////////////////////////////
+// Retrieve all scheduled sends
+// GET /user/scheduled_sends
+
 
 public class Example {
   public static void main(String[] args) throws IOException {
@@ -204,9 +213,10 @@ public class Example {
   }
 }
 
-##################################################
-# Update user scheduled send information #
-# PATCH /user/scheduled_sends/{batch_id} #
+//////////////////////////////////////////////////////////////////
+// Update user scheduled send information
+// PATCH /user/scheduled_sends/{batch_id}
+
 
 public class Example {
   public static void main(String[] args) throws IOException {
@@ -226,9 +236,10 @@ public class Example {
   }
 }
 
-##################################################
-# Retrieve scheduled send #
-# GET /user/scheduled_sends/{batch_id} #
+//////////////////////////////////////////////////////////////////
+// Retrieve scheduled send
+// GET /user/scheduled_sends/{batch_id}
+
 
 public class Example {
   public static void main(String[] args) throws IOException {
@@ -247,9 +258,10 @@ public class Example {
   }
 }
 
-##################################################
-# Delete a cancellation or pause of a scheduled send #
-# DELETE /user/scheduled_sends/{batch_id} #
+//////////////////////////////////////////////////////////////////
+// Delete a cancellation or pause of a scheduled send
+// DELETE /user/scheduled_sends/{batch_id}
+
 
 public class Example {
   public static void main(String[] args) throws IOException {
@@ -268,9 +280,10 @@ public class Example {
   }
 }
 
-##################################################
-# Update Enforced TLS settings #
-# PATCH /user/settings/enforced_tls #
+//////////////////////////////////////////////////////////////////
+// Update Enforced TLS settings
+// PATCH /user/settings/enforced_tls
+
 
 public class Example {
   public static void main(String[] args) throws IOException {
@@ -290,9 +303,10 @@ public class Example {
   }
 }
 
-##################################################
-# Retrieve current Enforced TLS settings. #
-# GET /user/settings/enforced_tls #
+//////////////////////////////////////////////////////////////////
+// Retrieve current Enforced TLS settings.
+// GET /user/settings/enforced_tls
+
 
 public class Example {
   public static void main(String[] args) throws IOException {
@@ -311,9 +325,10 @@ public class Example {
   }
 }
 
-##################################################
-# Update your username #
-# PUT /user/username #
+//////////////////////////////////////////////////////////////////
+// Update your username
+// PUT /user/username
+
 
 public class Example {
   public static void main(String[] args) throws IOException {
@@ -333,9 +348,10 @@ public class Example {
   }
 }
 
-##################################################
-# Retrieve your username #
-# GET /user/username #
+//////////////////////////////////////////////////////////////////
+// Retrieve your username
+// GET /user/username
+
 
 public class Example {
   public static void main(String[] args) throws IOException {
@@ -354,9 +370,10 @@ public class Example {
   }
 }
 
-##################################################
-# Update Event Notification Settings #
-# PATCH /user/webhooks/event/settings #
+//////////////////////////////////////////////////////////////////
+// Update Event Notification Settings
+// PATCH /user/webhooks/event/settings
+
 
 public class Example {
   public static void main(String[] args) throws IOException {
@@ -376,9 +393,10 @@ public class Example {
   }
 }
 
-##################################################
-# Retrieve Event Webhook settings #
-# GET /user/webhooks/event/settings #
+//////////////////////////////////////////////////////////////////
+// Retrieve Event Webhook settings
+// GET /user/webhooks/event/settings
+
 
 public class Example {
   public static void main(String[] args) throws IOException {
@@ -397,9 +415,10 @@ public class Example {
   }
 }
 
-##################################################
-# Test Event Notification Settings  #
-# POST /user/webhooks/event/test #
+//////////////////////////////////////////////////////////////////
+// Test Event Notification Settings 
+// POST /user/webhooks/event/test
+
 
 public class Example {
   public static void main(String[] args) throws IOException {
@@ -419,9 +438,10 @@ public class Example {
   }
 }
 
-##################################################
-# Retrieve Parse Webhook settings #
-# GET /user/webhooks/parse/settings #
+//////////////////////////////////////////////////////////////////
+// Retrieve Parse Webhook settings
+// GET /user/webhooks/parse/settings
+
 
 public class Example {
   public static void main(String[] args) throws IOException {
@@ -440,9 +460,10 @@ public class Example {
   }
 }
 
-##################################################
-# Retrieves Inbound Parse Webhook statistics. #
-# GET /user/webhooks/parse/stats #
+//////////////////////////////////////////////////////////////////
+// Retrieves Inbound Parse Webhook statistics.
+// GET /user/webhooks/parse/stats
+
 
 public class Example {
   public static void main(String[] args) throws IOException {

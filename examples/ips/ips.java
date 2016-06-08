@@ -11,9 +11,10 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
-##################################################
-# Retrieve all IP addresses #
-# GET /ips #
+//////////////////////////////////////////////////////////////////
+// Retrieve all IP addresses
+// GET /ips
+
 
 public class Example {
   public static void main(String[] args) throws IOException {
@@ -39,9 +40,10 @@ public class Example {
   }
 }
 
-##################################################
-# Retrieve all assigned IPs #
-# GET /ips/assigned #
+//////////////////////////////////////////////////////////////////
+// Retrieve all assigned IPs
+// GET /ips/assigned
+
 
 public class Example {
   public static void main(String[] args) throws IOException {
@@ -60,9 +62,10 @@ public class Example {
   }
 }
 
-##################################################
-# Create an IP pool. #
-# POST /ips/pools #
+//////////////////////////////////////////////////////////////////
+// Create an IP pool.
+// POST /ips/pools
+
 
 public class Example {
   public static void main(String[] args) throws IOException {
@@ -82,9 +85,10 @@ public class Example {
   }
 }
 
-##################################################
-# Retrieve all IP pools. #
-# GET /ips/pools #
+//////////////////////////////////////////////////////////////////
+// Retrieve all IP pools.
+// GET /ips/pools
+
 
 public class Example {
   public static void main(String[] args) throws IOException {
@@ -103,9 +107,10 @@ public class Example {
   }
 }
 
-##################################################
-# Update an IP pools name. #
-# PUT /ips/pools/{pool_name} #
+//////////////////////////////////////////////////////////////////
+// Update an IP pools name.
+// PUT /ips/pools/{pool_name}
+
 
 public class Example {
   public static void main(String[] args) throws IOException {
@@ -125,9 +130,10 @@ public class Example {
   }
 }
 
-##################################################
-# Retrieve all IPs in a specified pool. #
-# GET /ips/pools/{pool_name} #
+//////////////////////////////////////////////////////////////////
+// Retrieve all IPs in a specified pool.
+// GET /ips/pools/{pool_name}
+
 
 public class Example {
   public static void main(String[] args) throws IOException {
@@ -146,9 +152,10 @@ public class Example {
   }
 }
 
-##################################################
-# Delete an IP pool. #
-# DELETE /ips/pools/{pool_name} #
+//////////////////////////////////////////////////////////////////
+// Delete an IP pool.
+// DELETE /ips/pools/{pool_name}
+
 
 public class Example {
   public static void main(String[] args) throws IOException {
@@ -167,9 +174,10 @@ public class Example {
   }
 }
 
-##################################################
-# Add an IP address to a pool #
-# POST /ips/pools/{pool_name}/ips #
+//////////////////////////////////////////////////////////////////
+// Add an IP address to a pool
+// POST /ips/pools/{pool_name}/ips
+
 
 public class Example {
   public static void main(String[] args) throws IOException {
@@ -189,9 +197,10 @@ public class Example {
   }
 }
 
-##################################################
-# Remove an IP address from a pool. #
-# DELETE /ips/pools/{pool_name}/ips/{ip} #
+//////////////////////////////////////////////////////////////////
+// Remove an IP address from a pool.
+// DELETE /ips/pools/{pool_name}/ips/{ip}
+
 
 public class Example {
   public static void main(String[] args) throws IOException {
@@ -210,9 +219,10 @@ public class Example {
   }
 }
 
-##################################################
-# Add an IP to warmup #
-# POST /ips/warmup #
+//////////////////////////////////////////////////////////////////
+// Add an IP to warmup
+// POST /ips/warmup
+
 
 public class Example {
   public static void main(String[] args) throws IOException {
@@ -232,9 +242,10 @@ public class Example {
   }
 }
 
-##################################################
-# Retrieve all IPs currently in warmup #
-# GET /ips/warmup #
+//////////////////////////////////////////////////////////////////
+// Retrieve all IPs currently in warmup
+// GET /ips/warmup
+
 
 public class Example {
   public static void main(String[] args) throws IOException {
@@ -253,9 +264,10 @@ public class Example {
   }
 }
 
-##################################################
-# Retrieve warmup status for a specific IP address #
-# GET /ips/warmup/{ip_address} #
+//////////////////////////////////////////////////////////////////
+// Retrieve warmup status for a specific IP address
+// GET /ips/warmup/{ip_address}
+
 
 public class Example {
   public static void main(String[] args) throws IOException {
@@ -274,9 +286,10 @@ public class Example {
   }
 }
 
-##################################################
-# Remove an IP from warmup #
-# DELETE /ips/warmup/{ip_address} #
+//////////////////////////////////////////////////////////////////
+// Remove an IP from warmup
+// DELETE /ips/warmup/{ip_address}
+
 
 public class Example {
   public static void main(String[] args) throws IOException {
@@ -295,9 +308,10 @@ public class Example {
   }
 }
 
-##################################################
-# Retrieve all IP pools an IP address belongs to #
-# GET /ips/{ip_address} #
+//////////////////////////////////////////////////////////////////
+// Retrieve all IP pools an IP address belongs to
+// GET /ips/{ip_address}
+
 
 public class Example {
   public static void main(String[] args) throws IOException {

@@ -11,9 +11,10 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
-##################################################
-# Retrieve Tracking Settings #
-# GET /tracking_settings #
+//////////////////////////////////////////////////////////////////
+// Retrieve Tracking Settings
+// GET /tracking_settings
+
 
 public class Example {
   public static void main(String[] args) throws IOException {
@@ -36,9 +37,10 @@ public class Example {
   }
 }
 
-##################################################
-# Update Click Tracking Settings #
-# PATCH /tracking_settings/click #
+//////////////////////////////////////////////////////////////////
+// Update Click Tracking Settings
+// PATCH /tracking_settings/click
+
 
 public class Example {
   public static void main(String[] args) throws IOException {
@@ -58,9 +60,10 @@ public class Example {
   }
 }
 
-##################################################
-# Retrieve Click Track Settings #
-# GET /tracking_settings/click #
+//////////////////////////////////////////////////////////////////
+// Retrieve Click Track Settings
+// GET /tracking_settings/click
+
 
 public class Example {
   public static void main(String[] args) throws IOException {
@@ -79,9 +82,10 @@ public class Example {
   }
 }
 
-##################################################
-# Update Google Analytics Settings #
-# PATCH /tracking_settings/google_analytics #
+//////////////////////////////////////////////////////////////////
+// Update Google Analytics Settings
+// PATCH /tracking_settings/google_analytics
+
 
 public class Example {
   public static void main(String[] args) throws IOException {
@@ -101,9 +105,10 @@ public class Example {
   }
 }
 
-##################################################
-# Retrieve Google Analytics Settings #
-# GET /tracking_settings/google_analytics #
+//////////////////////////////////////////////////////////////////
+// Retrieve Google Analytics Settings
+// GET /tracking_settings/google_analytics
+
 
 public class Example {
   public static void main(String[] args) throws IOException {
@@ -122,9 +127,10 @@ public class Example {
   }
 }
 
-##################################################
-# Update Open Tracking Settings #
-# PATCH /tracking_settings/open #
+//////////////////////////////////////////////////////////////////
+// Update Open Tracking Settings
+// PATCH /tracking_settings/open
+
 
 public class Example {
   public static void main(String[] args) throws IOException {
@@ -144,9 +150,10 @@ public class Example {
   }
 }
 
-##################################################
-# Get Open Tracking Settings #
-# GET /tracking_settings/open #
+//////////////////////////////////////////////////////////////////
+// Get Open Tracking Settings
+// GET /tracking_settings/open
+
 
 public class Example {
   public static void main(String[] args) throws IOException {
@@ -165,9 +172,10 @@ public class Example {
   }
 }
 
-##################################################
-# Update Subscription Tracking Settings #
-# PATCH /tracking_settings/subscription #
+//////////////////////////////////////////////////////////////////
+// Update Subscription Tracking Settings
+// PATCH /tracking_settings/subscription
+
 
 public class Example {
   public static void main(String[] args) throws IOException {
@@ -187,9 +195,10 @@ public class Example {
   }
 }
 
-##################################################
-# Retrieve Subscription Tracking Settings #
-# GET /tracking_settings/subscription #
+//////////////////////////////////////////////////////////////////
+// Retrieve Subscription Tracking Settings
+// GET /tracking_settings/subscription
+
 
 public class Example {
   public static void main(String[] args) throws IOException {

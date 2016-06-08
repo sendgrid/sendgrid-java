@@ -11,9 +11,10 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
-##################################################
-# Retrieve all recent access attempts #
-# GET /access_settings/activity #
+//////////////////////////////////////////////////////////////////
+// Retrieve all recent access attempts
+// GET /access_settings/activity
+
 
 public class Example {
   public static void main(String[] args) throws IOException {
@@ -35,9 +36,10 @@ public class Example {
   }
 }
 
-##################################################
-# Add one or more IPs to the whitelist #
-# POST /access_settings/whitelist #
+//////////////////////////////////////////////////////////////////
+// Add one or more IPs to the whitelist
+// POST /access_settings/whitelist
+
 
 public class Example {
   public static void main(String[] args) throws IOException {
@@ -57,9 +59,10 @@ public class Example {
   }
 }
 
-##################################################
-# Retrieve a list of currently whitelisted IPs #
-# GET /access_settings/whitelist #
+//////////////////////////////////////////////////////////////////
+// Retrieve a list of currently whitelisted IPs
+// GET /access_settings/whitelist
+
 
 public class Example {
   public static void main(String[] args) throws IOException {
@@ -78,9 +81,10 @@ public class Example {
   }
 }
 
-##################################################
-# Remove one or more IPs from the whitelist #
-# DELETE /access_settings/whitelist #
+//////////////////////////////////////////////////////////////////
+// Remove one or more IPs from the whitelist
+// DELETE /access_settings/whitelist
+
 
 public class Example {
   public static void main(String[] args) throws IOException {
@@ -100,9 +104,10 @@ public class Example {
   }
 }
 
-##################################################
-# Retrieve a specific whitelisted IP #
-# GET /access_settings/whitelist/{rule_id} #
+//////////////////////////////////////////////////////////////////
+// Retrieve a specific whitelisted IP
+// GET /access_settings/whitelist/{rule_id}
+
 
 public class Example {
   public static void main(String[] args) throws IOException {
@@ -121,9 +126,10 @@ public class Example {
   }
 }
 
-##################################################
-# Remove a specific IP from the whitelist #
-# DELETE /access_settings/whitelist/{rule_id} #
+//////////////////////////////////////////////////////////////////
+// Remove a specific IP from the whitelist
+// DELETE /access_settings/whitelist/{rule_id}
+
 
 public class Example {
   public static void main(String[] args) throws IOException {

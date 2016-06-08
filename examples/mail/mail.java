@@ -11,9 +11,10 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
-##################################################
-# Create a batch ID #
-# POST /mail/batch #
+//////////////////////////////////////////////////////////////////
+// Create a batch ID
+// POST /mail/batch
+
 
 public class Example {
   public static void main(String[] args) throws IOException {
@@ -32,9 +33,10 @@ public class Example {
   }
 }
 
-##################################################
-# Validate batch ID #
-# GET /mail/batch/{batch_id} #
+//////////////////////////////////////////////////////////////////
+// Validate batch ID
+// GET /mail/batch/{batch_id}
+
 
 public class Example {
   public static void main(String[] args) throws IOException {
@@ -53,9 +55,11 @@ public class Example {
   }
 }
 
-##################################################
-# v3 Mail Send Beta #
-# POST /mail/send/beta #
+//////////////////////////////////////////////////////////////////
+// v3 Mail Send Beta
+// POST /mail/send/beta
+
+// This endpoint has a helper, check it out [here](https://github.com/sendgrid/sendgrid-java/blob/v3beta/src/main/java/com/sendgrid/helpers/README.md).
 
 public class Example {
   public static void main(String[] args) throws IOException {

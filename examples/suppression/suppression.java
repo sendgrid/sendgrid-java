@@ -11,9 +11,10 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
-##################################################
-# Retrieve all blocks #
-# GET /suppression/blocks #
+//////////////////////////////////////////////////////////////////
+// Retrieve all blocks
+// GET /suppression/blocks
+
 
 public class Example {
   public static void main(String[] args) throws IOException {
@@ -38,9 +39,10 @@ public class Example {
   }
 }
 
-##################################################
-# Delete blocks #
-# DELETE /suppression/blocks #
+//////////////////////////////////////////////////////////////////
+// Delete blocks
+// DELETE /suppression/blocks
+
 
 public class Example {
   public static void main(String[] args) throws IOException {
@@ -60,9 +62,10 @@ public class Example {
   }
 }
 
-##################################################
-# Retrieve a specific block #
-# GET /suppression/blocks/{email} #
+//////////////////////////////////////////////////////////////////
+// Retrieve a specific block
+// GET /suppression/blocks/{email}
+
 
 public class Example {
   public static void main(String[] args) throws IOException {
@@ -81,9 +84,10 @@ public class Example {
   }
 }
 
-##################################################
-# Delete a specific block #
-# DELETE /suppression/blocks/{email} #
+//////////////////////////////////////////////////////////////////
+// Delete a specific block
+// DELETE /suppression/blocks/{email}
+
 
 public class Example {
   public static void main(String[] args) throws IOException {
@@ -102,9 +106,10 @@ public class Example {
   }
 }
 
-##################################################
-# Retrieve all bounces #
-# GET /suppression/bounces #
+//////////////////////////////////////////////////////////////////
+// Retrieve all bounces
+// GET /suppression/bounces
+
 
 public class Example {
   public static void main(String[] args) throws IOException {
@@ -127,9 +132,10 @@ public class Example {
   }
 }
 
-##################################################
-# Delete bounces #
-# DELETE /suppression/bounces #
+//////////////////////////////////////////////////////////////////
+// Delete bounces
+// DELETE /suppression/bounces
+
 
 public class Example {
   public static void main(String[] args) throws IOException {
@@ -149,9 +155,10 @@ public class Example {
   }
 }
 
-##################################################
-# Retrieve a Bounce #
-# GET /suppression/bounces/{email} #
+//////////////////////////////////////////////////////////////////
+// Retrieve a Bounce
+// GET /suppression/bounces/{email}
+
 
 public class Example {
   public static void main(String[] args) throws IOException {
@@ -170,9 +177,10 @@ public class Example {
   }
 }
 
-##################################################
-# Delete a bounce #
-# DELETE /suppression/bounces/{email} #
+//////////////////////////////////////////////////////////////////
+// Delete a bounce
+// DELETE /suppression/bounces/{email}
+
 
 public class Example {
   public static void main(String[] args) throws IOException {
@@ -194,9 +202,10 @@ public class Example {
   }
 }
 
-##################################################
-# Retrieve all invalid emails #
-# GET /suppression/invalid_emails #
+//////////////////////////////////////////////////////////////////
+// Retrieve all invalid emails
+// GET /suppression/invalid_emails
+
 
 public class Example {
   public static void main(String[] args) throws IOException {
@@ -221,9 +230,10 @@ public class Example {
   }
 }
 
-##################################################
-# Delete invalid emails #
-# DELETE /suppression/invalid_emails #
+//////////////////////////////////////////////////////////////////
+// Delete invalid emails
+// DELETE /suppression/invalid_emails
+
 
 public class Example {
   public static void main(String[] args) throws IOException {
@@ -243,9 +253,10 @@ public class Example {
   }
 }
 
-##################################################
-# Retrieve a specific invalid email #
-# GET /suppression/invalid_emails/{email} #
+//////////////////////////////////////////////////////////////////
+// Retrieve a specific invalid email
+// GET /suppression/invalid_emails/{email}
+
 
 public class Example {
   public static void main(String[] args) throws IOException {
@@ -264,9 +275,10 @@ public class Example {
   }
 }
 
-##################################################
-# Delete a specific invalid email #
-# DELETE /suppression/invalid_emails/{email} #
+//////////////////////////////////////////////////////////////////
+// Delete a specific invalid email
+// DELETE /suppression/invalid_emails/{email}
+
 
 public class Example {
   public static void main(String[] args) throws IOException {
@@ -285,9 +297,10 @@ public class Example {
   }
 }
 
-##################################################
-# Retrieve a specific spam report #
-# GET /suppression/spam_report/{email} #
+//////////////////////////////////////////////////////////////////
+// Retrieve a specific spam report
+// GET /suppression/spam_report/{email}
+
 
 public class Example {
   public static void main(String[] args) throws IOException {
@@ -306,9 +319,10 @@ public class Example {
   }
 }
 
-##################################################
-# Delete a specific spam report #
-# DELETE /suppression/spam_report/{email} #
+//////////////////////////////////////////////////////////////////
+// Delete a specific spam report
+// DELETE /suppression/spam_report/{email}
+
 
 public class Example {
   public static void main(String[] args) throws IOException {
@@ -327,9 +341,10 @@ public class Example {
   }
 }
 
-##################################################
-# Retrieve all spam reports #
-# GET /suppression/spam_reports #
+//////////////////////////////////////////////////////////////////
+// Retrieve all spam reports
+// GET /suppression/spam_reports
+
 
 public class Example {
   public static void main(String[] args) throws IOException {
@@ -354,9 +369,10 @@ public class Example {
   }
 }
 
-##################################################
-# Delete spam reports #
-# DELETE /suppression/spam_reports #
+//////////////////////////////////////////////////////////////////
+// Delete spam reports
+// DELETE /suppression/spam_reports
+
 
 public class Example {
   public static void main(String[] args) throws IOException {
@@ -376,9 +392,10 @@ public class Example {
   }
 }
 
-##################################################
-# Retrieve all global suppressions #
-# GET /suppression/unsubscribes #
+//////////////////////////////////////////////////////////////////
+// Retrieve all global suppressions
+// GET /suppression/unsubscribes
+
 
 public class Example {
   public static void main(String[] args) throws IOException {

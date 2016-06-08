@@ -11,9 +11,10 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
-##################################################
-# Retrieve email statistics by device type. #
-# GET /devices/stats #
+//////////////////////////////////////////////////////////////////
+// Retrieve email statistics by device type.
+// GET /devices/stats
+
 
 public class Example {
   public static void main(String[] args) throws IOException {

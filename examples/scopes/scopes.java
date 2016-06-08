@@ -11,9 +11,10 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
-##################################################
-# Retrieve a list of scopes for which this user has access. #
-# GET /scopes #
+//////////////////////////////////////////////////////////////////
+// Retrieve a list of scopes for which this user has access.
+// GET /scopes
+
 
 public class Example {
   public static void main(String[] args) throws IOException {

@@ -11,9 +11,10 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
-##################################################
-# Create a Custom Field #
-# POST /contactdb/custom_fields #
+//////////////////////////////////////////////////////////////////
+// Create a Custom Field
+// POST /contactdb/custom_fields
+
 
 public class Example {
   public static void main(String[] args) throws IOException {
@@ -33,9 +34,10 @@ public class Example {
   }
 }
 
-##################################################
-# Retrieve all custom fields #
-# GET /contactdb/custom_fields #
+//////////////////////////////////////////////////////////////////
+// Retrieve all custom fields
+// GET /contactdb/custom_fields
+
 
 public class Example {
   public static void main(String[] args) throws IOException {
@@ -54,9 +56,10 @@ public class Example {
   }
 }
 
-##################################################
-# Retrieve a Custom Field #
-# GET /contactdb/custom_fields/{custom_field_id} #
+//////////////////////////////////////////////////////////////////
+// Retrieve a Custom Field
+// GET /contactdb/custom_fields/{custom_field_id}
+
 
 public class Example {
   public static void main(String[] args) throws IOException {
@@ -75,9 +78,10 @@ public class Example {
   }
 }
 
-##################################################
-# Delete a Custom Field #
-# DELETE /contactdb/custom_fields/{custom_field_id} #
+//////////////////////////////////////////////////////////////////
+// Delete a Custom Field
+// DELETE /contactdb/custom_fields/{custom_field_id}
+
 
 public class Example {
   public static void main(String[] args) throws IOException {
@@ -96,9 +100,10 @@ public class Example {
   }
 }
 
-##################################################
-# Create a List #
-# POST /contactdb/lists #
+//////////////////////////////////////////////////////////////////
+// Create a List
+// POST /contactdb/lists
+
 
 public class Example {
   public static void main(String[] args) throws IOException {
@@ -118,9 +123,10 @@ public class Example {
   }
 }
 
-##################################################
-# Retrieve all lists #
-# GET /contactdb/lists #
+//////////////////////////////////////////////////////////////////
+// Retrieve all lists
+// GET /contactdb/lists
+
 
 public class Example {
   public static void main(String[] args) throws IOException {
@@ -139,9 +145,10 @@ public class Example {
   }
 }
 
-##################################################
-# Delete Multiple lists #
-# DELETE /contactdb/lists #
+//////////////////////////////////////////////////////////////////
+// Delete Multiple lists
+// DELETE /contactdb/lists
+
 
 public class Example {
   public static void main(String[] args) throws IOException {
@@ -161,9 +168,10 @@ public class Example {
   }
 }
 
-##################################################
-# Update a List #
-# PATCH /contactdb/lists/{list_id} #
+//////////////////////////////////////////////////////////////////
+// Update a List
+// PATCH /contactdb/lists/{list_id}
+
 
 public class Example {
   public static void main(String[] args) throws IOException {
@@ -186,9 +194,10 @@ public class Example {
   }
 }
 
-##################################################
-# Retrieve a single list #
-# GET /contactdb/lists/{list_id} #
+//////////////////////////////////////////////////////////////////
+// Retrieve a single list
+// GET /contactdb/lists/{list_id}
+
 
 public class Example {
   public static void main(String[] args) throws IOException {
@@ -210,9 +219,10 @@ public class Example {
   }
 }
 
-##################################################
-# Delete a List #
-# DELETE /contactdb/lists/{list_id} #
+//////////////////////////////////////////////////////////////////
+// Delete a List
+// DELETE /contactdb/lists/{list_id}
+
 
 public class Example {
   public static void main(String[] args) throws IOException {
@@ -234,9 +244,10 @@ public class Example {
   }
 }
 
-##################################################
-# Add Multiple Recipients to a List #
-# POST /contactdb/lists/{list_id}/recipients #
+//////////////////////////////////////////////////////////////////
+// Add Multiple Recipients to a List
+// POST /contactdb/lists/{list_id}/recipients
+
 
 public class Example {
   public static void main(String[] args) throws IOException {
@@ -256,9 +267,10 @@ public class Example {
   }
 }
 
-##################################################
-# Retrieve all recipients on a List #
-# GET /contactdb/lists/{list_id}/recipients #
+//////////////////////////////////////////////////////////////////
+// Retrieve all recipients on a List
+// GET /contactdb/lists/{list_id}/recipients
+
 
 public class Example {
   public static void main(String[] args) throws IOException {
@@ -282,9 +294,10 @@ public class Example {
   }
 }
 
-##################################################
-# Add a Single Recipient to a List #
-# POST /contactdb/lists/{list_id}/recipients/{recipient_id} #
+//////////////////////////////////////////////////////////////////
+// Add a Single Recipient to a List
+// POST /contactdb/lists/{list_id}/recipients/{recipient_id}
+
 
 public class Example {
   public static void main(String[] args) throws IOException {
@@ -303,9 +316,10 @@ public class Example {
   }
 }
 
-##################################################
-# Delete a Single Recipient from a Single List #
-# DELETE /contactdb/lists/{list_id}/recipients/{recipient_id} #
+//////////////////////////////////////////////////////////////////
+// Delete a Single Recipient from a Single List
+// DELETE /contactdb/lists/{list_id}/recipients/{recipient_id}
+
 
 public class Example {
   public static void main(String[] args) throws IOException {
@@ -328,9 +342,10 @@ public class Example {
   }
 }
 
-##################################################
-# Update Recipient #
-# PATCH /contactdb/recipients #
+//////////////////////////////////////////////////////////////////
+// Update Recipient
+// PATCH /contactdb/recipients
+
 
 public class Example {
   public static void main(String[] args) throws IOException {
@@ -350,9 +365,10 @@ public class Example {
   }
 }
 
-##################################################
-# Add recipients #
-# POST /contactdb/recipients #
+//////////////////////////////////////////////////////////////////
+// Add recipients
+// POST /contactdb/recipients
+
 
 public class Example {
   public static void main(String[] args) throws IOException {
@@ -372,9 +388,10 @@ public class Example {
   }
 }
 
-##################################################
-# Retrieve recipients #
-# GET /contactdb/recipients #
+//////////////////////////////////////////////////////////////////
+// Retrieve recipients
+// GET /contactdb/recipients
+
 
 public class Example {
   public static void main(String[] args) throws IOException {
@@ -397,9 +414,10 @@ public class Example {
   }
 }
 
-##################################################
-# Delete Recipient #
-# DELETE /contactdb/recipients #
+//////////////////////////////////////////////////////////////////
+// Delete Recipient
+// DELETE /contactdb/recipients
+
 
 public class Example {
   public static void main(String[] args) throws IOException {
@@ -419,9 +437,10 @@ public class Example {
   }
 }
 
-##################################################
-# Retrieve the count of billable recipients #
-# GET /contactdb/recipients/billable_count #
+//////////////////////////////////////////////////////////////////
+// Retrieve the count of billable recipients
+// GET /contactdb/recipients/billable_count
+
 
 public class Example {
   public static void main(String[] args) throws IOException {
@@ -440,9 +459,10 @@ public class Example {
   }
 }
 
-##################################################
-# Retrieve a Count of Recipients #
-# GET /contactdb/recipients/count #
+//////////////////////////////////////////////////////////////////
+// Retrieve a Count of Recipients
+// GET /contactdb/recipients/count
+
 
 public class Example {
   public static void main(String[] args) throws IOException {
@@ -461,9 +481,10 @@ public class Example {
   }
 }
 
-##################################################
-# Retrieve recipients matching search criteria #
-# GET /contactdb/recipients/search #
+//////////////////////////////////////////////////////////////////
+// Retrieve recipients matching search criteria
+// GET /contactdb/recipients/search
+
 
 public class Example {
   public static void main(String[] args) throws IOException {
@@ -485,9 +506,10 @@ public class Example {
   }
 }
 
-##################################################
-# Retrieve a single recipient #
-# GET /contactdb/recipients/{recipient_id} #
+//////////////////////////////////////////////////////////////////
+// Retrieve a single recipient
+// GET /contactdb/recipients/{recipient_id}
+
 
 public class Example {
   public static void main(String[] args) throws IOException {
@@ -506,9 +528,10 @@ public class Example {
   }
 }
 
-##################################################
-# Delete a Recipient #
-# DELETE /contactdb/recipients/{recipient_id} #
+//////////////////////////////////////////////////////////////////
+// Delete a Recipient
+// DELETE /contactdb/recipients/{recipient_id}
+
 
 public class Example {
   public static void main(String[] args) throws IOException {
@@ -527,9 +550,10 @@ public class Example {
   }
 }
 
-##################################################
-# Retrieve the lists that a recipient is on #
-# GET /contactdb/recipients/{recipient_id}/lists #
+//////////////////////////////////////////////////////////////////
+// Retrieve the lists that a recipient is on
+// GET /contactdb/recipients/{recipient_id}/lists
+
 
 public class Example {
   public static void main(String[] args) throws IOException {
@@ -548,9 +572,10 @@ public class Example {
   }
 }
 
-##################################################
-# Retrieve reserved fields #
-# GET /contactdb/reserved_fields #
+//////////////////////////////////////////////////////////////////
+// Retrieve reserved fields
+// GET /contactdb/reserved_fields
+
 
 public class Example {
   public static void main(String[] args) throws IOException {
@@ -569,9 +594,10 @@ public class Example {
   }
 }
 
-##################################################
-# Create a Segment #
-# POST /contactdb/segments #
+//////////////////////////////////////////////////////////////////
+// Create a Segment
+// POST /contactdb/segments
+
 
 public class Example {
   public static void main(String[] args) throws IOException {
@@ -591,9 +617,10 @@ public class Example {
   }
 }
 
-##################################################
-# Retrieve all segments #
-# GET /contactdb/segments #
+//////////////////////////////////////////////////////////////////
+// Retrieve all segments
+// GET /contactdb/segments
+
 
 public class Example {
   public static void main(String[] args) throws IOException {
@@ -612,9 +639,10 @@ public class Example {
   }
 }
 
-##################################################
-# Update a segment #
-# PATCH /contactdb/segments/{segment_id} #
+//////////////////////////////////////////////////////////////////
+// Update a segment
+// PATCH /contactdb/segments/{segment_id}
+
 
 public class Example {
   public static void main(String[] args) throws IOException {
@@ -637,9 +665,10 @@ public class Example {
   }
 }
 
-##################################################
-# Retrieve a segment #
-# GET /contactdb/segments/{segment_id} #
+//////////////////////////////////////////////////////////////////
+// Retrieve a segment
+// GET /contactdb/segments/{segment_id}
+
 
 public class Example {
   public static void main(String[] args) throws IOException {
@@ -661,9 +690,10 @@ public class Example {
   }
 }
 
-##################################################
-# Delete a segment #
-# DELETE /contactdb/segments/{segment_id} #
+//////////////////////////////////////////////////////////////////
+// Delete a segment
+// DELETE /contactdb/segments/{segment_id}
+
 
 public class Example {
   public static void main(String[] args) throws IOException {
@@ -685,9 +715,10 @@ public class Example {
   }
 }
 
-##################################################
-# Retrieve recipients on a segment #
-# GET /contactdb/segments/{segment_id}/recipients #
+//////////////////////////////////////////////////////////////////
+// Retrieve recipients on a segment
+// GET /contactdb/segments/{segment_id}/recipients
+
 
 public class Example {
   public static void main(String[] args) throws IOException {
