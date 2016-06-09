@@ -26,10 +26,22 @@ public class SendGrid {
     * @param apiKey is your SendGrid API Key: https://app.sendgrid.com/settings/api_keys
     */
   public SendGrid(String apiKey) {
+    this.client = new Client();
+    initializeSendGrid(apiKey);
+  }
+
+  /**
+    * @param apiKey is your SendGrid API Key: https://app.sendgrid.com/settings/api_keys
+    */
+  public SendGrid(String apiKey, Boolean test) {
+    this.client = new Client(test);
+    initializeSendGrid(apiKey);
+  }
+
+  public void initializeSendGrid(String apiKey) {
     this.apiKey = apiKey;
     this.host = "api.sendgrid.com";
     this.version = "v3";
-    this.client = new Client();
     this.requestHeaders = new HashMap<String, String>();
     this.requestHeaders.put("Authorization", "Bearer " + apiKey);
     this.requestHeaders.put("Content-Type", "application/json");
