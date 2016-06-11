@@ -44,7 +44,6 @@ public class SendGrid {
     this.version = "v3";
     this.requestHeaders = new HashMap<String, String>();
     this.requestHeaders.put("Authorization", "Bearer " + apiKey);
-    this.requestHeaders.put("Content-Type", "application/json");
     this.requestHeaders.put("User-agent", USER_AGENT);
   }
 
