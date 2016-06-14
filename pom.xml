@@ -9,14 +9,14 @@
     <groupId>com.sendgrid</groupId>
     <artifactId>sendgrid-java</artifactId>
     <name>SendGrid Java helper library</name>
-    <version>2.1.1</version>
+    <version>3.0.0</version>
     <description>This Java module allows you to quickly and easily send emails through SendGrid using Java.</description>
     <url>https://github.com/sendgrid/sendgrid-java</url>
     <licenses>
         <license>
-            <name>Apache License 2.0</name>
-            <url>http://www.apache.org/licenses/LICENSE-2.0.html</url>
-            <distribution>repo</distribution>
+        <name>The MIT License (MIT)</name>
+        <url>https://github.com/sendgrid/java-http-client/blob/master/LICENSE</url>
+        <distribution>repo</distribution>
         </license>
     </licenses>
     <scm>
@@ -32,8 +32,8 @@
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>3.1</version>
                 <configuration>
-                    <source>1.5</source>
-                    <target>1.5</target>
+                    <source>1.8</source>
+                    <target>1.8</target>
                 </configuration>
             </plugin>
             <plugin>
@@ -78,39 +78,33 @@
     </build>
     <developers>
         <developer>
-            <id>johnclaus</id>
-            <name>John Claus</name>
-            <email>johnclaus@fastmail.fm</email>
-            <url>http://johnclaus.com</url>
-            <timezone>-7</timezone>
+            <id>thinkingserious</id>
+            <name>Elmer Thomas</name>
+            <email>dx@sendgrid.com</email>
+            <url>https://sendgrid.com</url>
         </developer>
     </developers>
     <packaging>jar</packaging>
     <dependencies>
         <dependency>
             <groupId>com.sendgrid</groupId>
-            <artifactId>smtpapi-java</artifactId>
-            <version>1.1.1</version>
+            <artifactId>java-http-client</artifactId>
+            <version>2.3.1</version>
         </dependency>
         <dependency>
-            <groupId>org.apache.httpcomponents</groupId>
-            <artifactId>httpcore</artifactId>
-            <version>4.3.2</version>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-core</artifactId>
+            <version>2.5.3</version>
         </dependency>
         <dependency>
-            <groupId>org.apache.httpcomponents</groupId>
-            <artifactId>httpclient</artifactId>
-            <version>4.3.4</version>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-annotations</artifactId>
+            <version>2.5.3</version>
         </dependency>
         <dependency>
-            <groupId>org.apache.httpcomponents</groupId>
-            <artifactId>httpmime</artifactId>
-            <version>4.3.4</version>
-        </dependency>
-        <dependency>
-            <groupId>org.json</groupId>
-            <artifactId>json</artifactId>
-            <version>20140107</version>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-databind</artifactId>
+            <version>2.5.3</version>
         </dependency>
         <dependency>
             <groupId>junit</groupId>

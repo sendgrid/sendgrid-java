@@ -1,57 +1,41 @@
-# Special Announcement
+[![Travis Badge](https://travis-ci.org/sendgrid/sendgrid-java.svg?branch=master)](https://travis-ci.org/sendgrid/sendgrid-java) [![BuildStatus](https://maven-badges.herokuapp.com/maven-central/com.sendgrid/sendgrid-java/badge.svg)](https://maven-badges.herokuapp.com/maven-central/com.sendgrid/sendgrid-java)
 
-We have released a [v3 beta branch](https://github.com/sendgrid/sendgrid-java/tree/v3beta) for this library that supports our new v3 Mail Send endpoint which is in open beta. The v3/mail/send/beta endpoint is not a production endpoint, so you should not integrate with it for your production email sending. However, when we make this an officially released feature it will be available at v3/mail//send.
+**This library allows you to quickly and easily use the SendGrid Web API via Java.**
 
-Please try it out and let us know what you think about the endpoint and the library in the [issues area of this repo](https://github.com/sendgrid/sendgrid-java/issues]), all of your feedback will be taken into account to influence the endpoint and this library.
+# Announcements
 
-Beginning with v3/mail/send/beta, the new version of our library will only support v3 endpoints. Once this endpoint is out of beta, we will update the endpoint, removing the “/beta” from the URI. At this point, the v3 beta branch will be merged to master and will be our official library going forward. This means that we will no longer formally support the v2 mail.send.json endpoint in any of our libraries.
+**BREAKING CHANGE as of 2016.06.14**
 
-So long as you are not automatically pulling new versions of the library into your production code base, your integration will not break regardless of which endpoint you’re using. By the way, don't pull new versions into your production code base, because breaking changes break things.
+Version `3.0.0` is a breaking change for the entire library.
 
-The /api/mail.send.json endpoint, known as v2 mail send, is NOT going away. It will continue to work as it always has, happily sending your emails along as if nothing happened.
+Version 3.0.0 brings you full support for all Web API v3 endpoints. We
+have the following resources to get you started quickly:
 
-# SendGrid-Java
+-   [SendGrid
+    Documentation](https://sendgrid.com/docs/API_Reference/Web_API_v3/index.html)
+-   [Usage
+    Documentation](https://github.com/sendgrid/sendgrid-java/tree/master/USAGE.md)
+-   [Example
+    Code](https://github.com/sendgrid/sendgrid-java/tree/master/examples)
 
-This Java module allows you to quickly and easily send emails through SendGrid using Java.
+Thank you for your continued support!
 
-[![BuildStatus](https://travis-ci.org/sendgrid/sendgrid-java.svg?branch=master)](https://travis-ci.org/sendgrid/sendgrid-java)
-[![BuildStatus](https://maven-badges.herokuapp.com/maven-central/com.sendgrid/sendgrid-java/badge.svg)](https://maven-badges.herokuapp.com/maven-central/com.sendgrid/sendgrid-java)
+All updates to this library is documented in our [CHANGELOG](https://github.com/sendgrid/sendgrid-java/blob/master/CHANGELOG.md).
 
-### Warning
+# Installation
 
-Version ``2.x.x``, behaves differently in the ``addTo`` method. In the past this method defaulted to using the ``SMTPAPI`` header. Now you must explicitly call the ``addSmtpApiTo`` method. More on the ``SMTPAPI`` section.
+## Setup Environment Variables
 
-```java
-// SendGridExample.java
-import com.sendgrid.*;
+First, get your free SendGrid account [here](https://sendgrid.com/free?source=sendgrid-java).
 
-public class SendGridExample {
-  public static void main(String[] args) {
-    SendGrid sendgrid = new SendGrid('YOUR_SENDGRID_API_KEY');
-
-    SendGrid.Email email = new SendGrid.Email();
-    email.addTo("example@example.com");
-    email.setFrom("other@example.com");
-    email.setSubject("Hello World");
-    email.setText("My first email with SendGrid Java!");
-
-    try {
-      SendGrid.Response response = sendgrid.send(email);
-      System.out.println(response.getMessage());
-    }
-    catch (SendGridException e) {
-      System.err.println(e);
-    }
-  }
-}
-```
-Compile and run this example with
+Next, update your environment with your [SENDGRID_API_KEY](https://app.sendgrid.com/settings/api_keys).
 
 ```bash
-$ javac -classpath sendgrid-2.2.1-jar.jar:. SendGridExample.java && java -classpath sendgrid-2.2.1-jar.jar:. SendGridExample
+echo "export SENDGRID_API_KEY='YOUR_API_KEY'" > sendgrid.env
+echo "sendgrid.env" >> .gitignore
+source ./sendgrid.env
 ```
-
-## Installation
+## Install Package
 
 Choose your installation method - Maven w/ Gradle (recommended), Maven or Jar file.
 
@@ -63,7 +47,7 @@ Add the following to your build.gradle file in the root of your project.
 ...
 dependencies {
   ...
-  compile 'com.sendgrid:sendgrid-java:2.2.1'
+  compile 'com.sendgrid:sendgrid-java:3.0.0'
 }
 
 repositories {
@@ -88,321 +72,93 @@ mvn install
 
 You can just drop the jar file in. It's a fat jar - it has all the dependencies built in.
 
-[sendgrid-java.jar](https://sendgrid-open-source.s3.amazonaws.com/sendgrid-java/sendgrid-java.jar)
+[sendgrid-java.jar](http://repo1.maven.org/maven2/com/sendgrid/sendgrid-java/3.0.0/sendgrid-java-3.0.0-jar.jar)
 
 ```java
 import com.sendgrid.*;
 ```
 
-## Usage
+## Dependencies
 
-To begin using this library, initialize the SendGrid object with your SendGrid API Key. To configure API keys, visit https://sendgrid.com/docs/API_Reference/Web_API_v3/API_Keys/index.html.
+- The SendGrid Service, starting at the [free level](https://sendgrid.com/free?source=sendgrid-java))
+- [Java-HTTP-Client](https://github.com/sendgrid/java-http-client)
 
-```java
-import com.sendgrid.SendGrid;
-SendGrid sendgrid = new SendGrid('YOUR_SENDGRID_API_KEY');
-```
+# Quick Start
 
-Add your message details.
+## Hello Email
 
 ```java
-Email email = new Email();
-email.addTo("example@example.com");
-email.addToName("Example Guy");
-email.setFrom("other@example.com");
-email.setSubject("Hello World");
-email.setText("My first email through SendGrid");
+import com.sendgrid.*;
+import java.io.IOException;
+
+Email from = new Email("test@example.com");
+String subject = "Hello World from the SendGrid Java Library";
+Email to = new Email("test@example.com");
+Content content = new Content("text/plain", "some text here");
+Mail mail = new Mail(from, subject, to, content);
+
+SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
+Request request = new Request();
+try {
+  request.method = Method.POST;
+  request.endpoint = "mail/send/beta";
+  request.body = mail.build();
+  Response response = sg.api(request);
+  System.out.println(response.statusCode);
+  System.out.println(response.body);
+  System.out.println(response.headers);
+} catch (IOException ex) {
+  throw ex;
+}
 ```
 
-Send it.
+## General v3 Web API Usage
 
 ```java
-sendgrid.send(email);
+import com.sendgrid.*;
+import java.io.IOException;
+
+SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
+Request request = new Request();
+try {
+  Request request = new Request;
+  request.method = Method.GET;
+  request.endpoint = "api_keys";
+  Response response = sg.api(request);
+  System.out.println(response.statusCode);
+  System.out.println(response.body);
+  System.out.println(response.headers);
+} catch (IOException ex) {
+  throw ex;
+}
 ```
 
-### To
+# Usage
 
-#### addTo
+- [SendGrid Docs](https://sendgrid.com/docs/API_Reference/Web_API_v3/index.html)
+- [Usage Docs](https://github.com/sendgrid/sendgrid-java/tree/master/USAGE.md)
+- [Example Code](https://github.com/sendgrid/sendgrid-java/tree/master/examples)
 
-```java
-email.addTo("foo@example.com");
-// or
-email.addTo(new String[]{"foo@other.com", "bar@other.com"});
-// or
-email.addTo("foo.bar@other.com", "Foo Bar");
-```
+## Roadmap
 
-#### setTo
+If you are intersted in the future direction of this project, please take a look at our [milestones](https://github.com/sendgrid/sendgrid-java/milestones). We would love to hear your feedback.
 
-```java
-email.setTo(new String[]{"foo@other.com", "bar@other.com"});
-```
+## How to Contribute
 
-#### addToName
+We encourage contribution to our libraries, please see our [CONTRIBUTING](https://github.com/sendgrid/sendgrid-java/blob/master/CONTRIBUTING.md) guide for details.
 
-```java
-email.addToName("Foo");
-// or
-email.addToName(new String[]{"Foo", "Bar"});
-```
+Quick links:
 
-#### setToName
+- [Feature Request](https://github.com/sendgrid/sendgrid-java/blob/master/CONTRIBUTING.md#feature_request)
+- [Bug Reports](https://github.com/sendgrid/sendgrid-java/blob/master/CONTRIBUTING.md#submit_a_bug_report)
+- [Sign the CLA to Create a Pull Request](https://github.com/sendgrid/sendgrid-java/blob/master/CONTRIBUTING.md#cla)
+- [Improvements to the Codebase](https://github.com/sendgrid/sendgrid-java/blob/master/CONTRIBUTING.md#improvements_to_the_codebase)
 
-```java
-email.setToName(new String[]{"Foo", "Bar"});
-```
+# About
 
-#### addCc
+sendgrid-java is guided and supported by the SendGrid [Developer Experience Team](mailto:dx@sendgrid.com).
 
-```java
-email.addCc("foo@example.com");
-// or
-email.addCc(new String[]{"foo@other.com", "bar@other.com"});
-```
+sendgrid-java is maintained and funded by SendGrid, Inc. The names and logos for sendgrid-java are trademarks of SendGrid, Inc.
 
-#### setCc
-
-```java
-email.setCc(new String[]{"foo@other.com", "bar@other.com"});
-```
-
-#### addBcc
-
-```java
-email.addBcc("foo@example.com");
-// or
-email.addBcc(new String[]{"foo@other.com", "bar@other.com"});
-```
-
-#### setBcc
-
-```java
-email.setBcc(new String[]{"foo@other.com", "bar@other.com"});
-```
-
-### From
-
-#### setFrom
-
-```java
-email.setFrom("other@example.com");
-```
-
-#### setFromName
-
-```java
-email.setFromName("Other Dude");
-```
-
-#### setReplyTo
-
-```java
-email.setReplyTo("no-reply@nowhere.com");
-```
-
-#### setSubject
-
-```java
-email.setSubject("Hello World");
-```
-
-#### setText
-
-```java
-email.setText("This is some text of the email.");
-```
-
-#### setHtml
-
-```java
-email.setHtml("<h1>My first email through SendGrid");
-```
-
-### Attachments
-
-#### addAttachment
-
-```java
-email.addAttachment("text.txt", "contents");
-// or
-email.addAttachment("image.png", new File("./image.png"));
-// or
-email.addAttachment("text.txt", new InputStream(new File("./file.txt")));
-```
-
-### Content IDs
-
-#### addContentId
-
-```java
-// First, add an attachment
-email.addAttachment("image.png", new File("./image.png"));
-// Map the name of the attachment to an ID
-email.addContentId("image.png", "ID_IN_HTML")
-// Map the ID in the HTML
-email.setHtml("<html><body>TEXT BEFORE IMAGE<img src=\"cid:ID_IN_HTML\"></img>AFTER IMAGE</body></html>")
-```
-
-### Proxy Server Setup
-
-```java
-SendGrid sendgrid = new SendGrid('YOUR_SENDGRID_API_KEY');
-HttpHost proxy = new HttpHost("server", 3128);
-CloseableHttpClient http = HttpClientBuilder.create().setProxy(proxy).setUserAgent("sendgrid/" + sendgrid.getVersion() + ";java").build();
-sendgrid.setClient(http);
-```
-
-## [X-SMTPAPI](http://sendgrid.com/docs/API_Reference/SMTP_API/index.html)
-
-The mail object extends the SMTPAPI object which is found in [SMTPAPI-Java](https://github.com/sendgrid/smtpapi-java).
-
-```java
-email.getSMTPAPI();
-```
-
-### Recipients
-
-#### addSmtpApiTo
-
-```java
-email.addSmtpApiTo("foo@example.com");
-// or
-email.addSmtpApiTo(new String[]{"foo@other.com", "bar@other.com"});
-```
-
-### [Substitutions](http://sendgrid.com/docs/API_Reference/SMTP_API/substitution_tags.html)
-
-#### addSubstitution
-
-```java
-email.addSubstitution("key", "value");
-
-JSONObject subs = header.getSubstitutions();
-```
-
-#### setSubstitutions
-
-```java
-email.setSubstitutions("key", new String[]{"value1", "value2"});
-
-JSONObject subs = header.getSubstitutions();
-```
-
-### [Unique Arguments](http://sendgrid.com/docs/API_Reference/SMTP_API/unique_arguments.html)
-
-#### addUniqueAarg
-
-```java
-email.addUniqueAarg("key", "value");
-// or
-Map map = new HashMap<String, String>();
-map.put("unique", "value");
-email.setUniqueArgs(map);
-// or
-JSONObject map = new JSONObject();
-map.put("unique", "value");
-email.setUniqueArgs(map);
-// or
-email.setUniqueArgs(map);
-
-JSONObject args = email.getUniqueArgs();
-```
-
-### [Categories](http://sendgrid.com/docs/API_Reference/SMTP_API/categories.html)
-
-#### addCategory
-
-```java
-email.addCategory("category");
-
-String[] cats = email.getCategories();
-```
-
-### [Sections](http://sendgrid.com/docs/API_Reference/SMTP_API/section_tags.html)
-
-#### addSection
-
-```java
-email.addSection("key", "section");
-
-JSONObject sections = email.getSections();
-```
-
-### [Filters / Apps](http://sendgrid.com/docs/API_Reference/SMTP_API/apps.html)
-
-You can enable and configure Apps.
-
-#### addFilter
-
-```java
-email.addFilter("filter", "setting", "value");
-email.addFilter("filter", "setting", 1);
-
-JSONObject filters = email.getFilters();
-```
-
-Example enabling bcc app:
-
-```java
-SendGrid sendgrid = new SendGrid('YOUR_SENDGRID_API_KEY');
-sendgrid.addTo("example@example.com");
-...
-sendgrid.addFilter("bcc", "enabled", 1);
-sendgrid.addFilter("bcc", "email", "example@example.com");
-```
-
-### [ASM - Advanced Supression Manager](https://sendgrid.com/docs/User_Guide/advanced_suppression_manager.html)
-
-#### setASMGroupId
-
-```java
-email.setASMGroupId(1);
-```
-
-### [Schedule Sending](https://sendgrid.com/docs/API_Reference/SMTP_API/scheduling_parameters.html)
-
-#### setSendAt
-
-```java
-email.setSendAt(1409348513);
-```
-
-### [Templates](https://sendgrid.com/docs/API_Reference/Web_API_v3/Template_Engine/index.html)
-
-#### setTemplateId
-
-```java
-email.setTemplateId("abc123-def456");
-```
-
-## Contributing
-
-1. Fork it
-2. Create your feature branch (`git checkout -b my-new-feature`)
-3. Commit your changes (`git commit -am 'Added some feature'`)
-4. Push to the branch (`git push origin my-new-feature`)
-5. Create new Pull Request
-
-## Running Tests
-
-The existing tests in the `src/test` directory can be run using gradle with the following command:
-
-```bash
-$ ./gradlew test -i
-```
-
-## Generating the jar
-
-```bash
-$ ./gradlew build
-```
-
-## Example App
-
-We have an example app using this library. This can be helpful to get a grasp on implementing it in your own app.
-
-[github.com/scottmotte/sendgrid-java-example](http://github.com/scottmotte/sendgrid-java-example)
-
-## License
-
-Licensed under the MIT License.
+![SendGrid Logo]
+(https://uiux.s3.amazonaws.com/2016-logos/email-logo%402x.png)
