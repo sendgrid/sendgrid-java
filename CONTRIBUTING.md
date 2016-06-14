@@ -89,7 +89,7 @@ source ./sendgrid.env
 
 ##### Execute: #####
 
-See the [examples folder](https://github.com/sendgrid/sendgrid-java/tree/v3beta/examples) to get started quickly.
+See the [examples folder](https://github.com/sendgrid/sendgrid-java/tree/master/examples) to get started quickly.
 
 Check out the documentation for [Web API v3 endpoints](https://sendgrid.com/docs/API_Reference/Web_API_v3/index.html).
 
@@ -124,9 +124,9 @@ The interface to the SendGrid API.
 
 All PRs require passing tests before the PR will be reviewed.
 
-All test files are in the [`tests`](https://github.com/sendgrid/sendgrid-java/tree/v3beta/src/test/java/com/sendgrid) directory.
+All test files are in the [`tests`](https://github.com/sendgrid/sendgrid-java/tree/master/src/test/java/com/sendgrid) directory.
 
-For the purposes of contributing to this repo, please update the [`SendGridTest.java`](https://github.com/sendgrid/sendgrid-java/tree/v3beta/src/test/java/com/sendgrid/SendGridTest.java) file with unit tests as you modify the code.
+For the purposes of contributing to this repo, please update the [`SendGridTest.java`](https://github.com/sendgrid/sendgrid-java/tree/master/src/test/java/com/sendgrid/SendGridTest.java) file with unit tests as you modify the code.
 
 ```bash
 ./gradlew test -i

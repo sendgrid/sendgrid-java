@@ -228,9 +228,8 @@ public class Example {
     Mail helloWorld = buildHelloEmail();
     try {
       request.method = Method.POST;
-      request.endpoint = "mail/send/beta";
+      request.endpoint = "mail/send";
       request.requestBody = helloWorld.build();
-      System.out.println(request.requestBody); // REMOVE
       Response response = sg.api(request);
       System.out.println(response.statusCode);
       System.out.println(response.responseBody);
@@ -248,9 +247,8 @@ public class Example {
     Mail kitchenSink = buildKitchenSink();
     try {
       request.method = Method.POST;
-      request.endpoint = "mail/send/beta";
+      request.endpoint = "mail/send";
       request.requestBody = kitchenSink.build();
-      System.out.println(request.requestBody); // REMOVE
       Response response = sg.api(request);
       System.out.println(response.statusCode);
       System.out.println(response.responseBody);
