@@ -6,11 +6,7 @@ This documentation is based on our [OAI specification](https://github.com/sendgr
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-import com.sendgrid.Client;
-import com.sendgrid.Method;
-import com.sendgrid.Request;
-import com.sendgrid.Response;
-import com.sendgrid.SendGrid;
+import com.sendgrid.*;
 
 import java.io.IOException;
 import java.util.HashMap;

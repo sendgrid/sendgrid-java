@@ -1,11 +1,7 @@
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-import com.sendgrid.Client;
-import com.sendgrid.Method;
-import com.sendgrid.Request;
-import com.sendgrid.Response;
-import com.sendgrid.SendGrid;
+import com.sendgrid.*;
 
 import java.io.IOException;
 import java.util.HashMap;
@@ -58,7 +54,6 @@ public class Example {
 //////////////////////////////////////////////////////////////////
 // v3 Mail Send
 // POST /mail/send
-
 // This endpoint has a helper, check it out [here](https://github.com/sendgrid/sendgrid-java/blob/master/src/main/java/com/sendgrid/helpers/README.md).
 
 public class Example {

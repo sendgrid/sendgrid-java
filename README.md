@@ -80,7 +80,7 @@ import com.sendgrid.*;
 
 ## Dependencies
 
-- The SendGrid Service, starting at the [free level](https://sendgrid.com/free?source=sendgrid-java))
+- The SendGrid Service, starting at the [free level](https://sendgrid.com/free?source=sendgrid-java)
 - [Java-HTTP-Client](https://github.com/sendgrid/java-http-client)
 
 # Quick Start
@@ -91,24 +91,28 @@ import com.sendgrid.*;
 import com.sendgrid.*;
 import java.io.IOException;
 
-Email from = new Email("test@example.com");
-String subject = "Hello World from the SendGrid Java Library";
-Email to = new Email("test@example.com");
-Content content = new Content("text/plain", "some text here");
-Mail mail = new Mail(from, subject, to, content);
+public class Example {
+  public static void main(String[] args) throws IOException {
+    Email from = new Email("test@example.com");
+    String subject = "Hello World from the SendGrid Java Library";
+    Email to = new Email("test@example.com");
+    Content content = new Content("text/plain", "some text here");
+    Mail mail = new Mail(from, subject, to, content);
 
-SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
-Request request = new Request();
-try {
-  request.method = Method.POST;
-  request.endpoint = "mail/send/beta";
-  request.body = mail.build();
-  Response response = sg.api(request);
-  System.out.println(response.statusCode);
-  System.out.println(response.body);
-  System.out.println(response.headers);
-} catch (IOException ex) {
-  throw ex;
+    SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
+    Request request = new Request();
+    try {
+      request.method = Method.POST;
+      request.endpoint = "mail/send";
+      request.body = mail.build();
+      Response response = sg.api(request);
+      System.out.println(response.statusCode);
+      System.out.println(response.body);
+      System.out.println(response.headers);
+    } catch (IOException ex) {
+      throw ex;
+    }
+  }
 }
 ```
 
@@ -118,18 +122,21 @@ try {
 import com.sendgrid.*;
 import java.io.IOException;
 
-SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
-Request request = new Request();
-try {
-  Request request = new Request;
-  request.method = Method.GET;
-  request.endpoint = "api_keys";
-  Response response = sg.api(request);
-  System.out.println(response.statusCode);
-  System.out.println(response.body);
-  System.out.println(response.headers);
-} catch (IOException ex) {
-  throw ex;
+public class Example {
+  public static void main(String[] args) throws IOException {
+    SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
+    try {
+      Request request = new Request();
+      request.method = Method.GET;
+      request.endpoint = "api_keys";
+      Response response = sg.api(request);
+      System.out.println(response.statusCode);
+      System.out.println(response.body);
+      System.out.println(response.headers);
+    } catch (IOException ex) {
+      throw ex;
+    }
+  }
 }
 ```
 
