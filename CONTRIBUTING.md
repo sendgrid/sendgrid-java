@@ -94,6 +94,7 @@ See the [examples folder](https://github.com/sendgrid/sendgrid-java/tree/master/
 Check out the documentation for [Web API v3 endpoints](https://sendgrid.com/docs/API_Reference/Web_API_v3/index.html).
 
 ```bash
+./gradlew build
 cd examples
 touch Example.java
 ```
@@ -101,7 +102,7 @@ touch Example.java
 Add the example you want to test to Example.java, including the headers at the top of the file.
 
 ``` bash
-javac -classpath ./dependencies/jackson-annotations-2.7.0.jar:./dependencies/jackson-databind-2.7.3.jar:./dependencies/jackson-core-2.7.3.jar:../build/libs/sendgrid-3.0.0-jar.jar:. Example.java && java -classpath ./dependencies/jackson-annotations-2.7.0.jar:./dependencies/jackson-databind-2.7.3.jar:./dependencies/jackson-core-2.7.3.jar:../build/libs/sendgrid-3.0.0-jar.jar:. Example
+javac -classpath ../repo/com/sendgrid/3.0.0/sendgrid-3.0.0-jar.jar:. Example.java && java -classpath ../repo/com/sendgrid/3.0.0/sendgrid-3.0.0-jar.jar:. Example
 ```
 
 <a name="understanding_the_codebase"></a>
