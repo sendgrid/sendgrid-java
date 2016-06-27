@@ -213,6 +213,9 @@ public class Example {
     String subject = "Hello World from the SendGrid Java Library";
     Email to = new Email("test@example.com");
     Content content = new Content("text/plain", "some text here");
+    // Note that when you use this constructor an initial personalization object
+    // is created for you. It can be accessed via
+    // mail.personalization.get(0) as it is a List object
     Mail mail = new Mail(from, subject, to, content);
     Email email = new Email("test2@example.com");
     mail.personalization.get(0).addTo(email);
@@ -229,11 +232,11 @@ public class Example {
     try {
       request.method = Method.POST;
       request.endpoint = "mail/send";
-      request.requestBody = helloWorld.build();
+      request.body = helloWorld.build();
       Response response = sg.api(request);
       System.out.println(response.statusCode);
-      System.out.println(response.responseBody);
-      System.out.println(response.responseHeaders);
+      System.out.println(response.body);
+      System.out.println(response.headers);
     } catch (IOException ex) {
       throw ex;
     }
@@ -248,11 +251,11 @@ public class Example {
     try {
       request.method = Method.POST;
       request.endpoint = "mail/send";
-      request.requestBody = kitchenSink.build();
+      request.body = kitchenSink.build();
       Response response = sg.api(request);
       System.out.println(response.statusCode);
-      System.out.println(response.responseBody);
-      System.out.println(response.responseHeaders);
+      System.out.println(response.body);
+      System.out.println(response.headers);
     } catch (IOException ex) {
       throw ex;
     }
