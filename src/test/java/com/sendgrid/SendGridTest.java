@@ -21,6 +21,7 @@ public class SendGridTest {
     requestHeaders.put("Authorization", "Bearer " + SENDGRID_API_KEY);
     String USER_AGENT = "sendgrid/" + sg.getLibraryVersion() + ";java";
     requestHeaders.put("User-agent", USER_AGENT);
+    requestHeaders.put("Accept", "application/json");
     return requestHeaders;
   }
 

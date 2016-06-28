@@ -1,6 +1,10 @@
 # Change Log
 All notable changes to this project will be documented in this file.
 
+## [3.0.1] - 2016-06-28
+### Fixed
+- Accept header via [Get Satisfaction](https://community.sendgrid.com/sendgrid/topics/sendgrid-v3-webapi-issue-with-accept-header-response-406-not-acceptable)
+
 ## [3.0.0] - 2016-06-13
 ### Added
 - Breaking change to support the v3 Web API
