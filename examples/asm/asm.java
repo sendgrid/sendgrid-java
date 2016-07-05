@@ -168,6 +168,29 @@ public class Example {
 }
 
 //////////////////////////////////////////////////////////////////
+// Search for suppressions within a group
+// POST /asm/groups/{group_id}/suppressions/search
+
+
+public class Example {
+  public static void main(String[] args) throws IOException {
+    try {
+      SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
+      Request request = new Request();
+      request.method = Method.POST;
+      request.endpoint = "asm/groups/{group_id}/suppressions/search";
+      request.body = "{\"recipient_emails\":[\"exists1@example.com\",\"exists2@example.com\",\"doesnotexists@example.com\"]}";
+      Response response = sg.api(request);
+      System.out.println(response.statusCode);
+      System.out.println(response.body);
+      System.out.println(response.headers);
+    } catch (IOException ex) {
+      throw ex;
+    }
+  }
+}
+
+//////////////////////////////////////////////////////////////////
 // Delete a suppression from a suppression group
 // DELETE /asm/groups/{group_id}/suppressions/{email}
 

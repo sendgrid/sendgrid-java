@@ -189,6 +189,103 @@ public class SendGridTest {
   }
 
   @Test
+  public void test_alerts_post() throws IOException {
+    SendGrid sg = null;
+    if(System.getenv("TRAVIS") != null && Boolean.parseBoolean(System.getenv("TRAVIS"))) {
+      sg = new SendGrid("SENDGRID_API_KEY");
+      sg.setHost(System.getenv("MOCK_HOST"));
+    } else {
+      sg = new SendGrid("SENDGRID_API_KEY", true);
+      sg.setHost("localhost:4010");
+    }
+    sg.addRequestHeader("X-Mock", "201");
+
+    Request request = new Request();
+    request.method = Method.POST;
+    request.endpoint = "alerts";
+    request.body = "{\"type\":\"stats_notification\",\"frequency\":\"daily\",\"email_to\":\"example@example.com\"}";
+    Response response = sg.api(request);
+    Assert.assertEquals(201, response.statusCode);
+  }
+
+  @Test
+  public void test_alerts_get() throws IOException {
+    SendGrid sg = null;
+    if(System.getenv("TRAVIS") != null && Boolean.parseBoolean(System.getenv("TRAVIS"))) {
+      sg = new SendGrid("SENDGRID_API_KEY");
+      sg.setHost(System.getenv("MOCK_HOST"));
+    } else {
+      sg = new SendGrid("SENDGRID_API_KEY", true);
+      sg.setHost("localhost:4010");
+    }
+    sg.addRequestHeader("X-Mock", "200");
+
+    Request request = new Request();
+    request.method = Method.GET;
+    request.endpoint = "alerts";
+    Response response = sg.api(request);
+    Assert.assertEquals(200, response.statusCode);
+  }
+
+  @Test
+  public void test_alerts__alert_id__patch() throws IOException {
+    SendGrid sg = null;
+    if(System.getenv("TRAVIS") != null && Boolean.parseBoolean(System.getenv("TRAVIS"))) {
+      sg = new SendGrid("SENDGRID_API_KEY");
+      sg.setHost(System.getenv("MOCK_HOST"));
+    } else {
+      sg = new SendGrid("SENDGRID_API_KEY", true);
+      sg.setHost("localhost:4010");
+    }
+    sg.addRequestHeader("X-Mock", "200");
+
+    Request request = new Request();
+    request.method = Method.PATCH;
+    request.endpoint = "alerts/{alert_id}";
+    request.body = "{\"email_to\":\"example@example.com\"}";
+    Response response = sg.api(request);
+    Assert.assertEquals(200, response.statusCode);
+  }
+
+  @Test
+  public void test_alerts__alert_id__get() throws IOException {
+    SendGrid sg = null;
+    if(System.getenv("TRAVIS") != null && Boolean.parseBoolean(System.getenv("TRAVIS"))) {
+      sg = new SendGrid("SENDGRID_API_KEY");
+      sg.setHost(System.getenv("MOCK_HOST"));
+    } else {
+      sg = new SendGrid("SENDGRID_API_KEY", true);
+      sg.setHost("localhost:4010");
+    }
+    sg.addRequestHeader("X-Mock", "200");
+
+    Request request = new Request();
+    request.method = Method.GET;
+    request.endpoint = "alerts/{alert_id}";
+    Response response = sg.api(request);
+    Assert.assertEquals(200, response.statusCode);
+  }
+
+  @Test
+  public void test_alerts__alert_id__delete() throws IOException {
+    SendGrid sg = null;
+    if(System.getenv("TRAVIS") != null && Boolean.parseBoolean(System.getenv("TRAVIS"))) {
+      sg = new SendGrid("SENDGRID_API_KEY");
+      sg.setHost(System.getenv("MOCK_HOST"));
+    } else {
+      sg = new SendGrid("SENDGRID_API_KEY", true);
+      sg.setHost("localhost:4010");
+    }
+    sg.addRequestHeader("X-Mock", "204");
+
+    Request request = new Request();
+    request.method = Method.DELETE;
+    request.endpoint = "alerts/{alert_id}";
+    Response response = sg.api(request);
+    Assert.assertEquals(204, response.statusCode);
+  }
+
+  @Test
   public void test_api_keys_post() throws IOException {
     SendGrid sg = null;
     if(System.getenv("TRAVIS") != null && Boolean.parseBoolean(System.getenv("TRAVIS"))) {
@@ -203,7 +300,7 @@ public class SendGridTest {
     Request request = new Request();
     request.method = Method.POST;
     request.endpoint = "api_keys";
-    request.body = "{\"scopes\":[\"mail.send\",\"alerts.create\",\"alerts.read\"],\"name\":\"My API Key\"}";
+    request.body = "{\"sample\":\"data\",\"scopes\":[\"mail.send\",\"alerts.create\",\"alerts.read\"],\"name\":\"My API Key\"}";
     Response response = sg.api(request);
     Assert.assertEquals(201, response.statusCode);
   }
@@ -223,6 +320,9 @@ public class SendGridTest {
     Request request = new Request();
     request.method = Method.GET;
     request.endpoint = "api_keys";
+    Map<String,String> queryParams = new HashMap<String, String>();
+    queryParams.put("limit", "1");
+    request.queryParams = queryParams;
     Response response = sg.api(request);
     Assert.assertEquals(200, response.statusCode);
   }
@@ -445,6 +545,26 @@ public class SendGridTest {
   }
 
   @Test
+  public void test_asm_groups__group_id__suppressions_search_post() throws IOException {
+    SendGrid sg = null;
+    if(System.getenv("TRAVIS") != null && Boolean.parseBoolean(System.getenv("TRAVIS"))) {
+      sg = new SendGrid("SENDGRID_API_KEY");
+      sg.setHost(System.getenv("MOCK_HOST"));
+    } else {
+      sg = new SendGrid("SENDGRID_API_KEY", true);
+      sg.setHost("localhost:4010");
+    }
+    sg.addRequestHeader("X-Mock", "200");
+
+    Request request = new Request();
+    request.method = Method.POST;
+    request.endpoint = "asm/groups/{group_id}/suppressions/search";
+    request.body = "{\"recipient_emails\":[\"exists1@example.com\",\"exists2@example.com\",\"doesnotexists@example.com\"]}";
+    Response response = sg.api(request);
+    Assert.assertEquals(200, response.statusCode);
+  }
+
+  @Test
   public void test_asm_groups__group_id__suppressions__email__delete() throws IOException {
     SendGrid sg = null;
     if(System.getenv("TRAVIS") != null && Boolean.parseBoolean(System.getenv("TRAVIS"))) {
@@ -622,8 +742,8 @@ public class SendGridTest {
     request.method = Method.GET;
     request.endpoint = "campaigns";
     Map<String,String> queryParams = new HashMap<String, String>();
-    queryParams.put("limit", "0");
-      queryParams.put("offset", "0");
+    queryParams.put("limit", "1");
+      queryParams.put("offset", "1");
     request.queryParams = queryParams;
     Response response = sg.api(request);
     Assert.assertEquals(200, response.statusCode);
@@ -1084,7 +1204,7 @@ public class SendGridTest {
     request.endpoint = "contactdb/lists/{list_id}";
     request.body = "{\"name\":\"newlistname\"}";
     Map<String,String> queryParams = new HashMap<String, String>();
-    queryParams.put("list_id", "0");
+    queryParams.put("list_id", "1");
     request.queryParams = queryParams;
     Response response = sg.api(request);
     Assert.assertEquals(200, response.statusCode);
@@ -1106,7 +1226,7 @@ public class SendGridTest {
     request.method = Method.GET;
     request.endpoint = "contactdb/lists/{list_id}";
     Map<String,String> queryParams = new HashMap<String, String>();
-    queryParams.put("list_id", "0");
+    queryParams.put("list_id", "1");
     request.queryParams = queryParams;
     Response response = sg.api(request);
     Assert.assertEquals(200, response.statusCode);
@@ -1172,7 +1292,7 @@ public class SendGridTest {
     Map<String,String> queryParams = new HashMap<String, String>();
     queryParams.put("page", "1");
       queryParams.put("page_size", "1");
-      queryParams.put("list_id", "0");
+      queryParams.put("list_id", "1");
     request.queryParams = queryParams;
     Response response = sg.api(request);
     Assert.assertEquals(200, response.statusCode);
@@ -1213,8 +1333,8 @@ public class SendGridTest {
     request.method = Method.DELETE;
     request.endpoint = "contactdb/lists/{list_id}/recipients/{recipient_id}";
     Map<String,String> queryParams = new HashMap<String, String>();
-    queryParams.put("recipient_id", "0");
-      queryParams.put("list_id", "0");
+    queryParams.put("recipient_id", "1");
+      queryParams.put("list_id", "1");
     request.queryParams = queryParams;
     Response response = sg.api(request);
     Assert.assertEquals(204, response.statusCode);
@@ -1357,7 +1477,8 @@ public class SendGridTest {
     request.method = Method.GET;
     request.endpoint = "contactdb/recipients/search";
     Map<String,String> queryParams = new HashMap<String, String>();
-    queryParams.put("{field_name}", "test_string");
+    queryParams.put("%7Bfield_name%7D", "test_string");
+      queryParams.put("{field_name}", "test_string");
     request.queryParams = queryParams;
     Response response = sg.api(request);
     Assert.assertEquals(200, response.statusCode);
@@ -1517,7 +1638,7 @@ public class SendGridTest {
     request.method = Method.GET;
     request.endpoint = "contactdb/segments/{segment_id}";
     Map<String,String> queryParams = new HashMap<String, String>();
-    queryParams.put("segment_id", "0");
+    queryParams.put("segment_id", "1");
     request.queryParams = queryParams;
     Response response = sg.api(request);
     Assert.assertEquals(200, response.statusCode);
@@ -1937,7 +2058,7 @@ public class SendGridTest {
   }
 
   @Test
-  public void test_mail_send_beta_post() throws IOException {
+  public void test_mail_send_post() throws IOException {
     SendGrid sg = null;
     if(System.getenv("TRAVIS") != null && Boolean.parseBoolean(System.getenv("TRAVIS"))) {
       sg = new SendGrid("SENDGRID_API_KEY");
@@ -1950,8 +2071,8 @@ public class SendGridTest {
 
     Request request = new Request();
     request.method = Method.POST;
-    request.endpoint = "mail/send/beta";
-    request.body = "{\"custom_args\":{\"New Argument 1\":\"New Value 1\",\"activationAttempt\":\"1\",\"customerAccountNumber\":\"[CUSTOMER ACCOUNT NUMBER GOES HERE]\"},\"from\":{\"email\":\"sam.smith@example.com\",\"name\":\"Sam Smith\"},\"attachments\":[{\"name\":\"file1\",\"filename\":\"file1.jpg\",\"content\":\"[BASE64 encoded content block here]\",\"disposition\":\"inline\",\"content_id\":\"ii_139db99fdb5c3704\",\"type\":\"jpg\"}],\"personalizations\":[{\"to\":[{\"email\":\"john.doe@example.com\",\"name\":\"John Doe\"}],\"cc\":[{\"email\":\"jane.doe@example.com\",\"name\":\"Jane Doe\"}],\"bcc\":[{\"email\":\"sam.doe@example.com\",\"name\":\"Sam Doe\"}],\"custom_args\":{\"New Argument 1\":\"New Value 1\",\"activationAttempt\":\"1\",\"customerAccountNumber\":\"[CUSTOMER ACCOUNT NUMBER GOES HERE]\"},\"headers\":{\"X-Accept-Language\":\"en\",\"X-Mailer\":\"MyApp\"},\"send_at\":1409348513,\"substitutions\":{\"sub\":{\"%name%\":[\"John\",\"Jane\",\"Sam\"]}},\"subject\":\"Hello, World!\"}],\"subject\":\"Hello, World!\",\"ip_pool_name\":\"[YOUR POOL NAME GOES HERE]\",\"content\":[{\"type\":\"text/html\",\"value\":\"<html><p>Hello, world!</p><img src=[CID GOES HERE]></img></html>\"}],\"headers\":{},\"asm\":{\"groups_to_display\":[1,2,3],\"group_id\":1},\"batch_id\":\"[YOUR BATCH ID GOES HERE]\",\"tracking_settings\":{\"subscription_tracking\":{\"text\":\"If you would like to unsubscribe and stop receiveing these emails <% click here %>.\",\"enable\":true,\"html\":\"If you would like to unsubscribe and stop receiving these emails <% clickhere %>.\",\"substitution_tag\":\"<%click here%>\"},\"open_tracking\":{\"enable\":true,\"substitution_tag\":\"%opentrack\"},\"click_tracking\":{\"enable\":true,\"enable_text\":true},\"ganalytics\":{\"utm_campaign\":\"[NAME OF YOUR REFERRER SOURCE]\",\"enable\":true,\"utm_name\":\"[NAME OF YOUR CAMPAIGN]\",\"utm_term\":\"[IDENTIFY PAID KEYWORDS HERE]\",\"utm_content\":\"[USE THIS SPACE TO DIFFERENTIATE YOUR EMAIL FROM ADS]\",\"utm_medium\":\"[NAME OF YOUR MARKETING MEDIUM e.g. email]\"}},\"mail_settings\":{\"footer\":{\"text\":\"Thanks,/n The SendGrid Team\",\"enable\":true,\"html\":\"<p>Thanks</br>The SendGrid Team</p>\"},\"spam_check\":{\"threshold\":3,\"post_to_url\":\"http://example.com/compliance\",\"enable\":true},\"bypass_list_management\":{\"enable\":true},\"sandbox_mode\":{\"enable\":false},\"bcc\":{\"enable\":true,\"email\":\"ben.doe@example.com\"}},\"reply_to\":{\"email\":\"sam.smith@example.com\",\"name\":\"Sam Smith\"},\"sections\":{\"section\":{\":sectionName2\":\"section 2 text\",\":sectionName1\":\"section 1 text\"}},\"template_id\":\"[YOUR TEMPLATE ID GOES HERE]\",\"categories\":[\"category1\",\"category2\"],\"send_at\":1409348513}";
+    request.endpoint = "mail/send";
+    request.body = "{\"custom_args\":{\"New Argument 1\":\"New Value 1\",\"activationAttempt\":\"1\",\"customerAccountNumber\":\"[CUSTOMER ACCOUNT NUMBER GOES HERE]\"},\"from\":{\"email\":\"sam.smith@example.com\",\"name\":\"Sam Smith\"},\"attachments\":[{\"name\":\"file1\",\"filename\":\"file1.jpg\",\"content\":\"[BASE64 encoded content block here]\",\"disposition\":\"inline\",\"content_id\":\"ii_139db99fdb5c3704\",\"type\":\"jpg\"}],\"personalizations\":[{\"to\":[{\"email\":\"john.doe@example.com\",\"name\":\"John Doe\"}],\"cc\":[{\"email\":\"jane.doe@example.com\",\"name\":\"Jane Doe\"}],\"bcc\":[{\"email\":\"sam.doe@example.com\",\"name\":\"Sam Doe\"}],\"custom_args\":{\"New Argument 1\":\"New Value 1\",\"activationAttempt\":\"1\",\"customerAccountNumber\":\"[CUSTOMER ACCOUNT NUMBER GOES HERE]\"},\"headers\":{\"X-Accept-Language\":\"en\",\"X-Mailer\":\"MyApp\"},\"send_at\":1409348513,\"substitutions\":{\"type\":\"object\",\"id\":\"substitutions\"},\"subject\":\"Hello, World!\"}],\"subject\":\"Hello, World!\",\"ip_pool_name\":\"[YOUR POOL NAME GOES HERE]\",\"content\":[{\"type\":\"text/html\",\"value\":\"<html><p>Hello, world!</p><img src=[CID GOES HERE]></img></html>\"}],\"headers\":{},\"asm\":{\"groups_to_display\":[1,2,3],\"group_id\":1},\"batch_id\":\"[YOUR BATCH ID GOES HERE]\",\"tracking_settings\":{\"subscription_tracking\":{\"text\":\"If you would like to unsubscribe and stop receiveing these emails <% click here %>.\",\"enable\":true,\"html\":\"If you would like to unsubscribe and stop receiving these emails <% clickhere %>.\",\"substitution_tag\":\"<%click here%>\"},\"open_tracking\":{\"enable\":true,\"substitution_tag\":\"%opentrack\"},\"click_tracking\":{\"enable\":true,\"enable_text\":true},\"ganalytics\":{\"utm_campaign\":\"[NAME OF YOUR REFERRER SOURCE]\",\"enable\":true,\"utm_name\":\"[NAME OF YOUR CAMPAIGN]\",\"utm_term\":\"[IDENTIFY PAID KEYWORDS HERE]\",\"utm_content\":\"[USE THIS SPACE TO DIFFERENTIATE YOUR EMAIL FROM ADS]\",\"utm_medium\":\"[NAME OF YOUR MARKETING MEDIUM e.g. email]\"}},\"mail_settings\":{\"footer\":{\"text\":\"Thanks,/n The SendGrid Team\",\"enable\":true,\"html\":\"<p>Thanks</br>The SendGrid Team</p>\"},\"spam_check\":{\"threshold\":3,\"post_to_url\":\"http://example.com/compliance\",\"enable\":true},\"bypass_list_management\":{\"enable\":true},\"sandbox_mode\":{\"enable\":false},\"bcc\":{\"enable\":true,\"email\":\"ben.doe@example.com\"}},\"reply_to\":{\"email\":\"sam.smith@example.com\",\"name\":\"Sam Smith\"},\"sections\":{\"section\":{\":sectionName2\":\"section 2 text\",\":sectionName1\":\"section 1 text\"}},\"template_id\":\"[YOUR TEMPLATE ID GOES HERE]\",\"categories\":[\"category1\",\"category2\"],\"send_at\":1409348513}";
     Response response = sg.api(request);
     Assert.assertEquals(202, response.statusCode);
   }
@@ -2501,8 +2622,8 @@ public class SendGridTest {
     request.endpoint = "subusers";
     Map<String,String> queryParams = new HashMap<String, String>();
     queryParams.put("username", "test_string");
-      queryParams.put("limit", "0");
-      queryParams.put("offset", "0");
+      queryParams.put("limit", "1");
+      queryParams.put("offset", "1");
     request.queryParams = queryParams;
     Response response = sg.api(request);
     Assert.assertEquals(200, response.statusCode);
@@ -2767,7 +2888,7 @@ public class SendGridTest {
     Map<String,String> queryParams = new HashMap<String, String>();
     queryParams.put("date", "test_string");
       queryParams.put("sort_by_direction", "asc");
-      queryParams.put("limit", "0");
+      queryParams.put("limit", "1");
       queryParams.put("sort_by_metric", "test_string");
       queryParams.put("offset", "1");
     request.queryParams = queryParams;
@@ -2874,8 +2995,8 @@ public class SendGridTest {
     request.method = Method.GET;
     request.endpoint = "suppression/bounces";
     Map<String,String> queryParams = new HashMap<String, String>();
-    queryParams.put("start_time", "0");
-      queryParams.put("end_time", "0");
+    queryParams.put("start_time", "1");
+      queryParams.put("end_time", "1");
     request.queryParams = queryParams;
     Response response = sg.api(request);
     Assert.assertEquals(200, response.statusCode);
@@ -3877,6 +3998,26 @@ public class SendGridTest {
   }
 
   @Test
+  public void test_user_webhooks_parse_settings_post() throws IOException {
+    SendGrid sg = null;
+    if(System.getenv("TRAVIS") != null && Boolean.parseBoolean(System.getenv("TRAVIS"))) {
+      sg = new SendGrid("SENDGRID_API_KEY");
+      sg.setHost(System.getenv("MOCK_HOST"));
+    } else {
+      sg = new SendGrid("SENDGRID_API_KEY", true);
+      sg.setHost("localhost:4010");
+    }
+    sg.addRequestHeader("X-Mock", "201");
+
+    Request request = new Request();
+    request.method = Method.POST;
+    request.endpoint = "user/webhooks/parse/settings";
+    request.body = "{\"url\":\"http://email.myhosthame.com\",\"send_raw\":false,\"hostname\":\"myhostname.com\",\"spam_check\":true}";
+    Response response = sg.api(request);
+    Assert.assertEquals(201, response.statusCode);
+  }
+
+  @Test
   public void test_user_webhooks_parse_settings_get() throws IOException {
     SendGrid sg = null;
     if(System.getenv("TRAVIS") != null && Boolean.parseBoolean(System.getenv("TRAVIS"))) {
@@ -3893,6 +4034,64 @@ public class SendGridTest {
     request.endpoint = "user/webhooks/parse/settings";
     Response response = sg.api(request);
     Assert.assertEquals(200, response.statusCode);
+  }
+
+  @Test
+  public void test_user_webhooks_parse_settings__hostname__patch() throws IOException {
+    SendGrid sg = null;
+    if(System.getenv("TRAVIS") != null && Boolean.parseBoolean(System.getenv("TRAVIS"))) {
+      sg = new SendGrid("SENDGRID_API_KEY");
+      sg.setHost(System.getenv("MOCK_HOST"));
+    } else {
+      sg = new SendGrid("SENDGRID_API_KEY", true);
+      sg.setHost("localhost:4010");
+    }
+    sg.addRequestHeader("X-Mock", "200");
+
+    Request request = new Request();
+    request.method = Method.PATCH;
+    request.endpoint = "user/webhooks/parse/settings/{hostname}";
+    request.body = "{\"url\":\"http://newdomain.com/parse\",\"send_raw\":true,\"spam_check\":false}";
+    Response response = sg.api(request);
+    Assert.assertEquals(200, response.statusCode);
+  }
+
+  @Test
+  public void test_user_webhooks_parse_settings__hostname__get() throws IOException {
+    SendGrid sg = null;
+    if(System.getenv("TRAVIS") != null && Boolean.parseBoolean(System.getenv("TRAVIS"))) {
+      sg = new SendGrid("SENDGRID_API_KEY");
+      sg.setHost(System.getenv("MOCK_HOST"));
+    } else {
+      sg = new SendGrid("SENDGRID_API_KEY", true);
+      sg.setHost("localhost:4010");
+    }
+    sg.addRequestHeader("X-Mock", "200");
+
+    Request request = new Request();
+    request.method = Method.GET;
+    request.endpoint = "user/webhooks/parse/settings/{hostname}";
+    Response response = sg.api(request);
+    Assert.assertEquals(200, response.statusCode);
+  }
+
+  @Test
+  public void test_user_webhooks_parse_settings__hostname__delete() throws IOException {
+    SendGrid sg = null;
+    if(System.getenv("TRAVIS") != null && Boolean.parseBoolean(System.getenv("TRAVIS"))) {
+      sg = new SendGrid("SENDGRID_API_KEY");
+      sg.setHost(System.getenv("MOCK_HOST"));
+    } else {
+      sg = new SendGrid("SENDGRID_API_KEY", true);
+      sg.setHost("localhost:4010");
+    }
+    sg.addRequestHeader("X-Mock", "204");
+
+    Request request = new Request();
+    request.method = Method.DELETE;
+    request.endpoint = "user/webhooks/parse/settings/{hostname}";
+    Response response = sg.api(request);
+    Assert.assertEquals(204, response.statusCode);
   }
 
   @Test

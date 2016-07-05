@@ -8,8 +8,8 @@ import java.util.HashMap;
 import java.util.Map;
 
 //////////////////////////////////////////////////////////////////
-// Create API keys
-// POST /api_keys
+// Create a new Alert
+// POST /alerts
 
 
 public class Example {
@@ -18,8 +18,8 @@ public class Example {
       SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
       Request request = new Request();
       request.method = Method.POST;
-      request.endpoint = "api_keys";
-      request.body = "{\"sample\":\"data\",\"scopes\":[\"mail.send\",\"alerts.create\",\"alerts.read\"],\"name\":\"My API Key\"}";
+      request.endpoint = "alerts";
+      request.body = "{\"type\":\"stats_notification\",\"frequency\":\"daily\",\"email_to\":\"example@example.com\"}";
       Response response = sg.api(request);
       System.out.println(response.statusCode);
       System.out.println(response.body);
@@ -31,8 +31,8 @@ public class Example {
 }
 
 //////////////////////////////////////////////////////////////////
-// Retrieve all API Keys belonging to the authenticated user
-// GET /api_keys
+// Retrieve all alerts
+// GET /alerts
 
 
 public class Example {
@@ -41,10 +41,7 @@ public class Example {
       SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
       Request request = new Request();
       request.method = Method.GET;
-      request.endpoint = "api_keys";
-      Map<String,String> queryParams = new HashMap<String, String>();
-      queryParams.put("limit", "1");
-      request.queryParams = queryParams;
+      request.endpoint = "alerts";
       Response response = sg.api(request);
       System.out.println(response.statusCode);
       System.out.println(response.body);
@@ -56,31 +53,8 @@ public class Example {
 }
 
 //////////////////////////////////////////////////////////////////
-// Update the name & scopes of an API Key
-// PUT /api_keys/{api_key_id}
-
-
-public class Example {
-  public static void main(String[] args) throws IOException {
-    try {
-      SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
-      Request request = new Request();
-      request.method = Method.PUT;
-      request.endpoint = "api_keys/{api_key_id}";
-      request.body = "{\"scopes\":[\"user.profile.read\",\"user.profile.update\"],\"name\":\"A New Hope\"}";
-      Response response = sg.api(request);
-      System.out.println(response.statusCode);
-      System.out.println(response.body);
-      System.out.println(response.headers);
-    } catch (IOException ex) {
-      throw ex;
-    }
-  }
-}
-
-//////////////////////////////////////////////////////////////////
-// Update API keys
-// PATCH /api_keys/{api_key_id}
+// Update an alert
+// PATCH /alerts/{alert_id}
 
 
 public class Example {
@@ -89,8 +63,8 @@ public class Example {
       SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
       Request request = new Request();
       request.method = Method.PATCH;
-      request.endpoint = "api_keys/{api_key_id}";
-      request.body = "{\"name\":\"A New Hope\"}";
+      request.endpoint = "alerts/{alert_id}";
+      request.body = "{\"email_to\":\"example@example.com\"}";
       Response response = sg.api(request);
       System.out.println(response.statusCode);
       System.out.println(response.body);
@@ -102,8 +76,8 @@ public class Example {
 }
 
 //////////////////////////////////////////////////////////////////
-// Retrieve an existing API Key
-// GET /api_keys/{api_key_id}
+// Retrieve a specific alert
+// GET /alerts/{alert_id}
 
 
 public class Example {
@@ -112,7 +86,7 @@ public class Example {
       SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
       Request request = new Request();
       request.method = Method.GET;
-      request.endpoint = "api_keys/{api_key_id}";
+      request.endpoint = "alerts/{alert_id}";
       Response response = sg.api(request);
       System.out.println(response.statusCode);
       System.out.println(response.body);
@@ -124,8 +98,8 @@ public class Example {
 }
 
 //////////////////////////////////////////////////////////////////
-// Delete API keys
-// DELETE /api_keys/{api_key_id}
+// Delete an alert
+// DELETE /alerts/{alert_id}
 
 
 public class Example {
@@ -134,7 +108,7 @@ public class Example {
       SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
       Request request = new Request();
       request.method = Method.DELETE;
-      request.endpoint = "api_keys/{api_key_id}";
+      request.endpoint = "alerts/{alert_id}";
       Response response = sg.api(request);
       System.out.println(response.statusCode);
       System.out.println(response.body);

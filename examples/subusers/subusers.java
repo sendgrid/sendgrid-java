@@ -44,8 +44,8 @@ public class Example {
       request.endpoint = "subusers";
       Map<String,String> queryParams = new HashMap<String, String>();
       queryParams.put("username", "test_string");
-      queryParams.put("limit", "0");
-      queryParams.put("offset", "0");
+      queryParams.put("limit", "1");
+      queryParams.put("offset", "1");
       request.queryParams = queryParams;
       Response response = sg.api(request);
       System.out.println(response.statusCode);
@@ -346,7 +346,7 @@ public class Example {
       Map<String,String> queryParams = new HashMap<String, String>();
       queryParams.put("date", "test_string");
       queryParams.put("sort_by_direction", "asc");
-      queryParams.put("limit", "0");
+      queryParams.put("limit", "1");
       queryParams.put("sort_by_metric", "test_string");
       queryParams.put("offset", "1");
       request.queryParams = queryParams;

@@ -115,8 +115,8 @@ public class Example {
       request.method = Method.GET;
       request.endpoint = "suppression/bounces";
       Map<String,String> queryParams = new HashMap<String, String>();
-      queryParams.put("start_time", "0");
-      queryParams.put("end_time", "0");
+      queryParams.put("start_time", "1");
+      queryParams.put("end_time", "1");
       request.queryParams = queryParams;
       Response response = sg.api(request);
       System.out.println(response.statusCode);

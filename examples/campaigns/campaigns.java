@@ -43,8 +43,8 @@ public class Example {
       request.method = Method.GET;
       request.endpoint = "campaigns";
       Map<String,String> queryParams = new HashMap<String, String>();
-      queryParams.put("limit", "0");
-      queryParams.put("offset", "0");
+      queryParams.put("limit", "1");
+      queryParams.put("offset", "1");
       request.queryParams = queryParams;
       Response response = sg.api(request);
       System.out.println(response.statusCode);

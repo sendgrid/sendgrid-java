@@ -23,6 +23,7 @@ public class Example {
 # Table of Contents
 
 * [ACCESS SETTINGS](#access_settings)
+* [ALERTS](#alerts)
 * [API KEYS](#api_keys)
 * [ASM](#asm)
 * [BROWSERS](#browsers)
@@ -213,6 +214,146 @@ For more information, please see our [User Guide](http://sendgrid.com/docs/User_
     throw ex;
   }
   ```
+<a name="alerts"></a>
+# ALERTS
+
+## Create a new Alert
+
+**This endpoint allows you to create a new alert.**
+
+Alerts allow you to specify an email address to receive notifications regarding your email usage or statistics.
+* Usage alerts allow you to set the threshold at which an alert will be sent.
+* Stats notifications allow you to set how frequently you would like to receive email statistics reports. For example, "daily", "weekly", or "monthly".
+
+For more information about alerts, please see our [User Guide](https://sendgrid.com/docs/User_Guide/Settings/alerts.html).
+
+### POST /alerts
+
+
+```java
+  try {
+    SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
+    Request request = new Request();
+    request.method = Method.POST;
+    request.endpoint = "alerts";
+    request.body = "{\"type\":\"stats_notification\",\"frequency\":\"daily\",\"email_to\":\"example@example.com\"}";
+    Response response = sg.api(request);
+    System.out.println(response.statusCode);
+    System.out.println(response.body);
+    System.out.println(response.headers);
+  } catch (IOException ex) {
+    throw ex;
+  }
+  ```
+## Retrieve all alerts
+
+**This endpoint allows you to retieve all of your alerts.**
+
+Alerts allow you to specify an email address to receive notifications regarding your email usage or statistics.
+* Usage alerts allow you to set the threshold at which an alert will be sent.
+* Stats notifications allow you to set how frequently you would like to receive email statistics reports. For example, "daily", "weekly", or "monthly".
+
+For more information about alerts, please see our [User Guide](https://sendgrid.com/docs/User_Guide/Settings/alerts.html).
+
+### GET /alerts
+
+
+```java
+  try {
+    SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
+    Request request = new Request();
+    request.method = Method.GET;
+    request.endpoint = "alerts";
+    Response response = sg.api(request);
+    System.out.println(response.statusCode);
+    System.out.println(response.body);
+    System.out.println(response.headers);
+  } catch (IOException ex) {
+    throw ex;
+  }
+  ```
+## Update an alert
+
+**This endpoint allows you to update an alert.**
+
+Alerts allow you to specify an email address to receive notifications regarding your email usage or statistics.
+* Usage alerts allow you to set the threshold at which an alert will be sent.
+* Stats notifications allow you to set how frequently you would like to receive email statistics reports. For example, "daily", "weekly", or "monthly".
+
+For more information about alerts, please see our [User Guide](https://sendgrid.com/docs/User_Guide/Settings/alerts.html).
+
+### PATCH /alerts/{alert_id}
+
+
+```java
+  try {
+    SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
+    Request request = new Request();
+    request.method = Method.PATCH;
+    request.endpoint = "alerts/{alert_id}";
+    request.body = "{\"email_to\":\"example@example.com\"}";
+    Response response = sg.api(request);
+    System.out.println(response.statusCode);
+    System.out.println(response.body);
+    System.out.println(response.headers);
+  } catch (IOException ex) {
+    throw ex;
+  }
+  ```
+## Retrieve a specific alert
+
+**This endpoint allows you to retrieve a specific alert.**
+
+Alerts allow you to specify an email address to receive notifications regarding your email usage or statistics.
+* Usage alerts allow you to set the threshold at which an alert will be sent.
+* Stats notifications allow you to set how frequently you would like to receive email statistics reports. For example, "daily", "weekly", or "monthly".
+
+For more information about alerts, please see our [User Guide](https://sendgrid.com/docs/User_Guide/Settings/alerts.html).
+
+### GET /alerts/{alert_id}
+
+
+```java
+  try {
+    SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
+    Request request = new Request();
+    request.method = Method.GET;
+    request.endpoint = "alerts/{alert_id}";
+    Response response = sg.api(request);
+    System.out.println(response.statusCode);
+    System.out.println(response.body);
+    System.out.println(response.headers);
+  } catch (IOException ex) {
+    throw ex;
+  }
+  ```
+## Delete an alert
+
+**This endpoint allows you to delete an alert.**
+
+Alerts allow you to specify an email address to receive notifications regarding your email usage or statistics.
+* Usage alerts allow you to set the threshold at which an alert will be sent.
+* Stats notifications allow you to set how frequently you would like to receive email statistics reports. For example, "daily", "weekly", or "monthly".
+
+For more information about alerts, please see our [User Guide](https://sendgrid.com/docs/User_Guide/Settings/alerts.html).
+
+### DELETE /alerts/{alert_id}
+
+
+```java
+  try {
+    SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
+    Request request = new Request();
+    request.method = Method.DELETE;
+    request.endpoint = "alerts/{alert_id}";
+    Response response = sg.api(request);
+    System.out.println(response.statusCode);
+    System.out.println(response.body);
+    System.out.println(response.headers);
+  } catch (IOException ex) {
+    throw ex;
+  }
+  ```
 <a name="api_keys"></a>
 # API KEYS
 
@@ -237,7 +378,7 @@ See the [API Key Permissions List](https://sendgrid.com/docs/API_Reference/Web_A
     Request request = new Request();
     request.method = Method.POST;
     request.endpoint = "api_keys";
-    request.body = "{\"scopes\":[\"mail.send\",\"alerts.create\",\"alerts.read\"],\"name\":\"My API Key\"}";
+    request.body = "{\"sample\":\"data\",\"scopes\":[\"mail.send\",\"alerts.create\",\"alerts.read\"],\"name\":\"My API Key\"}";
     Response response = sg.api(request);
     System.out.println(response.statusCode);
     System.out.println(response.body);
@@ -261,6 +402,9 @@ The API Keys feature allows customers to be able to generate an API Key credenti
     Request request = new Request();
     request.method = Method.GET;
     request.endpoint = "api_keys";
+    Map<String,String> queryParams = new HashMap<String, String>();
+    queryParams.put("limit", "1");
+    request.queryParams = queryParams;
     Response response = sg.api(request);
     System.out.println(response.statusCode);
     System.out.println(response.body);
@@ -420,6 +564,10 @@ Each user can create up to 25 different suppression groups.
 
 This endpoint will return information for each group ID that you include in your request. To add a group ID to your request, simply append `&id=` followed by the group ID.
 
+Suppressions are a list of email addresses that will not receive content sent under a given [group](https://sendgrid.com/docs/API_Reference/Web_API_v3/Suppression_Management/groups.html).
+
+Suppression groups, or [unsubscribe groups](https://sendgrid.com/docs/API_Reference/Web_API_v3/Suppression_Management/groups.html), allow you to label a category of content that you regularly send. This gives your recipients the ability to opt out of a specific set of your email. For example, you might define a group for your transactional email, and one for your marketing email so that your users can continue recieving your transactional email witout having to receive your marketing content.
+
 ### GET /asm/groups
 
 
@@ -573,6 +721,32 @@ Suppressions are recipient email addresses that are added to [unsubscribe groups
     throw ex;
   }
   ```
+## Search for suppressions within a group
+
+**This endpoint allows you to search a suppression group for multiple suppressions.**
+
+When given a list of email addresses and a group ID, this endpoint will return only the email addresses that have been unsubscribed from the given group.
+
+Suppressions are a list of email addresses that will not receive content sent under a given [group](https://sendgrid.com/docs/API_Reference/Web_API_v3/Suppression_Management/groups.html).
+
+### POST /asm/groups/{group_id}/suppressions/search
+
+
+```java
+  try {
+    SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
+    Request request = new Request();
+    request.method = Method.POST;
+    request.endpoint = "asm/groups/{group_id}/suppressions/search";
+    request.body = "{\"recipient_emails\":[\"exists1@example.com\",\"exists2@example.com\",\"doesnotexists@example.com\"]}";
+    Response response = sg.api(request);
+    System.out.println(response.statusCode);
+    System.out.println(response.body);
+    System.out.println(response.headers);
+  } catch (IOException ex) {
+    throw ex;
+  }
+  ```
 ## Delete a suppression from a suppression group
 
 **This endpoint allows you to remove a suppressed email address from the given suppression group.**
@@ -600,7 +774,7 @@ Suppressions are recipient email addresses that are added to [unsubscribe groups
 
 **This endpoint allows you to retrieve a list of all suppressions.**
 
-Suppressions are email addresses that can be added to [groups](https://sendgrid.com/docs/API_Reference/Web_API_v3/Suppression_Management/groups.html) to prevent certain types of emails from being delivered to those addresses.
+Suppressions are a list of email addresses that will not receive content sent under a given [group](https://sendgrid.com/docs/API_Reference/Web_API_v3/Suppression_Management/groups.html).
 
 ### GET /asm/suppressions
 
@@ -693,9 +867,9 @@ A global suppression (or global unsubscribe) is an email address of a recipient 
   ```
 ## Retrieve all suppression groups for an email address
 
-**This endpoint will return a list of all suppression groups, indicating if the given email address is suppressed for each group.**
+**This endpoint returns the list of all groups that the given email address has been unsubscribed from.**
 
-Suppressions are email addresses that can be added to [groups](https://sendgrid.com/docs/API_Reference/Web_API_v3/Suppression_Management/groups.html) to prevent certain types of emails from being delivered to those addresses.
+Suppressions are a list of email addresses that will not receive content sent under a given [group](https://sendgrid.com/docs/API_Reference/Web_API_v3/Suppression_Management/groups.html).
 
 ### GET /asm/suppressions/{email}
 
@@ -805,8 +979,8 @@ For more information:
     request.method = Method.GET;
     request.endpoint = "campaigns";
     Map<String,String> queryParams = new HashMap<String, String>();
-    queryParams.put("limit", "0");
-      queryParams.put("offset", "0");
+    queryParams.put("limit", "1");
+      queryParams.put("offset", "1");
     request.queryParams = queryParams;
     Response response = sg.api(request);
     System.out.println(response.statusCode);
@@ -1408,7 +1582,7 @@ The Contacts API helps you manage your [Marketing Campaigns](https://sendgrid.co
     request.endpoint = "contactdb/lists/{list_id}";
     request.body = "{\"name\":\"newlistname\"}";
     Map<String,String> queryParams = new HashMap<String, String>();
-    queryParams.put("list_id", "0");
+    queryParams.put("list_id", "1");
     request.queryParams = queryParams;
     Response response = sg.api(request);
     System.out.println(response.statusCode);
@@ -1434,7 +1608,7 @@ The Contacts API helps you manage your [Marketing Campaigns](https://sendgrid.co
     request.method = Method.GET;
     request.endpoint = "contactdb/lists/{list_id}";
     Map<String,String> queryParams = new HashMap<String, String>();
-    queryParams.put("list_id", "0");
+    queryParams.put("list_id", "1");
     request.queryParams = queryParams;
     Response response = sg.api(request);
     System.out.println(response.statusCode);
@@ -1514,7 +1688,7 @@ The Contacts API helps you manage your [Marketing Campaigns](https://sendgrid.co
     Map<String,String> queryParams = new HashMap<String, String>();
     queryParams.put("page", "1");
       queryParams.put("page_size", "1");
-      queryParams.put("list_id", "0");
+      queryParams.put("list_id", "1");
     request.queryParams = queryParams;
     Response response = sg.api(request);
     System.out.println(response.statusCode);
@@ -1563,8 +1737,8 @@ The Contacts API helps you manage your [Marketing Campaigns](https://sendgrid.co
     request.method = Method.DELETE;
     request.endpoint = "contactdb/lists/{list_id}/recipients/{recipient_id}";
     Map<String,String> queryParams = new HashMap<String, String>();
-    queryParams.put("recipient_id", "0");
-      queryParams.put("list_id", "0");
+    queryParams.put("recipient_id", "1");
+      queryParams.put("list_id", "1");
     request.queryParams = queryParams;
     Response response = sg.api(request);
     System.out.println(response.statusCode);
@@ -1757,7 +1931,8 @@ The contactdb is a database of your contacts for [SendGrid Marketing Campaigns](
     request.method = Method.GET;
     request.endpoint = "contactdb/recipients/search";
     Map<String,String> queryParams = new HashMap<String, String>();
-    queryParams.put("{field_name}", "test_string");
+    queryParams.put("%7Bfield_name%7D", "test_string");
+      queryParams.put("{field_name}", "test_string");
     request.queryParams = queryParams;
     Response response = sg.api(request);
     System.out.println(response.statusCode);
@@ -1977,7 +2152,7 @@ For more information about segments in Marketing Campaigns, please see our [User
     request.method = Method.GET;
     request.endpoint = "contactdb/segments/{segment_id}";
     Map<String,String> queryParams = new HashMap<String, String>();
-    queryParams.put("segment_id", "0");
+    queryParams.put("segment_id", "1");
     request.queryParams = queryParams;
     Response response = sg.api(request);
     System.out.println(response.statusCode);
@@ -2578,7 +2753,7 @@ This endpoint has a helper, check it out [here](https://github.com/sendgrid/send
     Request request = new Request();
     request.method = Method.POST;
     request.endpoint = "mail/send";
-    request.body = "{\"custom_args\":{\"New Argument 1\":\"New Value 1\",\"activationAttempt\":\"1\",\"customerAccountNumber\":\"[CUSTOMER ACCOUNT NUMBER GOES HERE]\"},\"from\":{\"email\":\"sam.smith@example.com\",\"name\":\"Sam Smith\"},\"attachments\":[{\"name\":\"file1\",\"filename\":\"file1.jpg\",\"content\":\"[BASE64 encoded content block here]\",\"disposition\":\"inline\",\"content_id\":\"ii_139db99fdb5c3704\",\"type\":\"jpg\"}],\"personalizations\":[{\"to\":[{\"email\":\"john.doe@example.com\",\"name\":\"John Doe\"}],\"cc\":[{\"email\":\"jane.doe@example.com\",\"name\":\"Jane Doe\"}],\"bcc\":[{\"email\":\"sam.doe@example.com\",\"name\":\"Sam Doe\"}],\"custom_args\":{\"New Argument 1\":\"New Value 1\",\"activationAttempt\":\"1\",\"customerAccountNumber\":\"[CUSTOMER ACCOUNT NUMBER GOES HERE]\"},\"headers\":{\"X-Accept-Language\":\"en\",\"X-Mailer\":\"MyApp\"},\"send_at\":1409348513,\"substitutions\":{\"sub\":{\"%name%\":[\"John\",\"Jane\",\"Sam\"]}},\"subject\":\"Hello, World!\"}],\"subject\":\"Hello, World!\",\"ip_pool_name\":\"[YOUR POOL NAME GOES HERE]\",\"content\":[{\"type\":\"text/html\",\"value\":\"<html><p>Hello, world!</p><img src=[CID GOES HERE]></img></html>\"}],\"headers\":{},\"asm\":{\"groups_to_display\":[1,2,3],\"group_id\":1},\"batch_id\":\"[YOUR BATCH ID GOES HERE]\",\"tracking_settings\":{\"subscription_tracking\":{\"text\":\"If you would like to unsubscribe and stop receiveing these emails <% click here %>.\",\"enable\":true,\"html\":\"If you would like to unsubscribe and stop receiving these emails <% clickhere %>.\",\"substitution_tag\":\"<%click here%>\"},\"open_tracking\":{\"enable\":true,\"substitution_tag\":\"%opentrack\"},\"click_tracking\":{\"enable\":true,\"enable_text\":true},\"ganalytics\":{\"utm_campaign\":\"[NAME OF YOUR REFERRER SOURCE]\",\"enable\":true,\"utm_name\":\"[NAME OF YOUR CAMPAIGN]\",\"utm_term\":\"[IDENTIFY PAID KEYWORDS HERE]\",\"utm_content\":\"[USE THIS SPACE TO DIFFERENTIATE YOUR EMAIL FROM ADS]\",\"utm_medium\":\"[NAME OF YOUR MARKETING MEDIUM e.g. email]\"}},\"mail_settings\":{\"footer\":{\"text\":\"Thanks,/n The SendGrid Team\",\"enable\":true,\"html\":\"<p>Thanks</br>The SendGrid Team</p>\"},\"spam_check\":{\"threshold\":3,\"post_to_url\":\"http://example.com/compliance\",\"enable\":true},\"bypass_list_management\":{\"enable\":true},\"sandbox_mode\":{\"enable\":false},\"bcc\":{\"enable\":true,\"email\":\"ben.doe@example.com\"}},\"reply_to\":{\"email\":\"sam.smith@example.com\",\"name\":\"Sam Smith\"},\"sections\":{\"section\":{\":sectionName2\":\"section 2 text\",\":sectionName1\":\"section 1 text\"}},\"template_id\":\"[YOUR TEMPLATE ID GOES HERE]\",\"categories\":[\"category1\",\"category2\"],\"send_at\":1409348513}";
+    request.body = "{\"custom_args\":{\"New Argument 1\":\"New Value 1\",\"activationAttempt\":\"1\",\"customerAccountNumber\":\"[CUSTOMER ACCOUNT NUMBER GOES HERE]\"},\"from\":{\"email\":\"sam.smith@example.com\",\"name\":\"Sam Smith\"},\"attachments\":[{\"name\":\"file1\",\"filename\":\"file1.jpg\",\"content\":\"[BASE64 encoded content block here]\",\"disposition\":\"inline\",\"content_id\":\"ii_139db99fdb5c3704\",\"type\":\"jpg\"}],\"personalizations\":[{\"to\":[{\"email\":\"john.doe@example.com\",\"name\":\"John Doe\"}],\"cc\":[{\"email\":\"jane.doe@example.com\",\"name\":\"Jane Doe\"}],\"bcc\":[{\"email\":\"sam.doe@example.com\",\"name\":\"Sam Doe\"}],\"custom_args\":{\"New Argument 1\":\"New Value 1\",\"activationAttempt\":\"1\",\"customerAccountNumber\":\"[CUSTOMER ACCOUNT NUMBER GOES HERE]\"},\"headers\":{\"X-Accept-Language\":\"en\",\"X-Mailer\":\"MyApp\"},\"send_at\":1409348513,\"substitutions\":{\"type\":\"object\",\"id\":\"substitutions\"},\"subject\":\"Hello, World!\"}],\"subject\":\"Hello, World!\",\"ip_pool_name\":\"[YOUR POOL NAME GOES HERE]\",\"content\":[{\"type\":\"text/html\",\"value\":\"<html><p>Hello, world!</p><img src=[CID GOES HERE]></img></html>\"}],\"headers\":{},\"asm\":{\"groups_to_display\":[1,2,3],\"group_id\":1},\"batch_id\":\"[YOUR BATCH ID GOES HERE]\",\"tracking_settings\":{\"subscription_tracking\":{\"text\":\"If you would like to unsubscribe and stop receiveing these emails <% click here %>.\",\"enable\":true,\"html\":\"If you would like to unsubscribe and stop receiving these emails <% clickhere %>.\",\"substitution_tag\":\"<%click here%>\"},\"open_tracking\":{\"enable\":true,\"substitution_tag\":\"%opentrack\"},\"click_tracking\":{\"enable\":true,\"enable_text\":true},\"ganalytics\":{\"utm_campaign\":\"[NAME OF YOUR REFERRER SOURCE]\",\"enable\":true,\"utm_name\":\"[NAME OF YOUR CAMPAIGN]\",\"utm_term\":\"[IDENTIFY PAID KEYWORDS HERE]\",\"utm_content\":\"[USE THIS SPACE TO DIFFERENTIATE YOUR EMAIL FROM ADS]\",\"utm_medium\":\"[NAME OF YOUR MARKETING MEDIUM e.g. email]\"}},\"mail_settings\":{\"footer\":{\"text\":\"Thanks,/n The SendGrid Team\",\"enable\":true,\"html\":\"<p>Thanks</br>The SendGrid Team</p>\"},\"spam_check\":{\"threshold\":3,\"post_to_url\":\"http://example.com/compliance\",\"enable\":true},\"bypass_list_management\":{\"enable\":true},\"sandbox_mode\":{\"enable\":false},\"bcc\":{\"enable\":true,\"email\":\"ben.doe@example.com\"}},\"reply_to\":{\"email\":\"sam.smith@example.com\",\"name\":\"Sam Smith\"},\"sections\":{\"section\":{\":sectionName2\":\"section 2 text\",\":sectionName1\":\"section 1 text\"}},\"template_id\":\"[YOUR TEMPLATE ID GOES HERE]\",\"categories\":[\"category1\",\"category2\"],\"send_at\":1409348513}";
     Response response = sg.api(request);
     System.out.println(response.statusCode);
     System.out.println(response.body);
@@ -3306,8 +3481,8 @@ For more information about Subusers:
     request.endpoint = "subusers";
     Map<String,String> queryParams = new HashMap<String, String>();
     queryParams.put("username", "test_string");
-      queryParams.put("limit", "0");
-      queryParams.put("offset", "0");
+      queryParams.put("limit", "1");
+      queryParams.put("offset", "1");
     request.queryParams = queryParams;
     Response response = sg.api(request);
     System.out.println(response.statusCode);
@@ -3638,7 +3813,7 @@ For more information, see our [User Guide](https://sendgrid.com/docs/User_Guide/
     Map<String,String> queryParams = new HashMap<String, String>();
     queryParams.put("date", "test_string");
       queryParams.put("sort_by_direction", "asc");
-      queryParams.put("limit", "0");
+      queryParams.put("limit", "1");
       queryParams.put("sort_by_metric", "test_string");
       queryParams.put("offset", "1");
     request.queryParams = queryParams;
@@ -3786,8 +3961,8 @@ For more information see:
     request.method = Method.GET;
     request.endpoint = "suppression/bounces";
     Map<String,String> queryParams = new HashMap<String, String>();
-    queryParams.put("start_time", "0");
-      queryParams.put("end_time", "0");
+    queryParams.put("start_time", "1");
+      queryParams.put("end_time", "1");
     request.queryParams = queryParams;
     Response response = sg.api(request);
     System.out.println(response.statusCode);
@@ -5189,11 +5364,35 @@ Common uses of this data are to remove unsubscribes, react to spam reports, dete
     throw ex;
   }
   ```
-## Retrieve Parse Webhook settings
+## Create a parse setting
 
-**This endpoint allows you to retrieve your current inbound parse webhook settings.**
+**This endpoint allows you to create a new inbound parse setting.**
 
-SendGrid can parse the attachments and contents of incoming emails. The Parse API will POST the parsed email to a URL that you specify. For more information, see our Inbound [Parse Webhook documentation](https://sendgrid.com/docs/API_Reference/Webhooks/parse.html).
+The inbound parse webhook allows you to have incoming emails parsed, extracting some or all of the content, and then have that content POSTed by SendGrid to a URL of your choosing. For more information, please see our [User Guide](https://sendgrid.com/docs/API_Reference/Webhooks/parse.html).
+
+### POST /user/webhooks/parse/settings
+
+
+```java
+  try {
+    SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
+    Request request = new Request();
+    request.method = Method.POST;
+    request.endpoint = "user/webhooks/parse/settings";
+    request.body = "{\"url\":\"http://email.myhosthame.com\",\"send_raw\":false,\"hostname\":\"myhostname.com\",\"spam_check\":true}";
+    Response response = sg.api(request);
+    System.out.println(response.statusCode);
+    System.out.println(response.body);
+    System.out.println(response.headers);
+  } catch (IOException ex) {
+    throw ex;
+  }
+  ```
+## Retrieve all parse settings
+
+**This endpoint allows you to retrieve all of your current inbound parse settings.**
+
+The inbound parse webhook allows you to have incoming emails parsed, extracting some or all of the contnet, and then have that content POSTed by SendGrid to a URL of your choosing. For more information, please see our [User Guide](https://sendgrid.com/docs/API_Reference/Webhooks/parse.html).
 
 ### GET /user/webhooks/parse/settings
 
@@ -5204,6 +5403,76 @@ SendGrid can parse the attachments and contents of incoming emails. The Parse AP
     Request request = new Request();
     request.method = Method.GET;
     request.endpoint = "user/webhooks/parse/settings";
+    Response response = sg.api(request);
+    System.out.println(response.statusCode);
+    System.out.println(response.body);
+    System.out.println(response.headers);
+  } catch (IOException ex) {
+    throw ex;
+  }
+  ```
+## Update a parse setting
+
+**This endpoint allows you to update a specific inbound parse setting.**
+
+The inbound parse webhook allows you to have incoming emails parsed, extracting some or all of the contnet, and then have that content POSTed by SendGrid to a URL of your choosing. For more information, please see our [User Guide](https://sendgrid.com/docs/API_Reference/Webhooks/parse.html).
+
+### PATCH /user/webhooks/parse/settings/{hostname}
+
+
+```java
+  try {
+    SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
+    Request request = new Request();
+    request.method = Method.PATCH;
+    request.endpoint = "user/webhooks/parse/settings/{hostname}";
+    request.body = "{\"url\":\"http://newdomain.com/parse\",\"send_raw\":true,\"spam_check\":false}";
+    Response response = sg.api(request);
+    System.out.println(response.statusCode);
+    System.out.println(response.body);
+    System.out.println(response.headers);
+  } catch (IOException ex) {
+    throw ex;
+  }
+  ```
+## Retrieve a specific parse setting
+
+**This endpoint allows you to retrieve a specific inbound parse setting.**
+
+The inbound parse webhook allows you to have incoming emails parsed, extracting some or all of the contnet, and then have that content POSTed by SendGrid to a URL of your choosing. For more information, please see our [User Guide](https://sendgrid.com/docs/API_Reference/Webhooks/parse.html).
+
+### GET /user/webhooks/parse/settings/{hostname}
+
+
+```java
+  try {
+    SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
+    Request request = new Request();
+    request.method = Method.GET;
+    request.endpoint = "user/webhooks/parse/settings/{hostname}";
+    Response response = sg.api(request);
+    System.out.println(response.statusCode);
+    System.out.println(response.body);
+    System.out.println(response.headers);
+  } catch (IOException ex) {
+    throw ex;
+  }
+  ```
+## Delete a parse setting
+
+**This endpoint allows you to delete a specific inbound parse setting.**
+
+The inbound parse webhook allows you to have incoming emails parsed, extracting some or all of the contnet, and then have that content POSTed by SendGrid to a URL of your choosing. For more information, please see our [User Guide](https://sendgrid.com/docs/API_Reference/Webhooks/parse.html).
+
+### DELETE /user/webhooks/parse/settings/{hostname}
+
+
+```java
+  try {
+    SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
+    Request request = new Request();
+    request.method = Method.DELETE;
+    request.endpoint = "user/webhooks/parse/settings/{hostname}";
     Response response = sg.api(request);
     System.out.println(response.statusCode);
     System.out.println(response.body);

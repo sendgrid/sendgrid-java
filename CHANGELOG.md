@@ -1,6 +1,10 @@
 # Change Log
 All notable changes to this project will be documented in this file.
 
+## [3.0.2] - 2016-07-05
+### Updated
+- Content based on our updated [Swagger/OAI doc](https://github.com/sendgrid/sendgrid-oai)
+
 ## [3.0.1] - 2016-06-28
 ### Fixed
 - Accept header via [Get Satisfaction](https://community.sendgrid.com/sendgrid/topics/sendgrid-v3-webapi-issue-with-accept-header-response-406-not-acceptable)

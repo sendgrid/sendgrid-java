@@ -435,7 +435,30 @@ public class Example {
 }
 
 //////////////////////////////////////////////////////////////////
-// Retrieve Parse Webhook settings
+// Create a parse setting
+// POST /user/webhooks/parse/settings
+
+
+public class Example {
+  public static void main(String[] args) throws IOException {
+    try {
+      SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
+      Request request = new Request();
+      request.method = Method.POST;
+      request.endpoint = "user/webhooks/parse/settings";
+      request.body = "{\"url\":\"http://email.myhosthame.com\",\"send_raw\":false,\"hostname\":\"myhostname.com\",\"spam_check\":true}";
+      Response response = sg.api(request);
+      System.out.println(response.statusCode);
+      System.out.println(response.body);
+      System.out.println(response.headers);
+    } catch (IOException ex) {
+      throw ex;
+    }
+  }
+}
+
+//////////////////////////////////////////////////////////////////
+// Retrieve all parse settings
 // GET /user/webhooks/parse/settings
 
 
@@ -446,6 +469,73 @@ public class Example {
       Request request = new Request();
       request.method = Method.GET;
       request.endpoint = "user/webhooks/parse/settings";
+      Response response = sg.api(request);
+      System.out.println(response.statusCode);
+      System.out.println(response.body);
+      System.out.println(response.headers);
+    } catch (IOException ex) {
+      throw ex;
+    }
+  }
+}
+
+//////////////////////////////////////////////////////////////////
+// Update a parse setting
+// PATCH /user/webhooks/parse/settings/{hostname}
+
+
+public class Example {
+  public static void main(String[] args) throws IOException {
+    try {
+      SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
+      Request request = new Request();
+      request.method = Method.PATCH;
+      request.endpoint = "user/webhooks/parse/settings/{hostname}";
+      request.body = "{\"url\":\"http://newdomain.com/parse\",\"send_raw\":true,\"spam_check\":false}";
+      Response response = sg.api(request);
+      System.out.println(response.statusCode);
+      System.out.println(response.body);
+      System.out.println(response.headers);
+    } catch (IOException ex) {
+      throw ex;
+    }
+  }
+}
+
+//////////////////////////////////////////////////////////////////
+// Retrieve a specific parse setting
+// GET /user/webhooks/parse/settings/{hostname}
+
+
+public class Example {
+  public static void main(String[] args) throws IOException {
+    try {
+      SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
+      Request request = new Request();
+      request.method = Method.GET;
+      request.endpoint = "user/webhooks/parse/settings/{hostname}";
+      Response response = sg.api(request);
+      System.out.println(response.statusCode);
+      System.out.println(response.body);
+      System.out.println(response.headers);
+    } catch (IOException ex) {
+      throw ex;
+    }
+  }
+}
+
+//////////////////////////////////////////////////////////////////
+// Delete a parse setting
+// DELETE /user/webhooks/parse/settings/{hostname}
+
+
+public class Example {
+  public static void main(String[] args) throws IOException {
+    try {
+      SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
+      Request request = new Request();
+      request.method = Method.DELETE;
+      request.endpoint = "user/webhooks/parse/settings/{hostname}";
       Response response = sg.api(request);
       System.out.println(response.statusCode);
       System.out.println(response.body);
