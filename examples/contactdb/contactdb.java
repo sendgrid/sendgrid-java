@@ -490,7 +490,6 @@ public class Example {
       request.method = Method.GET;
       request.endpoint = "contactdb/recipients/search";
       Map<String,String> queryParams = new HashMap<String, String>();
-      queryParams.put("%7Bfield_name%7D", "test_string");
       queryParams.put("{field_name}", "test_string");
       request.queryParams = queryParams;
       Response response = sg.api(request);

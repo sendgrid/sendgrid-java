@@ -39,6 +39,7 @@ public class Example {
 * [MAILBOX PROVIDERS](#mailbox_providers)
 * [PARTNER SETTINGS](#partner_settings)
 * [SCOPES](#scopes)
+* [SENDERS](#senders)
 * [STATS](#stats)
 * [SUBUSERS](#subusers)
 * [SUPPRESSION](#suppression)
@@ -1931,8 +1932,7 @@ The contactdb is a database of your contacts for [SendGrid Marketing Campaigns](
     request.method = Method.GET;
     request.endpoint = "contactdb/recipients/search";
     Map<String,String> queryParams = new HashMap<String, String>();
-    queryParams.put("%7Bfield_name%7D", "test_string");
-      queryParams.put("{field_name}", "test_string");
+    queryParams.put("{field_name}", "test_string");
     request.queryParams = queryParams;
     Response response = sg.api(request);
     System.out.println(response.statusCode);
@@ -3390,6 +3390,153 @@ API Keys can be used to authenticate the use of [SendGrids v3 Web API](https://s
     Request request = new Request();
     request.method = Method.GET;
     request.endpoint = "scopes";
+    Response response = sg.api(request);
+    System.out.println(response.statusCode);
+    System.out.println(response.body);
+    System.out.println(response.headers);
+  } catch (IOException ex) {
+    throw ex;
+  }
+  ```
+<a name="senders"></a>
+# SENDERS
+
+## Create a Sender Identity
+
+**This endpoint allows you to create a new sender identity.**
+
+*You may create up to 100 unique sender identities.*
+
+Sender Identities are required to be verified before use. If your domain has been whitelabeled it will auto verify on creation. Otherwise an email will be sent to the `from.email`.
+
+### POST /senders
+
+
+```java
+  try {
+    SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
+    Request request = new Request();
+    request.method = Method.POST;
+    request.endpoint = "senders";
+    request.body = "{\"city\":\"Denver\",\"from\":{\"email\":\"from@example.com\",\"name\":\"Example INC\"},\"zip\":\"80202\",\"country\":\"United States\",\"state\":\"Colorado\",\"address_2\":\"Apt. 456\",\"address\":\"123 Elm St.\",\"reply_to\":{\"email\":\"replyto@example.com\",\"name\":\"Example INC\"},\"nickname\":\"My Sender ID\"}";
+    Response response = sg.api(request);
+    System.out.println(response.statusCode);
+    System.out.println(response.body);
+    System.out.println(response.headers);
+  } catch (IOException ex) {
+    throw ex;
+  }
+  ```
+## Get all Sender Identities
+
+**This endpoint allows you to retrieve a list of all sender identities that have been created for your account.**
+
+Sender Identities are required to be verified before use. If your domain has been whitelabeled it will auto verify on creation. Otherwise an email will be sent to the `from.email`.
+
+### GET /senders
+
+
+```java
+  try {
+    SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
+    Request request = new Request();
+    request.method = Method.GET;
+    request.endpoint = "senders";
+    Response response = sg.api(request);
+    System.out.println(response.statusCode);
+    System.out.println(response.body);
+    System.out.println(response.headers);
+  } catch (IOException ex) {
+    throw ex;
+  }
+  ```
+## Update a Sender Identity
+
+**This endpoint allows you to update a sender identity.**
+
+Updates to `from.email` require re-verification. If your domain has been whitelabeled it will auto verify on creation. Otherwise an email will be sent to the `from.email`.
+
+Partial updates are allowed, but fields that are marked as "required" in the POST (create) endpoint must not be nil if that field is included in the PATCH request.
+
+### PATCH /senders/{sender_id}
+
+
+```java
+  try {
+    SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
+    Request request = new Request();
+    request.method = Method.PATCH;
+    request.endpoint = "senders/{sender_id}";
+    request.body = "{\"city\":\"Denver\",\"from\":{\"email\":\"from@example.com\",\"name\":\"Example INC\"},\"zip\":\"80202\",\"country\":\"United States\",\"state\":\"Colorado\",\"address_2\":\"Apt. 456\",\"address\":\"123 Elm St.\",\"reply_to\":{\"email\":\"replyto@example.com\",\"name\":\"Example INC\"},\"nickname\":\"My Sender ID\"}";
+    Response response = sg.api(request);
+    System.out.println(response.statusCode);
+    System.out.println(response.body);
+    System.out.println(response.headers);
+  } catch (IOException ex) {
+    throw ex;
+  }
+  ```
+## View a Sender Identity
+
+**This endpoint allows you to retrieve a specific sender identity.**
+
+Sender Identities are required to be verified before use. If your domain has been whitelabeled it will auto verify on creation. Otherwise an email will be sent to the `from.email`.
+
+### GET /senders/{sender_id}
+
+
+```java
+  try {
+    SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
+    Request request = new Request();
+    request.method = Method.GET;
+    request.endpoint = "senders/{sender_id}";
+    Response response = sg.api(request);
+    System.out.println(response.statusCode);
+    System.out.println(response.body);
+    System.out.println(response.headers);
+  } catch (IOException ex) {
+    throw ex;
+  }
+  ```
+## Delete a Sender Identity
+
+**This endoint allows you to delete one of your sender identities.**
+
+Sender Identities are required to be verified before use. If your domain has been whitelabeled it will auto verify on creation. Otherwise an email will be sent to the `from.email`.
+
+### DELETE /senders/{sender_id}
+
+
+```java
+  try {
+    SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
+    Request request = new Request();
+    request.method = Method.DELETE;
+    request.endpoint = "senders/{sender_id}";
+    Response response = sg.api(request);
+    System.out.println(response.statusCode);
+    System.out.println(response.body);
+    System.out.println(response.headers);
+  } catch (IOException ex) {
+    throw ex;
+  }
+  ```
+## Resend Sender Identity Verification
+
+**This enpdoint allows you to resend a sender identity verification email.**
+
+Sender Identities are required to be verified before use. If your domain has been whitelabeled it will auto verify on creation. Otherwise an email will be sent to the `from.email`.
+
+### POST /senders/{sender_id}/resend_verification
+
+
+```java
+  try {
+    SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
+    Request request = new Request();
+    request.method = Method.POST;
+    request.endpoint = "senders/{sender_id}/resend_verification";
     Response response = sg.api(request);
     System.out.println(response.statusCode);
     System.out.println(response.body);

@@ -1477,8 +1477,7 @@ public class SendGridTest {
     request.method = Method.GET;
     request.endpoint = "contactdb/recipients/search";
     Map<String,String> queryParams = new HashMap<String, String>();
-    queryParams.put("%7Bfield_name%7D", "test_string");
-      queryParams.put("{field_name}", "test_string");
+    queryParams.put("{field_name}", "test_string");
     request.queryParams = queryParams;
     Response response = sg.api(request);
     Assert.assertEquals(200, response.statusCode);
@@ -2557,6 +2556,122 @@ public class SendGridTest {
     request.endpoint = "scopes";
     Response response = sg.api(request);
     Assert.assertEquals(200, response.statusCode);
+  }
+
+  @Test
+  public void test_senders_post() throws IOException {
+    SendGrid sg = null;
+    if(System.getenv("TRAVIS") != null && Boolean.parseBoolean(System.getenv("TRAVIS"))) {
+      sg = new SendGrid("SENDGRID_API_KEY");
+      sg.setHost(System.getenv("MOCK_HOST"));
+    } else {
+      sg = new SendGrid("SENDGRID_API_KEY", true);
+      sg.setHost("localhost:4010");
+    }
+    sg.addRequestHeader("X-Mock", "201");
+
+    Request request = new Request();
+    request.method = Method.POST;
+    request.endpoint = "senders";
+    request.body = "{\"city\":\"Denver\",\"from\":{\"email\":\"from@example.com\",\"name\":\"Example INC\"},\"zip\":\"80202\",\"country\":\"United States\",\"state\":\"Colorado\",\"address_2\":\"Apt. 456\",\"address\":\"123 Elm St.\",\"reply_to\":{\"email\":\"replyto@example.com\",\"name\":\"Example INC\"},\"nickname\":\"My Sender ID\"}";
+    Response response = sg.api(request);
+    Assert.assertEquals(201, response.statusCode);
+  }
+
+  @Test
+  public void test_senders_get() throws IOException {
+    SendGrid sg = null;
+    if(System.getenv("TRAVIS") != null && Boolean.parseBoolean(System.getenv("TRAVIS"))) {
+      sg = new SendGrid("SENDGRID_API_KEY");
+      sg.setHost(System.getenv("MOCK_HOST"));
+    } else {
+      sg = new SendGrid("SENDGRID_API_KEY", true);
+      sg.setHost("localhost:4010");
+    }
+    sg.addRequestHeader("X-Mock", "200");
+
+    Request request = new Request();
+    request.method = Method.GET;
+    request.endpoint = "senders";
+    Response response = sg.api(request);
+    Assert.assertEquals(200, response.statusCode);
+  }
+
+  @Test
+  public void test_senders__sender_id__patch() throws IOException {
+    SendGrid sg = null;
+    if(System.getenv("TRAVIS") != null && Boolean.parseBoolean(System.getenv("TRAVIS"))) {
+      sg = new SendGrid("SENDGRID_API_KEY");
+      sg.setHost(System.getenv("MOCK_HOST"));
+    } else {
+      sg = new SendGrid("SENDGRID_API_KEY", true);
+      sg.setHost("localhost:4010");
+    }
+    sg.addRequestHeader("X-Mock", "200");
+
+    Request request = new Request();
+    request.method = Method.PATCH;
+    request.endpoint = "senders/{sender_id}";
+    request.body = "{\"city\":\"Denver\",\"from\":{\"email\":\"from@example.com\",\"name\":\"Example INC\"},\"zip\":\"80202\",\"country\":\"United States\",\"state\":\"Colorado\",\"address_2\":\"Apt. 456\",\"address\":\"123 Elm St.\",\"reply_to\":{\"email\":\"replyto@example.com\",\"name\":\"Example INC\"},\"nickname\":\"My Sender ID\"}";
+    Response response = sg.api(request);
+    Assert.assertEquals(200, response.statusCode);
+  }
+
+  @Test
+  public void test_senders__sender_id__get() throws IOException {
+    SendGrid sg = null;
+    if(System.getenv("TRAVIS") != null && Boolean.parseBoolean(System.getenv("TRAVIS"))) {
+      sg = new SendGrid("SENDGRID_API_KEY");
+      sg.setHost(System.getenv("MOCK_HOST"));
+    } else {
+      sg = new SendGrid("SENDGRID_API_KEY", true);
+      sg.setHost("localhost:4010");
+    }
+    sg.addRequestHeader("X-Mock", "200");
+
+    Request request = new Request();
+    request.method = Method.GET;
+    request.endpoint = "senders/{sender_id}";
+    Response response = sg.api(request);
+    Assert.assertEquals(200, response.statusCode);
+  }
+
+  @Test
+  public void test_senders__sender_id__delete() throws IOException {
+    SendGrid sg = null;
+    if(System.getenv("TRAVIS") != null && Boolean.parseBoolean(System.getenv("TRAVIS"))) {
+      sg = new SendGrid("SENDGRID_API_KEY");
+      sg.setHost(System.getenv("MOCK_HOST"));
+    } else {
+      sg = new SendGrid("SENDGRID_API_KEY", true);
+      sg.setHost("localhost:4010");
+    }
+    sg.addRequestHeader("X-Mock", "204");
+
+    Request request = new Request();
+    request.method = Method.DELETE;
+    request.endpoint = "senders/{sender_id}";
+    Response response = sg.api(request);
+    Assert.assertEquals(204, response.statusCode);
+  }
+
+  @Test
+  public void test_senders__sender_id__resend_verification_post() throws IOException {
+    SendGrid sg = null;
+    if(System.getenv("TRAVIS") != null && Boolean.parseBoolean(System.getenv("TRAVIS"))) {
+      sg = new SendGrid("SENDGRID_API_KEY");
+      sg.setHost(System.getenv("MOCK_HOST"));
+    } else {
+      sg = new SendGrid("SENDGRID_API_KEY", true);
+      sg.setHost("localhost:4010");
+    }
+    sg.addRequestHeader("X-Mock", "204");
+
+    Request request = new Request();
+    request.method = Method.POST;
+    request.endpoint = "senders/{sender_id}/resend_verification";
+    Response response = sg.api(request);
+    Assert.assertEquals(204, response.statusCode);
   }
 
   @Test
