@@ -1,9 +1,6 @@
 package com.sendgrid;
 
-import com.sendgrid.Client;
-import com.sendgrid.Method;
-import com.sendgrid.Request;
-import com.sendgrid.Response;
+import org.apache.http.impl.client.CloseableHttpClient;
 
 import java.io.IOException;
 import java.util.HashMap;
@@ -22,11 +19,41 @@ public class SendGrid {
   private Client client;
   private Map<String,String> requestHeaders;
 
+
   /**
-    * @param apiKey is your SendGrid API Key: https://app.sendgrid.com/settings/api_keys
-    */
+   * @param apiKey is your SendGrid API Key: https://app.sendgrid.com/settings/api_keys
+   */
   public SendGrid(String apiKey) {
     this.client = new Client();
+    initializeSendGrid(apiKey);
+  }
+
+  /**
+   * @param apiKey              is your SendGrid API Key: https://app.sendgrid.com/settings/api_keys
+   * @param closeableHttpClient pass your own tuned client to be used
+   *<p>Example</p>
+   *<pre>
+   *      PoolingHttpClientConnectionManager poolingHttpClientConnectionManager = new PoolingHttpClientConnectionManager();
+   *      poolingHttpClientConnectionManager.setMaxTotal(10_000);
+   *      poolingHttpClientConnectionManager.setDefaultMaxPerRoute(10_000);
+
+   *      RequestConfig defaultRequestConfig = RequestConfig.custom()
+   *      .setSocketTimeout(5000)
+   *      .setConnectTimeout(5000)
+   *      .setConnectionRequestTimeout(5000)
+   *      .build();
+
+
+   *      CloseableHttpClient httpClient = HttpClients.custom()
+   *      .setDefaultRequestConfig(defaultRequestConfig)
+   *      .setConnectionManager(poolingHttpClientConnectionManager)
+   *      .build();
+   *
+   *         new SendGrid("xxxx", httpclient);
+   *</pre>
+   */
+  public SendGrid(String apiKey, CloseableHttpClient closeableHttpClient) {
+    this.client = new Client(closeableHttpClient);
     initializeSendGrid(apiKey);
   }
 
