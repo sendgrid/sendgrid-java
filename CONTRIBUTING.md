@@ -64,7 +64,7 @@ We welcome direct contributions to the sendgrid-java code base. Thank you!
 
 ##### Prerequisites #####
 
-- Java 1.7 through 1.8
+- Java version Oracle JDK 7, 8 or OpenJDK 7
 - [java-http-client](https://github.com/sendgrid/java-http-client)
 
 ##### Initial setup: #####

@@ -25,11 +25,14 @@ All updates to this library is documented in our [CHANGELOG](https://github.com/
 
 # Installation
 
+## Prerequisites
+
+- Java version Oracle JDK 7, 8 or OpenJDK 7
+- The SendGrid service, starting at the [free level](https://sendgrid.com/free?source=sendgrid-java)
+
 ## Setup Environment Variables
 
-First, get your free SendGrid account [here](https://sendgrid.com/free?source=sendgrid-java).
-
-Next, update your environment with your [SENDGRID_API_KEY](https://app.sendgrid.com/settings/api_keys).
+Update your environment with your [SENDGRID_API_KEY](https://app.sendgrid.com/settings/api_keys).
 
 ```bash
 echo "export SENDGRID_API_KEY='YOUR_API_KEY'" > sendgrid.env
@@ -81,7 +84,6 @@ import com.sendgrid.*;
 
 ## Dependencies
 
-- The SendGrid Service, starting at the [free level](https://sendgrid.com/free?source=sendgrid-java)
 - [Java-HTTP-Client](https://github.com/sendgrid/java-http-client)
 
 # Quick Start
