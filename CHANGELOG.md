@@ -1,6 +1,11 @@
 # Change Log
 All notable changes to this project will be documented in this file.
 
+## [3.0.4] - 2016-07-19
+### Fixed
+- [Fix for issue #120](https://github.com/sendgrid/sendgrid-java/issues/120): Unsupported Media Type if subject has letters with accent (like 'é' )
+- Updated [java-http-client](https://github.com/sendgrid/java-http-client) dependency to [2.3.2](https://github.com/sendgrid/java-http-client/releases/tag/v2.3.2)
+
 ## [3.0.3] - 2016-07-12
 ### Added
 - Update docs, unit tests and examples to include Sender ID
