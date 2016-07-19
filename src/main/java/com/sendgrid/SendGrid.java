@@ -32,6 +32,7 @@ public class SendGrid {
 
   /**
     * @param apiKey is your SendGrid API Key: https://app.sendgrid.com/settings/api_keys
+    * @param test is true if you are unit testing
     */
   public SendGrid(String apiKey, Boolean test) {
     this.client = new Client(test);
