@@ -1,27 +1,14 @@
-[![Travis Badge](https://travis-ci.org/sendgrid/sendgrid-java.svg?branch=master)](https://travis-ci.org/sendgrid/sendgrid-java) [![BuildStatus](https://maven-badges.herokuapp.com/maven-central/com.sendgrid/sendgrid-java/badge.svg)](https://maven-badges.herokuapp.com/maven-central/com.sendgrid/sendgrid-java)
+[![Travis Badge](https://travis-ci.org/sendgrid/sendgrid-java.svg?branch=master)](https://travis-ci.org/sendgrid/sendgrid-java)
 
-**This library allows you to quickly and easily use the SendGrid Web API via Java.**
+**This library allows you to quickly and easily use the SendGrid Web API v3 via Java.**
 
-# Announcements
+Version 3.X.X of this library provides full support for all SendGrid [Web API v3](https://sendgrid.com/docs/API_Reference/Web_API_v3/index.html) endpoints, including the new [v3 /mail/send](https://sendgrid.com/blog/introducing-v3mailsend-sendgrids-new-mail-endpoint).
 
-**BREAKING CHANGE as of 2016.06.14**
+This library represents the beginning of a new path for SendGrid. We want this library to be community driven and SendGrid led. We need your help to realize this goal. To help make sure we are building the right things in the right order, we ask that you create [issues](https://github.com/sendgrid/sendgrid-java/issues) and [pull requests](https://github.com/sendgrid/sendgrid-java/blob/master/CONTRIBUTING.md) or simply upvote or comment on existing issues or pull requests.
 
-Version `3.X.X` is a breaking change for the entire library.
+Please browse the rest of this README for further detail.
 
-Version 3.X.X brings you full support for all Web API v3 endpoints. We
-have the following resources to get you started quickly:
-
--   [SendGrid
-    Documentation](https://sendgrid.com/docs/API_Reference/Web_API_v3/index.html)
--   [Usage
-    Documentation](https://github.com/sendgrid/sendgrid-java/tree/master/USAGE.md)
--   [Example
-    Code](https://github.com/sendgrid/sendgrid-java/tree/master/examples)
--   [Migration from v2 to v3](https://sendgrid.com/docs/Classroom/Send/v3_Mail_Send/how_to_migrate_from_v2_to_v3_mail_send.html)
-
-Thank you for your continued support!
-
-All updates to this library is documented in our [CHANGELOG](https://github.com/sendgrid/sendgrid-java/blob/master/CHANGELOG.md).
+We appreciate your continued support, thank you!
 
 # Installation
 
@@ -32,7 +19,7 @@ All updates to this library is documented in our [CHANGELOG](https://github.com/
 
 ## Setup Environment Variables
 
-Update your environment with your [SENDGRID_API_KEY](https://app.sendgrid.com/settings/api_keys).
+Update the development environment with your [SENDGRID_API_KEY](https://app.sendgrid.com/settings/api_keys), for example:
 
 ```bash
 echo "export SENDGRID_API_KEY='YOUR_API_KEY'" > sendgrid.env
@@ -90,6 +77,10 @@ import com.sendgrid.*;
 
 ## Hello Email
 
+The following is the minimum needed code to send an email with the [/mail/send Helper](https://github.com/sendgrid/sendgrid-java/tree/master/src/main/java/com/sendgrid/helpers) ([here](https://github.com/sendgrid/sendgrid-java/blob/master/examples/helpers/mail/Example.java#L30) is a full example):
+
+### With Mail Helper Class
+
 ```java
 import com.sendgrid.*;
 import java.io.IOException;
@@ -97,9 +88,9 @@ import java.io.IOException;
 public class Example {
   public static void main(String[] args) throws IOException {
     Email from = new Email("test@example.com");
-    String subject = "Hello World from the SendGrid Java Library";
+    String subject = "Hello World from the SendGrid Java Library!";
     Email to = new Email("test@example.com");
-    Content content = new Content("text/plain", "some text here");
+    Content content = new Content("text/plain", "Hello, Email!");
     Mail mail = new Mail(from, subject, to, content);
 
     SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
@@ -108,6 +99,35 @@ public class Example {
       request.method = Method.POST;
       request.endpoint = "mail/send";
       request.body = mail.build();
+      Response response = sg.api(request);
+      System.out.println(response.statusCode);
+      System.out.println(response.body);
+      System.out.println(response.headers);
+    } catch (IOException ex) {
+      throw ex;
+    }
+  }
+}
+```
+
+The `Mail` constructor creates a [personalization object](https://sendgrid.com/docs/Classroom/Send/v3_Mail_Send/personalizations.html) for you. [Here](https://github.com/sendgrid/sendgrid-java/blob/master/examples/helpers/mail/Example.java#L221) is an example of how to add to it.
+
+### Without Mail Helper Class
+
+The following is the minimum needed code to send an email without the /mail/send Helper ([here](https://github.com/sendgrid/sendgrid-java/blob/master/examples/mail/mail.java#L54) is a full example):
+
+```java
+import com.sendgrid.*;
+import java.io.IOException;
+
+public class Example {
+  public static void main(String[] args) throws IOException {
+    try {
+      SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
+      Request request = new Request();
+      request.method = Method.POST;
+      request.endpoint = "mail/send";
+      request.body = "{\"personalizations\":[{\"to\":[{\"email\":\"test@example.com\"}],\"subject\":\"Hello World from the SendGrid Java Library!\"}],\"from\":{\"email\":\"test@example.com\"},\"content\":[{\"type\":\"text/plain\",\"value\": \"Hello, Email!\"}]}";
       Response response = sg.api(request);
       System.out.println(response.statusCode);
       System.out.println(response.body);
@@ -146,16 +166,22 @@ public class Example {
 # Usage
 
 - [SendGrid Docs](https://sendgrid.com/docs/API_Reference/Web_API_v3/index.html)
-- [Usage Docs](https://github.com/sendgrid/sendgrid-java/tree/master/USAGE.md)
+- [Library Usage Docs](https://github.com/sendgrid/sendgrid-java/tree/master/USAGE.md)
 - [Example Code](https://github.com/sendgrid/sendgrid-java/tree/master/examples)
+- [How-to: Migration from v2 to v3](https://sendgrid.com/docs/Classroom/Send/v3_Mail_Send/how_to_migrate_from_v2_to_v3_mail_send.html)
+- [v3 Web API Mail Send Helper](https://github.com/sendgrid/sendgrid-java/tree/master/src/main/java/com/sendgrid/helpers) - build a request object payload for a v3 /mail/send API call.
 
-## Roadmap
+# Announcements
 
-If you are intersted in the future direction of this project, please take a look at our [milestones](https://github.com/sendgrid/sendgrid-java/milestones). We would love to hear your feedback.
+All updates to this library is documented in our [CHANGELOG](https://github.com/sendgrid/sendgrid-java/blob/master/CHANGELOG.md) and [releases](https://github.com/sendgrid/sendgrid-java/releases).
 
-## How to Contribute
+# Roadmap
 
-We encourage contribution to our libraries, please see our [CONTRIBUTING](https://github.com/sendgrid/sendgrid-java/blob/master/CONTRIBUTING.md) guide for details.
+If you are interested in the future direction of this project, please take a look at our open [issues](https://github.com/sendgrid/sendgrid-java/issues) and [pull requests](https://github.com/sendgrid/sendgrid-java/pulls). We would love to hear your feedback.
+
+# How to Contribute
+
+We encourage contribution to our libraries (you might even score some nifty swag), please see our [CONTRIBUTING](https://github.com/sendgrid/sendgrid-java/blob/master/CONTRIBUTING.md) guide for details.
 
 Quick links:
 
