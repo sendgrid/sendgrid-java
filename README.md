@@ -38,7 +38,7 @@ Add the following to your build.gradle file in the root of your project.
 ...
 dependencies {
   ...
-  compile 'com.sendgrid:sendgrid-java:3.0.5'
+  compile 'com.sendgrid:sendgrid-java:3.0.6'
 }
 
 repositories {
@@ -63,7 +63,7 @@ mvn install
 
 You can just drop the jar file in. It's a fat jar - it has all the dependencies built in.
 
-[sendgrid-java.jar](http://repo1.maven.org/maven2/com/sendgrid/sendgrid-java/3.0.5/sendgrid-java-3.0.5-jar.jar)
+[sendgrid-java.jar](http://repo1.maven.org/maven2/com/sendgrid/sendgrid-java/3.0.6/sendgrid-java-3.0.6-jar.jar)
 
 ```java
 import com.sendgrid.*;
@@ -189,6 +189,10 @@ Quick links:
 - [Bug Reports](https://github.com/sendgrid/sendgrid-java/blob/master/CONTRIBUTING.md#submit_a_bug_report)
 - [Sign the CLA to Create a Pull Request](https://github.com/sendgrid/sendgrid-java/blob/master/CONTRIBUTING.md#cla)
 - [Improvements to the Codebase](https://github.com/sendgrid/sendgrid-java/blob/master/CONTRIBUTING.md#improvements_to_the_codebase)
+
+# Troubleshooting
+
+Please see our [troubleshooting guide](https://github.com/sendgrid/sendgrid-java/blob/master/TROUBLESHOOTING.md) for common library issues.
 
 # About
 
