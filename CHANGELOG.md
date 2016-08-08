@@ -1,6 +1,14 @@
 # Change Log
 All notable changes to this project will be documented in this file.
 
+## [3.0.7] - 2017-08-08
+### Added
+- Updated dependency for [java-http-client](https://github.com/sendgrid/java-http-client/releases/tag/v2.3.3)
+- Pull request [#11](https://github.com/sendgrid/java-http-client/pull/11)
+- Solves [issue #10](https://github.com/sendgrid/java-http-client/issues/10): Improve Error Handling
+- Now error messages are passed through from the SendGrid server
+- BIG thanks to [shuron](https://github.com/shuron) / [Alexander Holbreich](https://github.com/aholbreich) for the pull request!
+
 ## [3.0.6] - 2016-07-26
 ### Added
 - [Troubleshooting](https://github.com/sendgrid/sendgrid-python/blob/master/TROUBLESHOOTING.md) section

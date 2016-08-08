@@ -9,7 +9,7 @@
     <groupId>com.sendgrid</groupId>
     <artifactId>sendgrid-java</artifactId>
     <name>SendGrid Java helper library</name>
-    <version>3.0.6</version>
+    <version>3.0.7</version>
     <description>This Java module allows you to quickly and easily send emails through SendGrid using Java.</description>
     <url>https://github.com/sendgrid/sendgrid-java</url>
     <licenses>
@@ -89,7 +89,7 @@
         <dependency>
             <groupId>com.sendgrid</groupId>
             <artifactId>java-http-client</artifactId>
-            <version>2.3.2</version>
+            <version>2.3.3</version>
         </dependency>
         <dependency>
             <groupId>com.fasterxml.jackson.core</groupId>
