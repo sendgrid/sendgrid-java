@@ -17,7 +17,7 @@ apply plugin: 'maven'
 apply plugin: 'signing'
 
 group         = 'com.sendgrid'
-version       = '3.0.7'
+version       = '3.0.8'
 ext.packaging = 'jar'
 
 allprojects {
@@ -45,7 +45,7 @@ buildscript {
 }
 
 dependencies {
-  compile 'com.sendgrid:java-http-client:2.3.3'
+  compile 'com.sendgrid:java-http-client:2.3.4'
   compile 'com.fasterxml.jackson.core:jackson-core:2.5.3'
   compile 'com.fasterxml.jackson.core:jackson-annotations:2.5.3'
   compile 'com.fasterxml.jackson.core:jackson-databind:2.5.3'

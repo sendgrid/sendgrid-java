@@ -1,7 +1,14 @@
 # Change Log
 All notable changes to this project will be documented in this file.
 
-## [3.0.7] - 2017-08-08
+## [3.0.8] - 2016-08-09
+### Fixed
+- Updated dependency for [java-http-client](https://github.com/sendgrid/java-http-client/releases/tag/v2.3.4)
+- [Pull #7](https://github.com/sendgrid/java-http-client/pull/7): Fix Response Charset to UTF-8
+- Fixes [issue #6](https://github.com/sendgrid/java-http-client/issues/6): Multi-byte character got garbled on received mail
+- BIG thanks to [Yoichi Kikuta](https://github.com/kikutaro) for the pull request!
+
+## [3.0.7] - 2016-08-08
 ### Added
 - Updated dependency for [java-http-client](https://github.com/sendgrid/java-http-client/releases/tag/v2.3.3)
 - Pull request [#11](https://github.com/sendgrid/java-http-client/pull/11)
