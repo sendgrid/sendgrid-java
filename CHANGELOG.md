@@ -1,6 +1,11 @@
 # Change Log
 All notable changes to this project will be documented in this file.
 
+## [3.0.9] - 2016-08-24
+### Added
+- Table of Contents in the README
+- Added a [USE_CASES.md](https://github.com/sendgrid/sendgrid-java/blob/master/USE_CASES.md) section, with the first use case example for transactional templates
+
 ## [3.0.8] - 2016-08-09
 ### Fixed
 - Updated dependency for [java-http-client](https://github.com/sendgrid/java-http-client/releases/tag/v2.3.4)
