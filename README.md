@@ -10,6 +10,19 @@ Please browse the rest of this README for further detail.
 
 We appreciate your continued support, thank you!
 
+# Table of Contents
+
+* [Installation](#installation)
+* [Quick Start](#quick_start)
+* [Usage](#usage)
+* [Use Cases](#use_cases)
+* [Announcements](#announcements)
+* [Roadmap](#roadmap)
+* [How to Contribute](#contribute)
+* [Troubleshooting](#troubleshooting)
+* [About](#about)
+
+<a name="installation"></a>
 # Installation
 
 ## Prerequisites
@@ -73,6 +86,7 @@ import com.sendgrid.*;
 
 - [Java-HTTP-Client](https://github.com/sendgrid/java-http-client)
 
+<a name="quick_start"></a>
 # Quick Start
 
 ## Hello Email
@@ -163,6 +177,7 @@ public class Example {
 }
 ```
 
+<a name="usage"></a>
 # Usage
 
 - [SendGrid Docs](https://sendgrid.com/docs/API_Reference/Web_API_v3/index.html)
@@ -171,14 +186,23 @@ public class Example {
 - [How-to: Migration from v2 to v3](https://sendgrid.com/docs/Classroom/Send/v3_Mail_Send/how_to_migrate_from_v2_to_v3_mail_send.html)
 - [v3 Web API Mail Send Helper](https://github.com/sendgrid/sendgrid-java/tree/master/src/main/java/com/sendgrid/helpers) - build a request object payload for a v3 /mail/send API call.
 
+
+<a name="use_cases">
+# Use Cases
+
+[Examples of common API use cases](https://github.com/sendgrid/sendgrid-java/blob/master/USE_CASES.md), such as how to send an email with a transactional template.
+
+<a name="announcements"></a>
 # Announcements
 
 All updates to this library is documented in our [CHANGELOG](https://github.com/sendgrid/sendgrid-java/blob/master/CHANGELOG.md) and [releases](https://github.com/sendgrid/sendgrid-java/releases).
 
+<a name="roadmap"></a>
 # Roadmap
 
 If you are interested in the future direction of this project, please take a look at our open [issues](https://github.com/sendgrid/sendgrid-java/issues) and [pull requests](https://github.com/sendgrid/sendgrid-java/pulls). We would love to hear your feedback.
 
+<a name="contribute"></a>
 # How to Contribute
 
 We encourage contribution to our libraries (you might even score some nifty swag), please see our [CONTRIBUTING](https://github.com/sendgrid/sendgrid-java/blob/master/CONTRIBUTING.md) guide for details.
@@ -190,10 +214,12 @@ Quick links:
 - [Sign the CLA to Create a Pull Request](https://github.com/sendgrid/sendgrid-java/blob/master/CONTRIBUTING.md#cla)
 - [Improvements to the Codebase](https://github.com/sendgrid/sendgrid-java/blob/master/CONTRIBUTING.md#improvements_to_the_codebase)
 
+<a name="troubleshooting"></a>
 # Troubleshooting
 
 Please see our [troubleshooting guide](https://github.com/sendgrid/sendgrid-java/blob/master/TROUBLESHOOTING.md) for common library issues.
 
+<a name="about"></a>
 # About
 
 sendgrid-java is guided and supported by the SendGrid [Developer Experience Team](mailto:dx@sendgrid.com).
