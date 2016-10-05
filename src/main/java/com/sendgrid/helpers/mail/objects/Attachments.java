@@ -60,7 +60,11 @@ public class Attachments {
 		this.disposition = disposition;
 		return this;
 	}
+<<<<<<< HEAD
 	
+=======
+
+>>>>>>> Refactoring, correct package and fluent interface
 	@JsonProperty("content_id")
 	public String getContentId() {
 		return this.contentId;
