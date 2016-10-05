@@ -1,16 +1,11 @@
-package com.sendgrid;
+package com.sendgrid.helpers.mail;
 
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
-
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.databind.ObjectWriter;
 import com.fasterxml.jackson.databind.SerializationFeature;
+import com.sendgrid.helpers.mail.objects.*;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -19,266 +14,282 @@ import java.util.List;
 import java.util.Map;
 
 /**
-  * Class Mail builds an object that sends an email through SendGrid.
-  */
+ * Class Mail builds an object that sends an email through SendGrid.
+ */
 @JsonInclude(Include.NON_DEFAULT)
 public class Mail {
-  @JsonProperty("from") public Email from;
-  @JsonProperty("subject") public String subject;
-  @JsonProperty("personalizations") public List<Personalization> personalization;
-  @JsonProperty("content") public List<Content> content;
-  @JsonProperty("attachments") public List<Attachments> attachments;
-  @JsonProperty("template_id") public String templateId;
-  @JsonProperty("sections") public Map<String,String> sections;
-  @JsonProperty("headers") public Map<String,String> headers;
-  @JsonProperty("categories") public List<String> categories;
-  @JsonProperty("custom_args") public Map<String,String> customArgs;
-  @JsonProperty("send_at") public long sendAt;
-  @JsonProperty("batch_id") public String batchId;
-  @JsonProperty("asm") public ASM asm;
-  @JsonProperty("ip_pool_name") public String ipPoolId;
-  @JsonProperty("mail_settings") public MailSettings mailSettings;
-  @JsonProperty("tracking_settings") public TrackingSettings trackingSettings;
-  @JsonProperty("reply_to") public Email replyTo;
+	@JsonProperty("from")
+	private Email from;
+	@JsonProperty("subject")
+	private String subject;
+	@JsonProperty("personalizations")
+	private List<Personalization> personalization;
+	@JsonProperty("content")
+	private List<Content> content;
+	@JsonProperty("attachments")
+	private List<Attachments> attachments;
+	@JsonProperty("template_id")
+	private String templateId;
+	@JsonProperty("sections")
+	private Map<String, String> sections;
+	@JsonProperty("headers")
+	private Map<String, String> headers;
+	@JsonProperty("categories")
+	private List<String> categories;
+	@JsonProperty("custom_args")
+	private Map<String, String> customArgs;
+	@JsonProperty("send_at")
+	private long sendAt;
+	@JsonProperty("batch_id")
+	private String batchId;
+	@JsonProperty("asm")
+	private ASM asm;
+	@JsonProperty("ip_pool_name")
+	private String ipPoolId;
+	@JsonProperty("mail_settings")
+	private MailSettings mailSettings;
+	@JsonProperty("tracking_settings")
+	private TrackingSettings trackingSettings;
+	@JsonProperty("reply_to")
+	private Email replyTo;
 
-  private static final ObjectMapper SORTED_MAPPER = new ObjectMapper();
-  static {
-    SORTED_MAPPER.configure(SerializationFeature.ORDER_MAP_ENTRIES_BY_KEYS, true);
-  }
+	private static final ObjectMapper SORTED_MAPPER = new ObjectMapper();
 
-  public Mail() {
-    return;
-  }
+	static {
+		SORTED_MAPPER.configure(SerializationFeature.ORDER_MAP_ENTRIES_BY_KEYS, true);
+	}
 
-  public Mail(Email from, String subject, Email to, Content content)
-  {
-    this.setFrom(from);
-    this.setSubject(subject);
-    Personalization personalization = new Personalization();
-    personalization.addTo(to);
-    this.addPersonalization(personalization);
-    this.addContent(content);
-  }
+	public Mail() {
+	}
 
-  @JsonProperty("from")
-  public Email getFrom(Email from) {
-    return from;
-  }
+	public Mail(final Email from, final String subject, final Email to, final Content content) {
+		this.setFrom(from);
+		this.setSubject(subject);
+		this.addPersonalization(new Personalization().addTo(to));
+		this.addContent(content);
+	}
 
-  public void setFrom(Email from) {
-    this.from = from;
-  }
+	@JsonProperty("from")
+	public Email getFrom(final Email from) {
+		return from;
+	}
 
-  @JsonProperty("subject")
-  public String getSubject() {
-    return subject;
-  }
+	public Mail setFrom(final Email from) {
+		this.from = from;
+		return this;
+	}
 
-  public void setSubject(String subject) {
-    this.subject = subject;
-  }
+	@JsonProperty("subject")
+	public String getSubject() {
+		return this.subject;
+	}
 
-  @JsonProperty("asm")
-  public ASM getASM() {
-    return asm;
-  }
+	public Mail setSubject(final String subject) {
+		this.subject = subject;
+		return this;
+	}
 
-  public void setASM(ASM asm) {
-    this.asm = asm;
-  }
+	@JsonProperty("asm")
+	public ASM getASM() {
+		return this.asm;
+	}
 
-  @JsonProperty("personalizations")
-  public List<Personalization> getPersonalization() {
-    return personalization;
-  }
+	public Mail setASM(final ASM asm) {
+		this.asm = asm;
+		return this;
+	}
 
-  public void addPersonalization(Personalization personalization) {
-    if (this.personalization == null) {
-      this.personalization = new ArrayList<Personalization>();
-      this.personalization.add(personalization);
-    } else {
-      this.personalization.add(personalization);
-    }
-  }
+	@JsonProperty("personalizations")
+	public List<Personalization> getPersonalization() {
+		return this.personalization;
+	}
 
-  @JsonProperty("content")
-  public List<Content> getContent() {
-    return content;
-  }
+	public Mail addPersonalization(final Personalization personalization) {
+		if (this.personalization == null) {
+			this.personalization = new ArrayList<>();
+		}
+		this.personalization.add(personalization);
+		return this;
+	}
 
-  public void addContent(Content content) {
-    Content newContent = new Content();
-    newContent.setType(content.getType());
-    newContent.setValue(content.getValue());
-    if (this.content == null) {
-      this.content = new ArrayList<Content>();
-      this.content.add(newContent);
-    } else {
-      this.content.add(newContent);
-    }
-  }
+	@JsonProperty("content")
+	public List<Content> getContent() {
+		return this.content;
+	}
 
-  @JsonProperty("attachments")
-  public List<Attachments> getAttachments() {
-    return attachments;
-  }
+	public Mail addContent(final Content content) {
+		if (this.content == null) {
+			this.content = new ArrayList<>();
+		}
+		this.content.add(new Content()
+				.setType(content.getType())
+				.setValue(content.getValue()));
+		return this;
+	}
 
-  public void addAttachments(Attachments attachments) {
-    Attachments newAttachment = new Attachments();
-    newAttachment.setContent(attachments.getContent());
-    newAttachment.setType(attachments.getType());
-    newAttachment.setFilename(attachments.getFilename());
-    newAttachment.setDisposition(attachments.getDisposition());
-    newAttachment.setContentId(attachments.getContentId());
-    if (this.attachments == null) {
-      this.attachments = new ArrayList<Attachments>();
-      this.attachments.add(newAttachment);
-    } else {
-      this.attachments.add(newAttachment);
-    }
-  }
+	@JsonProperty("attachments")
+	public List<Attachments> getAttachments() {
+		return this.attachments;
+	}
 
-  @JsonProperty("template_id")
-  public String getTemplateId() {
-    return this.templateId;
-  }
+	public Mail addAttachments(final Attachments attachments) {
+		if (this.attachments == null) {
+			this.attachments = new ArrayList<>();
+		}
+		this.attachments.add(new Attachments()
+				.setContent(attachments.getContent())
+				.setType(attachments.getType())
+				.setFilename(attachments.getFilename())
+				.setDisposition(attachments.getDisposition())
+				.setContentId(attachments.getContentId()));
+		return this;
+	}
 
-  public void setTemplateId(String templateId) {
-    this.templateId = templateId;
-  }
+	@JsonProperty("template_id")
+	public String getTemplateId() {
+		return this.templateId;
+	}
 
-  @JsonProperty("sections")
-  public Map<String,String> getSections() {
-    return sections;
-  }
+	public Mail setTemplateId(final String templateId) {
+		this.templateId = templateId;
+		return this;
+	}
 
-  public void addSection(String key, String value) {
-    if (sections == null) {
-      sections = new HashMap<String,String>();
-      sections.put(key, value);
-    } else {
-      sections.put(key, value);
-    }
-  }
+	@JsonProperty("sections")
+	public Map<String, String> getSections() {
+		return this.sections;
+	}
 
-  @JsonProperty("headers")
-  public Map<String,String> getHeaders() {
-    return headers;
-  }
+	public Mail addSection(final String key, final String value) {
+		if (this.sections == null) {
+			this.sections = new HashMap<>();
+		}
+		this.sections.put(key, value);
+		return this;
+	}
+
+	@JsonProperty("headers")
+	public Map<String, String> getHeaders() {
+		return this.headers;
+	}
 
 
-  public void addHeader(String key, String value) {
-    if (headers == null) {
-      headers = new HashMap<String,String>();
-      headers.put(key, value);
-    } else {
-      headers.put(key, value);
-    }
-  }
+	public Mail addHeader(final String key, final String value) {
+		if (this.headers == null) {
+			this.headers = new HashMap<>();
+			this.headers.put(key, value);
+		}
+		this.headers.put(key, value);
+		return this;
+	}
 
-  @JsonProperty("categories")
-  public List<String> getCategories() {
-    return categories;
-  }
+	@JsonProperty("categories")
+	public List<String> getCategories() {
+		return this.categories;
+	}
 
-  public void addCategory(String category) {
-    if (categories == null) {
-      categories = new ArrayList<String>();
-      categories.add(category);
-    } else {
-      categories.add(category);
-    }
-  }
+	public Mail addCategory(final String category) {
+		if (this.categories == null) {
+			this.categories = new ArrayList<>();
+		}
+		this.categories.add(category);
+		return this;
+	}
 
-  @JsonProperty("custom_args")
-  public Map<String,String> getCustomArgs() {
-    return customArgs;
-  }
+	@JsonProperty("custom_args")
+	public Map<String, String> getCustomArgs() {
+		return this.customArgs;
+	}
 
-  public void addCustomArg(String key, String value) {
-    if (customArgs == null) {
-      customArgs = new HashMap<String,String>();
-      customArgs.put(key, value);
-    } else {
-      customArgs.put(key, value);
-    }
-  }
+	public Mail addCustomArg(final String key, final String value) {
+		if (this.customArgs == null) {
+			this.customArgs = new HashMap<>();
+		}
+		this.customArgs.put(key, value);
+		return this;
+	}
 
-  @JsonProperty("send_at")
-  public long sendAt() {
-    return sendAt;
-  }
+	@JsonProperty("send_at")
+	public long sendAt() {
+		return this.sendAt;
+	}
 
-  public void setSendAt(long sendAt) {
-    this.sendAt = sendAt;
-  }
+	public Mail setSendAt(final long sendAt) {
+		this.sendAt = sendAt;
+		return this;
+	}
 
-  @JsonProperty("batch_id")
-  public String getBatchId() {
-    return batchId;
-  }
+	@JsonProperty("batch_id")
+	public String getBatchId() {
+		return this.batchId;
+	}
 
-  public void setBatchId(String batchId) {
-    this.batchId = batchId;
-  }
+	public Mail setBatchId(final String batchId) {
+		this.batchId = batchId;
+		return this;
+	}
 
-  @JsonProperty("ip_pool_name")
-  public String getIpPoolId() {
-    return ipPoolId;
-  }
+	@JsonProperty("ip_pool_name")
+	public String getIpPoolId() {
+		return this.ipPoolId;
+	}
 
-  public void setIpPoolId(String ipPoolId) {
-    this.ipPoolId = ipPoolId;
-  }
+	public Mail setIpPoolId(final String ipPoolId) {
+		this.ipPoolId = ipPoolId;
+		return this;
+	}
 
-  @JsonProperty("mail_settings")
-  public MailSettings getMailSettings() {
-    return mailSettings;
-  }
+	@JsonProperty("mail_settings")
+	public MailSettings getMailSettings() {
+		return this.mailSettings;
+	}
 
-  public void setMailSettings(MailSettings mailSettings) {
-    this.mailSettings = mailSettings;
-  }
+	public Mail setMailSettings(final MailSettings mailSettings) {
+		this.mailSettings = mailSettings;
+		return this;
+	}
 
-  @JsonProperty("tracking_settings")
-  public TrackingSettings getTrackingSettings() {
-    return trackingSettings;
-  }
+	@JsonProperty("tracking_settings")
+	public TrackingSettings getTrackingSettings() {
+		return this.trackingSettings;
+	}
 
-  public void setTrackingSettings(TrackingSettings trackingSettings) {
-    this.trackingSettings = trackingSettings;
-  }
+	public Mail setTrackingSettings(final TrackingSettings trackingSettings) {
+		this.trackingSettings = trackingSettings;
+		return this;
+	}
 
-  @JsonProperty("reply_to")
-  public Email getReplyto() {
-    return replyTo;
-  }
+	@JsonProperty("reply_to")
+	public Email getReplyto() {
+		return this.replyTo;
+	}
 
-  public void setReplyTo(Email replyTo) {
-    this.replyTo = replyTo;
-  }
+	public Mail setReplyTo(final Email replyTo) {
+		this.replyTo = replyTo;
+		return this;
+	}
 
-  /**
-  * Create a string represenation of the Mail object JSON.
-  */
-  public String build() throws IOException {
-    try {
-      //ObjectMapper mapper = new ObjectMapper();
-      return SORTED_MAPPER.writeValueAsString(this);
-    } catch (IOException ex) {
-      throw ex;
-    }
-  }
+	/**
+	 * Create a string represenation of the Mail object JSON.
+	 */
+	public String build() throws IOException {
+		try {
+			//ObjectMapper mapper = new ObjectMapper();
+			return SORTED_MAPPER.writeValueAsString(this);
+		} catch (final IOException ex) {
+			throw ex;
+		}
+	}
 
-  /**
-  * Create a string represenation of the Mail object JSON and pretty print it.
-  */
-  public String buildPretty() throws IOException {
-    try {
-      ObjectMapper mapper = new ObjectMapper();
-      return mapper.writerWithDefaultPrettyPrinter().writeValueAsString(this);
-    } catch (IOException ex) {
-      throw ex;
-    }
-  }
+	/**
+	 * Create a string represenation of the Mail object JSON and pretty print it.
+	 */
+	public String buildPretty() throws IOException {
+		try {
+			final ObjectMapper mapper = new ObjectMapper();
+			return mapper.writerWithDefaultPrettyPrinter().writeValueAsString(this);
+		} catch (final IOException ex) {
+			throw ex;
+		}
+	}
 }
