@@ -60,7 +60,7 @@ public class Attachments {
 		this.disposition = disposition;
 		return this;
 	}
-
+	
 	@JsonProperty("content_id")
 	public String getContentId() {
 		return this.contentId;
