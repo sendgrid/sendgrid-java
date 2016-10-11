@@ -1,10 +1,5 @@
 package com.sendgrid;
 
-import com.sendgrid.Client;
-import com.sendgrid.Method;
-import com.sendgrid.Request;
-import com.sendgrid.Response;
-
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
@@ -36,6 +31,15 @@ public class SendGrid {
     */
   public SendGrid(String apiKey, Boolean test) {
     this.client = new Client(test);
+    initializeSendGrid(apiKey);
+  }
+
+  /**
+   * @param apiKey is your SendGrid API Key: https://app.sendgrid.com/settings/api_keys
+   * @param client the Client to use (allows to customize its configuration)
+   */
+  public SendGrid(String apiKey, Client client) {
+    this.client = client;
     initializeSendGrid(apiKey);
   }
 
