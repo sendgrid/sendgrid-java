@@ -109,7 +109,7 @@ public class SendGrid {
       req.addHeader(headerKey, this.requestHeaders.get(headerKey));
     }
     for (String queryParamKey : request.getQueryParams().keySet()) {
-      req.addHeader(queryParamKey, request.getQueryParams().get(queryParamKey));
+      req.addQueryParam(queryParamKey, request.getQueryParams().get(queryParamKey));
     }
 
     return makeCall(req);
