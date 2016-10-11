@@ -1,6 +1,12 @@
 # Change Log
 All notable changes to this project will be documented in this file.
 
+## [3.1.0] - 2016-10-11
+### Added
+- PR #158, Solves #138
+- [Enhancement] allow using custom Client, http proxy support
+- BIG thanks to [David Maicher](https://github.com/dmaicher) for the pull request!
+
 ## [3.0.9] - 2016-08-24
 ### Added
 - Table of Contents in the README
