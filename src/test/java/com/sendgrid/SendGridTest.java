@@ -1,15 +1,12 @@
 package com.sendgrid;
 
 import org.junit.Assert;
-import org.junit.Before;
 import org.junit.Test;
 
-import java.io.BufferedReader;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
+import static org.mockito.Mockito.*;
 
 public class SendGridTest {
 
@@ -32,6 +29,15 @@ public class SendGridTest {
     Assert.assertEquals(sg.getVersion(), "v3");
     Map<String,String> requestHeaders = buildDefaultHeaders();
     Assert.assertEquals(sg.getRequestHeaders(), requestHeaders);
+  }
+
+  @Test
+  public void testConstructWithClient() throws IOException {
+    Client client = mock(Client.class);
+    SendGrid sg = new SendGrid(SENDGRID_API_KEY, client);
+    Request request = new Request();
+    sg.makeCall(request);
+    verify(client).api(request);
   }
 
   @Test
