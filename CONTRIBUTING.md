@@ -133,21 +133,21 @@ For the purposes of contributing to this repo, please update the [`SendGridTest.
 
 1. Add execute permissions
 
-```bash
-chmod +x prism
-```
+   ```bash
+   chmod +x prism
+   ```
 
 1. In a separate terminal, cd into the directory you chose for prism and start the sendgrid local server which the tests will use.
 
-```bash
-./prism run --mock --list --spec https://raw.githubusercontent.com/sendgrid/sendgrid-oai/master/oai_stoplight.json
-```
+   ```bash
+   ./prism run --mock --list --spec https://raw.githubusercontent.com/sendgrid/sendgrid-oai/master/oai_stoplight.json
+   ```
 
 1. Now you can run the test suite from the root of the project
 
-```bash
-./gradlew test -i
-```
+   ```bash
+   ./gradlew test -i
+   ```
 
 <a name="style_guidelines_and_naming_conventions"></a>
 ## Style Guidelines & Naming Conventions
