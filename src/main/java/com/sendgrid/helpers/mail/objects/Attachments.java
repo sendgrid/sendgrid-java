@@ -151,5 +151,8 @@ public class Attachments {
       return attachments;
     }
   }
+<<<<<<< HEAD
 
+=======
+>>>>>>> Fix #134. Adds an attachment builder class that supports passing content as InputStream.
 }
