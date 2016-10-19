@@ -99,12 +99,16 @@ public class SendGrid {
     */
   public Response api(Request request) throws IOException {
     Request req = new Request();
-    req.method = request.method;
-    req.baseUri = this.host;
-    req.endpoint = "/" + version + "/" + request.endpoint;
-    req.body = request.body;
-    req.headers = this.requestHeaders;
-    req.queryParams = request.queryParams;
+    req.setMethod(request.getMethod());
+    req.setBaseUri(this.host);
+    req.setEndpoint("/" + version + "/" + request.getEndpoint());
+    req.setBody(request.getBody());
+    for (Map.Entry <String, String> header : this.requestHeaders.entrySet()) {
+      req.addHeader(header.getKey(), header.getValue());
+    }
+    for (Map.Entry <String, String> queryParam : request.getQueryParams().entrySet()) {
+      req.addQueryParam(queryParam.getKey(), queryParam.getValue());
+    }
 
     return makeCall(req);
   }
