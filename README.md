@@ -112,13 +112,13 @@ public class Example {
     SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
     Request request = new Request();
     try {
-      request.method = Method.POST;
-      request.endpoint = "mail/send";
-      request.body = mail.build();
+      request.setMethod(Method.POST);
+      request.setEndpoint("mail/send");
+      request.setBody(mail.build());
       Response response = sg.api(request);
-      System.out.println(response.statusCode);
-      System.out.println(response.body);
-      System.out.println(response.headers);
+      System.out.println(response.getStatusCode());
+      System.out.println(response.getBody());
+      System.out.println(response.getHeaders());
     } catch (IOException ex) {
       throw ex;
     }
@@ -141,13 +141,13 @@ public class Example {
     try {
       SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
       Request request = new Request();
-      request.method = Method.POST;
-      request.endpoint = "mail/send";
-      request.body = "{\"personalizations\":[{\"to\":[{\"email\":\"test@example.com\"}],\"subject\":\"Hello World from the SendGrid Java Library!\"}],\"from\":{\"email\":\"test@example.com\"},\"content\":[{\"type\":\"text/plain\",\"value\": \"Hello, Email!\"}]}";
+      request.setMethod(Method.POST);
+      request.setEndpoint("mail/send");
+      request.setBody("{\"personalizations\":[{\"to\":[{\"email\":\"test@example.com\"}],\"subject\":\"Hello World from the SendGrid Java Library!\"}],\"from\":{\"email\":\"test@example.com\"},\"content\":[{\"type\":\"text/plain\",\"value\": \"Hello, Email!\"}]}");
       Response response = sg.api(request);
-      System.out.println(response.statusCode);
-      System.out.println(response.body);
-      System.out.println(response.headers);
+      System.out.println(response.getStatusCode());
+      System.out.println(response.getBody());
+      System.out.println(response.getHeaders());
     } catch (IOException ex) {
       throw ex;
     }
@@ -166,12 +166,12 @@ public class Example {
     SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
     try {
       Request request = new Request();
-      request.method = Method.GET;
-      request.endpoint = "api_keys";
+      request.setMethod(Method.GET);
+      request.setEndpoint("api_keys");
       Response response = sg.api(request);
-      System.out.println(response.statusCode);
-      System.out.println(response.body);
-      System.out.println(response.headers);
+      System.out.println(response.getStatusCode());
+      System.out.println(response.getBody());
+      System.out.println(response.getHeaders());
     } catch (IOException ex) {
       throw ex;
     }
