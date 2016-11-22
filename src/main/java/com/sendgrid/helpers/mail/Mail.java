@@ -61,8 +61,8 @@ public class Mail {
   }
 
   @JsonProperty("from")
-  public Email getFrom(Email from) {
-    return from;
+  public Email getFrom() {
+    return this.from;
   }
 
   public void setFrom(Email from) {
