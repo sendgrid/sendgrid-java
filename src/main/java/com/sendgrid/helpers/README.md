@@ -10,7 +10,7 @@ Run the [example](https://github.com/sendgrid/sendgrid-java/tree/master/examples
 
 ```bash
 cd examples/mail
-javac -classpath ../examples/jackson-annotations-2.7.0.jar:../examples/jackson-databind-2.7.3.jar:../examples/jackson-core-2.7.3.jar:../../build/libs/sendgrid-3.0.0-jar.jar:. Example.java && java -classpath ../examples/jackson-annotations-2.7.0.jar:../examples/jackson-databind-2.7.3.jar:../examples/jackson-core-2.7.3.jar:../../build/libs/sendgrid-3.0.0-jar.jar:. Example
+javac -classpath ../../build/libs/sendgrid-3.2.0-jar.jar:. Example.java && java -classpath ../examples/jackson-core-2.7.3.jar:../../build/libs/sendgrid-3.2.0-jar.jar:. Example
 ```
 
 ## Usage
