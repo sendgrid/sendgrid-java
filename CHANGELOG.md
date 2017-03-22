@@ -1,6 +1,12 @@
 # Change Log
 All notable changes to this project will be documented in this file.
 
+## [3.2.0] - 2017-03-22
+### Added
+- PR #160
+- [Enhancement] Adds an attachment builder that supports InputStream content
+- BIG thanks to [Dmitry Avershin](https://github.com/dmitraver) for the pull request!
+
 ## [3.1.0] - 2016-10-11
 ### Added
 - PR #158, Solves #138
