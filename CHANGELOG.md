@@ -1,6 +1,12 @@
 # Change Log
 All notable changes to this project will be documented in this file.
 
+## [3.2.1] - 2017-04-13
+### Added
+- PR #175
+- Simplified `makeCall()` method.
+- BIG thanks to [Rafał Wrzeszcz](https://github.com/rafalwrzeszcz) for the pull request!
+
 ## [3.2.0] - 2017-03-22
 ### Added
 - PR #160
