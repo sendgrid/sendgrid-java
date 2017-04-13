@@ -91,13 +91,7 @@ public class SendGrid {
     * Class makeCall makes the call to the SendGrid API, override this method for testing.
     */
   public Response makeCall(Request request) throws IOException {
-    Response response = new Response();
-    try {
-      response = client.api(request);
-    } catch (IOException ex) {
-      throw ex;
-    }
-    return response;
+    return client.api(request);
   }
 
   /**
