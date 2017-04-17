@@ -99,7 +99,10 @@ The following is the minimum needed code to send an email with the [/mail/send H
 
 ```java
 import com.sendgrid.*;
-import java.io.IOException;
+import com.sendgrid.helpers.mail.Mail;
+import com.sendgrid.helpers.mail.objects.Content;
+import com.sendgrid.helpers.mail.objects.Email;
+import com.sendgrid.helpers.mail.objects.Personalization;
 
 public class Example {
   public static void main(String[] args) throws IOException {
@@ -123,6 +126,40 @@ public class Example {
       throw ex;
     }
   }
+}
+```
+
+or using fluence interface
+
+```java
+import com.sendgrid.*;
+import com.sendgrid.helpers.mail.Mail;
+import com.sendgrid.helpers.mail.objects.Content;
+import com.sendgrid.helpers.mail.objects.Email;
+import com.sendgrid.helpers.mail.objects.Personalization;
+
+public class Example {
+    public static void main(String[] args) throws IOException {
+        Mail mail = new Mail()
+                .setFrom(new Email("test@example.com"))
+                .setSubject("Hello World from the SendGrid Java Library!")
+                .addPersonalization(new Personalization()
+                        .addTo(new Email("test@example.com")))
+                .addContent(new Content("text/plain", "Hello, Email!"));
+        SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
+        Request request = new Request();
+        try {
+            request.method = Method.POST;
+            request.endpoint = "mail/send";
+            request.body = mail.build();
+            Response response = sg.api(request);
+            System.out.println(response.statusCode);
+            System.out.println(response.body);
+            System.out.println(response.headers);
+        } catch (IOException ex) {
+            throw ex;
+        }
+    }
 }
 ```
 

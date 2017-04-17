@@ -4,18 +4,18 @@ import java.io.IOException;
 import java.util.HashMap;
 
 public class MockSendGrid extends SendGrid {
-  Request request;
+  private Request request;
 
-  public MockSendGrid(String apiKey) {
+  public MockSendGrid(final String apiKey) {
     super(apiKey);
   }
 
-  public Response makeCall(Request request) throws IOException {
+  public Response makeCall(final Request request) throws IOException {
     this.request = request;
-    Response response = new Response();
+    final Response response = new Response();
     response.statusCode = 200;
     response.body = "{\"message\":\"success\"}";
-    response.headers = new HashMap<String, String>();
+    response.headers = new HashMap<>();
     response.headers.put("Test", "Header");
     return response;
   }
