@@ -88,11 +88,11 @@ public class SendGridTest {
     sg.addRequestHeader("X-Mock", "200");
 
     Request request = new Request();
-    request.method = Method.GET;
-    request.endpoint = "access_settings/activity";
+    request.setMethod(Method.GET);
+    request.setEndpoint("access_settings/activity");
     Map<String,String> queryParams = new HashMap<String, String>();
     queryParams.put("limit", "1");
-    request.queryParams = queryParams;
+    setQueryParams(request, queryParams);
     Response response = sg.api(request);
     Assert.assertEquals(200, response.statusCode);
   }
@@ -110,9 +110,9 @@ public class SendGridTest {
     sg.addRequestHeader("X-Mock", "201");
 
     Request request = new Request();
-    request.method = Method.POST;
-    request.endpoint = "access_settings/whitelist";
-    request.body = "{\"ips\":[{\"ip\":\"192.168.1.1\"},{\"ip\":\"192.*.*.*\"},{\"ip\":\"192.168.1.3/32\"}]}";
+    request.setMethod(Method.POST);
+    request.setEndpoint("access_settings/whitelist");
+    request.setBody("{\"ips\":[{\"ip\":\"192.168.1.1\"},{\"ip\":\"192.*.*.*\"},{\"ip\":\"192.168.1.3/32\"}]}");
     Response response = sg.api(request);
     Assert.assertEquals(201, response.statusCode);
   }
@@ -130,8 +130,8 @@ public class SendGridTest {
     sg.addRequestHeader("X-Mock", "200");
 
     Request request = new Request();
-    request.method = Method.GET;
-    request.endpoint = "access_settings/whitelist";
+    request.setMethod(Method.GET);
+    request.setEndpoint("access_settings/whitelist");
     Response response = sg.api(request);
     Assert.assertEquals(200, response.statusCode);
   }
@@ -149,9 +149,9 @@ public class SendGridTest {
     sg.addRequestHeader("X-Mock", "204");
 
     Request request = new Request();
-    request.method = Method.DELETE;
-    request.endpoint = "access_settings/whitelist";
-    request.body = "{\"ids\":[1,2,3]}";
+    request.setMethod(Method.DELETE);
+    request.setEndpoint("access_settings/whitelist");
+    request.setBody("{\"ids\":[1,2,3]}");
     Response response = sg.api(request);
     Assert.assertEquals(204, response.statusCode);
   }
@@ -169,8 +169,8 @@ public class SendGridTest {
     sg.addRequestHeader("X-Mock", "200");
 
     Request request = new Request();
-    request.method = Method.GET;
-    request.endpoint = "access_settings/whitelist/{rule_id}";
+    request.setMethod(Method.GET);
+    request.setEndpoint("access_settings/whitelist/{rule_id}");
     Response response = sg.api(request);
     Assert.assertEquals(200, response.statusCode);
   }
@@ -188,8 +188,8 @@ public class SendGridTest {
     sg.addRequestHeader("X-Mock", "204");
 
     Request request = new Request();
-    request.method = Method.DELETE;
-    request.endpoint = "access_settings/whitelist/{rule_id}";
+    request.setMethod(Method.DELETE);
+    request.setEndpoint("access_settings/whitelist/{rule_id}");
     Response response = sg.api(request);
     Assert.assertEquals(204, response.statusCode);
   }
@@ -207,9 +207,9 @@ public class SendGridTest {
     sg.addRequestHeader("X-Mock", "201");
 
     Request request = new Request();
-    request.method = Method.POST;
-    request.endpoint = "alerts";
-    request.body = "{\"type\":\"stats_notification\",\"frequency\":\"daily\",\"email_to\":\"example@example.com\"}";
+    request.setMethod(Method.POST);
+    request.setEndpoint("alerts");
+    request.setBody("{\"type\":\"stats_notification\",\"frequency\":\"daily\",\"email_to\":\"example@example.com\"}");
     Response response = sg.api(request);
     Assert.assertEquals(201, response.statusCode);
   }
@@ -227,8 +227,8 @@ public class SendGridTest {
     sg.addRequestHeader("X-Mock", "200");
 
     Request request = new Request();
-    request.method = Method.GET;
-    request.endpoint = "alerts";
+    request.setMethod(Method.GET);
+    request.setEndpoint("alerts");
     Response response = sg.api(request);
     Assert.assertEquals(200, response.statusCode);
   }
@@ -246,9 +246,9 @@ public class SendGridTest {
     sg.addRequestHeader("X-Mock", "200");
 
     Request request = new Request();
-    request.method = Method.PATCH;
-    request.endpoint = "alerts/{alert_id}";
-    request.body = "{\"email_to\":\"example@example.com\"}";
+    request.setMethod(Method.PATCH);
+    request.setEndpoint("alerts/{alert_id}");
+    request.setBody("{\"email_to\":\"example@example.com\"}");
     Response response = sg.api(request);
     Assert.assertEquals(200, response.statusCode);
   }
@@ -266,8 +266,8 @@ public class SendGridTest {
     sg.addRequestHeader("X-Mock", "200");
 
     Request request = new Request();
-    request.method = Method.GET;
-    request.endpoint = "alerts/{alert_id}";
+    request.setMethod(Method.GET);
+    request.setEndpoint("alerts/{alert_id}");
     Response response = sg.api(request);
     Assert.assertEquals(200, response.statusCode);
   }
@@ -285,8 +285,8 @@ public class SendGridTest {
     sg.addRequestHeader("X-Mock", "204");
 
     Request request = new Request();
-    request.method = Method.DELETE;
-    request.endpoint = "alerts/{alert_id}";
+    request.setMethod(Method.DELETE);
+    request.setEndpoint("alerts/{alert_id}");
     Response response = sg.api(request);
     Assert.assertEquals(204, response.statusCode);
   }
@@ -304,9 +304,9 @@ public class SendGridTest {
     sg.addRequestHeader("X-Mock", "201");
 
     Request request = new Request();
-    request.method = Method.POST;
-    request.endpoint = "api_keys";
-    request.body = "{\"sample\":\"data\",\"scopes\":[\"mail.send\",\"alerts.create\",\"alerts.read\"],\"name\":\"My API Key\"}";
+    request.setMethod(Method.POST);
+    request.setEndpoint("api_keys");
+    request.setBody("{\"sample\":\"data\",\"scopes\":[\"mail.send\",\"alerts.create\",\"alerts.read\"],\"name\":\"My API Key\"}");
     Response response = sg.api(request);
     Assert.assertEquals(201, response.statusCode);
   }
@@ -324,11 +324,11 @@ public class SendGridTest {
     sg.addRequestHeader("X-Mock", "200");
 
     Request request = new Request();
-    request.method = Method.GET;
-    request.endpoint = "api_keys";
+    request.setMethod(Method.GET);
+    request.setEndpoint("api_keys");
     Map<String,String> queryParams = new HashMap<String, String>();
     queryParams.put("limit", "1");
-    request.queryParams = queryParams;
+    setQueryParams(request, queryParams);
     Response response = sg.api(request);
     Assert.assertEquals(200, response.statusCode);
   }
@@ -346,9 +346,9 @@ public class SendGridTest {
     sg.addRequestHeader("X-Mock", "200");
 
     Request request = new Request();
-    request.method = Method.PUT;
-    request.endpoint = "api_keys/{api_key_id}";
-    request.body = "{\"scopes\":[\"user.profile.read\",\"user.profile.update\"],\"name\":\"A New Hope\"}";
+    request.setMethod(Method.PUT);
+    request.setEndpoint("api_keys/{api_key_id}");
+    request.setBody("{\"scopes\":[\"user.profile.read\",\"user.profile.update\"],\"name\":\"A New Hope\"}");
     Response response = sg.api(request);
     Assert.assertEquals(200, response.statusCode);
   }
@@ -366,9 +366,9 @@ public class SendGridTest {
     sg.addRequestHeader("X-Mock", "200");
 
     Request request = new Request();
-    request.method = Method.PATCH;
-    request.endpoint = "api_keys/{api_key_id}";
-    request.body = "{\"name\":\"A New Hope\"}";
+    request.setMethod(Method.PATCH);
+    request.setEndpoint("api_keys/{api_key_id}");
+    request.setBody("{\"name\":\"A New Hope\"}");
     Response response = sg.api(request);
     Assert.assertEquals(200, response.statusCode);
   }
@@ -386,8 +386,8 @@ public class SendGridTest {
     sg.addRequestHeader("X-Mock", "200");
 
     Request request = new Request();
-    request.method = Method.GET;
-    request.endpoint = "api_keys/{api_key_id}";
+    request.setMethod(Method.GET);
+    request.setEndpoint("api_keys/{api_key_id}");
     Response response = sg.api(request);
     Assert.assertEquals(200, response.statusCode);
   }
@@ -405,8 +405,8 @@ public class SendGridTest {
     sg.addRequestHeader("X-Mock", "204");
 
     Request request = new Request();
-    request.method = Method.DELETE;
-    request.endpoint = "api_keys/{api_key_id}";
+    request.setMethod(Method.DELETE);
+    request.setEndpoint("api_keys/{api_key_id}");
     Response response = sg.api(request);
     Assert.assertEquals(204, response.statusCode);
   }
@@ -424,9 +424,9 @@ public class SendGridTest {
     sg.addRequestHeader("X-Mock", "201");
 
     Request request = new Request();
-    request.method = Method.POST;
-    request.endpoint = "asm/groups";
-    request.body = "{\"is_default\":true,\"description\":\"Suggestions for products our users might like.\",\"name\":\"Product Suggestions\"}";
+    request.setMethod(Method.POST);
+    request.setEndpoint("asm/groups");
+    request.setBody("{\"is_default\":true,\"description\":\"Suggestions for products our users might like.\",\"name\":\"Product Suggestions\"}");
     Response response = sg.api(request);
     Assert.assertEquals(201, response.statusCode);
   }
@@ -444,11 +444,11 @@ public class SendGridTest {
     sg.addRequestHeader("X-Mock", "200");
 
     Request request = new Request();
-    request.method = Method.GET;
-    request.endpoint = "asm/groups";
+    request.setMethod(Method.GET);
+    request.setEndpoint("asm/groups");
     Map<String,String> queryParams = new HashMap<String, String>();
     queryParams.put("id", "1");
-    request.queryParams = queryParams;
+    setQueryParams(request, queryParams);
     Response response = sg.api(request);
     Assert.assertEquals(200, response.statusCode);
   }
@@ -466,9 +466,9 @@ public class SendGridTest {
     sg.addRequestHeader("X-Mock", "201");
 
     Request request = new Request();
-    request.method = Method.PATCH;
-    request.endpoint = "asm/groups/{group_id}";
-    request.body = "{\"description\":\"Suggestions for items our users might like.\",\"name\":\"Item Suggestions\",\"id\":103}";
+    request.setMethod(Method.PATCH);
+    request.setEndpoint("asm/groups/{group_id}");
+    request.setBody("{\"description\":\"Suggestions for items our users might like.\",\"name\":\"Item Suggestions\",\"id\":103}");
     Response response = sg.api(request);
     Assert.assertEquals(201, response.statusCode);
   }
@@ -486,8 +486,8 @@ public class SendGridTest {
     sg.addRequestHeader("X-Mock", "200");
 
     Request request = new Request();
-    request.method = Method.GET;
-    request.endpoint = "asm/groups/{group_id}";
+    request.setMethod(Method.GET);
+    request.setEndpoint("asm/groups/{group_id}");
     Response response = sg.api(request);
     Assert.assertEquals(200, response.statusCode);
   }
@@ -505,8 +505,8 @@ public class SendGridTest {
     sg.addRequestHeader("X-Mock", "204");
 
     Request request = new Request();
-    request.method = Method.DELETE;
-    request.endpoint = "asm/groups/{group_id}";
+    request.setMethod(Method.DELETE);
+    request.setEndpoint("asm/groups/{group_id}");
     Response response = sg.api(request);
     Assert.assertEquals(204, response.statusCode);
   }
@@ -524,9 +524,9 @@ public class SendGridTest {
     sg.addRequestHeader("X-Mock", "201");
 
     Request request = new Request();
-    request.method = Method.POST;
-    request.endpoint = "asm/groups/{group_id}/suppressions";
-    request.body = "{\"recipient_emails\":[\"test1@example.com\",\"test2@example.com\"]}";
+    request.setMethod(Method.POST);
+    request.setEndpoint("asm/groups/{group_id}/suppressions");
+    request.setBody("{\"recipient_emails\":[\"test1@example.com\",\"test2@example.com\"]}");
     Response response = sg.api(request);
     Assert.assertEquals(201, response.statusCode);
   }
@@ -544,8 +544,8 @@ public class SendGridTest {
     sg.addRequestHeader("X-Mock", "200");
 
     Request request = new Request();
-    request.method = Method.GET;
-    request.endpoint = "asm/groups/{group_id}/suppressions";
+    request.setMethod(Method.GET);
+    request.setEndpoint("asm/groups/{group_id}/suppressions");
     Response response = sg.api(request);
     Assert.assertEquals(200, response.statusCode);
   }
@@ -563,9 +563,9 @@ public class SendGridTest {
     sg.addRequestHeader("X-Mock", "200");
 
     Request request = new Request();
-    request.method = Method.POST;
-    request.endpoint = "asm/groups/{group_id}/suppressions/search";
-    request.body = "{\"recipient_emails\":[\"exists1@example.com\",\"exists2@example.com\",\"doesnotexists@example.com\"]}";
+    request.setMethod(Method.POST);
+    request.setEndpoint("asm/groups/{group_id}/suppressions/search");
+    request.setBody("{\"recipient_emails\":[\"exists1@example.com\",\"exists2@example.com\",\"doesnotexists@example.com\"]}");
     Response response = sg.api(request);
     Assert.assertEquals(200, response.statusCode);
   }
@@ -583,8 +583,8 @@ public class SendGridTest {
     sg.addRequestHeader("X-Mock", "204");
 
     Request request = new Request();
-    request.method = Method.DELETE;
-    request.endpoint = "asm/groups/{group_id}/suppressions/{email}";
+    request.setMethod(Method.DELETE);
+    request.setEndpoint("asm/groups/{group_id}/suppressions/{email}");
     Response response = sg.api(request);
     Assert.assertEquals(204, response.statusCode);
   }
@@ -602,8 +602,8 @@ public class SendGridTest {
     sg.addRequestHeader("X-Mock", "200");
 
     Request request = new Request();
-    request.method = Method.GET;
-    request.endpoint = "asm/suppressions";
+    request.setMethod(Method.GET);
+    request.setEndpoint("asm/suppressions");
     Response response = sg.api(request);
     Assert.assertEquals(200, response.statusCode);
   }
@@ -621,9 +621,9 @@ public class SendGridTest {
     sg.addRequestHeader("X-Mock", "201");
 
     Request request = new Request();
-    request.method = Method.POST;
-    request.endpoint = "asm/suppressions/global";
-    request.body = "{\"recipient_emails\":[\"test1@example.com\",\"test2@example.com\"]}";
+    request.setMethod(Method.POST);
+    request.setEndpoint("asm/suppressions/global");
+    request.setBody("{\"recipient_emails\":[\"test1@example.com\",\"test2@example.com\"]}");
     Response response = sg.api(request);
     Assert.assertEquals(201, response.statusCode);
   }
@@ -641,8 +641,8 @@ public class SendGridTest {
     sg.addRequestHeader("X-Mock", "200");
 
     Request request = new Request();
-    request.method = Method.GET;
-    request.endpoint = "asm/suppressions/global/{email}";
+    request.setMethod(Method.GET);
+    request.setEndpoint("asm/suppressions/global/{email}");
     Response response = sg.api(request);
     Assert.assertEquals(200, response.statusCode);
   }
@@ -660,8 +660,8 @@ public class SendGridTest {
     sg.addRequestHeader("X-Mock", "204");
 
     Request request = new Request();
-    request.method = Method.DELETE;
-    request.endpoint = "asm/suppressions/global/{email}";
+    request.setMethod(Method.DELETE);
+    request.setEndpoint("asm/suppressions/global/{email}");
     Response response = sg.api(request);
     Assert.assertEquals(204, response.statusCode);
   }
@@ -679,8 +679,8 @@ public class SendGridTest {
     sg.addRequestHeader("X-Mock", "200");
 
     Request request = new Request();
-    request.method = Method.GET;
-    request.endpoint = "asm/suppressions/{email}";
+    request.setMethod(Method.GET);
+    request.setEndpoint("asm/suppressions/{email}");
     Response response = sg.api(request);
     Assert.assertEquals(200, response.statusCode);
   }
@@ -698,8 +698,8 @@ public class SendGridTest {
     sg.addRequestHeader("X-Mock", "200");
 
     Request request = new Request();
-    request.method = Method.GET;
-    request.endpoint = "browsers/stats";
+    request.setMethod(Method.GET);
+    request.setEndpoint("browsers/stats");
     Map<String,String> queryParams = new HashMap<String, String>();
     queryParams.put("end_date", "2016-04-01");
       queryParams.put("aggregated_by", "day");
@@ -707,7 +707,7 @@ public class SendGridTest {
       queryParams.put("limit", "test_string");
       queryParams.put("offset", "test_string");
       queryParams.put("start_date", "2016-01-01");
-    request.queryParams = queryParams;
+    setQueryParams(request, queryParams);
     Response response = sg.api(request);
     Assert.assertEquals(200, response.statusCode);
   }
@@ -725,9 +725,9 @@ public class SendGridTest {
     sg.addRequestHeader("X-Mock", "201");
 
     Request request = new Request();
-    request.method = Method.POST;
-    request.endpoint = "campaigns";
-    request.body = "{\"custom_unsubscribe_url\":\"\",\"html_content\":\"<html><head><title></title></head><body><p>Check out our spring line!</p></body></html>\",\"list_ids\":[110,124],\"sender_id\":124451,\"subject\":\"New Products for Spring!\",\"plain_content\":\"Check out our spring line!\",\"suppression_group_id\":42,\"title\":\"March Newsletter\",\"segment_ids\":[110],\"categories\":[\"spring line\"],\"ip_pool\":\"marketing\"}";
+    request.setMethod(Method.POST);
+    request.setEndpoint("campaigns");
+    request.setBody("{\"custom_unsubscribe_url\":\"\",\"html_content\":\"<html><head><title></title></head><body><p>Check out our spring line!</p></body></html>\",\"list_ids\":[110,124],\"sender_id\":124451,\"subject\":\"New Products for Spring!\",\"plain_content\":\"Check out our spring line!\",\"suppression_group_id\":42,\"title\":\"March Newsletter\",\"segment_ids\":[110],\"categories\":[\"spring line\"],\"ip_pool\":\"marketing\"}");
     Response response = sg.api(request);
     Assert.assertEquals(201, response.statusCode);
   }
@@ -745,12 +745,12 @@ public class SendGridTest {
     sg.addRequestHeader("X-Mock", "200");
 
     Request request = new Request();
-    request.method = Method.GET;
-    request.endpoint = "campaigns";
+    request.setMethod(Method.GET);
+    request.setEndpoint("campaigns");
     Map<String,String> queryParams = new HashMap<String, String>();
     queryParams.put("limit", "1");
       queryParams.put("offset", "1");
-    request.queryParams = queryParams;
+    setQueryParams(request, queryParams);
     Response response = sg.api(request);
     Assert.assertEquals(200, response.statusCode);
   }
@@ -768,9 +768,9 @@ public class SendGridTest {
     sg.addRequestHeader("X-Mock", "200");
 
     Request request = new Request();
-    request.method = Method.PATCH;
-    request.endpoint = "campaigns/{campaign_id}";
-    request.body = "{\"html_content\":\"<html><head><title></title></head><body><p>Check out our summer line!</p></body></html>\",\"subject\":\"New Products for Summer!\",\"title\":\"May Newsletter\",\"categories\":[\"summer line\"],\"plain_content\":\"Check out our summer line!\"}";
+    request.setMethod(Method.PATCH);
+    request.setEndpoint("campaigns/{campaign_id}");
+    request.setBody("{\"html_content\":\"<html><head><title></title></head><body><p>Check out our summer line!</p></body></html>\",\"subject\":\"New Products for Summer!\",\"title\":\"May Newsletter\",\"categories\":[\"summer line\"],\"plain_content\":\"Check out our summer line!\"}");
     Response response = sg.api(request);
     Assert.assertEquals(200, response.statusCode);
   }
@@ -788,8 +788,8 @@ public class SendGridTest {
     sg.addRequestHeader("X-Mock", "200");
 
     Request request = new Request();
-    request.method = Method.GET;
-    request.endpoint = "campaigns/{campaign_id}";
+    request.setMethod(Method.GET);
+    request.setEndpoint("campaigns/{campaign_id}");
     Response response = sg.api(request);
     Assert.assertEquals(200, response.statusCode);
   }
@@ -807,8 +807,8 @@ public class SendGridTest {
     sg.addRequestHeader("X-Mock", "204");
 
     Request request = new Request();
-    request.method = Method.DELETE;
-    request.endpoint = "campaigns/{campaign_id}";
+    request.setMethod(Method.DELETE);
+    request.setEndpoint("campaigns/{campaign_id}");
     Response response = sg.api(request);
     Assert.assertEquals(204, response.statusCode);
   }
@@ -826,9 +826,9 @@ public class SendGridTest {
     sg.addRequestHeader("X-Mock", "200");
 
     Request request = new Request();
-    request.method = Method.PATCH;
-    request.endpoint = "campaigns/{campaign_id}/schedules";
-    request.body = "{\"send_at\":1489451436}";
+    request.setMethod(Method.PATCH);
+    request.setEndpoint("campaigns/{campaign_id}/schedules");
+    request.setBody("{\"send_at\":1489451436}");
     Response response = sg.api(request);
     Assert.assertEquals(200, response.statusCode);
   }
@@ -846,9 +846,9 @@ public class SendGridTest {
     sg.addRequestHeader("X-Mock", "201");
 
     Request request = new Request();
-    request.method = Method.POST;
-    request.endpoint = "campaigns/{campaign_id}/schedules";
-    request.body = "{\"send_at\":1489771528}";
+    request.setMethod(Method.POST);
+    request.setEndpoint("campaigns/{campaign_id}/schedules");
+    request.setBody("{\"send_at\":1489771528}");
     Response response = sg.api(request);
     Assert.assertEquals(201, response.statusCode);
   }
@@ -866,8 +866,8 @@ public class SendGridTest {
     sg.addRequestHeader("X-Mock", "200");
 
     Request request = new Request();
-    request.method = Method.GET;
-    request.endpoint = "campaigns/{campaign_id}/schedules";
+    request.setMethod(Method.GET);
+    request.setEndpoint("campaigns/{campaign_id}/schedules");
     Response response = sg.api(request);
     Assert.assertEquals(200, response.statusCode);
   }
@@ -885,8 +885,8 @@ public class SendGridTest {
     sg.addRequestHeader("X-Mock", "204");
 
     Request request = new Request();
-    request.method = Method.DELETE;
-    request.endpoint = "campaigns/{campaign_id}/schedules";
+    request.setMethod(Method.DELETE);
+    request.setEndpoint("campaigns/{campaign_id}/schedules");
     Response response = sg.api(request);
     Assert.assertEquals(204, response.statusCode);
   }
@@ -904,8 +904,8 @@ public class SendGridTest {
     sg.addRequestHeader("X-Mock", "201");
 
     Request request = new Request();
-    request.method = Method.POST;
-    request.endpoint = "campaigns/{campaign_id}/schedules/now";
+    request.setMethod(Method.POST);
+    request.setEndpoint("campaigns/{campaign_id}/schedules/now");
     Response response = sg.api(request);
     Assert.assertEquals(201, response.statusCode);
   }
@@ -923,9 +923,9 @@ public class SendGridTest {
     sg.addRequestHeader("X-Mock", "204");
 
     Request request = new Request();
-    request.method = Method.POST;
-    request.endpoint = "campaigns/{campaign_id}/schedules/test";
-    request.body = "{\"to\":\"your.email@example.com\"}";
+    request.setMethod(Method.POST);
+    request.setEndpoint("campaigns/{campaign_id}/schedules/test");
+    request.setBody("{\"to\":\"your.email@example.com\"}");
     Response response = sg.api(request);
     Assert.assertEquals(204, response.statusCode);
   }
@@ -943,13 +943,13 @@ public class SendGridTest {
     sg.addRequestHeader("X-Mock", "200");
 
     Request request = new Request();
-    request.method = Method.GET;
-    request.endpoint = "categories";
+    request.setMethod(Method.GET);
+    request.setEndpoint("categories");
     Map<String,String> queryParams = new HashMap<String, String>();
     queryParams.put("category", "test_string");
       queryParams.put("limit", "1");
       queryParams.put("offset", "1");
-    request.queryParams = queryParams;
+    setQueryParams(request, queryParams);
     Response response = sg.api(request);
     Assert.assertEquals(200, response.statusCode);
   }
@@ -967,8 +967,8 @@ public class SendGridTest {
     sg.addRequestHeader("X-Mock", "200");
 
     Request request = new Request();
-    request.method = Method.GET;
-    request.endpoint = "categories/stats";
+    request.setMethod(Method.GET);
+    request.setEndpoint("categories/stats");
     Map<String,String> queryParams = new HashMap<String, String>();
     queryParams.put("end_date", "2016-04-01");
       queryParams.put("aggregated_by", "day");
@@ -976,7 +976,7 @@ public class SendGridTest {
       queryParams.put("offset", "1");
       queryParams.put("start_date", "2016-01-01");
       queryParams.put("categories", "test_string");
-    request.queryParams = queryParams;
+    setQueryParams(request, queryParams);
     Response response = sg.api(request);
     Assert.assertEquals(200, response.statusCode);
   }
@@ -994,8 +994,8 @@ public class SendGridTest {
     sg.addRequestHeader("X-Mock", "200");
 
     Request request = new Request();
-    request.method = Method.GET;
-    request.endpoint = "categories/stats/sums";
+    request.setMethod(Method.GET);
+    request.setEndpoint("categories/stats/sums");
     Map<String,String> queryParams = new HashMap<String, String>();
     queryParams.put("end_date", "2016-04-01");
       queryParams.put("aggregated_by", "day");
@@ -1004,7 +1004,7 @@ public class SendGridTest {
       queryParams.put("offset", "1");
       queryParams.put("start_date", "2016-01-01");
       queryParams.put("sort_by_direction", "asc");
-    request.queryParams = queryParams;
+    setQueryParams(request, queryParams);
     Response response = sg.api(request);
     Assert.assertEquals(200, response.statusCode);
   }
@@ -1022,13 +1022,13 @@ public class SendGridTest {
     sg.addRequestHeader("X-Mock", "200");
 
     Request request = new Request();
-    request.method = Method.GET;
-    request.endpoint = "clients/stats";
+    request.setMethod(Method.GET);
+    request.setEndpoint("clients/stats");
     Map<String,String> queryParams = new HashMap<String, String>();
     queryParams.put("aggregated_by", "day");
       queryParams.put("start_date", "2016-01-01");
       queryParams.put("end_date", "2016-04-01");
-    request.queryParams = queryParams;
+    setQueryParams(request, queryParams);
     Response response = sg.api(request);
     Assert.assertEquals(200, response.statusCode);
   }
@@ -1046,13 +1046,13 @@ public class SendGridTest {
     sg.addRequestHeader("X-Mock", "200");
 
     Request request = new Request();
-    request.method = Method.GET;
-    request.endpoint = "clients/{client_type}/stats";
+    request.setMethod(Method.GET);
+    request.setEndpoint("clients/{client_type}/stats");
     Map<String,String> queryParams = new HashMap<String, String>();
     queryParams.put("aggregated_by", "day");
       queryParams.put("start_date", "2016-01-01");
       queryParams.put("end_date", "2016-04-01");
-    request.queryParams = queryParams;
+    setQueryParams(request, queryParams);
     Response response = sg.api(request);
     Assert.assertEquals(200, response.statusCode);
   }
@@ -1070,9 +1070,9 @@ public class SendGridTest {
     sg.addRequestHeader("X-Mock", "201");
 
     Request request = new Request();
-    request.method = Method.POST;
-    request.endpoint = "contactdb/custom_fields";
-    request.body = "{\"type\":\"text\",\"name\":\"pet\"}";
+    request.setMethod(Method.POST);
+    request.setEndpoint("contactdb/custom_fields");
+    request.setBody("{\"type\":\"text\",\"name\":\"pet\"}");
     Response response = sg.api(request);
     Assert.assertEquals(201, response.statusCode);
   }
@@ -1090,8 +1090,8 @@ public class SendGridTest {
     sg.addRequestHeader("X-Mock", "200");
 
     Request request = new Request();
-    request.method = Method.GET;
-    request.endpoint = "contactdb/custom_fields";
+    request.setMethod(Method.GET);
+    request.setEndpoint("contactdb/custom_fields");
     Response response = sg.api(request);
     Assert.assertEquals(200, response.statusCode);
   }
@@ -1109,8 +1109,8 @@ public class SendGridTest {
     sg.addRequestHeader("X-Mock", "200");
 
     Request request = new Request();
-    request.method = Method.GET;
-    request.endpoint = "contactdb/custom_fields/{custom_field_id}";
+    request.setMethod(Method.GET);
+    request.setEndpoint("contactdb/custom_fields/{custom_field_id}");
     Response response = sg.api(request);
     Assert.assertEquals(200, response.statusCode);
   }
@@ -1128,8 +1128,8 @@ public class SendGridTest {
     sg.addRequestHeader("X-Mock", "202");
 
     Request request = new Request();
-    request.method = Method.DELETE;
-    request.endpoint = "contactdb/custom_fields/{custom_field_id}";
+    request.setMethod(Method.DELETE);
+    request.setEndpoint("contactdb/custom_fields/{custom_field_id}");
     Response response = sg.api(request);
     Assert.assertEquals(202, response.statusCode);
   }
@@ -1147,9 +1147,9 @@ public class SendGridTest {
     sg.addRequestHeader("X-Mock", "201");
 
     Request request = new Request();
-    request.method = Method.POST;
-    request.endpoint = "contactdb/lists";
-    request.body = "{\"name\":\"your list name\"}";
+    request.setMethod(Method.POST);
+    request.setEndpoint("contactdb/lists");
+    request.setBody("{\"name\":\"your list name\"}");
     Response response = sg.api(request);
     Assert.assertEquals(201, response.statusCode);
   }
@@ -1167,8 +1167,8 @@ public class SendGridTest {
     sg.addRequestHeader("X-Mock", "200");
 
     Request request = new Request();
-    request.method = Method.GET;
-    request.endpoint = "contactdb/lists";
+    request.setMethod(Method.GET);
+    request.setEndpoint("contactdb/lists");
     Response response = sg.api(request);
     Assert.assertEquals(200, response.statusCode);
   }
@@ -1186,9 +1186,9 @@ public class SendGridTest {
     sg.addRequestHeader("X-Mock", "204");
 
     Request request = new Request();
-    request.method = Method.DELETE;
-    request.endpoint = "contactdb/lists";
-    request.body = "[1,2,3,4]";
+    request.setMethod(Method.DELETE);
+    request.setEndpoint("contactdb/lists");
+    request.setBody("[1,2,3,4]");
     Response response = sg.api(request);
     Assert.assertEquals(204, response.statusCode);
   }
@@ -1206,12 +1206,12 @@ public class SendGridTest {
     sg.addRequestHeader("X-Mock", "200");
 
     Request request = new Request();
-    request.method = Method.PATCH;
-    request.endpoint = "contactdb/lists/{list_id}";
-    request.body = "{\"name\":\"newlistname\"}";
+    request.setMethod(Method.PATCH);
+    request.setEndpoint("contactdb/lists/{list_id}");
+    request.setBody("{\"name\":\"newlistname\"}");
     Map<String,String> queryParams = new HashMap<String, String>();
     queryParams.put("list_id", "1");
-    request.queryParams = queryParams;
+    setQueryParams(request, queryParams);
     Response response = sg.api(request);
     Assert.assertEquals(200, response.statusCode);
   }
@@ -1229,11 +1229,11 @@ public class SendGridTest {
     sg.addRequestHeader("X-Mock", "200");
 
     Request request = new Request();
-    request.method = Method.GET;
-    request.endpoint = "contactdb/lists/{list_id}";
+    request.setMethod(Method.GET);
+    request.setEndpoint("contactdb/lists/{list_id}");
     Map<String,String> queryParams = new HashMap<String, String>();
     queryParams.put("list_id", "1");
-    request.queryParams = queryParams;
+    setQueryParams(request, queryParams);
     Response response = sg.api(request);
     Assert.assertEquals(200, response.statusCode);
   }
@@ -1251,11 +1251,11 @@ public class SendGridTest {
     sg.addRequestHeader("X-Mock", "202");
 
     Request request = new Request();
-    request.method = Method.DELETE;
-    request.endpoint = "contactdb/lists/{list_id}";
+    request.setMethod(Method.DELETE);
+    request.setEndpoint("contactdb/lists/{list_id}");
     Map<String,String> queryParams = new HashMap<String, String>();
     queryParams.put("delete_contacts", "true");
-    request.queryParams = queryParams;
+    setQueryParams(request, queryParams);
     Response response = sg.api(request);
     Assert.assertEquals(202, response.statusCode);
   }
@@ -1273,9 +1273,9 @@ public class SendGridTest {
     sg.addRequestHeader("X-Mock", "201");
 
     Request request = new Request();
-    request.method = Method.POST;
-    request.endpoint = "contactdb/lists/{list_id}/recipients";
-    request.body = "[\"recipient_id1\",\"recipient_id2\"]";
+    request.setMethod(Method.POST);
+    request.setEndpoint("contactdb/lists/{list_id}/recipients");
+    request.setBody("[\"recipient_id1\",\"recipient_id2\"]");
     Response response = sg.api(request);
     Assert.assertEquals(201, response.statusCode);
   }
@@ -1293,13 +1293,13 @@ public class SendGridTest {
     sg.addRequestHeader("X-Mock", "200");
 
     Request request = new Request();
-    request.method = Method.GET;
-    request.endpoint = "contactdb/lists/{list_id}/recipients";
+    request.setMethod(Method.GET);
+    request.setEndpoint("contactdb/lists/{list_id}/recipients");
     Map<String,String> queryParams = new HashMap<String, String>();
     queryParams.put("page", "1");
       queryParams.put("page_size", "1");
       queryParams.put("list_id", "1");
-    request.queryParams = queryParams;
+    setQueryParams(request, queryParams);
     Response response = sg.api(request);
     Assert.assertEquals(200, response.statusCode);
   }
@@ -1317,8 +1317,8 @@ public class SendGridTest {
     sg.addRequestHeader("X-Mock", "201");
 
     Request request = new Request();
-    request.method = Method.POST;
-    request.endpoint = "contactdb/lists/{list_id}/recipients/{recipient_id}";
+    request.setMethod(Method.POST);
+    request.setEndpoint("contactdb/lists/{list_id}/recipients/{recipient_id}");
     Response response = sg.api(request);
     Assert.assertEquals(201, response.statusCode);
   }
@@ -1336,12 +1336,12 @@ public class SendGridTest {
     sg.addRequestHeader("X-Mock", "204");
 
     Request request = new Request();
-    request.method = Method.DELETE;
-    request.endpoint = "contactdb/lists/{list_id}/recipients/{recipient_id}";
+    request.setMethod(Method.DELETE);
+    request.setEndpoint("contactdb/lists/{list_id}/recipients/{recipient_id}");
     Map<String,String> queryParams = new HashMap<String, String>();
     queryParams.put("recipient_id", "1");
       queryParams.put("list_id", "1");
-    request.queryParams = queryParams;
+    setQueryParams(request, queryParams);
     Response response = sg.api(request);
     Assert.assertEquals(204, response.statusCode);
   }
@@ -1359,9 +1359,9 @@ public class SendGridTest {
     sg.addRequestHeader("X-Mock", "201");
 
     Request request = new Request();
-    request.method = Method.PATCH;
-    request.endpoint = "contactdb/recipients";
-    request.body = "[{\"first_name\":\"Guy\",\"last_name\":\"Jones\",\"email\":\"jones@example.com\"}]";
+    request.setMethod(Method.PATCH);
+    request.setEndpoint("contactdb/recipients");
+    request.setBody("[{\"first_name\":\"Guy\",\"last_name\":\"Jones\",\"email\":\"jones@example.com\"}]");
     Response response = sg.api(request);
     Assert.assertEquals(201, response.statusCode);
   }
@@ -1379,9 +1379,9 @@ public class SendGridTest {
     sg.addRequestHeader("X-Mock", "201");
 
     Request request = new Request();
-    request.method = Method.POST;
-    request.endpoint = "contactdb/recipients";
-    request.body = "[{\"age\":25,\"last_name\":\"User\",\"email\":\"example@example.com\",\"first_name\":\"\"},{\"age\":25,\"last_name\":\"User\",\"email\":\"example2@example.com\",\"first_name\":\"Example\"}]";
+    request.setMethod(Method.POST);
+    request.setEndpoint("contactdb/recipients");
+    request.setBody("[{\"age\":25,\"last_name\":\"User\",\"email\":\"example@example.com\",\"first_name\":\"\"},{\"age\":25,\"last_name\":\"User\",\"email\":\"example2@example.com\",\"first_name\":\"Example\"}]");
     Response response = sg.api(request);
     Assert.assertEquals(201, response.statusCode);
   }
@@ -1399,12 +1399,12 @@ public class SendGridTest {
     sg.addRequestHeader("X-Mock", "200");
 
     Request request = new Request();
-    request.method = Method.GET;
-    request.endpoint = "contactdb/recipients";
+    request.setMethod(Method.GET);
+    request.setEndpoint("contactdb/recipients");
     Map<String,String> queryParams = new HashMap<String, String>();
     queryParams.put("page", "1");
       queryParams.put("page_size", "1");
-    request.queryParams = queryParams;
+    setQueryParams(request, queryParams);
     Response response = sg.api(request);
     Assert.assertEquals(200, response.statusCode);
   }
@@ -1422,9 +1422,9 @@ public class SendGridTest {
     sg.addRequestHeader("X-Mock", "200");
 
     Request request = new Request();
-    request.method = Method.DELETE;
-    request.endpoint = "contactdb/recipients";
-    request.body = "[\"recipient_id1\",\"recipient_id2\"]";
+    request.setMethod(Method.DELETE);
+    request.setEndpoint("contactdb/recipients");
+    request.setBody("[\"recipient_id1\",\"recipient_id2\"]");
     Response response = sg.api(request);
     Assert.assertEquals(200, response.statusCode);
   }
@@ -1442,8 +1442,8 @@ public class SendGridTest {
     sg.addRequestHeader("X-Mock", "200");
 
     Request request = new Request();
-    request.method = Method.GET;
-    request.endpoint = "contactdb/recipients/billable_count";
+    request.setMethod(Method.GET);
+    request.setEndpoint("contactdb/recipients/billable_count");
     Response response = sg.api(request);
     Assert.assertEquals(200, response.statusCode);
   }
@@ -1461,8 +1461,8 @@ public class SendGridTest {
     sg.addRequestHeader("X-Mock", "200");
 
     Request request = new Request();
-    request.method = Method.GET;
-    request.endpoint = "contactdb/recipients/count";
+    request.setMethod(Method.GET);
+    request.setEndpoint("contactdb/recipients/count");
     Response response = sg.api(request);
     Assert.assertEquals(200, response.statusCode);
   }
@@ -1480,11 +1480,11 @@ public class SendGridTest {
     sg.addRequestHeader("X-Mock", "200");
 
     Request request = new Request();
-    request.method = Method.GET;
-    request.endpoint = "contactdb/recipients/search";
+    request.setMethod(Method.GET);
+    request.setEndpoint("contactdb/recipients/search");
     Map<String,String> queryParams = new HashMap<String, String>();
     queryParams.put("{field_name}", "test_string");
-    request.queryParams = queryParams;
+    setQueryParams(request, queryParams);
     Response response = sg.api(request);
     Assert.assertEquals(200, response.statusCode);
   }
@@ -1502,8 +1502,8 @@ public class SendGridTest {
     sg.addRequestHeader("X-Mock", "200");
 
     Request request = new Request();
-    request.method = Method.GET;
-    request.endpoint = "contactdb/recipients/{recipient_id}";
+    request.setMethod(Method.GET);
+    request.setEndpoint("contactdb/recipients/{recipient_id}");
     Response response = sg.api(request);
     Assert.assertEquals(200, response.statusCode);
   }
@@ -1521,8 +1521,8 @@ public class SendGridTest {
     sg.addRequestHeader("X-Mock", "204");
 
     Request request = new Request();
-    request.method = Method.DELETE;
-    request.endpoint = "contactdb/recipients/{recipient_id}";
+    request.setMethod(Method.DELETE);
+    request.setEndpoint("contactdb/recipients/{recipient_id}");
     Response response = sg.api(request);
     Assert.assertEquals(204, response.statusCode);
   }
@@ -1540,8 +1540,8 @@ public class SendGridTest {
     sg.addRequestHeader("X-Mock", "200");
 
     Request request = new Request();
-    request.method = Method.GET;
-    request.endpoint = "contactdb/recipients/{recipient_id}/lists";
+    request.setMethod(Method.GET);
+    request.setEndpoint("contactdb/recipients/{recipient_id}/lists");
     Response response = sg.api(request);
     Assert.assertEquals(200, response.statusCode);
   }
@@ -1559,8 +1559,8 @@ public class SendGridTest {
     sg.addRequestHeader("X-Mock", "200");
 
     Request request = new Request();
-    request.method = Method.GET;
-    request.endpoint = "contactdb/reserved_fields";
+    request.setMethod(Method.GET);
+    request.setEndpoint("contactdb/reserved_fields");
     Response response = sg.api(request);
     Assert.assertEquals(200, response.statusCode);
   }
@@ -1578,9 +1578,9 @@ public class SendGridTest {
     sg.addRequestHeader("X-Mock", "200");
 
     Request request = new Request();
-    request.method = Method.POST;
-    request.endpoint = "contactdb/segments";
-    request.body = "{\"conditions\":[{\"operator\":\"eq\",\"field\":\"last_name\",\"and_or\":\"\",\"value\":\"Miller\"},{\"operator\":\"gt\",\"field\":\"last_clicked\",\"and_or\":\"and\",\"value\":\"01/02/2015\"},{\"operator\":\"eq\",\"field\":\"clicks.campaign_identifier\",\"and_or\":\"or\",\"value\":\"513\"}],\"name\":\"Last Name Miller\",\"list_id\":4}";
+    request.setMethod(Method.POST);
+    request.setEndpoint("contactdb/segments");
+    request.setBody("{\"conditions\":[{\"operator\":\"eq\",\"field\":\"last_name\",\"and_or\":\"\",\"value\":\"Miller\"},{\"operator\":\"gt\",\"field\":\"last_clicked\",\"and_or\":\"and\",\"value\":\"01/02/2015\"},{\"operator\":\"eq\",\"field\":\"clicks.campaign_identifier\",\"and_or\":\"or\",\"value\":\"513\"}],\"name\":\"Last Name Miller\",\"list_id\":4}");
     Response response = sg.api(request);
     Assert.assertEquals(200, response.statusCode);
   }
@@ -1598,8 +1598,8 @@ public class SendGridTest {
     sg.addRequestHeader("X-Mock", "200");
 
     Request request = new Request();
-    request.method = Method.GET;
-    request.endpoint = "contactdb/segments";
+    request.setMethod(Method.GET);
+    request.setEndpoint("contactdb/segments");
     Response response = sg.api(request);
     Assert.assertEquals(200, response.statusCode);
   }
@@ -1617,12 +1617,12 @@ public class SendGridTest {
     sg.addRequestHeader("X-Mock", "200");
 
     Request request = new Request();
-    request.method = Method.PATCH;
-    request.endpoint = "contactdb/segments/{segment_id}";
-    request.body = "{\"conditions\":[{\"operator\":\"eq\",\"field\":\"last_name\",\"and_or\":\"\",\"value\":\"Miller\"}],\"name\":\"The Millers\",\"list_id\":5}";
+    request.setMethod(Method.PATCH);
+    request.setEndpoint("contactdb/segments/{segment_id}");
+    request.setBody("{\"conditions\":[{\"operator\":\"eq\",\"field\":\"last_name\",\"and_or\":\"\",\"value\":\"Miller\"}],\"name\":\"The Millers\",\"list_id\":5}");
     Map<String,String> queryParams = new HashMap<String, String>();
     queryParams.put("segment_id", "test_string");
-    request.queryParams = queryParams;
+    setQueryParams(request, queryParams);
     Response response = sg.api(request);
     Assert.assertEquals(200, response.statusCode);
   }
@@ -1640,11 +1640,11 @@ public class SendGridTest {
     sg.addRequestHeader("X-Mock", "200");
 
     Request request = new Request();
-    request.method = Method.GET;
-    request.endpoint = "contactdb/segments/{segment_id}";
+    request.setMethod(Method.GET);
+    request.setEndpoint("contactdb/segments/{segment_id}");
     Map<String,String> queryParams = new HashMap<String, String>();
     queryParams.put("segment_id", "1");
-    request.queryParams = queryParams;
+    setQueryParams(request, queryParams);
     Response response = sg.api(request);
     Assert.assertEquals(200, response.statusCode);
   }
@@ -1662,11 +1662,11 @@ public class SendGridTest {
     sg.addRequestHeader("X-Mock", "204");
 
     Request request = new Request();
-    request.method = Method.DELETE;
-    request.endpoint = "contactdb/segments/{segment_id}";
+    request.setMethod(Method.DELETE);
+    request.setEndpoint("contactdb/segments/{segment_id}");
     Map<String,String> queryParams = new HashMap<String, String>();
     queryParams.put("delete_contacts", "true");
-    request.queryParams = queryParams;
+    setQueryParams(request, queryParams);
     Response response = sg.api(request);
     Assert.assertEquals(204, response.statusCode);
   }
@@ -1684,12 +1684,12 @@ public class SendGridTest {
     sg.addRequestHeader("X-Mock", "200");
 
     Request request = new Request();
-    request.method = Method.GET;
-    request.endpoint = "contactdb/segments/{segment_id}/recipients";
+    request.setMethod(Method.GET);
+    request.setEndpoint("contactdb/segments/{segment_id}/recipients");
     Map<String,String> queryParams = new HashMap<String, String>();
     queryParams.put("page", "1");
       queryParams.put("page_size", "1");
-    request.queryParams = queryParams;
+    setQueryParams(request, queryParams);
     Response response = sg.api(request);
     Assert.assertEquals(200, response.statusCode);
   }
@@ -1707,15 +1707,15 @@ public class SendGridTest {
     sg.addRequestHeader("X-Mock", "200");
 
     Request request = new Request();
-    request.method = Method.GET;
-    request.endpoint = "devices/stats";
+    request.setMethod(Method.GET);
+    request.setEndpoint("devices/stats");
     Map<String,String> queryParams = new HashMap<String, String>();
     queryParams.put("aggregated_by", "day");
       queryParams.put("limit", "1");
       queryParams.put("start_date", "2016-01-01");
       queryParams.put("end_date", "2016-04-01");
       queryParams.put("offset", "1");
-    request.queryParams = queryParams;
+    setQueryParams(request, queryParams);
     Response response = sg.api(request);
     Assert.assertEquals(200, response.statusCode);
   }
@@ -1733,8 +1733,8 @@ public class SendGridTest {
     sg.addRequestHeader("X-Mock", "200");
 
     Request request = new Request();
-    request.method = Method.GET;
-    request.endpoint = "geo/stats";
+    request.setMethod(Method.GET);
+    request.setEndpoint("geo/stats");
     Map<String,String> queryParams = new HashMap<String, String>();
     queryParams.put("end_date", "2016-04-01");
       queryParams.put("country", "US");
@@ -1742,7 +1742,7 @@ public class SendGridTest {
       queryParams.put("limit", "1");
       queryParams.put("offset", "1");
       queryParams.put("start_date", "2016-01-01");
-    request.queryParams = queryParams;
+    setQueryParams(request, queryParams);
     Response response = sg.api(request);
     Assert.assertEquals(200, response.statusCode);
   }
@@ -1760,15 +1760,15 @@ public class SendGridTest {
     sg.addRequestHeader("X-Mock", "200");
 
     Request request = new Request();
-    request.method = Method.GET;
-    request.endpoint = "ips";
+    request.setMethod(Method.GET);
+    request.setEndpoint("ips");
     Map<String,String> queryParams = new HashMap<String, String>();
     queryParams.put("subuser", "test_string");
       queryParams.put("ip", "test_string");
       queryParams.put("limit", "1");
       queryParams.put("exclude_whitelabels", "true");
       queryParams.put("offset", "1");
-    request.queryParams = queryParams;
+    setQueryParams(request, queryParams);
     Response response = sg.api(request);
     Assert.assertEquals(200, response.statusCode);
   }
@@ -1786,8 +1786,8 @@ public class SendGridTest {
     sg.addRequestHeader("X-Mock", "200");
 
     Request request = new Request();
-    request.method = Method.GET;
-    request.endpoint = "ips/assigned";
+    request.setMethod(Method.GET);
+    request.setEndpoint("ips/assigned");
     Response response = sg.api(request);
     Assert.assertEquals(200, response.statusCode);
   }
@@ -1805,9 +1805,9 @@ public class SendGridTest {
     sg.addRequestHeader("X-Mock", "200");
 
     Request request = new Request();
-    request.method = Method.POST;
-    request.endpoint = "ips/pools";
-    request.body = "{\"name\":\"marketing\"}";
+    request.setMethod(Method.POST);
+    request.setEndpoint("ips/pools");
+    request.setBody("{\"name\":\"marketing\"}");
     Response response = sg.api(request);
     Assert.assertEquals(200, response.statusCode);
   }
@@ -1825,8 +1825,8 @@ public class SendGridTest {
     sg.addRequestHeader("X-Mock", "200");
 
     Request request = new Request();
-    request.method = Method.GET;
-    request.endpoint = "ips/pools";
+    request.setMethod(Method.GET);
+    request.setEndpoint("ips/pools");
     Response response = sg.api(request);
     Assert.assertEquals(200, response.statusCode);
   }
@@ -1844,9 +1844,9 @@ public class SendGridTest {
     sg.addRequestHeader("X-Mock", "200");
 
     Request request = new Request();
-    request.method = Method.PUT;
-    request.endpoint = "ips/pools/{pool_name}";
-    request.body = "{\"name\":\"new_pool_name\"}";
+    request.setMethod(Method.PUT);
+    request.setEndpoint("ips/pools/{pool_name}");
+    request.setBody("{\"name\":\"new_pool_name\"}");
     Response response = sg.api(request);
     Assert.assertEquals(200, response.statusCode);
   }
@@ -1864,8 +1864,8 @@ public class SendGridTest {
     sg.addRequestHeader("X-Mock", "200");
 
     Request request = new Request();
-    request.method = Method.GET;
-    request.endpoint = "ips/pools/{pool_name}";
+    request.setMethod(Method.GET);
+    request.setEndpoint("ips/pools/{pool_name}");
     Response response = sg.api(request);
     Assert.assertEquals(200, response.statusCode);
   }
@@ -1883,8 +1883,8 @@ public class SendGridTest {
     sg.addRequestHeader("X-Mock", "204");
 
     Request request = new Request();
-    request.method = Method.DELETE;
-    request.endpoint = "ips/pools/{pool_name}";
+    request.setMethod(Method.DELETE);
+    request.setEndpoint("ips/pools/{pool_name}");
     Response response = sg.api(request);
     Assert.assertEquals(204, response.statusCode);
   }
@@ -1902,9 +1902,9 @@ public class SendGridTest {
     sg.addRequestHeader("X-Mock", "201");
 
     Request request = new Request();
-    request.method = Method.POST;
-    request.endpoint = "ips/pools/{pool_name}/ips";
-    request.body = "{\"ip\":\"0.0.0.0\"}";
+    request.setMethod(Method.POST);
+    request.setEndpoint("ips/pools/{pool_name}/ips");
+    request.setBody("{\"ip\":\"0.0.0.0\"}");
     Response response = sg.api(request);
     Assert.assertEquals(201, response.statusCode);
   }
@@ -1922,8 +1922,8 @@ public class SendGridTest {
     sg.addRequestHeader("X-Mock", "204");
 
     Request request = new Request();
-    request.method = Method.DELETE;
-    request.endpoint = "ips/pools/{pool_name}/ips/{ip}";
+    request.setMethod(Method.DELETE);
+    request.setEndpoint("ips/pools/{pool_name}/ips/{ip}");
     Response response = sg.api(request);
     Assert.assertEquals(204, response.statusCode);
   }
@@ -1941,9 +1941,9 @@ public class SendGridTest {
     sg.addRequestHeader("X-Mock", "200");
 
     Request request = new Request();
-    request.method = Method.POST;
-    request.endpoint = "ips/warmup";
-    request.body = "{\"ip\":\"0.0.0.0\"}";
+    request.setMethod(Method.POST);
+    request.setEndpoint("ips/warmup");
+    request.setBody("{\"ip\":\"0.0.0.0\"}");
     Response response = sg.api(request);
     Assert.assertEquals(200, response.statusCode);
   }
@@ -1961,8 +1961,8 @@ public class SendGridTest {
     sg.addRequestHeader("X-Mock", "200");
 
     Request request = new Request();
-    request.method = Method.GET;
-    request.endpoint = "ips/warmup";
+    request.setMethod(Method.GET);
+    request.setEndpoint("ips/warmup");
     Response response = sg.api(request);
     Assert.assertEquals(200, response.statusCode);
   }
@@ -1980,8 +1980,8 @@ public class SendGridTest {
     sg.addRequestHeader("X-Mock", "200");
 
     Request request = new Request();
-    request.method = Method.GET;
-    request.endpoint = "ips/warmup/{ip_address}";
+    request.setMethod(Method.GET);
+    request.setEndpoint("ips/warmup/{ip_address}");
     Response response = sg.api(request);
     Assert.assertEquals(200, response.statusCode);
   }
@@ -1999,8 +1999,8 @@ public class SendGridTest {
     sg.addRequestHeader("X-Mock", "204");
 
     Request request = new Request();
-    request.method = Method.DELETE;
-    request.endpoint = "ips/warmup/{ip_address}";
+    request.setMethod(Method.DELETE);
+    request.setEndpoint("ips/warmup/{ip_address}");
     Response response = sg.api(request);
     Assert.assertEquals(204, response.statusCode);
   }
@@ -2018,8 +2018,8 @@ public class SendGridTest {
     sg.addRequestHeader("X-Mock", "200");
 
     Request request = new Request();
-    request.method = Method.GET;
-    request.endpoint = "ips/{ip_address}";
+    request.setMethod(Method.GET);
+    request.setEndpoint("ips/{ip_address}");
     Response response = sg.api(request);
     Assert.assertEquals(200, response.statusCode);
   }
@@ -2037,8 +2037,8 @@ public class SendGridTest {
     sg.addRequestHeader("X-Mock", "201");
 
     Request request = new Request();
-    request.method = Method.POST;
-    request.endpoint = "mail/batch";
+    request.setMethod(Method.POST);
+    request.setEndpoint("mail/batch");
     Response response = sg.api(request);
     Assert.assertEquals(201, response.statusCode);
   }
@@ -2056,8 +2056,8 @@ public class SendGridTest {
     sg.addRequestHeader("X-Mock", "200");
 
     Request request = new Request();
-    request.method = Method.GET;
-    request.endpoint = "mail/batch/{batch_id}";
+    request.setMethod(Method.GET);
+    request.setEndpoint("mail/batch/{batch_id}");
     Response response = sg.api(request);
     Assert.assertEquals(200, response.statusCode);
   }
@@ -2075,9 +2075,9 @@ public class SendGridTest {
     sg.addRequestHeader("X-Mock", "202");
 
     Request request = new Request();
-    request.method = Method.POST;
-    request.endpoint = "mail/send";
-    request.body = "{\"custom_args\":{\"New Argument 1\":\"New Value 1\",\"activationAttempt\":\"1\",\"customerAccountNumber\":\"[CUSTOMER ACCOUNT NUMBER GOES HERE]\"},\"from\":{\"email\":\"sam.smith@example.com\",\"name\":\"Sam Smith\"},\"attachments\":[{\"name\":\"file1\",\"filename\":\"file1.jpg\",\"content\":\"[BASE64 encoded content block here]\",\"disposition\":\"inline\",\"content_id\":\"ii_139db99fdb5c3704\",\"type\":\"jpg\"}],\"personalizations\":[{\"to\":[{\"email\":\"john.doe@example.com\",\"name\":\"John Doe\"}],\"cc\":[{\"email\":\"jane.doe@example.com\",\"name\":\"Jane Doe\"}],\"bcc\":[{\"email\":\"sam.doe@example.com\",\"name\":\"Sam Doe\"}],\"custom_args\":{\"New Argument 1\":\"New Value 1\",\"activationAttempt\":\"1\",\"customerAccountNumber\":\"[CUSTOMER ACCOUNT NUMBER GOES HERE]\"},\"headers\":{\"X-Accept-Language\":\"en\",\"X-Mailer\":\"MyApp\"},\"send_at\":1409348513,\"substitutions\":{\"type\":\"object\",\"id\":\"substitutions\"},\"subject\":\"Hello, World!\"}],\"subject\":\"Hello, World!\",\"ip_pool_name\":\"[YOUR POOL NAME GOES HERE]\",\"content\":[{\"type\":\"text/html\",\"value\":\"<html><p>Hello, world!</p><img src=[CID GOES HERE]></img></html>\"}],\"headers\":{},\"asm\":{\"groups_to_display\":[1,2,3],\"group_id\":1},\"batch_id\":\"[YOUR BATCH ID GOES HERE]\",\"tracking_settings\":{\"subscription_tracking\":{\"text\":\"If you would like to unsubscribe and stop receiveing these emails <% click here %>.\",\"enable\":true,\"html\":\"If you would like to unsubscribe and stop receiving these emails <% clickhere %>.\",\"substitution_tag\":\"<%click here%>\"},\"open_tracking\":{\"enable\":true,\"substitution_tag\":\"%opentrack\"},\"click_tracking\":{\"enable\":true,\"enable_text\":true},\"ganalytics\":{\"utm_campaign\":\"[NAME OF YOUR REFERRER SOURCE]\",\"enable\":true,\"utm_name\":\"[NAME OF YOUR CAMPAIGN]\",\"utm_term\":\"[IDENTIFY PAID KEYWORDS HERE]\",\"utm_content\":\"[USE THIS SPACE TO DIFFERENTIATE YOUR EMAIL FROM ADS]\",\"utm_medium\":\"[NAME OF YOUR MARKETING MEDIUM e.g. email]\"}},\"mail_settings\":{\"footer\":{\"text\":\"Thanks,/n The SendGrid Team\",\"enable\":true,\"html\":\"<p>Thanks</br>The SendGrid Team</p>\"},\"spam_check\":{\"threshold\":3,\"post_to_url\":\"http://example.com/compliance\",\"enable\":true},\"bypass_list_management\":{\"enable\":true},\"sandbox_mode\":{\"enable\":false},\"bcc\":{\"enable\":true,\"email\":\"ben.doe@example.com\"}},\"reply_to\":{\"email\":\"sam.smith@example.com\",\"name\":\"Sam Smith\"},\"sections\":{\"section\":{\":sectionName2\":\"section 2 text\",\":sectionName1\":\"section 1 text\"}},\"template_id\":\"[YOUR TEMPLATE ID GOES HERE]\",\"categories\":[\"category1\",\"category2\"],\"send_at\":1409348513}";
+    request.setMethod(Method.POST);
+    request.setEndpoint("mail/send");
+    request.setBody("{\"custom_args\":{\"New Argument 1\":\"New Value 1\",\"activationAttempt\":\"1\",\"customerAccountNumber\":\"[CUSTOMER ACCOUNT NUMBER GOES HERE]\"},\"from\":{\"email\":\"sam.smith@example.com\",\"name\":\"Sam Smith\"},\"attachments\":[{\"name\":\"file1\",\"filename\":\"file1.jpg\",\"content\":\"[BASE64 encoded content block here]\",\"disposition\":\"inline\",\"content_id\":\"ii_139db99fdb5c3704\",\"type\":\"jpg\"}],\"personalizations\":[{\"to\":[{\"email\":\"john.doe@example.com\",\"name\":\"John Doe\"}],\"cc\":[{\"email\":\"jane.doe@example.com\",\"name\":\"Jane Doe\"}],\"bcc\":[{\"email\":\"sam.doe@example.com\",\"name\":\"Sam Doe\"}],\"custom_args\":{\"New Argument 1\":\"New Value 1\",\"activationAttempt\":\"1\",\"customerAccountNumber\":\"[CUSTOMER ACCOUNT NUMBER GOES HERE]\"},\"headers\":{\"X-Accept-Language\":\"en\",\"X-Mailer\":\"MyApp\"},\"send_at\":1409348513,\"substitutions\":{\"type\":\"object\",\"id\":\"substitutions\"},\"subject\":\"Hello, World!\"}],\"subject\":\"Hello, World!\",\"ip_pool_name\":\"[YOUR POOL NAME GOES HERE]\",\"content\":[{\"type\":\"text/html\",\"value\":\"<html><p>Hello, world!</p><img src=[CID GOES HERE]></img></html>\"}],\"headers\":{},\"asm\":{\"groups_to_display\":[1,2,3],\"group_id\":1},\"batch_id\":\"[YOUR BATCH ID GOES HERE]\",\"tracking_settings\":{\"subscription_tracking\":{\"text\":\"If you would like to unsubscribe and stop receiveing these emails <% click here %>.\",\"enable\":true,\"html\":\"If you would like to unsubscribe and stop receiving these emails <% clickhere %>.\",\"substitution_tag\":\"<%click here%>\"},\"open_tracking\":{\"enable\":true,\"substitution_tag\":\"%opentrack\"},\"click_tracking\":{\"enable\":true,\"enable_text\":true},\"ganalytics\":{\"utm_campaign\":\"[NAME OF YOUR REFERRER SOURCE]\",\"enable\":true,\"utm_name\":\"[NAME OF YOUR CAMPAIGN]\",\"utm_term\":\"[IDENTIFY PAID KEYWORDS HERE]\",\"utm_content\":\"[USE THIS SPACE TO DIFFERENTIATE YOUR EMAIL FROM ADS]\",\"utm_medium\":\"[NAME OF YOUR MARKETING MEDIUM e.g. email]\"}},\"mail_settings\":{\"footer\":{\"text\":\"Thanks,/n The SendGrid Team\",\"enable\":true,\"html\":\"<p>Thanks</br>The SendGrid Team</p>\"},\"spam_check\":{\"threshold\":3,\"post_to_url\":\"http://example.com/compliance\",\"enable\":true},\"bypass_list_management\":{\"enable\":true},\"sandbox_mode\":{\"enable\":false},\"bcc\":{\"enable\":true,\"email\":\"ben.doe@example.com\"}},\"reply_to\":{\"email\":\"sam.smith@example.com\",\"name\":\"Sam Smith\"},\"sections\":{\"section\":{\":sectionName2\":\"section 2 text\",\":sectionName1\":\"section 1 text\"}},\"template_id\":\"[YOUR TEMPLATE ID GOES HERE]\",\"categories\":[\"category1\",\"category2\"],\"send_at\":1409348513}");
     Response response = sg.api(request);
     Assert.assertEquals(202, response.statusCode);
   }
@@ -2095,12 +2095,12 @@ public class SendGridTest {
     sg.addRequestHeader("X-Mock", "200");
 
     Request request = new Request();
-    request.method = Method.GET;
-    request.endpoint = "mail_settings";
+    request.setMethod(Method.GET);
+    request.setEndpoint("mail_settings");
     Map<String,String> queryParams = new HashMap<String, String>();
     queryParams.put("limit", "1");
       queryParams.put("offset", "1");
-    request.queryParams = queryParams;
+    setQueryParams(request, queryParams);
     Response response = sg.api(request);
     Assert.assertEquals(200, response.statusCode);
   }
@@ -2118,9 +2118,9 @@ public class SendGridTest {
     sg.addRequestHeader("X-Mock", "200");
 
     Request request = new Request();
-    request.method = Method.PATCH;
-    request.endpoint = "mail_settings/address_whitelist";
-    request.body = "{\"list\":[\"email1@example.com\",\"example.com\"],\"enabled\":true}";
+    request.setMethod(Method.PATCH);
+    request.setEndpoint("mail_settings/address_whitelist");
+    request.setBody("{\"list\":[\"email1@example.com\",\"example.com\"],\"enabled\":true}");
     Response response = sg.api(request);
     Assert.assertEquals(200, response.statusCode);
   }
@@ -2138,8 +2138,8 @@ public class SendGridTest {
     sg.addRequestHeader("X-Mock", "200");
 
     Request request = new Request();
-    request.method = Method.GET;
-    request.endpoint = "mail_settings/address_whitelist";
+    request.setMethod(Method.GET);
+    request.setEndpoint("mail_settings/address_whitelist");
     Response response = sg.api(request);
     Assert.assertEquals(200, response.statusCode);
   }
@@ -2157,9 +2157,9 @@ public class SendGridTest {
     sg.addRequestHeader("X-Mock", "200");
 
     Request request = new Request();
-    request.method = Method.PATCH;
-    request.endpoint = "mail_settings/bcc";
-    request.body = "{\"enabled\":false,\"email\":\"email@example.com\"}";
+    request.setMethod(Method.PATCH);
+    request.setEndpoint("mail_settings/bcc");
+    request.setBody("{\"enabled\":false,\"email\":\"email@example.com\"}");
     Response response = sg.api(request);
     Assert.assertEquals(200, response.statusCode);
   }
@@ -2177,8 +2177,8 @@ public class SendGridTest {
     sg.addRequestHeader("X-Mock", "200");
 
     Request request = new Request();
-    request.method = Method.GET;
-    request.endpoint = "mail_settings/bcc";
+    request.setMethod(Method.GET);
+    request.setEndpoint("mail_settings/bcc");
     Response response = sg.api(request);
     Assert.assertEquals(200, response.statusCode);
   }
@@ -2196,9 +2196,9 @@ public class SendGridTest {
     sg.addRequestHeader("X-Mock", "200");
 
     Request request = new Request();
-    request.method = Method.PATCH;
-    request.endpoint = "mail_settings/bounce_purge";
-    request.body = "{\"hard_bounces\":5,\"soft_bounces\":5,\"enabled\":true}";
+    request.setMethod(Method.PATCH);
+    request.setEndpoint("mail_settings/bounce_purge");
+    request.setBody("{\"hard_bounces\":5,\"soft_bounces\":5,\"enabled\":true}");
     Response response = sg.api(request);
     Assert.assertEquals(200, response.statusCode);
   }
@@ -2216,8 +2216,8 @@ public class SendGridTest {
     sg.addRequestHeader("X-Mock", "200");
 
     Request request = new Request();
-    request.method = Method.GET;
-    request.endpoint = "mail_settings/bounce_purge";
+    request.setMethod(Method.GET);
+    request.setEndpoint("mail_settings/bounce_purge");
     Response response = sg.api(request);
     Assert.assertEquals(200, response.statusCode);
   }
@@ -2235,9 +2235,9 @@ public class SendGridTest {
     sg.addRequestHeader("X-Mock", "200");
 
     Request request = new Request();
-    request.method = Method.PATCH;
-    request.endpoint = "mail_settings/footer";
-    request.body = "{\"html_content\":\"...\",\"enabled\":true,\"plain_content\":\"...\"}";
+    request.setMethod(Method.PATCH);
+    request.setEndpoint("mail_settings/footer");
+    request.setBody("{\"html_content\":\"...\",\"enabled\":true,\"plain_content\":\"...\"}");
     Response response = sg.api(request);
     Assert.assertEquals(200, response.statusCode);
   }
@@ -2255,8 +2255,8 @@ public class SendGridTest {
     sg.addRequestHeader("X-Mock", "200");
 
     Request request = new Request();
-    request.method = Method.GET;
-    request.endpoint = "mail_settings/footer";
+    request.setMethod(Method.GET);
+    request.setEndpoint("mail_settings/footer");
     Response response = sg.api(request);
     Assert.assertEquals(200, response.statusCode);
   }
@@ -2274,9 +2274,9 @@ public class SendGridTest {
     sg.addRequestHeader("X-Mock", "200");
 
     Request request = new Request();
-    request.method = Method.PATCH;
-    request.endpoint = "mail_settings/forward_bounce";
-    request.body = "{\"enabled\":true,\"email\":\"example@example.com\"}";
+    request.setMethod(Method.PATCH);
+    request.setEndpoint("mail_settings/forward_bounce");
+    request.setBody("{\"enabled\":true,\"email\":\"example@example.com\"}");
     Response response = sg.api(request);
     Assert.assertEquals(200, response.statusCode);
   }
@@ -2294,8 +2294,8 @@ public class SendGridTest {
     sg.addRequestHeader("X-Mock", "200");
 
     Request request = new Request();
-    request.method = Method.GET;
-    request.endpoint = "mail_settings/forward_bounce";
+    request.setMethod(Method.GET);
+    request.setEndpoint("mail_settings/forward_bounce");
     Response response = sg.api(request);
     Assert.assertEquals(200, response.statusCode);
   }
@@ -2313,9 +2313,9 @@ public class SendGridTest {
     sg.addRequestHeader("X-Mock", "200");
 
     Request request = new Request();
-    request.method = Method.PATCH;
-    request.endpoint = "mail_settings/forward_spam";
-    request.body = "{\"enabled\":false,\"email\":\"\"}";
+    request.setMethod(Method.PATCH);
+    request.setEndpoint("mail_settings/forward_spam");
+    request.setBody("{\"enabled\":false,\"email\":\"\"}");
     Response response = sg.api(request);
     Assert.assertEquals(200, response.statusCode);
   }
@@ -2333,8 +2333,8 @@ public class SendGridTest {
     sg.addRequestHeader("X-Mock", "200");
 
     Request request = new Request();
-    request.method = Method.GET;
-    request.endpoint = "mail_settings/forward_spam";
+    request.setMethod(Method.GET);
+    request.setEndpoint("mail_settings/forward_spam");
     Response response = sg.api(request);
     Assert.assertEquals(200, response.statusCode);
   }
@@ -2352,9 +2352,9 @@ public class SendGridTest {
     sg.addRequestHeader("X-Mock", "200");
 
     Request request = new Request();
-    request.method = Method.PATCH;
-    request.endpoint = "mail_settings/plain_content";
-    request.body = "{\"enabled\":false}";
+    request.setMethod(Method.PATCH);
+    request.setEndpoint("mail_settings/plain_content");
+    request.setBody("{\"enabled\":false}");
     Response response = sg.api(request);
     Assert.assertEquals(200, response.statusCode);
   }
@@ -2372,8 +2372,8 @@ public class SendGridTest {
     sg.addRequestHeader("X-Mock", "200");
 
     Request request = new Request();
-    request.method = Method.GET;
-    request.endpoint = "mail_settings/plain_content";
+    request.setMethod(Method.GET);
+    request.setEndpoint("mail_settings/plain_content");
     Response response = sg.api(request);
     Assert.assertEquals(200, response.statusCode);
   }
@@ -2391,9 +2391,9 @@ public class SendGridTest {
     sg.addRequestHeader("X-Mock", "200");
 
     Request request = new Request();
-    request.method = Method.PATCH;
-    request.endpoint = "mail_settings/spam_check";
-    request.body = "{\"url\":\"url\",\"max_score\":5,\"enabled\":true}";
+    request.setMethod(Method.PATCH);
+    request.setEndpoint("mail_settings/spam_check");
+    request.setBody("{\"url\":\"url\",\"max_score\":5,\"enabled\":true}");
     Response response = sg.api(request);
     Assert.assertEquals(200, response.statusCode);
   }
@@ -2411,8 +2411,8 @@ public class SendGridTest {
     sg.addRequestHeader("X-Mock", "200");
 
     Request request = new Request();
-    request.method = Method.GET;
-    request.endpoint = "mail_settings/spam_check";
+    request.setMethod(Method.GET);
+    request.setEndpoint("mail_settings/spam_check");
     Response response = sg.api(request);
     Assert.assertEquals(200, response.statusCode);
   }
@@ -2430,9 +2430,9 @@ public class SendGridTest {
     sg.addRequestHeader("X-Mock", "200");
 
     Request request = new Request();
-    request.method = Method.PATCH;
-    request.endpoint = "mail_settings/template";
-    request.body = "{\"html_content\":\"<% body %>\",\"enabled\":true}";
+    request.setMethod(Method.PATCH);
+    request.setEndpoint("mail_settings/template");
+    request.setBody("{\"html_content\":\"<% body %>\",\"enabled\":true}");
     Response response = sg.api(request);
     Assert.assertEquals(200, response.statusCode);
   }
@@ -2450,8 +2450,8 @@ public class SendGridTest {
     sg.addRequestHeader("X-Mock", "200");
 
     Request request = new Request();
-    request.method = Method.GET;
-    request.endpoint = "mail_settings/template";
+    request.setMethod(Method.GET);
+    request.setEndpoint("mail_settings/template");
     Response response = sg.api(request);
     Assert.assertEquals(200, response.statusCode);
   }
@@ -2469,8 +2469,8 @@ public class SendGridTest {
     sg.addRequestHeader("X-Mock", "200");
 
     Request request = new Request();
-    request.method = Method.GET;
-    request.endpoint = "mailbox_providers/stats";
+    request.setMethod(Method.GET);
+    request.setEndpoint("mailbox_providers/stats");
     Map<String,String> queryParams = new HashMap<String, String>();
     queryParams.put("end_date", "2016-04-01");
       queryParams.put("mailbox_providers", "test_string");
@@ -2478,7 +2478,7 @@ public class SendGridTest {
       queryParams.put("limit", "1");
       queryParams.put("offset", "1");
       queryParams.put("start_date", "2016-01-01");
-    request.queryParams = queryParams;
+    setQueryParams(request, queryParams);
     Response response = sg.api(request);
     Assert.assertEquals(200, response.statusCode);
   }
@@ -2496,12 +2496,12 @@ public class SendGridTest {
     sg.addRequestHeader("X-Mock", "200");
 
     Request request = new Request();
-    request.method = Method.GET;
-    request.endpoint = "partner_settings";
+    request.setMethod(Method.GET);
+    request.setEndpoint("partner_settings");
     Map<String,String> queryParams = new HashMap<String, String>();
     queryParams.put("limit", "1");
       queryParams.put("offset", "1");
-    request.queryParams = queryParams;
+    setQueryParams(request, queryParams);
     Response response = sg.api(request);
     Assert.assertEquals(200, response.statusCode);
   }
@@ -2519,9 +2519,9 @@ public class SendGridTest {
     sg.addRequestHeader("X-Mock", "200");
 
     Request request = new Request();
-    request.method = Method.PATCH;
-    request.endpoint = "partner_settings/new_relic";
-    request.body = "{\"enable_subuser_statistics\":true,\"enabled\":true,\"license_key\":\"\"}";
+    request.setMethod(Method.PATCH);
+    request.setEndpoint("partner_settings/new_relic");
+    request.setBody("{\"enable_subuser_statistics\":true,\"enabled\":true,\"license_key\":\"\"}");
     Response response = sg.api(request);
     Assert.assertEquals(200, response.statusCode);
   }
@@ -2539,8 +2539,8 @@ public class SendGridTest {
     sg.addRequestHeader("X-Mock", "200");
 
     Request request = new Request();
-    request.method = Method.GET;
-    request.endpoint = "partner_settings/new_relic";
+    request.setMethod(Method.GET);
+    request.setEndpoint("partner_settings/new_relic");
     Response response = sg.api(request);
     Assert.assertEquals(200, response.statusCode);
   }
@@ -2558,8 +2558,8 @@ public class SendGridTest {
     sg.addRequestHeader("X-Mock", "200");
 
     Request request = new Request();
-    request.method = Method.GET;
-    request.endpoint = "scopes";
+    request.setMethod(Method.GET);
+    request.setEndpoint("scopes");
     Response response = sg.api(request);
     Assert.assertEquals(200, response.statusCode);
   }
@@ -2577,9 +2577,9 @@ public class SendGridTest {
     sg.addRequestHeader("X-Mock", "201");
 
     Request request = new Request();
-    request.method = Method.POST;
-    request.endpoint = "senders";
-    request.body = "{\"city\":\"Denver\",\"from\":{\"email\":\"from@example.com\",\"name\":\"Example INC\"},\"zip\":\"80202\",\"country\":\"United States\",\"state\":\"Colorado\",\"address_2\":\"Apt. 456\",\"address\":\"123 Elm St.\",\"reply_to\":{\"email\":\"replyto@example.com\",\"name\":\"Example INC\"},\"nickname\":\"My Sender ID\"}";
+    request.setMethod(Method.POST);
+    request.setEndpoint("senders");
+    request.setBody("{\"city\":\"Denver\",\"from\":{\"email\":\"from@example.com\",\"name\":\"Example INC\"},\"zip\":\"80202\",\"country\":\"United States\",\"state\":\"Colorado\",\"address_2\":\"Apt. 456\",\"address\":\"123 Elm St.\",\"reply_to\":{\"email\":\"replyto@example.com\",\"name\":\"Example INC\"},\"nickname\":\"My Sender ID\"}");
     Response response = sg.api(request);
     Assert.assertEquals(201, response.statusCode);
   }
@@ -2597,8 +2597,8 @@ public class SendGridTest {
     sg.addRequestHeader("X-Mock", "200");
 
     Request request = new Request();
-    request.method = Method.GET;
-    request.endpoint = "senders";
+    request.setMethod(Method.GET);
+    request.setEndpoint("senders");
     Response response = sg.api(request);
     Assert.assertEquals(200, response.statusCode);
   }
@@ -2616,9 +2616,9 @@ public class SendGridTest {
     sg.addRequestHeader("X-Mock", "200");
 
     Request request = new Request();
-    request.method = Method.PATCH;
-    request.endpoint = "senders/{sender_id}";
-    request.body = "{\"city\":\"Denver\",\"from\":{\"email\":\"from@example.com\",\"name\":\"Example INC\"},\"zip\":\"80202\",\"country\":\"United States\",\"state\":\"Colorado\",\"address_2\":\"Apt. 456\",\"address\":\"123 Elm St.\",\"reply_to\":{\"email\":\"replyto@example.com\",\"name\":\"Example INC\"},\"nickname\":\"My Sender ID\"}";
+    request.setMethod(Method.PATCH);
+    request.setEndpoint("senders/{sender_id}");
+    request.setBody("{\"city\":\"Denver\",\"from\":{\"email\":\"from@example.com\",\"name\":\"Example INC\"},\"zip\":\"80202\",\"country\":\"United States\",\"state\":\"Colorado\",\"address_2\":\"Apt. 456\",\"address\":\"123 Elm St.\",\"reply_to\":{\"email\":\"replyto@example.com\",\"name\":\"Example INC\"},\"nickname\":\"My Sender ID\"}");
     Response response = sg.api(request);
     Assert.assertEquals(200, response.statusCode);
   }
@@ -2636,8 +2636,8 @@ public class SendGridTest {
     sg.addRequestHeader("X-Mock", "200");
 
     Request request = new Request();
-    request.method = Method.GET;
-    request.endpoint = "senders/{sender_id}";
+    request.setMethod(Method.GET);
+    request.setEndpoint("senders/{sender_id}");
     Response response = sg.api(request);
     Assert.assertEquals(200, response.statusCode);
   }
@@ -2655,8 +2655,8 @@ public class SendGridTest {
     sg.addRequestHeader("X-Mock", "204");
 
     Request request = new Request();
-    request.method = Method.DELETE;
-    request.endpoint = "senders/{sender_id}";
+    request.setMethod(Method.DELETE);
+    request.setEndpoint("senders/{sender_id}");
     Response response = sg.api(request);
     Assert.assertEquals(204, response.statusCode);
   }
@@ -2674,8 +2674,8 @@ public class SendGridTest {
     sg.addRequestHeader("X-Mock", "204");
 
     Request request = new Request();
-    request.method = Method.POST;
-    request.endpoint = "senders/{sender_id}/resend_verification";
+    request.setMethod(Method.POST);
+    request.setEndpoint("senders/{sender_id}/resend_verification");
     Response response = sg.api(request);
     Assert.assertEquals(204, response.statusCode);
   }
@@ -2693,15 +2693,15 @@ public class SendGridTest {
     sg.addRequestHeader("X-Mock", "200");
 
     Request request = new Request();
-    request.method = Method.GET;
-    request.endpoint = "stats";
+    request.setMethod(Method.GET);
+    request.setEndpoint("stats");
     Map<String,String> queryParams = new HashMap<String, String>();
     queryParams.put("aggregated_by", "day");
       queryParams.put("limit", "1");
       queryParams.put("start_date", "2016-01-01");
       queryParams.put("end_date", "2016-04-01");
       queryParams.put("offset", "1");
-    request.queryParams = queryParams;
+    setQueryParams(request, queryParams);
     Response response = sg.api(request);
     Assert.assertEquals(200, response.statusCode);
   }
@@ -2719,9 +2719,9 @@ public class SendGridTest {
     sg.addRequestHeader("X-Mock", "200");
 
     Request request = new Request();
-    request.method = Method.POST;
-    request.endpoint = "subusers";
-    request.body = "{\"username\":\"John@example.com\",\"ips\":[\"1.1.1.1\",\"2.2.2.2\"],\"password\":\"johns_password\",\"email\":\"John@example.com\"}";
+    request.setMethod(Method.POST);
+    request.setEndpoint("subusers");
+    request.setBody("{\"username\":\"John@example.com\",\"ips\":[\"1.1.1.1\",\"2.2.2.2\"],\"password\":\"johns_password\",\"email\":\"John@example.com\"}");
     Response response = sg.api(request);
     Assert.assertEquals(200, response.statusCode);
   }
@@ -2739,13 +2739,13 @@ public class SendGridTest {
     sg.addRequestHeader("X-Mock", "200");
 
     Request request = new Request();
-    request.method = Method.GET;
-    request.endpoint = "subusers";
+    request.setMethod(Method.GET);
+    request.setEndpoint("subusers");
     Map<String,String> queryParams = new HashMap<String, String>();
     queryParams.put("username", "test_string");
       queryParams.put("limit", "1");
       queryParams.put("offset", "1");
-    request.queryParams = queryParams;
+    setQueryParams(request, queryParams);
     Response response = sg.api(request);
     Assert.assertEquals(200, response.statusCode);
   }
@@ -2763,11 +2763,11 @@ public class SendGridTest {
     sg.addRequestHeader("X-Mock", "200");
 
     Request request = new Request();
-    request.method = Method.GET;
-    request.endpoint = "subusers/reputations";
+    request.setMethod(Method.GET);
+    request.setEndpoint("subusers/reputations");
     Map<String,String> queryParams = new HashMap<String, String>();
     queryParams.put("usernames", "test_string");
-    request.queryParams = queryParams;
+    setQueryParams(request, queryParams);
     Response response = sg.api(request);
     Assert.assertEquals(200, response.statusCode);
   }
@@ -2785,8 +2785,8 @@ public class SendGridTest {
     sg.addRequestHeader("X-Mock", "200");
 
     Request request = new Request();
-    request.method = Method.GET;
-    request.endpoint = "subusers/stats";
+    request.setMethod(Method.GET);
+    request.setEndpoint("subusers/stats");
     Map<String,String> queryParams = new HashMap<String, String>();
     queryParams.put("end_date", "2016-04-01");
       queryParams.put("aggregated_by", "day");
@@ -2794,7 +2794,7 @@ public class SendGridTest {
       queryParams.put("offset", "1");
       queryParams.put("start_date", "2016-01-01");
       queryParams.put("subusers", "test_string");
-    request.queryParams = queryParams;
+    setQueryParams(request, queryParams);
     Response response = sg.api(request);
     Assert.assertEquals(200, response.statusCode);
   }
@@ -2812,8 +2812,8 @@ public class SendGridTest {
     sg.addRequestHeader("X-Mock", "200");
 
     Request request = new Request();
-    request.method = Method.GET;
-    request.endpoint = "subusers/stats/monthly";
+    request.setMethod(Method.GET);
+    request.setEndpoint("subusers/stats/monthly");
     Map<String,String> queryParams = new HashMap<String, String>();
     queryParams.put("subuser", "test_string");
       queryParams.put("limit", "1");
@@ -2821,7 +2821,7 @@ public class SendGridTest {
       queryParams.put("offset", "1");
       queryParams.put("date", "test_string");
       queryParams.put("sort_by_direction", "asc");
-    request.queryParams = queryParams;
+    setQueryParams(request, queryParams);
     Response response = sg.api(request);
     Assert.assertEquals(200, response.statusCode);
   }
@@ -2839,8 +2839,8 @@ public class SendGridTest {
     sg.addRequestHeader("X-Mock", "200");
 
     Request request = new Request();
-    request.method = Method.GET;
-    request.endpoint = "subusers/stats/sums";
+    request.setMethod(Method.GET);
+    request.setEndpoint("subusers/stats/sums");
     Map<String,String> queryParams = new HashMap<String, String>();
     queryParams.put("end_date", "2016-04-01");
       queryParams.put("aggregated_by", "day");
@@ -2849,7 +2849,7 @@ public class SendGridTest {
       queryParams.put("offset", "1");
       queryParams.put("start_date", "2016-01-01");
       queryParams.put("sort_by_direction", "asc");
-    request.queryParams = queryParams;
+    setQueryParams(request, queryParams);
     Response response = sg.api(request);
     Assert.assertEquals(200, response.statusCode);
   }
@@ -2867,9 +2867,9 @@ public class SendGridTest {
     sg.addRequestHeader("X-Mock", "204");
 
     Request request = new Request();
-    request.method = Method.PATCH;
-    request.endpoint = "subusers/{subuser_name}";
-    request.body = "{\"disabled\":false}";
+    request.setMethod(Method.PATCH);
+    request.setEndpoint("subusers/{subuser_name}");
+    request.setBody("{\"disabled\":false}");
     Response response = sg.api(request);
     Assert.assertEquals(204, response.statusCode);
   }
@@ -2887,8 +2887,8 @@ public class SendGridTest {
     sg.addRequestHeader("X-Mock", "204");
 
     Request request = new Request();
-    request.method = Method.DELETE;
-    request.endpoint = "subusers/{subuser_name}";
+    request.setMethod(Method.DELETE);
+    request.setEndpoint("subusers/{subuser_name}");
     Response response = sg.api(request);
     Assert.assertEquals(204, response.statusCode);
   }
@@ -2906,9 +2906,9 @@ public class SendGridTest {
     sg.addRequestHeader("X-Mock", "200");
 
     Request request = new Request();
-    request.method = Method.PUT;
-    request.endpoint = "subusers/{subuser_name}/ips";
-    request.body = "[\"127.0.0.1\"]";
+    request.setMethod(Method.PUT);
+    request.setEndpoint("subusers/{subuser_name}/ips");
+    request.setBody("[\"127.0.0.1\"]");
     Response response = sg.api(request);
     Assert.assertEquals(200, response.statusCode);
   }
@@ -2926,9 +2926,9 @@ public class SendGridTest {
     sg.addRequestHeader("X-Mock", "200");
 
     Request request = new Request();
-    request.method = Method.PUT;
-    request.endpoint = "subusers/{subuser_name}/monitor";
-    request.body = "{\"frequency\":500,\"email\":\"example@example.com\"}";
+    request.setMethod(Method.PUT);
+    request.setEndpoint("subusers/{subuser_name}/monitor");
+    request.setBody("{\"frequency\":500,\"email\":\"example@example.com\"}");
     Response response = sg.api(request);
     Assert.assertEquals(200, response.statusCode);
   }
@@ -2946,9 +2946,9 @@ public class SendGridTest {
     sg.addRequestHeader("X-Mock", "200");
 
     Request request = new Request();
-    request.method = Method.POST;
-    request.endpoint = "subusers/{subuser_name}/monitor";
-    request.body = "{\"frequency\":50000,\"email\":\"example@example.com\"}";
+    request.setMethod(Method.POST);
+    request.setEndpoint("subusers/{subuser_name}/monitor");
+    request.setBody("{\"frequency\":50000,\"email\":\"example@example.com\"}");
     Response response = sg.api(request);
     Assert.assertEquals(200, response.statusCode);
   }
@@ -2966,8 +2966,8 @@ public class SendGridTest {
     sg.addRequestHeader("X-Mock", "200");
 
     Request request = new Request();
-    request.method = Method.GET;
-    request.endpoint = "subusers/{subuser_name}/monitor";
+    request.setMethod(Method.GET);
+    request.setEndpoint("subusers/{subuser_name}/monitor");
     Response response = sg.api(request);
     Assert.assertEquals(200, response.statusCode);
   }
@@ -2985,8 +2985,8 @@ public class SendGridTest {
     sg.addRequestHeader("X-Mock", "204");
 
     Request request = new Request();
-    request.method = Method.DELETE;
-    request.endpoint = "subusers/{subuser_name}/monitor";
+    request.setMethod(Method.DELETE);
+    request.setEndpoint("subusers/{subuser_name}/monitor");
     Response response = sg.api(request);
     Assert.assertEquals(204, response.statusCode);
   }
@@ -3004,15 +3004,15 @@ public class SendGridTest {
     sg.addRequestHeader("X-Mock", "200");
 
     Request request = new Request();
-    request.method = Method.GET;
-    request.endpoint = "subusers/{subuser_name}/stats/monthly";
+    request.setMethod(Method.GET);
+    request.setEndpoint("subusers/{subuser_name}/stats/monthly");
     Map<String,String> queryParams = new HashMap<String, String>();
     queryParams.put("date", "test_string");
       queryParams.put("sort_by_direction", "asc");
       queryParams.put("limit", "1");
       queryParams.put("sort_by_metric", "test_string");
       queryParams.put("offset", "1");
-    request.queryParams = queryParams;
+    setQueryParams(request, queryParams);
     Response response = sg.api(request);
     Assert.assertEquals(200, response.statusCode);
   }
@@ -3030,14 +3030,14 @@ public class SendGridTest {
     sg.addRequestHeader("X-Mock", "200");
 
     Request request = new Request();
-    request.method = Method.GET;
-    request.endpoint = "suppression/blocks";
+    request.setMethod(Method.GET);
+    request.setEndpoint("suppression/blocks");
     Map<String,String> queryParams = new HashMap<String, String>();
     queryParams.put("start_time", "1");
       queryParams.put("limit", "1");
       queryParams.put("end_time", "1");
       queryParams.put("offset", "1");
-    request.queryParams = queryParams;
+    setQueryParams(request, queryParams);
     Response response = sg.api(request);
     Assert.assertEquals(200, response.statusCode);
   }
@@ -3055,9 +3055,9 @@ public class SendGridTest {
     sg.addRequestHeader("X-Mock", "204");
 
     Request request = new Request();
-    request.method = Method.DELETE;
-    request.endpoint = "suppression/blocks";
-    request.body = "{\"emails\":[\"example1@example.com\",\"example2@example.com\"],\"delete_all\":false}";
+    request.setMethod(Method.DELETE);
+    request.setEndpoint("suppression/blocks");
+    request.setBody("{\"emails\":[\"example1@example.com\",\"example2@example.com\"],\"delete_all\":false}");
     Response response = sg.api(request);
     Assert.assertEquals(204, response.statusCode);
   }
@@ -3075,8 +3075,8 @@ public class SendGridTest {
     sg.addRequestHeader("X-Mock", "200");
 
     Request request = new Request();
-    request.method = Method.GET;
-    request.endpoint = "suppression/blocks/{email}";
+    request.setMethod(Method.GET);
+    request.setEndpoint("suppression/blocks/{email}");
     Response response = sg.api(request);
     Assert.assertEquals(200, response.statusCode);
   }
@@ -3094,8 +3094,8 @@ public class SendGridTest {
     sg.addRequestHeader("X-Mock", "204");
 
     Request request = new Request();
-    request.method = Method.DELETE;
-    request.endpoint = "suppression/blocks/{email}";
+    request.setMethod(Method.DELETE);
+    request.setEndpoint("suppression/blocks/{email}");
     Response response = sg.api(request);
     Assert.assertEquals(204, response.statusCode);
   }
@@ -3113,12 +3113,12 @@ public class SendGridTest {
     sg.addRequestHeader("X-Mock", "200");
 
     Request request = new Request();
-    request.method = Method.GET;
-    request.endpoint = "suppression/bounces";
+    request.setMethod(Method.GET);
+    request.setEndpoint("suppression/bounces");
     Map<String,String> queryParams = new HashMap<String, String>();
     queryParams.put("start_time", "1");
       queryParams.put("end_time", "1");
-    request.queryParams = queryParams;
+    setQueryParams(request, queryParams);
     Response response = sg.api(request);
     Assert.assertEquals(200, response.statusCode);
   }
@@ -3136,9 +3136,9 @@ public class SendGridTest {
     sg.addRequestHeader("X-Mock", "204");
 
     Request request = new Request();
-    request.method = Method.DELETE;
-    request.endpoint = "suppression/bounces";
-    request.body = "{\"emails\":[\"example@example.com\",\"example2@example.com\"],\"delete_all\":true}";
+    request.setMethod(Method.DELETE);
+    request.setEndpoint("suppression/bounces");
+    request.setBody("{\"emails\":[\"example@example.com\",\"example2@example.com\"],\"delete_all\":true}");
     Response response = sg.api(request);
     Assert.assertEquals(204, response.statusCode);
   }
@@ -3156,8 +3156,8 @@ public class SendGridTest {
     sg.addRequestHeader("X-Mock", "200");
 
     Request request = new Request();
-    request.method = Method.GET;
-    request.endpoint = "suppression/bounces/{email}";
+    request.setMethod(Method.GET);
+    request.setEndpoint("suppression/bounces/{email}");
     Response response = sg.api(request);
     Assert.assertEquals(200, response.statusCode);
   }
@@ -3175,11 +3175,11 @@ public class SendGridTest {
     sg.addRequestHeader("X-Mock", "204");
 
     Request request = new Request();
-    request.method = Method.DELETE;
-    request.endpoint = "suppression/bounces/{email}";
+    request.setMethod(Method.DELETE);
+    request.setEndpoint("suppression/bounces/{email}");
     Map<String,String> queryParams = new HashMap<String, String>();
     queryParams.put("email_address", "example@example.com");
-    request.queryParams = queryParams;
+    setQueryParams(request, queryParams);
     Response response = sg.api(request);
     Assert.assertEquals(204, response.statusCode);
   }
@@ -3197,14 +3197,14 @@ public class SendGridTest {
     sg.addRequestHeader("X-Mock", "200");
 
     Request request = new Request();
-    request.method = Method.GET;
-    request.endpoint = "suppression/invalid_emails";
+    request.setMethod(Method.GET);
+    request.setEndpoint("suppression/invalid_emails");
     Map<String,String> queryParams = new HashMap<String, String>();
     queryParams.put("start_time", "1");
       queryParams.put("limit", "1");
       queryParams.put("end_time", "1");
       queryParams.put("offset", "1");
-    request.queryParams = queryParams;
+    setQueryParams(request, queryParams);
     Response response = sg.api(request);
     Assert.assertEquals(200, response.statusCode);
   }
@@ -3222,9 +3222,9 @@ public class SendGridTest {
     sg.addRequestHeader("X-Mock", "204");
 
     Request request = new Request();
-    request.method = Method.DELETE;
-    request.endpoint = "suppression/invalid_emails";
-    request.body = "{\"emails\":[\"example1@example.com\",\"example2@example.com\"],\"delete_all\":false}";
+    request.setMethod(Method.DELETE);
+    request.setEndpoint("suppression/invalid_emails");
+    request.setBody("{\"emails\":[\"example1@example.com\",\"example2@example.com\"],\"delete_all\":false}");
     Response response = sg.api(request);
     Assert.assertEquals(204, response.statusCode);
   }
@@ -3242,8 +3242,8 @@ public class SendGridTest {
     sg.addRequestHeader("X-Mock", "200");
 
     Request request = new Request();
-    request.method = Method.GET;
-    request.endpoint = "suppression/invalid_emails/{email}";
+    request.setMethod(Method.GET);
+    request.setEndpoint("suppression/invalid_emails/{email}");
     Response response = sg.api(request);
     Assert.assertEquals(200, response.statusCode);
   }
@@ -3261,8 +3261,8 @@ public class SendGridTest {
     sg.addRequestHeader("X-Mock", "204");
 
     Request request = new Request();
-    request.method = Method.DELETE;
-    request.endpoint = "suppression/invalid_emails/{email}";
+    request.setMethod(Method.DELETE);
+    request.setEndpoint("suppression/invalid_emails/{email}");
     Response response = sg.api(request);
     Assert.assertEquals(204, response.statusCode);
   }
@@ -3280,8 +3280,8 @@ public class SendGridTest {
     sg.addRequestHeader("X-Mock", "200");
 
     Request request = new Request();
-    request.method = Method.GET;
-    request.endpoint = "suppression/spam_report/{email}";
+    request.setMethod(Method.GET);
+    request.setEndpoint("suppression/spam_report/{email}");
     Response response = sg.api(request);
     Assert.assertEquals(200, response.statusCode);
   }
@@ -3299,8 +3299,8 @@ public class SendGridTest {
     sg.addRequestHeader("X-Mock", "204");
 
     Request request = new Request();
-    request.method = Method.DELETE;
-    request.endpoint = "suppression/spam_report/{email}";
+    request.setMethod(Method.DELETE);
+    request.setEndpoint("suppression/spam_report/{email}");
     Response response = sg.api(request);
     Assert.assertEquals(204, response.statusCode);
   }
@@ -3318,14 +3318,14 @@ public class SendGridTest {
     sg.addRequestHeader("X-Mock", "200");
 
     Request request = new Request();
-    request.method = Method.GET;
-    request.endpoint = "suppression/spam_reports";
+    request.setMethod(Method.GET);
+    request.setEndpoint("suppression/spam_reports");
     Map<String,String> queryParams = new HashMap<String, String>();
     queryParams.put("start_time", "1");
       queryParams.put("limit", "1");
       queryParams.put("end_time", "1");
       queryParams.put("offset", "1");
-    request.queryParams = queryParams;
+    setQueryParams(request, queryParams);
     Response response = sg.api(request);
     Assert.assertEquals(200, response.statusCode);
   }
@@ -3343,9 +3343,9 @@ public class SendGridTest {
     sg.addRequestHeader("X-Mock", "204");
 
     Request request = new Request();
-    request.method = Method.DELETE;
-    request.endpoint = "suppression/spam_reports";
-    request.body = "{\"emails\":[\"example1@example.com\",\"example2@example.com\"],\"delete_all\":false}";
+    request.setMethod(Method.DELETE);
+    request.setEndpoint("suppression/spam_reports");
+    request.setBody("{\"emails\":[\"example1@example.com\",\"example2@example.com\"],\"delete_all\":false}");
     Response response = sg.api(request);
     Assert.assertEquals(204, response.statusCode);
   }
@@ -3363,14 +3363,14 @@ public class SendGridTest {
     sg.addRequestHeader("X-Mock", "200");
 
     Request request = new Request();
-    request.method = Method.GET;
-    request.endpoint = "suppression/unsubscribes";
+    request.setMethod(Method.GET);
+    request.setEndpoint("suppression/unsubscribes");
     Map<String,String> queryParams = new HashMap<String, String>();
     queryParams.put("start_time", "1");
       queryParams.put("limit", "1");
       queryParams.put("end_time", "1");
       queryParams.put("offset", "1");
-    request.queryParams = queryParams;
+    setQueryParams(request, queryParams);
     Response response = sg.api(request);
     Assert.assertEquals(200, response.statusCode);
   }
@@ -3388,9 +3388,9 @@ public class SendGridTest {
     sg.addRequestHeader("X-Mock", "201");
 
     Request request = new Request();
-    request.method = Method.POST;
-    request.endpoint = "templates";
-    request.body = "{\"name\":\"example_name\"}";
+    request.setMethod(Method.POST);
+    request.setEndpoint("templates");
+    request.setBody("{\"name\":\"example_name\"}");
     Response response = sg.api(request);
     Assert.assertEquals(201, response.statusCode);
   }
@@ -3408,8 +3408,8 @@ public class SendGridTest {
     sg.addRequestHeader("X-Mock", "200");
 
     Request request = new Request();
-    request.method = Method.GET;
-    request.endpoint = "templates";
+    request.setMethod(Method.GET);
+    request.setEndpoint("templates");
     Response response = sg.api(request);
     Assert.assertEquals(200, response.statusCode);
   }
@@ -3427,9 +3427,9 @@ public class SendGridTest {
     sg.addRequestHeader("X-Mock", "200");
 
     Request request = new Request();
-    request.method = Method.PATCH;
-    request.endpoint = "templates/{template_id}";
-    request.body = "{\"name\":\"new_example_name\"}";
+    request.setMethod(Method.PATCH);
+    request.setEndpoint("templates/{template_id}");
+    request.setBody("{\"name\":\"new_example_name\"}");
     Response response = sg.api(request);
     Assert.assertEquals(200, response.statusCode);
   }
@@ -3447,8 +3447,8 @@ public class SendGridTest {
     sg.addRequestHeader("X-Mock", "200");
 
     Request request = new Request();
-    request.method = Method.GET;
-    request.endpoint = "templates/{template_id}";
+    request.setMethod(Method.GET);
+    request.setEndpoint("templates/{template_id}");
     Response response = sg.api(request);
     Assert.assertEquals(200, response.statusCode);
   }
@@ -3466,8 +3466,8 @@ public class SendGridTest {
     sg.addRequestHeader("X-Mock", "204");
 
     Request request = new Request();
-    request.method = Method.DELETE;
-    request.endpoint = "templates/{template_id}";
+    request.setMethod(Method.DELETE);
+    request.setEndpoint("templates/{template_id}");
     Response response = sg.api(request);
     Assert.assertEquals(204, response.statusCode);
   }
@@ -3485,9 +3485,9 @@ public class SendGridTest {
     sg.addRequestHeader("X-Mock", "201");
 
     Request request = new Request();
-    request.method = Method.POST;
-    request.endpoint = "templates/{template_id}/versions";
-    request.body = "{\"name\":\"example_version_name\",\"html_content\":\"<%body%>\",\"plain_content\":\"<%body%>\",\"active\":1,\"template_id\":\"ddb96bbc-9b92-425e-8979-99464621b543\",\"subject\":\"<%subject%>\"}";
+    request.setMethod(Method.POST);
+    request.setEndpoint("templates/{template_id}/versions");
+    request.setBody("{\"name\":\"example_version_name\",\"html_content\":\"<%body%>\",\"plain_content\":\"<%body%>\",\"active\":1,\"template_id\":\"ddb96bbc-9b92-425e-8979-99464621b543\",\"subject\":\"<%subject%>\"}");
     Response response = sg.api(request);
     Assert.assertEquals(201, response.statusCode);
   }
@@ -3505,9 +3505,9 @@ public class SendGridTest {
     sg.addRequestHeader("X-Mock", "200");
 
     Request request = new Request();
-    request.method = Method.PATCH;
-    request.endpoint = "templates/{template_id}/versions/{version_id}";
-    request.body = "{\"active\":1,\"html_content\":\"<%body%>\",\"subject\":\"<%subject%>\",\"name\":\"updated_example_name\",\"plain_content\":\"<%body%>\"}";
+    request.setMethod(Method.PATCH);
+    request.setEndpoint("templates/{template_id}/versions/{version_id}");
+    request.setBody("{\"active\":1,\"html_content\":\"<%body%>\",\"subject\":\"<%subject%>\",\"name\":\"updated_example_name\",\"plain_content\":\"<%body%>\"}");
     Response response = sg.api(request);
     Assert.assertEquals(200, response.statusCode);
   }
@@ -3525,8 +3525,8 @@ public class SendGridTest {
     sg.addRequestHeader("X-Mock", "200");
 
     Request request = new Request();
-    request.method = Method.GET;
-    request.endpoint = "templates/{template_id}/versions/{version_id}";
+    request.setMethod(Method.GET);
+    request.setEndpoint("templates/{template_id}/versions/{version_id}");
     Response response = sg.api(request);
     Assert.assertEquals(200, response.statusCode);
   }
@@ -3544,8 +3544,8 @@ public class SendGridTest {
     sg.addRequestHeader("X-Mock", "204");
 
     Request request = new Request();
-    request.method = Method.DELETE;
-    request.endpoint = "templates/{template_id}/versions/{version_id}";
+    request.setMethod(Method.DELETE);
+    request.setEndpoint("templates/{template_id}/versions/{version_id}");
     Response response = sg.api(request);
     Assert.assertEquals(204, response.statusCode);
   }
@@ -3563,8 +3563,8 @@ public class SendGridTest {
     sg.addRequestHeader("X-Mock", "200");
 
     Request request = new Request();
-    request.method = Method.POST;
-    request.endpoint = "templates/{template_id}/versions/{version_id}/activate";
+    request.setMethod(Method.POST);
+    request.setEndpoint("templates/{template_id}/versions/{version_id}/activate");
     Response response = sg.api(request);
     Assert.assertEquals(200, response.statusCode);
   }
@@ -3582,12 +3582,12 @@ public class SendGridTest {
     sg.addRequestHeader("X-Mock", "200");
 
     Request request = new Request();
-    request.method = Method.GET;
-    request.endpoint = "tracking_settings";
+    request.setMethod(Method.GET);
+    request.setEndpoint("tracking_settings");
     Map<String,String> queryParams = new HashMap<String, String>();
     queryParams.put("limit", "1");
       queryParams.put("offset", "1");
-    request.queryParams = queryParams;
+    setQueryParams(request, queryParams);
     Response response = sg.api(request);
     Assert.assertEquals(200, response.statusCode);
   }
@@ -3605,9 +3605,9 @@ public class SendGridTest {
     sg.addRequestHeader("X-Mock", "200");
 
     Request request = new Request();
-    request.method = Method.PATCH;
-    request.endpoint = "tracking_settings/click";
-    request.body = "{\"enabled\":true}";
+    request.setMethod(Method.PATCH);
+    request.setEndpoint("tracking_settings/click");
+    request.setBody("{\"enabled\":true}");
     Response response = sg.api(request);
     Assert.assertEquals(200, response.statusCode);
   }
@@ -3625,8 +3625,8 @@ public class SendGridTest {
     sg.addRequestHeader("X-Mock", "200");
 
     Request request = new Request();
-    request.method = Method.GET;
-    request.endpoint = "tracking_settings/click";
+    request.setMethod(Method.GET);
+    request.setEndpoint("tracking_settings/click");
     Response response = sg.api(request);
     Assert.assertEquals(200, response.statusCode);
   }
@@ -3644,9 +3644,9 @@ public class SendGridTest {
     sg.addRequestHeader("X-Mock", "200");
 
     Request request = new Request();
-    request.method = Method.PATCH;
-    request.endpoint = "tracking_settings/google_analytics";
-    request.body = "{\"utm_campaign\":\"website\",\"utm_term\":\"\",\"utm_content\":\"\",\"enabled\":true,\"utm_source\":\"sendgrid.com\",\"utm_medium\":\"email\"}";
+    request.setMethod(Method.PATCH);
+    request.setEndpoint("tracking_settings/google_analytics");
+    request.setBody("{\"utm_campaign\":\"website\",\"utm_term\":\"\",\"utm_content\":\"\",\"enabled\":true,\"utm_source\":\"sendgrid.com\",\"utm_medium\":\"email\"}");
     Response response = sg.api(request);
     Assert.assertEquals(200, response.statusCode);
   }
@@ -3664,8 +3664,8 @@ public class SendGridTest {
     sg.addRequestHeader("X-Mock", "200");
 
     Request request = new Request();
-    request.method = Method.GET;
-    request.endpoint = "tracking_settings/google_analytics";
+    request.setMethod(Method.GET);
+    request.setEndpoint("tracking_settings/google_analytics");
     Response response = sg.api(request);
     Assert.assertEquals(200, response.statusCode);
   }
@@ -3683,9 +3683,9 @@ public class SendGridTest {
     sg.addRequestHeader("X-Mock", "200");
 
     Request request = new Request();
-    request.method = Method.PATCH;
-    request.endpoint = "tracking_settings/open";
-    request.body = "{\"enabled\":true}";
+    request.setMethod(Method.PATCH);
+    request.setEndpoint("tracking_settings/open");
+    request.setBody("{\"enabled\":true}");
     Response response = sg.api(request);
     Assert.assertEquals(200, response.statusCode);
   }
@@ -3703,8 +3703,8 @@ public class SendGridTest {
     sg.addRequestHeader("X-Mock", "200");
 
     Request request = new Request();
-    request.method = Method.GET;
-    request.endpoint = "tracking_settings/open";
+    request.setMethod(Method.GET);
+    request.setEndpoint("tracking_settings/open");
     Response response = sg.api(request);
     Assert.assertEquals(200, response.statusCode);
   }
@@ -3722,9 +3722,9 @@ public class SendGridTest {
     sg.addRequestHeader("X-Mock", "200");
 
     Request request = new Request();
-    request.method = Method.PATCH;
-    request.endpoint = "tracking_settings/subscription";
-    request.body = "{\"url\":\"url\",\"html_content\":\"html content\",\"enabled\":true,\"landing\":\"landing page html\",\"replace\":\"replacement tag\",\"plain_content\":\"text content\"}";
+    request.setMethod(Method.PATCH);
+    request.setEndpoint("tracking_settings/subscription");
+    request.setBody("{\"url\":\"url\",\"html_content\":\"html content\",\"enabled\":true,\"landing\":\"landing page html\",\"replace\":\"replacement tag\",\"plain_content\":\"text content\"}");
     Response response = sg.api(request);
     Assert.assertEquals(200, response.statusCode);
   }
@@ -3742,8 +3742,8 @@ public class SendGridTest {
     sg.addRequestHeader("X-Mock", "200");
 
     Request request = new Request();
-    request.method = Method.GET;
-    request.endpoint = "tracking_settings/subscription";
+    request.setMethod(Method.GET);
+    request.setEndpoint("tracking_settings/subscription");
     Response response = sg.api(request);
     Assert.assertEquals(200, response.statusCode);
   }
@@ -3761,8 +3761,8 @@ public class SendGridTest {
     sg.addRequestHeader("X-Mock", "200");
 
     Request request = new Request();
-    request.method = Method.GET;
-    request.endpoint = "user/account";
+    request.setMethod(Method.GET);
+    request.setEndpoint("user/account");
     Response response = sg.api(request);
     Assert.assertEquals(200, response.statusCode);
   }
@@ -3780,8 +3780,8 @@ public class SendGridTest {
     sg.addRequestHeader("X-Mock", "200");
 
     Request request = new Request();
-    request.method = Method.GET;
-    request.endpoint = "user/credits";
+    request.setMethod(Method.GET);
+    request.setEndpoint("user/credits");
     Response response = sg.api(request);
     Assert.assertEquals(200, response.statusCode);
   }
@@ -3799,9 +3799,9 @@ public class SendGridTest {
     sg.addRequestHeader("X-Mock", "200");
 
     Request request = new Request();
-    request.method = Method.PUT;
-    request.endpoint = "user/email";
-    request.body = "{\"email\":\"example@example.com\"}";
+    request.setMethod(Method.PUT);
+    request.setEndpoint("user/email");
+    request.setBody("{\"email\":\"example@example.com\"}");
     Response response = sg.api(request);
     Assert.assertEquals(200, response.statusCode);
   }
@@ -3819,8 +3819,8 @@ public class SendGridTest {
     sg.addRequestHeader("X-Mock", "200");
 
     Request request = new Request();
-    request.method = Method.GET;
-    request.endpoint = "user/email";
+    request.setMethod(Method.GET);
+    request.setEndpoint("user/email");
     Response response = sg.api(request);
     Assert.assertEquals(200, response.statusCode);
   }
@@ -3838,9 +3838,9 @@ public class SendGridTest {
     sg.addRequestHeader("X-Mock", "200");
 
     Request request = new Request();
-    request.method = Method.PUT;
-    request.endpoint = "user/password";
-    request.body = "{\"new_password\":\"new_password\",\"old_password\":\"old_password\"}";
+    request.setMethod(Method.PUT);
+    request.setEndpoint("user/password");
+    request.setBody("{\"new_password\":\"new_password\",\"old_password\":\"old_password\"}");
     Response response = sg.api(request);
     Assert.assertEquals(200, response.statusCode);
   }
@@ -3858,9 +3858,9 @@ public class SendGridTest {
     sg.addRequestHeader("X-Mock", "200");
 
     Request request = new Request();
-    request.method = Method.PATCH;
-    request.endpoint = "user/profile";
-    request.body = "{\"city\":\"Orange\",\"first_name\":\"Example\",\"last_name\":\"User\"}";
+    request.setMethod(Method.PATCH);
+    request.setEndpoint("user/profile");
+    request.setBody("{\"city\":\"Orange\",\"first_name\":\"Example\",\"last_name\":\"User\"}");
     Response response = sg.api(request);
     Assert.assertEquals(200, response.statusCode);
   }
@@ -3878,8 +3878,8 @@ public class SendGridTest {
     sg.addRequestHeader("X-Mock", "200");
 
     Request request = new Request();
-    request.method = Method.GET;
-    request.endpoint = "user/profile";
+    request.setMethod(Method.GET);
+    request.setEndpoint("user/profile");
     Response response = sg.api(request);
     Assert.assertEquals(200, response.statusCode);
   }
@@ -3897,9 +3897,9 @@ public class SendGridTest {
     sg.addRequestHeader("X-Mock", "201");
 
     Request request = new Request();
-    request.method = Method.POST;
-    request.endpoint = "user/scheduled_sends";
-    request.body = "{\"batch_id\":\"YOUR_BATCH_ID\",\"status\":\"pause\"}";
+    request.setMethod(Method.POST);
+    request.setEndpoint("user/scheduled_sends");
+    request.setBody("{\"batch_id\":\"YOUR_BATCH_ID\",\"status\":\"pause\"}");
     Response response = sg.api(request);
     Assert.assertEquals(201, response.statusCode);
   }
@@ -3917,8 +3917,8 @@ public class SendGridTest {
     sg.addRequestHeader("X-Mock", "200");
 
     Request request = new Request();
-    request.method = Method.GET;
-    request.endpoint = "user/scheduled_sends";
+    request.setMethod(Method.GET);
+    request.setEndpoint("user/scheduled_sends");
     Response response = sg.api(request);
     Assert.assertEquals(200, response.statusCode);
   }
@@ -3936,9 +3936,9 @@ public class SendGridTest {
     sg.addRequestHeader("X-Mock", "204");
 
     Request request = new Request();
-    request.method = Method.PATCH;
-    request.endpoint = "user/scheduled_sends/{batch_id}";
-    request.body = "{\"status\":\"pause\"}";
+    request.setMethod(Method.PATCH);
+    request.setEndpoint("user/scheduled_sends/{batch_id}");
+    request.setBody("{\"status\":\"pause\"}");
     Response response = sg.api(request);
     Assert.assertEquals(204, response.statusCode);
   }
@@ -3956,8 +3956,8 @@ public class SendGridTest {
     sg.addRequestHeader("X-Mock", "200");
 
     Request request = new Request();
-    request.method = Method.GET;
-    request.endpoint = "user/scheduled_sends/{batch_id}";
+    request.setMethod(Method.GET);
+    request.setEndpoint("user/scheduled_sends/{batch_id}");
     Response response = sg.api(request);
     Assert.assertEquals(200, response.statusCode);
   }
@@ -3975,8 +3975,8 @@ public class SendGridTest {
     sg.addRequestHeader("X-Mock", "204");
 
     Request request = new Request();
-    request.method = Method.DELETE;
-    request.endpoint = "user/scheduled_sends/{batch_id}";
+    request.setMethod(Method.DELETE);
+    request.setEndpoint("user/scheduled_sends/{batch_id}");
     Response response = sg.api(request);
     Assert.assertEquals(204, response.statusCode);
   }
@@ -3994,9 +3994,9 @@ public class SendGridTest {
     sg.addRequestHeader("X-Mock", "200");
 
     Request request = new Request();
-    request.method = Method.PATCH;
-    request.endpoint = "user/settings/enforced_tls";
-    request.body = "{\"require_tls\":true,\"require_valid_cert\":false}";
+    request.setMethod(Method.PATCH);
+    request.setEndpoint("user/settings/enforced_tls");
+    request.setBody("{\"require_tls\":true,\"require_valid_cert\":false}");
     Response response = sg.api(request);
     Assert.assertEquals(200, response.statusCode);
   }
@@ -4014,8 +4014,8 @@ public class SendGridTest {
     sg.addRequestHeader("X-Mock", "200");
 
     Request request = new Request();
-    request.method = Method.GET;
-    request.endpoint = "user/settings/enforced_tls";
+    request.setMethod(Method.GET);
+    request.setEndpoint("user/settings/enforced_tls");
     Response response = sg.api(request);
     Assert.assertEquals(200, response.statusCode);
   }
@@ -4033,9 +4033,9 @@ public class SendGridTest {
     sg.addRequestHeader("X-Mock", "200");
 
     Request request = new Request();
-    request.method = Method.PUT;
-    request.endpoint = "user/username";
-    request.body = "{\"username\":\"test_username\"}";
+    request.setMethod(Method.PUT);
+    request.setEndpoint("user/username");
+    request.setBody("{\"username\":\"test_username\"}");
     Response response = sg.api(request);
     Assert.assertEquals(200, response.statusCode);
   }
@@ -4053,8 +4053,8 @@ public class SendGridTest {
     sg.addRequestHeader("X-Mock", "200");
 
     Request request = new Request();
-    request.method = Method.GET;
-    request.endpoint = "user/username";
+    request.setMethod(Method.GET);
+    request.setEndpoint("user/username");
     Response response = sg.api(request);
     Assert.assertEquals(200, response.statusCode);
   }
@@ -4072,9 +4072,9 @@ public class SendGridTest {
     sg.addRequestHeader("X-Mock", "200");
 
     Request request = new Request();
-    request.method = Method.PATCH;
-    request.endpoint = "user/webhooks/event/settings";
-    request.body = "{\"group_resubscribe\":true,\"delivered\":true,\"group_unsubscribe\":true,\"spam_report\":true,\"url\":\"url\",\"enabled\":true,\"bounce\":true,\"deferred\":true,\"unsubscribe\":true,\"dropped\":true,\"open\":true,\"click\":true,\"processed\":true}";
+    request.setMethod(Method.PATCH);
+    request.setEndpoint("user/webhooks/event/settings");
+    request.setBody("{\"group_resubscribe\":true,\"delivered\":true,\"group_unsubscribe\":true,\"spam_report\":true,\"url\":\"url\",\"enabled\":true,\"bounce\":true,\"deferred\":true,\"unsubscribe\":true,\"dropped\":true,\"open\":true,\"click\":true,\"processed\":true}");
     Response response = sg.api(request);
     Assert.assertEquals(200, response.statusCode);
   }
@@ -4092,8 +4092,8 @@ public class SendGridTest {
     sg.addRequestHeader("X-Mock", "200");
 
     Request request = new Request();
-    request.method = Method.GET;
-    request.endpoint = "user/webhooks/event/settings";
+    request.setMethod(Method.GET);
+    request.setEndpoint("user/webhooks/event/settings");
     Response response = sg.api(request);
     Assert.assertEquals(200, response.statusCode);
   }
@@ -4111,9 +4111,9 @@ public class SendGridTest {
     sg.addRequestHeader("X-Mock", "204");
 
     Request request = new Request();
-    request.method = Method.POST;
-    request.endpoint = "user/webhooks/event/test";
-    request.body = "{\"url\":\"url\"}";
+    request.setMethod(Method.POST);
+    request.setEndpoint("user/webhooks/event/test");
+    request.setBody("{\"url\":\"url\"}");
     Response response = sg.api(request);
     Assert.assertEquals(204, response.statusCode);
   }
@@ -4131,9 +4131,9 @@ public class SendGridTest {
     sg.addRequestHeader("X-Mock", "201");
 
     Request request = new Request();
-    request.method = Method.POST;
-    request.endpoint = "user/webhooks/parse/settings";
-    request.body = "{\"url\":\"http://email.myhosthame.com\",\"send_raw\":false,\"hostname\":\"myhostname.com\",\"spam_check\":true}";
+    request.setMethod(Method.POST);
+    request.setEndpoint("user/webhooks/parse/settings");
+    request.setBody("{\"url\":\"http://email.myhosthame.com\",\"send_raw\":false,\"hostname\":\"myhostname.com\",\"spam_check\":true}");
     Response response = sg.api(request);
     Assert.assertEquals(201, response.statusCode);
   }
@@ -4151,8 +4151,8 @@ public class SendGridTest {
     sg.addRequestHeader("X-Mock", "200");
 
     Request request = new Request();
-    request.method = Method.GET;
-    request.endpoint = "user/webhooks/parse/settings";
+    request.setMethod(Method.GET);
+    request.setEndpoint("user/webhooks/parse/settings");
     Response response = sg.api(request);
     Assert.assertEquals(200, response.statusCode);
   }
@@ -4170,9 +4170,9 @@ public class SendGridTest {
     sg.addRequestHeader("X-Mock", "200");
 
     Request request = new Request();
-    request.method = Method.PATCH;
-    request.endpoint = "user/webhooks/parse/settings/{hostname}";
-    request.body = "{\"url\":\"http://newdomain.com/parse\",\"send_raw\":true,\"spam_check\":false}";
+    request.setMethod(Method.PATCH);
+    request.setEndpoint("user/webhooks/parse/settings/{hostname}");
+    request.setBody("{\"url\":\"http://newdomain.com/parse\",\"send_raw\":true,\"spam_check\":false}");
     Response response = sg.api(request);
     Assert.assertEquals(200, response.statusCode);
   }
@@ -4190,8 +4190,8 @@ public class SendGridTest {
     sg.addRequestHeader("X-Mock", "200");
 
     Request request = new Request();
-    request.method = Method.GET;
-    request.endpoint = "user/webhooks/parse/settings/{hostname}";
+    request.setMethod(Method.GET);
+    request.setEndpoint("user/webhooks/parse/settings/{hostname}");
     Response response = sg.api(request);
     Assert.assertEquals(200, response.statusCode);
   }
@@ -4209,8 +4209,8 @@ public class SendGridTest {
     sg.addRequestHeader("X-Mock", "204");
 
     Request request = new Request();
-    request.method = Method.DELETE;
-    request.endpoint = "user/webhooks/parse/settings/{hostname}";
+    request.setMethod(Method.DELETE);
+    request.setEndpoint("user/webhooks/parse/settings/{hostname}");
     Response response = sg.api(request);
     Assert.assertEquals(204, response.statusCode);
   }
@@ -4228,15 +4228,15 @@ public class SendGridTest {
     sg.addRequestHeader("X-Mock", "200");
 
     Request request = new Request();
-    request.method = Method.GET;
-    request.endpoint = "user/webhooks/parse/stats";
+    request.setMethod(Method.GET);
+    request.setEndpoint("user/webhooks/parse/stats");
     Map<String,String> queryParams = new HashMap<String, String>();
     queryParams.put("aggregated_by", "day");
       queryParams.put("limit", "test_string");
       queryParams.put("start_date", "2016-01-01");
       queryParams.put("end_date", "2016-04-01");
       queryParams.put("offset", "test_string");
-    request.queryParams = queryParams;
+    setQueryParams(request, queryParams);
     Response response = sg.api(request);
     Assert.assertEquals(200, response.statusCode);
   }
@@ -4254,9 +4254,9 @@ public class SendGridTest {
     sg.addRequestHeader("X-Mock", "201");
 
     Request request = new Request();
-    request.method = Method.POST;
-    request.endpoint = "whitelabel/domains";
-    request.body = "{\"automatic_security\":false,\"username\":\"john@example.com\",\"domain\":\"example.com\",\"default\":true,\"custom_spf\":true,\"ips\":[\"192.168.1.1\",\"192.168.1.2\"],\"subdomain\":\"news\"}";
+    request.setMethod(Method.POST);
+    request.setEndpoint("whitelabel/domains");
+    request.setBody("{\"automatic_security\":false,\"username\":\"john@example.com\",\"domain\":\"example.com\",\"default\":true,\"custom_spf\":true,\"ips\":[\"192.168.1.1\",\"192.168.1.2\"],\"subdomain\":\"news\"}");
     Response response = sg.api(request);
     Assert.assertEquals(201, response.statusCode);
   }
@@ -4274,15 +4274,15 @@ public class SendGridTest {
     sg.addRequestHeader("X-Mock", "200");
 
     Request request = new Request();
-    request.method = Method.GET;
-    request.endpoint = "whitelabel/domains";
+    request.setMethod(Method.GET);
+    request.setEndpoint("whitelabel/domains");
     Map<String,String> queryParams = new HashMap<String, String>();
     queryParams.put("username", "test_string");
       queryParams.put("domain", "test_string");
       queryParams.put("exclude_subusers", "true");
       queryParams.put("limit", "1");
       queryParams.put("offset", "1");
-    request.queryParams = queryParams;
+    setQueryParams(request, queryParams);
     Response response = sg.api(request);
     Assert.assertEquals(200, response.statusCode);
   }
@@ -4300,8 +4300,8 @@ public class SendGridTest {
     sg.addRequestHeader("X-Mock", "200");
 
     Request request = new Request();
-    request.method = Method.GET;
-    request.endpoint = "whitelabel/domains/default";
+    request.setMethod(Method.GET);
+    request.setEndpoint("whitelabel/domains/default");
     Response response = sg.api(request);
     Assert.assertEquals(200, response.statusCode);
   }
@@ -4319,8 +4319,8 @@ public class SendGridTest {
     sg.addRequestHeader("X-Mock", "200");
 
     Request request = new Request();
-    request.method = Method.GET;
-    request.endpoint = "whitelabel/domains/subuser";
+    request.setMethod(Method.GET);
+    request.setEndpoint("whitelabel/domains/subuser");
     Response response = sg.api(request);
     Assert.assertEquals(200, response.statusCode);
   }
@@ -4338,8 +4338,8 @@ public class SendGridTest {
     sg.addRequestHeader("X-Mock", "204");
 
     Request request = new Request();
-    request.method = Method.DELETE;
-    request.endpoint = "whitelabel/domains/subuser";
+    request.setMethod(Method.DELETE);
+    request.setEndpoint("whitelabel/domains/subuser");
     Response response = sg.api(request);
     Assert.assertEquals(204, response.statusCode);
   }
@@ -4357,9 +4357,9 @@ public class SendGridTest {
     sg.addRequestHeader("X-Mock", "200");
 
     Request request = new Request();
-    request.method = Method.PATCH;
-    request.endpoint = "whitelabel/domains/{domain_id}";
-    request.body = "{\"default\":false,\"custom_spf\":true}";
+    request.setMethod(Method.PATCH);
+    request.setEndpoint("whitelabel/domains/{domain_id}");
+    request.setBody("{\"default\":false,\"custom_spf\":true}");
     Response response = sg.api(request);
     Assert.assertEquals(200, response.statusCode);
   }
@@ -4377,8 +4377,8 @@ public class SendGridTest {
     sg.addRequestHeader("X-Mock", "200");
 
     Request request = new Request();
-    request.method = Method.GET;
-    request.endpoint = "whitelabel/domains/{domain_id}";
+    request.setMethod(Method.GET);
+    request.setEndpoint("whitelabel/domains/{domain_id}");
     Response response = sg.api(request);
     Assert.assertEquals(200, response.statusCode);
   }
@@ -4396,8 +4396,8 @@ public class SendGridTest {
     sg.addRequestHeader("X-Mock", "204");
 
     Request request = new Request();
-    request.method = Method.DELETE;
-    request.endpoint = "whitelabel/domains/{domain_id}";
+    request.setMethod(Method.DELETE);
+    request.setEndpoint("whitelabel/domains/{domain_id}");
     Response response = sg.api(request);
     Assert.assertEquals(204, response.statusCode);
   }
@@ -4415,9 +4415,9 @@ public class SendGridTest {
     sg.addRequestHeader("X-Mock", "201");
 
     Request request = new Request();
-    request.method = Method.POST;
-    request.endpoint = "whitelabel/domains/{domain_id}/subuser";
-    request.body = "{\"username\":\"jane@example.com\"}";
+    request.setMethod(Method.POST);
+    request.setEndpoint("whitelabel/domains/{domain_id}/subuser");
+    request.setBody("{\"username\":\"jane@example.com\"}");
     Response response = sg.api(request);
     Assert.assertEquals(201, response.statusCode);
   }
@@ -4435,9 +4435,9 @@ public class SendGridTest {
     sg.addRequestHeader("X-Mock", "200");
 
     Request request = new Request();
-    request.method = Method.POST;
-    request.endpoint = "whitelabel/domains/{id}/ips";
-    request.body = "{\"ip\":\"192.168.0.1\"}";
+    request.setMethod(Method.POST);
+    request.setEndpoint("whitelabel/domains/{id}/ips");
+    request.setBody("{\"ip\":\"192.168.0.1\"}");
     Response response = sg.api(request);
     Assert.assertEquals(200, response.statusCode);
   }
@@ -4455,8 +4455,8 @@ public class SendGridTest {
     sg.addRequestHeader("X-Mock", "200");
 
     Request request = new Request();
-    request.method = Method.DELETE;
-    request.endpoint = "whitelabel/domains/{id}/ips/{ip}";
+    request.setMethod(Method.DELETE);
+    request.setEndpoint("whitelabel/domains/{id}/ips/{ip}");
     Response response = sg.api(request);
     Assert.assertEquals(200, response.statusCode);
   }
@@ -4474,8 +4474,8 @@ public class SendGridTest {
     sg.addRequestHeader("X-Mock", "200");
 
     Request request = new Request();
-    request.method = Method.POST;
-    request.endpoint = "whitelabel/domains/{id}/validate";
+    request.setMethod(Method.POST);
+    request.setEndpoint("whitelabel/domains/{id}/validate");
     Response response = sg.api(request);
     Assert.assertEquals(200, response.statusCode);
   }
@@ -4493,9 +4493,9 @@ public class SendGridTest {
     sg.addRequestHeader("X-Mock", "201");
 
     Request request = new Request();
-    request.method = Method.POST;
-    request.endpoint = "whitelabel/ips";
-    request.body = "{\"ip\":\"192.168.1.1\",\"domain\":\"example.com\",\"subdomain\":\"email\"}";
+    request.setMethod(Method.POST);
+    request.setEndpoint("whitelabel/ips");
+    request.setBody("{\"ip\":\"192.168.1.1\",\"domain\":\"example.com\",\"subdomain\":\"email\"}");
     Response response = sg.api(request);
     Assert.assertEquals(201, response.statusCode);
   }
@@ -4513,13 +4513,13 @@ public class SendGridTest {
     sg.addRequestHeader("X-Mock", "200");
 
     Request request = new Request();
-    request.method = Method.GET;
-    request.endpoint = "whitelabel/ips";
+    request.setMethod(Method.GET);
+    request.setEndpoint("whitelabel/ips");
     Map<String,String> queryParams = new HashMap<String, String>();
     queryParams.put("ip", "test_string");
       queryParams.put("limit", "1");
       queryParams.put("offset", "1");
-    request.queryParams = queryParams;
+    setQueryParams(request, queryParams);
     Response response = sg.api(request);
     Assert.assertEquals(200, response.statusCode);
   }
@@ -4537,8 +4537,8 @@ public class SendGridTest {
     sg.addRequestHeader("X-Mock", "200");
 
     Request request = new Request();
-    request.method = Method.GET;
-    request.endpoint = "whitelabel/ips/{id}";
+    request.setMethod(Method.GET);
+    request.setEndpoint("whitelabel/ips/{id}");
     Response response = sg.api(request);
     Assert.assertEquals(200, response.statusCode);
   }
@@ -4556,8 +4556,8 @@ public class SendGridTest {
     sg.addRequestHeader("X-Mock", "204");
 
     Request request = new Request();
-    request.method = Method.DELETE;
-    request.endpoint = "whitelabel/ips/{id}";
+    request.setMethod(Method.DELETE);
+    request.setEndpoint("whitelabel/ips/{id}");
     Response response = sg.api(request);
     Assert.assertEquals(204, response.statusCode);
   }
@@ -4575,8 +4575,8 @@ public class SendGridTest {
     sg.addRequestHeader("X-Mock", "200");
 
     Request request = new Request();
-    request.method = Method.POST;
-    request.endpoint = "whitelabel/ips/{id}/validate";
+    request.setMethod(Method.POST);
+    request.setEndpoint("whitelabel/ips/{id}/validate");
     Response response = sg.api(request);
     Assert.assertEquals(200, response.statusCode);
   }
@@ -4594,13 +4594,13 @@ public class SendGridTest {
     sg.addRequestHeader("X-Mock", "201");
 
     Request request = new Request();
-    request.method = Method.POST;
-    request.endpoint = "whitelabel/links";
-    request.body = "{\"default\":true,\"domain\":\"example.com\",\"subdomain\":\"mail\"}";
+    request.setMethod(Method.POST);
+    request.setEndpoint("whitelabel/links");
+    request.setBody("{\"default\":true,\"domain\":\"example.com\",\"subdomain\":\"mail\"}");
     Map<String,String> queryParams = new HashMap<String, String>();
     queryParams.put("limit", "1");
       queryParams.put("offset", "1");
-    request.queryParams = queryParams;
+    setQueryParams(request, queryParams);
     Response response = sg.api(request);
     Assert.assertEquals(201, response.statusCode);
   }
@@ -4618,11 +4618,11 @@ public class SendGridTest {
     sg.addRequestHeader("X-Mock", "200");
 
     Request request = new Request();
-    request.method = Method.GET;
-    request.endpoint = "whitelabel/links";
+    request.setMethod(Method.GET);
+    request.setEndpoint("whitelabel/links");
     Map<String,String> queryParams = new HashMap<String, String>();
     queryParams.put("limit", "1");
-    request.queryParams = queryParams;
+    setQueryParams(request, queryParams);
     Response response = sg.api(request);
     Assert.assertEquals(200, response.statusCode);
   }
@@ -4640,11 +4640,11 @@ public class SendGridTest {
     sg.addRequestHeader("X-Mock", "200");
 
     Request request = new Request();
-    request.method = Method.GET;
-    request.endpoint = "whitelabel/links/default";
+    request.setMethod(Method.GET);
+    request.setEndpoint("whitelabel/links/default");
     Map<String,String> queryParams = new HashMap<String, String>();
     queryParams.put("domain", "test_string");
-    request.queryParams = queryParams;
+    setQueryParams(request, queryParams);
     Response response = sg.api(request);
     Assert.assertEquals(200, response.statusCode);
   }
@@ -4662,11 +4662,11 @@ public class SendGridTest {
     sg.addRequestHeader("X-Mock", "200");
 
     Request request = new Request();
-    request.method = Method.GET;
-    request.endpoint = "whitelabel/links/subuser";
+    request.setMethod(Method.GET);
+    request.setEndpoint("whitelabel/links/subuser");
     Map<String,String> queryParams = new HashMap<String, String>();
     queryParams.put("username", "test_string");
-    request.queryParams = queryParams;
+    setQueryParams(request, queryParams);
     Response response = sg.api(request);
     Assert.assertEquals(200, response.statusCode);
   }
@@ -4684,11 +4684,11 @@ public class SendGridTest {
     sg.addRequestHeader("X-Mock", "204");
 
     Request request = new Request();
-    request.method = Method.DELETE;
-    request.endpoint = "whitelabel/links/subuser";
+    request.setMethod(Method.DELETE);
+    request.setEndpoint("whitelabel/links/subuser");
     Map<String,String> queryParams = new HashMap<String, String>();
     queryParams.put("username", "test_string");
-    request.queryParams = queryParams;
+    setQueryParams(request, queryParams);
     Response response = sg.api(request);
     Assert.assertEquals(204, response.statusCode);
   }
@@ -4706,9 +4706,9 @@ public class SendGridTest {
     sg.addRequestHeader("X-Mock", "200");
 
     Request request = new Request();
-    request.method = Method.PATCH;
-    request.endpoint = "whitelabel/links/{id}";
-    request.body = "{\"default\":true}";
+    request.setMethod(Method.PATCH);
+    request.setEndpoint("whitelabel/links/{id}");
+    request.setBody("{\"default\":true}");
     Response response = sg.api(request);
     Assert.assertEquals(200, response.statusCode);
   }
@@ -4726,8 +4726,8 @@ public class SendGridTest {
     sg.addRequestHeader("X-Mock", "200");
 
     Request request = new Request();
-    request.method = Method.GET;
-    request.endpoint = "whitelabel/links/{id}";
+    request.setMethod(Method.GET);
+    request.setEndpoint("whitelabel/links/{id}");
     Response response = sg.api(request);
     Assert.assertEquals(200, response.statusCode);
   }
@@ -4745,8 +4745,8 @@ public class SendGridTest {
     sg.addRequestHeader("X-Mock", "204");
 
     Request request = new Request();
-    request.method = Method.DELETE;
-    request.endpoint = "whitelabel/links/{id}";
+    request.setMethod(Method.DELETE);
+    request.setEndpoint("whitelabel/links/{id}");
     Response response = sg.api(request);
     Assert.assertEquals(204, response.statusCode);
   }
@@ -4764,8 +4764,8 @@ public class SendGridTest {
     sg.addRequestHeader("X-Mock", "200");
 
     Request request = new Request();
-    request.method = Method.POST;
-    request.endpoint = "whitelabel/links/{id}/validate";
+    request.setMethod(Method.POST);
+    request.setEndpoint("whitelabel/links/{id}/validate");
     Response response = sg.api(request);
     Assert.assertEquals(200, response.statusCode);
   }
@@ -4783,11 +4783,17 @@ public class SendGridTest {
     sg.addRequestHeader("X-Mock", "200");
 
     Request request = new Request();
-    request.method = Method.POST;
-    request.endpoint = "whitelabel/links/{link_id}/subuser";
-    request.body = "{\"username\":\"jane@example.com\"}";
+    request.setMethod(Method.POST);
+    request.setEndpoint("whitelabel/links/{link_id}/subuser");
+    request.setBody("{\"username\":\"jane@example.com\"}");
     Response response = sg.api(request);
     Assert.assertEquals(200, response.statusCode);
+  }
+  
+  private void setQueryParams(Request req, Map<String, String> queryParams) {
+    for (String key : queryParams.keySet()) {
+      req.addQueryParam(key, queryParams.get(key));
+    }
   }
 
 }
