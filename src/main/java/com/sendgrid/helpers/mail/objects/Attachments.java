@@ -60,11 +60,7 @@ public class Attachments {
 		this.disposition = disposition;
 		return this;
 	}
-<<<<<<< HEAD
-	
-=======
-
->>>>>>> Refactoring, correct package and fluent interface
+  
 	@JsonProperty("content_id")
 	public String getContentId() {
 		return this.contentId;
@@ -151,8 +147,4 @@ public class Attachments {
       return attachments;
     }
   }
-<<<<<<< HEAD
-
-=======
->>>>>>> Fix #134. Adds an attachment builder class that supports passing content as InputStream.
 }
