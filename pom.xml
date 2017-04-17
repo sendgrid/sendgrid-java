@@ -106,6 +106,12 @@
             <artifactId>jackson-databind</artifactId>
             <version>2.5.3</version>
         </dependency>
+	<dependency>
+	    <groupId>org.skyscreamer</groupId>
+	    <artifactId>jsonassert</artifactId>
+	    <version>1.2.3</version>
+	<scope>test</scope>
+	</dependency>
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit-dep</artifactId>
