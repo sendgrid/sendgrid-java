@@ -62,12 +62,6 @@ repositories {
 ...
 ```
 
-Then import the library - in the file appropriate to your Java project.
-
-```java
-import com.sendgrid.SendGrid;
-```
-
 ### via Maven
 
 ```
