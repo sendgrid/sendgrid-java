@@ -80,10 +80,6 @@ You can just drop the jar file in. It's a fat jar - it has all the dependencies 
 
 [sendgrid-java.jar](http://repo1.maven.org/maven2/com/sendgrid/sendgrid-java/3.2.1/sendgrid-java-3.2.1-jar.jar)
 
-```java
-import com.sendgrid.*;
-```
-
 ## Dependencies
 
 - [Java-HTTP-Client](https://github.com/sendgrid/java-http-client)
