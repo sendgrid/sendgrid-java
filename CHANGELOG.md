@@ -17,7 +17,8 @@ All notable changes to this project will be documented in this file.
 - Adding a query parameter goes from:
 
 ```java
-Map<String,String> queryParams = new HashMap<String, String>();		 +    request.addQueryParam("limit", "1");
+Map<String,String> queryParams = new HashMap<String, String>();
+request.addQueryParam("limit", "1");
 queryParams.put("limit", "1");
 request.queryParams = queryParams;
 ```
