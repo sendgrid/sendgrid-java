@@ -14,7 +14,7 @@ public class SendGrid {
   private String apiKey;
   private String host;
   private String version;
-  private Client client;
+  private final Client client;
   private Map<String,String> requestHeaders;
 
   /**
@@ -88,7 +88,7 @@ public class SendGrid {
   }
 
   /**
-    * Class makeCall makes the call to the SendGrid API, override this method for testing.
+    * Makes the call to the SendGrid API, override this method for testing.
     */
   public Response makeCall(Request request) throws IOException {
     return client.api(request);
@@ -105,7 +105,6 @@ public class SendGrid {
     req.body = request.body;
     req.headers = this.requestHeaders;
     req.queryParams = request.queryParams;
-
     return makeCall(req);
   }
 }
