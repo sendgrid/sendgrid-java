@@ -1,6 +1,33 @@
 # Change Log
 All notable changes to this project will be documented in this file.
 
+## [4.0.0] - 2017-04-18
+### BREAKING CHANGE
+- PR #162 Update java http client dependency to [4.1.0 from 2.3.4](https://github.com/sendgrid/java-http-client/releases)
+- BIG thanks to [Diego Camargo](https://github.com/belfazt) for the pull request!
+- The breaking change is that variables that were public are now private and accessable only via getters and setters
+- The `Request` object attributes are now only accessable through getters/setters
+- `request.method` is now `request.setMethod(string)`
+- `request.endpoint` is now `request.setEndpoint(string)`
+- `request.body` is now `request.setBody(string)`
+- The `Response` object attributes are now only accessable through getters/setters
+- `response.statusCode` is now `response.getStatusCode()`
+- `response.body` is now `response.getBody()`
+- `response.headers` is now `response.getHeaders()`
+- Adding a query parameter goes from:
+
+```java
+Map<String,String> queryParams = new HashMap<String, String>();		 +    request.addQueryParam("limit", "1");
+queryParams.put("limit", "1");
+request.queryParams = queryParams;
+```
+
+to:
+
+```java
+request.addQueryParam("limit", "1");
+```
+
 ## [3.2.1] - 2017-04-13
 ### Added
 - PR #175
