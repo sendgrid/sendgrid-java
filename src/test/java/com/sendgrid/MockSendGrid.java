@@ -2,6 +2,7 @@ package com.sendgrid;
 
 import java.io.IOException;
 import java.util.HashMap;
+import java.util.Map;
 
 public class MockSendGrid extends SendGrid {
   Request request;
@@ -13,10 +14,11 @@ public class MockSendGrid extends SendGrid {
   public Response makeCall(Request request) throws IOException {
     this.request = request;
     Response response = new Response();
-    response.statusCode = 200;
-    response.body = "{\"message\":\"success\"}";
-    response.headers = new HashMap<String, String>();
-    response.headers.put("Test", "Header");
+    response.setStatusCode(200);
+    response.setBody("{\"message\":\"success\"}");
+    Map<String, String> headers = new HashMap<>();
+    headers.put("Test", "Header");
+    response.setHeaders(headers);
     return response;
   }
 
