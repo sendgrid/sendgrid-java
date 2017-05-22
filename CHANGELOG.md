@@ -1,6 +1,11 @@
 # Change Log
 All notable changes to this project will be documented in this file.
 
+## [4.0.1] - 2017-05-22
+### Fix
+- PR #199 Return correct Email in getFrom
+- BIG thanks to [Jared Dellitt](https://github.com/jareddellitt)
+
 ## [4.0.0] - 2017-04-18
 ### BREAKING CHANGE
 - PR #162 Update java http client dependency to [4.1.0 from 2.3.4](https://github.com/sendgrid/java-http-client/releases)
