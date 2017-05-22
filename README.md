@@ -94,9 +94,9 @@ import java.io.IOException;
 public class Example {
   public static void main(String[] args) throws IOException {
     Email from = new Email("test@example.com");
-    String subject = "Hello World from the SendGrid Java Library!";
+    String subject = "Sending with SendGrid is Fun";
     Email to = new Email("test@example.com");
-    Content content = new Content("text/plain", "Hello, Email!");
+    Content content = new Content("text/plain", "and easy to do anywhere, even with Java");
     Mail mail = new Mail(from, subject, to, content);
 
     SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
@@ -133,7 +133,7 @@ public class Example {
       Request request = new Request();
       request.setMethod(Method.POST);
       request.setEndpoint("mail/send");
-      request.setBody("{\"personalizations\":[{\"to\":[{\"email\":\"test@example.com\"}],\"subject\":\"Hello World from the SendGrid Java Library!\"}],\"from\":{\"email\":\"test@example.com\"},\"content\":[{\"type\":\"text/plain\",\"value\": \"Hello, Email!\"}]}");
+      request.setBody("{\"personalizations\":[{\"to\":[{\"email\":\"test@example.com\"}],\"subject\":\"Sending with SendGrid is Fun\"}],\"from\":{\"email\":\"test@example.com\"},\"content\":[{\"type\":\"text/plain\",\"value\": \"and easy to do anywhere, even with Java\"}]}");
       Response response = sg.api(request);
       System.out.println(response.getStatusCode());
       System.out.println(response.getBody());
