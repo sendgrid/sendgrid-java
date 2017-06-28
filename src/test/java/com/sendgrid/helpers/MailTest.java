@@ -10,30 +10,13 @@ public class MailTest {
 
   @Test
   public void testHelloWorld() throws IOException {
-    Mail mail = new Mail();
+    Email from = new Email("test@example.com");
+    String subject = "Sending with SendGrid is Fun";
+    Email to = new Email("test@example.com");
+    Content content = new Content("text/plain", "and easy to do anywhere, even with Java");
+    Mail mail = new Mail(from, subject, to, content);
 
-    Email fromEmail = new Email();
-    fromEmail.setEmail("test@example.com");
-    mail.setFrom(fromEmail);
-
-    Personalization personalization = new Personalization();
-    Email to = new Email();
-    to.setEmail("test@example.com");
-    personalization.addTo(to);
-
-    mail.addPersonalization(personalization);
-
-    mail.setSubject("Hello World from the SendGrid Java Library");
-
-    Content content = new Content();
-    content.setType("text/plain");
-    content.setValue("some text here");
-    mail.addContent(content);
-    content.setType("text/html");
-    content.setValue("<html><body>some text here</body></html>");
-    mail.addContent(content);
-
-    Assert.assertEquals(mail.build(), "{\"from\":{\"email\":\"test@example.com\"},\"subject\":\"Hello World from the SendGrid Java Library\",\"personalizations\":[{\"to\":[{\"email\":\"test@example.com\"}]}],\"content\":[{\"type\":\"text/plain\",\"value\":\"some text here\"},{\"type\":\"text/html\",\"value\":\"<html><body>some text here</body></html>\"}]}");
+    Assert.assertEquals(mail.build(), "{\"from\":{\"email\":\"test@example.com\"},\"subject\":\"Sending with SendGrid is Fun\",\"personalizations\":[{\"to\":[{\"email\":\"test@example.com\"}]}],\"content\":[{\"type\":\"text/plain\",\"value\":\"and easy to do anywhere, even with Java\"}]}");
   }
 
   @Test
