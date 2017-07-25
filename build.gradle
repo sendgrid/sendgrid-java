@@ -76,11 +76,6 @@ fatJar {
 // copy fatJar to base project directory so they will be in git (and on github for download)
 build << {
   copy {
-    println "Copying ${fatJar.archiveName} to $projectDir/repo/com/sendgrid/$version"
-    from("$buildDir/libs/${fatJar.archiveName}")
-    into("$projectDir/repo/com/sendgrid/$version")
-  }
-  copy {
     println "Copying ${fatJar.archiveName} to $projectDir/repo/com/sendgrid"
     from("$buildDir/libs/${fatJar.archiveName}")
     into("$projectDir/repo/com/sendgrid")
@@ -90,7 +85,12 @@ build << {
 
 task renameSendGridVersionJarToSendGridJar {
   doLast {
-    file("$projectDir/repo/com/sendgrid/${fatJar.archiveName}").renameTo(file("$projectDir/repo/com/sendgrid/sendgrid-jar.jar"))
+    file("$projectDir/repo/com/sendgrid/${fatJar.archiveName}").renameTo(file("$projectDir/repo/com/sendgrid/sendgrid-java-latest.jar"))
+    copy {
+      from("$buildDir/libs/${fatJar.archiveName}")
+      into("$projectDir/repo/com/sendgrid")
+    }
+    file("$projectDir/repo/com/sendgrid/${fatJar.archiveName}").renameTo(file("$projectDir/repo/com/sendgrid/sendgrid-java-${version}.jar"))
   }
 }
 
