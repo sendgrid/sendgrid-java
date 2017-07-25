@@ -72,7 +72,7 @@ mvn install
 
 You can just drop the jar file in. It's a fat jar - it has all the dependencies built in.
 
-[sendgrid-java.jar](http://repo1.maven.org/maven2/com/sendgrid/sendgrid-java/4.0.1/sendgrid-java-4.0.1-jar.jar)
+[sendgrid-java-latest.jar](http://dx.sendgrid.com/downloads/sendgrid-java/sendgrid-java-latest.jar)
 
 ## Dependencies
 
