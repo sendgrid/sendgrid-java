@@ -1562,7 +1562,6 @@ The Contacts API helps you manage your [Marketing Campaigns](https://sendgrid.co
     request.setMethod(Method.PATCH);
     request.setEndpoint("contactdb/lists/{list_id}");
     request.setBody("{\"name\":\"newlistname\"}");
-    request.addQueryParam("list_id", "1");
     Response response = sg.api(request);
     System.out.println(response.getStatusCode());
     System.out.println(response.getBody());
@@ -1586,7 +1585,6 @@ The Contacts API helps you manage your [Marketing Campaigns](https://sendgrid.co
     Request request = new Request();
     request.setMethod(Method.GET);
     request.setEndpoint("contactdb/lists/{list_id}");
-    request.addQueryParam("list_id", "1");
     Response response = sg.api(request);
     System.out.println(response.getStatusCode());
     System.out.println(response.getBody());
@@ -1661,8 +1659,7 @@ The Contacts API helps you manage your [Marketing Campaigns](https://sendgrid.co
     request.setMethod(Method.GET);
     request.setEndpoint("contactdb/lists/{list_id}/recipients");
     request.addQueryParam("page", "1");
-      request.addQueryParam("page_size", "1");
-      request.addQueryParam("list_id", "1");
+    request.addQueryParam("page_size", "1");
     Response response = sg.api(request);
     System.out.println(response.getStatusCode());
     System.out.println(response.getBody());
@@ -1710,7 +1707,6 @@ The Contacts API helps you manage your [Marketing Campaigns](https://sendgrid.co
     request.setMethod(Method.DELETE);
     request.setEndpoint("contactdb/lists/{list_id}/recipients/{recipient_id}");
     request.addQueryParam("recipient_id", "1");
-      request.addQueryParam("list_id", "1");
     Response response = sg.api(request);
     System.out.println(response.getStatusCode());
     System.out.println(response.getBody());
