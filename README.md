@@ -1,6 +1,7 @@
 [![Travis Badge](https://travis-ci.org/sendgrid/sendgrid-java.svg?branch=master)](https://travis-ci.org/sendgrid/sendgrid-java)
+[![Email Notifications Badge](https://dx.sendgrid.com/badge/java)](https://dx.sendgrid.com/newsletter/java)
 
-Please see our announcement regarding [breaking changes](https://github.com/sendgrid/sendgrid-java/issues/140). Your support is appreciated!
+**NEW:** Subscribe to email [notifications](https://dx.sendgrid.com/newsletter/java) for releases and breaking changes.
 
 **This library allows you to quickly and easily use the SendGrid Web API v3 via Java.**
 
@@ -189,7 +190,7 @@ public class Example {
 
 Please see our announcement regarding [breaking changes](https://github.com/sendgrid/sendgrid-java/issues/140). Your support is appreciated!
 
-All updates to this library is documented in our [CHANGELOG](https://github.com/sendgrid/sendgrid-java/blob/master/CHANGELOG.md) and [releases](https://github.com/sendgrid/sendgrid-java/releases).
+All updates to this library are documented in our [CHANGELOG](https://github.com/sendgrid/sendgrid-java/blob/master/CHANGELOG.md) and [releases](https://github.com/sendgrid/sendgrid-java/releases). You may also subscribe to email [release notifications](https://dx.sendgrid.com/newsletter/java) for releases and breaking changes.
 
 <a name="roadmap"></a>
 # Roadmap
