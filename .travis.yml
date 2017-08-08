@@ -9,7 +9,7 @@ before_script:
   - export PATH=$PATH:$PWD/prism/bin/
   - ./prism/prism.sh
 script:
-  - nohup prism run -s https://raw.githubusercontent.com/sendgrid/sendgrid-oai/master/oai_stoplight.json && ./gradlew check
+  - prism run -s https://raw.githubusercontent.com/sendgrid/sendgrid-oai/master/oai_stoplight.json && ./gradlew check
 after_script:
   - "./gradlew build"
   - "./scripts/upload.sh"
