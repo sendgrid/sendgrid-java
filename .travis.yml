@@ -4,6 +4,8 @@ jdk:
 - oraclejdk8
 - oraclejdk7
 - openjdk7
+before_script:
+- "./scripts/prism.sh"
 after_script:
 - "./gradlew build"
 - "./scripts/upload.sh"

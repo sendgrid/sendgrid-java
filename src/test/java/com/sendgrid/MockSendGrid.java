@@ -5,24 +5,25 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class MockSendGrid extends SendGrid {
-  private Request request;
+    private Request request;
 
-  public MockSendGrid(String apiKey) {
-    super(apiKey);
-  }
+    public MockSendGrid(String apiKey) {
+        super(apiKey);
+    }
 
-  public Response makeCall(Request request) throws IOException {
-    this.request = request;
-    Response response = new Response();
-    response.setStatusCode(200);
-    response.setBody("{\"message\":\"success\"}");
-    Map<String, String> headers = new HashMap<>();
-    headers.put("Test", "Header");
-    response.setHeaders(headers);
-    return response;
-  }
+    @Override
+    public Response makeCall(Request request) throws IOException {
+        this.request = request;
+        Response response = new Response();
+        response.setStatusCode(200);
+        response.setBody("{\"message\":\"success\"}");
+        Map<String, String> headers = new HashMap<>();
+        headers.put("Test", "Header");
+        response.setHeaders(headers);
+        return response;
+    }
 
-  public Request getRequest() {
-    return this.request;
-  }
+    public Request getRequest() {
+        return this.request;
+    }
 }
