@@ -1,4 +1,4 @@
-package com.sendgrid;
+package com.sendgrid.helpers.mail.objects;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
@@ -9,9 +9,7 @@ public class Content {
   @JsonProperty("type") private String type;
   @JsonProperty("value") private String  value;
 
-  public Content() {
-    return;
-  }
+  public Content() {}
 
   public Content(String type, String value) {
     this.setType(type);

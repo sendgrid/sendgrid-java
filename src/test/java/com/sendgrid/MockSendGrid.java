@@ -5,7 +5,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class MockSendGrid extends SendGrid {
-  Request request;
+  private Request request;
 
   public MockSendGrid(String apiKey) {
     super(apiKey);

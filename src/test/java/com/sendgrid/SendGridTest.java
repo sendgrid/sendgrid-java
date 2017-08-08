@@ -12,9 +12,9 @@ public class SendGridTest {
 
   private final String SENDGRID_API_KEY = "";
 
-  public Map<String,String> buildDefaultHeaders() {
+  private Map<String,String> buildDefaultHeaders() {
     SendGrid sg = new SendGrid(SENDGRID_API_KEY);
-    Map<String,String> requestHeaders = new HashMap<String, String>();
+    Map<String,String> requestHeaders = new HashMap<>();
     requestHeaders.put("Authorization", "Bearer " + SENDGRID_API_KEY);
     String USER_AGENT = "sendgrid/" + sg.getLibraryVersion() + ";java";
     requestHeaders.put("User-agent", USER_AGENT);

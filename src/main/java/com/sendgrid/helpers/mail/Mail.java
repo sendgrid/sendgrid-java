@@ -1,16 +1,11 @@
-package com.sendgrid;
+package com.sendgrid.helpers.mail;
 
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
-
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.databind.ObjectWriter;
 import com.fasterxml.jackson.databind.SerializationFeature;
+import com.sendgrid.helpers.mail.objects.*;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -23,32 +18,30 @@ import java.util.Map;
   */
 @JsonInclude(Include.NON_DEFAULT)
 public class Mail {
-  @JsonProperty("from") public Email from;
-  @JsonProperty("subject") public String subject;
-  @JsonProperty("personalizations") public List<Personalization> personalization;
-  @JsonProperty("content") public List<Content> content;
-  @JsonProperty("attachments") public List<Attachments> attachments;
-  @JsonProperty("template_id") public String templateId;
-  @JsonProperty("sections") public Map<String,String> sections;
-  @JsonProperty("headers") public Map<String,String> headers;
-  @JsonProperty("categories") public List<String> categories;
-  @JsonProperty("custom_args") public Map<String,String> customArgs;
-  @JsonProperty("send_at") public long sendAt;
-  @JsonProperty("batch_id") public String batchId;
-  @JsonProperty("asm") public ASM asm;
-  @JsonProperty("ip_pool_name") public String ipPoolId;
-  @JsonProperty("mail_settings") public MailSettings mailSettings;
-  @JsonProperty("tracking_settings") public TrackingSettings trackingSettings;
-  @JsonProperty("reply_to") public Email replyTo;
+  @JsonProperty("from") private Email from;
+  @JsonProperty("subject") private String subject;
+  @JsonProperty("personalizations") private List<Personalization> personalization;
+  @JsonProperty("content") private List<Content> content;
+  @JsonProperty("attachments") private List<Attachments> attachments;
+  @JsonProperty("template_id") private String templateId;
+  @JsonProperty("sections") private Map<String,String> sections;
+  @JsonProperty("headers") private Map<String,String> headers;
+  @JsonProperty("categories") private List<String> categories;
+  @JsonProperty("custom_args") private Map<String,String> customArgs;
+  @JsonProperty("send_at") private long sendAt;
+  @JsonProperty("batch_id") private String batchId;
+  @JsonProperty("asm") private ASM asm;
+  @JsonProperty("ip_pool_name") private String ipPoolId;
+  @JsonProperty("mail_settings") private MailSettings mailSettings;
+  @JsonProperty("tracking_settings") private TrackingSettings trackingSettings;
+  @JsonProperty("reply_to") private Email replyTo;
 
   private static final ObjectMapper SORTED_MAPPER = new ObjectMapper();
   static {
     SORTED_MAPPER.configure(SerializationFeature.ORDER_MAP_ENTRIES_BY_KEYS, true);
   }
 
-  public Mail() {
-    return;
-  }
+  public Mail() {}
 
   public Mail(Email from, String subject, Email to, Content content)
   {
@@ -94,7 +87,7 @@ public class Mail {
 
   public void addPersonalization(Personalization personalization) {
     if (this.personalization == null) {
-      this.personalization = new ArrayList<Personalization>();
+      this.personalization = new ArrayList<>();
       this.personalization.add(personalization);
     } else {
       this.personalization.add(personalization);
@@ -111,7 +104,7 @@ public class Mail {
     newContent.setType(content.getType());
     newContent.setValue(content.getValue());
     if (this.content == null) {
-      this.content = new ArrayList<Content>();
+      this.content = new ArrayList<>();
       this.content.add(newContent);
     } else {
       this.content.add(newContent);
@@ -131,7 +124,7 @@ public class Mail {
     newAttachment.setDisposition(attachments.getDisposition());
     newAttachment.setContentId(attachments.getContentId());
     if (this.attachments == null) {
-      this.attachments = new ArrayList<Attachments>();
+      this.attachments = new ArrayList<>();
       this.attachments.add(newAttachment);
     } else {
       this.attachments.add(newAttachment);
@@ -154,7 +147,7 @@ public class Mail {
 
   public void addSection(String key, String value) {
     if (sections == null) {
-      sections = new HashMap<String,String>();
+      sections = new HashMap<>();
       sections.put(key, value);
     } else {
       sections.put(key, value);
@@ -169,7 +162,7 @@ public class Mail {
 
   public void addHeader(String key, String value) {
     if (headers == null) {
-      headers = new HashMap<String,String>();
+      headers = new HashMap<>();
       headers.put(key, value);
     } else {
       headers.put(key, value);
@@ -183,7 +176,7 @@ public class Mail {
 
   public void addCategory(String category) {
     if (categories == null) {
-      categories = new ArrayList<String>();
+      categories = new ArrayList<>();
       categories.add(category);
     } else {
       categories.add(category);
@@ -197,7 +190,7 @@ public class Mail {
 
   public void addCustomArg(String key, String value) {
     if (customArgs == null) {
-      customArgs = new HashMap<String,String>();
+      customArgs = new HashMap<>();
       customArgs.put(key, value);
     } else {
       customArgs.put(key, value);
