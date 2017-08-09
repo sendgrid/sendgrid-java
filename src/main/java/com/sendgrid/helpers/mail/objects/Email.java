@@ -1,4 +1,4 @@
-package com.sendgrid;
+package com.sendgrid.helpers.mail.objects;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
@@ -9,9 +9,7 @@ public class Email {
   @JsonProperty("name") private String name;
   @JsonProperty("email") private String email;
 
-  public Email() {
-    return;
-  }
+  public Email() {}
 
   public Email(String email) {
     this.setEmail(email);

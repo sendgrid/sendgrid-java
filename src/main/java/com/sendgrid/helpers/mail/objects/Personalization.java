@@ -1,4 +1,4 @@
-package com.sendgrid;
+package com.sendgrid.helpers.mail.objects;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
@@ -30,7 +30,7 @@ public class Personalization {
     newEmail.setName(email.getName());
     newEmail.setEmail(email.getEmail());
     if (tos == null) {
-      tos = new ArrayList<Email>();
+      tos = new ArrayList<>();
       tos.add(newEmail);
     } else {
       tos.add(newEmail);
@@ -47,7 +47,7 @@ public class Personalization {
     newEmail.setName(email.getName());
     newEmail.setEmail(email.getEmail());
     if (ccs == null) {
-      ccs = new ArrayList<Email>();
+      ccs = new ArrayList<>();
       ccs.add(newEmail);
     } else {
       ccs.add(newEmail);
@@ -64,7 +64,7 @@ public class Personalization {
     newEmail.setName(email.getName());
     newEmail.setEmail(email.getEmail());
     if (bccs == null) {
-      bccs = new ArrayList<Email>();
+      bccs = new ArrayList<>();
       bccs.add(newEmail);
     } else {
       bccs.add(newEmail);
@@ -87,7 +87,7 @@ public class Personalization {
 
   public void addHeader(String key, String value) {
     if (headers == null) {
-      headers = new HashMap<String,String>();
+      headers = new HashMap<>();
       headers.put(key, value);
     } else {
       headers.put(key, value);
@@ -101,7 +101,7 @@ public class Personalization {
 
   public void addSubstitution(String key, String value) {
     if (substitutions == null) {
-      substitutions = new HashMap<String,String>();
+      substitutions = new HashMap<>();
       substitutions.put(key, value);
     } else {
       substitutions.put(key, value);
@@ -115,7 +115,7 @@ public class Personalization {
 
   public void addCustomArg(String key, String value) {
     if (customArgs == null) {
-      customArgs = new HashMap<String,String>();
+      customArgs = new HashMap<>();
       customArgs.put(key, value);
     } else {
       customArgs.put(key, value);

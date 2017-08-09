@@ -11,7 +11,6 @@ public class SendGrid {
   private static final String VERSION = "3.0.0";
   private static final String USER_AGENT = "sendgrid/" + VERSION + ";java";
 
-  private String apiKey;
   private String host;
   private String version;
   private Client client;
@@ -44,17 +43,16 @@ public class SendGrid {
   }
 
   public void initializeSendGrid(String apiKey) {
-    this.apiKey = apiKey;
     this.host = "api.sendgrid.com";
     this.version = "v3";
-    this.requestHeaders = new HashMap<String, String>();
+    this.requestHeaders = new HashMap<>();
     this.requestHeaders.put("Authorization", "Bearer " + apiKey);
     this.requestHeaders.put("User-agent", USER_AGENT);
     this.requestHeaders.put("Accept", "application/json");
   }
 
   public String getLibraryVersion() {
-    return this.VERSION;
+    return VERSION;
   }
 
   public String getVersion() {
