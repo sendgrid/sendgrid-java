@@ -1,6 +1,11 @@
 # Change Log
 All notable changes to this project will be documented in this file.
 
+## [4.1.0] - 2017-08-16
+### Added
+- PR #211 Return empty collections in place of nulls
+- BIG thanks to [Antonio Bucciol](https://github.com/TBuc)
+
 ## [4.0.1] - 2017-05-22
 ### Fix
 - PR #199 Return correct Email in getFrom

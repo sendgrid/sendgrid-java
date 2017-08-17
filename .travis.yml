@@ -1,9 +1,14 @@
 language: java
 sudo: false
-jdk:
-- oraclejdk8
-- oraclejdk7
-- openjdk7
+matrix:
+  include:
+    - os: linux
+      jdk: openjdk7
+    - os: linux
+      dist: precise
+      jdk: oraclejdk7
+    - os: linux
+      jdk: oraclejdk8
 after_script:
 - "./gradlew build"
 - "./scripts/upload.sh"
