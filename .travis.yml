@@ -2,7 +2,9 @@ language: java
 sudo: false
 matrix:
   include:
-    - jdk: openjdk7
+    - os: linux
+      dist: precise
+      jdk: openjdk7
     - os: linux
       dist: precise
       jdk: oraclejdk7
