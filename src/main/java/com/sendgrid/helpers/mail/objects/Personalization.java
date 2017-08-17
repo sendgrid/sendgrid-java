@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+import java.util.Collections;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -19,9 +20,11 @@ public class Personalization {
   @JsonProperty("substitutions") private Map<String,String> substitutions;
   @JsonProperty("custom_args") private Map<String,String> customArgs;
   @JsonProperty("send_at") private long sendAt;
-
+  
   @JsonProperty("to")
   public List<Email> getTos() {
+    if(tos == null)
+       return Collections.<Email>emptyList();
     return tos;
   }
 
@@ -39,6 +42,8 @@ public class Personalization {
 
   @JsonProperty("cc")
   public List<Email> getCcs() {
+    if(ccs == null)
+       return Collections.<Email>emptyList();
     return ccs;
   }
 
@@ -56,6 +61,8 @@ public class Personalization {
 
   @JsonProperty("bcc")
   public List<Email> getBccs() {
+    if(bccs == null)
+       return Collections.<Email>emptyList();
     return bccs;
   }
 
@@ -82,6 +89,8 @@ public class Personalization {
 
   @JsonProperty("headers")
   public Map<String,String> getHeaders() {
+    if(headers == null)
+       return Collections.<String,String>emptyMap();
     return headers;
   }
 
@@ -96,6 +105,8 @@ public class Personalization {
 
   @JsonProperty("substitutions")
   public Map<String,String> getSubstitutions() {
+    if(substitutions == null)
+       return Collections.<String,String>emptyMap();
     return substitutions;
   }
 
@@ -110,6 +121,8 @@ public class Personalization {
 
   @JsonProperty("custom_args")
   public Map<String,String> getCustomArgs() {
+    if(customArgs == null)
+       return Collections.<String,String>emptyMap();
     return customArgs;
   }
 
@@ -130,4 +143,5 @@ public class Personalization {
   public void setSendAt(long sendAt) {
     this.sendAt = sendAt;
   }
+  
 }
