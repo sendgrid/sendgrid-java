@@ -1,6 +1,6 @@
 # Send a Single Email to a Single Recipient
 
-The following code assumes you are storing the API key in an [environment variable (recommended)](https://github.com/sendgrid/sendgrid-python/blob/master/TROUBLESHOOTING.md#environment). If you don't have your key stored in an environment variable, you can assign it directly to `apikey` for testing purposes.
+The following code assumes you are storing the API key in an environment variable (recommended). 
 
 This is the minimum code needed to send an email.
 
@@ -37,7 +37,7 @@ public class SendGridExample {
 
 # Send a Single Email to Multiple Recipients
 
-The following code assumes you are storing the API key in an [environment variable (recommended)](https://github.com/sendgrid/sendgrid-python/blob/master/TROUBLESHOOTING.md#environment). If you don't have your key stored in an environment variable, you can assign it directly to `apikey` for testing purposes.
+The following code assumes you are storing the API key in an environment variable (recommended). 
 
 ```java
 import com.sendgrid.*;
@@ -76,7 +76,7 @@ public class SendGridExample {
 
 # Send Multiple Emails to Multiple Recipients
 
-The following code assumes you are storing the API key in an [environment variable (recommended)](https://github.com/sendgrid/sendgrid-python/blob/master/TROUBLESHOOTING.md#environment). If you don't have your key stored in an environment variable, you can assign it directly to `apikey` for testing purposes.
+The following code assumes you are storing the API key in an environment variable (recommended). 
 
 
 ```java
@@ -128,7 +128,7 @@ public class SendGridExample {
 
 # Kitchen Sink - an example with all settings used
 
-The following code assumes you are storing the API key in an [environment variable (recommended)](https://github.com/sendgrid/sendgrid-python/blob/master/TROUBLESHOOTING.md#environment). If you don't have your key stored in an environment variable, you can assign it directly to `apikey` for testing purposes.
+The following code assumes you are storing the API key in an environment variable (recommended). 
 
 
 ```java
@@ -352,8 +352,7 @@ public class SendGridExample {
 
 # Attachments
 
-The following code assumes you are storing the API key in an [environment variable (recommended)](https://github.com/sendgrid/sendgrid-python/blob/master/TROUBLESHOOTING.md#environment). If you don't have your key stored in an environment variable, you can assign it directly to `apikey` for testing purposes.
-
+The following code assumes you are storing the API key in an environment variable (recommended). 
 
 ```java
 import com.sendgrid.*;
@@ -393,7 +392,7 @@ public class SendGridExample {
 
 # Transactional Templates
 
-The following code assumes you are storing the API key in an [environment variable (recommended)](https://github.com/sendgrid/sendgrid-python/blob/master/TROUBLESHOOTING.md#environment). If you don't have your key stored in an environment variable, you can assign it directly to `apikey` for testing purposes.
+The following code assumes you are storing the API key in an environment variable (recommended). 
 
 For this example, we assume you have created a [transactional template](https://sendgrid.com/docs/User_Guide/Transactional_Templates/index.html). Following is the template content we used for testing.
 
