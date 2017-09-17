@@ -12,7 +12,7 @@ public class SendGridExample {
   public static void main(String[] args) throws SendGridException {
     From from = new From("test@example.com", "Example User");
     To to = new To("test@example.com", "Example User");
-    Subject subject = Subject("Sending with SendGrid is Fun");
+    Subject subject = new Subject("Sending with SendGrid is Fun");
     PlainTextContent plainTextContent = new PlainTextContent("and easy to do anywhere, even with Java");
     HtmlContent htmlContent = new HtmlContent("<strong>and easy to do anywhere, even with Java</strong>");
     SendGridMessage email = new SendGridMessage(from,
@@ -51,7 +51,7 @@ public class SendGridExample {
     tos.add(new To("test1@example.com", "Example User1"));
     tos.add(new To("test2@example.com", "Example User2"));
     tos.add(new To("test3@example.com", "Example User3"));
-    Subject subject = Subject("Sending with SendGrid is Fun");
+    Subject subject = new Subject("Sending with SendGrid is Fun");
     PlainTextContent plainTextContent = new PlainTextContent("and easy to do anywhere, even with Java");
     HtmlContent htmlContent = new HtmlContent("<strong>and easy to do anywhere, even with Java</strong>");
     SendGridMessage email = new SendGridMessage(from,
@@ -101,7 +101,7 @@ public class SendGridExample {
     sub.add("-github-", "http://github.com/caseyw");
     tos.add(new To("test3@example.com", "Example User3"), sub);
     // Alternatively, you can pass in a collection of subjects OR add a subject to the `To` object
-    Subject subject = Subject("Hi -name-!");
+    Subject subject = new Subject("Hi -name-!");
     Substitution globalSubstitution = new Substitution("-time-", "<Current Time>");
     PlainTextContent plainTextContent = new PlainTextContent("Hello -name-, your github is -github-, email sent at -time-");
     HtmlContent htmlContent = new HtmlContent("<strong>Hello -name-, your github is <a href=\"-github-\">here</a></strong> email sent at -time-");
@@ -140,7 +140,7 @@ public class SendGridExample {
   public static void main(String[] args) throws SendGridException {
     From from = new From("test@example.com", "Example User");
     To to = new To("test@example.com", "Example User");
-    Subject subject = Subject("Sending with SendGrid is Fun");
+    Subject subject = new Subject("Sending with SendGrid is Fun");
     PlainTextContent plainTextContent = new PlainTextContent("and easy to do anywhere, even with Java");
     HtmlContent htmlContent = new HtmlContent("<strong>and easy to do anywhere, even with Java</strong>");
     SendGridMessage email = new SendGridMessage(from,
@@ -362,7 +362,7 @@ public class SendGridExample {
   public static void main(String[] args) throws SendGridException {
     From from = new From("test@example.com", "Example User");
     To to = new To("test@example.com", "Example User");
-    Subject subject = Subject("Sending with SendGrid is Fun");
+    Subject subject = new Subject("Sending with SendGrid is Fun");
     PlainTextContent plainTextContent = new PlainTextContent("and easy to do anywhere, even with Java");
     HtmlContent htmlContent = new HtmlContent("<strong>and easy to do anywhere, even with Java</strong>");
     SendGridMessage email = new SendGridMessage(from,
@@ -437,7 +437,7 @@ public class SendGridExample {
   public static void main(String[] args) throws SendGridException {
     From from = new From("test@example.com", "Example User");
     To to = new To("test@example.com", "Example User");
-    Subject subject = Subject("Sending with SendGrid is Fun");
+    Subject subject = new Subject("Sending with SendGrid is Fun");
     PlainTextContent plainTextContent = new PlainTextContent("and easy to do anywhere, even with Java");
     HtmlContent htmlContent = new HtmlContent("<strong>and easy to do anywhere, even with Java</strong>");
     SendGridMessage email = new SendGridMessage(from,
