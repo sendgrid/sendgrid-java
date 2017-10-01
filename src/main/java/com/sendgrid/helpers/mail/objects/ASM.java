@@ -28,4 +28,29 @@ public class ASM {
   public void setGroupsToDisplay(int[] groupsToDisplay) {
     this.groupsToDisplay = Arrays.copyOf(groupsToDisplay, groupsToDisplay.length);
   }
+
+  @Override
+  public int hashCode() {
+    final int prime = 31;
+    int result = 1;
+    result = prime * result + groupId;
+    result = prime * result + Arrays.hashCode(groupsToDisplay);
+    return result;
+  }
+
+  @Override
+  public boolean equals(Object obj) {
+    if (this == obj)
+      return true;
+    if (obj == null)
+      return false;
+    if (getClass() != obj.getClass())
+      return false;
+    ASM other = (ASM) obj;
+    if (groupId != other.groupId)
+      return false;
+    if (!Arrays.equals(groupsToDisplay, other.groupsToDisplay))
+      return false;
+    return true;
+  }
 }

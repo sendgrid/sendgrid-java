@@ -26,4 +26,33 @@ public class OpenTrackingSetting {
   public void setSubstitutionTag(String substitutionTag) {
     this.substitutionTag = substitutionTag;
   }
+
+  @Override
+  public int hashCode() {
+    final int prime = 31;
+    int result = 1;
+    result = prime * result + (enable ? 1231 : 1237);
+    result = prime * result + ((substitutionTag == null) ? 0 : substitutionTag.hashCode());
+    return result;
+  }
+
+  @Override
+  public boolean equals(Object obj) {
+    if (this == obj)
+      return true;
+    if (obj == null)
+      return false;
+    if (getClass() != obj.getClass())
+      return false;
+    OpenTrackingSetting other = (OpenTrackingSetting) obj;
+    if (enable != other.enable)
+      return false;
+    if (substitutionTag == null) {
+      if (other.substitutionTag != null)
+        return false;
+    } else if (!substitutionTag.equals(other.substitutionTag))
+      return false;
+    return true;
+  }
+  
 }

@@ -46,4 +46,47 @@ public class TrackingSettings {
   public void setGoogleAnalyticsSetting(GoogleAnalyticsSetting googleAnalyticsSetting) {
     this.googleAnalyticsSetting = googleAnalyticsSetting;
   }
+
+  @Override
+  public int hashCode() {
+    final int prime = 31;
+    int result = 1;
+    result = prime * result + ((clickTrackingSetting == null) ? 0 : clickTrackingSetting.hashCode());
+    result = prime * result + ((googleAnalyticsSetting == null) ? 0 : googleAnalyticsSetting.hashCode());
+    result = prime * result + ((openTrackingSetting == null) ? 0 : openTrackingSetting.hashCode());
+    result = prime * result + ((subscriptionTrackingSetting == null) ? 0 : subscriptionTrackingSetting.hashCode());
+    return result;
+  }
+
+  @Override
+  public boolean equals(Object obj) {
+    if (this == obj)
+      return true;
+    if (obj == null)
+      return false;
+    if (getClass() != obj.getClass())
+      return false;
+    TrackingSettings other = (TrackingSettings) obj;
+    if (clickTrackingSetting == null) {
+      if (other.clickTrackingSetting != null)
+        return false;
+    } else if (!clickTrackingSetting.equals(other.clickTrackingSetting))
+      return false;
+    if (googleAnalyticsSetting == null) {
+      if (other.googleAnalyticsSetting != null)
+        return false;
+    } else if (!googleAnalyticsSetting.equals(other.googleAnalyticsSetting))
+      return false;
+    if (openTrackingSetting == null) {
+      if (other.openTrackingSetting != null)
+        return false;
+    } else if (!openTrackingSetting.equals(other.openTrackingSetting))
+      return false;
+    if (subscriptionTrackingSetting == null) {
+      if (other.subscriptionTrackingSetting != null)
+        return false;
+    } else if (!subscriptionTrackingSetting.equals(other.subscriptionTrackingSetting))
+      return false;
+    return true;
+  }
 }

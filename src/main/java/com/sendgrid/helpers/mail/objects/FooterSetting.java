@@ -36,4 +36,38 @@ public class FooterSetting {
   public void setHtml(String html) {
     this.html = html;
   }
+
+  @Override
+  public int hashCode() {
+    final int prime = 31;
+    int result = 1;
+    result = prime * result + (enable ? 1231 : 1237);
+    result = prime * result + ((html == null) ? 0 : html.hashCode());
+    result = prime * result + ((text == null) ? 0 : text.hashCode());
+    return result;
+  }
+
+  @Override
+  public boolean equals(Object obj) {
+    if (this == obj)
+      return true;
+    if (obj == null)
+      return false;
+    if (getClass() != obj.getClass())
+      return false;
+    FooterSetting other = (FooterSetting) obj;
+    if (enable != other.enable)
+      return false;
+    if (html == null) {
+      if (other.html != null)
+        return false;
+    } else if (!html.equals(other.html))
+      return false;
+    if (text == null) {
+      if (other.text != null)
+        return false;
+    } else if (!text.equals(other.text))
+      return false;
+    return true;
+  }
 }

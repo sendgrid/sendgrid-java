@@ -143,5 +143,68 @@ public class Personalization {
   public void setSendAt(long sendAt) {
     this.sendAt = sendAt;
   }
-  
+
+  @Override
+  public int hashCode() {
+    final int prime = 31;
+    int result = 1;
+    result = prime * result + ((bccs == null) ? 0 : bccs.hashCode());
+    result = prime * result + ((ccs == null) ? 0 : ccs.hashCode());
+    result = prime * result + ((customArgs == null) ? 0 : customArgs.hashCode());
+    result = prime * result + ((headers == null) ? 0 : headers.hashCode());
+    result = prime * result + (int) (sendAt ^ (sendAt >>> 32));
+    result = prime * result + ((subject == null) ? 0 : subject.hashCode());
+    result = prime * result + ((substitutions == null) ? 0 : substitutions.hashCode());
+    result = prime * result + ((tos == null) ? 0 : tos.hashCode());
+    return result;
+  }
+
+  @Override
+  public boolean equals(Object obj) {
+    if (this == obj)
+      return true;
+    if (obj == null)
+      return false;
+    if (getClass() != obj.getClass())
+      return false;
+    Personalization other = (Personalization) obj;
+    if (bccs == null) {
+      if (other.bccs != null)
+        return false;
+    } else if (!bccs.equals(other.bccs))
+      return false;
+    if (ccs == null) {
+      if (other.ccs != null)
+        return false;
+    } else if (!ccs.equals(other.ccs))
+      return false;
+    if (customArgs == null) {
+      if (other.customArgs != null)
+        return false;
+    } else if (!customArgs.equals(other.customArgs))
+      return false;
+    if (headers == null) {
+      if (other.headers != null)
+        return false;
+    } else if (!headers.equals(other.headers))
+      return false;
+    if (sendAt != other.sendAt)
+      return false;
+    if (subject == null) {
+      if (other.subject != null)
+        return false;
+    } else if (!subject.equals(other.subject))
+      return false;
+    if (substitutions == null) {
+      if (other.substitutions != null)
+        return false;
+    } else if (!substitutions.equals(other.substitutions))
+      return false;
+    if (tos == null) {
+      if (other.tos != null)
+        return false;
+    } else if (!tos.equals(other.tos))
+      return false;
+    return true;
+  }
 }

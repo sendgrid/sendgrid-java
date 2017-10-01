@@ -281,4 +281,74 @@ public class Mail {
       throw ex;
     }
   }
+
+  @Override
+  public int hashCode() {
+    final int prime = 31;
+    int result = 1;
+    result = prime * result + ((batchId == null) ? 0 : batchId.hashCode());
+    result = prime * result + ((categories == null) ? 0 : categories.hashCode());
+    result = prime * result + ((customArgs == null) ? 0 : customArgs.hashCode());
+    result = prime * result + ((headers == null) ? 0 : headers.hashCode());
+    result = prime * result + ((ipPoolId == null) ? 0 : ipPoolId.hashCode());
+    result = prime * result + ((sections == null) ? 0 : sections.hashCode());
+    result = prime * result + (int) (sendAt ^ (sendAt >>> 32));
+    result = prime * result + ((subject == null) ? 0 : subject.hashCode());
+    result = prime * result + ((templateId == null) ? 0 : templateId.hashCode());
+    return result;
+  }
+
+  @Override
+  public boolean equals(Object obj) {
+    if (this == obj)
+      return true;
+    if (obj == null)
+      return false;
+    if (getClass() != obj.getClass())
+      return false;
+    Mail other = (Mail) obj;
+    if (batchId == null) {
+      if (other.batchId != null)
+        return false;
+    } else if (!batchId.equals(other.batchId))
+      return false;
+    if (categories == null) {
+      if (other.categories != null)
+        return false;
+    } else if (!categories.equals(other.categories))
+      return false;
+    if (customArgs == null) {
+      if (other.customArgs != null)
+        return false;
+    } else if (!customArgs.equals(other.customArgs))
+      return false;
+    if (headers == null) {
+      if (other.headers != null)
+        return false;
+    } else if (!headers.equals(other.headers))
+      return false;
+    if (ipPoolId == null) {
+      if (other.ipPoolId != null)
+        return false;
+    } else if (!ipPoolId.equals(other.ipPoolId))
+      return false;
+    if (sections == null) {
+      if (other.sections != null)
+        return false;
+    } else if (!sections.equals(other.sections))
+      return false;
+    if (sendAt != other.sendAt)
+      return false;
+    if (subject == null) {
+      if (other.subject != null)
+        return false;
+    } else if (!subject.equals(other.subject))
+      return false;
+    if (templateId == null) {
+      if (other.templateId != null)
+        return false;
+    } else if (!templateId.equals(other.templateId))
+      return false;
+    return true;
+  }
 }

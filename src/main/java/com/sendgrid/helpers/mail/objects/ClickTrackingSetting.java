@@ -26,4 +26,29 @@ public class ClickTrackingSetting {
   public void setEnableText(boolean enableText) {
     this.enableText = enableText;
   }
+
+  @Override
+  public int hashCode() {
+    final int prime = 31;
+    int result = 1;
+    result = prime * result + (enable ? 1231 : 1237);
+    result = prime * result + (enableText ? 1231 : 1237);
+    return result;
+  }
+
+  @Override
+  public boolean equals(Object obj) {
+    if (this == obj)
+      return true;
+    if (obj == null)
+      return false;
+    if (getClass() != obj.getClass())
+      return false;
+    ClickTrackingSetting other = (ClickTrackingSetting) obj;
+    if (enable != other.enable)
+      return false;
+    if (enableText != other.enableText)
+      return false;
+    return true;
+  }
 }

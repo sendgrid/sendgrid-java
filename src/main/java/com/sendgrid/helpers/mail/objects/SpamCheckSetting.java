@@ -36,4 +36,35 @@ public class SpamCheckSetting {
   public void setPostToUrl(String postToUrl) {
     this.postToUrl = postToUrl;
   }
+
+  @Override
+  public int hashCode() {
+    final int prime = 31;
+    int result = 1;
+    result = prime * result + (enable ? 1231 : 1237);
+    result = prime * result + ((postToUrl == null) ? 0 : postToUrl.hashCode());
+    result = prime * result + spamThreshold;
+    return result;
+  }
+
+  @Override
+  public boolean equals(Object obj) {
+    if (this == obj)
+      return true;
+    if (obj == null)
+      return false;
+    if (getClass() != obj.getClass())
+      return false;
+    SpamCheckSetting other = (SpamCheckSetting) obj;
+    if (enable != other.enable)
+      return false;
+    if (postToUrl == null) {
+      if (other.postToUrl != null)
+        return false;
+    } else if (!postToUrl.equals(other.postToUrl))
+      return false;
+    if (spamThreshold != other.spamThreshold)
+      return false;
+    return true;
+  }
 }
