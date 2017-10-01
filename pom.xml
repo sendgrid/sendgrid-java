@@ -25,7 +25,15 @@
         <developerConnection>scm:git:git@github.com:sendgrid/sendgrid-java.git</developerConnection>
       <tag>HEAD</tag>
   </scm>
-    <build>
+    <build>        
+        <resources>
+            <resource>
+                <directory>${basedir}</directory>
+                <includes>
+                     <include>LICENSE.txt</include>
+                </includes>
+            </resource>
+        </resources>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
