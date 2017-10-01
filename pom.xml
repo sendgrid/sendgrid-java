@@ -25,6 +25,9 @@
         <developerConnection>scm:git:git@github.com:sendgrid/sendgrid-java.git</developerConnection>
       <tag>HEAD</tag>
   </scm>
+  <properties>
+      <jackson.version>[2.5.3,)</jackson.version>
+  </properties>
     <build>
         <plugins>
             <plugin>
@@ -94,17 +97,17 @@
         <dependency>
             <groupId>com.fasterxml.jackson.core</groupId>
             <artifactId>jackson-core</artifactId>
-            <version>2.5.3</version>
+            <version>${jackson.version}</version>
         </dependency>
         <dependency>
             <groupId>com.fasterxml.jackson.core</groupId>
             <artifactId>jackson-annotations</artifactId>
-            <version>2.5.3</version>
+            <version>${jackson.version}</version>
         </dependency>
         <dependency>
             <groupId>com.fasterxml.jackson.core</groupId>
             <artifactId>jackson-databind</artifactId>
-            <version>2.5.3</version>
+            <version>${jackson.version}</version>
         </dependency>
         <dependency>
             <groupId>junit</groupId>
