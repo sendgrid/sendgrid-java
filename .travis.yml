@@ -10,6 +10,11 @@ matrix:
       jdk: oraclejdk7
     - os: linux
       jdk: oraclejdk8
+before_script:
+- mkdir -p prism/bin
+- export PATH=$PATH:$PWD/prism/bin/
+- ./test/prism.sh
+
 after_script:
 - "./gradlew build"
 - "./scripts/upload.sh"
