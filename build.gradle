@@ -94,6 +94,11 @@ task renameSendGridVersionJarToSendGridJar {
   }
 }
 
+task startPrism(type: Exec) {
+  workingDir 'scripts'
+  commandLine './startPrism.sh'
+}
+
 task javadocJar(type: Jar, dependsOn: javadoc) {
   classifier = 'javadoc'
   from 'build/docs/javadoc'
