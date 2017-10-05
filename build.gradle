@@ -15,6 +15,7 @@ apply plugin: 'java'
 apply plugin: 'fatjar'
 apply plugin: 'maven'
 apply plugin: 'signing'
+apply plugin: 'gradle-execfork-plugin'
 
 group         = 'com.sendgrid'
 version       = '4.1.0'
@@ -38,6 +39,7 @@ task wrapper(type: Wrapper) {
 buildscript {
   dependencies {
     classpath 'eu.appsatori:gradle-fatjar-plugin:0.1.2' // adds fatJar task
+    classpath 'com.github.psxpaul:gradle-execfork-plugin:0.1.4' // adds fatJar task
   }
   repositories {
     mavenCentral()
@@ -60,7 +62,7 @@ allprojects {
   gradle.projectsEvaluated {
     tasks.withType(JavaCompile) {
       options.compilerArgs << "-Xlint:unchecked" << "-Xlint:deprecation"
-      }
+    }
   }
 }
 
@@ -166,3 +168,24 @@ artifacts {
   archives javadocJar
   archives sourcesJar
 }
+
+task prism(type: com.github.psxpaul.task.ExecFork) {
+  workingDir 'scripts'
+  commandLine = 'sh'
+  args = [ 'prism.sh' ]
+  waitForPort = 4010
+  stopAfter = test
+}
+
+test {
+  dependsOn prism
+}
+
+task stopPrism(type: com.github.psxpaul.task.ExecFork) {
+  dependsOn test
+  commandLine = 'killall'
+  args = [ 'prism' ]
+}
+
+test.finalizedBy stopPrism
+
