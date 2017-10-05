@@ -39,7 +39,7 @@ task wrapper(type: Wrapper) {
 buildscript {
   dependencies {
     classpath 'eu.appsatori:gradle-fatjar-plugin:0.2' // adds fatJar task
-    classpath 'com.github.psxpaul:gradle-execfork-plugin:0.1.4' // adds fatJar task
+    classpath 'com.github.psxpaul:gradle-execfork-plugin:0.1.4' // exec fork plugin
   }
   repositories {
     mavenCentral()
