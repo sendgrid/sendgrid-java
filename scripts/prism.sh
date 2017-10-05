@@ -1,6 +1,6 @@
 #!/bin/bash
 
-if [ `command -v prism` == '' ]; then
+if [[ -z "$(command -v prism)" ]]; then
   curl https://raw.githubusercontent.com/stoplightio/prism/master/install.sh | sh
 fi
 
