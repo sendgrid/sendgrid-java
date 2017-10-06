@@ -47,6 +47,5 @@ DEST=./prism
 # fi
 }
 
-if [ ! -f prism ]; then
-  install
-fi
+install
+
