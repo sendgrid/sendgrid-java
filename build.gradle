@@ -15,7 +15,6 @@ apply plugin: 'java'
 apply plugin: 'fatjar'
 apply plugin: 'maven'
 apply plugin: 'signing'
-apply plugin: 'gradle-execfork-plugin'
 
 group         = 'com.sendgrid'
 version       = '4.1.0'
@@ -39,7 +38,6 @@ task wrapper(type: Wrapper) {
 buildscript {
   dependencies {
     classpath 'eu.appsatori:gradle-fatjar-plugin:0.2' // adds fatJar task
-    classpath 'com.github.psxpaul:gradle-execfork-plugin:0.1.4' // exec fork plugin
   }
   repositories {
     mavenCentral()
@@ -174,16 +172,46 @@ task downloadPrism(type: Exec) {
   commandLine = './download_prism.sh'
 }
 
-task prism(type: com.github.psxpaul.task.ExecFork) {
+task prism {
   dependsOn downloadPrism
-  workingDir = 'scripts'
-  commandLine = './prism'
-  args = [ 'run', '--mock', '--list', '--spec', 'https://raw.githubusercontent.com/sendgrid/sendgrid-oai/master/oai_stoplight.json' ]
-  waitForPort = 4010
-  stopAfter = test
+
+  ext.isPortOpen = { port ->
+    try {
+      def s = new Socket('localhost', port)
+    } catch(Exception ex) {
+      return false
+    }
+    return true
+  }
+
+  ext.waitForPort = { port ->
+    println 'Waiting for port ' + port
+    def ctr = 0
+    while(!isPortOpen(port) && ctr < 20) {
+      ctr++
+      sleep(1000)
+    }
+  }
+
+  ext.runPrism = {
+    def command = [ './prism', 'run', '--mock', '--list', '--spec', 'https://raw.githubusercontent.com/sendgrid/sendgrid-oai/master/oai_stoplight.json' ]
+    def process = new ProcessBuilder(command)
+                                      .directory(new File('scripts'))
+                                      .redirectErrorStream(true) 
+                                      .start()
+    ext.process = process
+  }
+
+  doLast {
+    runPrism()
+    waitForPort(4010)
+  }
 }
 
 test {
   dependsOn prism
+  doLast {
+    ext.process.destroy()
+  }
 }
 
