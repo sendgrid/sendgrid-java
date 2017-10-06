@@ -169,10 +169,17 @@ artifacts {
   archives sourcesJar
 }
 
-task prism(type: com.github.psxpaul.task.ExecFork) {
-  workingDir 'scripts'
+task downloadPrism(type: com.github.psxpaul.task.ExecFork) {
+  workingDir = 'scripts'
   commandLine = 'sh'
-  args = [ 'prism.sh' ]
+  args = [ 'download_prism.sh' ]
+}
+
+task prism(type: com.github.psxpaul.task.ExecFork) {
+  dependsOn downloadPrism
+  workingDir = 'scripts'
+  commandLine = './prism'
+  args = [ 'run', '--mock', '--list', '--spec', 'https://raw.githubusercontent.com/sendgrid/sendgrid-oai/master/oai_stoplight.json' ]
   waitForPort = 4010
   stopAfter = test
 }
@@ -180,12 +187,4 @@ task prism(type: com.github.psxpaul.task.ExecFork) {
 test {
   dependsOn prism
 }
-
-task stopPrism(type: com.github.psxpaul.task.ExecFork) {
-  dependsOn test
-  commandLine = 'killall'
-  args = [ 'prism' ]
-}
-
-test.finalizedBy stopPrism
 
