@@ -2,6 +2,8 @@
 
 install () {
 
+echo "Installing Prism"
+
 set -eu
 
 UNAME=$(uname)
@@ -47,5 +49,7 @@ DEST=./prism
 # fi
 }
 
-install
+if [ ! -f prism ]; then
+   install
+fi
 

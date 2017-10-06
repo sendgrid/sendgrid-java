@@ -169,10 +169,9 @@ artifacts {
   archives sourcesJar
 }
 
-task downloadPrism(type: com.github.psxpaul.task.ExecFork) {
+task downloadPrism(type: Exec) {
   workingDir = 'scripts'
-  commandLine = 'sh'
-  args = [ 'download_prism.sh' ]
+  commandLine = './download_prism.sh'
 }
 
 task prism(type: com.github.psxpaul.task.ExecFork) {
