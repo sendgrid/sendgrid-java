@@ -172,6 +172,8 @@ task downloadPrism(type: Exec) {
   commandLine = './download_prism.sh'
 }
 
+def Process process
+
 task prism {
   dependsOn downloadPrism
 
@@ -195,11 +197,10 @@ task prism {
 
   ext.runPrism = {
     def command = [ './prism', 'run', '--mock', '--list', '--spec', 'https://raw.githubusercontent.com/sendgrid/sendgrid-oai/master/oai_stoplight.json' ]
-    def process = new ProcessBuilder(command)
+    process = new ProcessBuilder(command)
                                       .directory(new File('scripts'))
                                       .redirectErrorStream(true) 
                                       .start()
-    ext.process = process
   }
 
   doLast {
@@ -211,7 +212,7 @@ task prism {
 test {
   dependsOn prism
   doLast {
-    ext.process.destroy()
+    process.destroy()
   }
 }
 
