@@ -74,6 +74,98 @@ public class SendGridTest {
     Assert.assertEquals(sg.getHost(), "api.new.com");
   }
 
+  @Test
+  public void testRateLimitRetry() {
+    SendGrid sg = new SendGrid(SENDGRID_API_KEY);
+    sg.setRateLimitRetry(100);
+    Assert.assertEquals(sg.getRateLimitRetry(), 100);
+  }
+
+  @Test
+  public void testRateLimitSleep() {
+    SendGrid sg = new SendGrid(SENDGRID_API_KEY);
+    sg.setRateLimitSleep(999);
+    Assert.assertEquals(sg.getRateLimitSleep(), 999);
+  }
+
+
+  @Test
+  public void test_async() {
+    Object sync = new Object();
+    SendGrid sg = null;
+    if(System.getenv("TRAVIS") != null && Boolean.parseBoolean(System.getenv("TRAVIS"))) {
+      sg = new SendGrid("SENDGRID_API_KEY");
+      sg.setHost(System.getenv("MOCK_HOST"));
+    } else {
+      sg = new SendGrid("SENDGRID_API_KEY", true);
+      sg.setHost("localhost:4010");
+    }
+    sg.addRequestHeader("X-Mock", "200");
+
+    Request request = new Request();
+
+    request.setMethod(Method.GET);
+    request.setEndpoint("access_settings/activity");
+    request.addQueryParam("limit", "1");
+    sg.attempt(request, new APICallback() {
+      @Override
+      public void error(Exception e) {
+        Assert.fail();
+        sync.notify();
+      }
+
+      @Override
+      public void response(Response response) {
+        Assert.assertEquals(200, response.getStatusCode());
+        sync.notify();
+      }
+    });
+
+    try {
+      sync.wait(2000);
+    } catch(InterruptedException ex) {
+      Assert.fail(ex.toString());
+    }
+  }
+
+  @Test
+  public void test_async_rate_limit() {
+    Object sync = new Object();
+    SendGrid sg = null;
+    if(System.getenv("TRAVIS") != null && Boolean.parseBoolean(System.getenv("TRAVIS"))) {
+      sg = new SendGrid("SENDGRID_API_KEY");
+      sg.setHost(System.getenv("MOCK_HOST"));
+    } else {
+      sg = new SendGrid("SENDGRID_API_KEY", true);
+      sg.setHost("localhost:4010");
+    }
+    sg.addRequestHeader("X-Mock", "429");
+
+    Request request = new Request();
+
+    request.setMethod(Method.GET);
+    request.setEndpoint("access_settings/activity");
+    request.addQueryParam("limit", "1");
+    sg.attempt(request, new APICallback() {
+      @Override
+      public void error(Exception e) {
+        Assert.assertEquals(e.getClass(), RateLimitException.class);
+        sync.notify();
+      }
+
+      @Override
+      public void response(Response response) {
+        Assert.fail();
+        sync.notify();
+      }
+    });
+
+    try {
+      sync.wait(2000);
+    } catch(InterruptedException ex) {
+      Assert.fail(ex.toString());
+    }
+  }
 
   @Test
   public void test_access_settings_activity_get() throws IOException {
