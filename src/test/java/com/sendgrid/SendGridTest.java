@@ -91,7 +91,7 @@ public class SendGridTest {
 
   @Test
   public void test_async() {
-    Object sync = new Object();
+    final Object sync = new Object();
     SendGrid sg = null;
     if(System.getenv("TRAVIS") != null && Boolean.parseBoolean(System.getenv("TRAVIS"))) {
       sg = new SendGrid("SENDGRID_API_KEY");
@@ -111,18 +111,24 @@ public class SendGridTest {
       @Override
       public void error(Exception e) {
         Assert.fail();
-        sync.notify();
+        synchronized(sync) {
+          sync.notify();
+        }
       }
 
       @Override
       public void response(Response response) {
         Assert.assertEquals(200, response.getStatusCode());
-        sync.notify();
+        synchronized(sync) {
+          sync.notify();
+        }
       }
     });
 
     try {
-      sync.wait(2000);
+      synchronized(sync) {
+        sync.wait(2000);
+      }
     } catch(InterruptedException ex) {
       Assert.fail(ex.toString());
     }
@@ -130,7 +136,7 @@ public class SendGridTest {
 
   @Test
   public void test_async_rate_limit() {
-    Object sync = new Object();
+    final Object sync = new Object();
     SendGrid sg = null;
     if(System.getenv("TRAVIS") != null && Boolean.parseBoolean(System.getenv("TRAVIS"))) {
       sg = new SendGrid("SENDGRID_API_KEY");
@@ -161,7 +167,9 @@ public class SendGridTest {
     });
 
     try {
-      sync.wait(2000);
+      synchronized(sync) {
+        sync.wait(2000);
+      }
     } catch(InterruptedException ex) {
       Assert.fail(ex.toString());
     }

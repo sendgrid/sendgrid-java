@@ -253,7 +253,7 @@ public class SendGrid {
    * @param request the API request.
    * @param callback the callback.
    */
-  public void attempt(Request request, APICallback callback) {
+  public void attempt(final Request request, final APICallback callback) {
     this.pool.execute(new Runnable() {
       @Override
       public void run() {
