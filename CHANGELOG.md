@@ -1,6 +1,11 @@
 # Change Log
 All notable changes to this project will be documented in this file.
 
+## [4.1.1] - 2017-10-10
+### Added
+- PR #247 Added Javadocs.
+- BIG thanks to [Andy Trimble](https://github.com/andy-trimble)
+
 ## [4.1.0] - 2017-08-16
 ### Added
 - PR #211 Return empty collections in place of nulls

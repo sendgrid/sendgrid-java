@@ -38,7 +38,7 @@ public class SubscriptionTrackingSetting {
   /**
    * Get the plain text to be appended to the email, with the 
    * subscription tracking link. You may control where 
-   * the link is by using the tag <% %>
+   * the link is by using the tag &lt;% %&gt;
    * @return the plain text.
    */
   @JsonProperty("text")
@@ -57,7 +57,7 @@ public class SubscriptionTrackingSetting {
   /**
    * Get the HTML to be appended to the email, with the 
    * subscription tracking link. You may control where 
-   * the link is by using the tag <% %>
+   * the link is by using the tag &lt;% %&gt;
    * @return the HTML.
    */
   @JsonProperty("html")
