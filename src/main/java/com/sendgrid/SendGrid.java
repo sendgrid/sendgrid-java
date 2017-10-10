@@ -7,7 +7,8 @@ import java.util.Map;
 /**
   * Class SendGrid allows for quick and easy access to the SendGrid API.
   */
-public class SendGrid {
+public class SendGrid implements SendGridAPI {
+
   private static final String VERSION = "3.0.0";
   private static final String USER_AGENT = "sendgrid/" + VERSION + ";java";
 
