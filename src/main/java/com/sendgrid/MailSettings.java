@@ -72,7 +72,7 @@ public class MailSettings {
      * @return the settings.
      */
     @JsonProperty("footer")
-    public FooterSettings getFooterSetting() {
+    public FooterSettings getFooterSettings() {
         return footerSettings;
     }
 
@@ -80,7 +80,7 @@ public class MailSettings {
      * Set the the footer settings that you would like included on every email.
      * @param footerSettings the settings.
      */
-    public MailSettings footerSetting(FooterSettings footerSettings) {
+    public MailSettings footerSettings(FooterSettings footerSettings) {
         this.footerSettings = footerSettings;
         return this;
     }
@@ -111,7 +111,7 @@ public class MailSettings {
      * @return the spam check settings.
      */
     @JsonProperty("spam_check")
-    public SpamCheckSettings getSpamCheck() {
+    public SpamCheckSettings getSpamCheckSettings() {
         return spamCheckSettings;
     }
 
@@ -120,7 +120,7 @@ public class MailSettings {
      * content of your email for spam.
      * @param spamCheckSettings the spam check settings.
      */
-    public MailSettings spamCheckSetting(SpamCheckSettings spamCheckSettings) {
+    public MailSettings spamCheckSettings(SpamCheckSettings spamCheckSettings) {
         this.spamCheckSettings = spamCheckSettings;
         return this;
     }

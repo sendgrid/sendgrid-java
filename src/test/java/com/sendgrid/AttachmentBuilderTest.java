@@ -1,6 +1,5 @@
-package com.sendgrid.helpers;
+package com.sendgrid;
 
-import com.sendgrid.Attachments;
 import org.apache.commons.codec.binary.Base64;
 import org.junit.Assert;
 import org.junit.Test;
@@ -20,7 +19,7 @@ public class AttachmentBuilderTest {
         String contentId = "someId";
         String dispositon = "someDisposition";
 
-        Attachments attachments = new Attachments.Builder(fileName, contentStream)
+        Attachment attachments = new Attachment.Builder(fileName, contentStream)
                 .withType(type)
                 .withContentId(contentId)
                 .withDisposition(dispositon)
@@ -37,13 +36,13 @@ public class AttachmentBuilderTest {
     public void testCreateAttachmentsMissingRequiredFileNameParam() {
         String content = "This test checks if the builder works fine";
         InputStream contentStream = new ByteArrayInputStream(content.getBytes(Charset.forName("UTF-8")));
-        Attachments attachments = new Attachments.Builder(null, contentStream).build();
+        Attachment attachments = new Attachment.Builder(null, contentStream).build();
     }
 
     @Test(expected = IllegalArgumentException.class)
     public void testCreateAttachmentsMissingRequiredContentParam() {
         String type = "text";
         String content = null;
-        Attachments attachments = new Attachments.Builder(type, content).build();
+        Attachment attachments = new Attachment.Builder(type, content).build();
     }
 }

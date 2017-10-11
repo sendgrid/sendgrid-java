@@ -1,5 +1,6 @@
 package com.sendgrid;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 
@@ -100,6 +101,49 @@ public class Mail {
     }
 
     /**
+     * Get the email's to address list.
+     * @return all the to addresses.
+     */
+    @JsonIgnore
+    public List<Email> getTos() {
+        List<Email> l = new ArrayList<>();
+        if(this.getPersonalization() == null) {
+            return l;
+        }
+        for(Personalization p : this.getPersonalization()) {
+            l.addAll(p.getTos());
+        }
+        return l;
+    }
+
+    /**
+     * Add a to address. This is a convenience method for adding
+     * an address to the a personalization object. To addresses 
+     * are located in the Personalization object. This method adds 
+     * the address to the first personalization, creating it if 
+     * necessary. If you would like to add the address to a different
+     * personalization object, please do so directly.
+     * @param to the to address
+     */
+    public Mail to(Email to) {
+        Personalization p;
+
+        if(this.personalization == null) {
+            this.personalization = new ArrayList<>();
+        }
+
+        if(this.personalization.size() == 0) {
+            p = new Personalization();
+            this.personalization.add(p);
+        } else {
+            p = this.personalization.get(0);
+        }
+
+        p.to(to);
+        return this;
+    }
+
+    /**
      * Get the email's subject line.
      * @return the email's subject line.
      */
@@ -156,7 +200,7 @@ public class Mail {
      */
     public Mail personalization(Personalization personalization) {
         if (this.personalization == null) {
-            this.personalization = new ArrayList<Personalization>();
+            this.personalization = new ArrayList<>();
             this.personalization.add(personalization);
         } else {
             this.personalization.add(personalization);
@@ -206,13 +250,13 @@ public class Mail {
      * Add attachments to the email.
      * @param attachments attachments to add.
      */
-    public Mail attachments(Attachment attachments) {
+    public Mail attachment(Attachment attachment) {
         Attachment newAttachment = new Attachment()
-            .content(attachments.getContent())
-            .type(attachments.getType())
-            .filename(attachments.getFilename())
-            .disposition(attachments.getDisposition())
-            .contentId(attachments.getContentId());
+            .content(attachment.getContent())
+            .type(attachment.getType())
+            .filename(attachment.getFilename())
+            .disposition(attachment.getDisposition())
+            .contentId(attachment.getContentId());
 
         if (this.attachments == null) {
             this.attachments = new ArrayList<Attachment>();
@@ -471,7 +515,7 @@ public class Mail {
      * @return a JSON string.
      * @throws IOException in case of a JSON marshal error.
      */
-    public String build() throws IOException {
+    protected String build() throws IOException {
         try {
             //ObjectMapper mapper = new ObjectMapper();
             return SORTED_MAPPER.writeValueAsString(this);
@@ -492,5 +536,19 @@ public class Mail {
         } catch (IOException ex) {
             throw ex;
         }
+    }
+
+    /**
+     * Send the email.
+     * @param sg the SendGrid instance to use.
+     * @return the response object.
+     * @throws IOException in case of a marshal, or network error.
+     */
+    public Response send(SendGrid sg) throws IOException {
+        Request request = new Request();
+        request.setMethod(Method.POST);
+        request.setEndpoint("mail/send");
+        request.setBody(this.build());
+        return sg.api(request);
     }
 }

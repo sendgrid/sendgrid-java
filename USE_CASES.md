@@ -48,30 +48,29 @@ import com.sendgrid.*;
 import java.io.IOException;
 
 public class Example {
-  public static void main(String[] args) throws IOException {
-    Email from = new Email("test@example.com");
-    String subject = "I'm replacing the subject tag";
-    Email to = new Email("test@example.com");
-    Content content = new Content("text/html", "I'm replacing the <strong>body tag</strong>");
-    Mail mail = new Mail(from, subject, to, content);
-    mail.personalization.get(0).addSubstitution("-name-", "Example User");
-    mail.personalization.get(0).addSubstitution("-city-", "Denver");
-    mail.setTemplateId("13b8f94f-bcae-4ec6-b752-70d6cb59f932");
+    public static void main(String[] args) throws IOException {
+        SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
+        Response response = new Mail()
+            .from("test@example.com")
+            .subject("I'm replacing the subject tag")
+            .to( 
+                new Email()
+                    .email("test@example.com")
+            ).content(
+                new Content()
+                    .type(ContentType.TEXT_HTML)
+                    .value("I'm replacing the <strong>body tag</strong>")
+            ).personalization(
+                new Personalization()
+                    .substitution("-name-", "Example User")
+                    .substitution("-city-", "Denver")
+            ).templateId("13b8f94f-bcae-4ec6-b752-70d6cb59f932")
+            .send(sg);
 
-    SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
-    Request request = new Request();
-    try {
-      request.setMethod(Method.POST);
-      request.setEndpoint("mail/send");
-      request.setBody(mail.build());
-      Response response = sg.api(request);
-      System.out.println(response.getStatusCode());
-      System.out.println(response.getBody());
-      System.out.println(response.getHeaders());
-    } catch (IOException ex) {
-      throw ex;
+        System.out.println(response.getStatusCode());
+        System.out.println(response.getBody());
+        System.out.println(response.getHeaders());
     }
-  }
 }
 ```
 
@@ -82,20 +81,18 @@ import com.sendgrid.*;
 import java.io.IOException;
 
 public class Example {
-  public static void main(String[] args) throws IOException {
-    try {
-      SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
-      Request request = new Request();
-      request.setMethod(Method.POST);
-      request.setEndpoint("mail/send");
-      request.setBody("{\"personalizations\":[{\"to\":[{\"email\":\"test@example.com\"}],\"substitutions\":{\"-name-\":\"Example User\",\"-city-\":\"Denver\"},\"subject\":\"Hello World from the SendGrid Java Library!\"}],\"from\":{\"email\":\"test@example.com\"},\"content\":[{\"type\":\"text/html\",\"value\": \"I'm replacing the <strong>body tag</strong>\"}],\"template_id\": \"13b8f94f-bcae-4ec6-b752-70d6cb59f932\"}");
-      Response response = sg.api(request);
-      System.out.println(response.getStatusCode());
-      System.out.println(response.getBody());
-      System.out.println(response.getHeaders());
-    } catch (IOException ex) {
-      throw ex;
+    public static void main(String[] args) throws IOException {
+        SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
+        Request request = new Request();
+
+        request.setMethod(Method.POST);
+        request.setEndpoint("mail/send");
+        request.setBody("{\"personalizations\":[{\"to\":[{\"email\":\"test@example.com\"}],\"substitutions\":{\"-name-\":\"Example User\",\"-city-\":\"Denver\"},\"subject\":\"Hello World from the SendGrid Java Library!\"}],\"from\":{\"email\":\"test@example.com\"},\"content\":[{\"type\":\"text/html\",\"value\": \"I'm replacing the <strong>body tag</strong>\"}],\"template_id\": \"13b8f94f-bcae-4ec6-b752-70d6cb59f932\"}");
+
+        Response response = sg.api(request);
+        System.out.println(response.getStatusCode());
+        System.out.println(response.getBody());
+        System.out.println(response.getHeaders());
     }
-  }
 }
 ```

@@ -93,27 +93,25 @@ import com.sendgrid.*;
 import java.io.IOException;
 
 public class Example {
-  public static void main(String[] args) throws IOException {
-    Email from = new Email("test@example.com");
-    String subject = "Sending with SendGrid is Fun";
-    Email to = new Email("test@example.com");
-    Content content = new Content("text/plain", "and easy to do anywhere, even with Java");
-    Mail mail = new Mail(from, subject, to, content);
+    public static void main(String[] args) throws IOException {
+        SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
+        Response response = new Mail()
+            .from("test@example.com")
+            .subject("Sending with SendGrid is Fun")
+            .to( 
+                new Email()
+                    .email("test@example.com")
+                    .name("John Doe")
+            ).content(
+                new Content()
+                    .type(ContentType.TEXT_PLAIN)
+                    .value("and easy to do anywhere, even with Java")
+            ).send(sg);
 
-    SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
-    Request request = new Request();
-    try {
-      request.setMethod(Method.POST);
-      request.setEndpoint("mail/send");
-      request.setBody(mail.build());
-      Response response = sg.api(request);
-      System.out.println(response.getStatusCode());
-      System.out.println(response.getBody());
-      System.out.println(response.getHeaders());
-    } catch (IOException ex) {
-      throw ex;
+        System.out.println(response.getStatusCode());
+        System.out.println(response.getBody());
+        System.out.println(response.getHeaders());
     }
-  }
 }
 ```
 
@@ -128,21 +126,19 @@ import com.sendgrid.*;
 import java.io.IOException;
 
 public class Example {
-  public static void main(String[] args) throws IOException {
-    try {
-      SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
-      Request request = new Request();
-      request.setMethod(Method.POST);
-      request.setEndpoint("mail/send");
-      request.setBody("{\"personalizations\":[{\"to\":[{\"email\":\"test@example.com\"}],\"subject\":\"Sending with SendGrid is Fun\"}],\"from\":{\"email\":\"test@example.com\"},\"content\":[{\"type\":\"text/plain\",\"value\": \"and easy to do anywhere, even with Java\"}]}");
-      Response response = sg.api(request);
-      System.out.println(response.getStatusCode());
-      System.out.println(response.getBody());
-      System.out.println(response.getHeaders());
-    } catch (IOException ex) {
-      throw ex;
+    public static void main(String[] args) throws IOException {
+        SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
+        Request request = new Request();
+
+        request.setMethod(Method.POST);
+        request.setEndpoint("mail/send");
+        request.setBody("{\"personalizations\":[{\"to\":[{\"email\":\"test@example.com\"}],\"subject\":\"Sending with SendGrid is Fun\"}],\"from\":{\"email\":\"test@example.com\"},\"content\":[{\"type\":\"text/plain\",\"value\": \"and easy to do anywhere, even with Java\"}]}");
+
+        Response response = sg.api(request);
+        System.out.println(response.getStatusCode());
+        System.out.println(response.getBody());
+        System.out.println(response.getHeaders());
     }
-  }
 }
 ```
 
