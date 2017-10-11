@@ -13,3 +13,6 @@ examples/Example.java
 .settings
 .classpath
 .project
+.vscode
+scripts/prism
+sendgrid.env

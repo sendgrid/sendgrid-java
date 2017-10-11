@@ -9,9 +9,12 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  * that you would like included on every email.
  */
 @JsonInclude(Include.NON_DEFAULT)
-public class FooterSetting {
+public class FooterSettings {
+
   @JsonProperty("enable") private boolean enable;
+
   @JsonProperty("text") private String text;
+
   @JsonProperty("html") private String html;
   
   /**
