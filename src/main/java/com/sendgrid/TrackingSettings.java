@@ -38,8 +38,9 @@ public class TrackingSettings {
      * Set the click tracking settings.
      * @param clickTrackingSettings the settings.
      */
-    public void setClickTrackingSettings(ClickTrackingSettings clickTrackingSettings) {
+    public TrackingSettings clickTrackingSettings(ClickTrackingSettings clickTrackingSettings) {
         this.clickTrackingSettings = clickTrackingSettings;
+        return this;
     }
 
     /**
@@ -57,8 +58,9 @@ public class TrackingSettings {
      * Set the open tracking settings.
      * @param openTrackingSettings the settings.
      */
-    public void setOpenTrackingSettings(OpenTrackingSettings openTrackingSettings) {
+    public TrackingSettings openTrackingSettings(OpenTrackingSettings openTrackingSettings) {
         this.openTrackingSettings = openTrackingSettings;
+        return this;
     }
 
     /**
@@ -78,8 +80,9 @@ public class TrackingSettings {
      * Set the subscription tracking settings.
      * @param subscriptionTrackingSettings the settings.
      */
-    public void setSubscriptionTrackingSetting(SubscriptionTrackingSettings subscriptionTrackingSettings) {
+    public TrackingSettings subscriptionTrackingSetting(SubscriptionTrackingSettings subscriptionTrackingSettings) {
         this.subscriptionTrackingSettings = subscriptionTrackingSettings;
+        return this;
     }
 
     /**
@@ -96,7 +99,8 @@ public class TrackingSettings {
      * Set the Google Analytics settings.
      * @param googleAnalyticsSettings the settings.
      */
-    public void setGoogleAnalyticsSettings(GoogleAnalyticsSettings googleAnalyticsSettings) {
+    public TrackingSettings googleAnalyticsSettings(GoogleAnalyticsSettings googleAnalyticsSettings) {
         this.googleAnalyticsSettings = googleAnalyticsSettings;
+        return this;
     }
 }

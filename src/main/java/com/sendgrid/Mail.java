@@ -1,15 +1,10 @@
 package com.sendgrid;
 
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.databind.ObjectWriter;
 import com.fasterxml.jackson.databind.SerializationFeature;
 
 import java.io.IOException;
@@ -87,22 +82,6 @@ public class Mail {
     }
 
     /**
-     * Construct a new Mail object.
-     * @param from the email's from address.
-     * @param subject the email's subject line.
-     * @param to the email's recipient.
-     * @param content the email's content.
-     */
-    public Mail(Email from, String subject, Email to, Content content) {
-        this.setFrom(from);
-        this.setSubject(subject);
-        Personalization personalization = new Personalization();
-        personalization.addTo(to);
-        this.addPersonalization(personalization);
-        this.addContent(content);
-    }
-
-    /**
      * Get the email's from address.
      * @return the email's from address.
      */
@@ -115,8 +94,9 @@ public class Mail {
      * Set the email's from address.
      * @param from the email's from address.
      */
-    public void setFrom(Email from) {
+    public Mail from(Email from) {
         this.from = from;
+        return this;
     }
 
     /**
@@ -134,8 +114,9 @@ public class Mail {
      * be overridden by personalizations[x].subject. 
      * @param subject the email's subject line.
      */
-    public void setSubject(String subject) {
+    public Mail subject(String subject) {
         this.subject = subject;
+        return this;
     }
 
     /**
@@ -151,8 +132,9 @@ public class Mail {
      * Set the email's unsubscribe handling object (ASM).
      * @param asm the email's ASM.
      */
-    public void asm(ASM asm) {
+    public Mail asm(ASM asm) {
         this.asm = asm;
+        return this;
     }
 
     /**
@@ -172,13 +154,14 @@ public class Mail {
      * and how that message should be handled. 
      * @param personalization a personalization.
      */
-    public void addPersonalization(Personalization personalization) {
+    public Mail personalization(Personalization personalization) {
         if (this.personalization == null) {
             this.personalization = new ArrayList<Personalization>();
             this.personalization.add(personalization);
         } else {
             this.personalization.add(personalization);
         }
+        return this;
     }
 
     /**
@@ -195,16 +178,18 @@ public class Mail {
      * Add content to this email.
      * @param content content to add to this email.
      */
-    public void addContent(Content content) {
-        Content newContent = new Content();
-        newContent.setType(content.getType());
-        newContent.setValue(content.getValue());
+    public Mail content(Content content) {
+        Content newContent = new Content()
+            .type(content.getType())
+            .value(content.getValue());
+
         if (this.content == null) {
             this.content = new ArrayList<Content>();
             this.content.add(newContent);
         } else {
             this.content.add(newContent);
         }
+        return this;
     }
 
     /**
@@ -221,19 +206,21 @@ public class Mail {
      * Add attachments to the email.
      * @param attachments attachments to add.
      */
-    public void addAttachments(Attachment attachments) {
-        Attachment newAttachment = new Attachment();
-        newAttachment.setContent(attachments.getContent());
-        newAttachment.setType(attachments.getType());
-        newAttachment.setFilename(attachments.getFilename());
-        newAttachment.setDisposition(attachments.getDisposition());
-        newAttachment.setContentId(attachments.getContentId());
+    public Mail attachments(Attachment attachments) {
+        Attachment newAttachment = new Attachment()
+            .content(attachments.getContent())
+            .type(attachments.getType())
+            .filename(attachments.getFilename())
+            .disposition(attachments.getDisposition())
+            .contentId(attachments.getContentId());
+
         if (this.attachments == null) {
             this.attachments = new ArrayList<Attachment>();
             this.attachments.add(newAttachment);
         } else {
             this.attachments.add(newAttachment);
         }
+        return this;
     }
 
     /**
@@ -249,8 +236,9 @@ public class Mail {
      * Set the email's template ID.
      * @param templateId the email's template ID.
      */
-    public void setTemplateId(String templateId) {
+    public Mail templateId(String templateId) {
         this.templateId = templateId;
+        return this;
     }
 
     /**
@@ -269,13 +257,14 @@ public class Mail {
      * @param key the section's key.
      * @param value the section's value.
      */
-    public void addSection(String key, String value) {
+    public Mail section(String key, String value) {
         if (sections == null) {
             sections = new HashMap<String, String>();
             sections.put(key, value);
         } else {
             sections.put(key, value);
         }
+        return this;
     }
 
     /**
@@ -293,13 +282,14 @@ public class Mail {
      * @param key the header's key.
      * @param value the header's value.
      */
-    public void addHeader(String key, String value) {
+    public Mail header(String key, String value) {
         if (headers == null) {
             headers = new HashMap<String, String>();
             headers.put(key, value);
         } else {
             headers.put(key, value);
         }
+        return this;
     }
 
     /**
@@ -316,13 +306,14 @@ public class Mail {
      * Add a category to the email.
      * @param category the category.
      */
-    public void addCategory(String category) {
+    public Mail category(String category) {
         if (categories == null) {
             categories = new ArrayList<String>();
             categories.add(category);
         } else {
             categories.add(category);
         }
+        return this;
     }
 
     /**
@@ -348,13 +339,14 @@ public class Mail {
      * @param key argument's key.
      * @param value the argument's value.
      */
-    public void addCustomArg(String key, String value) {
+    public Mail customArg(String key, String value) {
         if (customArgs == null) {
             customArgs = new HashMap<String, String>();
             customArgs.put(key, value);
         } else {
             customArgs.put(key, value);
         }
+        return this;
     }
 
     /**
@@ -374,8 +366,9 @@ public class Mail {
      * more than 72 hours in advance is forbidden. 
      * @param sendAt the send at time.
      */
-    public void setSendAt(long sendAt) {
+    public Mail sendAt(long sendAt) {
         this.sendAt = sendAt;
+        return this;
     }
 
     /**
@@ -396,8 +389,9 @@ public class Mail {
      * more information, see https://sendgrid.com/docs/API_Reference/Web_API_v3/cancel_schedule_send.
      * @param batchId the batch ID.
      */
-    public void setBatchId(String batchId) {
+    public Mail batchId(String batchId) {
         this.batchId = batchId;
+        return this;
     }
 
     /**
@@ -413,8 +407,9 @@ public class Mail {
      * Set the email's IP pool ID.
      * @param ipPoolId the IP pool ID.
      */
-    public void setIpPoolId(String ipPoolId) {
+    public Mail ipPoolId(String ipPoolId) {
         this.ipPoolId = ipPoolId;
+        return this;
     }
 
     /**
@@ -430,8 +425,9 @@ public class Mail {
      * Set the email's settings.
      * @param mailSettings the settings.
      */
-    public void setMailSettings(MailSettings mailSettings) {
+    public Mail mailSettings(MailSettings mailSettings) {
         this.mailSettings = mailSettings;
+        return this;
     }
 
     /**
@@ -447,8 +443,9 @@ public class Mail {
      * Set the email's tracking settings.
      * @param trackingSettings the tracking settings.
      */
-    public void setTrackingSettings(TrackingSettings trackingSettings) {
+    public Mail trackingSettings(TrackingSettings trackingSettings) {
         this.trackingSettings = trackingSettings;
+        return this;
     }
 
     /**
@@ -464,8 +461,9 @@ public class Mail {
      * Set the email's reply to address.
      * @param replyTo the reply to address.
      */
-    public void setReplyTo(Email replyTo) {
+    public Mail replyTo(Email replyTo) {
         this.replyTo = replyTo;
+        return this;
     }
 
     /**

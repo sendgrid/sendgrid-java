@@ -33,8 +33,9 @@ public class SpamCheckSettings {
      * Set if this setting is enabled.
      * @param enable true if spam checking is enabled, false otherwise.
      */
-    public void setEnable(boolean enable) {
+    public SpamCheckSettings enable(boolean enable) {
         this.enable = enable;
+        return this;
     }
 
     /**
@@ -52,8 +53,9 @@ public class SpamCheckSettings {
      * Set the spam check threshold.
      * @param spamThreshold the threshold.
      */
-    public void setSpamThreshold(int spamThreshold) {
+    public SpamCheckSettings spamThreshold(int spamThreshold) {
         this.spamThreshold = spamThreshold;
+        return this;
     }
 
     /**
@@ -70,7 +72,8 @@ public class SpamCheckSettings {
      * Set the Inbout Parse URL.
      * @param postToUrl a URL.
      */
-    public void setPostToUrl(String postToUrl) {
+    public SpamCheckSettings postToUrl(String postToUrl) {
         this.postToUrl = postToUrl;
+        return this;
     }
 }

@@ -31,8 +31,9 @@ public class ASM {
      * Set the group ID.
      * @param groupId the group ID.
      */
-    public void setGroupId(int groupId) {
+    public ASM groupId(int groupId) {
         this.groupId = groupId;
+        return this;
     }
 
     /**
@@ -48,7 +49,8 @@ public class ASM {
      * Set the groups to display.
      * @param groupsToDisplay the groups to display.
      */
-    public void setGroupsToDisplay(int[] groupsToDisplay) {
+    public ASM groupsToDisplay(int[] groupsToDisplay) {
         this.groupsToDisplay = Arrays.copyOf(groupsToDisplay, groupsToDisplay.length);
+        return this;
     }
 }

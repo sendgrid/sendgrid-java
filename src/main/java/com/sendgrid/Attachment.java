@@ -48,8 +48,9 @@ public class Attachment {
      * Set the attachment's content.
      * @param content the content.
      */
-    public void setContent(String content) {
+    public Attachment content(String content) {
         this.content = content;
+        return this;
     }
 
     /**
@@ -66,8 +67,9 @@ public class Attachment {
      * Set the mime type of the content.
      * @param type the mime type.
      */
-    public void setType(String type) {
+    public Attachment type(String type) {
         this.type = type;
+        return this;
     }
 
     /**
@@ -83,8 +85,9 @@ public class Attachment {
      * Set the filename for this attachment.
      * @param filename the filename.
      */
-    public void setFilename(String filename) {
+    public Attachment filename(String filename) {
         this.filename = filename;
+        return this;
     }
 
     /**
@@ -106,8 +109,9 @@ public class Attachment {
      * Set the content-disposition of the attachment.
      * @param disposition the disposition.
      */
-    public void setDisposition(String disposition) {
+    public Attachment disposition(String disposition) {
         this.disposition = disposition;
+        return this;
     }
 
     /**
@@ -126,8 +130,9 @@ public class Attachment {
      * Set the content ID.
      * @param contentId the content ID.
      */
-    public void setContentId(String contentId) {
+    public Attachment contentId(String contentId) {
         this.contentId = contentId;
+        return this;
     }
 
     /**
@@ -227,12 +232,12 @@ public class Attachment {
          * Construct the attachment object.
          */
         public Attachment build() {
-            Attachment attachment = new Attachment();
-            attachment.setContent(content);
-            attachment.setFilename(fileName);
-            attachment.setDisposition(disposition);
-            attachment.setContentId(contentId);
-            attachment.setType(type);
+            Attachment attachment = new Attachment()
+                .content(content)
+                .filename(fileName)
+                .disposition(disposition)
+                .contentId(contentId)
+                .type(type);
             return attachment;
         }
     }

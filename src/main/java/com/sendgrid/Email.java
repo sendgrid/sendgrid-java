@@ -24,24 +24,6 @@ public class Email {
     }
 
     /**
-     * Construct an email with the supplied email and an empty name.
-     * @param email an email address.
-     */
-    public Email(String email) {
-        this.setEmail(email);
-    }
-
-    /**
-     * Construct an email with the supplied address and name.
-     * @param email an email address.
-     * @param name a name.
-     */
-    public Email(String email, String name) {
-        this.setEmail(email);
-        this.setName(name);
-    }
-
-    /**
      * Get the name.
      * @return the name.
      */
@@ -54,8 +36,9 @@ public class Email {
      * Set the name.
      * @param name the name.
      */
-    public void setName(String name) {
+    public Email name(String name) {
         this.name = name;
+        return this;
     }
 
     /**
@@ -71,7 +54,8 @@ public class Email {
      * Set the email address.
      * @param email the email address.
      */
-    public void setEmail(String email) {
+    public Email email(String email) {
         this.email = email;
+        return this;
     }
 }

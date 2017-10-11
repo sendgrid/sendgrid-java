@@ -64,16 +64,18 @@ public class Personalization {
      * Add a recipient.
      * @param email an email address.
      */
-    public void addTo(Email email) {
-        Email newEmail = new Email();
-        newEmail.setName(email.getName());
-        newEmail.setEmail(email.getEmail());
+    public Personalization to(Email email) {
+        Email newEmail = new Email()
+            .name(email.getName())
+            .email(email.getEmail());
+
         if (tos == null) {
             tos = new ArrayList<Email>();
             tos.add(newEmail);
         } else {
             tos.add(newEmail);
         }
+        return this;
     }
 
     /**
@@ -97,16 +99,18 @@ public class Personalization {
      * Add a recipient.
      * @param email an email address.
      */
-    public void addCc(Email email) {
-        Email newEmail = new Email();
-        newEmail.setName(email.getName());
-        newEmail.setEmail(email.getEmail());
+    public Personalization cc(Email email) {
+        Email newEmail = new Email()
+            .name(email.getName())
+            .email(email.getEmail());
+
         if (ccs == null) {
             ccs = new ArrayList<Email>();
             ccs.add(newEmail);
         } else {
             ccs.add(newEmail);
         }
+        return this;
     }
 
     /**
@@ -130,16 +134,18 @@ public class Personalization {
      * Add a recipient.
      * @param email an email address.
      */
-    public void addBcc(Email email) {
-        Email newEmail = new Email();
-        newEmail.setName(email.getName());
-        newEmail.setEmail(email.getEmail());
+    public Personalization bcc(Email email) {
+        Email newEmail = new Email()
+            .name(email.getName())
+            .email(email.getEmail());
+
         if (bccs == null) {
             bccs = new ArrayList<Email>();
             bccs.add(newEmail);
         } else {
             bccs.add(newEmail);
         }
+        return this;
     }
 
     /**
@@ -155,8 +161,9 @@ public class Personalization {
      * Set the subject of the email.
      * @param subject the subject.
      */
-    public void setSubject(String subject) {
+    public Personalization subject(String subject) {
         this.subject = subject;
+        return this;
     }
 
     /**
@@ -182,13 +189,14 @@ public class Personalization {
      * @param key the header key.
      * @param value the header value.
      */
-    public void addHeader(String key, String value) {
+    public Personalization header(String key, String value) {
         if (headers == null) {
             headers = new HashMap<String, String>();
             headers.put(key, value);
         } else {
             headers.put(key, value);
         }
+        return this;
     }
 
     /**
@@ -218,13 +226,14 @@ public class Personalization {
      * @param key the key.
      * @param value the value.
      */
-    public void addSubstitution(String key, String value) {
+    public Personalization substitution(String key, String value) {
         if (substitutions == null) {
             substitutions = new HashMap<String, String>();
             substitutions.put(key, value);
         } else {
             substitutions.put(key, value);
         }
+        return this;
     }
 
     /**
@@ -251,13 +260,14 @@ public class Personalization {
      * @param key the key.
      * @param value the value.
      */
-    public void addCustomArg(String key, String value) {
+    public Personalization customArg(String key, String value) {
         if (customArgs == null) {
             customArgs = new HashMap<String, String>();
             customArgs.put(key, value);
         } else {
             customArgs.put(key, value);
         }
+        return this;
     }
 
     /**
@@ -276,7 +286,8 @@ public class Personalization {
      * Set the send at time.
      * @param sendAt the send at time (Unix timestamp).
      */
-    public void setSendAt(long sendAt) {
+    public Personalization sendAt(long sendAt) {
         this.sendAt = sendAt;
+        return this;
     }
 }

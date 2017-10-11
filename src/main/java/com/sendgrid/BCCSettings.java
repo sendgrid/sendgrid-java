@@ -31,8 +31,9 @@ public class BCCSettings {
      * Set whether or not BCC is enabled.
      * @param enable true if BCC is enabled, false otherwise.
      */
-    public void setEnable(boolean enable) {
+    public BCCSettings enable(boolean enable) {
         this.enable = enable;
+        return this;
     }
 
     /**
@@ -48,7 +49,8 @@ public class BCCSettings {
      * Set the email address that you would like to receive the BCC.
      * @param email the address.
      */
-    public void setEmail(String email) {
+    public BCCSettings email(String email) {
         this.email = email;
+        return this;
     }
 }

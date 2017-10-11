@@ -32,8 +32,9 @@ public class OpenTrackingSettings {
      * Set if this setting is enabled.
      * @param enable true if open tracking is enabled, false otherwise.
      */
-    public void setEnable(boolean enable) {
+    public OpenTrackingSettings enable(boolean enable) {
         this.enable = enable;
+        return this;
     }
 
     /**
@@ -52,7 +53,8 @@ public class OpenTrackingSettings {
      * Set the substitution tag.
      * @param substitutionTag the substitution tag.
      */
-    public void setSubstitutionTag(String substitutionTag) {
+    public OpenTrackingSettings substitutionTag(String substitutionTag) {
         this.substitutionTag = substitutionTag;
+        return this;
     }
 }

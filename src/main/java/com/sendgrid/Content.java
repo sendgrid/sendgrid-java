@@ -24,16 +24,6 @@ public class Content {
     }
 
     /**
-     * Construct a content object with the specified type and value.
-     * @param type the mime type.
-     * @param value the content.
-     */
-    public Content(String type, String value) {
-        this.setType(type);
-        this.setValue(value);
-    }
-
-    /**
      * Get the mime type of the content you are including 
      * in your email. For example, “text/plain” or “text/html”.
      * @return the mime type.
@@ -48,8 +38,9 @@ public class Content {
      * in your email. For example, “text/plain” or “text/html”.
      * @param type the mime type.
      */
-    public void setType(String type) {
+    public Content type(String type) {
         this.type = type;
+        return this;
     }
 
     /**
@@ -67,7 +58,8 @@ public class Content {
      * that you are including in your email.
      * @param value the value.
      */
-    public void setValue(String value) {
+    public Content value(String value) {
         this.value = value;
+        return this;
     }
 }

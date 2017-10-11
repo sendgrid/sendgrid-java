@@ -41,8 +41,9 @@ public class GoogleAnalyticsSettings {
      * Set whether or not this setting is enabled.
      * @param enable true if enabled, false otherwise.
      */
-    public void setEnable(boolean enable) {
+    public GoogleAnalyticsSettings enable(boolean enable) {
         this.enable = enable;
+        return this;
     }
 
     /**
@@ -59,8 +60,9 @@ public class GoogleAnalyticsSettings {
      * Set the name of the referrer source. 
      * @param campaignSource the referrer source.
      */
-    public void setCampaignSource(String campaignSource) {
+    public GoogleAnalyticsSettings campaignSource(String campaignSource) {
         this.campaignSource = campaignSource;
+        return this;
     }
 
     /**
@@ -76,8 +78,9 @@ public class GoogleAnalyticsSettings {
      * Set the term used to identify any paid keywords.
      * @param campaignTerm the term.
      */
-    public void setCampaignTerm(String campaignTerm) {
+    public GoogleAnalyticsSettings campaignTerm(String campaignTerm) {
         this.campaignTerm = campaignTerm;
+        return this;
     }
 
     /**
@@ -95,8 +98,9 @@ public class GoogleAnalyticsSettings {
      * from advertisements.
      * @param campaignContent the content.
      */
-    public void setCampaignContent(String campaignContent) {
+    public GoogleAnalyticsSettings campaignContent(String campaignContent) {
         this.campaignContent = campaignContent;
+        return this;
     }
 
     /**
@@ -112,8 +116,9 @@ public class GoogleAnalyticsSettings {
      * Set the name of the campaign.
      * @param campaignName the name.
      */
-    public void setCampaignName(String campaignName) {
+    public GoogleAnalyticsSettings campaignName(String campaignName) {
         this.campaignName = campaignName;
+        return this;
     }
 
     /**
@@ -129,7 +134,8 @@ public class GoogleAnalyticsSettings {
      * Set the name of the marketing medium. (e.g. Email)
      * @param campaignMedium the medium name.
      */
-    public void setCampaignMedium(String campaignMedium) {
+    public GoogleAnalyticsSettings campaignMedium(String campaignMedium) {
         this.campaignMedium = campaignMedium;
+        return this;
     }
 }

@@ -40,8 +40,9 @@ public class MailSettings {
      * Set the BCC settings.
      * @param bccSettings the BCC settings.
      */
-    public void setBccSettings(BCCSettings bccSettings) {
+    public MailSettings bccSettings(BCCSettings bccSettings) {
         this.bccSettings = bccSettings;
+        return this;
     }
 
     /**
@@ -61,8 +62,9 @@ public class MailSettings {
      * Set the bypass setting.
      * @param bypassListManagement the setting.
      */
-    public void setBypassListManagement(Setting bypassListManagement) {
+    public MailSettings bypassListManagement(Setting bypassListManagement) {
         this.bypassListManagement = bypassListManagement;
+        return this;
     }
 
     /**
@@ -78,8 +80,9 @@ public class MailSettings {
      * Set the the footer settings that you would like included on every email.
      * @param footerSettings the settings.
      */
-    public void setFooterSetting(FooterSettings footerSettings) {
+    public MailSettings footerSetting(FooterSettings footerSettings) {
         this.footerSettings = footerSettings;
+        return this;
     }
 
     /**
@@ -97,8 +100,9 @@ public class MailSettings {
      * @param sandBoxMode the sandbox mode setting.
      */
     @JsonProperty("sandbox_mode")
-    public void setSandboxMode(Setting sandBoxMode) {
+    public MailSettings sandboxMode(Setting sandBoxMode) {
         this.sandBoxMode = sandBoxMode;
+        return this;
     }
 
     /**
@@ -116,7 +120,8 @@ public class MailSettings {
      * content of your email for spam.
      * @param spamCheckSettings the spam check settings.
      */
-    public void setSpamCheckSetting(SpamCheckSettings spamCheckSettings) {
+    public MailSettings spamCheckSetting(SpamCheckSettings spamCheckSettings) {
         this.spamCheckSettings = spamCheckSettings;
+        return this;
     }
 }
