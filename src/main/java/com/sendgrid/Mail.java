@@ -38,7 +38,7 @@ public class Mail {
     private List<Content> content;
 
     @JsonProperty("attachments")
-    private List<Attachments> attachments;
+    private List<Attachment> attachments;
 
     @JsonProperty("template_id")
     private String templateId;
@@ -83,7 +83,7 @@ public class Mail {
 
     /** Construct a new Mail object. */
     public Mail() {
-        return;
+        
     }
 
     /**
@@ -151,7 +151,7 @@ public class Mail {
      * Set the email's unsubscribe handling object (ASM).
      * @param asm the email's ASM.
      */
-    public void setASM(ASM asm) {
+    public void asm(ASM asm) {
         this.asm = asm;
     }
 
@@ -213,7 +213,7 @@ public class Mail {
      * @return the email's attachments.
      */
     @JsonProperty("attachments")
-    public List<Attachments> getAttachments() {
+    public List<Attachment> getAttachments() {
         return attachments;
     }
 
@@ -221,15 +221,15 @@ public class Mail {
      * Add attachments to the email.
      * @param attachments attachments to add.
      */
-    public void addAttachments(Attachments attachments) {
-        Attachments newAttachment = new Attachments();
+    public void addAttachments(Attachment attachments) {
+        Attachment newAttachment = new Attachment();
         newAttachment.setContent(attachments.getContent());
         newAttachment.setType(attachments.getType());
         newAttachment.setFilename(attachments.getFilename());
         newAttachment.setDisposition(attachments.getDisposition());
         newAttachment.setContentId(attachments.getContentId());
         if (this.attachments == null) {
-            this.attachments = new ArrayList<Attachments>();
+            this.attachments = new ArrayList<Attachment>();
             this.attachments.add(newAttachment);
         } else {
             this.attachments.add(newAttachment);

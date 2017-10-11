@@ -12,7 +12,7 @@ import java.io.*;
  * An attachment object.
  */
 @JsonInclude(Include.NON_DEFAULT)
-public class Attachments {
+public class Attachment {
 
     @JsonProperty("content")
     private String content;
@@ -131,7 +131,7 @@ public class Attachments {
     }
 
     /**
-     * A helper object to construct usable attachments.
+     * A helper object to construct usable attachment.
      */
     @JsonIgnoreType
     public static class Builder {
@@ -224,16 +224,16 @@ public class Attachments {
         }
 
         /**
-         * Construct the attachments object.
+         * Construct the attachment object.
          */
-        public Attachments build() {
-            Attachments attachments = new Attachments();
-            attachments.setContent(content);
-            attachments.setFilename(fileName);
-            attachments.setDisposition(disposition);
-            attachments.setContentId(contentId);
-            attachments.setType(type);
-            return attachments;
+        public Attachment build() {
+            Attachment attachment = new Attachment();
+            attachment.setContent(content);
+            attachment.setFilename(fileName);
+            attachment.setDisposition(disposition);
+            attachment.setContentId(contentId);
+            attachment.setType(type);
+            return attachment;
         }
     }
 }
