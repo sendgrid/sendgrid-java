@@ -11,9 +11,8 @@ matrix:
     - os: linux
       jdk: oraclejdk8
 before_script:
-- mkdir -p prism/bin
-- export PATH=$PATH:$PWD/prism/bin/
-- ./test/prism.sh
+- "./scripts/startPrism.sh &"
+- sleep 10
 
 after_script:
 - "./gradlew build"
