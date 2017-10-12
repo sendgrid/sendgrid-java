@@ -20,8 +20,8 @@ public class SettingsSerializationTest {
 		OpenTrackingSetting setting = new OpenTrackingSetting();
 		setting.setEnable(false);
 
-		String jsonOne = mapper.writeValueAsString(setting);
-		Assert.assertEquals(jsonOne, "{\"enable\":false}");
+		String json = mapper.writeValueAsString(setting);
+		Assert.assertEquals(json, "{\"enable\":false}");
 	}
 
 	@Test
@@ -29,9 +29,9 @@ public class SettingsSerializationTest {
 		ClickTrackingSetting setting = new ClickTrackingSetting();
 		setting.setEnable(false);
 
-		String jsonTwo = mapper.writeValueAsString(setting);
-		System.out.println(jsonTwo);
-		Assert.assertEquals(jsonTwo, "{\"enable\":false,\"enable_text\":false}");
+		String json = mapper.writeValueAsString(setting);
+		System.out.println(json);
+		Assert.assertEquals(json, "{\"enable\":false,\"enable_text\":false}");
 	}
 
 	@Test
@@ -39,9 +39,9 @@ public class SettingsSerializationTest {
 		SubscriptionTrackingSetting setting = new SubscriptionTrackingSetting();
 		setting.setEnable(false);
 
-		String jsonTwo = mapper.writeValueAsString(setting);
-		System.out.println(jsonTwo);
-		Assert.assertEquals(jsonTwo, "{\"enable\":false}");
+		String json = mapper.writeValueAsString(setting);
+		System.out.println(json);
+		Assert.assertEquals(json, "{\"enable\":false}");
 	}
 
 	@Test
@@ -49,9 +49,9 @@ public class SettingsSerializationTest {
 		GoogleAnalyticsSetting setting = new GoogleAnalyticsSetting();
 		setting.setEnable(false);
 
-		String jsonTwo = mapper.writeValueAsString(setting);
-		System.out.println(jsonTwo);
-		Assert.assertEquals(jsonTwo, "{\"enable\":false}");
+		String json = mapper.writeValueAsString(setting);
+		System.out.println(json);
+		Assert.assertEquals(json, "{\"enable\":false}");
 	}
 
 	@Test
@@ -59,9 +59,9 @@ public class SettingsSerializationTest {
 		SpamCheckSetting setting = new SpamCheckSetting();
 		setting.setEnable(false);
 
-		String jsonTwo = mapper.writeValueAsString(setting);
-		System.out.println(jsonTwo);
-		Assert.assertEquals(jsonTwo, "{\"enable\":false,\"threshold\":0}");
+		String json = mapper.writeValueAsString(setting);
+		System.out.println(json);
+		Assert.assertEquals(json, "{\"enable\":false,\"threshold\":0}");
 	}
 
 	@Test
@@ -69,9 +69,9 @@ public class SettingsSerializationTest {
 		FooterSetting setting = new FooterSetting();
 		setting.setEnable(false);
 
-		String jsonTwo = mapper.writeValueAsString(setting);
-		System.out.println(jsonTwo);
-		Assert.assertEquals(jsonTwo, "{\"enable\":false}");
+		String json = mapper.writeValueAsString(setting);
+		System.out.println(json);
+		Assert.assertEquals(json, "{\"enable\":false}");
 	}
 
 	@Test
@@ -79,8 +79,8 @@ public class SettingsSerializationTest {
 		BccSettings settings = new BccSettings();
 		settings.setEnable(false);
 
-		String jsonTwo = mapper.writeValueAsString(settings);
-		System.out.println(jsonTwo);
-		Assert.assertEquals(jsonTwo, "{\"enable\":false}");
+		String json = mapper.writeValueAsString(settings);
+		System.out.println(json);
+		Assert.assertEquals(json, "{\"enable\":false}");
 	}
 }
