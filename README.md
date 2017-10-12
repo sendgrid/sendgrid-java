@@ -54,7 +54,7 @@ Add the following to your build.gradle file in the root of your project.
 ...
 dependencies {
   ...
-  compile 'com.sendgrid:sendgrid-java:4.1.0'
+  compile 'com.sendgrid:sendgrid-java:4.1.1'
 }
 
 repositories {
@@ -221,5 +221,4 @@ sendgrid-java is guided and supported by the SendGrid [Developer Experience Team
 
 sendgrid-java is maintained and funded by SendGrid, Inc. The names and logos for sendgrid-java are trademarks of SendGrid, Inc.
 
-![SendGrid Logo]
-(https://uiux.s3.amazonaws.com/2016-logos/email-logo%402x.png)
+![SendGrid Logo](https://uiux.s3.amazonaws.com/2016-logos/email-logo%402x.png)
