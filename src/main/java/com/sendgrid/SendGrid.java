@@ -157,7 +157,7 @@ public class SendGrid {
      * @return the response object.
      * @throws IOException in case of a network error.
      */
-    public Response api(Request request) throws IOException {
+    public Response send(Request request) throws IOException {
         Request req = new Request();
         req.setMethod(request.getMethod());
         req.setBaseUri(this.host);

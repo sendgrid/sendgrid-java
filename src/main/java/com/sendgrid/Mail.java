@@ -549,6 +549,6 @@ public class Mail {
         request.setMethod(Method.POST);
         request.setEndpoint("mail/send");
         request.setBody(this.build());
-        return sg.api(request);
+        return sg.send(request);
     }
 }
