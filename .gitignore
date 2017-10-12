@@ -13,3 +13,4 @@ examples/Example.java
 .settings
 .classpath
 .project
+sendgrid.env

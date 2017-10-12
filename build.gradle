@@ -37,7 +37,7 @@ task wrapper(type: Wrapper) {
 
 buildscript {
   dependencies {
-    classpath 'eu.appsatori:gradle-fatjar-plugin:0.1.2' // adds fatJar task
+    classpath 'eu.appsatori:gradle-fatjar-plugin:0.2' // adds fatJar task
   }
   repositories {
     mavenCentral()
@@ -60,7 +60,7 @@ allprojects {
   gradle.projectsEvaluated {
     tasks.withType(JavaCompile) {
       options.compilerArgs << "-Xlint:unchecked" << "-Xlint:deprecation"
-      }
+    }
   }
 }
 
@@ -166,3 +166,53 @@ artifacts {
   archives javadocJar
   archives sourcesJar
 }
+
+task downloadPrism(type: Exec) {
+  workingDir = 'scripts'
+  commandLine = './download_prism.sh'
+}
+
+def Process process
+
+task prism {
+  dependsOn downloadPrism
+
+  ext.isPortOpen = { port ->
+    try {
+      def s = new Socket('localhost', port)
+    } catch(Exception ex) {
+      return false
+    }
+    return true
+  }
+
+  ext.waitForPort = { port ->
+    println 'Waiting for port ' + port
+    def ctr = 0
+    while(!isPortOpen(port) && ctr < 20) {
+      ctr++
+      sleep(1000)
+    }
+  }
+
+  ext.runPrism = {
+    def command = [ './prism', 'run', '--mock', '--list', '--spec', 'https://raw.githubusercontent.com/sendgrid/sendgrid-oai/master/oai_stoplight.json' ]
+    process = new ProcessBuilder(command)
+                                      .directory(new File('scripts'))
+                                      .redirectErrorStream(true) 
+                                      .start()
+  }
+
+  doLast {
+    runPrism()
+    waitForPort(4010)
+  }
+}
+
+test {
+  dependsOn prism
+  doLast {
+    process.destroy()
+  }
+}
+
