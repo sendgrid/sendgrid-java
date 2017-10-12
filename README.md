@@ -134,7 +134,7 @@ public class Example {
         request.setEndpoint("mail/send");
         request.setBody("{\"personalizations\":[{\"to\":[{\"email\":\"test@example.com\"}],\"subject\":\"Sending with SendGrid is Fun\"}],\"from\":{\"email\":\"test@example.com\"},\"content\":[{\"type\":\"text/plain\",\"value\": \"and easy to do anywhere, even with Java\"}]}");
 
-        Response response = sg.api(request);
+        Response response = sg.send(request);
         System.out.println(response.getStatusCode());
         System.out.println(response.getBody());
         System.out.println(response.getHeaders());
@@ -155,7 +155,7 @@ public class Example {
       Request request = new Request();
       request.setMethod(Method.GET);
       request.setEndpoint("api_keys");
-      Response response = sg.api(request);
+      Response response = sg.send(request);
       System.out.println(response.getStatusCode());
       System.out.println(response.getBody());
       System.out.println(response.getHeaders());

@@ -70,7 +70,7 @@ For more information, please see our [User Guide](http://sendgrid.com/docs/User_
     request.setMethod(Method.GET);
     request.setEndpoint("access_settings/activity");
     request.addQueryParam("limit", "1");
-    Response response = sg.api(request);
+    Response response = sg.send(request);
     System.out.println(response.getStatusCode());
     System.out.println(response.getBody());
     System.out.println(response.getHeaders());
@@ -98,7 +98,7 @@ For more information, please see our [User Guide](http://sendgrid.com/docs/User_
     request.setMethod(Method.POST);
     request.setEndpoint("access_settings/whitelist");
     request.setBody("{\"ips\":[{\"ip\":\"192.168.1.1\"},{\"ip\":\"192.*.*.*\"},{\"ip\":\"192.168.1.3/32\"}]}");
-    Response response = sg.api(request);
+    Response response = sg.send(request);
     System.out.println(response.getStatusCode());
     System.out.println(response.getBody());
     System.out.println(response.getHeaders());
@@ -123,7 +123,7 @@ For more information, please see our [User Guide](http://sendgrid.com/docs/User_
     Request request = new Request();
     request.setMethod(Method.GET);
     request.setEndpoint("access_settings/whitelist");
-    Response response = sg.api(request);
+    Response response = sg.send(request);
     System.out.println(response.getStatusCode());
     System.out.println(response.getBody());
     System.out.println(response.getHeaders());
@@ -151,7 +151,7 @@ For more information, please see our [User Guide](http://sendgrid.com/docs/User_
     request.setMethod(Method.DELETE);
     request.setEndpoint("access_settings/whitelist");
     request.setBody("{\"ids\":[1,2,3]}");
-    Response response = sg.api(request);
+    Response response = sg.send(request);
     System.out.println(response.getStatusCode());
     System.out.println(response.getBody());
     System.out.println(response.getHeaders());
@@ -178,7 +178,7 @@ For more information, please see our [User Guide](http://sendgrid.com/docs/User_
     Request request = new Request();
     request.setMethod(Method.GET);
     request.setEndpoint("access_settings/whitelist/{rule_id}");
-    Response response = sg.api(request);
+    Response response = sg.send(request);
     System.out.println(response.getStatusCode());
     System.out.println(response.getBody());
     System.out.println(response.getHeaders());
@@ -205,7 +205,7 @@ For more information, please see our [User Guide](http://sendgrid.com/docs/User_
     Request request = new Request();
     request.setMethod(Method.DELETE);
     request.setEndpoint("access_settings/whitelist/{rule_id}");
-    Response response = sg.api(request);
+    Response response = sg.send(request);
     System.out.println(response.getStatusCode());
     System.out.println(response.getBody());
     System.out.println(response.getHeaders());
@@ -236,7 +236,7 @@ For more information about alerts, please see our [User Guide](https://sendgrid.
     request.setMethod(Method.POST);
     request.setEndpoint("alerts");
     request.setBody("{\"type\":\"stats_notification\",\"frequency\":\"daily\",\"email_to\":\"example@example.com\"}");
-    Response response = sg.api(request);
+    Response response = sg.send(request);
     System.out.println(response.getStatusCode());
     System.out.println(response.getBody());
     System.out.println(response.getHeaders());
@@ -263,7 +263,7 @@ For more information about alerts, please see our [User Guide](https://sendgrid.
     Request request = new Request();
     request.setMethod(Method.GET);
     request.setEndpoint("alerts");
-    Response response = sg.api(request);
+    Response response = sg.send(request);
     System.out.println(response.getStatusCode());
     System.out.println(response.getBody());
     System.out.println(response.getHeaders());
@@ -291,7 +291,7 @@ For more information about alerts, please see our [User Guide](https://sendgrid.
     request.setMethod(Method.PATCH);
     request.setEndpoint("alerts/{alert_id}");
     request.setBody("{\"email_to\":\"example@example.com\"}");
-    Response response = sg.api(request);
+    Response response = sg.send(request);
     System.out.println(response.getStatusCode());
     System.out.println(response.getBody());
     System.out.println(response.getHeaders());
@@ -318,7 +318,7 @@ For more information about alerts, please see our [User Guide](https://sendgrid.
     Request request = new Request();
     request.setMethod(Method.GET);
     request.setEndpoint("alerts/{alert_id}");
-    Response response = sg.api(request);
+    Response response = sg.send(request);
     System.out.println(response.getStatusCode());
     System.out.println(response.getBody());
     System.out.println(response.getHeaders());
@@ -345,7 +345,7 @@ For more information about alerts, please see our [User Guide](https://sendgrid.
     Request request = new Request();
     request.setMethod(Method.DELETE);
     request.setEndpoint("alerts/{alert_id}");
-    Response response = sg.api(request);
+    Response response = sg.send(request);
     System.out.println(response.getStatusCode());
     System.out.println(response.getBody());
     System.out.println(response.getHeaders());
@@ -378,7 +378,7 @@ See the [API Key Permissions List](https://sendgrid.com/docs/API_Reference/Web_A
     request.setMethod(Method.POST);
     request.setEndpoint("api_keys");
     request.setBody("{\"sample\":\"data\",\"scopes\":[\"mail.send\",\"alerts.create\",\"alerts.read\"],\"name\":\"My API Key\"}");
-    Response response = sg.api(request);
+    Response response = sg.send(request);
     System.out.println(response.getStatusCode());
     System.out.println(response.getBody());
     System.out.println(response.getHeaders());
@@ -402,7 +402,7 @@ The API Keys feature allows customers to be able to generate an API Key credenti
     request.setMethod(Method.GET);
     request.setEndpoint("api_keys");
     request.addQueryParam("limit", "1");
-    Response response = sg.api(request);
+    Response response = sg.send(request);
     System.out.println(response.getStatusCode());
     System.out.println(response.getBody());
     System.out.println(response.getHeaders());
@@ -430,7 +430,7 @@ The API Keys feature allows customers to be able to generate an API Key credenti
     request.setMethod(Method.PUT);
     request.setEndpoint("api_keys/{api_key_id}");
     request.setBody("{\"scopes\":[\"user.profile.read\",\"user.profile.update\"],\"name\":\"A New Hope\"}");
-    Response response = sg.api(request);
+    Response response = sg.send(request);
     System.out.println(response.getStatusCode());
     System.out.println(response.getBody());
     System.out.println(response.getHeaders());
@@ -462,7 +462,7 @@ The API Keys feature allows customers to be able to generate an API Key credenti
     request.setMethod(Method.PATCH);
     request.setEndpoint("api_keys/{api_key_id}");
     request.setBody("{\"name\":\"A New Hope\"}");
-    Response response = sg.api(request);
+    Response response = sg.send(request);
     System.out.println(response.getStatusCode());
     System.out.println(response.getBody());
     System.out.println(response.getHeaders());
@@ -485,7 +485,7 @@ If the API Key ID does not exist an HTTP 404 will be returned.
     Request request = new Request();
     request.setMethod(Method.GET);
     request.setEndpoint("api_keys/{api_key_id}");
-    Response response = sg.api(request);
+    Response response = sg.send(request);
     System.out.println(response.getStatusCode());
     System.out.println(response.getBody());
     System.out.println(response.getHeaders());
@@ -516,7 +516,7 @@ The API Keys feature allows customers to be able to generate an API Key credenti
     Request request = new Request();
     request.setMethod(Method.DELETE);
     request.setEndpoint("api_keys/{api_key_id}");
-    Response response = sg.api(request);
+    Response response = sg.send(request);
     System.out.println(response.getStatusCode());
     System.out.println(response.getBody());
     System.out.println(response.getHeaders());
@@ -547,7 +547,7 @@ Each user can create up to 25 different suppression groups.
     request.setMethod(Method.POST);
     request.setEndpoint("asm/groups");
     request.setBody("{\"is_default\":true,\"description\":\"Suggestions for products our users might like.\",\"name\":\"Product) Suggestions\"}";
-    Response response = sg.api(request);
+    Response response = sg.send(request);
     System.out.println(response.getStatusCode());
     System.out.println(response.getBody());
     System.out.println(response.getHeaders());
@@ -575,7 +575,7 @@ Suppression groups, or [unsubscribe groups](https://sendgrid.com/docs/API_Refere
     request.setMethod(Method.GET);
     request.setEndpoint("asm/groups");
     request.addQueryParam("id", "1");
-    Response response = sg.api(request);
+    Response response = sg.send(request);
     System.out.println(response.getStatusCode());
     System.out.println(response.getBody());
     System.out.println(response.getHeaders());
@@ -603,7 +603,7 @@ Each user can create up to 25 different suppression groups.
     request.setMethod(Method.PATCH);
     request.setEndpoint("asm/groups/{group_id}");
     request.setBody("{\"description\":\"Suggestions for items our users might like.\",\"name\":\"Item Suggestions\",\"id\":103}");
-    Response response = sg.api(request);
+    Response response = sg.send(request);
     System.out.println(response.getStatusCode());
     System.out.println(response.getBody());
     System.out.println(response.getHeaders());
@@ -630,7 +630,7 @@ Each user can create up to 25 different suppression groups.
     Request request = new Request();
     request.setMethod(Method.GET);
     request.setEndpoint("asm/groups/{group_id}");
-    Response response = sg.api(request);
+    Response response = sg.send(request);
     System.out.println(response.getStatusCode());
     System.out.println(response.getBody());
     System.out.println(response.getHeaders());
@@ -659,7 +659,7 @@ Each user can create up to 25 different suppression groups.
     Request request = new Request();
     request.setMethod(Method.DELETE);
     request.setEndpoint("asm/groups/{group_id}");
-    Response response = sg.api(request);
+    Response response = sg.send(request);
     System.out.println(response.getStatusCode());
     System.out.println(response.getBody());
     System.out.println(response.getHeaders());
@@ -685,7 +685,7 @@ Suppressions are recipient email addresses that are added to [unsubscribe groups
     request.setMethod(Method.POST);
     request.setEndpoint("asm/groups/{group_id}/suppressions");
     request.setBody("{\"recipient_emails\":[\"test1@example.com\",\"test2@example.com\"]}");
-    Response response = sg.api(request);
+    Response response = sg.send(request);
     System.out.println(response.getStatusCode());
     System.out.println(response.getBody());
     System.out.println(response.getHeaders());
@@ -708,7 +708,7 @@ Suppressions are recipient email addresses that are added to [unsubscribe groups
     Request request = new Request();
     request.setMethod(Method.GET);
     request.setEndpoint("asm/groups/{group_id}/suppressions");
-    Response response = sg.api(request);
+    Response response = sg.send(request);
     System.out.println(response.getStatusCode());
     System.out.println(response.getBody());
     System.out.println(response.getHeaders());
@@ -734,7 +734,7 @@ Suppressions are a list of email addresses that will not receive content sent un
     request.setMethod(Method.POST);
     request.setEndpoint("asm/groups/{group_id}/suppressions/search");
     request.setBody("{\"recipient_emails\":[\"exists1@example.com\",\"exists2@example.com\",\"doesnotexists@example.com\"]}");
-    Response response = sg.api(request);
+    Response response = sg.send\(request);
     System.out.println(response.getStatusCode());
     System.out.println(response.getBody());
     System.out.println(response.getHeaders());
@@ -757,7 +757,7 @@ Suppressions are recipient email addresses that are added to [unsubscribe groups
     Request request = new Request();
     request.setMethod(Method.DELETE);
     request.setEndpoint("asm/groups/{group_id}/suppressions/{email}");
-    Response response = sg.api(request);
+    Response response = sg.send\(request);
     System.out.println(response.getStatusCode());
     System.out.println(response.getBody());
     System.out.println(response.getHeaders());
@@ -780,7 +780,7 @@ Suppressions are a list of email addresses that will not receive content sent un
     Request request = new Request();
     request.setMethod(Method.GET);
     request.setEndpoint("asm/suppressions");
-    Response response = sg.api(request);
+    Response response = sg.send\(request);
     System.out.println(response.getStatusCode());
     System.out.println(response.getBody());
     System.out.println(response.getHeaders());
@@ -804,7 +804,7 @@ A global suppression (or global unsubscribe) is an email address of a recipient 
     request.setMethod(Method.POST);
     request.setEndpoint("asm/suppressions/global");
     request.setBody("{\"recipient_emails\":[\"test1@example.com\",\"test2@example.com\"]}");
-    Response response = sg.api(request);
+    Response response = sg.send\(request);
     System.out.println(response.getStatusCode());
     System.out.println(response.getBody());
     System.out.println(response.getHeaders());
@@ -829,7 +829,7 @@ A global suppression (or global unsubscribe) is an email address of a recipient 
     Request request = new Request();
     request.setMethod(Method.GET);
     request.setEndpoint("asm/suppressions/global/{email}");
-    Response response = sg.api(request);
+    Response response = sg.send\(request);
     System.out.println(response.getStatusCode());
     System.out.println(response.getBody());
     System.out.println(response.getHeaders());
@@ -852,7 +852,7 @@ A global suppression (or global unsubscribe) is an email address of a recipient 
     Request request = new Request();
     request.setMethod(Method.DELETE);
     request.setEndpoint("asm/suppressions/global/{email}");
-    Response response = sg.api(request);
+    Response response = sg.send\(request);
     System.out.println(response.getStatusCode());
     System.out.println(response.getBody());
     System.out.println(response.getHeaders());
@@ -875,7 +875,7 @@ Suppressions are a list of email addresses that will not receive content sent un
     Request request = new Request();
     request.setMethod(Method.GET);
     request.setEndpoint("asm/suppressions/{email}");
-    Response response = sg.api(request);
+    Response response = sg.send\(request);
     System.out.println(response.getStatusCode());
     System.out.println(response.getBody());
     System.out.println(response.getHeaders());
@@ -909,7 +909,7 @@ Advanced Stats provide a more in-depth view of your email statistics and the act
       request.addQueryParam("limit", "test_string");
       request.addQueryParam("offset", "test_string");
       request.addQueryParam("start_date", "2016-01-01");
-    Response response = sg.api(request);
+    Response response = sg.send\(request);
     System.out.println(response.getStatusCode());
     System.out.println(response.getBody());
     System.out.println(response.getHeaders());
@@ -942,7 +942,7 @@ For more information:
     request.setMethod(Method.POST);
     request.setEndpoint("campaigns");
     request.setBody("{\"custom_unsubscribe_url\":\"\",\"html_content\":\"<html><head><title></title></head><body><p>Check out our) spring line!</p></body></html>\",\"list_ids\":[110,124],\"sender_id\":124451,\"subject\":\"New Products for Spring!\",\"plain_content\":\"Check out our spring line!\",\"suppression_group_id\":42,\"title\":\"March Newsletter\",\"segment_ids\":[110],\"categories\":[\"spring line\"],\"ip_pool\":\"marketing\"}";
-    Response response = sg.api(request);
+    Response response = sg.send\(request);
     System.out.println(response.getStatusCode());
     System.out.println(response.getBody());
     System.out.println(response.getHeaders());
@@ -973,7 +973,7 @@ For more information:
     request.setEndpoint("campaigns");
     request.addQueryParam("limit", "1");
       request.addQueryParam("offset", "1");
-    Response response = sg.api(request);
+    Response response = sg.send\(request);
     System.out.println(response.getStatusCode());
     System.out.println(response.getBody());
     System.out.println(response.getHeaders());
@@ -999,7 +999,7 @@ For more information:
     request.setMethod(Method.PATCH);
     request.setEndpoint("campaigns/{campaign_id}");
     request.setBody("{\"html_content\":\"<html><head><title></title></head><body><p>Check out our summer line!</p></body></html)>\",\"subject\":\"New Products for Summer!\",\"title\":\"May Newsletter\",\"categories\":[\"summer line\"],\"plain_content\":\"Check out our summer line!\"}";
-    Response response = sg.api(request);
+    Response response = sg.send\(request);
     System.out.println(response.getStatusCode());
     System.out.println(response.getBody());
     System.out.println(response.getHeaders());
@@ -1026,7 +1026,7 @@ For more information:
     Request request = new Request();
     request.setMethod(Method.GET);
     request.setEndpoint("campaigns/{campaign_id}");
-    Response response = sg.api(request);
+    Response response = sg.send\(request);
     System.out.println(response.getStatusCode());
     System.out.println(response.getBody());
     System.out.println(response.getHeaders());
@@ -1053,7 +1053,7 @@ For more information:
     Request request = new Request();
     request.setMethod(Method.DELETE);
     request.setEndpoint("campaigns/{campaign_id}");
-    Response response = sg.api(request);
+    Response response = sg.send\(request);
     System.out.println(response.getStatusCode());
     System.out.println(response.getBody());
     System.out.println(response.getHeaders());
@@ -1079,7 +1079,7 @@ For more information:
     request.setMethod(Method.PATCH);
     request.setEndpoint("campaigns/{campaign_id}/schedules");
     request.setBody("{\"send_at\":1489451436}");
-    Response response = sg.api(request);
+    Response response = sg.send\(request);
     System.out.println(response.getStatusCode());
     System.out.println(response.getBody());
     System.out.println(response.getHeaders());
@@ -1105,7 +1105,7 @@ For more information:
     request.setMethod(Method.POST);
     request.setEndpoint("campaigns/{campaign_id}/schedules");
     request.setBody("{\"send_at\":1489771528}");
-    Response response = sg.api(request);
+    Response response = sg.send\(request);
     System.out.println(response.getStatusCode());
     System.out.println(response.getBody());
     System.out.println(response.getHeaders());
@@ -1130,7 +1130,7 @@ For more information:
     Request request = new Request();
     request.setMethod(Method.GET);
     request.setEndpoint("campaigns/{campaign_id}/schedules");
-    Response response = sg.api(request);
+    Response response = sg.send\(request);
     System.out.println(response.getStatusCode());
     System.out.println(response.getBody());
     System.out.println(response.getHeaders());
@@ -1158,7 +1158,7 @@ For more information:
     Request request = new Request();
     request.setMethod(Method.DELETE);
     request.setEndpoint("campaigns/{campaign_id}/schedules");
-    Response response = sg.api(request);
+    Response response = sg.send\(request);
     System.out.println(response.getStatusCode());
     System.out.println(response.getBody());
     System.out.println(response.getHeaders());
@@ -1185,7 +1185,7 @@ For more information:
     Request request = new Request();
     request.setMethod(Method.POST);
     request.setEndpoint("campaigns/{campaign_id}/schedules/now");
-    Response response = sg.api(request);
+    Response response = sg.send\(request);
     System.out.println(response.getStatusCode());
     System.out.println(response.getBody());
     System.out.println(response.getHeaders());
@@ -1213,7 +1213,7 @@ For more information:
     request.setMethod(Method.POST);
     request.setEndpoint("campaigns/{campaign_id}/schedules/test");
     request.setBody("{\"to\":\"your.email@example.com\"}");
-    Response response = sg.api(request);
+    Response response = sg.send\(request);
     System.out.println(response.getStatusCode());
     System.out.println(response.getBody());
     System.out.println(response.getHeaders());
@@ -1242,7 +1242,7 @@ Categories can help organize your email analytics by enabling you to tag emails 
     request.addQueryParam("category", "test_string");
       request.addQueryParam("limit", "1");
       request.addQueryParam("offset", "1");
-    Response response = sg.api(request);
+    Response response = sg.send\(request);
     System.out.println(response.getStatusCode());
     System.out.println(response.getBody());
     System.out.println(response.getHeaders());
@@ -1273,7 +1273,7 @@ Categories allow you to group your emails together according to broad topics tha
       request.addQueryParam("offset", "1");
       request.addQueryParam("start_date", "2016-01-01");
       request.addQueryParam("categories", "test_string");
-    Response response = sg.api(request);
+    Response response = sg.send\(request);
     System.out.println(response.getStatusCode());
     System.out.println(response.getBody());
     System.out.println(response.getHeaders());
@@ -1305,7 +1305,7 @@ Categories allow you to group your emails together according to broad topics tha
       request.addQueryParam("offset", "1");
       request.addQueryParam("start_date", "2016-01-01");
       request.addQueryParam("sort_by_direction", "asc");
-    Response response = sg.api(request);
+    Response response = sg.send\(request);
     System.out.println(response.getStatusCode());
     System.out.println(response.getBody());
     System.out.println(response.getHeaders());
@@ -1336,7 +1336,7 @@ Advanced Stats provide a more in-depth view of your email statistics and the act
     request.addQueryParam("aggregated_by", "day");
       request.addQueryParam("start_date", "2016-01-01");
       request.addQueryParam("end_date", "2016-04-01");
-    Response response = sg.api(request);
+    Response response = sg.send\(request);
     System.out.println(response.getStatusCode());
     System.out.println(response.getBody());
     System.out.println(response.getHeaders());
@@ -1370,7 +1370,7 @@ Advanced Stats provide a more in-depth view of your email statistics and the act
     request.addQueryParam("aggregated_by", "day");
       request.addQueryParam("start_date", "2016-01-01");
       request.addQueryParam("end_date", "2016-04-01");
-    Response response = sg.api(request);
+    Response response = sg.send\(request);
     System.out.println(response.getStatusCode());
     System.out.println(response.getBody());
     System.out.println(response.getHeaders());
@@ -1397,7 +1397,7 @@ The contactdb is a database of your contacts for [SendGrid Marketing Campaigns](
     request.setMethod(Method.POST);
     request.setEndpoint("contactdb/custom_fields");
     request.setBody("{\"type\":\"text\",\"name\":\"pet\"}");
-    Response response = sg.api(request);
+    Response response = sg.send\(request);
     System.out.println(response.getStatusCode());
     System.out.println(response.getBody());
     System.out.println(response.getHeaders());
@@ -1420,7 +1420,7 @@ The contactdb is a database of your contacts for [SendGrid Marketing Campaigns](
     Request request = new Request();
     request.setMethod(Method.GET);
     request.setEndpoint("contactdb/custom_fields");
-    Response response = sg.api(request);
+    Response response = sg.send\(request);
     System.out.println(response.getStatusCode());
     System.out.println(response.getBody());
     System.out.println(response.getHeaders());
@@ -1443,7 +1443,7 @@ The contactdb is a database of your contacts for [SendGrid Marketing Campaigns](
     Request request = new Request();
     request.setMethod(Method.GET);
     request.setEndpoint("contactdb/custom_fields/{custom_field_id}");
-    Response response = sg.api(request);
+    Response response = sg.send\(request);
     System.out.println(response.getStatusCode());
     System.out.println(response.getBody());
     System.out.println(response.getHeaders());
@@ -1466,7 +1466,7 @@ The contactdb is a database of your contacts for [SendGrid Marketing Campaigns](
     Request request = new Request();
     request.setMethod(Method.DELETE);
     request.setEndpoint("contactdb/custom_fields/{custom_field_id}");
-    Response response = sg.api(request);
+    Response response = sg.send\(request);
     System.out.println(response.getStatusCode());
     System.out.println(response.getBody());
     System.out.println(response.getHeaders());
@@ -1490,7 +1490,7 @@ The Contacts API helps you manage your [Marketing Campaigns](https://sendgrid.co
     request.setMethod(Method.POST);
     request.setEndpoint("contactdb/lists");
     request.setBody("{\"name\":\"your list name\"}");
-    Response response = sg.api(request);
+    Response response = sg.send\(request);
     System.out.println(response.getStatusCode());
     System.out.println(response.getBody());
     System.out.println(response.getHeaders());
@@ -1513,7 +1513,7 @@ The Contacts API helps you manage your [Marketing Campaigns](https://sendgrid.co
     Request request = new Request();
     request.setMethod(Method.GET);
     request.setEndpoint("contactdb/lists");
-    Response response = sg.api(request);
+    Response response = sg.send\(request);
     System.out.println(response.getStatusCode());
     System.out.println(response.getBody());
     System.out.println(response.getHeaders());
@@ -1537,7 +1537,7 @@ The Contacts API helps you manage your [Marketing Campaigns](https://sendgrid.co
     request.setMethod(Method.DELETE);
     request.setEndpoint("contactdb/lists");
     request.setBody("[1,2,3,4]");
-    Response response = sg.api(request);
+    Response response = sg.send\(request);
     System.out.println(response.getStatusCode());
     System.out.println(response.getBody());
     System.out.println(response.getHeaders());
@@ -1562,7 +1562,7 @@ The Contacts API helps you manage your [Marketing Campaigns](https://sendgrid.co
     request.setMethod(Method.PATCH);
     request.setEndpoint("contactdb/lists/{list_id}");
     request.setBody("{\"name\":\"newlistname\"}");
-    Response response = sg.api(request);
+    Response response = sg.send\(request);
     System.out.println(response.getStatusCode());
     System.out.println(response.getBody());
     System.out.println(response.getHeaders());
@@ -1585,7 +1585,7 @@ The Contacts API helps you manage your [Marketing Campaigns](https://sendgrid.co
     Request request = new Request();
     request.setMethod(Method.GET);
     request.setEndpoint("contactdb/lists/{list_id}");
-    Response response = sg.api(request);
+    Response response = sg.send\(request);
     System.out.println(response.getStatusCode());
     System.out.println(response.getBody());
     System.out.println(response.getHeaders());
@@ -1609,7 +1609,7 @@ The Contacts API helps you manage your [Marketing Campaigns](https://sendgrid.co
     request.setMethod(Method.DELETE);
     request.setEndpoint("contactdb/lists/{list_id}");
     request.addQueryParam("delete_contacts", "true");
-    Response response = sg.api(request);
+    Response response = sg.send\(request);
     System.out.println(response.getStatusCode());
     System.out.println(response.getBody());
     System.out.println(response.getHeaders());
@@ -1635,7 +1635,7 @@ The Contacts API helps you manage your [Marketing Campaigns](https://sendgrid.co
     request.setMethod(Method.POST);
     request.setEndpoint("contactdb/lists/{list_id}/recipients");
     request.setBody("[\"recipient_id1\",\"recipient_id2\"]");
-    Response response = sg.api(request);
+    Response response = sg.send\(request);
     System.out.println(response.getStatusCode());
     System.out.println(response.getBody());
     System.out.println(response.getHeaders());
@@ -1660,7 +1660,7 @@ The Contacts API helps you manage your [Marketing Campaigns](https://sendgrid.co
     request.setEndpoint("contactdb/lists/{list_id}/recipients");
     request.addQueryParam("page", "1");
     request.addQueryParam("page_size", "1");
-    Response response = sg.api(request);
+    Response response = sg.send\(request);
     System.out.println(response.getStatusCode());
     System.out.println(response.getBody());
     System.out.println(response.getHeaders());
@@ -1683,7 +1683,7 @@ The Contacts API helps you manage your [Marketing Campaigns](https://sendgrid.co
     Request request = new Request();
     request.setMethod(Method.POST);
     request.setEndpoint("contactdb/lists/{list_id}/recipients/{recipient_id}");
-    Response response = sg.api(request);
+    Response response = sg.send\(request);
     System.out.println(response.getStatusCode());
     System.out.println(response.getBody());
     System.out.println(response.getHeaders());
@@ -1707,7 +1707,7 @@ The Contacts API helps you manage your [Marketing Campaigns](https://sendgrid.co
     request.setMethod(Method.DELETE);
     request.setEndpoint("contactdb/lists/{list_id}/recipients/{recipient_id}");
     request.addQueryParam("recipient_id", "1");
-    Response response = sg.api(request);
+    Response response = sg.send\(request);
     System.out.println(response.getStatusCode());
     System.out.println(response.getBody());
     System.out.println(response.getHeaders());
@@ -1735,7 +1735,7 @@ The contactdb is a database of your contacts for [SendGrid Marketing Campaigns](
     request.setMethod(Method.PATCH);
     request.setEndpoint("contactdb/recipients");
     request.setBody("[{\"first_name\":\"Guy\",\"last_name\":\"Jones\",\"email\":\"jones@example.com\"}]");
-    Response response = sg.api(request);
+    Response response = sg.send\(request);
     System.out.println(response.getStatusCode());
     System.out.println(response.getBody());
     System.out.println(response.getHeaders());
@@ -1761,7 +1761,7 @@ The Contacts API helps you manage your [Marketing Campaigns](https://sendgrid.co
     request.setMethod(Method.POST);
     request.setEndpoint("contactdb/recipients");
     request.setBody("[{\"age\":25,\"last_name\":\"User\",\"email\":\"example@example.com\",\"first_name\":\"\"},{\"age\":25,\"last)_name\":\"User\",\"email\":\"example2@example.com\",\"first_name\":\"Example\"}]";
-    Response response = sg.api(request);
+    Response response = sg.send\(request);
     System.out.println(response.getStatusCode());
     System.out.println(response.getBody());
     System.out.println(response.getHeaders());
@@ -1789,7 +1789,7 @@ The Contacts API helps you manage your [Marketing Campaigns](https://sendgrid.co
     request.setEndpoint("contactdb/recipients");
     request.addQueryParam("page", "1");
       request.addQueryParam("page_size", "1");
-    Response response = sg.api(request);
+    Response response = sg.send\(request);
     System.out.println(response.getStatusCode());
     System.out.println(response.getBody());
     System.out.println(response.getHeaders());
@@ -1815,7 +1815,7 @@ The contactdb is a database of your contacts for [SendGrid Marketing Campaigns](
     request.setMethod(Method.DELETE);
     request.setEndpoint("contactdb/recipients");
     request.setBody("[\"recipient_id1\",\"recipient_id2\"]");
-    Response response = sg.api(request);
+    Response response = sg.send\(request);
     System.out.println(response.getStatusCode());
     System.out.println(response.getBody());
     System.out.println(response.getHeaders());
@@ -1840,7 +1840,7 @@ The Contacts API helps you manage your [Marketing Campaigns](https://sendgrid.co
     Request request = new Request();
     request.setMethod(Method.GET);
     request.setEndpoint("contactdb/recipients/billable_count");
-    Response response = sg.api(request);
+    Response response = sg.send\(request);
     System.out.println(response.getStatusCode());
     System.out.println(response.getBody());
     System.out.println(response.getHeaders());
@@ -1863,7 +1863,7 @@ The contactdb is a database of your contacts for [SendGrid Marketing Campaigns](
     Request request = new Request();
     request.setMethod(Method.GET);
     request.setEndpoint("contactdb/recipients/count");
-    Response response = sg.api(request);
+    Response response = sg.send\(request);
     System.out.println(response.getStatusCode());
     System.out.println(response.getBody());
     System.out.println(response.getHeaders());
@@ -1896,7 +1896,7 @@ The contactdb is a database of your contacts for [SendGrid Marketing Campaigns](
     request.setMethod(Method.GET);
     request.setEndpoint("contactdb/recipients/search");
     request.addQueryParam("{field_name}", "test_string");
-    Response response = sg.api(request);
+    Response response = sg.send\(request);
     System.out.println(response.getStatusCode());
     System.out.println(response.getBody());
     System.out.println(response.getHeaders());
@@ -1919,7 +1919,7 @@ The Contacts API helps you manage your [Marketing Campaigns](https://sendgrid.co
     Request request = new Request();
     request.setMethod(Method.GET);
     request.setEndpoint("contactdb/recipients/{recipient_id}");
-    Response response = sg.api(request);
+    Response response = sg.send\(request);
     System.out.println(response.getStatusCode());
     System.out.println(response.getBody());
     System.out.println(response.getHeaders());
@@ -1942,7 +1942,7 @@ The Contacts API helps you manage your [Marketing Campaigns](https://sendgrid.co
     Request request = new Request();
     request.setMethod(Method.DELETE);
     request.setEndpoint("contactdb/recipients/{recipient_id}");
-    Response response = sg.api(request);
+    Response response = sg.send\(request);
     System.out.println(response.getStatusCode());
     System.out.println(response.getBody());
     System.out.println(response.getHeaders());
@@ -1967,7 +1967,7 @@ The Contacts API helps you manage your [Marketing Campaigns](https://sendgrid.co
     Request request = new Request();
     request.setMethod(Method.GET);
     request.setEndpoint("contactdb/recipients/{recipient_id}/lists");
-    Response response = sg.api(request);
+    Response response = sg.send\(request);
     System.out.println(response.getStatusCode());
     System.out.println(response.getBody());
     System.out.println(response.getHeaders());
@@ -1990,7 +1990,7 @@ The contactdb is a database of your contacts for [SendGrid Marketing Campaigns](
     Request request = new Request();
     request.setMethod(Method.GET);
     request.setEndpoint("contactdb/reserved_fields");
-    Response response = sg.api(request);
+    Response response = sg.send\(request);
     System.out.println(response.getStatusCode());
     System.out.println(response.getBody());
     System.out.println(response.getHeaders());
@@ -2034,7 +2034,7 @@ For more information about segments in Marketing Campaigns, please see our [User
     request.setMethod(Method.POST);
     request.setEndpoint("contactdb/segments");
     request.setBody("{\"conditions\":[{\"operator\":\"eq\",\"field\":\"last_name\",\"and)_or\":\"\",\"value\":\"Miller\"},{\"operator\":\"gt\",\"field\":\"last_clicked\",\"and_or\":\"and\",\"value\":\"01/02/2015\"},{\"operator\":\"eq\",\"field\":\"clicks.campaign_identifier\",\"and_or\":\"or\",\"value\":\"513\"}],\"name\":\"Last Name Miller\",\"list_id\":4}";
-    Response response = sg.api(request);
+    Response response = sg.send\(request);
     System.out.println(response.getStatusCode());
     System.out.println(response.getBody());
     System.out.println(response.getHeaders());
@@ -2059,7 +2059,7 @@ For more information about segments in Marketing Campaigns, please see our [User
     Request request = new Request();
     request.setMethod(Method.GET);
     request.setEndpoint("contactdb/segments");
-    Response response = sg.api(request);
+    Response response = sg.send\(request);
     System.out.println(response.getStatusCode());
     System.out.println(response.getBody());
     System.out.println(response.getHeaders());
@@ -2086,7 +2086,7 @@ For more information about segments in Marketing Campaigns, please see our [User
     request.setEndpoint("contactdb/segments/{segment_id}");
     request.setBody("{\"conditions\":[{\"operator\":\"eq\",\"field\":\"last_name\",\"and)_or\":\"\",\"value\":\"Miller\"}],\"name\":\"The Millers\",\"list_id\":5}";
     request.addQueryParam("segment_id", "test_string");
-    Response response = sg.api(request);
+    Response response = sg.send\(request);
     System.out.println(response.getStatusCode());
     System.out.println(response.getBody());
     System.out.println(response.getHeaders());
@@ -2112,7 +2112,7 @@ For more information about segments in Marketing Campaigns, please see our [User
     request.setMethod(Method.GET);
     request.setEndpoint("contactdb/segments/{segment_id}");
     request.addQueryParam("segment_id", "1");
-    Response response = sg.api(request);
+    Response response = sg.send\(request);
     System.out.println(response.getStatusCode());
     System.out.println(response.getBody());
     System.out.println(response.getHeaders());
@@ -2140,7 +2140,7 @@ For more information about segments in Marketing Campaigns, please see our [User
     request.setMethod(Method.DELETE);
     request.setEndpoint("contactdb/segments/{segment_id}");
     request.addQueryParam("delete_contacts", "true");
-    Response response = sg.api(request);
+    Response response = sg.send\(request);
     System.out.println(response.getStatusCode());
     System.out.println(response.getBody());
     System.out.println(response.getHeaders());
@@ -2167,7 +2167,7 @@ For more information about segments in Marketing Campaigns, please see our [User
     request.setEndpoint("contactdb/segments/{segment_id}/recipients");
     request.addQueryParam("page", "1");
       request.addQueryParam("page_size", "1");
-    Response response = sg.api(request);
+    Response response = sg.send\(request);
     System.out.println(response.getStatusCode());
     System.out.println(response.getBody());
     System.out.println(response.getHeaders());
@@ -2209,7 +2209,7 @@ Advanced Stats provide a more in-depth view of your email statistics and the act
       request.addQueryParam("start_date", "2016-01-01");
       request.addQueryParam("end_date", "2016-04-01");
       request.addQueryParam("offset", "1");
-    Response response = sg.api(request);
+    Response response = sg.send\(request);
     System.out.println(response.getStatusCode());
     System.out.println(response.getBody());
     System.out.println(response.getHeaders());
@@ -2243,7 +2243,7 @@ Advanced Stats provide a more in-depth view of your email statistics and the act
       request.addQueryParam("limit", "1");
       request.addQueryParam("offset", "1");
       request.addQueryParam("start_date", "2016-01-01");
-    Response response = sg.api(request);
+    Response response = sg.send\(request);
     System.out.println(response.getStatusCode());
     System.out.println(response.getBody());
     System.out.println(response.getHeaders());
@@ -2276,7 +2276,7 @@ A single IP address or a range of IP addresses may be dedicated to an account in
       request.addQueryParam("limit", "1");
       request.addQueryParam("exclude_whitelabels", "true");
       request.addQueryParam("offset", "1");
-    Response response = sg.api(request);
+    Response response = sg.send\(request);
     System.out.println(response.getStatusCode());
     System.out.println(response.getBody());
     System.out.println(response.getHeaders());
@@ -2299,7 +2299,7 @@ A single IP address or a range of IP addresses may be dedicated to an account in
     Request request = new Request();
     request.setMethod(Method.GET);
     request.setEndpoint("ips/assigned");
-    Response response = sg.api(request);
+    Response response = sg.send\(request);
     System.out.println(response.getStatusCode());
     System.out.println(response.getBody());
     System.out.println(response.getHeaders());
@@ -2329,7 +2329,7 @@ If an IP pool is NOT specified for an email, it will use any IP available, inclu
     request.setMethod(Method.POST);
     request.setEndpoint("ips/pools");
     request.setBody("{\"name\":\"marketing\"}");
-    Response response = sg.api(request);
+    Response response = sg.send\(request);
     System.out.println(response.getStatusCode());
     System.out.println(response.getBody());
     System.out.println(response.getHeaders());
@@ -2356,7 +2356,7 @@ If an IP pool is NOT specified for an email, it will use any IP available, inclu
     Request request = new Request();
     request.setMethod(Method.GET);
     request.setEndpoint("ips/pools");
-    Response response = sg.api(request);
+    Response response = sg.send\(request);
     System.out.println(response.getStatusCode());
     System.out.println(response.getBody());
     System.out.println(response.getHeaders());
@@ -2384,7 +2384,7 @@ If an IP pool is NOT specified for an email, it will use any IP available, inclu
     request.setMethod(Method.PUT);
     request.setEndpoint("ips/pools/{pool_name}");
     request.setBody("{\"name\":\"new_pool_name\"}");
-    Response response = sg.api(request);
+    Response response = sg.send\(request);
     System.out.println(response.getStatusCode());
     System.out.println(response.getBody());
     System.out.println(response.getHeaders());
@@ -2411,7 +2411,7 @@ If an IP pool is NOT specified for an email, it will use any IP available, inclu
     Request request = new Request();
     request.setMethod(Method.GET);
     request.setEndpoint("ips/pools/{pool_name}");
-    Response response = sg.api(request);
+    Response response = sg.send\(request);
     System.out.println(response.getStatusCode());
     System.out.println(response.getBody());
     System.out.println(response.getHeaders());
@@ -2438,7 +2438,7 @@ If an IP pool is NOT specified for an email, it will use any IP available, inclu
     Request request = new Request();
     request.setMethod(Method.DELETE);
     request.setEndpoint("ips/pools/{pool_name}");
-    Response response = sg.api(request);
+    Response response = sg.send\(request);
     System.out.println(response.getStatusCode());
     System.out.println(response.getBody());
     System.out.println(response.getHeaders());
@@ -2464,7 +2464,7 @@ A single IP address or a range of IP addresses may be dedicated to an account in
     request.setMethod(Method.POST);
     request.setEndpoint("ips/pools/{pool_name}/ips");
     request.setBody("{\"ip\":\"0.0.0.0\"}");
-    Response response = sg.api(request);
+    Response response = sg.send\(request);
     System.out.println(response.getStatusCode());
     System.out.println(response.getBody());
     System.out.println(response.getHeaders());
@@ -2489,7 +2489,7 @@ A single IP address or a range of IP addresses may be dedicated to an account in
     Request request = new Request();
     request.setMethod(Method.DELETE);
     request.setEndpoint("ips/pools/{pool_name}/ips/{ip}");
-    Response response = sg.api(request);
+    Response response = sg.send\(request);
     System.out.println(response.getStatusCode());
     System.out.println(response.getBody());
     System.out.println(response.getHeaders());
@@ -2515,7 +2515,7 @@ For more general information about warming up IPs, please see our [Classroom](ht
     request.setMethod(Method.POST);
     request.setEndpoint("ips/warmup");
     request.setBody("{\"ip\":\"0.0.0.0\"}");
-    Response response = sg.api(request);
+    Response response = sg.send\(request);
     System.out.println(response.getStatusCode());
     System.out.println(response.getBody());
     System.out.println(response.getHeaders());
@@ -2540,7 +2540,7 @@ For more general information about warming up IPs, please see our [Classroom](ht
     Request request = new Request();
     request.setMethod(Method.GET);
     request.setEndpoint("ips/warmup");
-    Response response = sg.api(request);
+    Response response = sg.send\(request);
     System.out.println(response.getStatusCode());
     System.out.println(response.getBody());
     System.out.println(response.getHeaders());
@@ -2565,7 +2565,7 @@ For more general information about warming up IPs, please see our [Classroom](ht
     Request request = new Request();
     request.setMethod(Method.GET);
     request.setEndpoint("ips/warmup/{ip_address}");
-    Response response = sg.api(request);
+    Response response = sg.send\(request);
     System.out.println(response.getStatusCode());
     System.out.println(response.getBody());
     System.out.println(response.getHeaders());
@@ -2590,7 +2590,7 @@ For more general information about warming up IPs, please see our [Classroom](ht
     Request request = new Request();
     request.setMethod(Method.DELETE);
     request.setEndpoint("ips/warmup/{ip_address}");
-    Response response = sg.api(request);
+    Response response = sg.send\(request);
     System.out.println(response.getStatusCode());
     System.out.println(response.getBody());
     System.out.println(response.getHeaders());
@@ -2615,7 +2615,7 @@ A single IP address or a range of IP addresses may be dedicated to an account in
     Request request = new Request();
     request.setMethod(Method.GET);
     request.setEndpoint("ips/{ip_address}");
-    Response response = sg.api(request);
+    Response response = sg.send\(request);
     System.out.println(response.getStatusCode());
     System.out.println(response.getBody());
     System.out.println(response.getHeaders());
@@ -2645,7 +2645,7 @@ More Information:
     Request request = new Request();
     request.setMethod(Method.POST);
     request.setEndpoint("mail/batch");
-    Response response = sg.api(request);
+    Response response = sg.send\(request);
     System.out.println(response.getStatusCode());
     System.out.println(response.getBody());
     System.out.println(response.getHeaders());
@@ -2672,7 +2672,7 @@ More Information:
     Request request = new Request();
     request.setMethod(Method.GET);
     request.setEndpoint("mail/batch/{batch_id}");
-    Response response = sg.api(request);
+    Response response = sg.send\(request);
     System.out.println(response.getStatusCode());
     System.out.println(response.getBody());
     System.out.println(response.getHeaders());
@@ -2702,7 +2702,7 @@ This endpoint has a helper, check it out [here](https://github.com/sendgrid/send
     request.setMethod(Method.POST);
     request.setEndpoint("mail/send");
     request.setBody("{\"custom_args\":{\"New Argument 1\":\"New Value 1\",\"activationAttempt\":\"1\",\"customerAccountNumber\":\")[CUSTOMER ACCOUNT NUMBER GOES HERE]\"},\"from\":{\"email\":\"sam.smith@example.com\",\"name\":\"Sam Smith\"},\"attachments\":[{\"name\":\"file1\",\"filename\":\"file1.jpg\",\"content\":\"[BASE64 encoded content block here]\",\"disposition\":\"inline\",\"content_id\":\"ii_139db99fdb5c3704\",\"type\":\"jpg\"}],\"personalizations\":[{\"to\":[{\"email\":\"john.doe@example.com\",\"name\":\"John Doe\"}],\"cc\":[{\"email\":\"jane.doe@example.com\",\"name\":\"Jane Doe\"}],\"bcc\":[{\"email\":\"sam.doe@example.com\",\"name\":\"Sam Doe\"}],\"custom_args\":{\"New Argument 1\":\"New Value 1\",\"activationAttempt\":\"1\",\"customerAccountNumber\":\"[CUSTOMER ACCOUNT NUMBER GOES HERE]\"},\"headers\":{\"X-Accept-Language\":\"en\",\"X-Mailer\":\"MyApp\"},\"send_at\":1409348513,\"substitutions\":{\"type\":\"object\",\"id\":\"substitutions\"},\"subject\":\"Hello, World!\"}],\"subject\":\"Hello, World!\",\"ip_pool_name\":\"[YOUR POOL NAME GOES HERE]\",\"content\":[{\"type\":\"text/html\",\"value\":\"<html><p>Hello, world!</p><img src=[CID GOES HERE]></img></html>\"}],\"headers\":{},\"asm\":{\"groups_to_display\":[1,2,3],\"group_id\":1},\"batch_id\":\"[YOUR BATCH ID GOES HERE]\",\"tracking_settings\":{\"subscription_tracking\":{\"text\":\"If you would like to unsubscribe and stop receiveing these emails <% click here %>.\",\"enable\":true,\"html\":\"If you would like to unsubscribe and stop receiving these emails <% clickhere %>.\",\"substitution_tag\":\"<%click here%>\"},\"open_tracking\":{\"enable\":true,\"substitution_tag\":\"%opentrack\"},\"click_tracking\":{\"enable\":true,\"enable_text\":true},\"ganalytics\":{\"utm_campaign\":\"[NAME OF YOUR REFERRER SOURCE]\",\"enable\":true,\"utm_name\":\"[NAME OF YOUR CAMPAIGN]\",\"utm_term\":\"[IDENTIFY PAID KEYWORDS HERE]\",\"utm_content\":\"[USE THIS SPACE TO DIFFERENTIATE YOUR EMAIL FROM ADS]\",\"utm_medium\":\"[NAME OF YOUR MARKETING MEDIUM e.g. email]\"}},\"mail_settings\":{\"footer\":{\"text\":\"Thanks,/n The SendGrid Team\",\"enable\":true,\"html\":\"<p>Thanks</br>The SendGrid Team</p>\"},\"spam_check\":{\"threshold\":3,\"post_to_url\":\"http://example.com/compliance\",\"enable\":true},\"bypass_list_management\":{\"enable\":true},\"sandbox_mode\":{\"enable\":false},\"bcc\":{\"enable\":true,\"email\":\"ben.doe@example.com\"}},\"reply_to\":{\"email\":\"sam.smith@example.com\",\"name\":\"Sam Smith\"},\"sections\":{\"section\":{\":sectionName2\":\"section 2 text\",\":sectionName1\":\"section 1 text\"}},\"template_id\":\"[YOUR TEMPLATE ID GOES HERE]\",\"categories\":[\"category1\",\"category2\"],\"send_at\":1409348513}";
-    Response response = sg.api(request);
+    Response response = sg.send\(request);
     System.out.println(response.getStatusCode());
     System.out.println(response.getBody());
     System.out.println(response.getHeaders());
@@ -2730,7 +2730,7 @@ Mail settings allow you to tell SendGrid specific things to do to every email th
     request.setEndpoint("mail_settings");
     request.addQueryParam("limit", "1");
       request.addQueryParam("offset", "1");
-    Response response = sg.api(request);
+    Response response = sg.send\(request);
     System.out.println(response.getStatusCode());
     System.out.println(response.getBody());
     System.out.println(response.getHeaders());
@@ -2756,7 +2756,7 @@ Mail settings allow you to tell SendGrid specific things to do to every email th
     request.setMethod(Method.PATCH);
     request.setEndpoint("mail_settings/address_whitelist");
     request.setBody("{\"list\":[\"email1@example.com\",\"example.com\"],\"enabled\":true}");
-    Response response = sg.api(request);
+    Response response = sg.send\(request);
     System.out.println(response.getStatusCode());
     System.out.println(response.getBody());
     System.out.println(response.getHeaders());
@@ -2781,7 +2781,7 @@ Mail settings allow you to tell SendGrid specific things to do to every email th
     Request request = new Request();
     request.setMethod(Method.GET);
     request.setEndpoint("mail_settings/address_whitelist");
-    Response response = sg.api(request);
+    Response response = sg.send\(request);
     System.out.println(response.getStatusCode());
     System.out.println(response.getBody());
     System.out.println(response.getHeaders());
@@ -2807,7 +2807,7 @@ Mail settings allow you to tell SendGrid specific things to do to every email th
     request.setMethod(Method.PATCH);
     request.setEndpoint("mail_settings/bcc");
     request.setBody("{\"enabled\":false,\"email\":\"email@example.com\"}");
-    Response response = sg.api(request);
+    Response response = sg.send\(request);
     System.out.println(response.getStatusCode());
     System.out.println(response.getBody());
     System.out.println(response.getHeaders());
@@ -2832,7 +2832,7 @@ Mail settings allow you to tell SendGrid specific things to do to every email th
     Request request = new Request();
     request.setMethod(Method.GET);
     request.setEndpoint("mail_settings/bcc");
-    Response response = sg.api(request);
+    Response response = sg.send\(request);
     System.out.println(response.getStatusCode());
     System.out.println(response.getBody());
     System.out.println(response.getHeaders());
@@ -2858,7 +2858,7 @@ Mail settings allow you to tell SendGrid specific things to do to every email th
     request.setMethod(Method.PATCH);
     request.setEndpoint("mail_settings/bounce_purge");
     request.setBody("{\"hard_bounces\":5,\"soft_bounces\":5,\"enabled\":true}");
-    Response response = sg.api(request);
+    Response response = sg.send\(request);
     System.out.println(response.getStatusCode());
     System.out.println(response.getBody());
     System.out.println(response.getHeaders());
@@ -2883,7 +2883,7 @@ Mail settings allow you to tell SendGrid specific things to do to every email th
     Request request = new Request();
     request.setMethod(Method.GET);
     request.setEndpoint("mail_settings/bounce_purge");
-    Response response = sg.api(request);
+    Response response = sg.send\(request);
     System.out.println(response.getStatusCode());
     System.out.println(response.getBody());
     System.out.println(response.getHeaders());
@@ -2909,7 +2909,7 @@ Mail settings allow you to tell SendGrid specific things to do to every email th
     request.setMethod(Method.PATCH);
     request.setEndpoint("mail_settings/footer");
     request.setBody("{\"html_content\":\"...\",\"enabled\":true,\"plain_content\":\"...\"}");
-    Response response = sg.api(request);
+    Response response = sg.send\(request);
     System.out.println(response.getStatusCode());
     System.out.println(response.getBody());
     System.out.println(response.getHeaders());
@@ -2934,7 +2934,7 @@ Mail settings allow you to tell SendGrid specific things to do to every email th
     Request request = new Request();
     request.setMethod(Method.GET);
     request.setEndpoint("mail_settings/footer");
-    Response response = sg.api(request);
+    Response response = sg.send\(request);
     System.out.println(response.getStatusCode());
     System.out.println(response.getBody());
     System.out.println(response.getHeaders());
@@ -2960,7 +2960,7 @@ Mail settings allow you to tell SendGrid specific things to do to every email th
     request.setMethod(Method.PATCH);
     request.setEndpoint("mail_settings/forward_bounce");
     request.setBody("{\"enabled\":true,\"email\":\"example@example.com\"}");
-    Response response = sg.api(request);
+    Response response = sg.send\(request);
     System.out.println(response.getStatusCode());
     System.out.println(response.getBody());
     System.out.println(response.getHeaders());
@@ -2985,7 +2985,7 @@ Mail settings allow you to tell SendGrid specific things to do to every email th
     Request request = new Request();
     request.setMethod(Method.GET);
     request.setEndpoint("mail_settings/forward_bounce");
-    Response response = sg.api(request);
+    Response response = sg.send\(request);
     System.out.println(response.getStatusCode());
     System.out.println(response.getBody());
     System.out.println(response.getHeaders());
@@ -3011,7 +3011,7 @@ Mail settings allow you to tell SendGrid specific things to do to every email th
     request.setMethod(Method.PATCH);
     request.setEndpoint("mail_settings/forward_spam");
     request.setBody("{\"enabled\":false,\"email\":\"\"}");
-    Response response = sg.api(request);
+    Response response = sg.send\(request);
     System.out.println(response.getStatusCode());
     System.out.println(response.getBody());
     System.out.println(response.getHeaders());
@@ -3036,7 +3036,7 @@ Mail settings allow you to tell SendGrid specific things to do to every email th
     Request request = new Request();
     request.setMethod(Method.GET);
     request.setEndpoint("mail_settings/forward_spam");
-    Response response = sg.api(request);
+    Response response = sg.send\(request);
     System.out.println(response.getStatusCode());
     System.out.println(response.getBody());
     System.out.println(response.getHeaders());
@@ -3062,7 +3062,7 @@ Mail settings allow you to tell SendGrid specific things to do to every email th
     request.setMethod(Method.PATCH);
     request.setEndpoint("mail_settings/plain_content");
     request.setBody("{\"enabled\":false}");
-    Response response = sg.api(request);
+    Response response = sg.send\(request);
     System.out.println(response.getStatusCode());
     System.out.println(response.getBody());
     System.out.println(response.getHeaders());
@@ -3087,7 +3087,7 @@ Mail settings allow you to tell SendGrid specific things to do to every email th
     Request request = new Request();
     request.setMethod(Method.GET);
     request.setEndpoint("mail_settings/plain_content");
-    Response response = sg.api(request);
+    Response response = sg.send\(request);
     System.out.println(response.getStatusCode());
     System.out.println(response.getBody());
     System.out.println(response.getHeaders());
@@ -3113,7 +3113,7 @@ Mail settings allow you to tell SendGrid specific things to do to every email th
     request.setMethod(Method.PATCH);
     request.setEndpoint("mail_settings/spam_check");
     request.setBody("{\"url\":\"url\",\"max_score\":5,\"enabled\":true}");
-    Response response = sg.api(request);
+    Response response = sg.send\(request);
     System.out.println(response.getStatusCode());
     System.out.println(response.getBody());
     System.out.println(response.getHeaders());
@@ -3138,7 +3138,7 @@ Mail settings allow you to tell SendGrid specific things to do to every email th
     Request request = new Request();
     request.setMethod(Method.GET);
     request.setEndpoint("mail_settings/spam_check");
-    Response response = sg.api(request);
+    Response response = sg.send\(request);
     System.out.println(response.getStatusCode());
     System.out.println(response.getBody());
     System.out.println(response.getHeaders());
@@ -3166,7 +3166,7 @@ Mail settings allow you to tell SendGrid specific things to do to every email th
     request.setMethod(Method.PATCH);
     request.setEndpoint("mail_settings/template");
     request.setBody("{\"html_content\":\"<% body %>\",\"enabled\":true}");
-    Response response = sg.api(request);
+    Response response = sg.send\(request);
     System.out.println(response.getStatusCode());
     System.out.println(response.getBody());
     System.out.println(response.getHeaders());
@@ -3193,7 +3193,7 @@ Mail settings allow you to tell SendGrid specific things to do to every email th
     Request request = new Request();
     request.setMethod(Method.GET);
     request.setEndpoint("mail_settings/template");
-    Response response = sg.api(request);
+    Response response = sg.send\(request);
     System.out.println(response.getStatusCode());
     System.out.println(response.getBody());
     System.out.println(response.getHeaders());
@@ -3227,7 +3227,7 @@ Advanced Stats provide a more in-depth view of your email statistics and the act
       request.addQueryParam("limit", "1");
       request.addQueryParam("offset", "1");
       request.addQueryParam("start_date", "2016-01-01");
-    Response response = sg.api(request);
+    Response response = sg.send\(request);
     System.out.println(response.getStatusCode());
     System.out.println(response.getBody());
     System.out.println(response.getHeaders());
@@ -3255,7 +3255,7 @@ Our partner settings allow you to integrate your SendGrid account with our partn
     request.setEndpoint("partner_settings");
     request.addQueryParam("limit", "1");
       request.addQueryParam("offset", "1");
-    Response response = sg.api(request);
+    Response response = sg.send\(request);
     System.out.println(response.getStatusCode());
     System.out.println(response.getBody());
     System.out.println(response.getHeaders());
@@ -3281,7 +3281,7 @@ By integrating with New Relic, you can send your SendGrid email statistics to yo
     request.setMethod(Method.PATCH);
     request.setEndpoint("partner_settings/new_relic");
     request.setBody("{\"enable_subuser_statistics\":true,\"enabled\":true,\"license_key\":\"\"}");
-    Response response = sg.api(request);
+    Response response = sg.send\(request);
     System.out.println(response.getStatusCode());
     System.out.println(response.getBody());
     System.out.println(response.getHeaders());
@@ -3306,7 +3306,7 @@ By integrating with New Relic, you can send your SendGrid email statistics to yo
     Request request = new Request();
     request.setMethod(Method.GET);
     request.setEndpoint("partner_settings/new_relic");
-    Response response = sg.api(request);
+    Response response = sg.send\(request);
     System.out.println(response.getStatusCode());
     System.out.println(response.getBody());
     System.out.println(response.getHeaders());
@@ -3332,7 +3332,7 @@ API Keys can be used to authenticate the use of [SendGrids v3 Web API](https://s
     Request request = new Request();
     request.setMethod(Method.GET);
     request.setEndpoint("scopes");
-    Response response = sg.api(request);
+    Response response = sg.send\(request);
     System.out.println(response.getStatusCode());
     System.out.println(response.getBody());
     System.out.println(response.getHeaders());
@@ -3361,7 +3361,7 @@ Sender Identities are required to be verified before use. If your domain has bee
     request.setMethod(Method.POST);
     request.setEndpoint("senders");
     request.setBody("{\"city\":\"Denver\",\"from\":{\"email\":\"from@example.com\",\"name\":\"Example) INC\"},\"zip\":\"80202\",\"country\":\"United States\",\"state\":\"Colorado\",\"address_2\":\"Apt. 456\",\"address\":\"123 Elm St.\",\"reply_to\":{\"email\":\"replyto@example.com\",\"name\":\"Example INC\"},\"nickname\":\"My Sender ID\"}";
-    Response response = sg.api(request);
+    Response response = sg.send\(request);
     System.out.println(response.getStatusCode());
     System.out.println(response.getBody());
     System.out.println(response.getHeaders());
@@ -3384,7 +3384,7 @@ Sender Identities are required to be verified before use. If your domain has bee
     Request request = new Request();
     request.setMethod(Method.GET);
     request.setEndpoint("senders");
-    Response response = sg.api(request);
+    Response response = sg.send\(request);
     System.out.println(response.getStatusCode());
     System.out.println(response.getBody());
     System.out.println(response.getHeaders());
@@ -3410,7 +3410,7 @@ Partial updates are allowed, but fields that are marked as "required" in the POS
     request.setMethod(Method.PATCH);
     request.setEndpoint("senders/{sender_id}");
     request.setBody("{\"city\":\"Denver\",\"from\":{\"email\":\"from@example.com\",\"name\":\"Example) INC\"},\"zip\":\"80202\",\"country\":\"United States\",\"state\":\"Colorado\",\"address_2\":\"Apt. 456\",\"address\":\"123 Elm St.\",\"reply_to\":{\"email\":\"replyto@example.com\",\"name\":\"Example INC\"},\"nickname\":\"My Sender ID\"}";
-    Response response = sg.api(request);
+    Response response = sg.send\(request);
     System.out.println(response.getStatusCode());
     System.out.println(response.getBody());
     System.out.println(response.getHeaders());
@@ -3433,7 +3433,7 @@ Sender Identities are required to be verified before use. If your domain has bee
     Request request = new Request();
     request.setMethod(Method.GET);
     request.setEndpoint("senders/{sender_id}");
-    Response response = sg.api(request);
+    Response response = sg.send\(request);
     System.out.println(response.getStatusCode());
     System.out.println(response.getBody());
     System.out.println(response.getHeaders());
@@ -3456,7 +3456,7 @@ Sender Identities are required to be verified before use. If your domain has bee
     Request request = new Request();
     request.setMethod(Method.DELETE);
     request.setEndpoint("senders/{sender_id}");
-    Response response = sg.api(request);
+    Response response = sg.send\(request);
     System.out.println(response.getStatusCode());
     System.out.println(response.getBody());
     System.out.println(response.getHeaders());
@@ -3479,7 +3479,7 @@ Sender Identities are required to be verified before use. If your domain has bee
     Request request = new Request();
     request.setMethod(Method.POST);
     request.setEndpoint("senders/{sender_id}/resend_verification");
-    Response response = sg.api(request);
+    Response response = sg.send\(request);
     System.out.println(response.getStatusCode());
     System.out.println(response.getBody());
     System.out.println(response.getHeaders());
@@ -3510,7 +3510,7 @@ Parent accounts will see aggregated stats for their account and all subuser acco
       request.addQueryParam("start_date", "2016-01-01");
       request.addQueryParam("end_date", "2016-04-01");
       request.addQueryParam("offset", "1");
-    Response response = sg.api(request);
+    Response response = sg.send\(request);
     System.out.println(response.getStatusCode());
     System.out.println(response.getBody());
     System.out.println(response.getHeaders());
@@ -3540,7 +3540,7 @@ For more information about Subusers:
     request.setMethod(Method.POST);
     request.setEndpoint("subusers");
     request.setBody("{\"username\":\"John@example.com\",\"ips\":[\"1.1.1.1\",\"2.2.2.2\"],\"password\":\"johns_password\",\"email\)":\"John@example.com\"}";
-    Response response = sg.api(request);
+    Response response = sg.send\(request);
     System.out.println(response.getStatusCode());
     System.out.println(response.getBody());
     System.out.println(response.getHeaders());
@@ -3569,7 +3569,7 @@ For more information about Subusers:
     request.addQueryParam("username", "test_string");
       request.addQueryParam("limit", "1");
       request.addQueryParam("offset", "1");
-    Response response = sg.api(request);
+    Response response = sg.send\(request);
     System.out.println(response.getStatusCode());
     System.out.println(response.getBody());
     System.out.println(response.getHeaders());
@@ -3593,7 +3593,7 @@ This endpoint allows you to request the reputations for your subusers.
     request.setMethod(Method.GET);
     request.setEndpoint("subusers/reputations");
     request.addQueryParam("usernames", "test_string");
-    Response response = sg.api(request);
+    Response response = sg.send\(request);
     System.out.println(response.getStatusCode());
     System.out.println(response.getBody());
     System.out.println(response.getHeaders());
@@ -3626,7 +3626,7 @@ For more information, see our [User Guide](https://sendgrid.com/docs/User_Guide/
       request.addQueryParam("offset", "1");
       request.addQueryParam("start_date", "2016-01-01");
       request.addQueryParam("subusers", "test_string");
-    Response response = sg.api(request);
+    Response response = sg.send\(request);
     System.out.println(response.getStatusCode());
     System.out.println(response.getBody());
     System.out.println(response.getHeaders());
@@ -3660,7 +3660,7 @@ For more information, see our [User Guide](https://sendgrid.com/docs/User_Guide/
       request.addQueryParam("offset", "1");
       request.addQueryParam("date", "test_string");
       request.addQueryParam("sort_by_direction", "asc");
-    Response response = sg.api(request);
+    Response response = sg.send\(request);
     System.out.println(response.getStatusCode());
     System.out.println(response.getBody());
     System.out.println(response.getHeaders());
@@ -3693,7 +3693,7 @@ For more information, see our [User Guide](https://sendgrid.com/docs/User_Guide/
       request.addQueryParam("offset", "1");
       request.addQueryParam("start_date", "2016-01-01");
       request.addQueryParam("sort_by_direction", "asc");
-    Response response = sg.api(request);
+    Response response = sg.send\(request);
     System.out.println(response.getStatusCode());
     System.out.println(response.getBody());
     System.out.println(response.getHeaders());
@@ -3720,7 +3720,7 @@ For more information about Subusers:
     request.setMethod(Method.PATCH);
     request.setEndpoint("subusers/{subuser_name}");
     request.setBody("{\"disabled\":false}");
-    Response response = sg.api(request);
+    Response response = sg.send\(request);
     System.out.println(response.getStatusCode());
     System.out.println(response.getBody());
     System.out.println(response.getHeaders());
@@ -3746,7 +3746,7 @@ For more information about Subusers:
     Request request = new Request();
     request.setMethod(Method.DELETE);
     request.setEndpoint("subusers/{subuser_name}");
-    Response response = sg.api(request);
+    Response response = sg.send\(request);
     System.out.println(response.getStatusCode());
     System.out.println(response.getBody());
     System.out.println(response.getHeaders());
@@ -3773,7 +3773,7 @@ More information:
     request.setMethod(Method.PUT);
     request.setEndpoint("subusers/{subuser_name}/ips");
     request.setBody("[\"127.0.0.1\"]");
-    Response response = sg.api(request);
+    Response response = sg.send\(request);
     System.out.println(response.getStatusCode());
     System.out.println(response.getBody());
     System.out.println(response.getHeaders());
@@ -3795,7 +3795,7 @@ Subuser monitor settings allow you to receive a sample of an outgoing message by
     request.setMethod(Method.PUT);
     request.setEndpoint("subusers/{subuser_name}/monitor");
     request.setBody("{\"frequency\":500,\"email\":\"example@example.com\"}");
-    Response response = sg.api(request);
+    Response response = sg.send\(request);
     System.out.println(response.getStatusCode());
     System.out.println(response.getBody());
     System.out.println(response.getHeaders());
@@ -3817,7 +3817,7 @@ Subuser monitor settings allow you to receive a sample of an outgoing message by
     request.setMethod(Method.POST);
     request.setEndpoint("subusers/{subuser_name}/monitor");
     request.setBody("{\"frequency\":50000,\"email\":\"example@example.com\"}");
-    Response response = sg.api(request);
+    Response response = sg.send\(request);
     System.out.println(response.getStatusCode());
     System.out.println(response.getBody());
     System.out.println(response.getHeaders());
@@ -3838,7 +3838,7 @@ Subuser monitor settings allow you to receive a sample of an outgoing message by
     Request request = new Request();
     request.setMethod(Method.GET);
     request.setEndpoint("subusers/{subuser_name}/monitor");
-    Response response = sg.api(request);
+    Response response = sg.send\(request);
     System.out.println(response.getStatusCode());
     System.out.println(response.getBody());
     System.out.println(response.getHeaders());
@@ -3859,7 +3859,7 @@ Subuser monitor settings allow you to receive a sample of an outgoing message by
     Request request = new Request();
     request.setMethod(Method.DELETE);
     request.setEndpoint("subusers/{subuser_name}/monitor");
-    Response response = sg.api(request);
+    Response response = sg.send\(request);
     System.out.println(response.getStatusCode());
     System.out.println(response.getBody());
     System.out.println(response.getHeaders());
@@ -3892,7 +3892,7 @@ For more information, see our [User Guide](https://sendgrid.com/docs/User_Guide/
       request.addQueryParam("limit", "1");
       request.addQueryParam("sort_by_metric", "test_string");
       request.addQueryParam("offset", "1");
-    Response response = sg.api(request);
+    Response response = sg.send\(request);
     System.out.println(response.getStatusCode());
     System.out.println(response.getBody());
     System.out.println(response.getHeaders());
@@ -3924,7 +3924,7 @@ For more information, please see our [User Guide](https://sendgrid.com/docs/User
       request.addQueryParam("limit", "1");
       request.addQueryParam("end_time", "1");
       request.addQueryParam("offset", "1");
-    Response response = sg.api(request);
+    Response response = sg.send\(request);
     System.out.println(response.getStatusCode());
     System.out.println(response.getBody());
     System.out.println(response.getHeaders());
@@ -3955,7 +3955,7 @@ For more information, please see our [User Guide](https://sendgrid.com/docs/User
     request.setMethod(Method.DELETE);
     request.setEndpoint("suppression/blocks");
     request.setBody("{\"emails\":[\"example1@example.com\",\"example2@example.com\"],\"delete_all\":false}");
-    Response response = sg.api(request);
+    Response response = sg.send\(request);
     System.out.println(response.getStatusCode());
     System.out.println(response.getBody());
     System.out.println(response.getHeaders());
@@ -3980,7 +3980,7 @@ For more information, please see our [User Guide](https://sendgrid.com/docs/User
     Request request = new Request();
     request.setMethod(Method.GET);
     request.setEndpoint("suppression/blocks/{email}");
-    Response response = sg.api(request);
+    Response response = sg.send\(request);
     System.out.println(response.getStatusCode());
     System.out.println(response.getBody());
     System.out.println(response.getHeaders());
@@ -4005,7 +4005,7 @@ For more information, please see our [User Guide](https://sendgrid.com/docs/User
     Request request = new Request();
     request.setMethod(Method.DELETE);
     request.setEndpoint("suppression/blocks/{email}");
-    Response response = sg.api(request);
+    Response response = sg.send\(request);
     System.out.println(response.getStatusCode());
     System.out.println(response.getBody());
     System.out.println(response.getHeaders());
@@ -4035,7 +4035,7 @@ For more information see:
     request.setEndpoint("suppression/bounces");
     request.addQueryParam("start_time", "1");
       request.addQueryParam("end_time", "1");
-    Response response = sg.api(request);
+    Response response = sg.send\(request);
     System.out.println(response.getStatusCode());
     System.out.println(response.getBody());
     System.out.println(response.getHeaders());
@@ -4067,7 +4067,7 @@ Note: the `delete_all` and `emails` parameters should be used independently of e
     request.setMethod(Method.DELETE);
     request.setEndpoint("suppression/bounces");
     request.setBody("{\"emails\":[\"example@example.com\",\"example2@example.com\"],\"delete_all\":true}");
-    Response response = sg.api(request);
+    Response response = sg.send\(request);
     System.out.println(response.getStatusCode());
     System.out.println(response.getBody());
     System.out.println(response.getHeaders());
@@ -4096,7 +4096,7 @@ For more information see:
     Request request = new Request();
     request.setMethod(Method.GET);
     request.setEndpoint("suppression/bounces/{email}");
-    Response response = sg.api(request);
+    Response response = sg.send\(request);
     System.out.println(response.getStatusCode());
     System.out.println(response.getBody());
     System.out.println(response.getHeaders());
@@ -4126,7 +4126,7 @@ For more information see:
     request.setMethod(Method.DELETE);
     request.setEndpoint("suppression/bounces/{email}");
     request.addQueryParam("email_address", "example@example.com");
-    Response response = sg.api(request);
+    Response response = sg.send\(request);
     System.out.println(response.getStatusCode());
     System.out.println(response.getBody());
     System.out.println(response.getHeaders());
@@ -4157,7 +4157,7 @@ For more information, please see our [User Guide](https://sendgrid.com/docs/User
       request.addQueryParam("limit", "1");
       request.addQueryParam("end_time", "1");
       request.addQueryParam("offset", "1");
-    Response response = sg.api(request);
+    Response response = sg.send\(request);
     System.out.println(response.getStatusCode());
     System.out.println(response.getBody());
     System.out.println(response.getHeaders());
@@ -4190,7 +4190,7 @@ For more information, please see our [User Guide](https://sendgrid.com/docs/User
     request.setMethod(Method.DELETE);
     request.setEndpoint("suppression/invalid_emails");
     request.setBody("{\"emails\":[\"example1@example.com\",\"example2@example.com\"],\"delete_all\":false}");
-    Response response = sg.api(request);
+    Response response = sg.send\(request);
     System.out.println(response.getStatusCode());
     System.out.println(response.getBody());
     System.out.println(response.getHeaders());
@@ -4217,7 +4217,7 @@ For more information, please see our [User Guide](https://sendgrid.com/docs/User
     Request request = new Request();
     request.setMethod(Method.GET);
     request.setEndpoint("suppression/invalid_emails/{email}");
-    Response response = sg.api(request);
+    Response response = sg.send\(request);
     System.out.println(response.getStatusCode());
     System.out.println(response.getBody());
     System.out.println(response.getHeaders());
@@ -4244,7 +4244,7 @@ For more information, please see our [User Guide](https://sendgrid.com/docs/User
     Request request = new Request();
     request.setMethod(Method.DELETE);
     request.setEndpoint("suppression/invalid_emails/{email}");
-    Response response = sg.api(request);
+    Response response = sg.send\(request);
     System.out.println(response.getStatusCode());
     System.out.println(response.getBody());
     System.out.println(response.getHeaders());
@@ -4269,7 +4269,7 @@ For more information, please see our [User Guide](https://sendgrid.com/docs/User
     Request request = new Request();
     request.setMethod(Method.GET);
     request.setEndpoint("suppression/spam_report/{email}");
-    Response response = sg.api(request);
+    Response response = sg.send\(request);
     System.out.println(response.getStatusCode());
     System.out.println(response.getBody());
     System.out.println(response.getHeaders());
@@ -4294,7 +4294,7 @@ For more information, please see our [User Guide](https://sendgrid.com/docs/User
     Request request = new Request();
     request.setMethod(Method.DELETE);
     request.setEndpoint("suppression/spam_report/{email}");
-    Response response = sg.api(request);
+    Response response = sg.send\(request);
     System.out.println(response.getStatusCode());
     System.out.println(response.getBody());
     System.out.println(response.getHeaders());
@@ -4323,7 +4323,7 @@ For more information, please see our [User Guide](https://sendgrid.com/docs/User
       request.addQueryParam("limit", "1");
       request.addQueryParam("end_time", "1");
       request.addQueryParam("offset", "1");
-    Response response = sg.api(request);
+    Response response = sg.send\(request);
     System.out.println(response.getStatusCode());
     System.out.println(response.getBody());
     System.out.println(response.getHeaders());
@@ -4354,7 +4354,7 @@ For more information, please see our [User Guide](https://sendgrid.com/docs/User
     request.setMethod(Method.DELETE);
     request.setEndpoint("suppression/spam_reports");
     request.setBody("{\"emails\":[\"example1@example.com\",\"example2@example.com\"],\"delete_all\":false}");
-    Response response = sg.api(request);
+    Response response = sg.send\(request);
     System.out.println(response.getStatusCode());
     System.out.println(response.getBody());
     System.out.println(response.getHeaders());
@@ -4381,7 +4381,7 @@ A global suppression (or global unsubscribe) is an email address of a recipient 
       request.addQueryParam("limit", "1");
       request.addQueryParam("end_time", "1");
       request.addQueryParam("offset", "1");
-    Response response = sg.api(request);
+    Response response = sg.send\(request);
     System.out.println(response.getStatusCode());
     System.out.println(response.getBody());
     System.out.println(response.getHeaders());
@@ -4410,7 +4410,7 @@ Transactional templates are templates created specifically for transactional ema
     request.setMethod(Method.POST);
     request.setEndpoint("templates");
     request.setBody("{\"name\":\"example_name\"}");
-    Response response = sg.api(request);
+    Response response = sg.send\(request);
     System.out.println(response.getStatusCode());
     System.out.println(response.getBody());
     System.out.println(response.getHeaders());
@@ -4435,7 +4435,7 @@ Transactional templates are templates created specifically for transactional ema
     Request request = new Request();
     request.setMethod(Method.GET);
     request.setEndpoint("templates");
-    Response response = sg.api(request);
+    Response response = sg.send\(request);
     System.out.println(response.getStatusCode());
     System.out.println(response.getBody());
     System.out.println(response.getHeaders());
@@ -4462,7 +4462,7 @@ Transactional templates are templates created specifically for transactional ema
     request.setMethod(Method.PATCH);
     request.setEndpoint("templates/{template_id}");
     request.setBody("{\"name\":\"new_example_name\"}");
-    Response response = sg.api(request);
+    Response response = sg.send\(request);
     System.out.println(response.getStatusCode());
     System.out.println(response.getBody());
     System.out.println(response.getHeaders());
@@ -4488,7 +4488,7 @@ Transactional templates are templates created specifically for transactional ema
     Request request = new Request();
     request.setMethod(Method.GET);
     request.setEndpoint("templates/{template_id}");
-    Response response = sg.api(request);
+    Response response = sg.send\(request);
     System.out.println(response.getStatusCode());
     System.out.println(response.getBody());
     System.out.println(response.getHeaders());
@@ -4514,7 +4514,7 @@ Transactional templates are templates created specifically for transactional ema
     Request request = new Request();
     request.setMethod(Method.DELETE);
     request.setEndpoint("templates/{template_id}");
-    Response response = sg.api(request);
+    Response response = sg.send\(request);
     System.out.println(response.getStatusCode());
     System.out.println(response.getBody());
     System.out.println(response.getHeaders());
@@ -4541,7 +4541,7 @@ For more information about transactional templates, please see our [User Guide](
     request.setMethod(Method.POST);
     request.setEndpoint("templates/{template_id}/versions");
     request.setBody("{\"name\":\"example_version_name\",\"html_content\":\"<%body%>\",\"plain_content\":\")<%body%>\",\"active\":1,\"template_id\":\"ddb96bbc-9b92-425e-8979-99464621b543\",\"subject\":\"<%subject%>\"}";
-    Response response = sg.api(request);
+    Response response = sg.send\(request);
     System.out.println(response.getStatusCode());
     System.out.println(response.getBody());
     System.out.println(response.getHeaders());
@@ -4573,7 +4573,7 @@ For more information about transactional templates, please see our [User Guide](
     request.setMethod(Method.PATCH);
     request.setEndpoint("templates/{template_id}/versions/{version_id}");
     request.setBody("{\"active\":1,\"html_content\":\"<%body%>\",\"subject\":\"<%subject%>\",\"name\":\"updated_example)_name\",\"plain_content\":\"<%body%>\"}";
-    Response response = sg.api(request);
+    Response response = sg.send\(request);
     System.out.println(response.getStatusCode());
     System.out.println(response.getBody());
     System.out.println(response.getHeaders());
@@ -4604,7 +4604,7 @@ For more information about transactional templates, please see our [User Guide](
     Request request = new Request();
     request.setMethod(Method.GET);
     request.setEndpoint("templates/{template_id}/versions/{version_id}");
-    Response response = sg.api(request);
+    Response response = sg.send\(request);
     System.out.println(response.getStatusCode());
     System.out.println(response.getBody());
     System.out.println(response.getHeaders());
@@ -4635,7 +4635,7 @@ For more information about transactional templates, please see our [User Guide](
     Request request = new Request();
     request.setMethod(Method.DELETE);
     request.setEndpoint("templates/{template_id}/versions/{version_id}");
-    Response response = sg.api(request);
+    Response response = sg.send\(request);
     System.out.println(response.getStatusCode());
     System.out.println(response.getBody());
     System.out.println(response.getHeaders());
@@ -4667,7 +4667,7 @@ For more information about transactional templates, please see our [User Guide](
     Request request = new Request();
     request.setMethod(Method.POST);
     request.setEndpoint("templates/{template_id}/versions/{version_id}/activate");
-    Response response = sg.api(request);
+    Response response = sg.send\(request);
     System.out.println(response.getStatusCode());
     System.out.println(response.getBody());
     System.out.println(response.getHeaders());
@@ -4697,7 +4697,7 @@ For more information about tracking, please see our [User Guide](https://sendgri
     request.setEndpoint("tracking_settings");
     request.addQueryParam("limit", "1");
       request.addQueryParam("offset", "1");
-    Response response = sg.api(request);
+    Response response = sg.send\(request);
     System.out.println(response.getStatusCode());
     System.out.println(response.getBody());
     System.out.println(response.getHeaders());
@@ -4723,7 +4723,7 @@ For more information about tracking, please see our [User Guide](https://sendgri
     request.setMethod(Method.PATCH);
     request.setEndpoint("tracking_settings/click");
     request.setBody("{\"enabled\":true}");
-    Response response = sg.api(request);
+    Response response = sg.send\(request);
     System.out.println(response.getStatusCode());
     System.out.println(response.getBody());
     System.out.println(response.getHeaders());
@@ -4748,7 +4748,7 @@ For more information about tracking, please see our [User Guide](https://sendgri
     Request request = new Request();
     request.setMethod(Method.GET);
     request.setEndpoint("tracking_settings/click");
-    Response response = sg.api(request);
+    Response response = sg.send\(request);
     System.out.println(response.getStatusCode());
     System.out.println(response.getBody());
     System.out.println(response.getHeaders());
@@ -4778,7 +4778,7 @@ For more information about tracking, please see our [User Guide](https://sendgri
     request.setMethod(Method.PATCH);
     request.setEndpoint("tracking_settings/google_analytics");
     request.setBody("{\"utm_campaign\":\"website\",\"utm_term\":\"\",\"utm_content\":\"\",\"enabled\":true,\"utm)_source\":\"sendgrid.com\",\"utm_medium\":\"email\"}";
-    Response response = sg.api(request);
+    Response response = sg.send\(request);
     System.out.println(response.getStatusCode());
     System.out.println(response.getBody());
     System.out.println(response.getHeaders());
@@ -4807,7 +4807,7 @@ For more information about tracking, please see our [User Guide](https://sendgri
     Request request = new Request();
     request.setMethod(Method.GET);
     request.setEndpoint("tracking_settings/google_analytics");
-    Response response = sg.api(request);
+    Response response = sg.send\(request);
     System.out.println(response.getStatusCode());
     System.out.println(response.getBody());
     System.out.println(response.getHeaders());
@@ -4835,7 +4835,7 @@ For more information about tracking, please see our [User Guide](https://sendgri
     request.setMethod(Method.PATCH);
     request.setEndpoint("tracking_settings/open");
     request.setBody("{\"enabled\":true}");
-    Response response = sg.api(request);
+    Response response = sg.send\(request);
     System.out.println(response.getStatusCode());
     System.out.println(response.getBody());
     System.out.println(response.getHeaders());
@@ -4862,7 +4862,7 @@ For more information about tracking, please see our [User Guide](https://sendgri
     Request request = new Request();
     request.setMethod(Method.GET);
     request.setEndpoint("tracking_settings/open");
-    Response response = sg.api(request);
+    Response response = sg.send\(request);
     System.out.println(response.getStatusCode());
     System.out.println(response.getBody());
     System.out.println(response.getHeaders());
@@ -4890,7 +4890,7 @@ For more information about tracking, please see our [User Guide](https://sendgri
     request.setMethod(Method.PATCH);
     request.setEndpoint("tracking_settings/subscription");
     request.setBody("{\"url\":\"url\",\"html_content\":\"html content\",\"enabled\":true,\"landing\":\"landing page) html\",\"replace\":\"replacement tag\",\"plain_content\":\"text content\"}";
-    Response response = sg.api(request);
+    Response response = sg.send\(request);
     System.out.println(response.getStatusCode());
     System.out.println(response.getBody());
     System.out.println(response.getHeaders());
@@ -4917,7 +4917,7 @@ For more information about tracking, please see our [User Guide](https://sendgri
     Request request = new Request();
     request.setMethod(Method.GET);
     request.setEndpoint("tracking_settings/subscription");
-    Response response = sg.api(request);
+    Response response = sg.send\(request);
     System.out.println(response.getStatusCode());
     System.out.println(response.getBody());
     System.out.println(response.getHeaders());
@@ -4949,7 +4949,7 @@ For more information about your user profile:
     Request request = new Request();
     request.setMethod(Method.GET);
     request.setEndpoint("user/account");
-    Response response = sg.api(request);
+    Response response = sg.send\(request);
     System.out.println(response.getStatusCode());
     System.out.println(response.getBody());
     System.out.println(response.getHeaders());
@@ -4972,7 +4972,7 @@ Your monthly credit allotment limits the number of emails you may send before in
     Request request = new Request();
     request.setMethod(Method.GET);
     request.setEndpoint("user/credits");
-    Response response = sg.api(request);
+    Response response = sg.send\(request);
     System.out.println(response.getStatusCode());
     System.out.println(response.getBody());
     System.out.println(response.getHeaders());
@@ -5000,7 +5000,7 @@ For more information about your user profile:
     request.setMethod(Method.PUT);
     request.setEndpoint("user/email");
     request.setBody("{\"email\":\"example@example.com\"}");
-    Response response = sg.api(request);
+    Response response = sg.send\(request);
     System.out.println(response.getStatusCode());
     System.out.println(response.getBody());
     System.out.println(response.getHeaders());
@@ -5027,7 +5027,7 @@ For more information about your user profile:
     Request request = new Request();
     request.setMethod(Method.GET);
     request.setEndpoint("user/email");
-    Response response = sg.api(request);
+    Response response = sg.send\(request);
     System.out.println(response.getStatusCode());
     System.out.println(response.getBody());
     System.out.println(response.getHeaders());
@@ -5055,7 +5055,7 @@ For more information about your user profile:
     request.setMethod(Method.PUT);
     request.setEndpoint("user/password");
     request.setBody("{\"new_password\":\"new_password\",\"old_password\":\"old_password\"}");
-    Response response = sg.api(request);
+    Response response = sg.send\(request);
     System.out.println(response.getStatusCode());
     System.out.println(response.getBody());
     System.out.println(response.getHeaders());
@@ -5085,7 +5085,7 @@ It should be noted that any one or more of the parameters can be updated via the
     request.setMethod(Method.PATCH);
     request.setEndpoint("user/profile");
     request.setBody("{\"city\":\"Orange\",\"first_name\":\"Example\",\"last_name\":\"User\"}");
-    Response response = sg.api(request);
+    Response response = sg.send\(request);
     System.out.println(response.getStatusCode());
     System.out.println(response.getBody());
     System.out.println(response.getHeaders());
@@ -5110,7 +5110,7 @@ For more information about your user profile:
     Request request = new Request();
     request.setMethod(Method.GET);
     request.setEndpoint("user/profile");
-    Response response = sg.api(request);
+    Response response = sg.send\(request);
     System.out.println(response.getStatusCode());
     System.out.println(response.getBody());
     System.out.println(response.getHeaders());
@@ -5137,7 +5137,7 @@ The Cancel Scheduled Sends feature allows the customer to cancel a scheduled sen
     request.setMethod(Method.POST);
     request.setEndpoint("user/scheduled_sends");
     request.setBody("{\"batch_id\":\"YOUR_BATCH_ID\",\"status\":\"pause\"}");
-    Response response = sg.api(request);
+    Response response = sg.send\(request);
     System.out.println(response.getStatusCode());
     System.out.println(response.getBody());
     System.out.println(response.getHeaders());
@@ -5160,7 +5160,7 @@ The Cancel Scheduled Sends feature allows the customer to cancel a scheduled sen
     Request request = new Request();
     request.setMethod(Method.GET);
     request.setEndpoint("user/scheduled_sends");
-    Response response = sg.api(request);
+    Response response = sg.send\(request);
     System.out.println(response.getStatusCode());
     System.out.println(response.getBody());
     System.out.println(response.getHeaders());
@@ -5184,7 +5184,7 @@ The Cancel Scheduled Sends feature allows the customer to cancel a scheduled sen
     request.setMethod(Method.PATCH);
     request.setEndpoint("user/scheduled_sends/{batch_id}");
     request.setBody("{\"status\":\"pause\"}");
-    Response response = sg.api(request);
+    Response response = sg.send\(request);
     System.out.println(response.getStatusCode());
     System.out.println(response.getBody());
     System.out.println(response.getHeaders());
@@ -5207,7 +5207,7 @@ The Cancel Scheduled Sends feature allows the customer to cancel a scheduled sen
     Request request = new Request();
     request.setMethod(Method.GET);
     request.setEndpoint("user/scheduled_sends/{batch_id}");
-    Response response = sg.api(request);
+    Response response = sg.send\(request);
     System.out.println(response.getStatusCode());
     System.out.println(response.getBody());
     System.out.println(response.getHeaders());
@@ -5230,7 +5230,7 @@ The Cancel Scheduled Sends feature allows the customer to cancel a scheduled sen
     Request request = new Request();
     request.setMethod(Method.DELETE);
     request.setEndpoint("user/scheduled_sends/{batch_id}");
-    Response response = sg.api(request);
+    Response response = sg.send\(request);
     System.out.println(response.getStatusCode());
     System.out.println(response.getBody());
     System.out.println(response.getHeaders());
@@ -5256,7 +5256,7 @@ The Enforced TLS settings specify whether or not the recipient is required to su
     request.setMethod(Method.PATCH);
     request.setEndpoint("user/settings/enforced_tls");
     request.setBody("{\"require_tls\":true,\"require_valid_cert\":false}");
-    Response response = sg.api(request);
+    Response response = sg.send\(request);
     System.out.println(response.getStatusCode());
     System.out.println(response.getBody());
     System.out.println(response.getHeaders());
@@ -5281,7 +5281,7 @@ The Enforced TLS settings specify whether or not the recipient is required to su
     Request request = new Request();
     request.setMethod(Method.GET);
     request.setEndpoint("user/settings/enforced_tls");
-    Response response = sg.api(request);
+    Response response = sg.send\(request);
     System.out.println(response.getStatusCode());
     System.out.println(response.getBody());
     System.out.println(response.getHeaders());
@@ -5309,7 +5309,7 @@ For more information about your user profile:
     request.setMethod(Method.PUT);
     request.setEndpoint("user/username");
     request.setBody("{\"username\":\"test_username\"}");
-    Response response = sg.api(request);
+    Response response = sg.send\(request);
     System.out.println(response.getStatusCode());
     System.out.println(response.getBody());
     System.out.println(response.getHeaders());
@@ -5336,7 +5336,7 @@ For more information about your user profile:
     Request request = new Request();
     request.setMethod(Method.GET);
     request.setEndpoint("user/username");
-    Response response = sg.api(request);
+    Response response = sg.send\(request);
     System.out.println(response.getStatusCode());
     System.out.println(response.getBody());
     System.out.println(response.getHeaders());
@@ -5364,7 +5364,7 @@ Common uses of this data are to remove unsubscribes, react to spam reports, dete
     request.setMethod(Method.PATCH);
     request.setEndpoint("user/webhooks/event/settings");
     request.setBody("{\"group_resubscribe\":true,\"delivered\":true,\"group_unsubscribe\":true,\"spam_report\":true,\"url\":\"url\)",\"enabled\":true,\"bounce\":true,\"deferred\":true,\"unsubscribe\":true,\"dropped\":true,\"open\":true,\"click\":true,\"processed\":true}";
-    Response response = sg.api(request);
+    Response response = sg.send\(request);
     System.out.println(response.getStatusCode());
     System.out.println(response.getBody());
     System.out.println(response.getHeaders());
@@ -5391,7 +5391,7 @@ Common uses of this data are to remove unsubscribes, react to spam reports, dete
     Request request = new Request();
     request.setMethod(Method.GET);
     request.setEndpoint("user/webhooks/event/settings");
-    Response response = sg.api(request);
+    Response response = sg.send\(request);
     System.out.println(response.getStatusCode());
     System.out.println(response.getBody());
     System.out.println(response.getHeaders());
@@ -5417,7 +5417,7 @@ Common uses of this data are to remove unsubscribes, react to spam reports, dete
     request.setMethod(Method.POST);
     request.setEndpoint("user/webhooks/event/test");
     request.setBody("{\"url\":\"url\"}");
-    Response response = sg.api(request);
+    Response response = sg.send\(request);
     System.out.println(response.getStatusCode());
     System.out.println(response.getBody());
     System.out.println(response.getHeaders());
@@ -5441,7 +5441,7 @@ The inbound parse webhook allows you to have incoming emails parsed, extracting 
     request.setMethod(Method.POST);
     request.setEndpoint("user/webhooks/parse/settings");
     request.setBody("{\"url\":\"http://email.myhosthame.com\",\"send_raw\":false,\"hostname\":\"myhostname.com\",\"spam)_check\":true}";
-    Response response = sg.api(request);
+    Response response = sg.send\(request);
     System.out.println(response.getStatusCode());
     System.out.println(response.getBody());
     System.out.println(response.getHeaders());
@@ -5464,7 +5464,7 @@ The inbound parse webhook allows you to have incoming emails parsed, extracting 
     Request request = new Request();
     request.setMethod(Method.GET);
     request.setEndpoint("user/webhooks/parse/settings");
-    Response response = sg.api(request);
+    Response response = sg.send\(request);
     System.out.println(response.getStatusCode());
     System.out.println(response.getBody());
     System.out.println(response.getHeaders());
@@ -5488,7 +5488,7 @@ The inbound parse webhook allows you to have incoming emails parsed, extracting 
     request.setMethod(Method.PATCH);
     request.setEndpoint("user/webhooks/parse/settings/{hostname}");
     request.setBody("{\"url\":\"http://newdomain.com/parse\",\"send_raw\":true,\"spam_check\":false}");
-    Response response = sg.api(request);
+    Response response = sg.send\(request);
     System.out.println(response.getStatusCode());
     System.out.println(response.getBody());
     System.out.println(response.getHeaders());
@@ -5511,7 +5511,7 @@ The inbound parse webhook allows you to have incoming emails parsed, extracting 
     Request request = new Request();
     request.setMethod(Method.GET);
     request.setEndpoint("user/webhooks/parse/settings/{hostname}");
-    Response response = sg.api(request);
+    Response response = sg.send\(request);
     System.out.println(response.getStatusCode());
     System.out.println(response.getBody());
     System.out.println(response.getHeaders());
@@ -5534,7 +5534,7 @@ The inbound parse webhook allows you to have incoming emails parsed, extracting 
     Request request = new Request();
     request.setMethod(Method.DELETE);
     request.setEndpoint("user/webhooks/parse/settings/{hostname}");
-    Response response = sg.api(request);
+    Response response = sg.send\(request);
     System.out.println(response.getStatusCode());
     System.out.println(response.getBody());
     System.out.println(response.getHeaders());
@@ -5564,7 +5564,7 @@ There are a number of pre-made integrations for the SendGrid Parse Webhook which
       request.addQueryParam("start_date", "2016-01-01");
       request.addQueryParam("end_date", "2016-04-01");
       request.addQueryParam("offset", "test_string");
-    Response response = sg.api(request);
+    Response response = sg.send\(request);
     System.out.println(response.getStatusCode());
     System.out.println(response.getBody());
     System.out.println(response.getHeaders());
@@ -5597,7 +5597,7 @@ For more information on whitelabeling, please see our [User Guide](https://sendg
     request.setMethod(Method.POST);
     request.setEndpoint("whitelabel/domains");
     request.setBody("{\"automatic)_security\":false,\"username\":\"john@example.com\",\"domain\":\"example.com\",\"default\":true,\"custom_spf\":true,\"ips\":[\"192.168.1.1\",\"192.168.1.2\"],\"subdomain\":\"news\"}";
-    Response response = sg.api(request);
+    Response response = sg.send\(request);
     System.out.println(response.getStatusCode());
     System.out.println(response.getBody());
     System.out.println(response.getHeaders());
@@ -5628,7 +5628,7 @@ For more information on whitelabeling, please see our [User Guide](https://sendg
       request.addQueryParam("exclude_subusers", "true");
       request.addQueryParam("limit", "1");
       request.addQueryParam("offset", "1");
-    Response response = sg.api(request);
+    Response response = sg.send\(request);
     System.out.println(response.getStatusCode());
     System.out.println(response.getBody());
     System.out.println(response.getHeaders());
@@ -5658,7 +5658,7 @@ For more information on whitelabeling, please see our [User Guide](https://sendg
     Request request = new Request();
     request.setMethod(Method.GET);
     request.setEndpoint("whitelabel/domains/default");
-    Response response = sg.api(request);
+    Response response = sg.send\(request);
     System.out.println(response.getStatusCode());
     System.out.println(response.getBody());
     System.out.println(response.getHeaders());
@@ -5690,7 +5690,7 @@ For more information on whitelabeling, please see our [User Guide](https://sendg
     Request request = new Request();
     request.setMethod(Method.GET);
     request.setEndpoint("whitelabel/domains/subuser");
-    Response response = sg.api(request);
+    Response response = sg.send\(request);
     System.out.println(response.getStatusCode());
     System.out.println(response.getBody());
     System.out.println(response.getHeaders());
@@ -5722,7 +5722,7 @@ For more information on whitelabeling, please see our [User Guide](https://sendg
     Request request = new Request();
     request.setMethod(Method.DELETE);
     request.setEndpoint("whitelabel/domains/subuser");
-    Response response = sg.api(request);
+    Response response = sg.send\(request);
     System.out.println(response.getStatusCode());
     System.out.println(response.getBody());
     System.out.println(response.getHeaders());
@@ -5748,7 +5748,7 @@ For more information on whitelabeling, please see our [User Guide](https://sendg
     request.setMethod(Method.PATCH);
     request.setEndpoint("whitelabel/domains/{domain_id}");
     request.setBody("{\"default\":false,\"custom_spf\":true}");
-    Response response = sg.api(request);
+    Response response = sg.send\(request);
     System.out.println(response.getStatusCode());
     System.out.println(response.getBody());
     System.out.println(response.getHeaders());
@@ -5774,7 +5774,7 @@ For more information on whitelabeling, please see our [User Guide](https://sendg
     Request request = new Request();
     request.setMethod(Method.GET);
     request.setEndpoint("whitelabel/domains/{domain_id}");
-    Response response = sg.api(request);
+    Response response = sg.send\(request);
     System.out.println(response.getStatusCode());
     System.out.println(response.getBody());
     System.out.println(response.getHeaders());
@@ -5799,7 +5799,7 @@ For more information on whitelabeling, please see our [User Guide](https://sendg
     Request request = new Request();
     request.setMethod(Method.DELETE);
     request.setEndpoint("whitelabel/domains/{domain_id}");
-    Response response = sg.api(request);
+    Response response = sg.send\(request);
     System.out.println(response.getStatusCode());
     System.out.println(response.getBody());
     System.out.println(response.getHeaders());
@@ -5832,7 +5832,7 @@ For more information on whitelabeling, please see our [User Guide](https://sendg
     request.setMethod(Method.POST);
     request.setEndpoint("whitelabel/domains/{domain_id}/subuser");
     request.setBody("{\"username\":\"jane@example.com\"}");
-    Response response = sg.api(request);
+    Response response = sg.send\(request);
     System.out.println(response.getStatusCode());
     System.out.println(response.getBody());
     System.out.println(response.getHeaders());
@@ -5863,7 +5863,7 @@ For more information on whitelabeling, please see our [User Guide](https://sendg
     request.setMethod(Method.POST);
     request.setEndpoint("whitelabel/domains/{id}/ips");
     request.setBody("{\"ip\":\"192.168.0.1\"}");
-    Response response = sg.api(request);
+    Response response = sg.send\(request);
     System.out.println(response.getStatusCode());
     System.out.println(response.getBody());
     System.out.println(response.getHeaders());
@@ -5894,7 +5894,7 @@ For more information on whitelabeling, please see our [User Guide](https://sendg
     Request request = new Request();
     request.setMethod(Method.DELETE);
     request.setEndpoint("whitelabel/domains/{id}/ips/{ip}");
-    Response response = sg.api(request);
+    Response response = sg.send(request);
     System.out.println(response.getStatusCode());
     System.out.println(response.getBody());
     System.out.println(response.getHeaders());
@@ -5924,7 +5924,7 @@ For more information on whitelabeling, please see our [User Guide](https://sendg
     Request request = new Request();
     request.setMethod(Method.POST);
     request.setEndpoint("whitelabel/domains/{id}/validate");
-    Response response = sg.api(request);
+    Response response = sg.send(request);
     System.out.println(response.getStatusCode());
     System.out.println(response.getBody());
     System.out.println(response.getHeaders());
@@ -5952,7 +5952,7 @@ For more information, please see our [User Guide](https://sendgrid.com/docs/API_
     request.setMethod(Method.POST);
     request.setEndpoint("whitelabel/ips");
     request.setBody("{\"ip\":\"192.168.1.1\",\"domain\":\"example.com\",\"subdomain\":\"email\"}");
-    Response response = sg.api(request);
+    Response response = sg.send(request);
     System.out.println(response.getStatusCode());
     System.out.println(response.getBody());
     System.out.println(response.getHeaders());
@@ -5982,7 +5982,7 @@ For more information, please see our [User Guide](https://sendgrid.com/docs/API_
     request.addQueryParam("ip", "test_string");
       request.addQueryParam("limit", "1");
       request.addQueryParam("offset", "1");
-    Response response = sg.api(request);
+    Response response = sg.send(request);
     System.out.println(response.getStatusCode());
     System.out.println(response.getBody());
     System.out.println(response.getHeaders());
@@ -6007,7 +6007,7 @@ For more information, please see our [User Guide](https://sendgrid.com/docs/API_
     Request request = new Request();
     request.setMethod(Method.GET);
     request.setEndpoint("whitelabel/ips/{id}");
-    Response response = sg.api(request);
+    Response response = sg.send(request);
     System.out.println(response.getStatusCode());
     System.out.println(response.getBody());
     System.out.println(response.getHeaders());
@@ -6032,7 +6032,7 @@ For more information, please see our [User Guide](https://sendgrid.com/docs/API_
     Request request = new Request();
     request.setMethod(Method.DELETE);
     request.setEndpoint("whitelabel/ips/{id}");
-    Response response = sg.api(request);
+    Response response = sg.send(request);
     System.out.println(response.getStatusCode());
     System.out.println(response.getBody());
     System.out.println(response.getHeaders());
@@ -6057,7 +6057,7 @@ For more information, please see our [User Guide](https://sendgrid.com/docs/API_
     Request request = new Request();
     request.setMethod(Method.POST);
     request.setEndpoint("whitelabel/ips/{id}/validate");
-    Response response = sg.api(request);
+    Response response = sg.send\(request);
     System.out.println(response.getStatusCode());
     System.out.println(response.getBody());
     System.out.println(response.getHeaders());
@@ -6085,7 +6085,7 @@ For more information, please see our [User Guide](https://sendgrid.com/docs/API_
     request.setBody("{\"default\":true,\"domain\":\"example.com\",\"subdomain\":\"mail\"}");
     request.addQueryParam("limit", "1");
       request.addQueryParam("offset", "1");
-    Response response = sg.api(request);
+    Response response = sg.send\(request);
     System.out.println(response.getStatusCode());
     System.out.println(response.getBody());
     System.out.println(response.getHeaders());
@@ -6111,7 +6111,7 @@ For more information, please see our [User Guide](https://sendgrid.com/docs/API_
     request.setMethod(Method.GET);
     request.setEndpoint("whitelabel/links");
     request.addQueryParam("limit", "1");
-    Response response = sg.api(request);
+    Response response = sg.send\(request);
     System.out.println(response.getStatusCode());
     System.out.println(response.getBody());
     System.out.println(response.getHeaders());
@@ -6144,7 +6144,7 @@ For more information, please see our [User Guide](https://sendgrid.com/docs/API_
     request.setMethod(Method.GET);
     request.setEndpoint("whitelabel/links/default");
     request.addQueryParam("domain", "test_string");
-    Response response = sg.api(request);
+    Response response = sg.send\(request);
     System.out.println(response.getStatusCode());
     System.out.println(response.getBody());
     System.out.println(response.getHeaders());
@@ -6174,7 +6174,7 @@ For more information, please see our [User Guide](https://sendgrid.com/docs/API_
     request.setMethod(Method.GET);
     request.setEndpoint("whitelabel/links/subuser");
     request.addQueryParam("username", "test_string");
-    Response response = sg.api(request);
+    Response response = sg.send\(request);
     System.out.println(response.getStatusCode());
     System.out.println(response.getBody());
     System.out.println(response.getHeaders());
@@ -6204,7 +6204,7 @@ For more information, please see our [User Guide](https://sendgrid.com/docs/API_
     request.setMethod(Method.DELETE);
     request.setEndpoint("whitelabel/links/subuser");
     request.addQueryParam("username", "test_string");
-    Response response = sg.api(request);
+    Response response = sg.send\(request);
     System.out.println(response.getStatusCode());
     System.out.println(response.getBody());
     System.out.println(response.getHeaders());
@@ -6230,7 +6230,7 @@ For more information, please see our [User Guide](https://sendgrid.com/docs/API_
     request.setMethod(Method.PATCH);
     request.setEndpoint("whitelabel/links/{id}");
     request.setBody("{\"default\":true}");
-    Response response = sg.api(request);
+    Response response = sg.send\(request);
     System.out.println(response.getStatusCode());
     System.out.println(response.getBody());
     System.out.println(response.getHeaders());
@@ -6255,7 +6255,7 @@ For more information, please see our [User Guide](https://sendgrid.com/docs/API_
     Request request = new Request();
     request.setMethod(Method.GET);
     request.setEndpoint("whitelabel/links/{id}");
-    Response response = sg.api(request);
+    Response response = sg.send\(request);
     System.out.println(response.getStatusCode());
     System.out.println(response.getBody());
     System.out.println(response.getHeaders());
@@ -6280,7 +6280,7 @@ For more information, please see our [User Guide](https://sendgrid.com/docs/API_
     Request request = new Request();
     request.setMethod(Method.DELETE);
     request.setEndpoint("whitelabel/links/{id}");
-    Response response = sg.api(request);
+    Response response = sg.send\(request);
     System.out.println(response.getStatusCode());
     System.out.println(response.getBody());
     System.out.println(response.getHeaders());
@@ -6305,7 +6305,7 @@ For more information, please see our [User Guide](https://sendgrid.com/docs/API_
     Request request = new Request();
     request.setMethod(Method.POST);
     request.setEndpoint("whitelabel/links/{id}/validate");
-    Response response = sg.api(request);
+    Response response = sg.send\(request);
     System.out.println(response.getStatusCode());
     System.out.println(response.getBody());
     System.out.println(response.getHeaders());
@@ -6335,7 +6335,7 @@ For more information, please see our [User Guide](https://sendgrid.com/docs/API_
     request.setMethod(Method.POST);
     request.setEndpoint("whitelabel/links/{link_id}/subuser");
     request.setBody("{\"username\":\"jane@example.com\"}");
-    Response response = sg.api(request);
+    Response response = sg.send\(request);
     System.out.println(response.getStatusCode());
     System.out.println(response.getBody());
     System.out.println(response.getHeaders());
