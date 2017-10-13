@@ -16,6 +16,7 @@ public class Setting {
    * @return true if the setting is enabled, false otherwise.
    */
   @JsonProperty("enable")
+  @JsonInclude(Include.ALWAYS)
   public boolean getEnable() {
     return enable;
   }
