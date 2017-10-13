@@ -4163,18 +4163,28 @@ public class SendGridTest {
     if(System.getenv("TRAVIS") != null && Boolean.parseBoolean(System.getenv("TRAVIS"))) {
       sg = new SendGrid("SENDGRID_API_KEY");
       sg.setHost(System.getenv("MOCK_HOST"));
+
+      System.out.println("===== Use ??? === ");
     } else {
       sg = new SendGrid("SENDGRID_API_KEY", true);
       sg.setHost("localhost:4010");
+
+      System.out.println("===== Use localhost === ");
     }
     sg.addRequestHeader("X-Mock", "201");
 
-    Request request = new Request();
-    request.setMethod(Method.POST);
-    request.setEndpoint("whitelabel/domains");
-    request.setBody("{\"automatic_security\":false,\"username\":\"john@example.com\",\"domain\":\"example.com\",\"default\":true,\"custom_spf\":true,\"ips\":[\"192.168.1.1\",\"192.168.1.2\"],\"subdomain\":\"news\"}");
-    Response response = sg.api(request);
-    Assert.assertEquals(201, response.getStatusCode());
+    try {
+      Request request = new Request();
+      request.setMethod(Method.POST);
+      request.setEndpoint("whitelabel/domains");
+      request.setBody("{\"automatic_security\":false,\"username\":\"john@example.com\",\"domain\":\"example.com\",\"default\":true,\"custom_spf\":true,\"ips\":[\"192.168.1.1\",\"192.168.1.2\"],\"subdomain\":\"news\"}");
+      Response response = sg.api(request);
+      Assert.assertEquals(201, response.getStatusCode());
+    } catch (Exception e) {
+      System.out.println("Debugging prism setup.");
+      e.printStackTrace();
+    }
+
   }
 
   @Test
