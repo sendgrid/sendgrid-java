@@ -4183,6 +4183,7 @@ public class SendGridTest {
     } catch (Exception e) {
       System.out.println("Debugging prism setup.");
       e.printStackTrace();
+      throw e;
     }
 
   }
