@@ -9,7 +9,7 @@ import org.apache.commons.codec.binary.Base64;
 import java.io.*;
 
 /**
- * An attachment object.
+ * A JSON-serializable model of an email attachment.
  */
 @JsonInclude(Include.NON_DEFAULT)
 public class Attachment {
@@ -28,15 +28,16 @@ public class Attachment {
 
     /** 
      * The attachment content ID. This is used when the 
-     * disposition is set to “inline” and the attachment 
+     * disposition is set to {@code "inline"} and the attachment
      * is an image, allowing the file to be displayed within 
-     * the body of your email. 
+     * the body of your email.
      */
     @JsonProperty("content_id")
     private String contentId;
 
     /**
-     * Get the attachment's content.
+     * Gets the attachment content.
+     *
      * @return the content.
      */
     @JsonProperty("content")
@@ -45,9 +46,10 @@ public class Attachment {
     }
 
     /**
-     * Set the attachment's content.
+     * Sets the attachment content.
+     *
      * @param content the content.
-     * @return this object.
+     * @return {@code this} for chaining.
      */
     public Attachment content(String content) {
         this.content = content;
@@ -55,8 +57,9 @@ public class Attachment {
     }
 
     /**
-     * Get the mime type of the content you are attaching. For example, 
-     * “text/plain” or “text/html”.
+     * Gets the mime type of the content you are attaching. For example,
+     * {@link ContentType#TEXT_PLAIN} or {@link ContentType#TEXT_HTML}.
+     *
      * @return the mime type.
      */
     @JsonProperty("type")
@@ -65,9 +68,10 @@ public class Attachment {
     }
 
     /**
-     * Set the mime type of the content.
+     * Sets the mime type of the content.
+     *
      * @param type the mime type.
-     * @return this object.
+     * @return {@code this} for chaining.
      */
     public Attachment type(String type) {
         this.type = type;
@@ -75,7 +79,8 @@ public class Attachment {
     }
 
     /**
-     * Get the filename for this attachment.
+     * Gets the filename for this attachment.
+     *
      * @return the file name.
      */
     @JsonProperty("filename")
@@ -84,9 +89,10 @@ public class Attachment {
     }
 
     /**
-     * Set the filename for this attachment.
+     * Sets the filename for this attachment.
+     *
      * @param filename the filename.
-     * @return this object.
+     * @return {@code this} for chaining.
      */
     public Attachment filename(String filename) {
         this.filename = filename;
@@ -94,13 +100,14 @@ public class Attachment {
     }
 
     /**
-     * Get the content-disposition of the attachment specifying 
+     * Gets the content-disposition of the attachment specifying
      * how you would like the attachment to be displayed. 
-     * For example, “inline” results in the attached file 
+     * For example, {@code "inline"} results in the attached file
      * being displayed automatically within the message 
-     * while “attachment” results in the attached file 
+     * while {@code “attachment”} results in the attached file
      * requiring some action to be taken before it is 
      * displayed (e.g. opening or downloading the file).
+     *
      * @return the disposition.
      */
     @JsonProperty("disposition")
@@ -109,9 +116,10 @@ public class Attachment {
     }
 
     /**
-     * Set the content-disposition of the attachment.
+     * Sets the content-disposition of the attachment.
+     *
      * @param disposition the disposition.
-     * @return this object.
+     * @return {@code this} for chaining.
      */
     public Attachment disposition(String disposition) {
         this.disposition = disposition;
@@ -119,10 +127,11 @@ public class Attachment {
     }
 
     /**
-     * Get the attachment content ID. This is used when the 
-     * disposition is set to “inline” and the attachment 
+     * Gets the attachment content ID. This is used when the
+     * disposition is set to {@code "inline"} and the attachment
      * is an image, allowing the file to be displayed within 
-     * the body of your email. 
+     * the body of your email.
+     *
      * @return the content ID.
      */
     @JsonProperty("content_id")
@@ -131,9 +140,10 @@ public class Attachment {
     }
 
     /**
-     * Set the content ID.
+     * Sets the content ID.
+     *
      * @param contentId the content ID.
-     * @return this object.
+     * @return {@code this} for chaining.
      */
     public Attachment contentId(String contentId) {
         this.contentId = contentId;
@@ -141,7 +151,7 @@ public class Attachment {
     }
 
     /**
-     * A helper object to construct usable attachment.
+     * A builder for creating {@link Attachment}s.
      */
     @JsonIgnoreType
     public static class Builder {
@@ -155,7 +165,8 @@ public class Attachment {
         private String contentId;
 
         /**
-         * Construct a new attachment builder.
+         * Creates a new builder, for creating an {@link Attachment}.
+         *
          * @param fileName the filename to include.
          * @param content an input stream for the content.
          * @throws IllegalArgumentException in case either the fileName or the content is null.
@@ -174,7 +185,8 @@ public class Attachment {
         }
 
         /**
-         * Construct a new attachment builder.
+         * Creates a new builder, for creating an {@link Attachment}.
+         *
          * @param fileName the filename to include.
          * @param content an input string for the content.
          * @throws IllegalArgumentException in case either the fileName or the content is null.
@@ -207,9 +219,10 @@ public class Attachment {
         }
 
         /**
-         * Set the type of this attachment builder.
+         * Sets the type of this attachment builder.
+         *
          * @param type the attachment type.
-         * @return this builder.
+         * @return {@code this} for chaining.
          */
         public Builder withType(String type) {
             this.type = type;
@@ -217,9 +230,10 @@ public class Attachment {
         }
 
         /**
-         * Set the disposition of this attachment builder.
+         * Sets the disposition of this attachment builder.
+         *
          * @param disposition the disposition.
-         * @return this builder.
+         * @return {@code this} for chaining.
          */
         public Builder withDisposition(String disposition) {
             this.disposition = disposition;
@@ -227,9 +241,10 @@ public class Attachment {
         }
 
         /**
-         * Set the content ID of this attachment builder.
+         * Sets the content ID of this attachment builder.
+         *
          * @param contentId the content ID.
-         * @return this builder.
+         * @return {@code this} for chaining.
          */
         public Builder withContentId(String contentId) {
             this.contentId = contentId;
@@ -237,8 +252,9 @@ public class Attachment {
         }
 
         /**
-         * Construct the attachment object.
-         * @return this attachment.
+         * Creates the attachment model, from the specified arguments.
+         *
+         * @return the constructed attachment model.
          */
         public Attachment build() {
             Attachment attachment = new Attachment()

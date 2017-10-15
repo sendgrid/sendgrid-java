@@ -20,8 +20,10 @@ public class OpenTrackingSettings {
     private String substitutionTag;
 
     /**
-     * Determines if this setting is enabled.
-     * @return true if open tracking is enabled, false otherwise.
+     * Gets whether open tracking has been enabled.
+     *
+     * @return {@code true} if open tracking has been enabled;
+     *         {@code false} otherwise.
      */
     @JsonProperty("enable")
     public boolean getEnable() {
@@ -29,9 +31,11 @@ public class OpenTrackingSettings {
     }
 
     /**
-     * Set if this setting is enabled.
-     * @param enable true if open tracking is enabled, false otherwise.
-     * @return this object.
+     * Sets whether open tracking has been enabled.
+     *
+     * @param enable {@code true} if open tracking has been enabled;
+     *               {@code false} otherwise.
+     * @return {@code this} for chaining.
      */
     public OpenTrackingSettings enable(boolean enable) {
         this.enable = enable;
@@ -39,10 +43,11 @@ public class OpenTrackingSettings {
     }
 
     /**
-     * Get the substituion tag. This allows you to specify a 
+     * Gets the substitution tag. This allows you to specify a
      * substitution tag that you can insert in the body of 
      * your email at a location that you desire. This tag will 
      * be replaced by the open tracking pixel.
+     *
      * @return the substitution tag.
      */
     @JsonProperty("substitution_tag")
@@ -51,9 +56,10 @@ public class OpenTrackingSettings {
     }
 
     /**
-     * Set the substitution tag.
+     * Sets the substitution tag.
+     *
      * @param substitutionTag the substitution tag.
-     * @return this object.
+     * @return {@code this} for chaining.
      */
     public OpenTrackingSettings substitutionTag(String substitutionTag) {
         this.substitutionTag = substitutionTag;

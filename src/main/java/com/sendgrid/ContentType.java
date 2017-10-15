@@ -1,7 +1,8 @@
 package com.sendgrid;
 
 /**
- * Content type enumeration.
+ * Pseudo-enumeration of Content-Types.
+ *
  * @author Marcos Barbero
  */
 public class ContentType {

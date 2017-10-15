@@ -5,8 +5,9 @@ import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 /**
- * Settings to determine how you would like to track the 
- * metrics of how your recipients interact with your email.
+ * A JSON-serializable model of the click tracking settings.
+ * This allows for tracking a variety of the interactions a
+ * recipient may make with your email.
  */
 @JsonInclude(Include.NON_NULL)
 public class ClickTrackingSettings {
@@ -18,8 +19,10 @@ public class ClickTrackingSettings {
     private boolean enableText;
 
     /**
-     * Determines if this setting is enabled.
-     * @return true if click tracking is enabled, false otherwise.
+     * Gets whether click tracking has been enabled.
+     *
+     * @return {@code true} if click tracking has been enabled;
+     *         {@code false} otherwise.
      */
     @JsonProperty("enable")
     public boolean getEnable() {
@@ -27,9 +30,11 @@ public class ClickTrackingSettings {
     }
 
     /**
-     * Set if this setting is enabled.
-     * @param enable true if click tracking is enabled, false otherwise.
-     * @return this object.
+     * Sets whether click tracking has been enabled.
+     *
+     * @param enable {@code true} if click tracking has been enabled;
+     *               {@code false} otherwise.
+     * @return {@code this} for chaining.
      */
     public ClickTrackingSettings enable(boolean enable) {
         this.enable = enable;
@@ -37,9 +42,10 @@ public class ClickTrackingSettings {
     }
 
     /**
-     * Get the enabled text. This indicates if this 
+     * Gets the enabled text. This indicates if this
      * setting should be included in the text/plain 
      * portion of your email.
+     *
      * @return the enable text.
      */
     @JsonProperty("enable_text")
@@ -48,9 +54,10 @@ public class ClickTrackingSettings {
     }
 
     /**
-     * Set the enalbed text.
+     * Sets the enabled text.
+     *
      * @param enableText the enable text.
-     * @return this object.
+     * @return {@code this} for chaining.
      */
     public ClickTrackingSettings enableText(boolean enableText) {
         this.enableText = enableText;

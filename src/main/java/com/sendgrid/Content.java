@@ -5,7 +5,14 @@ import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 /**
- * An object in which you may specify the content of your email. 
+ * A JSON-serializable representation of the content of an email.
+ * <p>
+ * This class has the capabilities to be chained, like so:
+ * <code>
+ *     final Content content = new Content()
+ *             .type(ContentType.TEXT_PLAIN)
+ *             .value("Hello, World!");
+ * </code>
  */
 @JsonInclude(Include.NON_DEFAULT)
 public class Content {
@@ -17,16 +24,17 @@ public class Content {
     private String value;
 
     /**
-     * Construct an empty content object.
+     * Creates a new content wrapper, with no content.
      */
     public Content() {
-
     }
 
     /**
-     * Get the mime type of the content you are including 
-     * in your email. For example, “text/plain” or “text/html”.
+     * Gets the mime type of the content of the email. For example,
+     * {@code text/plain} or {@code text/html}.
+     *
      * @return the mime type.
+     * @see ContentType for a psuedo-enum of potential content types
      */
     @JsonProperty("type")
     public String getType() {
@@ -34,10 +42,12 @@ public class Content {
     }
 
     /**
-     * Set the mime type of the content you are including 
-     * in your email. For example, “text/plain” or “text/html”.
+     * Sets the mime type of the content of the email. For example,
+     * {@code text/plain} or {@code text/html}.
+     *
      * @param type the mime type.
-     * @return this object.
+     * @return {@code this} for chaining.
+     * @see ContentType for a psuedo-enum of potential content types
      */
     public Content type(String type) {
         this.type = type;
@@ -45,9 +55,10 @@ public class Content {
     }
 
     /**
-     * Get the actual content of the specified mime type 
-     * that you are including in your email.
-     * @return the value.
+     * Gets the content of the email. The type of the content should
+     * match the specified mime type.
+     *
+     * @return the content.
      */
     @JsonProperty("value")
     public String getValue() {
@@ -55,10 +66,11 @@ public class Content {
     }
 
     /**
-     * Set the actual content of the specified mime type 
-     * that you are including in your email.
-     * @param value the value.
-     * @return this object.
+     * Sets the content of the email. The type of the content should
+     * match the specified mime type.
+     *
+     * @param value the content.
+     * @return {@code this} for chaining.
      */
     public Content value(String value) {
         this.value = value;

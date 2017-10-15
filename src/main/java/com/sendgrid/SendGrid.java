@@ -5,7 +5,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * Class SendGrid allows for quick and easy access to the SendGrid API.
+ * A wrapper for interacting with the SendGrid API.
  */
 public class SendGrid {
     /** The current library version. */
@@ -30,37 +30,46 @@ public class SendGrid {
     private Map<String, String> requestHeaders;
 
     /**
-     * Construct a new SendGrid API wrapper.
-     * @param apiKey is your SendGrid API Key: https://app.sendgrid.com/settings/api_keys
+     * Creates a new SendGrid API wrapper, with the specified API key.
+     *
+     * @param apiKey the key to use with the SendGrid API. The key can be obtained from
+     *               <a href="https://app.sendgrid.com/settings/api_keys">the SendGrid site</a>.
      */
     public SendGrid(String apiKey) {
-        this.client = new Client();
-        initializeSendGrid(apiKey);
+        this(apiKey, new Client());
     }
 
     /**
-     * Construct a new SendGrid API wrapper.
-     * @param apiKey is your SendGrid API Key: https://app.sendgrid.com/settings/api_keys
-     * @param test is true if you are unit testing
+     * Creates a new SendGrid API wrapper, with the specified API key and whether it is running
+     * in a unit test.
+     *
+     * @param apiKey the key to use with the SendGrid API. The key can be obtained from
+     *               <a href="https://app.sendgrid.com/settings/api_keys">the SendGrid site</a>.
+     * @param test   {@code true} if the wrapper is intended for use within a unit test;
+     *               {@code false} otherwise
      */
     public SendGrid(String apiKey, Boolean test) {
-        this.client = new Client(test);
-        initializeSendGrid(apiKey);
+        this(apiKey, new Client(test));
     }
 
     /**
-     * Construct a new SendGrid API wrapper.
-     * @param apiKey is your SendGrid API Key: https://app.sendgrid.com/settings/api_keys
-     * @param client the Client to use (allows to customize its configuration)
+     * Creates a new SendGrid API wrapper, with the specified API key and HTTP client.
+     *
+     * @param apiKey the key to use with the SendGrid API. The key can be obtained from
+     *               <a href="https://app.sendgrid.com/settings/api_keys">the SendGrid site</a>.
+     * @param client the HTTP client of which to use to interact with the SendGrid API.
      */
     public SendGrid(String apiKey, Client client) {
         this.client = client;
-        initializeSendGrid(apiKey);
+        this.initializeSendGrid(apiKey);
     }
 
     /**
-     * Initialize the client.
-     * @param apiKey the user's API key.
+     * Populates the necessary fields for the SendGrid API wrapper to be used, with the
+     * specified API key.
+     *
+     * @param apiKey the key to use with the SendGrid API. The key can be obtained from
+     *               <a href="https://app.sendgrid.com/settings/api_keys">the SendGrid site</a>.
      */
     public void initializeSendGrid(String apiKey) {
         this.apiKey = apiKey;
@@ -73,31 +82,39 @@ public class SendGrid {
     }
 
     /**
-     * Retrieve the current library version.
-     * @return the current version.
+     * Gets the version of the library currently in use.
+     *
+     * @return the current library version.
      */
     public String getLibraryVersion() {
-        return this.VERSION;
+        return VERSION;
     }
 
     /**
-     * Get the API version.
-     * @return the current API versioin (v3 by default).
+     * Gets the version of the SendGrid API the wrapper will be interacting with.
+     *
+     * @return the current API version (default: v3).
      */
     public String getVersion() {
         return this.version;
     }
 
     /**
-     * Set the API version.
-     * @param version the new version.
+     * Sets the version of the SendGrid API the wrapper will be interacting with.
+     * <strong>
+     * All further requests to the API will have to take note of this change, as
+     * it affects the endpoint of which requests are made to.
+     * </strong>
+     *
+     * @param version the API version.
      */
     public void setVersion(String version) {
         this.version = version;
     }
 
     /**
-     * Obtain the request headers.
+     * Gets the headers used when making requests.
+     *
      * @return the request headers.
      */
     public Map<String, String> getRequestHeaders() {
@@ -105,10 +122,11 @@ public class SendGrid {
     }
 
     /**
-     * Add a new request header.
+     * Adds a new header to be used when making requests.
+     *
      * @param key the header key.
      * @param value the header value.
-     * @return the new set of request headers.
+     * @return the <em>updated</em> request headers.
      */
     public Map<String, String> addRequestHeader(String key, String value) {
         this.requestHeaders.put(key, value);
@@ -116,9 +134,10 @@ public class SendGrid {
     }
 
     /**
-     * Remove a request header.
+     * Removes a header that would have been used when making requests.
+     *
      * @param key the header key to remove.
-     * @return the new set of request headers.
+     * @return the <em>updated</em> request headers.
      */
     public Map<String, String> removeRequestHeader(String key) {
         this.requestHeaders.remove(key);
@@ -126,15 +145,21 @@ public class SendGrid {
     }
 
     /**
-     * Get the SendGrid host (api.sendgrid.com by default).
-     * @return the SendGrid host.
+     * Gets the root API URL to be used when making requests.
+     *
+     * @return the SendGrid host (default: api.sendgrid.com).
      */
     public String getHost() {
         return this.host;
     }
 
     /**
-     * Set the SendGrid host.
+     * Sets the root API URL that is used to make requests.
+     * <strong>
+     * All further requests to the API will have to take note of this change, as
+     * it affects the endpoint of which requests are made to.
+     * </strong>
+     *
      * @param host the new SendGrid host.
      */
     public void setHost(String host) {
@@ -142,17 +167,19 @@ public class SendGrid {
     }
 
     /**
-     * Class makeCall makes the call to the SendGrid API, override this method for testing.
+     * Performs a call to the SendGrid API, with the specified {@link Request}.
+     *
      * @param request the request to make.
      * @return the response object.
      * @throws IOException in case of a network error.
      */
     public Response makeCall(Request request) throws IOException {
-        return client.api(request);
+        return this.client.api(request);
     }
 
     /**
-     * Class api sets up the request to the SendGrid API, this is main interface.
+     * Prepares a {@link Request}, and performs it using {@link #makeCall(Request)}.
+     *
      * @param request the request object.
      * @return the response object.
      * @throws IOException in case of a network error.

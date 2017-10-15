@@ -5,23 +5,26 @@ import java.util.List;
 import java.util.ArrayList;
 
 /**
- * A class allowing multiple emails to be sent simultaneously.
+ * A utility for conducting a campaign, allowing for
+ * multiple emails to be sent simultaneously.
  */
 public class Campaign {
     private final List<Mail> mail = new ArrayList<>();
 
     /**
-     * Get the mail objcts in this campaign.
-     * @return the list of mail objects.
+     * Gets the emails of which should be sent.
+     *
+     * @return the list of mail models.
      */
     public List<Mail> getMail() {
         return this.mail;
     }
 
     /**
-     * Add a mail object to this campaign.
-     * @param mail a mail to add to the campaign.
-     * @return this campaign.
+     * Adds an email to this campaign.
+     *
+     * @param mail a mail model
+     * @return {@code this} for chaining.
      */
     public Campaign mail(Mail mail) {
         this.mail.add(mail);
@@ -29,12 +32,13 @@ public class Campaign {
     }
 
     /**
-     * Send all the email in this campaign.
-     * @param sg a Sendgrid object.
-     * @return the list of responses from sending the mail.
-     * @throws IOException in the event of a network error. Note that
-     * if any messages throws an error, the remaining members of the
-     * campaign will not be sent.
+     * Send all the emails in this campaign.
+     *
+     * @param sg the SendGrid wrapper.
+     * @return the list of responses, having sent the emails.
+     * @throws IOException in the event of a network error. Note that if
+     *                     any messages throws an error, the remaining members
+     *                     of the campaign will not be sent.
      */
     public List<Response> send(SendGrid sg) throws IOException {
         List<Response> ret = new ArrayList<>();

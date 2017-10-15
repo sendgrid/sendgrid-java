@@ -5,7 +5,14 @@ import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 /**
- * An email address represented as an address name pair.
+ * A JSON-serializable representation of an email address pair.
+ * <p>
+ * This class has the capabilities to be chained, like so:
+ * <code>
+ *     final Email email = new Email()
+ *             .name("John Doe")
+ *             .email("john@doe.com");
+ * </code>
  */
 @JsonInclude(Include.NON_DEFAULT)
 public class Email {
@@ -17,15 +24,16 @@ public class Email {
     private String email;
 
     /**
-     * Construct an empty email.
+     * Creates a new email wrapper, with no name or email.
      */
     public Email() {
-
     }
 
     /**
-     * Get the name.
-     * @return the name.
+     * Gets the <em>human-readable</em> name of the email owner - for
+     * example: <code>John Doe</code>.
+     *
+     * @return the <em>human-readable</em> name.
      */
     @JsonProperty("name")
     public String getName() {
@@ -33,9 +41,10 @@ public class Email {
     }
 
     /**
-     * Set the name.
-     * @param name the name.
-     * @return this object.
+     * Sets the <em>human-readable</em> name of the email owner.
+     *
+     * @param name the <em>human-readable</em> name.
+     * @return {@code this} for chaining.
      */
     public Email name(String name) {
         this.name = name;
@@ -43,7 +52,8 @@ public class Email {
     }
 
     /**
-     * Get the email address.
+     * Gets the email address - for example: <code>john@doe.com</code>.
+     *
      * @return the email address.
      */
     @JsonProperty("email")
@@ -52,9 +62,10 @@ public class Email {
     }
 
     /**
-     * Set the email address.
+     * Sets the email address.
+     *
      * @param email the email address.
-     * @return this object.
+     * @return {@code this} for chaining.
      */
     public Email email(String email) {
         this.email = email;
