@@ -21,7 +21,16 @@ public class SendGridTest {
     Mail mail = new Mail(from, subject, to, content);
     mail.addDropboxAttachment("www.dropbox.com/s/w5cbrfd0cn8iax0/Systems_Development_Life_Cycle.jpg?dl=0");
 
-    SendGrid sg = new SendGrid(SENDGRID_API_KEY);
+    SendGrid sg = null;
+    if(System.getenv("TRAVIS") != null && Boolean.parseBoolean(System.getenv("TRAVIS"))) {
+      sg = new SendGrid("SENDGRID_API_KEY");
+      sg.setHost(System.getenv("MOCK_HOST"));
+    } else {
+      sg = new SendGrid("SENDGRID_API_KEY", true);
+      sg.setHost("localhost:4010");
+    }
+    sg.addRequestHeader("X-Mock", "200");
+    
     Request request = new Request();
     request.setMethod(Method.POST);
     request.setEndpoint("mail/send");
