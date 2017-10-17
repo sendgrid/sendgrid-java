@@ -1,22 +1,24 @@
 package com.sendgrid;
 
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
-
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.databind.ObjectWriter;
 import com.fasterxml.jackson.databind.SerializationFeature;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
 import java.io.IOException;
+import java.net.URL;
+import java.nio.channels.Channels;
+import java.nio.channels.ReadableByteChannel;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 /**
  * Class Mail builds an object that sends an email through SendGrid. 
@@ -260,6 +262,45 @@ public class Mail {
       this.attachments.add(newAttachment);
     } else {
       this.attachments.add(newAttachment);
+    }
+  }
+
+  /**
+   * Downloads file from Dropbox based on given URL and adds an {@link Attachments} of that file to
+   * {@link #attachments}.
+   * @param dropboxURL The Dropbox URL that is to be attached.
+   */
+  public void addDropboxAttachment(String dropboxURL) {
+    Pattern p = Pattern.compile("((?=https?://)?(?=www.)?dropbox.com/s/([a-zA-Z0-9]+)/(.*\\.[a-zA-Z0-9]+)?(?=\\?dl=[0-9])?)");
+    Matcher m = p.matcher(dropboxURL);
+
+    if (m.find()) {
+      try {
+        URL url = new URL("https://" + m.group(1) + "?dl=1");
+        String fileName = m.group(3);
+        int index = fileName.lastIndexOf(".");
+        if (index == -1) {
+          throw new IllegalArgumentException("Not a valid file!");
+        }
+
+        String extension = fileName.substring(index);
+
+        File tempFile = new File(fileName);
+        tempFile.deleteOnExit();
+
+        ReadableByteChannel rbc = Channels.newChannel(url.openStream());
+        FileOutputStream fos = new FileOutputStream(tempFile);
+        fos.getChannel().transferFrom(rbc, 0, Long.MAX_VALUE);
+
+        Attachments fileAttachment = new Attachments.Builder(tempFile.getName(), new FileInputStream(tempFile))
+                .withType(extension)
+                .build();
+        addAttachments(fileAttachment);
+      } catch (IOException e) {
+        throw new IllegalArgumentException("Invalid Dropbox URL!");
+      }
+    } else {
+      throw new IllegalArgumentException("Invalid Dropbox URL!");
     }
   }
 
