@@ -2,7 +2,7 @@ This documentation is based on our [OAI specification](https://github.com/sendgr
 
 # INITIALIZATION
 
-```ruby
+```java
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
