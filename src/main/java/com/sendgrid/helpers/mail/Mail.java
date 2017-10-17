@@ -269,7 +269,6 @@ public class Mail {
    * Downloads file from Dropbox based on given URL and adds an {@link Attachments} of that file to
    * {@link #attachments}.
    * @param dropboxURL The Dropbox URL that is to be attached.
-   * @throws IOException Any file/URL reading errors will be thrown.
    */
   public void addDropboxAttachment(String dropboxURL) {
     Pattern p = Pattern.compile("((?=https?://)?(?=www.)?dropbox.com/s/([a-zA-Z0-9]+)/(.*\\.[a-zA-Z0-9]+)?(?=\\?dl=[0-9])?)");
