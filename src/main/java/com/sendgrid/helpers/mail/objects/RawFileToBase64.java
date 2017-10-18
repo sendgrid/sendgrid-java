@@ -15,7 +15,7 @@ public class RawFileToBase64 {
    * @param  fileName    the name of the file to include
    * @throws IOException if the file wasnt processed correctly
    */
-  public static String encodeFileToBase64Binary(String fileName) throws RuntimeException {
+  public static String encode(String fileName) throws RuntimeException {
     File file = new File(fileName);
     try {
       byte[] bytes = loadFile(file);
