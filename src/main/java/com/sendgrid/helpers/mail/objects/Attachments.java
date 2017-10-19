@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreType;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import org.apache.commons.codec.Charsets;
 import org.apache.commons.codec.binary.Base64;
 
 import java.io.*;
@@ -53,9 +54,26 @@ public class Attachments {
   public void setContent(String content) {
     this.content = content;
   }
-  
+
   /**
-   * Get the mime type of the content you are attaching. For example, 
+   * Set the attachment's content base64 encoding is done.
+   * @param content the raw content.
+   */
+  public void setRawContent(String content) {
+    this.content = Base64.encodeBase64String(content.getBytes(Charsets.UTF_8));
+  }
+
+  /**
+   * Get the attachment's raw content.
+   * @return the content.
+   */
+  @JsonProperty("content")
+  public String getRawContent() {
+    return Base64.encodeBase64String(this.content.getBytes(Charsets.UTF_8));
+  }
+
+  /**
+   * Get the mime type of the content you are attaching. For example,
    * “text/plain” or “text/html”.
    * @return the mime type.
    */
