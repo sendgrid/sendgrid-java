@@ -4159,14 +4159,8 @@ public class SendGridTest {
 
   @Test
   public void test_whitelabel_domains_post() throws IOException {
-    SendGrid sg = null;
-    if(System.getenv("TRAVIS") != null && Boolean.parseBoolean(System.getenv("TRAVIS"))) {
-      sg = new SendGrid("SENDGRID_API_KEY");
-      sg.setHost(System.getenv("MOCK_HOST"));
-    } else {
-      sg = new SendGrid("SENDGRID_API_KEY", true);
-      sg.setHost("localhost:4010");
-    }
+    SendGrid sg = new SendGrid("SENDGRID_API_KEY", true);
+    sg.setHost("localhost:4010");
     sg.addRequestHeader("X-Mock", "201");
 
     Request request = new Request();
@@ -4179,14 +4173,8 @@ public class SendGridTest {
 
   @Test
   public void test_whitelabel_domains_get() throws IOException {
-    SendGrid sg = null;
-    if(System.getenv("TRAVIS") != null && Boolean.parseBoolean(System.getenv("TRAVIS"))) {
-      sg = new SendGrid("SENDGRID_API_KEY");
-      sg.setHost(System.getenv("MOCK_HOST"));
-    } else {
-      sg = new SendGrid("SENDGRID_API_KEY", true);
-      sg.setHost("localhost:4010");
-    }
+    SendGrid sg = new SendGrid("SENDGRID_API_KEY", true);
+    sg.setHost("localhost:4010");
     sg.addRequestHeader("X-Mock", "200");
 
     Request request = new Request();
@@ -4203,14 +4191,8 @@ public class SendGridTest {
 
   @Test
   public void test_whitelabel_domains_default_get() throws IOException {
-    SendGrid sg = null;
-    if(System.getenv("TRAVIS") != null && Boolean.parseBoolean(System.getenv("TRAVIS"))) {
-      sg = new SendGrid("SENDGRID_API_KEY");
-      sg.setHost(System.getenv("MOCK_HOST"));
-    } else {
-      sg = new SendGrid("SENDGRID_API_KEY", true);
-      sg.setHost("localhost:4010");
-    }
+    SendGrid sg = new SendGrid("SENDGRID_API_KEY", true);
+    sg.setHost("localhost:4010");
     sg.addRequestHeader("X-Mock", "200");
 
     Request request = new Request();
@@ -4222,14 +4204,8 @@ public class SendGridTest {
 
   @Test
   public void test_whitelabel_domains_subuser_get() throws IOException {
-    SendGrid sg = null;
-    if(System.getenv("TRAVIS") != null && Boolean.parseBoolean(System.getenv("TRAVIS"))) {
-      sg = new SendGrid("SENDGRID_API_KEY");
-      sg.setHost(System.getenv("MOCK_HOST"));
-    } else {
-      sg = new SendGrid("SENDGRID_API_KEY", true);
-      sg.setHost("localhost:4010");
-    }
+    SendGrid sg = new SendGrid("SENDGRID_API_KEY", true);
+    sg.setHost("localhost:4010");
     sg.addRequestHeader("X-Mock", "200");
 
     Request request = new Request();
@@ -4241,14 +4217,8 @@ public class SendGridTest {
 
   @Test
   public void test_whitelabel_domains_subuser_delete() throws IOException {
-    SendGrid sg = null;
-    if(System.getenv("TRAVIS") != null && Boolean.parseBoolean(System.getenv("TRAVIS"))) {
-      sg = new SendGrid("SENDGRID_API_KEY");
-      sg.setHost(System.getenv("MOCK_HOST"));
-    } else {
-      sg = new SendGrid("SENDGRID_API_KEY", true);
-      sg.setHost("localhost:4010");
-    }
+    SendGrid sg = new SendGrid("SENDGRID_API_KEY", true);
+    sg.setHost("localhost:4010");
     sg.addRequestHeader("X-Mock", "204");
 
     Request request = new Request();
@@ -4260,14 +4230,8 @@ public class SendGridTest {
 
   @Test
   public void test_whitelabel_domains__domain_id__patch() throws IOException {
-    SendGrid sg = null;
-    if(System.getenv("TRAVIS") != null && Boolean.parseBoolean(System.getenv("TRAVIS"))) {
-      sg = new SendGrid("SENDGRID_API_KEY");
-      sg.setHost(System.getenv("MOCK_HOST"));
-    } else {
-      sg = new SendGrid("SENDGRID_API_KEY", true);
-      sg.setHost("localhost:4010");
-    }
+    SendGrid sg = new SendGrid("SENDGRID_API_KEY", true);
+    sg.setHost("localhost:4010");
     sg.addRequestHeader("X-Mock", "200");
 
     Request request = new Request();
@@ -4280,14 +4244,8 @@ public class SendGridTest {
 
   @Test
   public void test_whitelabel_domains__domain_id__get() throws IOException {
-    SendGrid sg = null;
-    if(System.getenv("TRAVIS") != null && Boolean.parseBoolean(System.getenv("TRAVIS"))) {
-      sg = new SendGrid("SENDGRID_API_KEY");
-      sg.setHost(System.getenv("MOCK_HOST"));
-    } else {
-      sg = new SendGrid("SENDGRID_API_KEY", true);
-      sg.setHost("localhost:4010");
-    }
+    SendGrid sg = new SendGrid("SENDGRID_API_KEY", true);
+    sg.setHost("localhost:4010");
     sg.addRequestHeader("X-Mock", "200");
 
     Request request = new Request();
@@ -4299,14 +4257,8 @@ public class SendGridTest {
 
   @Test
   public void test_whitelabel_domains__domain_id__delete() throws IOException {
-    SendGrid sg = null;
-    if(System.getenv("TRAVIS") != null && Boolean.parseBoolean(System.getenv("TRAVIS"))) {
-      sg = new SendGrid("SENDGRID_API_KEY");
-      sg.setHost(System.getenv("MOCK_HOST"));
-    } else {
-      sg = new SendGrid("SENDGRID_API_KEY", true);
-      sg.setHost("localhost:4010");
-    }
+    SendGrid sg = new SendGrid("SENDGRID_API_KEY", true);
+    sg.setHost("localhost:4010");
     sg.addRequestHeader("X-Mock", "204");
 
     Request request = new Request();
@@ -4318,14 +4270,8 @@ public class SendGridTest {
 
   @Test
   public void test_whitelabel_domains__domain_id__subuser_post() throws IOException {
-    SendGrid sg = null;
-    if(System.getenv("TRAVIS") != null && Boolean.parseBoolean(System.getenv("TRAVIS"))) {
-      sg = new SendGrid("SENDGRID_API_KEY");
-      sg.setHost(System.getenv("MOCK_HOST"));
-    } else {
-      sg = new SendGrid("SENDGRID_API_KEY", true);
-      sg.setHost("localhost:4010");
-    }
+    SendGrid sg = new SendGrid("SENDGRID_API_KEY", true);
+    sg.setHost("localhost:4010");
     sg.addRequestHeader("X-Mock", "201");
 
     Request request = new Request();
@@ -4338,14 +4284,8 @@ public class SendGridTest {
 
   @Test
   public void test_whitelabel_domains__id__ips_post() throws IOException {
-    SendGrid sg = null;
-    if(System.getenv("TRAVIS") != null && Boolean.parseBoolean(System.getenv("TRAVIS"))) {
-      sg = new SendGrid("SENDGRID_API_KEY");
-      sg.setHost(System.getenv("MOCK_HOST"));
-    } else {
-      sg = new SendGrid("SENDGRID_API_KEY", true);
-      sg.setHost("localhost:4010");
-    }
+    SendGrid sg = new SendGrid("SENDGRID_API_KEY", true);
+    sg.setHost("localhost:4010");
     sg.addRequestHeader("X-Mock", "200");
 
     Request request = new Request();
