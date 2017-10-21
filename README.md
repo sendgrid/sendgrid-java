@@ -1,4 +1,5 @@
 [![Travis Badge](https://travis-ci.org/sendgrid/sendgrid-java.svg?branch=master)](https://travis-ci.org/sendgrid/sendgrid-java)
+[![Maven Central](https://img.shields.io/maven-central/v/com.sendgrid/sendgrid-java.svg)](http://mvnrepository.com/artifact/com.sendgrid/sendgrid-java)
 [![Email Notifications Badge](https://dx.sendgrid.com/badge/java)](https://dx.sendgrid.com/newsletter/java)
 
 **NEW:** Subscribe to email [notifications](https://dx.sendgrid.com/newsletter/java) for releases and breaking changes.
