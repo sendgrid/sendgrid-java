@@ -10,3 +10,6 @@ gradle.properties
 target
 *.class
 examples/Example.java
+.settings
+.classpath
+.project

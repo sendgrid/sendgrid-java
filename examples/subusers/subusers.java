@@ -17,13 +17,13 @@ public class Example {
     try {
       SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
       Request request = new Request();
-      request.method = Method.POST;
-      request.endpoint = "subusers";
-      request.body = "{\"username\":\"John@example.com\",\"ips\":[\"1.1.1.1\",\"2.2.2.2\"],\"password\":\"johns_password\",\"email\":\"John@example.com\"}";
+      request.setMethod(Method.POST);
+      request.setEndpoint("subusers");
+      request.setBody("{\"username\":\"John@example.com\",\"ips\":[\"1.1.1.1\",\"2.2.2.2\"],\"password\":\"johns_password\",\"email\":\"John@example.com\"}");
       Response response = sg.api(request);
-      System.out.println(response.statusCode);
-      System.out.println(response.body);
-      System.out.println(response.headers);
+      System.out.println(response.getStatusCode());
+      System.out.println(response.getBody());
+      System.out.println(response.getHeaders());
     } catch (IOException ex) {
       throw ex;
     }
@@ -40,17 +40,15 @@ public class Example {
     try {
       SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
       Request request = new Request();
-      request.method = Method.GET;
-      request.endpoint = "subusers";
-      Map<String,String> queryParams = new HashMap<String, String>();
-      queryParams.put("username", "test_string");
-      queryParams.put("limit", "0");
-      queryParams.put("offset", "0");
-      request.queryParams = queryParams;
+      request.setMethod(Method.GET);
+      request.setEndpoint("subusers");
+      request.addQueryParam("username", "test_string");
+      request.addQueryParam("limit", "1");
+      request.addQueryParam("offset", "1");
       Response response = sg.api(request);
-      System.out.println(response.statusCode);
-      System.out.println(response.body);
-      System.out.println(response.headers);
+      System.out.println(response.getStatusCode());
+      System.out.println(response.getBody());
+      System.out.println(response.getHeaders());
     } catch (IOException ex) {
       throw ex;
     }
@@ -67,15 +65,13 @@ public class Example {
     try {
       SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
       Request request = new Request();
-      request.method = Method.GET;
-      request.endpoint = "subusers/reputations";
-      Map<String,String> queryParams = new HashMap<String, String>();
-      queryParams.put("usernames", "test_string");
-      request.queryParams = queryParams;
+      request.setMethod(Method.GET);
+      request.setEndpoint("subusers/reputations");
+      request.addQueryParam("usernames", "test_string");
       Response response = sg.api(request);
-      System.out.println(response.statusCode);
-      System.out.println(response.body);
-      System.out.println(response.headers);
+      System.out.println(response.getStatusCode());
+      System.out.println(response.getBody());
+      System.out.println(response.getHeaders());
     } catch (IOException ex) {
       throw ex;
     }
@@ -92,20 +88,18 @@ public class Example {
     try {
       SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
       Request request = new Request();
-      request.method = Method.GET;
-      request.endpoint = "subusers/stats";
-      Map<String,String> queryParams = new HashMap<String, String>();
-      queryParams.put("end_date", "2016-04-01");
-      queryParams.put("aggregated_by", "day");
-      queryParams.put("limit", "1");
-      queryParams.put("offset", "1");
-      queryParams.put("start_date", "2016-01-01");
-      queryParams.put("subusers", "test_string");
-      request.queryParams = queryParams;
+      request.setMethod(Method.GET);
+      request.setEndpoint("subusers/stats");
+      request.addQueryParam("end_date", "2016-04-01");
+      request.addQueryParam("aggregated_by", "day");
+      request.addQueryParam("limit", "1");
+      request.addQueryParam("offset", "1");
+      request.addQueryParam("start_date", "2016-01-01");
+      request.addQueryParam("subusers", "test_string");
       Response response = sg.api(request);
-      System.out.println(response.statusCode);
-      System.out.println(response.body);
-      System.out.println(response.headers);
+      System.out.println(response.getStatusCode());
+      System.out.println(response.getBody());
+      System.out.println(response.getHeaders());
     } catch (IOException ex) {
       throw ex;
     }
@@ -122,20 +116,18 @@ public class Example {
     try {
       SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
       Request request = new Request();
-      request.method = Method.GET;
-      request.endpoint = "subusers/stats/monthly";
-      Map<String,String> queryParams = new HashMap<String, String>();
-      queryParams.put("subuser", "test_string");
-      queryParams.put("limit", "1");
-      queryParams.put("sort_by_metric", "test_string");
-      queryParams.put("offset", "1");
-      queryParams.put("date", "test_string");
-      queryParams.put("sort_by_direction", "asc");
-      request.queryParams = queryParams;
+      request.setMethod(Method.GET);
+      request.setEndpoint("subusers/stats/monthly");
+      request.addQueryParam("subuser", "test_string");
+      request.addQueryParam("limit", "1");
+      request.addQueryParam("sort_by_metric", "test_string");
+      request.addQueryParam("offset", "1");
+      request.addQueryParam("date", "test_string");
+      request.addQueryParam("sort_by_direction", "asc");
       Response response = sg.api(request);
-      System.out.println(response.statusCode);
-      System.out.println(response.body);
-      System.out.println(response.headers);
+      System.out.println(response.getStatusCode());
+      System.out.println(response.getBody());
+      System.out.println(response.getHeaders());
     } catch (IOException ex) {
       throw ex;
     }
@@ -152,21 +144,19 @@ public class Example {
     try {
       SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
       Request request = new Request();
-      request.method = Method.GET;
-      request.endpoint = "subusers/stats/sums";
-      Map<String,String> queryParams = new HashMap<String, String>();
-      queryParams.put("end_date", "2016-04-01");
-      queryParams.put("aggregated_by", "day");
-      queryParams.put("limit", "1");
-      queryParams.put("sort_by_metric", "test_string");
-      queryParams.put("offset", "1");
-      queryParams.put("start_date", "2016-01-01");
-      queryParams.put("sort_by_direction", "asc");
-      request.queryParams = queryParams;
+      request.setMethod(Method.GET);
+      request.setEndpoint("subusers/stats/sums");
+      request.addQueryParam("end_date", "2016-04-01");
+      request.addQueryParam("aggregated_by", "day");
+      request.addQueryParam("limit", "1");
+      request.addQueryParam("sort_by_metric", "test_string");
+      request.addQueryParam("offset", "1");
+      request.addQueryParam("start_date", "2016-01-01");
+      request.addQueryParam("sort_by_direction", "asc");
       Response response = sg.api(request);
-      System.out.println(response.statusCode);
-      System.out.println(response.body);
-      System.out.println(response.headers);
+      System.out.println(response.getStatusCode());
+      System.out.println(response.getBody());
+      System.out.println(response.getHeaders());
     } catch (IOException ex) {
       throw ex;
     }
@@ -183,13 +173,13 @@ public class Example {
     try {
       SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
       Request request = new Request();
-      request.method = Method.PATCH;
-      request.endpoint = "subusers/{subuser_name}";
-      request.body = "{\"disabled\":false}";
+      request.setMethod(Method.PATCH);
+      request.setEndpoint("subusers/{subuser_name}");
+      request.setBody("{\"disabled\":false}");
       Response response = sg.api(request);
-      System.out.println(response.statusCode);
-      System.out.println(response.body);
-      System.out.println(response.headers);
+      System.out.println(response.getStatusCode());
+      System.out.println(response.getBody());
+      System.out.println(response.getHeaders());
     } catch (IOException ex) {
       throw ex;
     }
@@ -206,12 +196,12 @@ public class Example {
     try {
       SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
       Request request = new Request();
-      request.method = Method.DELETE;
-      request.endpoint = "subusers/{subuser_name}";
+      request.setMethod(Method.DELETE);
+      request.setEndpoint("subusers/{subuser_name}");
       Response response = sg.api(request);
-      System.out.println(response.statusCode);
-      System.out.println(response.body);
-      System.out.println(response.headers);
+      System.out.println(response.getStatusCode());
+      System.out.println(response.getBody());
+      System.out.println(response.getHeaders());
     } catch (IOException ex) {
       throw ex;
     }
@@ -228,13 +218,13 @@ public class Example {
     try {
       SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
       Request request = new Request();
-      request.method = Method.PUT;
-      request.endpoint = "subusers/{subuser_name}/ips";
-      request.body = "[\"127.0.0.1\"]";
+      request.setMethod(Method.PUT);
+      request.setEndpoint("subusers/{subuser_name}/ips");
+      request.setBody("[\"127.0.0.1\"]");
       Response response = sg.api(request);
-      System.out.println(response.statusCode);
-      System.out.println(response.body);
-      System.out.println(response.headers);
+      System.out.println(response.getStatusCode());
+      System.out.println(response.getBody());
+      System.out.println(response.getHeaders());
     } catch (IOException ex) {
       throw ex;
     }
@@ -251,13 +241,13 @@ public class Example {
     try {
       SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
       Request request = new Request();
-      request.method = Method.PUT;
-      request.endpoint = "subusers/{subuser_name}/monitor";
-      request.body = "{\"frequency\":500,\"email\":\"example@example.com\"}";
+      request.setMethod(Method.PUT);
+      request.setEndpoint("subusers/{subuser_name}/monitor");
+      request.setBody("{\"frequency\":500,\"email\":\"example@example.com\"}");
       Response response = sg.api(request);
-      System.out.println(response.statusCode);
-      System.out.println(response.body);
-      System.out.println(response.headers);
+      System.out.println(response.getStatusCode());
+      System.out.println(response.getBody());
+      System.out.println(response.getHeaders());
     } catch (IOException ex) {
       throw ex;
     }
@@ -274,13 +264,13 @@ public class Example {
     try {
       SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
       Request request = new Request();
-      request.method = Method.POST;
-      request.endpoint = "subusers/{subuser_name}/monitor";
-      request.body = "{\"frequency\":50000,\"email\":\"example@example.com\"}";
+      request.setMethod(Method.POST);
+      request.setEndpoint("subusers/{subuser_name}/monitor");
+      request.setBody("{\"frequency\":50000,\"email\":\"example@example.com\"}");
       Response response = sg.api(request);
-      System.out.println(response.statusCode);
-      System.out.println(response.body);
-      System.out.println(response.headers);
+      System.out.println(response.getStatusCode());
+      System.out.println(response.getBody());
+      System.out.println(response.getHeaders());
     } catch (IOException ex) {
       throw ex;
     }
@@ -297,12 +287,12 @@ public class Example {
     try {
       SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
       Request request = new Request();
-      request.method = Method.GET;
-      request.endpoint = "subusers/{subuser_name}/monitor";
+      request.setMethod(Method.GET);
+      request.setEndpoint("subusers/{subuser_name}/monitor");
       Response response = sg.api(request);
-      System.out.println(response.statusCode);
-      System.out.println(response.body);
-      System.out.println(response.headers);
+      System.out.println(response.getStatusCode());
+      System.out.println(response.getBody());
+      System.out.println(response.getHeaders());
     } catch (IOException ex) {
       throw ex;
     }
@@ -319,12 +309,12 @@ public class Example {
     try {
       SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
       Request request = new Request();
-      request.method = Method.DELETE;
-      request.endpoint = "subusers/{subuser_name}/monitor";
+      request.setMethod(Method.DELETE);
+      request.setEndpoint("subusers/{subuser_name}/monitor");
       Response response = sg.api(request);
-      System.out.println(response.statusCode);
-      System.out.println(response.body);
-      System.out.println(response.headers);
+      System.out.println(response.getStatusCode());
+      System.out.println(response.getBody());
+      System.out.println(response.getHeaders());
     } catch (IOException ex) {
       throw ex;
     }
@@ -341,19 +331,17 @@ public class Example {
     try {
       SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
       Request request = new Request();
-      request.method = Method.GET;
-      request.endpoint = "subusers/{subuser_name}/stats/monthly";
-      Map<String,String> queryParams = new HashMap<String, String>();
-      queryParams.put("date", "test_string");
-      queryParams.put("sort_by_direction", "asc");
-      queryParams.put("limit", "0");
-      queryParams.put("sort_by_metric", "test_string");
-      queryParams.put("offset", "1");
-      request.queryParams = queryParams;
+      request.setMethod(Method.GET);
+      request.setEndpoint("subusers/{subuser_name}/stats/monthly");
+      request.addQueryParam("date", "test_string");
+      request.addQueryParam("sort_by_direction", "asc");
+      request.addQueryParam("limit", "1");
+      request.addQueryParam("sort_by_metric", "test_string");
+      request.addQueryParam("offset", "1");
       Response response = sg.api(request);
-      System.out.println(response.statusCode);
-      System.out.println(response.body);
-      System.out.println(response.headers);
+      System.out.println(response.getStatusCode());
+      System.out.println(response.getBody());
+      System.out.println(response.getHeaders());
     } catch (IOException ex) {
       throw ex;
     }

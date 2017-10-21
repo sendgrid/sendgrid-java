@@ -17,18 +17,16 @@ public class Example {
     try {
       SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
       Request request = new Request();
-      request.method = Method.GET;
-      request.endpoint = "suppression/blocks";
-      Map<String,String> queryParams = new HashMap<String, String>();
-      queryParams.put("start_time", "1");
-      queryParams.put("limit", "1");
-      queryParams.put("end_time", "1");
-      queryParams.put("offset", "1");
-      request.queryParams = queryParams;
+      request.setMethod(Method.GET);
+      request.setEndpoint("suppression/blocks");
+      request.addQueryParam("start_time", "1");
+      request.addQueryParam("limit", "1");
+      request.addQueryParam("end_time", "1");
+      request.addQueryParam("offset", "1");
       Response response = sg.api(request);
-      System.out.println(response.statusCode);
-      System.out.println(response.body);
-      System.out.println(response.headers);
+      System.out.println(response.getStatusCode());
+      System.out.println(response.getBody());
+      System.out.println(response.getHeaders());
     } catch (IOException ex) {
       throw ex;
     }
@@ -45,13 +43,13 @@ public class Example {
     try {
       SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
       Request request = new Request();
-      request.method = Method.DELETE;
-      request.endpoint = "suppression/blocks";
-      request.body = "{\"emails\":[\"example1@example.com\",\"example2@example.com\"],\"delete_all\":false}";
+      request.setMethod(Method.DELETE);
+      request.setEndpoint("suppression/blocks");
+      request.setBody("{\"emails\":[\"example1@example.com\",\"example2@example.com\"],\"delete_all\":false}");
       Response response = sg.api(request);
-      System.out.println(response.statusCode);
-      System.out.println(response.body);
-      System.out.println(response.headers);
+      System.out.println(response.getStatusCode());
+      System.out.println(response.getBody());
+      System.out.println(response.getHeaders());
     } catch (IOException ex) {
       throw ex;
     }
@@ -68,12 +66,12 @@ public class Example {
     try {
       SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
       Request request = new Request();
-      request.method = Method.GET;
-      request.endpoint = "suppression/blocks/{email}";
+      request.setMethod(Method.GET);
+      request.setEndpoint("suppression/blocks/{email}");
       Response response = sg.api(request);
-      System.out.println(response.statusCode);
-      System.out.println(response.body);
-      System.out.println(response.headers);
+      System.out.println(response.getStatusCode());
+      System.out.println(response.getBody());
+      System.out.println(response.getHeaders());
     } catch (IOException ex) {
       throw ex;
     }
@@ -90,12 +88,12 @@ public class Example {
     try {
       SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
       Request request = new Request();
-      request.method = Method.DELETE;
-      request.endpoint = "suppression/blocks/{email}";
+      request.setMethod(Method.DELETE);
+      request.setEndpoint("suppression/blocks/{email}");
       Response response = sg.api(request);
-      System.out.println(response.statusCode);
-      System.out.println(response.body);
-      System.out.println(response.headers);
+      System.out.println(response.getStatusCode());
+      System.out.println(response.getBody());
+      System.out.println(response.getHeaders());
     } catch (IOException ex) {
       throw ex;
     }
@@ -112,16 +110,14 @@ public class Example {
     try {
       SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
       Request request = new Request();
-      request.method = Method.GET;
-      request.endpoint = "suppression/bounces";
-      Map<String,String> queryParams = new HashMap<String, String>();
-      queryParams.put("start_time", "0");
-      queryParams.put("end_time", "0");
-      request.queryParams = queryParams;
+      request.setMethod(Method.GET);
+      request.setEndpoint("suppression/bounces");
+      request.addQueryParam("start_time", "1");
+      request.addQueryParam("end_time", "1");
       Response response = sg.api(request);
-      System.out.println(response.statusCode);
-      System.out.println(response.body);
-      System.out.println(response.headers);
+      System.out.println(response.getStatusCode());
+      System.out.println(response.getBody());
+      System.out.println(response.getHeaders());
     } catch (IOException ex) {
       throw ex;
     }
@@ -138,13 +134,13 @@ public class Example {
     try {
       SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
       Request request = new Request();
-      request.method = Method.DELETE;
-      request.endpoint = "suppression/bounces";
-      request.body = "{\"emails\":[\"example@example.com\",\"example2@example.com\"],\"delete_all\":true}";
+      request.setMethod(Method.DELETE);
+      request.setEndpoint("suppression/bounces");
+      request.setBody("{\"emails\":[\"example@example.com\",\"example2@example.com\"],\"delete_all\":true}");
       Response response = sg.api(request);
-      System.out.println(response.statusCode);
-      System.out.println(response.body);
-      System.out.println(response.headers);
+      System.out.println(response.getStatusCode());
+      System.out.println(response.getBody());
+      System.out.println(response.getHeaders());
     } catch (IOException ex) {
       throw ex;
     }
@@ -161,12 +157,12 @@ public class Example {
     try {
       SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
       Request request = new Request();
-      request.method = Method.GET;
-      request.endpoint = "suppression/bounces/{email}";
+      request.setMethod(Method.GET);
+      request.setEndpoint("suppression/bounces/{email}");
       Response response = sg.api(request);
-      System.out.println(response.statusCode);
-      System.out.println(response.body);
-      System.out.println(response.headers);
+      System.out.println(response.getStatusCode());
+      System.out.println(response.getBody());
+      System.out.println(response.getHeaders());
     } catch (IOException ex) {
       throw ex;
     }
@@ -183,15 +179,13 @@ public class Example {
     try {
       SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
       Request request = new Request();
-      request.method = Method.DELETE;
-      request.endpoint = "suppression/bounces/{email}";
-      Map<String,String> queryParams = new HashMap<String, String>();
-      queryParams.put("email_address", "example@example.com");
-      request.queryParams = queryParams;
+      request.setMethod(Method.DELETE);
+      request.setEndpoint("suppression/bounces/{email}");
+      request.addQueryParam("email_address", "example@example.com");
       Response response = sg.api(request);
-      System.out.println(response.statusCode);
-      System.out.println(response.body);
-      System.out.println(response.headers);
+      System.out.println(response.getStatusCode());
+      System.out.println(response.getBody());
+      System.out.println(response.getHeaders());
     } catch (IOException ex) {
       throw ex;
     }
@@ -208,18 +202,16 @@ public class Example {
     try {
       SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
       Request request = new Request();
-      request.method = Method.GET;
-      request.endpoint = "suppression/invalid_emails";
-      Map<String,String> queryParams = new HashMap<String, String>();
-      queryParams.put("start_time", "1");
-      queryParams.put("limit", "1");
-      queryParams.put("end_time", "1");
-      queryParams.put("offset", "1");
-      request.queryParams = queryParams;
+      request.setMethod(Method.GET);
+      request.setEndpoint("suppression/invalid_emails");
+      request.addQueryParam("start_time", "1");
+      request.addQueryParam("limit", "1");
+      request.addQueryParam("end_time", "1");
+      request.addQueryParam("offset", "1");
       Response response = sg.api(request);
-      System.out.println(response.statusCode);
-      System.out.println(response.body);
-      System.out.println(response.headers);
+      System.out.println(response.getStatusCode());
+      System.out.println(response.getBody());
+      System.out.println(response.getHeaders());
     } catch (IOException ex) {
       throw ex;
     }
@@ -236,13 +228,13 @@ public class Example {
     try {
       SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
       Request request = new Request();
-      request.method = Method.DELETE;
-      request.endpoint = "suppression/invalid_emails";
-      request.body = "{\"emails\":[\"example1@example.com\",\"example2@example.com\"],\"delete_all\":false}";
+      request.setMethod(Method.DELETE);
+      request.setEndpoint("suppression/invalid_emails");
+      request.setBody("{\"emails\":[\"example1@example.com\",\"example2@example.com\"],\"delete_all\":false}");
       Response response = sg.api(request);
-      System.out.println(response.statusCode);
-      System.out.println(response.body);
-      System.out.println(response.headers);
+      System.out.println(response.getStatusCode());
+      System.out.println(response.getBody());
+      System.out.println(response.getHeaders());
     } catch (IOException ex) {
       throw ex;
     }
@@ -259,12 +251,12 @@ public class Example {
     try {
       SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
       Request request = new Request();
-      request.method = Method.GET;
-      request.endpoint = "suppression/invalid_emails/{email}";
+      request.setMethod(Method.GET);
+      request.setEndpoint("suppression/invalid_emails/{email}");
       Response response = sg.api(request);
-      System.out.println(response.statusCode);
-      System.out.println(response.body);
-      System.out.println(response.headers);
+      System.out.println(response.getStatusCode());
+      System.out.println(response.getBody());
+      System.out.println(response.getHeaders());
     } catch (IOException ex) {
       throw ex;
     }
@@ -281,12 +273,12 @@ public class Example {
     try {
       SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
       Request request = new Request();
-      request.method = Method.DELETE;
-      request.endpoint = "suppression/invalid_emails/{email}";
+      request.setMethod(Method.DELETE);
+      request.setEndpoint("suppression/invalid_emails/{email}");
       Response response = sg.api(request);
-      System.out.println(response.statusCode);
-      System.out.println(response.body);
-      System.out.println(response.headers);
+      System.out.println(response.getStatusCode());
+      System.out.println(response.getBody());
+      System.out.println(response.getHeaders());
     } catch (IOException ex) {
       throw ex;
     }
@@ -303,12 +295,12 @@ public class Example {
     try {
       SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
       Request request = new Request();
-      request.method = Method.GET;
-      request.endpoint = "suppression/spam_report/{email}";
+      request.setMethod(Method.GET);
+      request.setEndpoint("suppression/spam_report/{email}");
       Response response = sg.api(request);
-      System.out.println(response.statusCode);
-      System.out.println(response.body);
-      System.out.println(response.headers);
+      System.out.println(response.getStatusCode());
+      System.out.println(response.getBody());
+      System.out.println(response.getHeaders());
     } catch (IOException ex) {
       throw ex;
     }
@@ -325,12 +317,12 @@ public class Example {
     try {
       SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
       Request request = new Request();
-      request.method = Method.DELETE;
-      request.endpoint = "suppression/spam_report/{email}";
+      request.setMethod(Method.DELETE);
+      request.setEndpoint("suppression/spam_report/{email}");
       Response response = sg.api(request);
-      System.out.println(response.statusCode);
-      System.out.println(response.body);
-      System.out.println(response.headers);
+      System.out.println(response.getStatusCode());
+      System.out.println(response.getBody());
+      System.out.println(response.getHeaders());
     } catch (IOException ex) {
       throw ex;
     }
@@ -347,18 +339,16 @@ public class Example {
     try {
       SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
       Request request = new Request();
-      request.method = Method.GET;
-      request.endpoint = "suppression/spam_reports";
-      Map<String,String> queryParams = new HashMap<String, String>();
-      queryParams.put("start_time", "1");
-      queryParams.put("limit", "1");
-      queryParams.put("end_time", "1");
-      queryParams.put("offset", "1");
-      request.queryParams = queryParams;
+      request.setMethod(Method.GET);
+      request.setEndpoint("suppression/spam_reports");
+      request.addQueryParam("start_time", "1");
+      request.addQueryParam("limit", "1");
+      request.addQueryParam("end_time", "1");
+      request.addQueryParam("offset", "1");
       Response response = sg.api(request);
-      System.out.println(response.statusCode);
-      System.out.println(response.body);
-      System.out.println(response.headers);
+      System.out.println(response.getStatusCode());
+      System.out.println(response.getBody());
+      System.out.println(response.getHeaders());
     } catch (IOException ex) {
       throw ex;
     }
@@ -375,13 +365,13 @@ public class Example {
     try {
       SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
       Request request = new Request();
-      request.method = Method.DELETE;
-      request.endpoint = "suppression/spam_reports";
-      request.body = "{\"emails\":[\"example1@example.com\",\"example2@example.com\"],\"delete_all\":false}";
+      request.setMethod(Method.DELETE);
+      request.setEndpoint("suppression/spam_reports");
+      request.setBody("{\"emails\":[\"example1@example.com\",\"example2@example.com\"],\"delete_all\":false}");
       Response response = sg.api(request);
-      System.out.println(response.statusCode);
-      System.out.println(response.body);
-      System.out.println(response.headers);
+      System.out.println(response.getStatusCode());
+      System.out.println(response.getBody());
+      System.out.println(response.getHeaders());
     } catch (IOException ex) {
       throw ex;
     }
@@ -398,18 +388,16 @@ public class Example {
     try {
       SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
       Request request = new Request();
-      request.method = Method.GET;
-      request.endpoint = "suppression/unsubscribes";
-      Map<String,String> queryParams = new HashMap<String, String>();
-      queryParams.put("start_time", "1");
-      queryParams.put("limit", "1");
-      queryParams.put("end_time", "1");
-      queryParams.put("offset", "1");
-      request.queryParams = queryParams;
+      request.setMethod(Method.GET);
+      request.setEndpoint("suppression/unsubscribes");
+      request.addQueryParam("start_time", "1");
+      request.addQueryParam("limit", "1");
+      request.addQueryParam("end_time", "1");
+      request.addQueryParam("offset", "1");
       Response response = sg.api(request);
-      System.out.println(response.statusCode);
-      System.out.println(response.body);
-      System.out.println(response.headers);
+      System.out.println(response.getStatusCode());
+      System.out.println(response.getBody());
+      System.out.println(response.getHeaders());
     } catch (IOException ex) {
       throw ex;
     }

@@ -16,13 +16,13 @@ We use [Milestones](https://github.com/sendgrid/sendgrid-java/milestones) to hel
 <a name="cla"></a>
 ## CLAs and CCLAs
 
-Before you get started, SendGrid requires that a SendGrid Contributor License Agreement (CLA) or a SendGrid Company Contributor Licensing Agreement (CCLA) be filled out by every contributor to a SendGrid open source project.
+Before you get started, SendGrid requires that a SendGrid Contributor License Agreement (CLA) be filled out by every contributor to a SendGrid open source project.
 
-Our goal with the CLA and CCLA is to clarify the rights of our contributors and reduce other risks arising from inappropriate contributions.  The CLA also clarifies the rights SendGrid holds in each contribution and helps to avoid misunderstandings over what rights each contributor is required to grant to SendGrid when making a contribution.  In this way the CLA and CCLA encourage broad participation by our open source community and help us build strong open source projects, free from any individual contributor withholding or revoking rights to any contribution.
+Our goal with the CLA is to clarify the rights of our contributors and reduce other risks arising from inappropriate contributions.  The CLA also clarifies the rights SendGrid holds in each contribution and helps to avoid misunderstandings over what rights each contributor is required to grant to SendGrid when making a contribution.  In this way the CLA encourages broad participation by our open source community and helps us build strong open source projects, free from any individual contributor withholding or revoking rights to any contribution.
 
-SendGrid does not merge a pull request made against a SendGrid open source project until that pull request is associated with a signed CLA (or CCLA). Copies of the CLA and CCLA are available [here](https://drive.google.com/a/sendgrid.com/file/d/0B0PlcM9qA91LN2VEUTJWU2RIVXc/view).
+SendGrid does not merge a pull request made against a SendGrid open source project until that pull request is associated with a signed CLA. Copies of the CLA are available [here](https://gist.github.com/SendGridDX/98b42c0a5d500058357b80278fde3be8#file-sendgrid_cla).
 
-You may submit your completed [CLA or CCLA](https://drive.google.com/a/sendgrid.com/file/d/0B0PlcM9qA91LN2VEUTJWU2RIVXc/view) to SendGrid at [dx@sendgrid.com](mailto:dx@sendgrid.com).  SendGrid will then confirm you are ready to begin making contributions.
+When you create a Pull Request, after a few seconds, a comment will appear with a link to the CLA. Click the link and fill out the brief form and then click the "I agree" button and you are all set. You will not be asked to re-sign the CLA unless we make a change.
 
 There are a few ways to contribute, which we'll enumerate below:
 
@@ -51,7 +51,7 @@ Before you decide to create a new issue, please try the following:
 
 ### Please use our Bug Report Template
 
-In order to make the process easier, we've included a [sample bug report template](https://github.com/sendgrid/sendgrid-java/.github/ISSUE_TEMPLATE) (borrowed from [Ghost](https://github.com/TryGhost/Ghost/)). The template uses [GitHub flavored markdown](https://help.github.com/articles/github-flavored-markdown/) for formatting.
+In order to make the process easier, we've included a [sample bug report template](https://github.com/sendgrid/sendgrid-java/blob/master/.github/ISSUE_TEMPLATE) (borrowed from [Ghost](https://github.com/TryGhost/Ghost/)). The template uses [GitHub flavored markdown](https://help.github.com/articles/github-flavored-markdown/) for formatting.
 
 <a name="improvements_to_the_codebase"></a>
 ## Improvements to the Codebase
@@ -64,7 +64,7 @@ We welcome direct contributions to the sendgrid-java code base. Thank you!
 
 ##### Prerequisites #####
 
-- Java 1.7 through 1.8
+- Java version Oracle JDK 7, 8 or OpenJDK 7
 - [java-http-client](https://github.com/sendgrid/java-http-client)
 
 ##### Initial setup: #####
@@ -102,7 +102,7 @@ touch Example.java
 Add the example you want to test to Example.java, including the headers at the top of the file.
 
 ``` bash
-javac -classpath ../repo/com/sendgrid/3.0.0/sendgrid-3.0.0-jar.jar:. Example.java && java -classpath ../repo/com/sendgrid/3.0.0/sendgrid-3.0.0-jar.jar:. Example
+javac -classpath ../repo/com/sendgrid/4.1.1/sendgrid-4.1.0-jar.jar:. Example.java && java -classpath ../repo/com/sendgrid/4.1.0/sendgrid-4.1.1-jar.jar:. Example
 ```
 
 <a name="understanding_the_codebase"></a>
@@ -129,9 +129,25 @@ All test files are in the [`tests`](https://github.com/sendgrid/sendgrid-java/tr
 
 For the purposes of contributing to this repo, please update the [`SendGridTest.java`](https://github.com/sendgrid/sendgrid-java/tree/master/src/test/java/com/sendgrid/SendGridTest.java) file with unit tests as you modify the code.
 
-```bash
-./gradlew test -i
-```
+1. Download [prism](https://stoplight.io/prism/) for your platform ([Mac OS X](https://github.com/stoplightio/prism/releases/download/v0.1.5/prism_darwin_amd64)) and save the binary to the sendgrid-ruby directory (or any directory you would like. The sendgrid-ruby directory is chosen mostly for convenience.)
+
+1. Add execute permissions
+
+   ```bash
+   chmod +x prism
+   ```
+
+1. In a separate terminal, cd into the directory you chose for prism and start the sendgrid local server which the tests will use.
+
+   ```bash
+   ./prism run --mock --list --spec https://raw.githubusercontent.com/sendgrid/sendgrid-oai/master/oai_stoplight.json
+   ```
+
+1. Now you can run the test suite from the root of the project
+
+   ```bash
+   ./gradlew test -i
+   ```
 
 <a name="style_guidelines_and_naming_conventions"></a>
 ## Style Guidelines & Naming Conventions
@@ -151,7 +167,7 @@ Please run your code through:
    # Clone your fork of the repo into the current directory
    git clone https://github.com/sendgrid/sendgrid-java
    # Navigate to the newly cloned directory
-   cd sendgrid-python
+   cd sendgrid-java
    # Assign the original repo to a remote called "upstream"
    git remote add upstream https://github.com/sendgrid/sendgrid-java
    ```

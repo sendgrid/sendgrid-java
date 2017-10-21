@@ -1,11 +1,9 @@
-import com.fasterxml.jackson.databind.JsonNode;
-import com.fasterxml.jackson.databind.ObjectMapper;
-
-import com.sendgrid.*;
+import com.sendgrid.Method;
+import com.sendgrid.Request;
+import com.sendgrid.Response;
+import com.sendgrid.SendGrid;
 
 import java.io.IOException;
-import java.util.HashMap;
-import java.util.Map;
 
 //////////////////////////////////////////////////////////////////
 // Create a new suppression group
@@ -17,13 +15,13 @@ public class Example {
     try {
       SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
       Request request = new Request();
-      request.method = Method.POST;
-      request.endpoint = "asm/groups";
-      request.body = "{\"is_default\":true,\"description\":\"Suggestions for products our users might like.\",\"name\":\"Product Suggestions\"}";
+      request.setMethod(Method.POST);
+      request.setEndpoint("asm/groups");
+      request.setBody("{\"is_default\":true,\"description\":\"Suggestions for products our users might like.\",\"name\":\"Product Suggestions\"}");
       Response response = sg.api(request);
-      System.out.println(response.statusCode);
-      System.out.println(response.body);
-      System.out.println(response.headers);
+      System.out.println(response.getStatusCode());
+      System.out.println(response.getBody());
+      System.out.println(response.getHeaders());
     } catch (IOException ex) {
       throw ex;
     }
@@ -40,15 +38,13 @@ public class Example {
     try {
       SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
       Request request = new Request();
-      request.method = Method.GET;
-      request.endpoint = "asm/groups";
-      Map<String,String> queryParams = new HashMap<String, String>();
-      queryParams.put("id", "1");
-      request.queryParams = queryParams;
+      request.setMethod(Method.GET);
+      request.setEndpoint("asm/groups");
+      request.addQueryParam("id", "1");
       Response response = sg.api(request);
-      System.out.println(response.statusCode);
-      System.out.println(response.body);
-      System.out.println(response.headers);
+      System.out.println(response.getStatusCode());
+      System.out.println(response.getBody());
+      System.out.println(response.getHeaders());
     } catch (IOException ex) {
       throw ex;
     }
@@ -65,13 +61,13 @@ public class Example {
     try {
       SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
       Request request = new Request();
-      request.method = Method.PATCH;
-      request.endpoint = "asm/groups/{group_id}";
-      request.body = "{\"description\":\"Suggestions for items our users might like.\",\"name\":\"Item Suggestions\",\"id\":103}";
+      request.setMethod(Method.PATCH);
+      request.setEndpoint("asm/groups/{group_id}");
+      request.setBody("{\"description\":\"Suggestions for items our users might like.\",\"name\":\"Item Suggestions\",\"id\":103}");
       Response response = sg.api(request);
-      System.out.println(response.statusCode);
-      System.out.println(response.body);
-      System.out.println(response.headers);
+      System.out.println(response.getStatusCode());
+      System.out.println(response.getBody());
+      System.out.println(response.getHeaders());
     } catch (IOException ex) {
       throw ex;
     }
@@ -88,12 +84,12 @@ public class Example {
     try {
       SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
       Request request = new Request();
-      request.method = Method.GET;
-      request.endpoint = "asm/groups/{group_id}";
+      request.setMethod(Method.GET);
+      request.setEndpoint("asm/groups/{group_id}");
       Response response = sg.api(request);
-      System.out.println(response.statusCode);
-      System.out.println(response.body);
-      System.out.println(response.headers);
+      System.out.println(response.getStatusCode());
+      System.out.println(response.getBody());
+      System.out.println(response.getHeaders());
     } catch (IOException ex) {
       throw ex;
     }
@@ -110,12 +106,12 @@ public class Example {
     try {
       SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
       Request request = new Request();
-      request.method = Method.DELETE;
-      request.endpoint = "asm/groups/{group_id}";
+      request.setMethod(Method.DELETE);
+      request.setEndpoint("asm/groups/{group_id}");
       Response response = sg.api(request);
-      System.out.println(response.statusCode);
-      System.out.println(response.body);
-      System.out.println(response.headers);
+      System.out.println(response.getStatusCode());
+      System.out.println(response.getBody());
+      System.out.println(response.getHeaders());
     } catch (IOException ex) {
       throw ex;
     }
@@ -132,13 +128,13 @@ public class Example {
     try {
       SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
       Request request = new Request();
-      request.method = Method.POST;
-      request.endpoint = "asm/groups/{group_id}/suppressions";
-      request.body = "{\"recipient_emails\":[\"test1@example.com\",\"test2@example.com\"]}";
+      request.setMethod(Method.POST);
+      request.setEndpoint("asm/groups/{group_id}/suppressions");
+      request.setBody("{\"recipient_emails\":[\"test1@example.com\",\"test2@example.com\"]}");
       Response response = sg.api(request);
-      System.out.println(response.statusCode);
-      System.out.println(response.body);
-      System.out.println(response.headers);
+      System.out.println(response.getStatusCode());
+      System.out.println(response.getBody());
+      System.out.println(response.getHeaders());
     } catch (IOException ex) {
       throw ex;
     }
@@ -155,12 +151,35 @@ public class Example {
     try {
       SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
       Request request = new Request();
-      request.method = Method.GET;
-      request.endpoint = "asm/groups/{group_id}/suppressions";
+      request.setMethod(Method.GET);
+      request.setEndpoint("asm/groups/{group_id}/suppressions");
       Response response = sg.api(request);
-      System.out.println(response.statusCode);
-      System.out.println(response.body);
-      System.out.println(response.headers);
+      System.out.println(response.getStatusCode());
+      System.out.println(response.getBody());
+      System.out.println(response.getHeaders());
+    } catch (IOException ex) {
+      throw ex;
+    }
+  }
+}
+
+//////////////////////////////////////////////////////////////////
+// Search for suppressions within a group
+// POST /asm/groups/{group_id}/suppressions/search
+
+
+public class Example {
+  public static void main(String[] args) throws IOException {
+    try {
+      SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
+      Request request = new Request();
+      request.setMethod(Method.POST);
+      request.setEndpoint("asm/groups/{group_id}/suppressions/search");
+      request.setBody("{\"recipient_emails\":[\"exists1@example.com\",\"exists2@example.com\",\"doesnotexists@example.com\"]}");
+      Response response = sg.api(request);
+      System.out.println(response.getStatusCode());
+      System.out.println(response.getBody());
+      System.out.println(response.getHeaders());
     } catch (IOException ex) {
       throw ex;
     }
@@ -177,12 +196,12 @@ public class Example {
     try {
       SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
       Request request = new Request();
-      request.method = Method.DELETE;
-      request.endpoint = "asm/groups/{group_id}/suppressions/{email}";
+      request.setMethod(Method.DELETE);
+      request.setEndpoint("asm/groups/{group_id}/suppressions/{email}");
       Response response = sg.api(request);
-      System.out.println(response.statusCode);
-      System.out.println(response.body);
-      System.out.println(response.headers);
+      System.out.println(response.getStatusCode());
+      System.out.println(response.getBody());
+      System.out.println(response.getHeaders());
     } catch (IOException ex) {
       throw ex;
     }
@@ -199,12 +218,12 @@ public class Example {
     try {
       SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
       Request request = new Request();
-      request.method = Method.GET;
-      request.endpoint = "asm/suppressions";
+      request.setMethod(Method.GET);
+      request.setEndpoint("asm/suppressions");
       Response response = sg.api(request);
-      System.out.println(response.statusCode);
-      System.out.println(response.body);
-      System.out.println(response.headers);
+      System.out.println(response.getStatusCode());
+      System.out.println(response.getBody());
+      System.out.println(response.getHeaders());
     } catch (IOException ex) {
       throw ex;
     }
@@ -221,13 +240,13 @@ public class Example {
     try {
       SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
       Request request = new Request();
-      request.method = Method.POST;
-      request.endpoint = "asm/suppressions/global";
-      request.body = "{\"recipient_emails\":[\"test1@example.com\",\"test2@example.com\"]}";
+      request.setMethod(Method.POST);
+      request.setEndpoint("asm/suppressions/global");
+      request.setBody("{\"recipient_emails\":[\"test1@example.com\",\"test2@example.com\"]}");
       Response response = sg.api(request);
-      System.out.println(response.statusCode);
-      System.out.println(response.body);
-      System.out.println(response.headers);
+      System.out.println(response.getStatusCode());
+      System.out.println(response.getBody());
+      System.out.println(response.getHeaders());
     } catch (IOException ex) {
       throw ex;
     }
@@ -244,12 +263,12 @@ public class Example {
     try {
       SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
       Request request = new Request();
-      request.method = Method.GET;
-      request.endpoint = "asm/suppressions/global/{email}";
+      request.setMethod(Method.GET);
+      request.setEndpoint("asm/suppressions/global/{email}");
       Response response = sg.api(request);
-      System.out.println(response.statusCode);
-      System.out.println(response.body);
-      System.out.println(response.headers);
+      System.out.println(response.getStatusCode());
+      System.out.println(response.getBody());
+      System.out.println(response.getHeaders());
     } catch (IOException ex) {
       throw ex;
     }
@@ -266,12 +285,12 @@ public class Example {
     try {
       SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
       Request request = new Request();
-      request.method = Method.DELETE;
-      request.endpoint = "asm/suppressions/global/{email}";
+      request.setMethod(Method.DELETE);
+      request.setEndpoint("asm/suppressions/global/{email}");
       Response response = sg.api(request);
-      System.out.println(response.statusCode);
-      System.out.println(response.body);
-      System.out.println(response.headers);
+      System.out.println(response.getStatusCode());
+      System.out.println(response.getBody());
+      System.out.println(response.getHeaders());
     } catch (IOException ex) {
       throw ex;
     }
@@ -288,12 +307,12 @@ public class Example {
     try {
       SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
       Request request = new Request();
-      request.method = Method.GET;
-      request.endpoint = "asm/suppressions/{email}";
+      request.setMethod(Method.GET);
+      request.setEndpoint("asm/suppressions/{email}");
       Response response = sg.api(request);
-      System.out.println(response.statusCode);
-      System.out.println(response.body);
-      System.out.println(response.headers);
+      System.out.println(response.getStatusCode());
+      System.out.println(response.getBody());
+      System.out.println(response.getHeaders());
     } catch (IOException ex) {
       throw ex;
     }

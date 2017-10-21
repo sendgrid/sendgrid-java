@@ -1,36 +1,15 @@
-import com.sendgrid.Method;
-import com.sendgrid.Request;
-import com.sendgrid.Response;
-import com.sendgrid.SendGrid;
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.ObjectMapper;
+
+import com.sendgrid.*;
 
 import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
 
 //////////////////////////////////////////////////////////////////
-// Retrieve all recent access attempts
-// GET /access_settings/activity
-
-
-public class Example {
-  public static void main(String[] args) throws IOException {
-    try {
-      SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
-      Request request = new Request();
-      request.setMethod(Method.GET);
-      request.setEndpoint("access_settings/activity");
-      request.addQueryParam("limit", "1");
-      Response response = sg.api(request);
-      System.out.println(response.getStatusCode());
-      System.out.println(response.getBody());
-      System.out.println(response.getHeaders());
-    } catch (IOException ex) {
-      throw ex;
-    }
-  }
-}
-
-//////////////////////////////////////////////////////////////////
-// Add one or more IPs to the whitelist
-// POST /access_settings/whitelist
+// Create a Sender Identity
+// POST /senders
 
 
 public class Example {
@@ -39,8 +18,8 @@ public class Example {
       SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
       Request request = new Request();
       request.setMethod(Method.POST);
-      request.setEndpoint("access_settings/whitelist");
-      request.setBody("{\"ips\":[{\"ip\":\"192.168.1.1\"},{\"ip\":\"192.*.*.*\"},{\"ip\":\"192.168.1.3/32\"}]}");
+      request.setEndpoint("senders");
+      request.setBody("{\"city\":\"Denver\",\"from\":{\"email\":\"from@example.com\",\"name\":\"Example INC\"},\"zip\":\"80202\",\"country\":\"United States\",\"state\":\"Colorado\",\"address_2\":\"Apt. 456\",\"address\":\"123 Elm St.\",\"reply_to\":{\"email\":\"replyto@example.com\",\"name\":\"Example INC\"},\"nickname\":\"My Sender ID\"}");
       Response response = sg.api(request);
       System.out.println(response.getStatusCode());
       System.out.println(response.getBody());
@@ -52,8 +31,8 @@ public class Example {
 }
 
 //////////////////////////////////////////////////////////////////
-// Retrieve a list of currently whitelisted IPs
-// GET /access_settings/whitelist
+// Get all Sender Identities
+// GET /senders
 
 
 public class Example {
@@ -62,7 +41,7 @@ public class Example {
       SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
       Request request = new Request();
       request.setMethod(Method.GET);
-      request.setEndpoint("access_settings/whitelist");
+      request.setEndpoint("senders");
       Response response = sg.api(request);
       System.out.println(response.getStatusCode());
       System.out.println(response.getBody());
@@ -74,8 +53,8 @@ public class Example {
 }
 
 //////////////////////////////////////////////////////////////////
-// Remove one or more IPs from the whitelist
-// DELETE /access_settings/whitelist
+// Update a Sender Identity
+// PATCH /senders/{sender_id}
 
 
 public class Example {
@@ -83,9 +62,9 @@ public class Example {
     try {
       SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
       Request request = new Request();
-      request.setMethod(Method.DELETE);
-      request.setEndpoint("access_settings/whitelist");
-      request.setBody("{\"ids\":[1,2,3]}");
+      request.setMethod(Method.PATCH);
+      request.setEndpoint("senders/{sender_id}");
+      request.setBody("{\"city\":\"Denver\",\"from\":{\"email\":\"from@example.com\",\"name\":\"Example INC\"},\"zip\":\"80202\",\"country\":\"United States\",\"state\":\"Colorado\",\"address_2\":\"Apt. 456\",\"address\":\"123 Elm St.\",\"reply_to\":{\"email\":\"replyto@example.com\",\"name\":\"Example INC\"},\"nickname\":\"My Sender ID\"}");
       Response response = sg.api(request);
       System.out.println(response.getStatusCode());
       System.out.println(response.getBody());
@@ -97,8 +76,8 @@ public class Example {
 }
 
 //////////////////////////////////////////////////////////////////
-// Retrieve a specific whitelisted IP
-// GET /access_settings/whitelist/{rule_id}
+// View a Sender Identity
+// GET /senders/{sender_id}
 
 
 public class Example {
@@ -107,7 +86,7 @@ public class Example {
       SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
       Request request = new Request();
       request.setMethod(Method.GET);
-      request.setEndpoint("access_settings/whitelist/{rule_id}");
+      request.setEndpoint("senders/{sender_id}");
       Response response = sg.api(request);
       System.out.println(response.getStatusCode());
       System.out.println(response.getBody());
@@ -119,8 +98,8 @@ public class Example {
 }
 
 //////////////////////////////////////////////////////////////////
-// Remove a specific IP from the whitelist
-// DELETE /access_settings/whitelist/{rule_id}
+// Delete a Sender Identity
+// DELETE /senders/{sender_id}
 
 
 public class Example {
@@ -129,7 +108,29 @@ public class Example {
       SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
       Request request = new Request();
       request.setMethod(Method.DELETE);
-      request.setEndpoint("access_settings/whitelist/{rule_id}");
+      request.setEndpoint("senders/{sender_id}");
+      Response response = sg.api(request);
+      System.out.println(response.getStatusCode());
+      System.out.println(response.getBody());
+      System.out.println(response.getHeaders());
+    } catch (IOException ex) {
+      throw ex;
+    }
+  }
+}
+
+//////////////////////////////////////////////////////////////////
+// Resend Sender Identity Verification
+// POST /senders/{sender_id}/resend_verification
+
+
+public class Example {
+  public static void main(String[] args) throws IOException {
+    try {
+      SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
+      Request request = new Request();
+      request.setMethod(Method.POST);
+      request.setEndpoint("senders/{sender_id}/resend_verification");
       Response response = sg.api(request);
       System.out.println(response.getStatusCode());
       System.out.println(response.getBody());

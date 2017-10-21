@@ -10,30 +10,13 @@ public class MailTest {
 
   @Test
   public void testHelloWorld() throws IOException {
-    Mail mail = new Mail();
+    Email from = new Email("test@example.com");
+    String subject = "Sending with SendGrid is Fun";
+    Email to = new Email("test@example.com");
+    Content content = new Content("text/plain", "and easy to do anywhere, even with Java");
+    Mail mail = new Mail(from, subject, to, content);
 
-    Email fromEmail = new Email();
-    fromEmail.setEmail("test@example.com");
-    mail.setFrom(fromEmail);
-
-    Personalization personalization = new Personalization();
-    Email to = new Email();
-    to.setEmail("test@example.com");
-    personalization.addTo(to);
-
-    mail.addPersonalization(personalization);
-
-    mail.setSubject("Hello World from the SendGrid Java Library");
-
-    Content content = new Content();
-    content.setType("text/plain");
-    content.setValue("some text here");
-    mail.addContent(content);
-    content.setType("text/html");
-    content.setValue("<html><body>some text here</body></html>");
-    mail.addContent(content);
-
-    Assert.assertEquals(mail.build(), "{\"from\":{\"email\":\"test@example.com\"},\"subject\":\"Hello World from the SendGrid Java Library\",\"personalizations\":[{\"to\":[{\"email\":\"test@example.com\"}]}],\"content\":[{\"type\":\"text/plain\",\"value\":\"some text here\"},{\"type\":\"text/html\",\"value\":\"<html><body>some text here</body></html>\"}]}");
+    Assert.assertEquals(mail.build(), "{\"from\":{\"email\":\"test@example.com\"},\"subject\":\"Sending with SendGrid is Fun\",\"personalizations\":[{\"to\":[{\"email\":\"test@example.com\"}]}],\"content\":[{\"type\":\"text/plain\",\"value\":\"and easy to do anywhere, even with Java\"}]}");
   }
 
   @Test
@@ -215,5 +198,14 @@ public class MailTest {
     mail.setReplyTo(replyTo);
 
     Assert.assertEquals(mail.build(), "{\"from\":{\"name\":\"Example User\",\"email\":\"test@example.com\"},\"subject\":\"Hello World from the SendGrid Java Library\",\"personalizations\":[{\"to\":[{\"name\":\"Example User\",\"email\":\"test@example.com\"},{\"name\":\"Example User\",\"email\":\"test@example.com\"}],\"cc\":[{\"name\":\"Example User\",\"email\":\"test@example.com\"},{\"name\":\"Example User\",\"email\":\"test@example.com\"}],\"bcc\":[{\"name\":\"Example User\",\"email\":\"test@example.com\"},{\"name\":\"Example User\",\"email\":\"test@example.com\"}],\"subject\":\"Hello World from the Personalized SendGrid Java Library\",\"headers\":{\"X-Mock\":\"true\",\"X-Test\":\"test\"},\"substitutions\":{\"%city%\":\"Denver\",\"%name%\":\"Example User\"},\"custom_args\":{\"type\":\"marketing\",\"user_id\":\"343\"},\"send_at\":1443636843},{\"to\":[{\"name\":\"Example User\",\"email\":\"test@example.com\"},{\"name\":\"Example User\",\"email\":\"test@example.com\"}],\"cc\":[{\"name\":\"Example User\",\"email\":\"test@example.com\"},{\"name\":\"Example User\",\"email\":\"test@example.com\"}],\"bcc\":[{\"name\":\"Example User\",\"email\":\"test@example.com\"},{\"name\":\"Example User\",\"email\":\"test@example.com\"}],\"subject\":\"Hello World from the Personalized SendGrid Java Library\",\"headers\":{\"X-Mock\":\"true\",\"X-Test\":\"test\"},\"substitutions\":{\"%city%\":\"Denver\",\"%name%\":\"Example User\"},\"custom_args\":{\"type\":\"marketing\",\"user_id\":\"343\"},\"send_at\":1443636843}],\"content\":[{\"type\":\"text/plain\",\"value\":\"some text here\"},{\"type\":\"text/html\",\"value\":\"<html><body>some text here</body></html>\"}],\"attachments\":[{\"content\":\"TG9yZW0gaXBzdW0gZG9sb3Igc2l0IGFtZXQsIGNvbnNlY3RldHVyIGFkaXBpc2NpbmcgZWxpdC4gQ3JhcyBwdW12\",\"type\":\"application/pdf\",\"filename\":\"balance_001.pdf\",\"disposition\":\"attachment\",\"content_id\":\"Balance Sheet\"},{\"content\":\"BwdW\",\"type\":\"image/png\",\"filename\":\"banner.png\",\"disposition\":\"inline\",\"content_id\":\"Banner\"}],\"template_id\":\"13b8f94f-bcae-4ec6-b752-70d6cb59f932\",\"sections\":{\"%section1%\":\"Substitution Text for Section 1\",\"%section2%\":\"Substitution Text for Section 2\"},\"headers\":{\"X-Test1\":\"1\",\"X-Test2\":\"2\"},\"categories\":[\"May\",\"2016\"],\"custom_args\":{\"campaign\":\"welcome\",\"weekday\":\"morning\"},\"send_at\":1443636842,\"asm\":{\"group_id\":99,\"groups_to_display\":[4,5,6,7,8]},\"ip_pool_name\":\"23\",\"mail_settings\":{\"bcc\":{\"enable\":true,\"email\":\"test@example.com\"},\"bypass_list_management\":{\"enable\":true},\"footer\":{\"enable\":true,\"text\":\"Footer Text\",\"html\":\"<html><body>Footer Text</body></html>\"},\"sandbox_mode\":{\"enable\":true},\"spam_check\":{\"enable\":true,\"threshold\":1,\"post_to_url\":\"https://spamcatcher.sendgrid.com\"}},\"tracking_settings\":{\"click_tracking\":{\"enable\":true,\"enable_text\":true},\"open_tracking\":{\"enable\":true,\"substitution_tag\":\"Optional tag to replace with the open image in the body of the message\"},\"subscription_tracking\":{\"enable\":true,\"text\":\"text to insert into the text/plain portion of the message\",\"html\":\"<html><body>html to insert into the text/html portion of the message</body></html>\",\"substitution_tag\":\"Optional tag to replace with the open image in the body of the message\"},\"ganalytics\":{\"enable\":true,\"utm_source\":\"some source\",\"utm_term\":\"some term\",\"utm_content\":\"some content\",\"utm_campaign\":\"some name\",\"utm_medium\":\"some medium\"}},\"reply_to\":{\"name\":\"Example User\",\"email\":\"test@example.com\"}}");
+  }
+
+  @Test
+  public void fromShouldReturnCorrectFrom() {
+    Mail mail = new Mail();
+    Email from = new Email();
+    mail.setFrom(from);
+
+    Assert.assertSame(from, mail.getFrom());
   }
 }
