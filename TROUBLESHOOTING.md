@@ -102,7 +102,7 @@ We have an issue to remove that dependency [here](https://github.com/sendgrid/ja
 <a name="request-body"></a>
 ## Viewing the Request Body
 
-When debugging or testing, it may be useful to exampine the raw request body to compare against the [documented format](https://sendgrid.com/docs/API_Reference/api_v3.html).
+When debugging or testing, it may be useful to examine the raw request body to compare against the [documented format](https://sendgrid.com/docs/API_Reference/api_v3.html).
 
 You can do this right before you call `request.setBody(mail.build())` like so:
 

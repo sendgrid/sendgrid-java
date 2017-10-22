@@ -158,7 +158,9 @@ Please run your code through:
 - [FindBugs](http://findbugs.sourceforge.net/)
 - [CheckStyle](http://checkstyle.sourceforge.net/) with [Google's Java Style Guide](http://checkstyle.sourceforge.net/reports/google-java-style.html).
 
-## Creating a Pull Request<a name="creating-a-pull-request"></a>
+<a name="creating-a-pull-request"></a>
+## Creating a Pull Request
+
 
 1. [Fork](https://help.github.com/fork-a-repo/) the project, clone your fork,
    and configure the remotes:
