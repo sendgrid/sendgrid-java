@@ -11,8 +11,6 @@ matrix:
     - os: linux
       jdk: oraclejdk8
 before_script:
-- echo TRAVIS $TRAVIS
-- echo MOCK_HOST $MOCK_HOST
 - "./scripts/startPrism.sh &"
 - sleep 10
 before_install:
