@@ -3306,4 +3306,21 @@ public class SendGridTest {
     Assert.assertEquals(200, response.getStatusCode());
   }
 
+  @Test
+  public void testDropboxAttachment () throws IOException {
+    SendGrid sg = new SendGrid("SENDGRID_API_KEY", true);
+    sg.setHost("localhost:4010");
+    sg.addRequestHeader("X-Mock", "200");
+
+    Mail mail = new Mail(new Email("example@example.com"), "Dropbox", new Email("example@example.com"),
+            new Content("text/plain", "ATTACHED"));
+    mail.addDropboxAttachment("www.dropbox.com/s/w5cbrfd0cn8iax0/Systems_Development_Life_Cycle.jpg?dl=0");
+
+    Request request = new Request();
+    request.setMethod(Method.POST);
+    request.setEndpoint("mail/send");
+    request.setBody(mail.build());
+    Response response = sg.api(request);
+    Assert.assertEquals(200, response.getStatusCode());
+  }
 }
