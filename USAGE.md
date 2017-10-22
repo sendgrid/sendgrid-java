@@ -22,9 +22,9 @@ public class Example {
 
 # Table of Contents
 
-* [ACCESS SETTINGS](#access_settings)
+* [ACCESS SETTINGS](#access-settings)
 * [ALERTS](#alerts)
-* [API KEYS](#api_keys)
+* [API KEYS](#api-keys)
 * [ASM](#asm)
 * [BROWSERS](#browsers)
 * [CAMPAIGNS](#campaigns)
@@ -35,21 +35,21 @@ public class Example {
 * [GEO](#geo)
 * [IPS](#ips)
 * [MAIL](#mail)
-* [MAIL SETTINGS](#mail_settings)
-* [MAILBOX PROVIDERS](#mailbox_providers)
-* [PARTNER SETTINGS](#partner_settings)
+* [MAIL SETTINGS](#mail-settings)
+* [MAILBOX PROVIDERS](#mailbox-providers)
+* [PARTNER SETTINGS](#partner-settings)
 * [SCOPES](#scopes)
 * [SENDERS](#senders)
 * [STATS](#stats)
 * [SUBUSERS](#subusers)
 * [SUPPRESSION](#suppression)
 * [TEMPLATES](#templates)
-* [TRACKING SETTINGS](#tracking_settings)
+* [TRACKING SETTINGS](#tracking-settings)
 * [USER](#user)
 * [WHITELABEL](#whitelabel)
 
 
-<a name="access_settings"></a>
+<a name="access-settings"></a>
 # ACCESS SETTINGS
 
 ## Retrieve all recent access attempts
@@ -353,7 +353,7 @@ For more information about alerts, please see our [User Guide](https://sendgrid.
     throw ex;
   }
   ```
-<a name="api_keys"></a>
+<a name="api-keys"></a>
 # API KEYS
 
 ## Create API keys
@@ -2710,7 +2710,7 @@ This endpoint has a helper, check it out [here](https://github.com/sendgrid/send
     throw ex;
   }
   ```
-<a name="mail_settings"></a>
+<a name="mail-settings"></a>
 # MAIL SETTINGS
 
 ## Retrieve all mail settings
@@ -3201,7 +3201,7 @@ Mail settings allow you to tell SendGrid specific things to do to every email th
     throw ex;
   }
   ```
-<a name="mailbox_providers"></a>
+<a name="mailbox-providers"></a>
 # MAILBOX PROVIDERS
 
 ## Retrieve email statistics by mailbox provider.
@@ -3235,7 +3235,7 @@ Advanced Stats provide a more in-depth view of your email statistics and the act
     throw ex;
   }
   ```
-<a name="partner_settings"></a>
+<a name="partner-settings"></a>
 # PARTNER SETTINGS
 
 ## Returns a list of all partner settings.
@@ -4675,7 +4675,7 @@ For more information about transactional templates, please see our [User Guide](
     throw ex;
   }
   ```
-<a name="tracking_settings"></a>
+<a name="tracking-settings"></a>
 # TRACKING SETTINGS
 
 ## Retrieve Tracking Settings
