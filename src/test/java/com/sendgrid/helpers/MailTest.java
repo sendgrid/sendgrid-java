@@ -224,4 +224,16 @@ public class MailTest {
 
     Assert.assertEquals(deserialized, mail);
   }
+
+  @Test
+  public void emailShouldSupportRfc822Format() {
+    Email email = new Email("example example <example@example.com>");
+
+    Assert.assertEquals("example@example.com", email.getEmail());
+    Assert.assertEquals("example example", email.getName());
+
+    email = new Email("example@example.com");
+    Assert.assertEquals("example@example.com", email.getEmail());
+    Assert.assertNull(email.getName());
+  }
 }

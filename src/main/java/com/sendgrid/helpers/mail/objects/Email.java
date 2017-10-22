@@ -4,6 +4,12 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+import javax.mail.internet.AddressException;
+import javax.mail.internet.InternetAddress;
+
+/**
+ * An email address represented as an address name pair.
+ */
 @JsonInclude(Include.NON_DEFAULT)
 public class Email {
   @JsonProperty("name") private String name;
@@ -13,8 +19,24 @@ public class Email {
     return;
   }
 
-  public Email(String email) {
-    this.setEmail(email);
+  /**
+   * Construct an email with the supplied email and an empty name.
+   * @param email an email address.
+   * @throws IllegalArgumentException if email have an incorrect format
+   */
+  public Email(String email) throws IllegalArgumentException {
+    InternetAddress address;
+    try {
+      address = new InternetAddress(email);
+      address.validate();
+    } catch (final AddressException e) {
+      throw new IllegalArgumentException("Incorrect email address", e);
+    }
+
+    this.email = address.getAddress();
+    if (address.getPersonal() != null) {
+      this.name = address.getPersonal();
+    }
   }
 
   public Email(String email, String name) {
