@@ -12,6 +12,7 @@ If you can't find a solution below, please open an [issue](https://github.com/se
 * [Environment Variables and Your SendGrid API Key](#environment)
 * [Using the Package Manager](#package-manager)
 * [Android Compatibility](#android)
+* [Viewing the Request Body](#request-body)
 
 <a name="migrating"></a>
 ## Migrating from v2 to v3
@@ -54,7 +55,7 @@ You can just drop the jar file in. It's a fat jar - it has all the dependencies 
 <a name="versions"></a>
 ## Versions
 
-We follow the MAJOR.MINOR.PATCH versioning scheme as described by [SemVer.org](http://semver.org). Therefore, we recommend that you always pin (or vendor) the particular version you are working with to your code and never auto-update to the latest version. Especially when there is a MAJOR point release, since that is guarenteed to be a breaking change. Changes are documented in the [CHANGELOG](https://github.com/sendgrid/sendgrid-java/blob/master/CHANGELOG.md) and [releases](https://github.com/sendgrid/sendgrid-java/releases) section.
+We follow the MAJOR.MINOR.PATCH versioning scheme as described by [SemVer.org](http://semver.org). Therefore, we recommend that you always pin (or vendor) the particular version you are working with to your code and never auto-update to the latest version. Especially when there is a MAJOR point release, since that is guaranteed to be a breaking change. Changes are documented in the [CHANGELOG](https://github.com/sendgrid/sendgrid-java/blob/master/CHANGELOG.md) and [releases](https://github.com/sendgrid/sendgrid-java/releases) section.
 
 <a name="environment"></a>
 ## Environment Variables and Your SendGrid API Key
@@ -97,3 +98,14 @@ repositories {
 Since Android SDK 23, HttpClient is no longer supported. Some workarounds can be found [here](http://stackoverflow.com/questions/32153318/httpclient-wont-import-in-android-studio).
 
 We have an issue to remove that dependency [here](https://github.com/sendgrid/java-http-client/issues/2), please upvote to move it up the queue.
+
+<a name="request-body"></a>
+## Viewing the Request Body
+
+When debugging or testing, it may be useful to examine the raw request body to compare against the [documented format](https://sendgrid.com/docs/API_Reference/api_v3.html).
+
+You can do this right before you call `request.setBody(mail.build())` like so:
+
+```java
+System.out.println(mail.build());
+```
