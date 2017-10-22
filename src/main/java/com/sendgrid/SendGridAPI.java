@@ -13,17 +13,17 @@ public interface SendGridAPI {
   public void initializeSendGrid(String apiKey);
 
   /**
-   * Initializes SendGrid
+   * Returns the library version
    * 
    * @param apiKey is your SendGrid API Key: https://app.sendgrid.com/settings/api_keys
-   * @return
+   * @return the library version.
    */
   public String getLibraryVersion();
 
   /**
    * Gets the version.
    *
-   * @return
+   * @return returns the version.
    */
   public String getVersion();
 
@@ -36,16 +36,16 @@ public interface SendGridAPI {
 
   /**
    * Gets the request headers.
-   * @return
+   * @return returns a map of request headers.
    */
   public Map<String, String> getRequestHeaders();
 
   /**
    * Adds a request headers.
    * 
-   * @param keythe key
-   * @param valuethe value
-   * @return
+   * @param key the key
+   * @param value the value
+   * @return returns a map of request headers.
    */
   public Map<String, String> addRequestHeader(String key, String value);
 
@@ -53,14 +53,14 @@ public interface SendGridAPI {
    * Removes a request headers.
    * 
    * @param key the key
-   * @return
+   * @return returns a map of request headers.
    */
   public Map<String, String> removeRequestHeader(String key);
 
   /**
    * Gets the host.
    * 
-   * @return
+   * @return returns the host.
    */
   public String getHost();
 
@@ -76,8 +76,8 @@ public interface SendGridAPI {
    * testing.
    * 
    * @param request
-   * @return
-   * @throws IOException
+   * @return returns a response.
+   * @throws IOException in case of network or marshal error.
    */
   public Response makeCall(Request request) throws IOException;
 
@@ -86,7 +86,7 @@ public interface SendGridAPI {
    * 
    * @param request
    * @return
-   * @throws IOException
+   * @throws IOException in case of network or marshal error.
    */
   public Response api(Request request) throws IOException;
 }
