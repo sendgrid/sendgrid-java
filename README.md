@@ -1,5 +1,11 @@
+![SendGrid Logo](https://uiux.s3.amazonaws.com/2016-logos/email-logo%402x.png)
+
 [![Travis Badge](https://travis-ci.org/sendgrid/sendgrid-java.svg?branch=master)](https://travis-ci.org/sendgrid/sendgrid-java)
+[![Maven Central](https://img.shields.io/maven-central/v/com.sendgrid/sendgrid-java.svg)](http://mvnrepository.com/artifact/com.sendgrid/sendgrid-java)
 [![Email Notifications Badge](https://dx.sendgrid.com/badge/java)](https://dx.sendgrid.com/newsletter/java)
+[![Twitter Follow](https://img.shields.io/twitter/follow/sendgrid.svg?style=social&label=Follow)](https://twitter.com/sendgrid)
+[![GitHub contributors](https://img.shields.io/github/contributors/sendgrid/sendgrid-java.svg)](https://github.com/sendgrid/sendgrid-java/graphs/contributors)
+[![MIT licensed](https://img.shields.io/badge/license-MIT-blue.svg)](./LICENSE.txt)
 
 **NEW:** Subscribe to email [notifications](https://dx.sendgrid.com/newsletter/java) for releases and breaking changes.
 
@@ -16,14 +22,15 @@ We appreciate your continued support, thank you!
 # Table of Contents
 
 * [Installation](#installation)
-* [Quick Start](#quick_start)
+* [Quick Start](#quick-start)
 * [Usage](#usage)
-* [Use Cases](#use_cases)
+* [Use Cases](#use-cases)
 * [Announcements](#announcements)
 * [Roadmap](#roadmap)
 * [How to Contribute](#contribute)
 * [Troubleshooting](#troubleshooting)
 * [About](#about)
+* [License](#license)
 
 <a name="installation"></a>
 # Installation
@@ -79,7 +86,7 @@ You can just drop the jar file in. It's a fat jar - it has all the dependencies 
 
 - [Java-HTTP-Client](https://github.com/sendgrid/java-http-client)
 
-<a name="quick_start"></a>
+<a name="quick-start"></a>
 # Quick Start
 
 ## Hello Email
@@ -176,7 +183,7 @@ public class Example {
 - [v3 Web API Mail Send Helper](https://github.com/sendgrid/sendgrid-java/tree/master/src/main/java/com/sendgrid/helpers) - build a request object payload for a v3 /mail/send API call.
 
 
-<a name="use_cases"></a>
+<a name="use-cases"></a>
 # Use Cases
 
 [Examples of common API use cases](https://github.com/sendgrid/sendgrid-java/blob/master/USE_CASES.md), such as how to send an email with a transactional template.
@@ -200,10 +207,10 @@ We encourage contribution to our libraries (you might even score some nifty swag
 
 Quick links:
 
-- [Feature Request](https://github.com/sendgrid/sendgrid-java/blob/master/CONTRIBUTING.md#feature_request)
-- [Bug Reports](https://github.com/sendgrid/sendgrid-java/blob/master/CONTRIBUTING.md#submit_a_bug_report)
+- [Feature Request](https://github.com/sendgrid/sendgrid-java/blob/master/CONTRIBUTING.md#feature-request)
+- [Bug Reports](https://github.com/sendgrid/sendgrid-java/blob/master/CONTRIBUTING.md#submit-a-bug-report)
 - [Sign the CLA to Create a Pull Request](https://github.com/sendgrid/sendgrid-java/blob/master/CONTRIBUTING.md#cla)
-- [Improvements to the Codebase](https://github.com/sendgrid/sendgrid-java/blob/master/CONTRIBUTING.md#improvements_to_the_codebase)
+- [Improvements to the Codebase](https://github.com/sendgrid/sendgrid-java/blob/master/CONTRIBUTING.md#improvements-to-the-codebase)
 
 <a name="troubleshooting"></a>
 # Troubleshooting
@@ -217,4 +224,5 @@ sendgrid-java is guided and supported by the SendGrid [Developer Experience Team
 
 sendgrid-java is maintained and funded by SendGrid, Inc. The names and logos for sendgrid-java are trademarks of SendGrid, Inc.
 
-![SendGrid Logo](https://uiux.s3.amazonaws.com/2016-logos/email-logo%402x.png)
+# License
+[The MIT License (MIT)](LICENSE.txt)
