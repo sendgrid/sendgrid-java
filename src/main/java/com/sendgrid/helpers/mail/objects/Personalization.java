@@ -31,9 +31,9 @@ public class Personalization {
    * Get the to list. This is an array of recipients. Each object 
    * within this array may contain the name, but must always 
    * contain the email, of a recipient.
-   * </p>
+   * 
    * The maximum number of entries is 1000.
-   * </p>
+   * 
    * Content added to the returned list will be included when sent.
    * @return the to list.
    */
@@ -64,9 +64,9 @@ public class Personalization {
    * Set the CC list. This is an array of recipients. Each object 
    * within this array may contain the name, but must always 
    * contain the email, of a recipient.
-   * </p>
+   * 
    * The maximum number of entries is 1000.
-   * </p>
+   * 
    * Content added to the returned list will be included when sent.
    * @return the CC list.
    */
@@ -97,9 +97,9 @@ public class Personalization {
    * Set the BCC list. This is an array of recipients. Each object 
    * within this array may contain the name, but must always 
    * contain the email, of a recipient.
-   * </p>
+   * 
    * The maximum number of entries is 1000.
-   * </p>
+   * 
    * Content added to the returned list will be included when sent.
    * @return the BCC list.
    */
@@ -150,7 +150,7 @@ public class Personalization {
    * following headers: x-sg-id, x-sg-eid, received, 
    * dkim-signature, Content-Type, Content-Transfer-Encoding, 
    * To, From, Subject, Reply-To, CC, BCC
-   * </p>
+   * 
    * Content added to the returned list will be included when sent. 
    * @return the headers.
    */
@@ -184,9 +184,9 @@ public class Personalization {
    * to the subject and reply-to parameters. The total 
    * collective size of your substitutions may not exceed 
    * 10,000 bytes per personalization object.
-   * </p>
+   * 
    * The maximum number of entries is 1000.
-   * </p>
+   * 
    * Content added to the returned list will be included when sent. 
    * @return the substitutions.
    */
@@ -219,7 +219,7 @@ public class Personalization {
    * is entered into this parameter will be assumed to be 
    * the custom argument that you would like to be used. i
    * May not exceed 10,000 bytes.
-   * </p>
+   * 
    * Content added to the returned list will be included when sent. 
    * @return the custom arguments.
    */

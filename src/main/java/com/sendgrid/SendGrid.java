@@ -44,7 +44,6 @@ public class SendGrid {
   /**
    * Construct a new SendGrid API wrapper.
    * @param apiKey is your SendGrid API Key: https://app.sendgrid.com/settings/api_keys
-   * @return a SendGrid object.
    */
   public SendGrid(String apiKey) {
     this.client = new Client();
@@ -55,7 +54,6 @@ public class SendGrid {
    * Construct a new SendGrid API wrapper.
    * @param apiKey is your SendGrid API Key: https://app.sendgrid.com/settings/api_keys
    * @param test is true if you are unit testing
-   * @return a SendGrid object.
    */
   public SendGrid(String apiKey, Boolean test) {
     this.client = new Client(test);
@@ -66,7 +64,6 @@ public class SendGrid {
    * Construct a new SendGrid API wrapper.
    * @param apiKey is your SendGrid API Key: https://app.sendgrid.com/settings/api_keys
    * @param client the Client to use (allows to customize its configuration)
-   * @return a SendGrid object.
    */
   public SendGrid(String apiKey, Client client) {
     this.client = client;
@@ -154,7 +151,7 @@ public class SendGrid {
 
   /**
    * Set the SendGrid host.
-   * @host the new SendGrid host.
+   * @param host the new SendGrid host.
    */
   public void setHost(String host) {
     this.host = host;

@@ -110,7 +110,7 @@ public class SendGridExample {
                                                 tos,
                                                 plainTextContent,
                                                 htmlContent,
-                                                globalSubstition); // or globalSubstitutions
+                                                globalSubstitution); // or globalSubstitutions
 
     SendGrid sendgrid = new SendGrid(System.getenv("SENDGRID_API_KEY"));
     try {
