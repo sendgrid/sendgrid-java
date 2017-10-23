@@ -12,6 +12,7 @@ If you can't find a solution below, please open an [issue](https://github.com/se
 * [Environment Variables and Your SendGrid API Key](#environment)
 * [Using the Package Manager](#package-manager)
 * [Android Compatibility](#android)
+* [Viewing the Request Body](#request-body)
 
 <a name="migrating"></a>
 ## Migrating from v2 to v3
@@ -97,3 +98,14 @@ repositories {
 Since Android SDK 23, HttpClient is no longer supported. Some workarounds can be found [here](http://stackoverflow.com/questions/32153318/httpclient-wont-import-in-android-studio).
 
 We have an issue to remove that dependency [here](https://github.com/sendgrid/java-http-client/issues/2), please upvote to move it up the queue.
+
+<a name="request-body"></a>
+## Viewing the Request Body
+
+When debugging or testing, it may be useful to examine the raw request body to compare against the [documented format](https://sendgrid.com/docs/API_Reference/api_v3.html).
+
+You can do this right before you call `request.setBody(mail.build())` like so:
+
+```java
+System.out.println(mail.build());
+```
