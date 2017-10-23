@@ -25,6 +25,7 @@ public class Setting {
     /**
      * Set whether or not this setting is enabled.
      * @param enable true if the setting is enabled, false otherwise.
+     * @return this object.
      */
     public Setting enable(boolean enable) {
         this.enable = enable;

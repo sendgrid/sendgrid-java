@@ -38,6 +38,7 @@ public class SubscriptionTrackingSettings {
     /**
      * Set if this setting is enabled.
      * @param enable true if subscription tracking is enabled, false otherwise.
+     * @return this object.
      */
     public SubscriptionTrackingSettings enable(boolean enable) {
         this.enable = enable;
@@ -58,6 +59,7 @@ public class SubscriptionTrackingSettings {
     /** 
      * Set the plain text.
      * @param text the plain text.
+     * @return this object.
      */
     public SubscriptionTrackingSettings text(String text) {
         this.text = text;
@@ -78,6 +80,7 @@ public class SubscriptionTrackingSettings {
     /**
      * Set the HTML.
      * @param html the HTML.
+     * @return this object.
      */
     public SubscriptionTrackingSettings html(String html) {
         this.html = html;
@@ -101,6 +104,7 @@ public class SubscriptionTrackingSettings {
     /**
      * Set the substitution tag.
      * @param substitutionTag the substitution tag.
+     * @return this object.
      */
     public SubscriptionTrackingSettings substitutionTag(String substitutionTag) {
         this.substitutionTag = substitutionTag;

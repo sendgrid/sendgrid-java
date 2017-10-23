@@ -29,6 +29,7 @@ public class ClickTrackingSettings {
     /**
      * Set if this setting is enabled.
      * @param enable true if click tracking is enabled, false otherwise.
+     * @return this object.
      */
     public ClickTrackingSettings enable(boolean enable) {
         this.enable = enable;
@@ -49,6 +50,7 @@ public class ClickTrackingSettings {
     /**
      * Set the enalbed text.
      * @param enableText the enable text.
+     * @return this object.
      */
     public ClickTrackingSettings enableText(boolean enableText) {
         this.enableText = enableText;

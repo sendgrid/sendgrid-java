@@ -47,6 +47,7 @@ public class Attachment {
     /**
      * Set the attachment's content.
      * @param content the content.
+     * @return this object.
      */
     public Attachment content(String content) {
         this.content = content;
@@ -66,6 +67,7 @@ public class Attachment {
     /**
      * Set the mime type of the content.
      * @param type the mime type.
+     * @return this object.
      */
     public Attachment type(String type) {
         this.type = type;
@@ -84,6 +86,7 @@ public class Attachment {
     /**
      * Set the filename for this attachment.
      * @param filename the filename.
+     * @return this object.
      */
     public Attachment filename(String filename) {
         this.filename = filename;
@@ -108,6 +111,7 @@ public class Attachment {
     /**
      * Set the content-disposition of the attachment.
      * @param disposition the disposition.
+     * @return this object.
      */
     public Attachment disposition(String disposition) {
         this.disposition = disposition;
@@ -129,6 +133,7 @@ public class Attachment {
     /**
      * Set the content ID.
      * @param contentId the content ID.
+     * @return this object.
      */
     public Attachment contentId(String contentId) {
         this.contentId = contentId;

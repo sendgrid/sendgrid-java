@@ -37,6 +37,7 @@ public class Content {
      * Set the mime type of the content you are including 
      * in your email. For example, “text/plain” or “text/html”.
      * @param type the mime type.
+     * @return this object.
      */
     public Content type(String type) {
         this.type = type;
@@ -57,6 +58,7 @@ public class Content {
      * Set the actual content of the specified mime type 
      * that you are including in your email.
      * @param value the value.
+     * @return this object.
      */
     public Content value(String value) {
         this.value = value;

@@ -40,6 +40,7 @@ public class GoogleAnalyticsSettings {
     /**
      * Set whether or not this setting is enabled.
      * @param enable true if enabled, false otherwise.
+     * @return this object.
      */
     public GoogleAnalyticsSettings enable(boolean enable) {
         this.enable = enable;
@@ -59,6 +60,7 @@ public class GoogleAnalyticsSettings {
     /**
      * Set the name of the referrer source. 
      * @param campaignSource the referrer source.
+     * @return this object.
      */
     public GoogleAnalyticsSettings campaignSource(String campaignSource) {
         this.campaignSource = campaignSource;
@@ -77,6 +79,7 @@ public class GoogleAnalyticsSettings {
     /**
      * Set the term used to identify any paid keywords.
      * @param campaignTerm the term.
+     * @return this object.
      */
     public GoogleAnalyticsSettings campaignTerm(String campaignTerm) {
         this.campaignTerm = campaignTerm;
@@ -97,6 +100,7 @@ public class GoogleAnalyticsSettings {
      * Set the content Used to differentiate your campaign 
      * from advertisements.
      * @param campaignContent the content.
+     * @return this object.
      */
     public GoogleAnalyticsSettings campaignContent(String campaignContent) {
         this.campaignContent = campaignContent;
@@ -115,6 +119,7 @@ public class GoogleAnalyticsSettings {
     /**
      * Set the name of the campaign.
      * @param campaignName the name.
+     * @return this object.
      */
     public GoogleAnalyticsSettings campaignName(String campaignName) {
         this.campaignName = campaignName;
@@ -133,6 +138,7 @@ public class GoogleAnalyticsSettings {
     /**
      * Set the name of the marketing medium. (e.g. Email)
      * @param campaignMedium the medium name.
+     * @return this object.
      */
     public GoogleAnalyticsSettings campaignMedium(String campaignMedium) {
         this.campaignMedium = campaignMedium;

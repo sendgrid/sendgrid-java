@@ -35,6 +35,7 @@ public class Email {
     /**
      * Set the name.
      * @param name the name.
+     * @return this object.
      */
     public Email name(String name) {
         this.name = name;
@@ -53,6 +54,7 @@ public class Email {
     /**
      * Set the email address.
      * @param email the email address.
+     * @return this object.
      */
     public Email email(String email) {
         this.email = email;

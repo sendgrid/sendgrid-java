@@ -94,6 +94,7 @@ public class Mail {
     /**
      * Set the email's from address.
      * @param from the email's from address.
+     * @return this object.
      */
     public Mail from(Email from) {
         this.from = from;
@@ -124,6 +125,7 @@ public class Mail {
      * necessary. If you would like to add the address to a different
      * personalization object, please do so directly.
      * @param to the to address
+     * @return this object.
      */
     public Mail to(Email to) {
         Personalization p;
@@ -157,6 +159,7 @@ public class Mail {
      * “message level”, subject of your email. This may 
      * be overridden by personalizations[x].subject. 
      * @param subject the email's subject line.
+     * @return this object.
      */
     public Mail subject(String subject) {
         this.subject = subject;
@@ -175,6 +178,7 @@ public class Mail {
     /**
      * Set the email's unsubscribe handling object (ASM).
      * @param asm the email's ASM.
+     * @return this object.
      */
     public Mail asm(ASM asm) {
         this.asm = asm;
@@ -197,6 +201,7 @@ public class Mail {
      * - it defines who should receive an individual message 
      * and how that message should be handled. 
      * @param personalization a personalization.
+     * @return this object.
      */
     public Mail personalization(Personalization personalization) {
         if (this.personalization == null) {
@@ -221,6 +226,7 @@ public class Mail {
     /**
      * Add content to this email.
      * @param content content to add to this email.
+     * @return this object.
      */
     public Mail content(Content content) {
         Content newContent = new Content()
@@ -248,7 +254,8 @@ public class Mail {
 
     /**
      * Add attachments to the email.
-     * @param attachments attachments to add.
+     * @param attachment attachment to add.
+     * @return this object.
      */
     public Mail attachment(Attachment attachment) {
         Attachment newAttachment = new Attachment()
@@ -279,6 +286,7 @@ public class Mail {
     /**
      * Set the email's template ID.
      * @param templateId the email's template ID.
+     * @return this object.
      */
     public Mail templateId(String templateId) {
         this.templateId = templateId;
@@ -300,6 +308,7 @@ public class Mail {
      * pairs that define block sections of code to be used as substitutions. 
      * @param key the section's key.
      * @param value the section's value.
+     * @return this object.
      */
     public Mail section(String key, String value) {
         if (sections == null) {
@@ -325,6 +334,7 @@ public class Mail {
      * Add a header to the email.
      * @param key the header's key.
      * @param value the header's value.
+     * @return this object.
      */
     public Mail header(String key, String value) {
         if (headers == null) {
@@ -349,6 +359,7 @@ public class Mail {
     /**
      * Add a category to the email.
      * @param category the category.
+     * @return this object.
      */
     public Mail category(String category) {
         if (categories == null) {
@@ -382,6 +393,7 @@ public class Mail {
      * may not exceed 10,000 bytes.
      * @param key argument's key.
      * @param value the argument's value.
+     * @return this object.
      */
     public Mail customArg(String key, String value) {
         if (customArgs == null) {
@@ -409,6 +421,7 @@ public class Mail {
      * the personalizations[x].send_at parameter. Scheduling 
      * more than 72 hours in advance is forbidden. 
      * @param sendAt the send at time.
+     * @return this object.
      */
     public Mail sendAt(long sendAt) {
         this.sendAt = sendAt;
@@ -432,6 +445,7 @@ public class Mail {
      * you to cancel or pause the delivery of that batch. For 
      * more information, see https://sendgrid.com/docs/API_Reference/Web_API_v3/cancel_schedule_send.
      * @param batchId the batch ID.
+     * @return this object.
      */
     public Mail batchId(String batchId) {
         this.batchId = batchId;
@@ -450,6 +464,7 @@ public class Mail {
     /**
      * Set the email's IP pool ID.
      * @param ipPoolId the IP pool ID.
+     * @return this object.
      */
     public Mail ipPoolId(String ipPoolId) {
         this.ipPoolId = ipPoolId;
@@ -468,6 +483,7 @@ public class Mail {
     /**
      * Set the email's settings.
      * @param mailSettings the settings.
+     * @return this object.
      */
     public Mail mailSettings(MailSettings mailSettings) {
         this.mailSettings = mailSettings;
@@ -486,6 +502,7 @@ public class Mail {
     /**
      * Set the email's tracking settings.
      * @param trackingSettings the tracking settings.
+     * @return this object.
      */
     public Mail trackingSettings(TrackingSettings trackingSettings) {
         this.trackingSettings = trackingSettings;
@@ -504,6 +521,7 @@ public class Mail {
     /**
      * Set the email's reply to address.
      * @param replyTo the reply to address.
+     * @return this object.
      */
     public Mail replyTo(Email replyTo) {
         this.replyTo = replyTo;

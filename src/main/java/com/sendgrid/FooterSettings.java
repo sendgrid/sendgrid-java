@@ -32,6 +32,7 @@ public class FooterSettings {
     /**
      * Set whether or not the footer is enabled.
      * @param enable true if the footer is enabled, false otherwise.
+     * @return this object.
      */
     public FooterSettings enable(boolean enable) {
         this.enable = enable;
@@ -50,6 +51,7 @@ public class FooterSettings {
     /**
      * Set the plain text content of the footer.
      * @param text the footer plain text.
+     * @return this object.
      */
     public FooterSettings text(String text) {
         this.text = text;
@@ -68,6 +70,7 @@ public class FooterSettings {
     /**
      * Set the HTML content of the footer.
      * @param html the footer HTML.
+     * @return this object.
      */
     public FooterSettings html(String html) {
         this.html = html;

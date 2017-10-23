@@ -63,6 +63,7 @@ public class Personalization {
     /**
      * Add a recipient.
      * @param email an email address.
+     * @return this object.
      */
     public Personalization to(Email email) {
         Email newEmail = new Email()
@@ -98,6 +99,7 @@ public class Personalization {
     /**
      * Add a recipient.
      * @param email an email address.
+     * @return this object.
      */
     public Personalization cc(Email email) {
         Email newEmail = new Email()
@@ -133,6 +135,7 @@ public class Personalization {
     /**
      * Add a recipient.
      * @param email an email address.
+     * @return this object.
      */
     public Personalization bcc(Email email) {
         Email newEmail = new Email()
@@ -160,6 +163,7 @@ public class Personalization {
     /**
      * Set the subject of the email.
      * @param subject the subject.
+     * @return this object.
      */
     public Personalization subject(String subject) {
         this.subject = subject;
@@ -188,6 +192,7 @@ public class Personalization {
      * Add a header.
      * @param key the header key.
      * @param value the header value.
+     * @return this object.
      */
     public Personalization header(String key, String value) {
         if (headers == null) {
@@ -225,6 +230,7 @@ public class Personalization {
      * Add a substitusion.
      * @param key the key.
      * @param value the value.
+     * @return this object.
      */
     public Personalization substitution(String key, String value) {
         if (substitutions == null) {
@@ -259,6 +265,7 @@ public class Personalization {
      * Add a custom argument.
      * @param key the key.
      * @param value the value.
+     * @return this object.
      */
     public Personalization customArg(String key, String value) {
         if (customArgs == null) {
@@ -285,6 +292,7 @@ public class Personalization {
     /**
      * Set the send at time.
      * @param sendAt the send at time (Unix timestamp).
+     * @return this object.
      */
     public Personalization sendAt(long sendAt) {
         this.sendAt = sendAt;
