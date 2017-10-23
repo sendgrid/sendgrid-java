@@ -234,7 +234,7 @@ public class Mail {
             .value(content.getValue());
 
         if (this.content == null) {
-            this.content = new ArrayList<Content>();
+            this.content = new ArrayList<>();
             this.content.add(newContent);
         } else {
             this.content.add(newContent);
@@ -266,7 +266,7 @@ public class Mail {
             .contentId(attachment.getContentId());
 
         if (this.attachments == null) {
-            this.attachments = new ArrayList<Attachment>();
+            this.attachments = new ArrayList<>();
             this.attachments.add(newAttachment);
         } else {
             this.attachments.add(newAttachment);
@@ -312,7 +312,7 @@ public class Mail {
      */
     public Mail section(String key, String value) {
         if (sections == null) {
-            sections = new HashMap<String, String>();
+            sections = new HashMap<>();
             sections.put(key, value);
         } else {
             sections.put(key, value);
@@ -338,7 +338,7 @@ public class Mail {
      */
     public Mail header(String key, String value) {
         if (headers == null) {
-            headers = new HashMap<String, String>();
+            headers = new HashMap<>();
             headers.put(key, value);
         } else {
             headers.put(key, value);
@@ -363,7 +363,7 @@ public class Mail {
      */
     public Mail category(String category) {
         if (categories == null) {
-            categories = new ArrayList<String>();
+            categories = new ArrayList<>();
             categories.add(category);
         } else {
             categories.add(category);
@@ -397,7 +397,7 @@ public class Mail {
      */
     public Mail customArg(String key, String value) {
         if (customArgs == null) {
-            customArgs = new HashMap<String, String>();
+            customArgs = new HashMap<>();
             customArgs.put(key, value);
         } else {
             customArgs.put(key, value);

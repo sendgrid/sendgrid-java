@@ -56,7 +56,7 @@ public class Personalization {
     @JsonProperty("to")
     public List<Email> getTos() {
         if (tos == null)
-            return Collections.<Email>emptyList();
+            return Collections.emptyList();
         return tos;
     }
 
@@ -71,7 +71,7 @@ public class Personalization {
             .email(email.getEmail());
 
         if (tos == null) {
-            tos = new ArrayList<Email>();
+            tos = new ArrayList<>();
             tos.add(newEmail);
         } else {
             tos.add(newEmail);
@@ -92,7 +92,7 @@ public class Personalization {
     @JsonProperty("cc")
     public List<Email> getCcs() {
         if (ccs == null)
-            return Collections.<Email>emptyList();
+            return Collections.emptyList();
         return ccs;
     }
 
@@ -107,7 +107,7 @@ public class Personalization {
             .email(email.getEmail());
 
         if (ccs == null) {
-            ccs = new ArrayList<Email>();
+            ccs = new ArrayList<>();
             ccs.add(newEmail);
         } else {
             ccs.add(newEmail);
@@ -128,7 +128,7 @@ public class Personalization {
     @JsonProperty("bcc")
     public List<Email> getBccs() {
         if (bccs == null)
-            return Collections.<Email>emptyList();
+            return Collections.emptyList();
         return bccs;
     }
 
@@ -143,7 +143,7 @@ public class Personalization {
             .email(email.getEmail());
 
         if (bccs == null) {
-            bccs = new ArrayList<Email>();
+            bccs = new ArrayList<>();
             bccs.add(newEmail);
         } else {
             bccs.add(newEmail);
@@ -184,7 +184,7 @@ public class Personalization {
     @JsonProperty("headers")
     public Map<String, String> getHeaders() {
         if (headers == null)
-            return Collections.<String, String>emptyMap();
+            return Collections.emptyMap();
         return headers;
     }
 
@@ -196,7 +196,7 @@ public class Personalization {
      */
     public Personalization header(String key, String value) {
         if (headers == null) {
-            headers = new HashMap<String, String>();
+            headers = new HashMap<>();
             headers.put(key, value);
         } else {
             headers.put(key, value);
@@ -222,7 +222,7 @@ public class Personalization {
     @JsonProperty("substitutions")
     public Map<String, String> getSubstitutions() {
         if (substitutions == null)
-            return Collections.<String, String>emptyMap();
+            return Collections.emptyMap();
         return substitutions;
     }
 
@@ -234,7 +234,7 @@ public class Personalization {
      */
     public Personalization substitution(String key, String value) {
         if (substitutions == null) {
-            substitutions = new HashMap<String, String>();
+            substitutions = new HashMap<>();
             substitutions.put(key, value);
         } else {
             substitutions.put(key, value);
@@ -257,7 +257,7 @@ public class Personalization {
     @JsonProperty("custom_args")
     public Map<String, String> getCustomArgs() {
         if (customArgs == null)
-            return Collections.<String, String>emptyMap();
+            return Collections.emptyMap();
         return customArgs;
     }
 
@@ -269,7 +269,7 @@ public class Personalization {
      */
     public Personalization customArg(String key, String value) {
         if (customArgs == null) {
-            customArgs = new HashMap<String, String>();
+            customArgs = new HashMap<>();
             customArgs.put(key, value);
         } else {
             customArgs.put(key, value);
