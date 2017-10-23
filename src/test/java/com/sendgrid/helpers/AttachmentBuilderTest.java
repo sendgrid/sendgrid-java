@@ -1,6 +1,6 @@
 package com.sendgrid.helpers;
 
-import com.sendgrid.Attachments;
+import com.sendgrid.helpers.mail.objects.Attachments;
 import org.apache.commons.codec.binary.Base64;
 import org.junit.Assert;
 import org.junit.Test;
