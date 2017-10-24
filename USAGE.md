@@ -533,7 +533,7 @@ The API Keys feature allows customers to be able to generate an API Key credenti
 
 Suppression groups, or unsubscribe groups, are specific types or categories of email that you would like your recipients to be able to unsubscribe from. For example: Daily Newsletters, Invoices, System Alerts.
 
-The **name** and **description** of the unsubscribe group will be visible by recipients when they are managing their subscriptions.
+The **name** and **description** of the unsubscribe group will be visible to recipients when they are managing their subscriptions.
 
 Each user can create up to 25 different suppression groups.
 
@@ -589,7 +589,7 @@ Suppression groups, or [unsubscribe groups](https://sendgrid.com/docs/API_Refere
 
 Suppression groups, or unsubscribe groups, are specific types or categories of email that you would like your recipients to be able to unsubscribe from. For example: Daily Newsletters, Invoices, System Alerts.
 
-The **name** and **description** of the unsubscribe group will be visible by recipients when they are managing their subscriptions.
+The **name** and **description** of the unsubscribe group will be visible to recipients when they are managing their subscriptions.
 
 Each user can create up to 25 different suppression groups.
 
@@ -617,7 +617,7 @@ Each user can create up to 25 different suppression groups.
 
 Suppression groups, or unsubscribe groups, are specific types or categories of email that you would like your recipients to be able to unsubscribe from. For example: Daily Newsletters, Invoices, System Alerts.
 
-The **name** and **description** of the unsubscribe group will be visible by recipients when they are managing their subscriptions.
+The **name** and **description** of the unsubscribe group will be visible to recipients when they are managing their subscriptions.
 
 Each user can create up to 25 different suppression groups.
 
@@ -646,7 +646,7 @@ You can only delete groups that have not been attached to sent mail in the last 
 
 Suppression groups, or unsubscribe groups, are specific types or categories of email that you would like your recipients to be able to unsubscribe from. For example: Daily Newsletters, Invoices, System Alerts.
 
-The **name** and **description** of the unsubscribe group will be visible by recipients when they are managing their subscriptions.
+The **name** and **description** of the unsubscribe group will be visible to recipients when they are managing their subscriptions.
 
 Each user can create up to 25 different suppression groups.
 
