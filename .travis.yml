@@ -10,7 +10,16 @@ matrix:
       jdk: oraclejdk7
     - os: linux
       jdk: oraclejdk8
+before_script:
+- "./scripts/startPrism.sh &"
+- sleep 10
+before_install:
+- cat /etc/hosts # optionally check the content *before*
+- sudo hostname "$(hostname | cut -c1-63)"
+- sed -e "s/^\\(127\\.0\\.0\\.1.*\\)/\\1 $(hostname | cut -c1-63)/" /etc/hosts | sudo tee /etc/hosts
+- cat /etc/hosts # optionally check the content *after*
 after_script:
+- lsof -i :4010 -S # adds some debugging statements
 - "./gradlew build"
 - "./scripts/upload.sh"
 env:
