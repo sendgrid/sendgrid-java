@@ -13,14 +13,14 @@ All notable changes to this project will be documented in this file.
 
 ## [4.0.1] - 2017-05-22
 ### Fix
-- PR #199 Return correct Email in the 'getFrom'
+- PR #199 Return correct email in the getFrom
 - BIG thanks to [Jared Dellitt](https://github.com/jareddellitt)
 
 ## [4.0.0] - 2017-04-18
 ### BREAKING CHANGE
 - PR #162 Update java http client dependency to [4.1.0 from 2.3.4](https://github.com/sendgrid/java-http-client/releases)
-- BIG thanks to [Diego Camargo](https://github.com/belfazt).
-- The breaking change is that variables that were public are now private and accessible only via getters and setters.
+- BIG thanks to [Diego Camargo](https://github.com/belfazt)
+- The breaking change is that variables that were public are now private and accessible only via getters and setters
 - The `Request` object attributes are now only accessible through getters/setters
 - `request.method` is now `request.setMethod(string)`
 - `request.endpoint` is now `request.setEndpoint(string)`
