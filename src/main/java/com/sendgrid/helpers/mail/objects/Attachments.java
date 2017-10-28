@@ -1,5 +1,6 @@
 package com.sendgrid;
 
+import com.box.sdk.*;
 import com.fasterxml.jackson.annotation.JsonIgnoreType;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
@@ -7,6 +8,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import org.apache.commons.codec.binary.Base64;
 
 import java.io.*;
+import java.net.URL;
+import java.nio.charset.Charset;
 
 /**
  * An attachment object.
@@ -238,4 +241,28 @@ public class Attachments {
       return attachments;
     }
   }
+
+  /**
+   * Uploads attachment to Box
+   * @param accessToken user's Box access token
+   * @param folderId Id of the folder in which file is to be uploaded
+     * @return the download URL of uploaded file
+     */
+  private URL uploadToBox(String accessToken, String folderId) {
+    BoxAPIConnection api = new BoxAPIConnection(accessToken);
+    BoxFolder folder = new BoxFolder(api, folderId);
+    byte[] bytes = content.getBytes(Charset.defaultCharset());
+    ByteArrayInputStream stream = new ByteArrayInputStream(bytes);
+    BoxFile.Info newFileInfo = folder.uploadFile(
+            new FileUploadParams()
+                    .setContent(stream)
+                    .setName(filename)
+                    .setSize(bytes.length)
+                    .setProgressListener(
+                            (l, li) -> System.out.println("Completed " + l + "/" + li)
+                    )
+    );
+    return newFileInfo.getResource().getDownloadURL();
+  }
+
 }
