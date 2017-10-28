@@ -258,9 +258,6 @@ public class Attachments {
                     .setContent(stream)
                     .setName(filename)
                     .setSize(bytes.length)
-                    .setProgressListener(
-                            (l, li) -> System.out.println("Completed " + l + "/" + li)
-                    )
     );
     return newFileInfo.getResource().getDownloadURL();
   }
