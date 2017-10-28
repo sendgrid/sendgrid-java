@@ -131,7 +131,7 @@ public class Mail {
     Personalization personalization = new Personalization();
     personalization.addTo(to);
     this.addPersonalization(personalization);
-    this.addContent(content);
+    this.addPersonalization(content);
   }
 
   /**
@@ -194,7 +194,22 @@ public class Mail {
   public List<Personalization> getPersonalization() {
     return personalization;
   }
-
+  
+  /**
+  *Add an envelope or list to the email
+  *If one isn't null adds a new null envelope
+  *object a is the personalization, content, or attachements
+  *object newB is the new personalizations, content or attachements
+  */
+  public void addLists(object a) {
+	  if(this.a == null) {
+		  this.a = new ArrayList<Personalization>();
+		  this.a.add(newB);
+	  }
+	  else {
+	    this.a.add(newB);
+	  }
+  }
   /**
    * Add a personalizaton to the email.
    * @param personalization a personalization.
@@ -290,6 +305,21 @@ public class Mail {
     return sections;
   }
 
+    /**
+  * Add a secction, header, or CustomsArg object to the email.
+  * @param object a the miscellaneous object
+  * @param key the header's key.
+  * @param value the header's value.
+  */
+  public void addMisc(object a, String key , String value) {
+	if (a == null) {
+		a = newHashMap<String,String>();
+		a.put(key, value);
+	}
+	else {
+    a.put(key, value);
+  }
+  }  
   /**
    * Add a section to the email.
    * @param key the section's key.
@@ -337,6 +367,7 @@ public class Mail {
   public List<String> getCategories() {
     return categories;
   }
+
 
   /**
    * Add a category to the email.
