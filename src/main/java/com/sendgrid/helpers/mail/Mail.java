@@ -131,7 +131,7 @@ public class Mail {
     Personalization personalization = new Personalization();
     personalization.addTo(to);
     this.addPersonalization(personalization);
-    this.addPersonalization(content);
+    this.addContent(content);
   }
 
   /**
