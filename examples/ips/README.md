@@ -14,5 +14,5 @@ This folder contains various examples on using the IPs endpoint of SendGrid with
 * [Add an IP to warmup (POST /ips/warmup)](AddToWarmup.java)
 * [Retrieve all IPs currently in warmup (GET /ips/warmup)](RetrieveIPsInWarmup.java)
 * [Retrieve warmup status for a specific IP address (GET /ips/warmup/{ip_address})](RetrieveWarmupStatus.java)
-* [Remove an IP from warmup (DELETE /ips/warmup/{ip_address})](RemoveFromwarmup.java)
+* [Remove an IP from warmup (DELETE /ips/warmup/{ip_address})](RemoveFromWarmup.java)
 * [Retrieve all IP pools an IP address belongs to (GET /ips/{ip_address})](RetrievePoolsForIP.java)
