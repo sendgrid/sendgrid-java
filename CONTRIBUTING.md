@@ -129,7 +129,7 @@ All test files are in the [`tests`](https://github.com/sendgrid/sendgrid-java/tr
 
 For the purposes of contributing to this repo, please update the [`SendGridTest.java`](https://github.com/sendgrid/sendgrid-java/tree/master/src/test/java/com/sendgrid/SendGridTest.java) file with unit tests as you modify the code.
 
-1. Download [prism](https://stoplight.io/prism/) for your platform ([Mac OS X](https://github.com/stoplightio/prism/releases/download/v0.1.5/prism_darwin_amd64)) and save the binary to the sendgrid-ruby directory (or any directory you would like. The sendgrid-ruby directory is chosen mostly for convenience.)
+1. Download [prism](http://stoplight.io/platform/prism/) for your platform ([Mac OS X](https://github.com/stoplightio/prism/releases/download/v0.6.21/prism_darwin_amd64), [Linux](https://github.com/stoplightio/prism/releases/download/v0.6.21/prism_linux_amd64), [Windows](https://github.com/stoplightio/prism/releases/download/v0.6.21/prism_windows_amd64.exe)) and save the binary to the sendgrid-java directory (or any directory you would like. The sendgrid-java directory is chosen mostly for convenience.)
 
 1. Add execute permissions
 
