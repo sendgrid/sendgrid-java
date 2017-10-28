@@ -1,5 +1,8 @@
 package com.sendgrid;
 
+import com.dropbox.core.DbxRequestConfig;
+import com.dropbox.core.v2.DbxClientV2;
+import com.dropbox.core.v2.files.FileMetadata;
 import com.fasterxml.jackson.annotation.JsonIgnoreType;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
@@ -7,6 +10,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import org.apache.commons.codec.binary.Base64;
 
 import java.io.*;
+import java.nio.charset.Charset;
 
 /**
  * An attachment object.
@@ -236,6 +240,25 @@ public class Attachments {
       attachments.setContentId(contentId);
       attachments.setType(type);
       return attachments;
+    }
+  }
+
+  /**
+   * Uploads attachment to Dropbox
+   *
+   * @param accessToken user's Dropbox access token
+   * @param path path of the folder in which attachment needs to be added. Should not end with /
+     * @return the full path to the uploaded file
+     */
+  public String uploadToDropbox(String accessToken, String path){
+    try {
+      DbxRequestConfig config = DbxRequestConfig.newBuilder("sendgrid/0.1").build();
+      DbxClientV2 client = new DbxClientV2(config, accessToken);
+      FileMetadata uploadedFile = client.files().upload(String.format("%s/%s", path, filename))
+              .uploadAndFinish(new ByteArrayInputStream((Base64.decodeBase64(content))));
+      return uploadedFile.getPathDisplay();
+    }catch(Exception ex) {
+      throw new RuntimeException("Error while uploading to Dropbox", ex);
     }
   }
 }
