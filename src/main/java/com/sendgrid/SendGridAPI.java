@@ -75,7 +75,7 @@ public interface SendGridAPI {
    * Class makeCall makes the call to the SendGrid API, override this method for
    * testing.
    * 
-   * @param request
+   * @param request the request
    * @return returns a response.
    * @throws IOException in case of network or marshal error.
    */
@@ -84,8 +84,8 @@ public interface SendGridAPI {
   /**
    * Class api sets up the request to the SendGrid API, this is main interface.
    * 
-   * @param request
-   * @return
+   * @param request the request
+   * @return returns a response.
    * @throws IOException in case of network or marshal error.
    */
   public Response api(Request request) throws IOException;
