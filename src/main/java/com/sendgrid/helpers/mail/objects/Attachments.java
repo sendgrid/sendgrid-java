@@ -1,5 +1,12 @@
 package com.sendgrid;
 
+import com.amazonaws.AmazonServiceException;
+import com.amazonaws.auth.BasicAWSCredentials;
+import com.amazonaws.services.s3.model.ObjectMetadata;
+import com.amazonaws.services.s3.model.PutObjectRequest;
+import com.amazonaws.services.s3.transfer.TransferManager;
+import com.amazonaws.services.s3.transfer.Upload;
+import com.amazonaws.services.s3.transfer.model.UploadResult;
 import com.fasterxml.jackson.annotation.JsonIgnoreType;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
@@ -7,6 +14,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import org.apache.commons.codec.binary.Base64;
 
 import java.io.*;
+import java.nio.charset.Charset;
 
 /**
  * An attachment object.
@@ -236,6 +244,35 @@ public class Attachments {
       attachments.setContentId(contentId);
       attachments.setType(type);
       return attachments;
+    }
+  }
+
+  /**
+   * Uploads inbound mail attachment to S3
+   * @param accessKey User's Amazon S3 access key
+   * @param secretKey User's Amazon S3 secret key
+   * @param bucketName Path of bucket in which to upload attachment
+     * @return uploaded file
+     */
+  public UploadResult uploadToS3(String accessKey, String secretKey, String bucketName) {
+    TransferManager transferManager = new TransferManager(new BasicAWSCredentials(accessKey, secretKey));
+    try {
+      byte[] bytes = Base64.decodeBase64(content);
+
+      ObjectMetadata metadata = new ObjectMetadata();
+      metadata.setContentType(type);
+      metadata.setContentEncoding(Charset.defaultCharset().name());
+      metadata.setContentLength(bytes.length);
+
+      Upload upload = transferManager.upload(new PutObjectRequest(
+              bucketName, filename, new ByteArrayInputStream(bytes), metadata));
+
+      UploadResult uploadResult = upload.waitForUploadResult();
+      return uploadResult;
+    } catch(AmazonServiceException ase) {
+      throw ase;
+    } catch(InterruptedException e) {
+      throw new RuntimeException(e);
     }
   }
 }
