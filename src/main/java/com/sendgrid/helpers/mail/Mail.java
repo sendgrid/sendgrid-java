@@ -481,7 +481,7 @@ public class Mail {
     }
   }
 
-  private <K,V> Map<T,V> addToMap(K key, V value, Map<K,V> defaultMap) {
+  private <K,V> Map<K,V> addToMap(K key, V value, Map<K,V> defaultMap) {
     if (defaultMap != null) {
       defaultMap.put(key, value);
       return defaultMap;
