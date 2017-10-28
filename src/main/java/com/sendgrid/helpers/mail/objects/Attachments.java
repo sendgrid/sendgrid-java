@@ -248,7 +248,7 @@ public class Attachments {
    *
    * @param accessToken user's Dropbox access token
    * @param path path of the folder in which attachment needs to be added. Should not end with /
-     * @return the fulll path to the uploaded file
+     * @return the full path to the uploaded file
      */
   public String uploadToDropbox(String accessToken, String path){
     try {
@@ -258,7 +258,7 @@ public class Attachments {
               .uploadAndFinish(new ByteArrayInputStream((Base64.decodeBase64(content))));
       return uploadedFile.getPathDisplay();
     }catch(Exception ex) {
-      throw new RuntimeException("Error while uploading to dropbox", ex);
+      throw new RuntimeException("Error while uploading to Dropbox", ex);
     }
   }
 }
