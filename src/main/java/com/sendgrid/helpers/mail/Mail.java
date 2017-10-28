@@ -486,7 +486,7 @@ public class Mail {
       defaultMap.put(key, value);
       return defaultMap;
     } else {
-      Map<T,V> map = new HashMap<K,V>();
+      Map<K,V> map = new HashMap<K,V>();
       map.put(key, value);
       return map;
     }
