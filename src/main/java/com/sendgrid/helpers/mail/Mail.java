@@ -12,6 +12,8 @@ import com.sendgrid.helpers.mail.objects.Email;
 import com.sendgrid.helpers.mail.objects.MailSettings;
 import com.sendgrid.helpers.mail.objects.Personalization;
 import com.sendgrid.helpers.mail.objects.TrackingSettings;
+import org.jsoup.Jsoup;
+import org.jsoup.nodes.Document;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -264,6 +266,16 @@ public class Mail {
     newContent.setType(content.getType());
     newContent.setValue(content.getValue());
     this.content = addToList(newContent, this.content);
+  }
+
+  /**
+   * Take the html part of content and convert it to plain text. Add it to content
+   * @param html part of content
+     */
+  public void addHtmlAsText(String html) {
+    Document doc = Jsoup.parse(html);
+    String text = doc.text();
+    addContent(new Content("text/plain", text));
   }
 
   /**
