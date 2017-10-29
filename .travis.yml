@@ -1,15 +1,8 @@
 language: java
 sudo: false
-matrix:
-  include:
-    - os: linux
-      dist: precise
-      jdk: openjdk7
-    - os: linux
-      dist: precise
-      jdk: oraclejdk7
-    - os: linux
-      jdk: oraclejdk8
+jdk:
+  - openjdk8
+  - oraclejdk8
 before_script:
 - "./scripts/startPrism.sh &"
 - sleep 20
