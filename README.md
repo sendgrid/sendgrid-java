@@ -70,7 +70,7 @@ repositories {
 ...
 ```
 
-### via Maven
+### via  Maven
 
 ```
 mvn install
