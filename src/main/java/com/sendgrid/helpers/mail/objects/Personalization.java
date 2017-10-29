@@ -10,6 +10,12 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+/**
+ * An object representing a message and its metadata.
+ * A personalization can be thought of as an envelope 
+ * - it defines who should receive an individual message 
+ * and how that message should be handled.
+ */
 @JsonInclude(Include.NON_DEFAULT)
 public class Personalization {
   @JsonProperty("to") private List<Email> tos;
@@ -21,6 +27,16 @@ public class Personalization {
   @JsonProperty("custom_args") private Map<String,String> customArgs;
   @JsonProperty("send_at") private long sendAt;
   
+  /**
+   * Get the to list. This is an array of recipients. Each object 
+   * within this array may contain the name, but must always 
+   * contain the email, of a recipient.
+   * 
+   * The maximum number of entries is 1000.
+   * 
+   * Content added to the returned list will be included when sent.
+   * @return the to list.
+   */
   @JsonProperty("to")
   public List<Email> getTos() {
     if(tos == null)
@@ -28,6 +44,10 @@ public class Personalization {
     return tos;
   }
 
+  /**
+   * Add a recipient.
+   * @param email an email address.
+   */
   public void addTo(Email email) {
     Email newEmail = new Email();
     newEmail.setName(email.getName());
@@ -40,6 +60,16 @@ public class Personalization {
     }
   }
 
+  /**
+   * Set the CC list. This is an array of recipients. Each object 
+   * within this array may contain the name, but must always 
+   * contain the email, of a recipient.
+   * 
+   * The maximum number of entries is 1000.
+   * 
+   * Content added to the returned list will be included when sent.
+   * @return the CC list.
+   */
   @JsonProperty("cc")
   public List<Email> getCcs() {
     if(ccs == null)
@@ -47,6 +77,10 @@ public class Personalization {
     return ccs;
   }
 
+  /**
+   * Add a recipient.
+   * @param email an email address.
+   */
   public void addCc(Email email) {
     Email newEmail = new Email();
     newEmail.setName(email.getName());
@@ -59,6 +93,16 @@ public class Personalization {
     }
   }
 
+  /**
+   * Set the BCC list. This is an array of recipients. Each object 
+   * within this array may contain the name, but must always 
+   * contain the email, of a recipient.
+   * 
+   * The maximum number of entries is 1000.
+   * 
+   * Content added to the returned list will be included when sent.
+   * @return the BCC list.
+   */
   @JsonProperty("bcc")
   public List<Email> getBccs() {
     if(bccs == null)
@@ -66,6 +110,10 @@ public class Personalization {
     return bccs;
   }
 
+  /**
+   * Add a recipient.
+   * @param email an email address.
+   */
   public void addBcc(Email email) {
     Email newEmail = new Email();
     newEmail.setName(email.getName());
@@ -78,15 +126,34 @@ public class Personalization {
     }
   }
 
+  /**
+   * Get the subject of the email.
+   * @return the subject.
+   */
   @JsonProperty("subject")
   public String getSubject() {
     return subject;
   }
 
+  /**
+   * Set the subject of the email.
+   * @param subject the subject.
+   */
   public void setSubject(String subject) {
     this.subject = subject;
   }
 
+  /**
+   * Get the headers. The headers are a collection of JSON 
+   * key/value pairs allowing you to specify specific handling 
+   * instructions for your email. You may not overwrite the 
+   * following headers: x-sg-id, x-sg-eid, received, 
+   * dkim-signature, Content-Type, Content-Transfer-Encoding, 
+   * To, From, Subject, Reply-To, CC, BCC
+   * 
+   * Content added to the returned list will be included when sent. 
+   * @return the headers.
+   */
   @JsonProperty("headers")
   public Map<String,String> getHeaders() {
     if(headers == null)
@@ -94,6 +161,11 @@ public class Personalization {
     return headers;
   }
 
+  /**
+   * Add a header.
+   * @param key the header key.
+   * @param value the header value.
+   */
   public void addHeader(String key, String value) {
     if (headers == null) {
       headers = new HashMap<String,String>();
@@ -103,6 +175,21 @@ public class Personalization {
     }
   }
 
+  /**
+   * Get the substitusions. Substitutions are a collection of 
+   * key/value pairs following the pattern 
+   * "substitution_tag":"value to substitute". All are assumed 
+   * to be strings. These substitutions will apply to the text 
+   * and html content of the body of your email, in addition 
+   * to the subject and reply-to parameters. The total 
+   * collective size of your substitutions may not exceed 
+   * 10,000 bytes per personalization object.
+   * 
+   * The maximum number of entries is 1000.
+   * 
+   * Content added to the returned list will be included when sent. 
+   * @return the substitutions.
+   */
   @JsonProperty("substitutions")
   public Map<String,String> getSubstitutions() {
     if(substitutions == null)
@@ -110,6 +197,11 @@ public class Personalization {
     return substitutions;
   }
 
+  /**
+   * Add a substitusion.
+   * @param key the key.
+   * @param value the value.
+   */
   public void addSubstitution(String key, String value) {
     if (substitutions == null) {
       substitutions = new HashMap<String,String>();
@@ -119,6 +211,18 @@ public class Personalization {
     }
   }
 
+  /**
+   * Get the custom arguments. Values that are specific to 
+   * this personalization that will be carried along with 
+   * the email and its activity data. Substitutions will
+   * not be made on custom arguments, so any string that 
+   * is entered into this parameter will be assumed to be 
+   * the custom argument that you would like to be used. i
+   * May not exceed 10,000 bytes.
+   * 
+   * Content added to the returned list will be included when sent. 
+   * @return the custom arguments.
+   */
   @JsonProperty("custom_args")
   public Map<String,String> getCustomArgs() {
     if(customArgs == null)
@@ -126,6 +230,11 @@ public class Personalization {
     return customArgs;
   }
 
+  /**
+   * Add a custom argument.
+   * @param key the key.
+   * @param value the value.
+   */
   public void addCustomArg(String key, String value) {
     if (customArgs == null) {
       customArgs = new HashMap<String,String>();
@@ -135,13 +244,23 @@ public class Personalization {
     }
   }
 
+  /**
+   * Get the send at time. This is a unix timestamp 
+   * allowing you to specify when you want your 
+   * email to be delivered. Scheduling more than
+   * 72 hours in advance is forbidden.
+   * @return the send at time.
+   */
   @JsonProperty("send_at")
   public long sendAt() {
     return sendAt;
   }
 
+  /**
+   * Set the send at time.
+   * @param sendAt the send at time (Unix timestamp).
+   */
   public void setSendAt(long sendAt) {
     this.sendAt = sendAt;
   }
-  
 }
