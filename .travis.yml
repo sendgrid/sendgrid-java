@@ -12,8 +12,7 @@ matrix:
       jdk: oraclejdk8
 before_script:
 - wget https://raw.githubusercontent.com/stoplightio/prism/master/install.sh
-- chmod +x install.sh
-- "./install.sh"
+- bash install.sh
 - sleep 30
 before_install:
   - cat /etc/hosts # optionally check the content *before*
