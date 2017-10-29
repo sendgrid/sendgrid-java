@@ -1,6 +1,11 @@
 # Change Log
 All notable changes to this project will be documented in this file.
 
+## [4.1.1] - 2017-10-10
+### Added
+- PR #247 Added Javadocs.
+- BIG thanks to [Andy Trimble](https://github.com/andy-trimble)
+
 ## [4.1.0] - 2017-08-16
 ### Added
 - PR #211 Return empty collections in place of nulls
@@ -15,12 +20,12 @@ All notable changes to this project will be documented in this file.
 ### BREAKING CHANGE
 - PR #162 Update java http client dependency to [4.1.0 from 2.3.4](https://github.com/sendgrid/java-http-client/releases)
 - BIG thanks to [Diego Camargo](https://github.com/belfazt) for the pull request!
-- The breaking change is that variables that were public are now private and accessable only via getters and setters
-- The `Request` object attributes are now only accessable through getters/setters
+- The breaking change is that variables that were public are now private and accessible only via getters and setters
+- The `Request` object attributes are now only accessible through getters/setters
 - `request.method` is now `request.setMethod(string)`
 - `request.endpoint` is now `request.setEndpoint(string)`
 - `request.body` is now `request.setBody(string)`
-- The `Response` object attributes are now only accessable through getters/setters
+- The `Response` object attributes are now only accessible through getters/setters
 - `response.statusCode` is now `response.getStatusCode()`
 - `response.body` is now `response.getBody()`
 - `response.headers` is now `response.getHeaders()`
@@ -113,7 +118,7 @@ request.addQueryParam("limit", "1");
 
 ## [2.2.2] - 2015-5-23
 ### Fixed
-- Subsitution orders being swapped via [#65](https://github.com/sendgrid/sendgrid-java/pull/65)
+- Substitution orders being swapped via [#65](https://github.com/sendgrid/sendgrid-java/pull/65)
 
 ## [2.2.1] - 2015-5-14
 ### Changed
