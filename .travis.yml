@@ -12,7 +12,7 @@ matrix:
       jdk: oraclejdk8
 before_script:
 - "./scripts/startPrism.sh &"
-- sleep 20
+- sleep 30
 before_install:
   - cat /etc/hosts # optionally check the content *before*
   - sudo hostname "$(hostname | cut -c1-63)"
