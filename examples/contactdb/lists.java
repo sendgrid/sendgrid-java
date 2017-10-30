@@ -66,9 +66,7 @@ public class Example {
       request.setEndpoint("contactdb/lists");
       request.setBody("[1,2,3,4]");
       Response response = sg.api(request);
-      System.out.println(response.getStatusCode());
-      System.out.println(response.getBody());
-      System.out.println(response.getHeaders());
+      printStatus(response);
     } catch (IOException ex) {
       throw ex;
     }
@@ -90,9 +88,7 @@ public class Example {
       request.setBody("{\"name\":\"newlistname\"}");
       request.addQueryParam("list_id", "1");
       Response response = sg.api(request);
-      System.out.println(response.getStatusCode());
-      System.out.println(response.getBody());
-      System.out.println(response.getHeaders());
+      printStatus(response);
     } catch (IOException ex) {
       throw ex;
     }
@@ -113,9 +109,7 @@ public class Example {
       request.setEndpoint("contactdb/lists/{list_id}");
       request.addQueryParam("list_id", "1");
       Response response = sg.api(request);
-      System.out.println(response.getStatusCode());
-      System.out.println(response.getBody());
-      System.out.println(response.getHeaders());
+      printStatus(response);
     } catch (IOException ex) {
       throw ex;
     }
@@ -136,11 +130,19 @@ public class Example {
       request.setEndpoint("contactdb/lists/{list_id}");
       request.addQueryParam("delete_contacts", "true");
       Response response = sg.api(request);
-      System.out.println(response.getStatusCode());
-      System.out.println(response.getBody());
-      System.out.println(response.getHeaders());
+      printStatus(response);
     } catch (IOException ex) {
       throw ex;
     }
   }
+
 }
+
+//////////////////////////////////////////////////////////////////////
+/// Private method to avoid dusplicate print statements
+
+  private static void printStatus(Response response) {
+    System.out.println(response.getStatusCode());
+    System.out.println(response.getBody());
+    System.out.println(response.getHeaders());
+  }
