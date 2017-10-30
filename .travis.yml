@@ -16,6 +16,8 @@ after_script:
   - lsof -i :4010 -S # adds some debugging statements
   - "./gradlew build"
   - "./scripts/upload.sh"
+after_success:
+  - bash <(curl -s https://codecov.io/bash)
 env:
   global:
   - S3_POLICY: ewogICJleHBpcmF0aW9uIjogIjIxMDAtMDEtMDFUMTI6MDA6MDAuMDAwWiIsCiAgImNvbmRpdGlvbnMiOiBbCiAgICB7ImFjbCI6ICJwdWJsaWMtcmVhZCIgfSwKICAgIHsiYnVja2V0IjogInNlbmRncmlkLW9wZW4tc291cmNlIiB9LAogICAgWyJzdGFydHMtd2l0aCIsICIka2V5IiwgInNlbmRncmlkLWphdmEvIl0sCiAgICBbImNvbnRlbnQtbGVuZ3RoLXJhbmdlIiwgMjA0OCwgMjY4NDM1NDU2XSwKICAgIFsiZXEiLCAiJENvbnRlbnQtVHlwZSIsICJhcHBsaWNhdGlvbi96aXAiXQogIF0KfQo=
