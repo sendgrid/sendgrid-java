@@ -1,10 +1,8 @@
-#!/bin/bash
-
-set -eu
+#!/bin/sh
 
 install () {
 
-echo "Installing Prism..."
+set -eu
 
 UNAME=$(uname)
 ARCH=$(uname -m)
@@ -27,32 +25,26 @@ elif [ "$UNAME" = "Linux" ] ; then
   fi
 fi
 
-mkdir -p ../prism/bin
-#LATEST=$(curl -s https://api.github.com/repos/stoplightio/prism/tags | grep -Eo '"name":.*?[^\\]",'  | head -n 1 | sed 's/[," ]//g' | cut -d ':' -f 2)
-LATEST="v0.6.21"
-URL="https://github.com/stoplightio/prism/releases/download/$LATEST/prism_$PLATFORM"
-DEST=../prism/bin/prism
+# LATEST=$(curl -s https://api.github.com/repos/stoplightio/prism/tags | grep -Eo '"name":.*?[^\\]",'  | head -n 1 | sed 's/[," ]//g' | cut -d ':' -f 2)
+URL="https://github.com/stoplightio/prism/releases/download/v0.6.21/prism_$PLATFORM"
+SRC=$(pwd)/prism_$PLATFORM
+DEST=/usr/local/bin/prism
 
-if [ -z $LATEST ] ; then
-  echo "Error requesting. Download binary from ${URL}"
-  exit 1
-else
-  curl -L $URL -o $DEST
-  chmod +x $DEST
-fi
+# if [ -z $LATEST ] ; then
+#   echo "Error requesting. Download binary from ${URL}"
+#   exit 1
+# else
+  STATUS=$(curl -sL -w %{http_code} -o $SRC $URL)
+  if [ $STATUS -ge 200 ] & [ $STATUS -le 308 ]; then
+    mv $SRC $DEST
+    chmod +x $DEST
+    echo "Prism installation was successful"
+  else
+    rm $SRC
+    echo "Error requesting. Download binary from ${URL}"
+    exit 1
+  fi
+# fi
 }
 
-run () {
-  echo "Running prism..."
-  cd ../prism/bin
-  ./prism run --mock --spec https://raw.githubusercontent.com/sendgrid/sendgrid-oai/master/oai_stoplight.json
-}
-
-if [ -f ../prism/bin/prism ]; then
-   echo "Prism is already installed."
-   run
-else
-   echo "Prism is not installed."
-   install
-   run
-fi
+install
