@@ -1,6 +1,11 @@
 # Change Log
 All notable changes to this project will be documented in this file.
 
+## [4.1.2] - 2017-10-30
+### Added
+- PR #220 Alway serialize click-tracking parameters.
+- BIG thanks to [Mattia Barbon](https://github.com/mbarbon)
+
 ## [4.1.1] - 2017-10-10
 ### Added
 - PR #247 Added Javadocs.
