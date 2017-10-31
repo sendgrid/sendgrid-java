@@ -50,6 +50,9 @@ cp .env_sample .env
 ```
 2. Edit the new `.env` to add your API key
 3. Source the `.env` file to set rhe variable in the current session
+```bash
+source .env
+```
 
 ## Install Package
 
