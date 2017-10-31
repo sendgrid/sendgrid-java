@@ -179,3 +179,5 @@ artifacts {
   archives javadocJar
   archives sourcesJar
 }
+
+check.dependsOn jacocoTestReport
