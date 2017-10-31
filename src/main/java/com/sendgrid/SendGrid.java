@@ -5,10 +5,10 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * Class SendGrid allows for quick and easy access to the SendGrid API.
- */
-public class SendGrid {
-  /** The current library version. */
+  * Class SendGrid allows for quick and easy access to the SendGrid API.
+  */
+public class SendGrid implements SendGridAPI {
+
   private static final String VERSION = "3.0.0";
 
   /** The user agent string to return to SendGrid. */

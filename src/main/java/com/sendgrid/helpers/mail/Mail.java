@@ -112,6 +112,28 @@ public class Mail {
     SORTED_MAPPER.configure(SerializationFeature.ORDER_MAP_ENTRIES_BY_KEYS, true);
   }
 
+  private <T> List<T> addToList(T element, List<T> defaultList) {
+    if (defaultList != null) {
+      defaultList.add(element);
+      return defaultList;
+    } else {
+      List<T> list = new ArrayList<T>();
+      list.add(element);
+      return list;
+    }
+  }
+
+  private <K,V> Map<K,V> addToMap(K key, V value, Map<K,V> defaultMap) {
+    if (defaultMap != null) {
+      defaultMap.put(key, value);
+      return defaultMap;
+    } else {
+      Map<K,V> map = new HashMap<K,V>();
+      map.put(key, value);
+      return map;
+    }
+  }
+  
   /** Construct a new Mail object. */
   public Mail() {
     return;
@@ -200,12 +222,7 @@ public class Mail {
    * @param personalization a personalization.
    */
   public void addPersonalization(Personalization personalization) {
-    if (this.personalization == null) {
-      this.personalization = new ArrayList<Personalization>();
-      this.personalization.add(personalization);
-    } else {
-      this.personalization.add(personalization);
-    }
+    this.personalization = addToList(personalization, this.personalization);
   }
 
   /**
@@ -226,12 +243,7 @@ public class Mail {
     Content newContent = new Content();
     newContent.setType(content.getType());
     newContent.setValue(content.getValue());
-    if (this.content == null) {
-      this.content = new ArrayList<Content>();
-      this.content.add(newContent);
-    } else {
-      this.content.add(newContent);
-    }
+    this.content = addToList(newContent, this.content);
   }
 
   /**
@@ -255,12 +267,7 @@ public class Mail {
     newAttachment.setFilename(attachments.getFilename());
     newAttachment.setDisposition(attachments.getDisposition());
     newAttachment.setContentId(attachments.getContentId());
-    if (this.attachments == null) {
-      this.attachments = new ArrayList<Attachments>();
-      this.attachments.add(newAttachment);
-    } else {
-      this.attachments.add(newAttachment);
-    }
+    this.attachments = addToList(newAttachment, this.attachments);
   }
 
   /**
@@ -296,12 +303,7 @@ public class Mail {
    * @param value the section's value.
    */
   public void addSection(String key, String value) {
-    if (sections == null) {
-      sections = new HashMap<String,String>();
-      sections.put(key, value);
-    } else {
-      sections.put(key, value);
-    }
+    this.sections = addToMap(key, value, this.sections);
   }
 
   /**
@@ -320,12 +322,7 @@ public class Mail {
    * @param value the header's value.
    */
   public void addHeader(String key, String value) {
-    if (headers == null) {
-      headers = new HashMap<String,String>();
-      headers.put(key, value);
-    } else {
-      headers.put(key, value);
-    }
+    this.headers = addToMap(key, value, this.headers);
   }
 
   /**
@@ -343,12 +340,7 @@ public class Mail {
    * @param category the category.
    */
   public void addCategory(String category) {
-    if (categories == null) {
-      categories = new ArrayList<String>();
-      categories.add(category);
-    } else {
-      categories.add(category);
-    }
+    this.categories = addToList(category, this.categories);
   }
 
   /**
@@ -367,12 +359,7 @@ public class Mail {
    * @param value the argument's value.
    */
   public void addCustomArg(String key, String value) {
-    if (customArgs == null) {
-      customArgs = new HashMap<String,String>();
-      customArgs.put(key, value);
-    } else {
-      customArgs.put(key, value);
-    }
+    this.customArgs = addToMap(key, value, this.customArgs);
   }
 
   /**

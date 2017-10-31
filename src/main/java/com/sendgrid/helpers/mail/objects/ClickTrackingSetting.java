@@ -4,7 +4,10 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-@JsonInclude(Include.NON_DEFAULT)
+/**
+ * Settings to determine how you would like to track the 
+ * metrics of how your recipients interact with your email.
+ */
 public class ClickTrackingSetting {
   @JsonProperty("enable") private boolean enable;
   @JsonProperty("enable_text") private boolean enableText;
