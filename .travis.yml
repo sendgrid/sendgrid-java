@@ -1,18 +1,21 @@
 language: java
-sudo: false
 matrix:
   include:
-    - os: linux
-      dist: precise
-      jdk: openjdk7
-    - os: linux
-      dist: precise
-      jdk: oraclejdk7
-    - os: linux
-      jdk: oraclejdk8
+    - jdk: openjdk8
+    - jdk: oraclejdk8
+before_script:
+- "./scripts/startPrism.sh &"
+- sleep 20
+before_install:
+  - cat /etc/hosts # optionally check the content *before*
+  - sudo hostname "$(hostname | cut -c1-63)"
+  - sed -e "s/^\\(127\\.0\\.0\\.1.*\\)/\\1 $(hostname | cut -c1-63)/" /etc/hosts > /tmp/hosts
+  - sudo mv /tmp/hosts /etc/hosts
+  - cat /etc/hosts # optionally check the content *after*
 after_script:
-- "./gradlew build"
-- "./scripts/upload.sh"
+  - lsof -i :4010 -S # adds some debugging statements
+  - "./gradlew build"
+  - "./scripts/upload.sh"
 env:
   global:
   - S3_POLICY: ewogICJleHBpcmF0aW9uIjogIjIxMDAtMDEtMDFUMTI6MDA6MDAuMDAwWiIsCiAgImNvbmRpdGlvbnMiOiBbCiAgICB7ImFjbCI6ICJwdWJsaWMtcmVhZCIgfSwKICAgIHsiYnVja2V0IjogInNlbmRncmlkLW9wZW4tc291cmNlIiB9LAogICAgWyJzdGFydHMtd2l0aCIsICIka2V5IiwgInNlbmRncmlkLWphdmEvIl0sCiAgICBbImNvbnRlbnQtbGVuZ3RoLXJhbmdlIiwgMjA0OCwgMjY4NDM1NDU2XSwKICAgIFsiZXEiLCAiJENvbnRlbnQtVHlwZSIsICJhcHBsaWNhdGlvbi96aXAiXQogIF0KfQo=

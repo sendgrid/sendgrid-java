@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+
 /**
  * Settings to determine how you would like to track the 
  * metrics of how your recipients interact with your email.

@@ -17,7 +17,7 @@ apply plugin: 'maven'
 apply plugin: 'signing'
 
 group         = 'com.sendgrid'
-version       = '4.1.1'
+version       = '4.1.2'
 ext.packaging = 'jar'
 
 allprojects {
@@ -92,6 +92,11 @@ task renameSendGridVersionJarToSendGridJar {
     }
     file("$projectDir/repo/com/sendgrid/${fatJar.archiveName}").renameTo(file("$projectDir/repo/com/sendgrid/sendgrid-java-${version}.jar"))
   }
+}
+
+task startPrism(type: Exec) {
+  workingDir 'scripts'
+  commandLine './startPrism.sh'
 }
 
 task javadocJar(type: Jar, dependsOn: javadoc) {
