@@ -15,6 +15,7 @@ apply plugin: 'java'
 apply plugin: 'fatjar'
 apply plugin: 'maven'
 apply plugin: 'signing'
+apply plugin: 'jacoco'
 
 group         = 'com.sendgrid'
 version       = '4.1.1'
@@ -162,6 +163,13 @@ uploadArchives {
         }
       }
     }
+  }
+}
+
+jacocoTestReport {
+  reports {
+    xml.enabled true
+    html.enabled false
   }
 }
 
