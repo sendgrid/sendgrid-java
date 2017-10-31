@@ -16,4 +16,4 @@ javac -classpath ../../build/libs/sendgrid-4.1.0-jar.jar:. Example.java && java 
 ## Usage
 
 - See the [example](https://github.com/sendgrid/sendgrid-java/tree/master/examples/mail) for a complete working example.
-- [Documentation](https://sendgrid.com/docs/API_Reference/Web_API_v3/Mail/overview.html)
+- [Documentation](https://sendgrid.com/docs/API_Reference/Web_API_v3/Mail/index.html)
