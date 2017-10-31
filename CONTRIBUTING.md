@@ -74,7 +74,7 @@ git clone https://github.com/sendgrid/sendgrid-java.git
 cd sendgrid-java
 ```
 
-## Environment Variables
+### Environment Variables
 
 First, get your free SendGrid account [here](https://sendgrid.com/free?source=sendgrid-java).
 
