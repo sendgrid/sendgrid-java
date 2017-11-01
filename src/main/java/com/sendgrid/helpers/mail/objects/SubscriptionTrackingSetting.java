@@ -11,7 +11,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  * would like to specify the location of the link within your 
  * email, you may use the substitution_tag.
  */
-@JsonInclude(Include.NON_DEFAULT)
+@JsonInclude(Include.NON_EMPTY)
 public class SubscriptionTrackingSetting {
   @JsonProperty("enable") private boolean enable;
   @JsonProperty("text") private String text;
