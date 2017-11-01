@@ -139,7 +139,7 @@ public class Attachments {
   public static class Builder {
 
     private static final int BYTE_BUFFER_SIZE = 4096;
-
+    private RawFileToBase64 rfh = new RawFileToBase64();
     private String fileName;
     private String content;
     private String type;
