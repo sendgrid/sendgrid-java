@@ -1,27 +1,50 @@
-user examples:
+# User examples
 
-sendgrid-java/examples/user/CreateWebhookParseSettings.java
-sendgrid-java/examples/user/DeleteScheduleSend.java
-sendgrid-java/examples/user/DeleteWebhookParseSettings.java
-sendgrid-java/examples/user/GetCreditBalance.java
-sendgrid-java/examples/user/GetEmailAddress.java
-sendgrid-java/examples/user/GetEnforedTLS.java
-sendgrid-java/examples/user/GetProfile.java
-sendgrid-java/examples/user/GetScheduleSend.java
-sendgrid-java/examples/user/GetScheduleSendByBatchId.java
-sendgrid-java/examples/user/GetUserInfo.java
-sendgrid-java/examples/user/GetUsername.java
-sendgrid-java/examples/user/GetWebhookEventSettings.java
-sendgrid-java/examples/user/GetWebhookParseSettingByHostname.java
-sendgrid-java/examples/user/GetWebhookParseSettings.java
-sendgrid-java/examples/user/GetWebhookParseStatistics.java
-sendgrid-java/examples/user/PauseScheduleSend.java
-sendgrid-java/examples/user/TestWebhookEvent.java
-sendgrid-java/examples/user/UpatePassword.java
-sendgrid-java/examples/user/UpdateEmailAddress.java
-sendgrid-java/examples/user/UpdateEnforcedTLS.java
-sendgrid-java/examples/user/UpdateProfile.java
-sendgrid-java/examples/user/UpdateScheduleSend.java
-sendgrid-java/examples/user/UpdateUsername.java
-sendgrid-java/examples/user/UpdateWebhookEventSettings.java
-sendgrid-java/examples/user/UpdateWebhookParseSettings.java
+## Parse Settings Examples
+- [Create Webhook Parse Settings](CreateWebhookParseSettings.java)
+- [Delete Webhook Parse Settings](DeleteWebhookParseSettings.java)
+
+## Schedule Send Examples
+- [Delete Scheduled Send](DeleteScheduleSend.java)
+- [Get Scheduled Send](GetScheduleSend.java)
+- [Get Scheduled Send](GetScheduleSendByBatchId.java)
+- [Pause Scheduled Send](PauseScheduleSend.java)
+- [Update Scheduled Send](UpdateScheduleSend.java)
+
+## Billing Examples
+- [Get Credit Balance](GetCreditBalance.java)
+
+## Profile Examples
+
+### Email Address
+- [Get Email Address](GetEmailAddress.java)
+- [Update Email Address](UpdateEmailAddress.java)
+
+### Password
+- [Update Password](UpdatePassword.java)
+
+### Profile
+- [Get Profile](GetProfile.java)
+- [Get User Info](GetUserInfo.java)
+- [Update Profile](UpdateProfile.java)
+
+### Username
+- [Get Username](GetUsername.java)
+- [Update Username](UpdateUsername.java)
+
+## Security Settings Examples
+- [Get Enforced TLS](GetEnforedTLS.java)
+- [Update Enforced TLS](UpdateEnforcedTLS.java)
+
+## Webhook Settings Examples
+
+### Event Webhook
+- [Test Event Webhook](TestWebhookEvent.java)
+- [Get Event Webhook Settings](GetWebhookEventSettings.java)
+- [Get Event Webhook Settings by Hostname](GetWebhookParseSettingByHostname.java)
+- [Update Event Webhook Settings](UpdateWebhookEventSettings.java)
+
+## Inbound Parse
+- [Get Parse Webhook Settings](GetWebhookParseSettings.java)
+- [Get Parse Webhook Settings](GetWebhookParseStatistics.java)
+- [Update Parse Webhook Settings](UpdateWebhookParseSettings.java)
