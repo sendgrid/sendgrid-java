@@ -209,6 +209,7 @@ public class Attachment {
         /**
          * Set the type of this attachment builder.
          * @param type the attachment type.
+         * @return this builder.
          */
         public Builder withType(String type) {
             this.type = type;
@@ -218,6 +219,7 @@ public class Attachment {
         /**
          * Set the disposition of this attachment builder.
          * @param disposition the disposition.
+         * @return this builder.
          */
         public Builder withDisposition(String disposition) {
             this.disposition = disposition;
@@ -227,6 +229,7 @@ public class Attachment {
         /**
          * Set the content ID of this attachment builder.
          * @param contentId the content ID.
+         * @return this builder.
          */
         public Builder withContentId(String contentId) {
             this.contentId = contentId;

@@ -1,13 +1,13 @@
 package com.sendgrid.helpers.mail.objects;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.sendgrid.BccSettings;
-import com.sendgrid.ClickTrackingSetting;
-import com.sendgrid.FooterSetting;
-import com.sendgrid.GoogleAnalyticsSetting;
-import com.sendgrid.OpenTrackingSetting;
-import com.sendgrid.SpamCheckSetting;
-import com.sendgrid.SubscriptionTrackingSetting;
+import com.sendgrid.BCCSettings;
+import com.sendgrid.ClickTrackingSettings;
+import com.sendgrid.FooterSettings;
+import com.sendgrid.GoogleAnalyticsSettings;
+import com.sendgrid.OpenTrackingSettings;
+import com.sendgrid.SpamCheckSettings;
+import com.sendgrid.SubscriptionTrackingSettings;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -26,8 +26,8 @@ public class SettingsSerializationTest {
 
 	@Test
 	public void testClickTrackingSettingSerialization() throws Exception {
-		ClickTrackingSetting setting = new ClickTrackingSetting();
-		setting.setEnable(false);
+		ClickTrackingSettings setting = new ClickTrackingSettings();
+		setting.enable(false);
 
 		String json = mapper.writeValueAsString(setting);
 		System.out.println(json);
@@ -46,8 +46,8 @@ public class SettingsSerializationTest {
 
 	@Test
 	public void testGoogleAnalyticsTrackingSettingSerialization() throws Exception {
-		GoogleAnalyticsSetting setting = new GoogleAnalyticsSetting();
-		setting.setEnable(false);
+		GoogleAnalyticsSettings setting = new GoogleAnalyticsSettings();
+		setting.enable(false);
 
 		String json = mapper.writeValueAsString(setting);
 		System.out.println(json);
@@ -66,8 +66,8 @@ public class SettingsSerializationTest {
 
 	@Test
 	public void testFooterSettingSerialization() throws Exception {
-		FooterSetting setting = new FooterSetting();
-		setting.setEnable(false);
+		FooterSettings setting = new FooterSettings();
+		setting.enable(false);
 
 		String json = mapper.writeValueAsString(setting);
 		System.out.println(json);
@@ -76,8 +76,8 @@ public class SettingsSerializationTest {
 
 	@Test
 	public void testBccSettingsSerialization() throws Exception {
-		BccSettings settings = new BccSettings();
-		settings.setEnable(false);
+		BCCSettings settings = new BCCSettings();
+		settings.enable(false);
 
 		String json = mapper.writeValueAsString(settings);
 		System.out.println(json);
