@@ -5,9 +5,6 @@ import com.sendgrid.BCCSettings;
 import com.sendgrid.ClickTrackingSettings;
 import com.sendgrid.FooterSettings;
 import com.sendgrid.GoogleAnalyticsSettings;
-import com.sendgrid.OpenTrackingSettings;
-import com.sendgrid.SpamCheckSettings;
-import com.sendgrid.SubscriptionTrackingSettings;
 import org.junit.Assert;
 import org.junit.Test;
 
