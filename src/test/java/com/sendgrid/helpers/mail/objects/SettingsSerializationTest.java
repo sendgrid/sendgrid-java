@@ -5,6 +5,9 @@ import com.sendgrid.BCCSettings;
 import com.sendgrid.ClickTrackingSettings;
 import com.sendgrid.FooterSettings;
 import com.sendgrid.GoogleAnalyticsSettings;
+import com.sendgrid.OpenTrackingSettings;
+import com.sendgrid.SubscriptionTrackingSettings;
+import com.sendgrid.SpamCheckSettings;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -14,8 +17,8 @@ public class SettingsSerializationTest {
 
 	@Test
 	public void testOpenTrackingSettingSerialization() throws Exception {
-		OpenTrackingSetting setting = new OpenTrackingSetting();
-		setting.setEnable(false);
+		OpenTrackingSettings setting = new OpenTrackingSettings();
+		setting.enable(false);
 
 		String json = mapper.writeValueAsString(setting);
 		Assert.assertEquals(json, "{\"enable\":false}");
@@ -33,8 +36,8 @@ public class SettingsSerializationTest {
 
 	@Test
 	public void testSubscriptionTrackingSettingSerialization() throws Exception {
-		SubscriptionTrackingSetting setting = new SubscriptionTrackingSetting();
-		setting.setEnable(false);
+		SubscriptionTrackingSettings setting = new SubscriptionTrackingSettings();
+		setting.enable(false);
 
 		String json = mapper.writeValueAsString(setting);
 		System.out.println(json);
@@ -53,8 +56,8 @@ public class SettingsSerializationTest {
 
 	@Test
 	public void testSpamCheckSettingSerialization() throws Exception {
-		SpamCheckSetting setting = new SpamCheckSetting();
-		setting.setEnable(false);
+		SpamCheckSettings setting = new SpamCheckSettings();
+		setting.enable(false);
 
 		String json = mapper.writeValueAsString(setting);
 		System.out.println(json);
