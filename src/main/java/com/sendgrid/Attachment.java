@@ -238,6 +238,7 @@ public class Attachment {
 
         /**
          * Construct the attachment object.
+         * @return this attachment.
          */
         public Attachment build() {
             Attachment attachment = new Attachment()

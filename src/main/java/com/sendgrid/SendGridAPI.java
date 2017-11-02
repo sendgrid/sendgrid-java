@@ -15,7 +15,6 @@ public interface SendGridAPI {
   /**
    * Returns the library version
    * 
-   * @param apiKey is your SendGrid API Key: https://app.sendgrid.com/settings/api_keys
    * @return the library version.
    */
   public String getLibraryVersion();
