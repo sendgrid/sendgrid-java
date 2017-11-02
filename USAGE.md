@@ -533,7 +533,7 @@ The API Keys feature allows customers to be able to generate an API Key credenti
 
 Suppression groups, or unsubscribe groups, are specific types or categories of email that you would like your recipients to be able to unsubscribe from. For example: Daily Newsletters, Invoices, System Alerts.
 
-The **name** and **description** of the unsubscribe group will be visible by recipients when they are managing their subscriptions.
+The **name** and **description** of the unsubscribe group will be visible to recipients when they are managing their subscriptions.
 
 Each user can create up to 25 different suppression groups.
 
@@ -589,7 +589,7 @@ Suppression groups, or [unsubscribe groups](https://sendgrid.com/docs/API_Refere
 
 Suppression groups, or unsubscribe groups, are specific types or categories of email that you would like your recipients to be able to unsubscribe from. For example: Daily Newsletters, Invoices, System Alerts.
 
-The **name** and **description** of the unsubscribe group will be visible by recipients when they are managing their subscriptions.
+The **name** and **description** of the unsubscribe group will be visible to recipients when they are managing their subscriptions.
 
 Each user can create up to 25 different suppression groups.
 
@@ -617,7 +617,7 @@ Each user can create up to 25 different suppression groups.
 
 Suppression groups, or unsubscribe groups, are specific types or categories of email that you would like your recipients to be able to unsubscribe from. For example: Daily Newsletters, Invoices, System Alerts.
 
-The **name** and **description** of the unsubscribe group will be visible by recipients when they are managing their subscriptions.
+The **name** and **description** of the unsubscribe group will be visible to recipients when they are managing their subscriptions.
 
 Each user can create up to 25 different suppression groups.
 
@@ -646,7 +646,7 @@ You can only delete groups that have not been attached to sent mail in the last 
 
 Suppression groups, or unsubscribe groups, are specific types or categories of email that you would like your recipients to be able to unsubscribe from. For example: Daily Newsletters, Invoices, System Alerts.
 
-The **name** and **description** of the unsubscribe group will be visible by recipients when they are managing their subscriptions.
+The **name** and **description** of the unsubscribe group will be visible to recipients when they are managing their subscriptions.
 
 Each user can create up to 25 different suppression groups.
 
@@ -5677,7 +5677,7 @@ For more information on whitelabeling, please see our [User Guide](https://sendg
 
 A domain whitelabel allows you to remove the via or sent on behalf of message that your recipients see when they read your emails. Whitelabeling a domain allows you to replace sendgrid.net with your personal sending domain. You will be required to create a subdomain so that SendGrid can generate the DNS records which you must give to your host provider. If you choose to use Automated Security, SendGrid will provide you with 3 CNAME records. If you turn Automated Security off, you will be given 2 TXT records and 1 MX record.
 
-Domain whitelabels can be associated with (i.e. assigned to) subusers from a parent account. This functionality allows subusers to send mail using their parent's whitelabels. To associate a whitelabel with a subuser, the parent account must first create the whitelabel and validate it. The the parent may then associate the whitelabel via the subuser management tools.
+Domain whitelabels can be associated with (i.e. assigned to) subusers from a parent account. This functionality allows subusers to send mail using their parent's whitelabels. To associate a whitelabel with a subuser, the parent account must first create the whitelabel and validate it. The parent may then associate the whitelabel via the subuser management tools.
 
 For more information on whitelabeling, please see our [User Guide](https://sendgrid.com/docs/User_Guide/Settings/Whitelabel/index.html)
 
@@ -5709,7 +5709,7 @@ For more information on whitelabeling, please see our [User Guide](https://sendg
 
 A domain whitelabel allows you to remove the via or sent on behalf of message that your recipients see when they read your emails. Whitelabeling a domain allows you to replace sendgrid.net with your personal sending domain. You will be required to create a subdomain so that SendGrid can generate the DNS records which you must give to your host provider. If you choose to use Automated Security, SendGrid will provide you with 3 CNAME records. If you turn Automated Security off, you will be given 2 TXT records and 1 MX record.
 
-Domain whitelabels can be associated with (i.e. assigned to) subusers from a parent account. This functionality allows subusers to send mail using their parent's whitelabels. To associate a whitelabel with a subuser, the parent account must first create the whitelabel and validate it. The the parent may then associate the whitelabel via the subuser management tools.
+Domain whitelabels can be associated with (i.e. assigned to) subusers from a parent account. This functionality allows subusers to send mail using their parent's whitelabels. To associate a whitelabel with a subuser, the parent account must first create the whitelabel and validate it. The parent may then associate the whitelabel via the subuser management tools.
 
 For more information on whitelabeling, please see our [User Guide](https://sendgrid.com/docs/User_Guide/Settings/Whitelabel/index.html)
 
@@ -5818,7 +5818,7 @@ For more information on whitelabeling, please see our [User Guide](https://sendg
 
 A domain whitelabel allows you to remove the via or sent on behalf of message that your recipients see when they read your emails. Whitelabeling a domain allows you to replace sendgrid.net with your personal sending domain. You will be required to create a subdomain so that SendGrid can generate the DNS records which you must give to your host provider. If you choose to use Automated Security, SendGrid will provide you with 3 CNAME records. If you turn Automated Security off, you will be given 2 TXT records and 1 MX record.
 
-Domain whitelabels can be associated with (i.e. assigned to) subusers from a parent account. This functionality allows subusers to send mail using their parent's whitelabels. To associate a whitelabel with a subuser, the parent account must first create the whitelabel and validate it. The the parent may then associate the whitelabel via the subuser management tools.
+Domain whitelabels can be associated with (i.e. assigned to) subusers from a parent account. This functionality allows subusers to send mail using their parent's whitelabels. To associate a whitelabel with a subuser, the parent account must first create the whitelabel and validate it. The parent may then associate the whitelabel via the subuser management tools.
 
 For more information on whitelabeling, please see our [User Guide](https://sendgrid.com/docs/User_Guide/Settings/Whitelabel/index.html)
 

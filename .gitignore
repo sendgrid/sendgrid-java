@@ -15,4 +15,4 @@ examples/Example.java
 .project
 .vscode
 scripts/prism
-sendgrid.env
+.env
