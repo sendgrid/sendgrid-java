@@ -9,7 +9,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  * automatically sent to the specified email address 
  * for every email that is sent.
  */
-@JsonInclude(Include.NON_DEFAULT)
+@JsonInclude(Include.NON_NULL)
 public class BCCSettings {
 
     @JsonProperty("enable")

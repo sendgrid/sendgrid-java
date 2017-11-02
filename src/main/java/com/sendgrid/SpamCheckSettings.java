@@ -8,7 +8,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  * A setting object that allows you to test the content of 
  * your email for spam.
  */
-@JsonInclude(Include.NON_DEFAULT)
+@JsonInclude(Include.NON_NULL)
 public class SpamCheckSettings {
 
     @JsonProperty("enable")

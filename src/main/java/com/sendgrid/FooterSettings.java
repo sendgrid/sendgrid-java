@@ -8,7 +8,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  * An object representing the default footer 
  * that you would like included on every email.
  */
-@JsonInclude(Include.NON_DEFAULT)
+@JsonInclude(Include.NON_NULL)
 public class FooterSettings {
 
     @JsonProperty("enable")

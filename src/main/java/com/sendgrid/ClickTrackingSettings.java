@@ -8,7 +8,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  * Settings to determine how you would like to track the 
  * metrics of how your recipients interact with your email.
  */
-@JsonInclude(Include.NON_DEFAULT)
+@JsonInclude(Include.NON_NULL)
 public class ClickTrackingSettings {
 
     @JsonProperty("enable")

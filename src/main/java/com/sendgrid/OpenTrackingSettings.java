@@ -10,7 +10,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  * pixel image in the body of the content. When the pixel is 
  * loaded, we can log that the email was opened.
  */
-@JsonInclude(Include.NON_DEFAULT)
+@JsonInclude(Include.NON_NULL)
 public class OpenTrackingSettings {
 
     @JsonProperty("enable")
