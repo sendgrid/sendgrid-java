@@ -7,7 +7,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 /**
  * An object configuring the tracking provided by Google Analytics.
  */
-@JsonInclude(Include.NON_DEFAULT)
+@JsonInclude(Include.NON_EMPTY)
 public class GoogleAnalyticsSetting {
   @JsonProperty("enable") private boolean enable;
   @JsonProperty("utm_source") private String campaignSource;
