@@ -118,10 +118,5 @@
             <version>2.1.0</version>
             <scope>test</scope>
         </dependency>
-        <dependency>
-            <groupId>com.dropbox.core</groupId>
-            <artifactId>dropbox-core-sdk</artifactId>
-            <version>3.0.5</version>
-        </dependency>
     </dependencies>
 </project>
