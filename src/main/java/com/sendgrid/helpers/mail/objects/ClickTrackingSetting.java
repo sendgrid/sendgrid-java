@@ -4,7 +4,6 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-
 /**
  * Settings to determine how you would like to track the 
  * metrics of how your recipients interact with your email.
@@ -14,39 +13,46 @@ public class ClickTrackingSetting {
   @JsonProperty("enable") private boolean enable;
   @JsonProperty("enable_text") private boolean enableText;
  
-  /**
-   * Determines if this setting is enabled.
-   * @return true if click tracking is enabled, false otherwise.
-   */
   @JsonProperty("enable")
   public boolean getEnable() {
     return enable;
   }
   
-  /**
-   * Set if this setting is enabled.
-   * @param enable true if click tracking is enabled, false otherwise.
-   */
   public void setEnable(boolean enable) {
     this.enable = enable;
   }
   
-  /**
-   * Get the enabled text. This indicates if this 
-   * setting should be included in the text/plain 
-   * portion of your email.
-   * @return the enable text.
-   */
   @JsonProperty("enable_text")
   public boolean getEnableText() {
     return enableText;
   }  
   
-  /**
-   * Set the enalbed text.
-   * @param enableText the enable text.
-   */
   public void setEnableText(boolean enableText) {
     this.enableText = enableText;
+  }
+
+  @Override
+  public int hashCode() {
+    final int prime = 31;
+    int result = 1;
+    result = prime * result + (enable ? 1231 : 1237);
+    result = prime * result + (enableText ? 1231 : 1237);
+    return result;
+  }
+
+  @Override
+  public boolean equals(Object obj) {
+    if (this == obj)
+      return true;
+    if (obj == null)
+      return false;
+    if (getClass() != obj.getClass())
+      return false;
+    ClickTrackingSetting other = (ClickTrackingSetting) obj;
+    if (enable != other.enable)
+      return false;
+    if (enableText != other.enableText)
+      return false;
+    return true;
   }
 }

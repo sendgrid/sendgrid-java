@@ -18,80 +18,79 @@ public class SubscriptionTrackingSetting {
   @JsonProperty("html") private String html;
   @JsonProperty("substitution_tag") private String substitutionTag;
   
-  /**
-   * Determines if this setting is enabled.
-   * @return true if subscription tracking is enabled, false otherwise.
-   */
   @JsonProperty("enable")
   public boolean getEnable() {
     return enable;
   }
  
-  /**
-   * Set if this setting is enabled.
-   * @param enable true if subscription tracking is enabled, false otherwise.
-   */
   public void setEnable(boolean enable) {
     this.enable = enable;
   }
   
-  /**
-   * Get the plain text to be appended to the email, with the 
-   * subscription tracking link. You may control where 
-   * the link is by using the tag &lt;% %&gt;
-   * @return the plain text.
-   */
   @JsonProperty("text")
   public String getText() {
     return text;
   }
   
-  /** 
-   * Set the plain text.
-   * @param text the plain text.
-   */
   public void setText(String text) {
     this.text = text;
   }
   
-  /**
-   * Get the HTML to be appended to the email, with the 
-   * subscription tracking link. You may control where 
-   * the link is by using the tag &lt;% %&gt;
-   * @return the HTML.
-   */
   @JsonProperty("html")
   public String getHtml() {
     return html;
   } 
 
-  /**
-   * Set the HTML.
-   * @param html the HTML.
-   */
   public void setHtml(String html) {
     this.html = html;
   }
   
-  /**
-   * Get the  tag that will be replaced with the 
-   * unsubscribe URL. for example: [unsubscribe_url].
-   * If this parameter is used, it will override both 
-   * the text and html parameters. The URL of the link 
-   * will be placed at the substitution tag’s location, 
-   * with no additional formatting.
-   * @return the substitution tag.
-   */
   @JsonProperty("substitution_tag")
   public String getSubstitutionTag() {
     return substitutionTag;
   }  
 
-  /**
-   * Set the substitution tag.
-   * @param substitutionTag the substitution tag.
-   */
   public void setSubstitutionTag(String substitutionTag) {
     this.substitutionTag = substitutionTag;
+  }
+
+  @Override
+  public int hashCode() {
+    final int prime = 31;
+    int result = 1;
+    result = prime * result + (enable ? 1231 : 1237);
+    result = prime * result + ((html == null) ? 0 : html.hashCode());
+    result = prime * result + ((substitutionTag == null) ? 0 : substitutionTag.hashCode());
+    result = prime * result + ((text == null) ? 0 : text.hashCode());
+    return result;
+  }
+
+  @Override
+  public boolean equals(Object obj) {
+    if (this == obj)
+      return true;
+    if (obj == null)
+      return false;
+    if (getClass() != obj.getClass())
+      return false;
+    SubscriptionTrackingSetting other = (SubscriptionTrackingSetting) obj;
+    if (enable != other.enable)
+      return false;
+    if (html == null) {
+      if (other.html != null)
+        return false;
+    } else if (!html.equals(other.html))
+      return false;
+    if (substitutionTag == null) {
+      if (other.substitutionTag != null)
+        return false;
+    } else if (!substitutionTag.equals(other.substitutionTag))
+      return false;
+    if (text == null) {
+      if (other.text != null)
+        return false;
+    } else if (!text.equals(other.text))
+      return false;
+    return true;
   }
 }

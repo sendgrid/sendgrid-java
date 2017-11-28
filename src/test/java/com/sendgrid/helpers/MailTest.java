@@ -208,4 +208,18 @@ public class MailTest {
 
     Assert.assertSame(from, mail.getFrom());
   }
+  
+  @Test
+  public void mailDeserialization() throws IOException {
+    Email to = new Email("foo@bar.com");
+    Content content = new Content("text/plain", "test");
+    Email from = new Email("no-reply@bar.com");
+    Mail mail = new Mail(from, "subject", to, content);
+
+    ObjectMapper mapper = new ObjectMapper();
+    String json = mapper.writeValueAsString(mail);
+    Mail deserialized = mapper.readValue(json, Mail.class);
+
+    Assert.assertEquals(deserialized, mail);
+  }
 }
