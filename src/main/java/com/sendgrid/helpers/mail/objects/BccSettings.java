@@ -4,7 +4,12 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-@JsonInclude(Include.NON_DEFAULT)
+/**
+ * This object allows you to have a blind carbon copy 
+ * automatically sent to the specified email address 
+ * for every email that is sent.
+ */
+@JsonInclude(Include.NON_EMPTY)
 public class BccSettings {
   @JsonProperty("enable") private boolean enable;
   @JsonProperty("email") private String email;
