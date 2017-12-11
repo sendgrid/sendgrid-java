@@ -7,16 +7,25 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
+public class CommonExample {
+  protected SendGrid sg;
+  protected Request request;
+
+  protected static void init() {
+    this.sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
+    this.request = new Request();
+  }
+}
+
 //////////////////////////////////////////////////////////////////
 // Create an IP whitelabel
 // POST /whitelabel/ips
 
 
-public class Example {
+public class Example extends CommonExample {
   public static void main(String[] args) throws IOException {
     try {
-      SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
-      Request request = new Request();
+      init();
       request.setMethod(Method.POST);
       request.setEndpoint("whitelabel/ips");
       request.setBody("{\"ip\":\"192.168.1.1\",\"domain\":\"example.com\",\"subdomain\":\"email\"}");
@@ -35,11 +44,10 @@ public class Example {
 // GET /whitelabel/ips
 
 
-public class Example {
+public class Example extends CommonExample {
   public static void main(String[] args) throws IOException {
     try {
-      SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
-      Request request = new Request();
+      init();
       request.setMethod(Method.GET);
       request.setEndpoint("whitelabel/ips");
       request.addQueryParam("ip", "test_string");
@@ -60,11 +68,10 @@ public class Example {
 // GET /whitelabel/ips/{id}
 
 
-public class Example {
+public class Example extends CommonExample {
   public static void main(String[] args) throws IOException {
     try {
-      SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
-      Request request = new Request();
+      init();
       request.setMethod(Method.GET);
       request.setEndpoint("whitelabel/ips/{id}");
       Response response = sg.api(request);
@@ -82,11 +89,10 @@ public class Example {
 // DELETE /whitelabel/ips/{id}
 
 
-public class Example {
+public class Example extends CommonExample {
   public static void main(String[] args) throws IOException {
     try {
-      SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
-      Request request = new Request();
+      init();
       request.setMethod(Method.DELETE);
       request.setEndpoint("whitelabel/ips/{id}");
       Response response = sg.api(request);
@@ -104,11 +110,10 @@ public class Example {
 // POST /whitelabel/ips/{id}/validate
 
 
-public class Example {
+public class Example extends CommonExample {
   public static void main(String[] args) throws IOException {
     try {
-      SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
-      Request request = new Request();
+      init();
       request.setMethod(Method.POST);
       request.setEndpoint("whitelabel/ips/{id}/validate");
       Response response = sg.api(request);
