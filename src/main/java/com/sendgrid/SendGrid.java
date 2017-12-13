@@ -163,9 +163,15 @@ public class SendGrid implements SendGridAPI {
     req.setBaseUri(this.host);
     req.setEndpoint("/" + version + "/" + request.getEndpoint());
     req.setBody(request.getBody());
+
+    for (Map.Entry<String, String> header : request.getHeaders().entrySet()) {
+      req.addHeader(header.getKey(), header.getValue());
+    }
+
     for (Map.Entry <String, String> header : this.requestHeaders.entrySet()) {
       req.addHeader(header.getKey(), header.getValue());
     }
+
     for (Map.Entry <String, String> queryParam : request.getQueryParams().entrySet()) {
       req.addQueryParam(queryParam.getKey(), queryParam.getValue());
     }
