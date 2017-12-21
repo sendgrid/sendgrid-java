@@ -20,57 +20,29 @@ public class Content {
   @JsonProperty("type") private String type;
   @JsonProperty("value") private String  value;
 
-  /**
-   * Construct an empty content object.
-   */
   public Content() {
-    
+    return;
   }
 
-  /**
-   * Construct a content object with the specified type and value.
-   * @param type the mime type.
-   * @param value the content.
-   */
   public Content(String type, String value) {
     this.setType(type);
     this.setValue(value);
   }
 
-  /**
-   * Get the mime type of the content you are including 
-   * in your email. For example, “text/plain” or “text/html”.
-   * @return the mime type.
-   */
   @JsonProperty("type")
   public String getType() {
     return type;
   }
 
-  /**
-   * Set the mime type of the content you are including 
-   * in your email. For example, “text/plain” or “text/html”.
-   * @param type the mime type.
-   */
   public void setType(String type) {
     this.type = type;
   }
 
-  /**
-   * Get the actual content of the specified mime type 
-   * that you are including in your email.
-   * @return the value.
-   */
   @JsonProperty("value")
   public String getValue() {
     return value;
   }
 
-  /**
-   * Set the actual content of the specified mime type 
-   * that you are including in your email.
-   * @param value the value.
-   */
   public void setValue(String value) {
     ContentVerifier.verifyContent(value);
     this.value = value;
@@ -89,4 +61,36 @@ class ContentVerifier {
         }
       }
     }
+}
+
+  @Override
+  public int hashCode() {
+    final int prime = 31;
+    int result = 1;
+    result = prime * result + ((type == null) ? 0 : type.hashCode());
+    result = prime * result + ((value == null) ? 0 : value.hashCode());
+    return result;
+  }
+
+  @Override
+  public boolean equals(Object obj) {
+    if (this == obj)
+      return true;
+    if (obj == null)
+      return false;
+    if (getClass() != obj.getClass())
+      return false;
+    Content other = (Content) obj;
+    if (type == null) {
+      if (other.type != null)
+        return false;
+    } else if (!type.equals(other.type))
+      return false;
+    if (value == null) {
+      if (other.value != null)
+        return false;
+    } else if (!value.equals(other.value))
+      return false;
+    return true;
+  }
 }

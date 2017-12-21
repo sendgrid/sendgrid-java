@@ -9,7 +9,7 @@
     <groupId>com.sendgrid</groupId>
     <artifactId>sendgrid-java</artifactId>
     <name>SendGrid Java helper library</name>
-    <version>4.1.1</version>
+    <version>4.1.2</version>
     <description>This Java module allows you to quickly and easily send emails through SendGrid using Java.</description>
     <url>https://github.com/sendgrid/sendgrid-java</url>
     <licenses>
@@ -25,7 +25,15 @@
         <developerConnection>scm:git:git@github.com:sendgrid/sendgrid-java.git</developerConnection>
       <tag>HEAD</tag>
   </scm>
-    <build>
+    <build>        
+        <resources>
+            <resource>
+                <directory>${basedir}</directory>
+                <includes>
+                     <include>LICENSE.txt</include>
+                </includes>
+            </resource>
+        </resources>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -120,3 +128,4 @@
         </dependency>
     </dependencies>
 </project>
+

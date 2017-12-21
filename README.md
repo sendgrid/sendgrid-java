@@ -44,11 +44,16 @@ We appreciate your continued support, thank you!
 
 Update the development environment with your [SENDGRID_API_KEY](https://app.sendgrid.com/settings/api_keys), for example:
 
+1. Copy the sample environment file to a new file
 ```bash
-echo "export SENDGRID_API_KEY='YOUR_API_KEY'" > sendgrid.env
-echo "sendgrid.env" >> .gitignore
-source ./sendgrid.env
+cp .env_sample .env
 ```
+2. Edit the new `.env` to add your API key
+3. Source the `.env` file to set rhe variable in the current session
+```bash
+source .env
+```
+
 ## Install Package
 
 Choose your installation method - Maven w/ Gradle (recommended), Maven or Jar file.
@@ -61,7 +66,7 @@ Add the following to your build.gradle file in the root of your project.
 ...
 dependencies {
   ...
-  compile 'com.sendgrid:sendgrid-java:4.1.1'
+  compile 'com.sendgrid:sendgrid-java:4.1.2'
 }
 
 repositories {
