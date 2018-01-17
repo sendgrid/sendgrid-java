@@ -221,6 +221,7 @@ public class Attachments {
     /**
      * Set the content ID of this attachment builder.
      * @param contentId the content ID.
+     * @return attachment builder object.
      */
     public Builder withContentId(String contentId) {
       this.contentId = contentId;
@@ -229,6 +230,7 @@ public class Attachments {
 
     /**
      * Construct the attachments object.
+     * @return the attachments object constructed.
      */
     public Attachments build() {
       Attachments attachments = new Attachments();
