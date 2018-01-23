@@ -1,5 +1,22 @@
 package com.sendgrid;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.sendgrid.Email;
+import com.sendgrid.Content;
+import com.sendgrid.Mail;
+import com.sendgrid.Personalization;
+import com.sendgrid.Attachments;
+import com.sendgrid.ASM;
+import com.sendgrid.MailSettings;
+import com.sendgrid.BccSettings;
+import com.sendgrid.FooterSetting;
+import com.sendgrid.SpamCheckSetting;
+import com.sendgrid.Setting;
+import com.sendgrid.TrackingSettings;
+import com.sendgrid.ClickTrackingSetting;
+import com.sendgrid.OpenTrackingSetting;
+import com.sendgrid.SubscriptionTrackingSetting;
+import com.sendgrid.GoogleAnalyticsSetting;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
