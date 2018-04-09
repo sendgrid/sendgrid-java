@@ -13,6 +13,7 @@ If you can't find a solution below, please open an [issue](https://github.com/se
 * [Using the Package Manager](#package-manager)
 * [Android Compatibility](#android)
 * [Viewing the Request Body](#request-body)
+* [Using Custom Unsubscribe Text for Email Unsubscribe Tags](#unsubscribe-tags)
 
 <a name="migrating"></a>
 ## Migrating from v2 to v3
@@ -109,3 +110,22 @@ You can do this right before you call `request.setBody(mail.build())` like so:
 ```java
 System.out.println(mail.build());
 ```
+
+<a name="unsubscribe-tags"></a>
+## Using Custom Unsubscribe Text for Email Unsubscribe Tags
+
+In the html of your email, add the `asm_group_unsubscribe_raw_url` tag.
+    ```
+    <a href="<%asm_group_unsubscribe_raw_url%>">Custom unsubscribe text here</a>
+    ```
+    
+In the application sending the email, make sure you set the ASM. You have to create an unsubscribe group on the SendGrid web console.
+    ```
+    // From https://app.sendgrid.com/suppressions/advanced_suppression_manager
+    if (request.unsubscribeGroup != null) {
+        mail.setASM(new ASM());
+        mail.asm.setGroupId(request.unsubscribeGroup);
+    }
+    ```
+    
+Make sure to turn off what is now called the Legacy Email Template. This is found in Settings > Mail Settings.
