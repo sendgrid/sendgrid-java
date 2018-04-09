@@ -115,17 +115,19 @@ System.out.println(mail.build());
 ## Using Custom Unsubscribe Text for Email Unsubscribe Tags
 
 In the html of your email, add the `asm_group_unsubscribe_raw_url` tag.
-    ```
-    <a href="<%asm_group_unsubscribe_raw_url%>">Custom unsubscribe text here</a>
-    ```
-    
+
+```html
+<a href="<%asm_group_unsubscribe_raw_url%>">Custom unsubscribe text here</a>
+```
+     
 In the application sending the email, make sure you set the ASM. You have to create an unsubscribe group on the SendGrid web console.
-    ```
-    // From https://app.sendgrid.com/suppressions/advanced_suppression_manager
-    if (request.unsubscribeGroup != null) {
-        mail.setASM(new ASM());
-        mail.asm.setGroupId(request.unsubscribeGroup);
-    }
-    ```
+
+```java
+// From https://app.sendgrid.com/suppressions/advanced_suppression_manager
+if (request.unsubscribeGroup != null) {
+    mail.setASM(new ASM());
+    mail.asm.setGroupId(request.unsubscribeGroup);
+}
+```
     
 Make sure to turn off what is now called the Legacy Email Template. This is found in Settings > Mail Settings.
