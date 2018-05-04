@@ -47,21 +47,6 @@ public class Content {
     ContentVerifier.verifyContent(value);
     this.value = value;
   }
-}
-
-class ContentVerifier {
-    private static final List<Pattern> FORBIDDEN_PATTERNS = Collections.singletonList(
-            Pattern.compile(".*SG\\.[a-zA-Z0-9(-|_)]*\\.[a-zA-Z0-9(-|_)]*.*")
-    );
-
-    static void verifyContent(String content) {
-      for (Pattern pattern: FORBIDDEN_PATTERNS) {
-        if (pattern.matcher(content).matches()) {
-          throw new IllegalArgumentException("Found a Forbidden Pattern in the content of the email");
-        }
-      }
-    }
-}
 
   @Override
   public int hashCode() {
@@ -92,5 +77,19 @@ class ContentVerifier {
     } else if (!value.equals(other.value))
       return false;
     return true;
+  }
+}
+
+class ContentVerifier {
+  private static final List<Pattern> FORBIDDEN_PATTERNS = Collections.singletonList(
+          Pattern.compile(".*SG\\.[a-zA-Z0-9(-|_)]*\\.[a-zA-Z0-9(-|_)]*.*")
+  );
+
+  static void verifyContent(String content) {
+    for (Pattern pattern: FORBIDDEN_PATTERNS) {
+      if (pattern.matcher(content).matches()) {
+        throw new IllegalArgumentException("Found a Forbidden Pattern in the content of the email");
+      }
+    }
   }
 }

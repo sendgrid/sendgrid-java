@@ -13,12 +13,12 @@ public class TestRequiredFilesExist {
         assertTrue(dockerExists);
     }
 
-    // ./docker-compose.yml or ./docker/docker-compose.yml
-    @Test public void checkDockerComposeExists() {
-        boolean dockerComposeExists = new File("./docker-compose.yml").exists() ||
-        new File("./docker/docker-compose.yml").exists();
-        assertTrue(dockerComposeExists);
-    }
+    // // ./docker-compose.yml or ./docker/docker-compose.yml
+    // @Test public void checkDockerComposeExists() {
+    //     boolean dockerComposeExists = new File("./docker-compose.yml").exists() ||
+    //     new File("./docker/docker-compose.yml").exists();
+    //     assertTrue(dockerComposeExists);
+    // }
 
     // ./.env_sample
     @Test public void checkEnvSampleExists() {

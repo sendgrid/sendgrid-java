@@ -1,5 +1,7 @@
 package com.sendgrid;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
+
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
