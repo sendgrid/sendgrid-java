@@ -1,6 +1,10 @@
 # Change Log
 All notable changes to this project will be documented in this file.
 
+## [4.2.1] - 2018-05-08
+### Security Fix
+- Update to latest Jackson recommended dependency, based on [this article](https://medium.com/@cowtowncoder/on-jackson-cves-dont-panic-here-is-what-you-need-to-know-54cd0d6e8062).
+
 ## [4.2.0] - 2018-05-04
 ### Added
 - [PR #275](https://github.com/sendgrid/sendgrid-java/pull/275/files): Add a way to verify that the content doesn't contain sensitive information -- BIG thanks to [Diego Camargo](https://github.com/belfazt)
