@@ -1,6 +1,10 @@
 # Change Log
 All notable changes to this project will be documented in this file.
 
+## [3.2.2] - 2018-05-08
+### Security Fix
+- Update to latest Jackson recommended dependency, based on [this article](https://medium.com/@cowtowncoder/on-jackson-cves-dont-panic-here-is-what-you-need-to-know-54cd0d6e8062).
+
 ## [3.2.1] - 2017-04-13
 ### Added
 - PR #175
