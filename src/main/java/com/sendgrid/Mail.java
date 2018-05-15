@@ -14,8 +14,21 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * Class Mail builds an object that sends an email through SendGrid. 
- * Note that this object is not thread safe.
+ * A POJO representation of the JSON used to send an email with SendGrid, using
+ * <a href="https://github.com/FasterXML/jackson">Jackson</a> metadata. This class is not thread safe.
+ *
+ * <p/>
+ * See the <a href="https://sendgrid.com/docs/API_Reference/Web_API_v3/Mail/index.html">SendGrid API docs</a>, and
+ * examples in <code>/examples/mail</code> (make sure you have set the <code>SENDGRID_API_KEY</code> environment
+ * variable).
+ *
+ * <p/>
+ * To run an example:
+ * <pre>
+cd examples/mail
+javac -classpath ../../build/libs/sendgrid-4.2.1-jar.jar:. Example.java \
+   && java -classpath ../examples/jackson-core-2.9.5.jar:../../build/libs/sendgrid-4.1.0-jar.jar:. Example
+   </pre>
  */
 @JsonInclude(Include.NON_DEFAULT)
 public class Mail {
