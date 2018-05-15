@@ -1,8 +1,8 @@
-FROM store/oracle/serverjre:8
+FROM azul/zulu-openjdk:8
 
 ENV OAI_SPEC_URL="https://raw.githubusercontent.com/sendgrid/sendgrid-oai/master/oai_stoplight.json"
 
-RUN yum install -y git 
+RUN apt-get update && apt-get install -y git curl
 
 WORKDIR /root
 

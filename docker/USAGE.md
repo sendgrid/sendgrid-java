@@ -4,11 +4,8 @@ You can use Docker to easily try out or test sendgrid-java.
 # Quickstart
 
 1. Install Docker on your machine.
-2. If you have not done so, create a Docker Store account [here](https://store.docker.com/signup?next=%2F)
-3. Navigate [here](https://store.docker.com/images/oracle-serverjre-8) and click the "Proceed to Checkout" link (don't worry, it's free).
-4. On the command line, execute `docker login` and provide your credentials.
-5. Build the Docker image using the command `docker build -t sendgrid/sendgrid-java -f Dockerfile .`
-6. Run `docker run -it sendgrid/sendgrid-java`.
+2. Build the Docker image using the command `docker build -t sendgrid/sendgrid-java -f Dockerfile .`
+3. Run `docker run -it sendgrid/sendgrid-java`.
 
 <a name="Info"></a>
 # Info
