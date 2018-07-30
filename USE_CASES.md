@@ -7,9 +7,96 @@ This documentation provides examples for specific use cases. Please [open an iss
 * [How to View Email Statistics](#email_stats)
 
 <a name="transactional-templates"></a>
-# Transactional Templates
+# Dynamic Templates
 
 For this example, we assume you have created a [transactional template](https://sendgrid.com/docs/User_Guide/Transactional_Templates/index.html). Following is the template content we used for testing.
+
+Template ID (replace with your own):
+
+```text
+d-2c214ac919e84170b21855cc129b4a5f
+```
+
+Template Body:
+
+```html
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+Hello {{name}},
+<br/><br/>
+I'm glad you are trying out the template feature!
+<br/><br/>
+I hope you are having a great day in {{city}} :)
+<br/><br/>
+</body>
+</html>
+```
+
+## With Mail Helper Class
+
+```java
+import com.sendgrid.*;
+import java.io.IOException;
+
+public class Example {
+  public static void main(String[] args) throws IOException {
+    Mail mail = new Mail();
+    mail.setFrom(new Email("teste@example.com"));
+    mail.setTemplateId("d-2c214ac919e84170b21855cc129b4a5f");
+    mail.personalization.get(0).addDynamicTemplateData("name", "Example User");
+    mail.personalization.get(0).addDynamicTemplateData("city", "Denver");
+    mail.personalization.get(0).addTo(new Email("test@example.com"));
+    mail.addPersonalization(personalization);
+            
+    SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
+    Request request = new Request();
+    try {
+      request.setMethod(Method.POST);
+      request.setEndpoint("mail/send");
+      request.setBody(mail.build());
+      Response response = sg.api(request);
+      System.out.println(response.getStatusCode());
+      System.out.println(response.getBody());
+      System.out.println(response.getHeaders());
+    } catch (IOException ex) {
+      throw ex;
+    }
+  }
+}
+```
+
+## Without Mail Helper Class
+
+```java
+import com.sendgrid.*;
+import java.io.IOException;
+
+public class Example {
+  public static void main(String[] args) throws IOException {
+    try {
+      SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
+      Request request = new Request();
+      request.setMethod(Method.POST);
+      request.setEndpoint("mail/send");
+      request.setBody("{\"from\":{\"email\":\"test@example.com\"},\"personalizations\":[{\"to\":[{\"email\":\"test@example.com\"}],\"dynamic_template_data\":{\"name\":\"Example User\",\"city\":\"Denver\"}}],\"template_id\":\"d-2c214ac919e84170b21855cc129b4a5f\"}");
+      Response response = sg.api(request);
+      System.out.println(response.getStatusCode());
+      System.out.println(response.getBody());
+      System.out.println(response.getHeaders());
+    } catch (IOException ex) {
+      throw ex;
+    }
+  }
+}
+```
+
+<a name="legacy-templates"></a>
+# Legacy Templates
+
+For this example, we assume you have created a [legacy template](https://sendgrid.com/docs/User_Guide/Transactional_Templates/index.html). Following is the template content we used for testing.
 
 Template ID (replace with your own):
 
