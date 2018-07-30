@@ -19,8 +19,9 @@ public class Personalization {
   @JsonProperty("headers") private Map<String,String> headers;
   @JsonProperty("substitutions") private Map<String,String> substitutions;
   @JsonProperty("custom_args") private Map<String,String> customArgs;
+  @JsonProperty("dynamic_template_data") private Map<String,String> dynamicTemplateData;
   @JsonProperty("send_at") private long sendAt;
-  
+
   @JsonProperty("to")
   public List<Email> getTos() {
     if(tos == null)
@@ -142,6 +143,22 @@ public class Personalization {
 
   public void setSendAt(long sendAt) {
     this.sendAt = sendAt;
+  }
+
+  @JsonProperty("dynamic_template_data")
+  public Map<String,String> getDynamicTemplateData() {
+    if(dynamicTemplateData == null)
+       return Collections.<String,String>emptyMap();
+    return dynamicTemplateData;
+  }
+
+  public void addDynamicTemplateData(String key, String value) {
+    if (dynamicTemplateData == null) {
+      dynamicTemplateData = new HashMap<String,String>();
+      dynamicTemplateData.put(key, value);
+    } else {
+      dynamicTemplateData.put(key, value);
+    }
   }
 
   @Override
