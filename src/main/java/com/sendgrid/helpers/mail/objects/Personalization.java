@@ -19,7 +19,7 @@ public class Personalization {
   @JsonProperty("headers") private Map<String,String> headers;
   @JsonProperty("substitutions") private Map<String,String> substitutions;
   @JsonProperty("custom_args") private Map<String,String> customArgs;
-  @JsonProperty("dynamic_template_data") private Map<String,String> dynamicTemplateData;
+  @JsonProperty("dynamic_template_data") private Map<String,Object> dynamicTemplateData;
   @JsonProperty("send_at") private long sendAt;
 
   @JsonProperty("to")
@@ -146,15 +146,15 @@ public class Personalization {
   }
 
   @JsonProperty("dynamic_template_data")
-  public Map<String,String> getDynamicTemplateData() {
+  public Map<String,Object> getDynamicTemplateData() {
     if(dynamicTemplateData == null)
-       return Collections.<String,String>emptyMap();
+       return Collections.<String,Object>emptyMap();
     return dynamicTemplateData;
   }
 
-  public void addDynamicTemplateData(String key, String value) {
+  public void addDynamicTemplateData(String key, Object value) {
     if (dynamicTemplateData == null) {
-      dynamicTemplateData = new HashMap<String,String>();
+      dynamicTemplateData = new HashMap<String,Object>();
       dynamicTemplateData.put(key, value);
     } else {
       dynamicTemplateData.put(key, value);
