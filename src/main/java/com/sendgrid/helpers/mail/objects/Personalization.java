@@ -147,9 +147,8 @@ public class Personalization {
 
   @JsonProperty("dynamic_template_data")
   public Map<String,Object> getDynamicTemplateData() {
-    if(dynamicTemplateData == null)
-       return Collections.<String,Object>emptyMap();
-    return dynamicTemplateData;
+    return dynamicTemplateData == null
+            ? Collections.<String,Object>emptyMap() : dynamicTemplateData;
   }
 
   public void addDynamicTemplateData(String key, Object value) {
