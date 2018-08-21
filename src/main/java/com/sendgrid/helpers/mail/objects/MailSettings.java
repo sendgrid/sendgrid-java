@@ -9,6 +9,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  * settings that you can use to specify how you would
  * like this email to be handled.
  */
+
 @JsonInclude(Include.NON_DEFAULT)
 public class MailSettings {
   @JsonProperty("bcc") private BccSettings bccSettings;
@@ -17,10 +18,6 @@ public class MailSettings {
   @JsonProperty("sandbox_mode") private Setting sandBoxMode;
   @JsonProperty("spam_check") private SpamCheckSetting spamCheckSetting;
 
-  /**
-   * Get the BCC settings.
-   * @return the BCC settings.
-   */
   @JsonProperty("bcc")
   public BccSettings getBccSettings() {
     return bccSettings;
@@ -42,15 +39,12 @@ public class MailSettings {
    * that every recipient receives your email.
    * @return the bypass list setting.
    */
+
   @JsonProperty("bypass_list_management")
   public Setting getBypassListManagement() {
     return bypassListManagement;
   }
 
-  /**
-   * Set the bypass setting.
-   * @param bypassListManagement the setting.
-   */
   public void setBypassListManagement(Setting bypassListManagement) {
     this.bypassListManagement = bypassListManagement;
   }
@@ -59,6 +53,7 @@ public class MailSettings {
    * Get the the footer settings that you would like included on every email.
    * @return the setting.
    */
+
   @JsonProperty("footer")
   public FooterSetting getFooterSetting() {
     return footerSetting;
@@ -77,6 +72,7 @@ public class MailSettings {
    * ensure that your request body is valid and formatted correctly.
    * @return the sandbox mode setting.
    */
+
   @JsonProperty("sandbox_mode")
   public Setting getSandBoxMode() {
     return sandBoxMode;
@@ -96,6 +92,7 @@ public class MailSettings {
    * content of your email for spam.
    * @return the spam check setting.
    */
+
   @JsonProperty("spam_check")
   public SpamCheckSetting getSpamCheck() {
     return spamCheckSetting;
@@ -106,7 +103,57 @@ public class MailSettings {
    * content of your email for spam.
    * @param spamCheckSetting the spam check setting.
    */
+
   public void setSpamCheckSetting(SpamCheckSetting spamCheckSetting) {
     this.spamCheckSetting = spamCheckSetting;
+  }
+
+  @Override
+  public int hashCode() {
+    final int prime = 31;
+    int result = 1;
+    result = prime * result + ((bccSettings == null) ? 0 : bccSettings.hashCode());
+    result = prime * result + ((bypassListManagement == null) ? 0 : bypassListManagement.hashCode());
+    result = prime * result + ((footerSetting == null) ? 0 : footerSetting.hashCode());
+    result = prime * result + ((sandBoxMode == null) ? 0 : sandBoxMode.hashCode());
+    result = prime * result + ((spamCheckSetting == null) ? 0 : spamCheckSetting.hashCode());
+    return result;
+  }
+
+  @Override
+  public boolean equals(Object obj) {
+    if (this == obj)
+      return true;
+    if (obj == null)
+      return false;
+    if (getClass() != obj.getClass())
+      return false;
+    MailSettings other = (MailSettings) obj;
+    if (bccSettings == null) {
+      if (other.bccSettings != null)
+        return false;
+    } else if (!bccSettings.equals(other.bccSettings))
+      return false;
+    if (bypassListManagement == null) {
+      if (other.bypassListManagement != null)
+        return false;
+    } else if (!bypassListManagement.equals(other.bypassListManagement))
+      return false;
+    if (footerSetting == null) {
+      if (other.footerSetting != null)
+        return false;
+    } else if (!footerSetting.equals(other.footerSetting))
+      return false;
+    if (sandBoxMode == null) {
+      if (other.sandBoxMode != null)
+        return false;
+    } else if (!sandBoxMode.equals(other.sandBoxMode))
+      return false;
+    if (spamCheckSetting == null) {
+      if (other.spamCheckSetting != null)
+        return false;
+    } else if (!spamCheckSetting.equals(other.spamCheckSetting))
+      return false;
+    return true;
   }
 }

@@ -5,6 +5,7 @@
 [![Email Notifications Badge](https://dx.sendgrid.com/badge/java)](https://dx.sendgrid.com/newsletter/java)
 [![Twitter Follow](https://img.shields.io/twitter/follow/sendgrid.svg?style=social&label=Follow)](https://twitter.com/sendgrid)
 [![GitHub contributors](https://img.shields.io/github/contributors/sendgrid/sendgrid-java.svg)](https://github.com/sendgrid/sendgrid-java/graphs/contributors)
+[![Open Source Helpers](https://www.codetriage.com/sendgrid/sendgrid-java/badges/users.svg)](https://www.codetriage.com/sendgrid/sendgrid-java)
 [![MIT licensed](https://img.shields.io/badge/license-MIT-blue.svg)](./LICENSE.txt)
 
 **NEW:** Subscribe to email [notifications](https://dx.sendgrid.com/newsletter/java) for releases and breaking changes.
@@ -15,7 +16,7 @@ Version 3.X.X of this library provides full support for all SendGrid [Web API v3
 
 This library represents the beginning of a new path for SendGrid. We want this library to be community driven and SendGrid led. We need your help to realize this goal. To help make sure we are building the right things in the right order, we ask that you create [issues](https://github.com/sendgrid/sendgrid-java/issues) and [pull requests](https://github.com/sendgrid/sendgrid-java/blob/master/CONTRIBUTING.md) or simply upvote or comment on existing issues or pull requests.
 
-Please browse the rest of this README for further detail.
+Please browse the rest of this README for further details.
 
 We appreciate your continued support, thank you!
 
@@ -44,11 +45,16 @@ We appreciate your continued support, thank you!
 
 Update the development environment with your [SENDGRID_API_KEY](https://app.sendgrid.com/settings/api_keys), for example:
 
+1. Copy the sample environment file to a new file
 ```bash
-echo "export SENDGRID_API_KEY='YOUR_API_KEY'" > sendgrid.env
-echo "sendgrid.env" >> .gitignore
-source ./sendgrid.env
+cp .env_sample .env
 ```
+2. Edit the new `.env` to add your API key
+3. Source the `.env` file to set rhe variable in the current session
+```bash
+source .env
+```
+
 ## Install Package
 
 Choose your installation method - Maven w/ Gradle (recommended), Maven or Jar file.
@@ -61,7 +67,7 @@ Add the following to your build.gradle file in the root of your project.
 ...
 dependencies {
   ...
-  compile 'com.sendgrid:sendgrid-java:4.1.1'
+  compile 'com.sendgrid:sendgrid-java:4.2.1'
 }
 
 repositories {
@@ -80,7 +86,7 @@ mvn install
 
 You can just drop the jar file in. It's a fat jar - it has all the dependencies built in.
 
-[sendgrid-java-latest.jar](http://dx.sendgrid.com/downloads/sendgrid-java/sendgrid-java-latest.jar)
+[sendgrid-java.jar](https://github.com/sendgrid/sendgrid-java/releases/download/v4.2.1/sendgrid-java.jar)
 
 ## Dependencies
 

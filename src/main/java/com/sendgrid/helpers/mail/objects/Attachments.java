@@ -238,4 +238,53 @@ public class Attachments {
       return attachments;
     }
   }
+
+  @Override
+  public int hashCode() {
+    final int prime = 31;
+    int result = 1;
+    result = prime * result + ((content == null) ? 0 : content.hashCode());
+    result = prime * result + ((contentId == null) ? 0 : contentId.hashCode());
+    result = prime * result + ((disposition == null) ? 0 : disposition.hashCode());
+    result = prime * result + ((filename == null) ? 0 : filename.hashCode());
+    result = prime * result + ((type == null) ? 0 : type.hashCode());
+    return result;
+  }
+
+  @Override
+  public boolean equals(Object obj) {
+    if (this == obj)
+      return true;
+    if (obj == null)
+      return false;
+    if (getClass() != obj.getClass())
+      return false;
+    Attachments other = (Attachments) obj;
+    if (content == null) {
+      if (other.content != null)
+        return false;
+    } else if (!content.equals(other.content))
+      return false;
+    if (contentId == null) {
+      if (other.contentId != null)
+        return false;
+    } else if (!contentId.equals(other.contentId))
+      return false;
+    if (disposition == null) {
+      if (other.disposition != null)
+        return false;
+    } else if (!disposition.equals(other.disposition))
+      return false;
+    if (filename == null) {
+      if (other.filename != null)
+        return false;
+    } else if (!filename.equals(other.filename))
+      return false;
+    if (type == null) {
+      if (other.type != null)
+        return false;
+    } else if (!type.equals(other.type))
+      return false;
+    return true;
+  }
 }

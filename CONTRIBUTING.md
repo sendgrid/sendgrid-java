@@ -102,7 +102,7 @@ touch Example.java
 Add the example you want to test to Example.java, including the headers at the top of the file.
 
 ``` bash
-javac -classpath ../repo/com/sendgrid/4.1.1/sendgrid-4.1.0-jar.jar:. Example.java && java -classpath ../repo/com/sendgrid/4.1.0/sendgrid-4.1.1-jar.jar:. Example
+javac -classpath ../repo/com/sendgrid/4.2.1/sendgrid-4.2.1-jar.jar:. Example.java && java -classpath ../repo/com/sendgrid/4.2.1/sendgrid-4.2.1-jar.jar:. Example
 ```
 
 <a name="understanding-the-codebase"></a>
@@ -129,7 +129,7 @@ All test files are in the [`tests`](https://github.com/sendgrid/sendgrid-java/tr
 
 For the purposes of contributing to this repo, please update the [`SendGridTest.java`](https://github.com/sendgrid/sendgrid-java/tree/master/src/test/java/com/sendgrid/SendGridTest.java) file with unit tests as you modify the code.
 
-1. Download [prism](https://stoplight.io/prism/) for your platform ([Mac OS X](https://github.com/stoplightio/prism/releases/download/v0.1.5/prism_darwin_amd64)) and save the binary to the sendgrid-ruby directory (or any directory you would like. The sendgrid-ruby directory is chosen mostly for convenience.)
+1. Download [prism](http://stoplight.io/platform/prism/) for your platform ([Mac OS X](https://github.com/stoplightio/prism/releases/download/v0.6.21/prism_darwin_amd64), [Linux](https://github.com/stoplightio/prism/releases/download/v0.6.21/prism_linux_amd64), [Windows](https://github.com/stoplightio/prism/releases/download/v0.6.21/prism_windows_amd64.exe)) and save the binary to the sendgrid-java directory (or any directory you would like. The sendgrid-java directory is chosen mostly for convenience.)
 
 1. Add execute permissions
 
@@ -168,8 +168,10 @@ Please run your code through:
    ```bash
    # Clone your fork of the repo into the current directory
    git clone https://github.com/sendgrid/sendgrid-java
+   
    # Navigate to the newly cloned directory
    cd sendgrid-java
+   
    # Assign the original repo to a remote called "upstream"
    git remote add upstream https://github.com/sendgrid/sendgrid-java
    ```

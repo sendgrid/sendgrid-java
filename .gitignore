@@ -13,3 +13,5 @@ examples/Example.java
 .settings
 .classpath
 .project
+.env
+.vscode
