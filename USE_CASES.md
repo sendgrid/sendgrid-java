@@ -2,12 +2,13 @@ This documentation provides examples for specific use cases. Please [open an iss
 
 # Table of Contents
 
-* [Transactional Templates](#transactional_templates)
-* [How to Setup a Domain Whitelabel](#domain_whitelabel)
-* [How to View Email Statistics](#email_stats)
+* [Transactional Templates](#transactional-templates)
+* [Legacy Templates](#legacy-templates)
+* [How to Setup a Domain Whitelabel](#domain-whitelabel)
+* [How to View Email Statistics](#email-stats)
 
 <a name="transactional-templates"></a>
-# Dynamic Templates
+# Transactional Templates
 
 For this example, we assume you have created a [transactional template](https://sendgrid.com/docs/User_Guide/Transactional_Templates/index.html). Following is the template content we used for testing.
 
@@ -21,17 +22,17 @@ Template Body:
 
 ```html
 <html>
-<head>
-	<title></title>
-</head>
-<body>
-Hello {{name}},
-<br/><br/>
-I'm glad you are trying out the template feature!
-<br/><br/>
-I hope you are having a great day in {{city}} :)
-<br/><br/>
-</body>
+  <head>
+    <title></title>
+  </head>
+  <body>
+    Hello {{name}},
+    <br/><br/>
+    I'm glad you are trying out the template feature!
+    <br/><br/>
+    I hope you are having a great day in {{city}} :)
+    <br/><br/>
+  </body>
 </html>
 ```
 
@@ -46,9 +47,11 @@ public class Example {
     Mail mail = new Mail();
     mail.setFrom(new Email("teste@example.com"));
     mail.setTemplateId("d-2c214ac919e84170b21855cc129b4a5f");
-    mail.personalization.get(0).addDynamicTemplateData("name", "Example User");
-    mail.personalization.get(0).addDynamicTemplateData("city", "Denver");
-    mail.personalization.get(0).addTo(new Email("test@example.com"));
+
+    Personalization personalization = new Personalization();
+    personalization.addDynamicTemplateData("name", "Example User");
+    personalization.addDynamicTemplateData("city", "Denver");
+    personalization.addTo(new Email("test@example.com"));
     mail.addPersonalization(personalization);
             
     SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
@@ -81,7 +84,14 @@ public class Example {
       Request request = new Request();
       request.setMethod(Method.POST);
       request.setEndpoint("mail/send");
-      request.setBody("{\"from\":{\"email\":\"test@example.com\"},\"personalizations\":[{\"to\":[{\"email\":\"test@example.com\"}],\"dynamic_template_data\":{\"name\":\"Example User\",\"city\":\"Denver\"}}],\"template_id\":\"d-2c214ac919e84170b21855cc129b4a5f\"}");
+      request.setBody("{
+        \"from\": {\"email\": \"test@example.com\"},
+        \"personalizations\":
+        [{
+          \"to\": [{\"email\": \"test@example.com\"}],
+          \"dynamic_template_data\": {\"name\": \"Example User\", \"city\": \"Denver\"}
+        }],
+        \"template_id\": \"d-2c214ac919e84170b21855cc129b4a5f\"}");
       Response response = sg.api(request);
       System.out.println(response.getStatusCode());
       System.out.println(response.getBody());
@@ -114,19 +124,19 @@ Template Body:
 
 ```html
 <html>
-<head>
-	<title></title>
-</head>
-<body>
-Hello -name-,
-<br /><br/>
-I'm glad you are trying out the template feature!
-<br /><br/>
-<%body%>
-<br /><br/>
-I hope you are having a great day in -city- :)
-<br /><br/>
-</body>
+  <head>
+    <title></title>
+  </head>
+  <body>
+    Hello -name-,
+    <br /><br/>
+    I'm glad you are trying out the template feature!
+    <br /><br/>
+    <%body%>
+    <br /><br/>
+    I hope you are having a great day in -city- :)
+    <br /><br/>
+  </body>
 </html>
 ```
 
@@ -177,7 +187,20 @@ public class Example {
       Request request = new Request();
       request.setMethod(Method.POST);
       request.setEndpoint("mail/send");
-      request.setBody("{\"personalizations\":[{\"to\":[{\"email\":\"test@example.com\"}],\"substitutions\":{\"-name-\":\"Example User\",\"-city-\":\"Denver\"},\"subject\":\"Hello World from the SendGrid Java Library!\"}],\"from\":{\"email\":\"test@example.com\"},\"content\":[{\"type\":\"text/html\",\"value\": \"I'm replacing the <strong>body tag</strong>\"}],\"template_id\": \"13b8f94f-bcae-4ec6-b752-70d6cb59f932\"}");
+      request.setBody("{
+        \"personalizations\":
+        [{
+          \"to\": [{\"email\": \"test@example.com\"}],
+          \"substitutions\": {\"-name-\": \"Example User\", \"-city-\": \"Denver\"},
+          \"subject\": \"Hello World from the SendGrid Java Library!\"
+        }],
+        \"from\": {\"email\": \"test@example.com\"},
+        \"content\":
+        [{
+          \"type\": \"text/html\",
+          \"value\": \"I'm replacing the <strong>body tag</strong>\"
+        }]
+        ,\"template_id\": \"13b8f94f-bcae-4ec6-b752-70d6cb59f932\"}");
       Response response = sg.api(request);
       System.out.println(response.getStatusCode());
       System.out.println(response.getBody());
@@ -189,14 +212,14 @@ public class Example {
 }
 ```
 
-<a name="domain_whitelabel"></a>
+<a name="domain-whitelabel"></a>
 # How to Setup a Domain Whitelabel
 
 You can find documentation for how to setup a domain whitelabel via the UI [here](https://sendgrid.com/docs/Classroom/Basics/Whitelabel/setup_domain_whitelabel.html) and via API [here](https://github.com/sendgrid/sendgrid-java/blob/master/USAGE.md#whitelabel).
 
 Find more information about all of SendGrid's whitelabeling related documentation [here](https://sendgrid.com/docs/Classroom/Basics/Whitelabel/index.html).
 
-<a name="email_stats"></a>
+<a name="email-stats"></a>
 # How to View Email Statistics
 
 You can find documentation for how to view your email statistics via the UI [here](https://app.sendgrid.com/statistics) and via API [here](https://github.com/sendgrid/sendgrid-java/blob/master/USAGE.md#stats).

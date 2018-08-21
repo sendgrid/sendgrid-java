@@ -154,10 +154,8 @@ public class Personalization {
   public void addDynamicTemplateData(String key, Object value) {
     if (dynamicTemplateData == null) {
       dynamicTemplateData = new HashMap<String,Object>();
-      dynamicTemplateData.put(key, value);
-    } else {
-      dynamicTemplateData.put(key, value);
     }
+    dynamicTemplateData.put(key, value);
   }
 
   @Override

@@ -207,6 +207,26 @@ public class Example {
     return mail;
   }
 
+  // API V3 Dynamic Template implementation
+  public static Mail buildDynamicTemplate() throws IOException {
+    Mail mail = new Mail();
+
+    Email fromEmail = new Email();
+    fromEmail.setName("Example User");
+    fromEmail.setEmail("test@example.com");
+    mail.setFrom(fromEmail);
+
+    mail.setTemplateId("d-c6dcf1f72bdd4beeb15a9aa6c72fcd2c");
+
+    Personalization personalization = new Personalization();
+    personalization.addDynamicTemplateData("name", "Example User");
+    personalization.addDynamicTemplateData("city", "Denver");
+    personalization.addTo(new Email("test@example.com"));
+    mail.addPersonalization(personalization);
+    
+    return mail;
+  }
+
   // Minimum required to send an email
   public static Mail buildHelloEmail() throws IOException {
     Email from = new Email("test@example.com");
@@ -261,8 +281,28 @@ public class Example {
     }
   }
 
+  public static void dynamicTemplateExample() throws IOException {
+    SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
+    sg.addRequestHeader("X-Mock", "true");
+
+    Request request = new Request();
+    Mail dynamicTemplate = buildDynamicTemplate();
+    try {
+      request.setMethod(Method.POST);
+      request.setEndpoint("mail/send");
+      request.setBody(dynamicTemplate.build());
+      Response response = sg.api(request);
+      System.out.println(response.getStatusCode());
+      System.out.println(response.getBody());
+      System.out.println(response.getHeaders());
+    } catch (IOException ex) {
+      throw ex;
+    }
+  }
+
   public static void main(String[] args) throws IOException {
-    baselineExample();
-    kitchenSinkExample();
+    // baselineExample();
+    // kitchenSinkExample();
+    dynamicTemplateExample();
   }
 }
