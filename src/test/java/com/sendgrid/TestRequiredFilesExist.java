@@ -1,3 +1,5 @@
+package com.sendgrid;
+
 import org.junit.Test;
 
 import java.io.File;
