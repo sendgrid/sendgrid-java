@@ -12,7 +12,7 @@
  */
 
 apply plugin: 'java'
-apply plugin: 'fatjar'
+apply plugin: 'eu.appsatori.fatjar'
 apply plugin: 'maven'
 apply plugin: 'signing'
 
@@ -31,16 +31,18 @@ if (!hasProperty("sonatypeUsername")) {
   ext.sonatypePassword = null
 }
 
-task wrapper(type: Wrapper) {
-  gradleVersion = '1.8'
-}
-
 buildscript {
   dependencies {
-    classpath 'eu.appsatori:gradle-fatjar-plugin:0.1.2' // adds fatJar task
+    // TODO: migrate to https://github.com/johnrengelman/shadow
+    // as fatJar is no longer under active development.
+    classpath 'eu.appsatori:gradle-fatjar-plugin:0.3' // adds fatJar task
   }
   repositories {
     mavenCentral()
+    maven {
+      // For fatjar 0.3
+      url "https://plugins.gradle.org/m2/"
+    }
   }
 }
 
