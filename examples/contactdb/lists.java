@@ -1,36 +1,15 @@
-import com.sendgrid.Method;
-import com.sendgrid.Request;
-import com.sendgrid.Response;
-import com.sendgrid.SendGrid;
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.ObjectMapper;
+
+import com.sendgrid.*;
 
 import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
 
 //////////////////////////////////////////////////////////////////
-// Retrieve all recent access attempts
-// GET /access_settings/activity
-
-
-public class Example {
-  public static void main(String[] args) throws IOException {
-    try {
-      SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
-      Request request = new Request();
-      request.setMethod(Method.GET);
-      request.setEndpoint("access_settings/activity");
-      request.addQueryParam("limit", "1");
-      Response response = sg.api(request);
-      System.out.println(response.getStatusCode());
-      System.out.println(response.getBody());
-      System.out.println(response.getHeaders());
-    } catch (IOException ex) {
-      throw ex;
-    }
-  }
-}
-
-//////////////////////////////////////////////////////////////////
-// Add one or more IPs to the whitelist
-// POST /access_settings/whitelist
+// Create a List
+// POST /contactdb/lists
 
 
 public class Example {
@@ -39,8 +18,8 @@ public class Example {
       SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
       Request request = new Request();
       request.setMethod(Method.POST);
-      request.setEndpoint("access_settings/whitelist");
-      request.setBody("{\"ips\":[{\"ip\":\"192.168.1.1\"},{\"ip\":\"192.*.*.*\"},{\"ip\":\"192.168.1.3/32\"}]}");
+      request.setEndpoint("contactdb/lists");
+      request.setBody("{\"name\":\"your list name\"}");
       Response response = sg.api(request);
       System.out.println(response.getStatusCode());
       System.out.println(response.getBody());
@@ -52,8 +31,8 @@ public class Example {
 }
 
 //////////////////////////////////////////////////////////////////
-// Retrieve a list of currently whitelisted IPs
-// GET /access_settings/whitelist
+// Retrieve all lists
+// GET /contactdb/lists
 
 
 public class Example {
@@ -62,7 +41,7 @@ public class Example {
       SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
       Request request = new Request();
       request.setMethod(Method.GET);
-      request.setEndpoint("access_settings/whitelist");
+      request.setEndpoint("contactdb/lists");
       Response response = sg.api(request);
       System.out.println(response.getStatusCode());
       System.out.println(response.getBody());
@@ -74,8 +53,8 @@ public class Example {
 }
 
 //////////////////////////////////////////////////////////////////
-// Remove one or more IPs from the whitelist
-// DELETE /access_settings/whitelist
+// Delete Multiple lists
+// DELETE /contactdb/lists
 
 
 public class Example {
@@ -84,8 +63,8 @@ public class Example {
       SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
       Request request = new Request();
       request.setMethod(Method.DELETE);
-      request.setEndpoint("access_settings/whitelist");
-      request.setBody("{\"ids\":[1,2,3]}");
+      request.setEndpoint("contactdb/lists");
+      request.setBody("[1,2,3,4]");
       Response response = sg.api(request);
       System.out.println(response.getStatusCode());
       System.out.println(response.getBody());
@@ -97,8 +76,32 @@ public class Example {
 }
 
 //////////////////////////////////////////////////////////////////
-// Retrieve a specific whitelisted IP
-// GET /access_settings/whitelist/{rule_id}
+// Update a List
+// PATCH /contactdb/lists/{list_id}
+
+
+public class Example {
+  public static void main(String[] args) throws IOException {
+    try {
+      SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
+      Request request = new Request();
+      request.setMethod(Method.PATCH);
+      request.setEndpoint("contactdb/lists/{list_id}");
+      request.setBody("{\"name\":\"newlistname\"}");
+      request.addQueryParam("list_id", "1");
+      Response response = sg.api(request);
+      System.out.println(response.getStatusCode());
+      System.out.println(response.getBody());
+      System.out.println(response.getHeaders());
+    } catch (IOException ex) {
+      throw ex;
+    }
+  }
+}
+
+//////////////////////////////////////////////////////////////////
+// Retrieve a single list
+// GET /contactdb/lists/{list_id}
 
 
 public class Example {
@@ -107,7 +110,8 @@ public class Example {
       SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
       Request request = new Request();
       request.setMethod(Method.GET);
-      request.setEndpoint("access_settings/whitelist/{rule_id}");
+      request.setEndpoint("contactdb/lists/{list_id}");
+      request.addQueryParam("list_id", "1");
       Response response = sg.api(request);
       System.out.println(response.getStatusCode());
       System.out.println(response.getBody());
@@ -119,8 +123,8 @@ public class Example {
 }
 
 //////////////////////////////////////////////////////////////////
-// Remove a specific IP from the whitelist
-// DELETE /access_settings/whitelist/{rule_id}
+// Delete a List
+// DELETE /contactdb/lists/{list_id}
 
 
 public class Example {
@@ -129,7 +133,8 @@ public class Example {
       SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
       Request request = new Request();
       request.setMethod(Method.DELETE);
-      request.setEndpoint("access_settings/whitelist/{rule_id}");
+      request.setEndpoint("contactdb/lists/{list_id}");
+      request.addQueryParam("delete_contacts", "true");
       Response response = sg.api(request);
       System.out.println(response.getStatusCode());
       System.out.println(response.getBody());
@@ -139,4 +144,3 @@ public class Example {
     }
   }
 }
-

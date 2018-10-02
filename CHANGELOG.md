@@ -1,6 +1,40 @@
 # Change Log
 All notable changes to this project will be documented in this file.
 
+## [4.2.1] - 2018-05-08
+### Security Fix
+- Update to latest Jackson recommended dependency, based on [this article](https://medium.com/@cowtowncoder/on-jackson-cves-dont-panic-here-is-what-you-need-to-know-54cd0d6e8062).
+
+## [4.2.0] - 2018-05-04
+### Added
+- [PR #275](https://github.com/sendgrid/sendgrid-java/pull/275/files): Add a way to verify that the content doesn't contain sensitive information -- BIG thanks to [Diego Camargo](https://github.com/belfazt)
+- [PR #249](https://github.com/sendgrid/sendgrid-java/pull/249): Add optional rate limit support -- BIG thanks to [Andy Trimble](https://github.com/andy-trimble)
+- [PR #379](https://github.com/sendgrid/sendgrid-java/pull/379): Break up the examples in examples/subusers/subusers.java to their own files -- BIG thanks to [huytranrjc](https://github.com/huytranrjc)
+- [PR #365](https://github.com/sendgrid/sendgrid-java/pull/365): Test to check year in license file -- BIG thanks to [Alex](https://github.com/pushkyn)
+- [PR #345](https://github.com/sendgrid/sendgrid-java/pull/345): Add .codeclimate.yml file -- BIG thanks to [Rostyslav Zatserkovnyi](https://github.com/rzats)
+- [PR #319](https://github.com/sendgrid/sendgrid-java/pull/319): Add .env_sample file -- BIG thanks to [Thiago Barbato](https://github.com/thiagobbt)
+- [PR #223](https://github.com/sendgrid/sendgrid-java/pull/223): The license file is now in the release jar -- BIG thanks to [sccalabr](https://github.com/sccalabr)
+- [PR #224](https://github.com/sendgrid/sendgrid-java/pull/224): Adding SendGridApi interface -- BIG thanks to [sccalabr](https://github.com/sccalabr)
+
+### Fix
+- [PR #410](https://github.com/sendgrid/sendgrid-java/pull/410): Update Jackson dependencies to the latest version -- BIG thanks to [Dmitry Avershin](https://github.com/dmitraver)
+- [PR #380](https://github.com/sendgrid/sendgrid-java/pull/380): Fix "similar-code" issue in examples/whitelabel/ips.java -- BIG thanks to [huytranrjc](https://github.com/huytranrjc)
+- [PR #255](https://github.com/sendgrid/sendgrid-java/pull/225): Fix Mail deserialization issue -- BIG thanks to [sccalabr](https://github.com/sccalabr)
+- [PR #359](https://github.com/sendgrid/sendgrid-java/pull/359): Fix code issue in examples/suppression/suppression.java -- BIG thanks to [Alex](https://github.com/pushkyn)
+- [PR #228](https://github.com/sendgrid/sendgrid-java/pull/228): Changes serialization type from default to non-empty -- BIG thanks to [Dmitry Avershin](https://github.com/dmitraver)
+- [PR #373](https://github.com/sendgrid/sendgrid-java/pull/373): Fix file_lines issue in examples/mailsettings/mailsettings.java -- BIG thanks to [Mithun Sasidharan](https://github.com/mithunsasidharan)
+
+
+## [4.1.2] - 2017-10-30
+### Added
+- PR #220 Alway serialize click-tracking parameters.
+- BIG thanks to [Mattia Barbon](https://github.com/mbarbon)
+
+## [4.1.1] - 2017-10-10
+### Added
+- PR #247 Added Javadocs.
+- BIG thanks to [Andy Trimble](https://github.com/andy-trimble)
+
 ## [4.1.0] - 2017-08-16
 ### Added
 - PR #211 Return empty collections in place of nulls
@@ -15,12 +49,12 @@ All notable changes to this project will be documented in this file.
 ### BREAKING CHANGE
 - PR #162 Update java http client dependency to [4.1.0 from 2.3.4](https://github.com/sendgrid/java-http-client/releases)
 - BIG thanks to [Diego Camargo](https://github.com/belfazt) for the pull request!
-- The breaking change is that variables that were public are now private and accessable only via getters and setters
-- The `Request` object attributes are now only accessable through getters/setters
+- The breaking change is that variables that were public are now private and accessible only via getters and setters
+- The `Request` object attributes are now only accessible through getters/setters
 - `request.method` is now `request.setMethod(string)`
 - `request.endpoint` is now `request.setEndpoint(string)`
 - `request.body` is now `request.setBody(string)`
-- The `Response` object attributes are now only accessable through getters/setters
+- The `Response` object attributes are now only accessible through getters/setters
 - `response.statusCode` is now `response.getStatusCode()`
 - `response.body` is now `response.getBody()`
 - `response.headers` is now `response.getHeaders()`
@@ -113,7 +147,7 @@ request.addQueryParam("limit", "1");
 
 ## [2.2.2] - 2015-5-23
 ### Fixed
-- Subsitution orders being swapped via [#65](https://github.com/sendgrid/sendgrid-java/pull/65)
+- Substitution orders being swapped via [#65](https://github.com/sendgrid/sendgrid-java/pull/65)
 
 ## [2.2.1] - 2015-5-14
 ### Changed
