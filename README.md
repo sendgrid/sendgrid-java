@@ -230,7 +230,9 @@ Please see our [troubleshooting guide](https://github.com/sendgrid/sendgrid-java
 <a name="about"></a>
 # About
 
-sendgrid-java is guided and supported by the SendGrid [Developer Experience Team](mailto:dx@sendgrid.com).
+sendgrid-java is guided and supported by the SendGrid Developer Experience Team.
+
+Please email the Developer Experience Team [here](mailto:dx@sendgrid.com) in case of any queries. 
 
 sendgrid-java is maintained and funded by SendGrid, Inc. The names and logos for sendgrid-java are trademarks of SendGrid, Inc.
 
