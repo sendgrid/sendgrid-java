@@ -2369,7 +2369,7 @@ public class SendGridTest {
 
     Request request = new Request();
     request.setMethod(Method.GET);
-    request.setEndpoint("suppression/spam_report/{email}");
+    request.setEndpoint("suppression/spam_reports/{email}");
     Response response = sg.api(request);
     Assert.assertEquals(200, response.getStatusCode());
   }
@@ -2382,7 +2382,7 @@ public class SendGridTest {
 
     Request request = new Request();
     request.setMethod(Method.DELETE);
-    request.setEndpoint("suppression/spam_report/{email}");
+    request.setEndpoint("suppression/spam_reports/{email}");
     Response response = sg.api(request);
     Assert.assertEquals(204, response.getStatusCode());
   }
