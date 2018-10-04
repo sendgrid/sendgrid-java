@@ -67,7 +67,7 @@ Add the following to your build.gradle file in the root of your project.
 ...
 dependencies {
   ...
-  compile 'com.sendgrid:sendgrid-java:4.2.1'
+  implementation 'com.sendgrid:sendgrid-java:4.2.1'
 }
 
 repositories {
