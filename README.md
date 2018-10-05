@@ -219,8 +219,8 @@ Quick links:
 
 - [Feature Request](https://github.com/sendgrid/sendgrid-java/blob/master/CONTRIBUTING.md#feature-request)
 - [Bug Reports](https://github.com/sendgrid/sendgrid-java/blob/master/CONTRIBUTING.md#submit-a-bug-report)
-- [Sign the CLA to Create a Pull Request](https://github.com/sendgrid/sendgrid-java/blob/master/CONTRIBUTING.md#cla)
 - [Improvements to the Codebase](https://github.com/sendgrid/sendgrid-java/blob/master/CONTRIBUTING.md#improvements-to-the-codebase)
+- [Sign the CLA to Create a Pull Request](https://cla.sendgrid.com/sendgrid/sendgrid-java)
 
 <a name="troubleshooting"></a>
 # Troubleshooting
@@ -230,7 +230,9 @@ Please see our [troubleshooting guide](https://github.com/sendgrid/sendgrid-java
 <a name="about"></a>
 # About
 
-sendgrid-java is guided and supported by the SendGrid [Developer Experience Team](mailto:dx@sendgrid.com).
+sendgrid-java is guided and supported by the SendGrid Developer Experience Team.
+
+Please email the Developer Experience Team [here](mailto:dx@sendgrid.com) in case of any queries. 
 
 sendgrid-java is maintained and funded by SendGrid, Inc. The names and logos for sendgrid-java are trademarks of SendGrid, Inc.
 
