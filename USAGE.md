@@ -4432,9 +4432,8 @@ Transactional templates are templates created specifically for transactional ema
 ```java
   try {
     SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
-    Request request = new Request();
-    request.setMethod(Method.GET);
-	request.setEndpoint("https://api.sendgrid.com/v3/templates?generations=legacy,dynamic");
+    Request request = new Request();    	
+    request.setMethod(Method.GET);  	request.setEndpoint("https://api.sendgrid.com/v3/templates?generations=legacy,dynamic");
     Response response = sg.api(request);
     System.out.println(response.getStatusCode());
     System.out.println(response.getBody());
