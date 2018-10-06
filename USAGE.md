@@ -41,12 +41,12 @@ public class Example {
 * [SCOPES](#scopes)
 * [SENDERS](#senders)
 * [STATS](#stats)
-* [SUBUSERS](#subusers)
+* [SUB-USERS](#sub-users)
 * [SUPPRESSION](#suppression)
 * [TEMPLATES](#templates)
 * [TRACKING SETTINGS](#tracking-settings)
 * [USER](#user)
-* [WHITELABEL](#whitelabel)
+* [WHITE-LABEL](#white-label)
 
 
 <a name="access-settings"></a>
@@ -360,7 +360,7 @@ For more information about alerts, please see our [User Guide](https://sendgrid.
 
 **This endpoint allows you to create a new random API Key for the user.**
 
-A JSON request body containing a "name" property is required. If number of maximum keys is reached, HTTP 403 will be returned.
+A JSON request body containing a "name" property is required. If a number of maximum keys are reached, HTTP 403 will be returned.
 
 There is a limit of 100 API Keys on your account.
 
@@ -415,7 +415,7 @@ The API Keys feature allows customers to be able to generate an API Key credenti
 **This endpoint allows you to update the name and scopes of a given API key.**
 
 A JSON request body with a "name" property is required.
-Most provide the list of all the scopes an api key should have.
+Most provide the list of all the scopes an API key should have.
 
 The API Keys feature allows customers to be able to generate an API Key credential which can be used for authentication with the SendGrid v3 Web API or the [Mail API Endpoint](https://sendgrid.com/docs/API_Reference/Web_API/mail.html).
 
@@ -497,7 +497,7 @@ If the API Key ID does not exist an HTTP 404 will be returned.
 
 **This endpoint allows you to revoke an existing API Key.**
 
-Authentications using this API Key will fail after this request is made, with some small propagation delay.If the API Key ID does not exist an HTTP 404 will be returned.
+Authentications using this API Key will fail after this request is made, with some small propagation delay. If the API Key ID does not exist an HTTP 404 will be returned.
 
 The API Keys feature allows customers to be able to generate an API Key credential which can be used for authentication with the SendGrid v3 Web API or the [Mail API Endpoint](https://sendgrid.com/docs/API_Reference/Web_API/mail.html).
 
@@ -886,7 +886,7 @@ Suppressions are a list of email addresses that will not receive content sent un
 <a name="browsers"></a>
 # BROWSERS
 
-## Retrieve email statistics by browser.
+## Retrieve email statistics by the browser.
 
 **This endpoint allows you to retrieve your email statistics segmented by browser type.**
 
@@ -926,7 +926,7 @@ Advanced Stats provide a more in-depth view of your email statistics and the act
 
 Our Marketing Campaigns API lets you create, manage, send, and schedule campaigns.
 
-Note: In order to send or schedule the campaign, you will be required to provide a subject, sender ID, content (we suggest both html and plain text), and at least one list or segment ID. This information is not required when you create a campaign.
+Note: In order to send or schedule the campaign, you will be required to provide a subject, sender ID, content (we suggest both HTML and plain text), and at least one list or segment ID. This information is not required when you create a campaign.
 
 For more information:
 
@@ -1197,7 +1197,7 @@ For more information:
 
 **This endpoint allows you to send a test campaign.**
 
-To send to multiple addresses, use an array for the JSON "to" value ["one@address","two@address"]
+To send to multiple addresses, use an array for the JSON "to" value ["one@address", "two@address"]
 
 For more information:
 
@@ -1799,7 +1799,7 @@ The Contacts API helps you manage your [Marketing Campaigns](https://sendgrid.co
   ```
 ## Delete Recipient
 
-**This endpoint allows you to deletes one or more recipients.**
+**This endpoint allows you to delete one or more recipients.**
 
 The body of an API call to this endpoint must include an array of recipient IDs of the recipients you want to delete.
 
@@ -1878,7 +1878,7 @@ The contactdb is a database of your contacts for [SendGrid Marketing Campaigns](
 field_name:
 
 * is a variable that is substituted for your actual custom field name from your recipient.
-* Text fields must be url-encoded. Date fields are searchable only by unix timestamp (e.g. 2/2/2015 becomes 1422835200)
+* Text fields must be URL-encoded. Date fields are searchable only by Unix timestamp (e.g. 2/2/2015 becomes 1422835200)
 * If field_name is a 'reserved' date field, such as created_at or updated_at, the system will internally convert
 your epoch time to a date range encompassing the entire day. For example, an epoch time of 1422835600 converts to
 Mon, 02 Feb 2015 00:06:40 GMT, but internally the system will search from Mon, 02 Feb 2015 00:00:00 GMT through
@@ -1954,7 +1954,7 @@ The Contacts API helps you manage your [Marketing Campaigns](https://sendgrid.co
 
 **This endpoint allows you to retrieve the lists that a given recipient belongs to.**
 
-Each recipient can be on many lists. This endpoint gives you all of the lists that any one recipient has been added to.
+Each recipient can be on many lists. This endpoint gives you all of the lists that anyone recipient has been added to.
 
 The Contacts API helps you manage your [Marketing Campaigns](https://sendgrid.com/docs/User_Guide/Marketing_Campaigns/index.html) recipients.
 
@@ -2004,7 +2004,7 @@ The contactdb is a database of your contacts for [SendGrid Marketing Campaigns](
 
 All recipients in your contactdb will be added or removed automatically depending on whether they match the criteria for this segment.
 
-List Id:
+List-Id:
 
 * Send this to segment from an existing list
 * Don't send this in order to segment from your entire contactdb.
@@ -2122,7 +2122,7 @@ For more information about segments in Marketing Campaigns, please see our [User
   ```
 ## Delete a segment
 
-**This endpoint allows you to delete a segment from your recipients database.**
+**This endpoint allows you to delete a segment from your recipient's database.**
 
 You also have the option to delete all the contacts from your Marketing Campaigns recipient database who were in this segment.
 
@@ -2187,10 +2187,10 @@ For more information about segments in Marketing Campaigns, please see our [User
 ## Available Device Types
 | **Device** | **Description** | **Example** |
 |---|---|---|
-| Desktop | Email software on desktop computer. | I.E., Outlook, Sparrow, or Apple Mail. |
+| Desktop | Email software on the desktop computer. | I.E., Outlook, Sparrow, or Apple Mail. |
 | Webmail |	A web-based email client. | I.E., Yahoo, Google, AOL, or Outlook.com. |
-| Phone | A smart phone. | iPhone, Android, Blackberry, etc.
-| Tablet | A tablet computer. | iPad, android based tablet, etc. |
+| Phone | A smartphone. | iPhone, Android, Blackberry, etc.
+| Tablet | A tablet computer. | iPad, Android based tablet, etc. |
 | Other | An unrecognized device. |
 
 Advanced Stats provide a more in-depth view of your email statistics and the actions taken by your recipients. You can segment these statistics by geographic location, device type, client type, browser, and mailbox provider. For more information about statistics, please see our [User Guide](https://sendgrid.com/docs/User_Guide/Statistics/index.html).
@@ -2258,7 +2258,7 @@ Advanced Stats provide a more in-depth view of your email statistics and the act
 
 **This endpoint allows you to retrieve a list of all assigned and unassigned IPs.**
 
-Response includes warm up status, pools, assigned subusers, and whitelabel info. The start_date field corresponds to when warmup started for that IP.
+The response includes warm-up status, pools, assigned sub users, and white-label info. The start_date field corresponds to when warmup started for that IP.
 
 A single IP address or a range of IP addresses may be dedicated to an account in order to send email for multiple domains. The reputation of this IP is based on the aggregate performance of all the senders who use it.
 
@@ -2271,10 +2271,10 @@ A single IP address or a range of IP addresses may be dedicated to an account in
     Request request = new Request();
     request.setMethod(Method.GET);
     request.setEndpoint("ips");
-    request.addQueryParam("subuser", "test_string");
+    request.addQueryParam("sub-user", "test_string");
       request.addQueryParam("ip", "test_string");
       request.addQueryParam("limit", "1");
-      request.addQueryParam("exclude_whitelabels", "true");
+      request.addQueryParam("exclude_white-labels", "true");
       request.addQueryParam("offset", "1");
     Response response = sg.api(request);
     System.out.println(response.getStatusCode());
@@ -2315,7 +2315,7 @@ A single IP address or a range of IP addresses may be dedicated to an account in
 
 IP Pools allow you to group your dedicated SendGrid IP addresses together. For example, you could create separate pools for your transactional and marketing email. When sending marketing emails, specify that you want to use the marketing IP pool. This allows you to maintain separate reputations for your different email traffic.
 
-IP pools can only be used with whitelabeled IP addresses.
+IP pools can only be used with white-labeled IP addresses.
 
 If an IP pool is NOT specified for an email, it will use any IP available, including ones in pools.
 
@@ -2343,7 +2343,7 @@ If an IP pool is NOT specified for an email, it will use any IP available, inclu
 
 IP Pools allow you to group your dedicated SendGrid IP addresses together. For example, you could create separate pools for your transactional and marketing email. When sending marketing emails, specify that you want to use the marketing IP pool. This allows you to maintain separate reputations for your different email traffic.
 
-IP pools can only be used with whitelabeled IP addresses.
+IP pools can only be used with white-labeled IP addresses.
 
 If an IP pool is NOT specified for an email, it will use any IP available, including ones in pools.
 
@@ -2370,7 +2370,7 @@ If an IP pool is NOT specified for an email, it will use any IP available, inclu
 
 IP Pools allow you to group your dedicated SendGrid IP addresses together. For example, you could create separate pools for your transactional and marketing email. When sending marketing emails, specify that you want to use the marketing IP pool. This allows you to maintain separate reputations for your different email traffic.
 
-IP pools can only be used with whitelabeled IP addresses.
+IP pools can only be used with white-labeled IP addresses.
 
 If an IP pool is NOT specified for an email, it will use any IP available, including ones in pools.
 
@@ -2398,7 +2398,7 @@ If an IP pool is NOT specified for an email, it will use any IP available, inclu
 
 IP Pools allow you to group your dedicated SendGrid IP addresses together. For example, you could create separate pools for your transactional and marketing email. When sending marketing emails, specify that you want to use the marketing IP pool. This allows you to maintain separate reputations for your different email traffic.
 
-IP pools can only be used with whitelabeled IP addresses.
+IP pools can only be used with white-labeled IP addresses.
 
 If an IP pool is NOT specified for an email, it will use any IP available, including ones in pools.
 
@@ -2425,7 +2425,7 @@ If an IP pool is NOT specified for an email, it will use any IP available, inclu
 
 IP Pools allow you to group your dedicated SendGrid IP addresses together. For example, you could create separate pools for your transactional and marketing email. When sending marketing emails, specify that you want to use the marketing IP pool. This allows you to maintain separate reputations for your different email traffic.
 
-IP pools can only be used with whitelabeled IP addresses.
+IP pools can only be used with white-labeled IP addresses.
 
 If an IP pool is NOT specified for an email, it will use any IP available, including ones in pools.
 
@@ -2630,7 +2630,7 @@ A single IP address or a range of IP addresses may be dedicated to an account in
 
 **This endpoint allows you to generate a new batch ID. This batch ID can be associated with scheduled sends via the mail/send endpoint.**
 
-If you set the SMTPAPI header `batch_id`, it allows you to then associate multiple scheduled mail/send requests together with the same ID. Then at anytime up to 10 minutes before the schedule date, you can cancel all of the mail/send requests that have this batch ID by calling the Cancel Scheduled Send endpoint.
+If you set the SMTPAPI header `batch_id`, it allows you to then associate multiple scheduled emails/send requests together with the same ID. Then at any time up to 10 minutes before the scheduled date, you can cancel all of the mail/send requests that have this batch ID by calling the Cancel Scheduled Send endpoint.
 
 More Information:
 
@@ -2657,7 +2657,7 @@ More Information:
 
 **This endpoint allows you to validate a batch ID.**
 
-If you set the SMTPAPI header `batch_id`, it allows you to then associate multiple scheduled mail/send requests together with the same ID. Then at anytime up to 10 minutes before the schedule date, you can cancel all of the mail/send requests that have this batch ID by calling the Cancel Scheduled Send endpoint.
+If you set the SMTPAPI header `batch_id`, it allows you to then associate multiple scheduled emails/send requests together with the same ID. Then at any time up to 10 minutes before the scheduled date, you can cancel all of the mail/send requests that have this batch ID by calling the Cancel Scheduled Send endpoint.
 
 More Information:
 
@@ -2682,7 +2682,7 @@ More Information:
   ```
 ## v3 Mail Send
 
-This endpoint allows you to send email over SendGrids v3 Web API, the most recent version of our API. If you are looking for documentation about the v2 Mail Send endpoint, please see our [v2 API Reference](https://sendgrid.com/docs/API_Reference/Web_API/mail.html).
+This endpoint allows you to send an email over SendGrids v3 Web API, the most recent version of our API. If you are looking for documentation about the v2 Mail Send endpoint, please see our [v2 API Reference](https://sendgrid.com/docs/API_Reference/Web_API/mail.html).
 
 * Top level parameters are referred to as "global".
 * Individual fields within the personalizations array will override any other global, or message level, parameters that are defined outside of personalizations.
@@ -2793,7 +2793,7 @@ Mail settings allow you to tell SendGrid specific things to do to every email th
 
 **This endpoint allows you to update your current BCC mail settings.**
 
-When the BCC mail setting is enabled, SendGrid will automatically send a blind carbon copy (BCC) to an address for every email sent without adding that address to the header. Please note that only one email address may be entered in this field, if you wish to distribute BCCs to multiple addresses you will need to create a distribution group or use forwarding rules.
+When the BCC mail setting is enabled, SendGrid will automatically send a blind carbon copy (BCC) to an address for every email sent without adding that address to the header. Please note that only one email address may be entered in this field if you wish to distribute BCCs to multiple addresses you will need to create a distribution group or use forwarding rules.
 
 Mail settings allow you to tell SendGrid specific things to do to every email that you send to your recipients over SendGrids [Web API](https://sendgrid.com/docs/API_Reference/Web_API/mail.html) or [SMTP Relay](https://sendgrid.com/docs/API_Reference/SMTP_API/index.html).
 
@@ -2819,7 +2819,7 @@ Mail settings allow you to tell SendGrid specific things to do to every email th
 
 **This endpoint allows you to retrieve your current BCC mail settings.**
 
-When the BCC mail setting is enabled, SendGrid will automatically send a blind carbon copy (BCC) to an address for every email sent without adding that address to the header. Please note that only one email address may be entered in this field, if you wish to distribute BCCs to multiple addresses you will need to create a distribution group or use forwarding rules.
+When the BCC mail setting is enabled, SendGrid will automatically send a blind carbon copy (BCC) to an address for every email sent without adding that address to the header. Please note that only one email address may be entered in this field if you wish to distribute BCCs to multiple addresses you will need to create a distribution group or use forwarding rules.
 
 Mail settings allow you to tell SendGrid specific things to do to every email that you send to your recipients over SendGrids [Web API](https://sendgrid.com/docs/API_Reference/Web_API/mail.html) or [SMTP Relay](https://sendgrid.com/docs/API_Reference/SMTP_API/index.html).
 
@@ -3280,7 +3280,7 @@ By integrating with New Relic, you can send your SendGrid email statistics to yo
     Request request = new Request();
     request.setMethod(Method.PATCH);
     request.setEndpoint("partner_settings/new_relic");
-    request.setBody("{\"enable_subuser_statistics\":true,\"enabled\":true,\"license_key\":\"\"}");
+    request.setBody("{\"enable_sub-user_statistics\":true,\"enabled\":true,\"license_key\":\"\"}");
     Response response = sg.api(request);
     System.out.println(response.getStatusCode());
     System.out.println(response.getBody());
@@ -3349,7 +3349,7 @@ API Keys can be used to authenticate the use of [SendGrids v3 Web API](https://s
 
 *You may create up to 100 unique sender identities.*
 
-Sender Identities are required to be verified before use. If your domain has been whitelabeled it will auto verify on creation. Otherwise an email will be sent to the `from.email`.
+Sender Identities are required to be verified before use. If your domain has been white-labeled it will auto verify on creation. Otherwise, an email will be sent to the `from.email`.
 
 ### POST /senders
 
@@ -3373,7 +3373,7 @@ Sender Identities are required to be verified before use. If your domain has bee
 
 **This endpoint allows you to retrieve a list of all sender identities that have been created for your account.**
 
-Sender Identities are required to be verified before use. If your domain has been whitelabeled it will auto verify on creation. Otherwise an email will be sent to the `from.email`.
+Sender Identities are required to be verified before use. If your domain has been white-labeled it will auto verify on creation. Otherwise, an email will be sent to the `from.email`.
 
 ### GET /senders
 
@@ -3396,7 +3396,7 @@ Sender Identities are required to be verified before use. If your domain has bee
 
 **This endpoint allows you to update a sender identity.**
 
-Updates to `from.email` require re-verification. If your domain has been whitelabeled it will auto verify on creation. Otherwise an email will be sent to the `from.email`.
+Updates to `from.email` require re-verification. If your domain has been white-labeled it will auto verify on creation. Otherwise, an email will be sent to the `from.email`.
 
 Partial updates are allowed, but fields that are marked as "required" in the POST (create) endpoint must not be nil if that field is included in the PATCH request.
 
@@ -3422,7 +3422,7 @@ Partial updates are allowed, but fields that are marked as "required" in the POS
 
 **This endpoint allows you to retrieve a specific sender identity.**
 
-Sender Identities are required to be verified before use. If your domain has been whitelabeled it will auto verify on creation. Otherwise an email will be sent to the `from.email`.
+Sender Identities are required to be verified before use. If your domain has been white-labeled it will auto verify on creation. Otherwise, an email will be sent to the `from.email`.
 
 ### GET /senders/{sender_id}
 
@@ -3445,7 +3445,7 @@ Sender Identities are required to be verified before use. If your domain has bee
 
 **This endpoint allows you to delete one of your sender identities.**
 
-Sender Identities are required to be verified before use. If your domain has been whitelabeled it will auto verify on creation. Otherwise an email will be sent to the `from.email`.
+Sender Identities are required to be verified before use. If your domain has been white-labeled it will auto verify on creation. Otherwise, an email will be sent to the `from.email`.
 
 ### DELETE /senders/{sender_id}
 
@@ -3468,7 +3468,7 @@ Sender Identities are required to be verified before use. If your domain has bee
 
 **This endpoint allows you to resend a sender identity verification email.**
 
-Sender Identities are required to be verified before use. If your domain has been whitelabeled it will auto verify on creation. Otherwise an email will be sent to the `from.email`.
+Sender Identities are required to be verified before use. If your domain has been white-labeled it will auto verify on creation. Otherwise, an email will be sent to the `from.email`.
 
 ### POST /senders/{sender_id}/resend_verification
 
@@ -3494,7 +3494,7 @@ Sender Identities are required to be verified before use. If your domain has bee
 
 **This endpoint allows you to retrieve all of your global email statistics between a given date range.**
 
-Parent accounts will see aggregated stats for their account and all subuser accounts. Subuser accounts will only see their own stats.
+Parent accounts will see aggregated stats for their account and all sub-user accounts. Sub-user accounts will only see their own stats.
 
 ### GET /stats
 
@@ -3518,19 +3518,19 @@ Parent accounts will see aggregated stats for their account and all subuser acco
     throw ex;
   }
   ```
-<a name="subusers"></a>
-# SUBUSERS
+<a name="sub-users"></a>
+# SUB-USERS
 
-## Create Subuser
+## Create Sub-user
 
-This endpoint allows you to retrieve a list of all of your subusers. You can choose to retrieve specific subusers as well as limit the results that come back from the API.
+This endpoint allows you to retrieve a list of all of your sub users. You can choose to retrieve specific sub users as well as limit the results that come back from the API.
 
-For more information about Subusers:
+For more information about Sub-users:
 
-* [User Guide > Subusers](https://sendgrid.com/docs/User_Guide/Settings/Subusers/index.html)
-* [Classroom > How do I add more subusers to my account?](https://sendgrid.com/docs/Classroom/Basics/Account/how_do_i_add_more_subusers_to_my_account.html)
+* [User Guide > Sub-users](https://sendgrid.com/docs/User_Guide/Settings/Sub-users/index.html)
+* [Classroom > How do I add more sub-users to my account?](https://sendgrid.com/docs/Classroom/Basics/Account/how_do_i_add_more_sub-users_to_my_account.html)
 
-### POST /subusers
+### POST /sub-users
 
 
 ```java
@@ -3538,7 +3538,7 @@ For more information about Subusers:
     SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
     Request request = new Request();
     request.setMethod(Method.POST);
-    request.setEndpoint("subusers");
+    request.setEndpoint("sub-users");
     request.setBody("{\"username\":\"John@example.com\",\"ips\":[\"1.1.1.1\",\"2.2.2.2\"],\"password\":\"johns_password\",\"email\)":\"John@example.com\"}";
     Response response = sg.api(request);
     System.out.println(response.getStatusCode());
@@ -3548,16 +3548,16 @@ For more information about Subusers:
     throw ex;
   }
   ```
-## List all Subusers
+## List all Sub-users
 
-This endpoint allows you to retrieve a list of all of your subusers. You can choose to retrieve specific subusers as well as limit the results that come back from the API.
+This endpoint allows you to retrieve a list of all of your sub users. You can choose to retrieve specific sub users as well as limit the results that come back from the API.
 
-For more information about Subusers:
+For more information about Sub-users:
 
-* [User Guide > Subusers](https://sendgrid.com/docs/User_Guide/Settings/Subusers/index.html)
-* [Classroom > How do I add more subusers to my account?](https://sendgrid.com/docs/Classroom/Basics/Account/how_do_i_add_more_subusers_to_my_account.html)
+* [User Guide > Sub-users](https://sendgrid.com/docs/User_Guide/Settings/Sub-users/index.html)
+* [Classroom > How do I add more sub-users to my account?](https://sendgrid.com/docs/Classroom/Basics/Account/how_do_i_add_more_sub-users_to_my_account.html)
 
-### GET /subusers
+### GET /sub-users
 
 
 ```java
@@ -3565,7 +3565,7 @@ For more information about Subusers:
     SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
     Request request = new Request();
     request.setMethod(Method.GET);
-    request.setEndpoint("subusers");
+    request.setEndpoint("sub-users");
     request.addQueryParam("username", "test_string");
       request.addQueryParam("limit", "1");
       request.addQueryParam("offset", "1");
@@ -3577,13 +3577,13 @@ For more information about Subusers:
     throw ex;
   }
   ```
-## Retrieve Subuser Reputations
+## Retrieve Sub-user Reputations
 
-Subuser sender reputations give a good idea how well a sender is doing with regards to how recipients and recipient servers react to the mail that is being received. When a bounce, spam report, or other negative action happens on a sent email, it will effect your sender rating.
+Sub-user sender reputations give a good idea how well a sender is doing with regards to how recipients and recipient servers react to the mail that is being received. When a bounce, spam report, or other negative action happens on a sent email, it will effect your sender rating.
 
-This endpoint allows you to request the reputations for your subusers.
+This endpoint allows you to request the reputations for your sub-users.
 
-### GET /subusers/reputations
+### GET /sub-users/reputations
 
 
 ```java
@@ -3591,7 +3591,7 @@ This endpoint allows you to request the reputations for your subusers.
     SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
     Request request = new Request();
     request.setMethod(Method.GET);
-    request.setEndpoint("subusers/reputations");
+    request.setEndpoint("sub-users/reputations");
     request.addQueryParam("usernames", "test_string");
     Response response = sg.api(request);
     System.out.println(response.getStatusCode());
@@ -3601,17 +3601,17 @@ This endpoint allows you to request the reputations for your subusers.
     throw ex;
   }
   ```
-## Retrieve email statistics for your subusers.
+## Retrieve email statistics for your sub-users.
 
-**This endpoint allows you to retrieve the email statistics for the given subusers.**
+**This endpoint allows you to retrieve the email statistics for the given sub users.**
 
-You may retrieve statistics for up to 10 different subusers by including an additional _subusers_ parameter for each additional subuser.
+You may retrieve statistics for up to 10 different sub users by including an additional _sub-users_ parameter for each additional sub-user.
 
-While you can always view the statistics for all email activity on your account, subuser statistics enable you to view specific segments of your stats. Emails sent, bounces, and spam reports are always tracked for subusers. Unsubscribes, clicks, and opens are tracked if you have enabled the required settings.
+While you can always view the statistics for all email activity on your account, sub user statistics enable you to view specific segments of your stats. Emails sent, bounces, and spam reports are always tracked for sub users. Unsubscribes, clicks, and opens are tracked if you have enabled the required settings.
 
-For more information, see our [User Guide](https://sendgrid.com/docs/User_Guide/Statistics/subuser.html).
+For more information, see our [User Guide](https://sendgrid.com/docs/User_Guide/Statistics/sub-user.html).
 
-### GET /subusers/stats
+### GET /sub-users/stats
 
 
 ```java
@@ -3619,13 +3619,13 @@ For more information, see our [User Guide](https://sendgrid.com/docs/User_Guide/
     SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
     Request request = new Request();
     request.setMethod(Method.GET);
-    request.setEndpoint("subusers/stats");
+    request.setEndpoint("sub-users/stats");
     request.addQueryParam("end_date", "2016-04-01");
       request.addQueryParam("aggregated_by", "day");
       request.addQueryParam("limit", "1");
       request.addQueryParam("offset", "1");
       request.addQueryParam("start_date", "2016-01-01");
-      request.addQueryParam("subusers", "test_string");
+      request.addQueryParam("sub-users", "test_string");
     Response response = sg.api(request);
     System.out.println(response.getStatusCode());
     System.out.println(response.getBody());
@@ -3634,18 +3634,18 @@ For more information, see our [User Guide](https://sendgrid.com/docs/User_Guide/
     throw ex;
   }
   ```
-## Retrieve monthly stats for all subusers
+## Retrieve monthly stats for all sub-users
 
-**This endpoint allows you to retrieve the monthly email statistics for all subusers over the given date range.**
+**This endpoint allows you to retrieve the monthly email statistics for all sub users over the given date range.**
 
-While you can always view the statistics for all email activity on your account, subuser statistics enable you to view specific segments of your stats for your subusers. Emails sent, bounces, and spam reports are always tracked for subusers. Unsubscribes, clicks, and opens are tracked if you have enabled the required settings.
+While you can always view the statistics for all email activity on your account, sub user statistics enable you to view specific segments of your stats for your sub users. Emails sent, bounces, and spam reports are always tracked for sub users. Unsubscribes, clicks, and opens are tracked if you have enabled the required settings.
 
 When using the `sort_by_metric` to sort your stats by a specific metric, you can not sort by the following metrics:
 `bounce_drops`, `deferred`, `invalid_emails`, `processed`, `spam_report_drops`, `spam_reports`, or `unsubscribe_drops`.
 
-For more information, see our [User Guide](https://sendgrid.com/docs/User_Guide/Statistics/subuser.html).
+For more information, see our [User Guide](https://sendgrid.com/docs/User_Guide/Statistics/sub-user.html).
 
-### GET /subusers/stats/monthly
+### GET /sub-users/stats/monthly
 
 
 ```java
@@ -3653,8 +3653,8 @@ For more information, see our [User Guide](https://sendgrid.com/docs/User_Guide/
     SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
     Request request = new Request();
     request.setMethod(Method.GET);
-    request.setEndpoint("subusers/stats/monthly");
-    request.addQueryParam("subuser", "test_string");
+    request.setEndpoint("sub-users/stats/monthly");
+    request.addQueryParam("sub-user", "test_string");
       request.addQueryParam("limit", "1");
       request.addQueryParam("sort_by_metric", "test_string");
       request.addQueryParam("offset", "1");
@@ -3668,16 +3668,16 @@ For more information, see our [User Guide](https://sendgrid.com/docs/User_Guide/
     throw ex;
   }
   ```
-##  Retrieve the totals for each email statistic metric for all subusers.
+##  Retrieve the totals for each email statistic metric for all sub-users.
 
-**This endpoint allows you to retrieve the total sums of each email statistic metric for all subusers over the given date range.**
+**This endpoint allows you to retrieve the total sums of each email statistic metric for all sub-users over the given date range.**
 
 
-While you can always view the statistics for all email activity on your account, subuser statistics enable you to view specific segments of your stats. Emails sent, bounces, and spam reports are always tracked for subusers. Unsubscribes, clicks, and opens are tracked if you have enabled the required settings.
+While you can always view the statistics for all email activity on your account, sub-user statistics enable you to view specific segments of your stats. Emails sent, bounces, and spam reports are always tracked for sub-users. Unsubscribes, clicks, and opens are tracked if you have enabled the required settings.
 
-For more information, see our [User Guide](https://sendgrid.com/docs/User_Guide/Statistics/subuser.html).
+For more information, see our [User Guide](https://sendgrid.com/docs/User_Guide/Statistics/sub-user.html).
 
-### GET /subusers/stats/sums
+### GET /sub-users/stats/sums
 
 
 ```java
@@ -3685,7 +3685,7 @@ For more information, see our [User Guide](https://sendgrid.com/docs/User_Guide/
     SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
     Request request = new Request();
     request.setMethod(Method.GET);
-    request.setEndpoint("subusers/stats/sums");
+    request.setEndpoint("sub-users/stats/sums");
     request.addQueryParam("end_date", "2016-04-01");
       request.addQueryParam("aggregated_by", "day");
       request.addQueryParam("limit", "1");
@@ -3701,16 +3701,16 @@ For more information, see our [User Guide](https://sendgrid.com/docs/User_Guide/
     throw ex;
   }
   ```
-## Enable/disable a subuser
+## Enable/disable a sub-user
 
-This endpoint allows you to enable or disable a subuser.
+This endpoint allows you to enable or disable a sub-user.
 
-For more information about Subusers:
+For more information about Sub-users:
 
-* [User Guide > Subusers](https://sendgrid.com/docs/User_Guide/Settings/Subusers/index.html)
-* [Classroom > How do I add more subusers to my account?](https://sendgrid.com/docs/Classroom/Basics/Account/how_do_i_add_more_subusers_to_my_account.html)
+* [User Guide > Sub-users](https://sendgrid.com/docs/User_Guide/Settings/Sub-users/index.html)
+* [Classroom > How do I add more sub-users to my account?](https://sendgrid.com/docs/Classroom/Basics/Account/how_do_i_add_more_sub-users_to_my_account.html)
 
-### PATCH /subusers/{subuser_name}
+### PATCH /sub-users/{sub-user_name}
 
 
 ```java
@@ -3718,7 +3718,7 @@ For more information about Subusers:
     SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
     Request request = new Request();
     request.setMethod(Method.PATCH);
-    request.setEndpoint("subusers/{subuser_name}");
+    request.setEndpoint("sub-users/{sub-user_name}");
     request.setBody("{\"disabled\":false}");
     Response response = sg.api(request);
     System.out.println(response.getStatusCode());
@@ -3728,16 +3728,16 @@ For more information about Subusers:
     throw ex;
   }
   ```
-## Delete a subuser
+## Delete a sub-user
 
-This endpoint allows you to delete a subuser. This is a permanent action, once deleted a subuser cannot be retrieved.
+This endpoint allows you to delete a sub-user. This is a permanent action, once deleted a sub user cannot be retrieved.
 
-For more information about Subusers:
+For more information about Sub-users:
 
-* [User Guide > Subusers](https://sendgrid.com/docs/User_Guide/Settings/Subusers/index.html)
-* [Classroom > How do I add more subusers to my account?](https://sendgrid.com/docs/Classroom/Basics/Account/how_do_i_add_more_subusers_to_my_account.html)
+* [User Guide > Sub-users](https://sendgrid.com/docs/User_Guide/Settings/Sub-users/index.html)
+* [Classroom > How do I add more sub-users to my account?](https://sendgrid.com/docs/Classroom/Basics/Account/how_do_i_add_more_sub-users_to_my_account.html)
 
-### DELETE /subusers/{subuser_name}
+### DELETE /sub-users/{sub-user_name}
 
 
 ```java
@@ -3745,7 +3745,7 @@ For more information about Subusers:
     SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
     Request request = new Request();
     request.setMethod(Method.DELETE);
-    request.setEndpoint("subusers/{subuser_name}");
+    request.setEndpoint("sub-users/{sub-user_name}");
     Response response = sg.api(request);
     System.out.println(response.getStatusCode());
     System.out.println(response.getBody());
@@ -3754,16 +3754,16 @@ For more information about Subusers:
     throw ex;
   }
   ```
-## Update IPs assigned to a subuser
+## Update IPs assigned to a sub-user
 
-Each subuser should be assigned to an IP address, from which all of this subuser's mail will be sent. Often, this is the same IP as the parent account, but each subuser can have their own, or multiple, IP addresses as well.
+Each sub-user should be assigned to an IP address, from which all of this sub-user's mail will be sent. Often, this is the same IP as the parent account, but each sub user can have their own, or multiple, IP addresses as well.
 
 More information:
 
 * [How to request more IPs](https://sendgrid.com/docs/Classroom/Basics/Account/adding_an_additional_dedicated_ip_to_your_account.html)
-* [IPs can be whitelabeled](https://sendgrid.com/docs/User_Guide/Settings/Whitelabel/ips.html)
+* [IPs can be white-labeled](https://sendgrid.com/docs/User_Guide/Settings/White-label/ips.html)
 
-### PUT /subusers/{subuser_name}/ips
+### PUT /sub-users/{sub-user_name}/ips
 
 
 ```java
@@ -3771,7 +3771,7 @@ More information:
     SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
     Request request = new Request();
     request.setMethod(Method.PUT);
-    request.setEndpoint("subusers/{subuser_name}/ips");
+    request.setEndpoint("sub-users/{sub-user_name}/ips");
     request.setBody("[\"127.0.0.1\"]");
     Response response = sg.api(request);
     System.out.println(response.getStatusCode());
@@ -3781,11 +3781,11 @@ More information:
     throw ex;
   }
   ```
-## Update Monitor Settings for a subuser
+## Update Monitor Settings for a sub-user
 
-Subuser monitor settings allow you to receive a sample of an outgoing message by a specific customer at a specific frequency of emails.
+Sub-user monitor settings allow you to receive a sample of an outgoing message by a specific customer at a specific frequency of emails.
 
-### PUT /subusers/{subuser_name}/monitor
+### PUT /sub-users/{sub-user_name}/monitor
 
 
 ```java
@@ -3793,7 +3793,7 @@ Subuser monitor settings allow you to receive a sample of an outgoing message by
     SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
     Request request = new Request();
     request.setMethod(Method.PUT);
-    request.setEndpoint("subusers/{subuser_name}/monitor");
+    request.setEndpoint("sub-users/{sub-user_name}/monitor");
     request.setBody("{\"frequency\":500,\"email\":\"example@example.com\"}");
     Response response = sg.api(request);
     System.out.println(response.getStatusCode());
@@ -3805,9 +3805,9 @@ Subuser monitor settings allow you to receive a sample of an outgoing message by
   ```
 ## Create monitor settings
 
-Subuser monitor settings allow you to receive a sample of an outgoing message by a specific customer at a specific frequency of emails.
+Sub-user monitor settings allow you to receive a sample of an outgoing message by a specific customer at a specific frequency of emails.
 
-### POST /subusers/{subuser_name}/monitor
+### POST /sub-users/{sub-user_name}/monitor
 
 
 ```java
@@ -3815,7 +3815,7 @@ Subuser monitor settings allow you to receive a sample of an outgoing message by
     SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
     Request request = new Request();
     request.setMethod(Method.POST);
-    request.setEndpoint("subusers/{subuser_name}/monitor");
+    request.setEndpoint("sub-users/{sub-user_name}/monitor");
     request.setBody("{\"frequency\":50000,\"email\":\"example@example.com\"}");
     Response response = sg.api(request);
     System.out.println(response.getStatusCode());
@@ -3825,11 +3825,11 @@ Subuser monitor settings allow you to receive a sample of an outgoing message by
     throw ex;
   }
   ```
-## Retrieve monitor settings for a subuser
+## Retrieve monitor settings for a sub-user
 
-Subuser monitor settings allow you to receive a sample of an outgoing message by a specific customer at a specific frequency of emails.
+Sub-user monitor settings allow you to receive a sample of an outgoing message by a specific customer at a specific frequency of emails.
 
-### GET /subusers/{subuser_name}/monitor
+### GET /sub-users/{sub-user_name}/monitor
 
 
 ```java
@@ -3837,7 +3837,7 @@ Subuser monitor settings allow you to receive a sample of an outgoing message by
     SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
     Request request = new Request();
     request.setMethod(Method.GET);
-    request.setEndpoint("subusers/{subuser_name}/monitor");
+    request.setEndpoint("sub-users/{sub-user_name}/monitor");
     Response response = sg.api(request);
     System.out.println(response.getStatusCode());
     System.out.println(response.getBody());
@@ -3848,9 +3848,9 @@ Subuser monitor settings allow you to receive a sample of an outgoing message by
   ```
 ## Delete monitor settings
 
-Subuser monitor settings allow you to receive a sample of an outgoing message by a specific customer at a specific frequency of emails.
+Sub-user monitor settings allow you to receive a sample of an outgoing message by a specific customer at a specific frequency of emails.
 
-### DELETE /subusers/{subuser_name}/monitor
+### DELETE /sub-users/{sub-user_name}/monitor
 
 
 ```java
@@ -3858,7 +3858,7 @@ Subuser monitor settings allow you to receive a sample of an outgoing message by
     SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
     Request request = new Request();
     request.setMethod(Method.DELETE);
-    request.setEndpoint("subusers/{subuser_name}/monitor");
+    request.setEndpoint("sub-users/{sub-user_name}/monitor");
     Response response = sg.api(request);
     System.out.println(response.getStatusCode());
     System.out.println(response.getBody());
@@ -3867,18 +3867,18 @@ Subuser monitor settings allow you to receive a sample of an outgoing message by
     throw ex;
   }
   ```
-## Retrieve the monthly email statistics for a single subuser
+## Retrieve the monthly email statistics for a single sub-user
 
-**This endpoint allows you to retrieve the monthly email statistics for a specific subuser.**
+**This endpoint allows you to retrieve the monthly email statistics for a specific sub-user.**
 
-While you can always view the statistics for all email activity on your account, subuser statistics enable you to view specific segments of your stats for your subusers. Emails sent, bounces, and spam reports are always tracked for subusers. Unsubscribes, clicks, and opens are tracked if you have enabled the required settings.
+While you can always view the statistics for all email activity on your account, sub user statistics enable you to view specific segments of your stats for your sub users. Emails sent, bounces, and spam reports are always tracked for sub users. Unsubscribes, clicks, and opens are tracked if you have enabled the required settings.
 
 When using the `sort_by_metric` to sort your stats by a specific metric, you can not sort by the following metrics:
 `bounce_drops`, `deferred`, `invalid_emails`, `processed`, `spam_report_drops`, `spam_reports`, or `unsubscribe_drops`.
 
-For more information, see our [User Guide](https://sendgrid.com/docs/User_Guide/Statistics/subuser.html).
+For more information, see our [User Guide](https://sendgrid.com/docs/User_Guide/Statistics/sub-user.html).
 
-### GET /subusers/{subuser_name}/stats/monthly
+### GET /sub-users/{sub-user_name}/stats/monthly
 
 
 ```java
@@ -3886,7 +3886,7 @@ For more information, see our [User Guide](https://sendgrid.com/docs/User_Guide/
     SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
     Request request = new Request();
     request.setMethod(Method.GET);
-    request.setEndpoint("subusers/{subuser_name}/stats/monthly");
+    request.setEndpoint("sub-users/{sub-user_name}/stats/monthly");
     request.addQueryParam("date", "test_string");
       request.addQueryParam("sort_by_direction", "asc");
       request.addQueryParam("limit", "1");
@@ -4108,7 +4108,7 @@ For more information see:
 
 **This endpoint allows you to remove an email address from your bounce list.**
 
-Bounces are messages that are returned to the server that sent it. This endpoint allows you to delete a single email addresses from your bounce list.
+Bounces are messages that are returned to the server that sent it. This endpoint allows you to delete a single email address from your bounce list.
 
 For more information see:
 
@@ -4138,7 +4138,7 @@ For more information see:
 
 **This endpoint allows you to retrieve a list of all invalid email addresses.**
 
-An invalid email occurs when you attempt to send email to an address that is formatted in a manner that does not meet internet email format standards or the email does not exist at the recipients mail server.
+An invalid email occurs when you attempt to send email to an address that is formatted in a manner that does not meet internet email format standards or the email does not exist at the recipient's mail server.
 
 Examples include addresses without the @ sign or addresses that include certain special characters and/or spaces. This response can come from our own server or the recipient mail server.
 
@@ -4174,7 +4174,7 @@ There are two options for deleting invalid email addresses:
 1) You can delete all invalid email addresses by setting `delete_all` to true in the request body.
 2) You can delete some invalid email addresses by specifying certain addresses in an array in the request body.
 
-An invalid email occurs when you attempt to send email to an address that is formatted in a manner that does not meet internet email format standards or the email does not exist at the recipients mail server.
+An invalid email occurs when you attempt to send email to an address that is formatted in a manner that does not meet internet email format standards or the email does not exist at the recipient's mail server.
 
 Examples include addresses without the @ sign or addresses that include certain special characters and/or spaces. This response can come from our own server or the recipient mail server.
 
@@ -4200,9 +4200,9 @@ For more information, please see our [User Guide](https://sendgrid.com/docs/User
   ```
 ## Retrieve a specific invalid email
 
-**This endpoint allows you to retrieve a specific invalid email addresses.**
+**This endpoint allows you to retrieve specific invalid email addresses.**
 
-An invalid email occurs when you attempt to send email to an address that is formatted in a manner that does not meet internet email format standards or the email does not exist at the recipients mail server.
+An invalid email occurs when you attempt to send email to an address that is formatted in a manner that does not meet internet email format standards or the email does not exist at the recipient's mail server.
 
 Examples include addresses without the @ sign or addresses that include certain special characters and/or spaces. This response can come from our own server or the recipient mail server.
 
@@ -4229,7 +4229,7 @@ For more information, please see our [User Guide](https://sendgrid.com/docs/User
 
 **This endpoint allows you to remove a specific email address from the invalid email address list.**
 
-An invalid email occurs when you attempt to send email to an address that is formatted in a manner that does not meet internet email format standards or the email does not exist at the recipients mail server.
+An invalid email occurs when you attempt to send email to an address that is formatted in a manner that does not meet internet email format standards or the email does not exist at the recipient's mail server.
 
 Examples include addresses without the @ sign or addresses that include certain special characters and/or spaces. This response can come from our own server or the recipient mail server.
 
@@ -4364,7 +4364,7 @@ For more information, please see our [User Guide](https://sendgrid.com/docs/User
   ```
 ## Retrieve all global suppressions
 
-**This endpoint allows you to retrieve a list of all email address that are globally suppressed.**
+**This endpoint allows you to retrieve a list of all email address that is globally suppressed.**
 
 A global suppression (or global unsubscribe) is an email address of a recipient who does not want to receive any of your messages. A globally suppressed recipient will be removed from any email you send. For more information, please see our [User Guide](https://sendgrid.com/docs/User_Guide/Suppressions/global_unsubscribes.html).
 
@@ -4396,7 +4396,7 @@ A global suppression (or global unsubscribe) is an email address of a recipient 
 
 **This endpoint allows you to create a transactional template.**
 
-Each user can create up to 300 different transactional templates. Transactional templates are specific to accounts and subusers. Templates created on a parent account will not be accessible from the subuser accounts.
+Each user can create up to 300 different transactional templates. Transactional templates are specific to accounts and sub users. Templates created on a parent account will not be accessible from the sub-user accounts.
 
 Transactional templates are templates created specifically for transactional email and are not to be confused with [Marketing Campaigns templates](https://sendgrid.com/docs/User_Guide/Marketing_Campaigns/templates.html). For more information about transactional templates, please see our [User Guide](https://sendgrid.com/docs/User_Guide/Transactional_Templates/index.html).
 
@@ -4422,7 +4422,7 @@ Transactional templates are templates created specifically for transactional ema
 
 **This endpoint allows you to retrieve all transactional templates.**
 
-Each user can create up to 300 different transactional templates. Transactional templates are specific to accounts and subusers. Templates created on a parent account will not be accessible from the subuser accounts.
+Each user can create up to 300 different transactional templates. Transactional templates are specific to accounts and sub users. Templates created on a parent account will not be accessible from the sub-user accounts.
 
 Transactional templates are templates created specifically for transactional email and are not to be confused with [Marketing Campaigns templates](https://sendgrid.com/docs/User_Guide/Marketing_Campaigns/templates.html). For more information about transactional templates, please see our [User Guide](https://sendgrid.com/docs/User_Guide/Transactional_Templates/index.html).
 
@@ -4447,7 +4447,8 @@ Transactional templates are templates created specifically for transactional ema
 
 **This endpoint allows you to edit a transactional template.**
 
-Each user can create up to 300 different transactional templates. Transactional templates are specific to accounts and subusers. Templates created on a parent account will not be accessible from the subuser accounts.
+Each user can create up to 300 different transactional templates. Transactional templates are specific to accounts and csers. Templates created on a parent account will not be accessible from the 
+ accounts.
 
 Transactional templates are templates created specifically for transactional email and are not to be confused with [Marketing Campaigns templates](https://sendgrid.com/docs/User_Guide/Marketing_Campaigns/templates.html). For more information about transactional templates, please see our [User Guide](https://sendgrid.com/docs/User_Guide/Transactional_Templates/index.html).
 
@@ -4474,7 +4475,7 @@ Transactional templates are templates created specifically for transactional ema
 
 **This endpoint allows you to retrieve a single transactional template.**
 
-Each user can create up to 300 different transactional templates. Transactional templates are specific to accounts and subusers. Templates created on a parent account will not be accessible from the subuser accounts.
+Each user can create up to 300 different transactional templates. Transactional templates are specific to accounts and sub-users. Templates created on a parent account will not be accessible from the sub-user accounts.
 
 Transactional templates are templates created specifically for transactional email and are not to be confused with [Marketing Campaigns templates](https://sendgrid.com/docs/User_Guide/Marketing_Campaigns/templates.html). For more information about transactional templates, please see our [User Guide](https://sendgrid.com/docs/User_Guide/Transactional_Templates/index.html).
 
@@ -4500,7 +4501,7 @@ Transactional templates are templates created specifically for transactional ema
 
 **This endpoint allows you to delete a transactional template.**
 
-Each user can create up to 300 different transactional templates. Transactional templates are specific to accounts and subusers. Templates created on a parent account will not be accessible from the subuser accounts.
+Each user can create up to 300 different transactional templates. Transactional templates are specific to accounts and sub-users. Templates created on a parent account will not be accessible from the sub-user accounts.
 
 Transactional templates are templates created specifically for transactional email and are not to be confused with [Marketing Campaigns templates](https://sendgrid.com/docs/User_Guide/Marketing_Campaigns/templates.html). For more information about transactional templates, please see our [User Guide](https://sendgrid.com/docs/User_Guide/Transactional_Templates/index.html).
 
@@ -4872,7 +4873,7 @@ For more information about tracking, please see our [User Guide](https://sendgri
   ```
 ## Update Subscription Tracking Settings
 
-**This endpoint allows you to update your current settings for subscription tracking.**
+**This endpoint allows you to update your current settings for subscription tracks.**
 
 Subscription tracking adds links to the bottom of your emails that allows your recipients to subscribe to, or unsubscribe from, your emails.
 
@@ -4900,7 +4901,7 @@ For more information about tracking, please see our [User Guide](https://sendgri
   ```
 ## Retrieve Subscription Tracking Settings
 
-**This endpoint allows you to retrieve your current settings for subscription tracking.**
+**This endpoint allows you to retrieve your current settings for subscription tracks.**
 
 Subscription tracking adds links to the bottom of your emails that allows your recipients to subscribe to, or unsubscribe from, your emails.
 
@@ -5125,7 +5126,7 @@ For more information about your user profile:
 If the maximum number of cancellations/pauses are added, HTTP 400 will
 be returned.
 
-The Cancel Scheduled Sends feature allows the customer to cancel a scheduled send based on a Batch ID included in the SMTPAPI header.Scheduled sends cancelled less than 10 minutes before the scheduled time are not guaranteed to be cancelled.
+The Cancel Scheduled Sends feature allows the customer to cancel a scheduled send based on a Batch ID included in the SMTPAPI header. Scheduled sends cancelled less than 10 minutes before the scheduled time are not guaranteed to be cancelled.
 
 ### POST /user/scheduled_sends
 
@@ -5149,7 +5150,7 @@ The Cancel Scheduled Sends feature allows the customer to cancel a scheduled sen
 
 **This endpoint allows you to retrieve all cancel/paused scheduled send information.**
 
-The Cancel Scheduled Sends feature allows the customer to cancel a scheduled send based on a Batch ID included in the SMTPAPI header.Scheduled sends cancelled less than 10 minutes before the scheduled time are not guaranteed to be cancelled.
+The Cancel Scheduled Sends feature allows the customer to cancel a scheduled send based on a Batch ID included in the SMTPAPI header. Scheduled sends cancelled less than 10 minutes before the scheduled time are not guaranteed to be cancelled.
 
 ### GET /user/scheduled_sends
 
@@ -5172,7 +5173,7 @@ The Cancel Scheduled Sends feature allows the customer to cancel a scheduled sen
 
 **This endpoint allows you to update the status of a scheduled send for the given `batch_id`.**
 
-The Cancel Scheduled Sends feature allows the customer to cancel a scheduled send based on a Batch ID included in the SMTPAPI header.Scheduled sends cancelled less than 10 minutes before the scheduled time are not guaranteed to be cancelled.
+The Cancel Scheduled Sends feature allows the customer to cancel a scheduled send based on a Batch ID included in the SMTPAPI header. Scheduled sends cancelled less than 10 minutes before the scheduled time are not guaranteed to be cancelled.
 
 ### PATCH /user/scheduled_sends/{batch_id}
 
@@ -5196,7 +5197,7 @@ The Cancel Scheduled Sends feature allows the customer to cancel a scheduled sen
 
 **This endpoint allows you to retrieve the cancel/paused scheduled send information for a specific `batch_id`.**
 
-The Cancel Scheduled Sends feature allows the customer to cancel a scheduled send based on a Batch ID included in the SMTPAPI header.Scheduled sends cancelled less than 10 minutes before the scheduled time are not guaranteed to be cancelled.
+The Cancel Scheduled Sends feature allows the customer to cancel a scheduled send based on a Batch ID included in the SMTPAPI header. Scheduled sends cancelled less than 10 minutes before the scheduled time are not guaranteed to be cancelled.
 
 ### GET /user/scheduled_sends/{batch_id}
 
@@ -5219,7 +5220,7 @@ The Cancel Scheduled Sends feature allows the customer to cancel a scheduled sen
 
 **This endpoint allows you to delete the cancellation/pause of a scheduled send.**
 
-The Cancel Scheduled Sends feature allows the customer to cancel a scheduled send based on a Batch ID included in the SMTPAPI header.Scheduled sends cancelled less than 10 minutes before the scheduled time are not guaranteed to be cancelled.
+The Cancel Scheduled Sends feature allows the customer to cancel a scheduled send based on a Batch ID included in the SMTPAPI header. Scheduled sends cancelled less than 10 minutes before the scheduled time are not guaranteed to be cancelled.
 
 ### DELETE /user/scheduled_sends/{batch_id}
 
@@ -5572,22 +5573,22 @@ There are a number of pre-made integrations for the SendGrid Parse Webhook which
     throw ex;
   }
   ```
-<a name="whitelabel"></a>
-# WHITELABEL
+<a name="white-label"></a>
+# WHITE-LABEL
 
-## Create a domain whitelabel.
+## Create a domain white-label.
 
-**This endpoint allows you to create a whitelabel for one of your domains.**
+**This endpoint allows you to create a white-label for one of your domains.**
 
-If you are creating a domain whitelabel that you would like a subuser to use, you have two options:
-1. Use the "username" parameter. This allows you to create a whitelabel on behalf of your subuser. This means the subuser is able to see and modify the created whitelabel.
-2. Use the Association workflow (see Associate Domain section). This allows you to assign a whitelabel created by the parent to a subuser. This means the subuser will default to the assigned whitelabel, but will not be able to see or modify that whitelabel. However, if the subuser creates their own whitelabel it will overwrite the assigned whitelabel.
+If you are creating a domain white-label that you would like a sub-user to use, you have two options:
+1. Use the "username" parameter. This allows you to create a white-label on behalf of your sub-user. This means the sub-user is able to see and modify the created white-label.
+2. Use the Association workflow (see Associate Domain section). This allows you to assign a white-label created by the parent to a sub-user. This means the sub-user will default to the assigned white-label, but will not be able to see or modify that white-label. However, if the sub-user creates their own white-label it will overwrite the assigned white-label.
 
-A domain whitelabel allows you to remove the via or sent on behalf of message that your recipients see when they read your emails. Whitelabeling a domain allows you to replace sendgrid.net with your personal sending domain. You will be required to create a subdomain so that SendGrid can generate the DNS records which you must give to your host provider. If you choose to use Automated Security, SendGrid will provide you with 3 CNAME records. If you turn Automated Security off, you will be given 2 TXT records and 1 MX record.
+A domain white-label allows you to remove the via or sent on behalf of the message that your recipients see when they read your emails. White-labeling a domain allows you to replace sendgrid.net with your personal sending domain. You will be required to create a subdomain so that SendGrid can generate the DNS records which you must give to your host provider. If you choose to use Automated Security, SendGrid will provide you with 3 CNAME records. If you turn Automated Security off, you will be given 2 TXT records and 1 MX record.
 
-For more information on whitelabeling, please see our [User Guide](https://sendgrid.com/docs/User_Guide/Settings/Whitelabel/index.html)
+For more information on white-labeling, please see our [User Guide](https://sendgrid.com/docs/User_Guide/Settings/White-label/index.html)
 
-### POST /whitelabel/domains
+### POST /white-label/domains
 
 
 ```java
@@ -5595,7 +5596,7 @@ For more information on whitelabeling, please see our [User Guide](https://sendg
     SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
     Request request = new Request();
     request.setMethod(Method.POST);
-    request.setEndpoint("whitelabel/domains");
+    request.setEndpoint("white-label/domains");
     request.setBody("{\"automatic)_security\":false,\"username\":\"john@example.com\",\"domain\":\"example.com\",\"default\":true,\"custom_spf\":true,\"ips\":[\"192.168.1.1\",\"192.168.1.2\"],\"subdomain\":\"news\"}";
     Response response = sg.api(request);
     System.out.println(response.getStatusCode());
@@ -5605,16 +5606,16 @@ For more information on whitelabeling, please see our [User Guide](https://sendg
     throw ex;
   }
   ```
-## List all domain whitelabels.
+## List all domain white-labels.
 
-**This endpoint allows you to retrieve a list of all domain whitelabels you have created.**
+**This endpoint allows you to retrieve a list of all domain white-labels you have created.**
 
-A domain whitelabel allows you to remove the via or sent on behalf of message that your recipients see when they read your emails. Whitelabeling a domain allows you to replace sendgrid.net with your personal sending domain. You will be required to create a subdomain so that SendGrid can generate the DNS records which you must give to your host provider. If you choose to use Automated Security, SendGrid will provide you with 3 CNAME records. If you turn Automated Security off, you will be given 2 TXT records and 1 MX record.
+A domain white-label allows you to remove the via or sent on behalf of the message that your recipients see when they read your emails. White-labeling a domain allows you to replace sendgrid.net with your personal sending domain. You will be required to create a subdomain so that SendGrid can generate the DNS records which you must give to your host provider. If you choose to use Automated Security, SendGrid will provide you with 3 CNAME records. If you turn Automated Security off, you will be given 2 TXT records and 1 MX record.
 
-For more information on whitelabeling, please see our [User Guide](https://sendgrid.com/docs/User_Guide/Settings/Whitelabel/index.html)
+For more information on white-labeling, please see our [User Guide](https://sendgrid.com/docs/User_Guide/Settings/White-label/index.html)
 
 
-### GET /whitelabel/domains
+### GET /white-label/domains
 
 
 ```java
@@ -5622,10 +5623,10 @@ For more information on whitelabeling, please see our [User Guide](https://sendg
     SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
     Request request = new Request();
     request.setMethod(Method.GET);
-    request.setEndpoint("whitelabel/domains");
+    request.setEndpoint("white-label/domains");
     request.addQueryParam("username", "test_string");
       request.addQueryParam("domain", "test_string");
-      request.addQueryParam("exclude_subusers", "true");
+      request.addQueryParam("exclude_sub-users", "true");
       request.addQueryParam("limit", "1");
       request.addQueryParam("offset", "1");
     Response response = sg.api(request);
@@ -5636,20 +5637,20 @@ For more information on whitelabeling, please see our [User Guide](https://sendg
     throw ex;
   }
   ```
-## Get the default domain whitelabel.
+## Get the default domain white-label.
 
-**This endpoint allows you to retrieve the default whitelabel for a domain.**
+**This endpoint allows you to retrieve the default white-label for a domain.**
 
-A domain whitelabel allows you to remove the via or sent on behalf of message that your recipients see when they read your emails. Whitelabeling a domain allows you to replace sendgrid.net with your personal sending domain. You will be required to create a subdomain so that SendGrid can generate the DNS records which you must give to your host provider. If you choose to use Automated Security, SendGrid will provide you with 3 CNAME records. If you turn Automated Security off, you will be given 2 TXT records and 1 MX record.
+A domain white-label allows you to remove the via or sent on behalf of the message that your recipients see when they read your emails. White-labeling a domain allows you to replace sendgrid.net with your personal sending domain. You will be required to create a subdomain so that SendGrid can generate the DNS records which you must give to your host provider. If you choose to use Automated Security, SendGrid will provide you with 3 CNAME records. If you turn Automated Security off, you will be given 2 TXT records and 1 MX record.
 
-For more information on whitelabeling, please see our [User Guide](https://sendgrid.com/docs/User_Guide/Settings/Whitelabel/index.html)
+For more information on white-labeling, please see our [User Guide](https://sendgrid.com/docs/User_Guide/Settings/White-label/index.html)
 
 ## URI Parameters
 | URI Parameter   | Type   | Description  |
 |---|---|---|
-| domain | string  |The domain to find a default domain whitelabel for. |
+| domain | string  |The domain to find a default domain white-label for. |
 
-### GET /whitelabel/domains/default
+### GET /white-label/domains/default
 
 
 ```java
@@ -5657,7 +5658,7 @@ For more information on whitelabeling, please see our [User Guide](https://sendg
     SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
     Request request = new Request();
     request.setMethod(Method.GET);
-    request.setEndpoint("whitelabel/domains/default");
+    request.setEndpoint("white-label/domains/default");
     Response response = sg.api(request);
     System.out.println(response.getStatusCode());
     System.out.println(response.getBody());
@@ -5666,22 +5667,22 @@ For more information on whitelabeling, please see our [User Guide](https://sendg
     throw ex;
   }
   ```
-## List the domain whitelabel associated with the given user.
+## List the domain white-label associated with the given user.
 
-**This endpoint allows you to retrieve all of the whitelabels that have been assigned to a specific subuser.**
+**This endpoint allows you to retrieve all of the white-labels that have been assigned to a specific sub-user.**
 
-A domain whitelabel allows you to remove the via or sent on behalf of message that your recipients see when they read your emails. Whitelabeling a domain allows you to replace sendgrid.net with your personal sending domain. You will be required to create a subdomain so that SendGrid can generate the DNS records which you must give to your host provider. If you choose to use Automated Security, SendGrid will provide you with 3 CNAME records. If you turn Automated Security off, you will be given 2 TXT records and 1 MX record.
+A domain white-label allows you to remove the via or sent on behalf of the message that your recipients see when they read your emails. White-labeling a domain allows you to replace sendgrid.net with your personal sending domain. You will be required to create a subdomain so that SendGrid can generate the DNS records which you must give to your host provider. If you choose to use Automated Security, SendGrid will provide you with 3 CNAME records. If you turn Automated Security off, you will be given 2 TXT records and 1 MX record.
 
-Domain whitelabels can be associated with (i.e. assigned to) subusers from a parent account. This functionality allows subusers to send mail using their parent's whitelabels. To associate a whitelabel with a subuser, the parent account must first create the whitelabel and validate it. The parent may then associate the whitelabel via the subuser management tools.
+Domain white-labels can be associated with (i.e. assigned to) sub-users from a parent account. This functionality allows sub-users to send mail using their parent's white-labels. To associate a white-label with a sub-user, the parent account must first create the white-label and validate it. The parent may then associate the white-label via the sub-user management tools.
 
-For more information on whitelabeling, please see our [User Guide](https://sendgrid.com/docs/User_Guide/Settings/Whitelabel/index.html)
+For more information on white-labeling, please see our [User Guide](https://sendgrid.com/docs/User_Guide/Settings/White-label/index.html)
 
 ## URI Parameters
 | URI Parameter   | Type  | Description  |
 |---|---|---|
-| username | string  | Username of the subuser to find associated whitelabels for. |
+| username | string  | Username of the sub-user to find associated white-labels for. |
 
-### GET /whitelabel/domains/subuser
+### GET /white-label/domains/sub-user
 
 
 ```java
@@ -5689,7 +5690,7 @@ For more information on whitelabeling, please see our [User Guide](https://sendg
     SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
     Request request = new Request();
     request.setMethod(Method.GET);
-    request.setEndpoint("whitelabel/domains/subuser");
+    request.setEndpoint("white-label/domains/sub-user");
     Response response = sg.api(request);
     System.out.println(response.getStatusCode());
     System.out.println(response.getBody());
@@ -5698,22 +5699,22 @@ For more information on whitelabeling, please see our [User Guide](https://sendg
     throw ex;
   }
   ```
-## Disassociate a domain whitelabel from a given user.
+## Disassociate a domain white-label from a given user.
 
-**This endpoint allows you to disassociate a specific whitelabel from a subuser.**
+**This endpoint allows you to disassociate a specific white-label from a sub-user.**
 
-A domain whitelabel allows you to remove the via or sent on behalf of message that your recipients see when they read your emails. Whitelabeling a domain allows you to replace sendgrid.net with your personal sending domain. You will be required to create a subdomain so that SendGrid can generate the DNS records which you must give to your host provider. If you choose to use Automated Security, SendGrid will provide you with 3 CNAME records. If you turn Automated Security off, you will be given 2 TXT records and 1 MX record.
+A domain white-label allows you to remove the via or sent on behalf of the message that your recipients see when they read your emails. White-labeling a domain allows you to replace sendgrid.net with your personal sending domain. You will be required to create a subdomain so that SendGrid can generate the DNS records which you must give to your host provider. If you choose to use Automated Security, SendGrid will provide you with 3 CNAME records. If you turn Automated Security off, you will be given 2 TXT records and 1 MX record.
 
-Domain whitelabels can be associated with (i.e. assigned to) subusers from a parent account. This functionality allows subusers to send mail using their parent's whitelabels. To associate a whitelabel with a subuser, the parent account must first create the whitelabel and validate it. The parent may then associate the whitelabel via the subuser management tools.
+Domain white-labels can be associated with (i.e. assigned to) sub-users from a parent account. This functionality allows sub-users to send mail using their parent's white-labels. To associate a white-label with a sub-user, the parent account must first create the white-label and validate it. The parent may then associate the white-label via the sub-user management tools.
 
-For more information on whitelabeling, please see our [User Guide](https://sendgrid.com/docs/User_Guide/Settings/Whitelabel/index.html)
+For more information on white-labeling, please see our [User Guide](https://sendgrid.com/docs/User_Guide/Settings/White-label/index.html)
 
 ## URI Parameters
 | URI Parameter   | Type  | Required?  | Description  |
 |---|---|---|---|
-| username | string  | required  | Username for the subuser to find associated whitelabels for. |
+| username | string  | required  | Username for the sub-user to find associated white-labels for. |
 
-### DELETE /whitelabel/domains/subuser
+### DELETE /white-label/domains/sub-user
 
 
 ```java
@@ -5721,7 +5722,7 @@ For more information on whitelabeling, please see our [User Guide](https://sendg
     SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
     Request request = new Request();
     request.setMethod(Method.DELETE);
-    request.setEndpoint("whitelabel/domains/subuser");
+    request.setEndpoint("white-label/domains/sub-user");
     Response response = sg.api(request);
     System.out.println(response.getStatusCode());
     System.out.println(response.getBody());
@@ -5730,15 +5731,15 @@ For more information on whitelabeling, please see our [User Guide](https://sendg
     throw ex;
   }
   ```
-## Update a domain whitelabel.
+## Update a domain white-label.
 
-**This endpoint allows you to update the settings for a domain whitelabel.**
+**This endpoint allows you to update the settings for a domain white-label.**
 
-A domain whitelabel allows you to remove the via or sent on behalf of message that your recipients see when they read your emails. Whitelabeling a domain allows you to replace sendgrid.net with your personal sending domain. You will be required to create a subdomain so that SendGrid can generate the DNS records which you must give to your host provider. If you choose to use Automated Security, SendGrid will provide you with 3 CNAME records. If you turn Automated Security off, you will be given 2 TXT records and 1 MX record.
+A domain white-label allows you to remove the via or sent on behalf of the message that your recipients see when they read your emails. White-labeling a domain allows you to replace sendgrid.net with your personal sending domain. You will be required to create a subdomain so that SendGrid can generate the DNS records which you must give to your host provider. If you choose to use Automated Security, SendGrid will provide you with 3 CNAME records. If you turn Automated Security off, you will be given 2 TXT records and 1 MX record.
 
-For more information on whitelabeling, please see our [User Guide](https://sendgrid.com/docs/User_Guide/Settings/Whitelabel/index.html)
+For more information on white-labeling, please see our [User Guide](https://sendgrid.com/docs/User_Guide/Settings/White-label/index.html)
 
-### PATCH /whitelabel/domains/{domain_id}
+### PATCH /white-label/domains/{domain_id}
 
 
 ```java
@@ -5746,7 +5747,7 @@ For more information on whitelabeling, please see our [User Guide](https://sendg
     SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
     Request request = new Request();
     request.setMethod(Method.PATCH);
-    request.setEndpoint("whitelabel/domains/{domain_id}");
+    request.setEndpoint("white-label/domains/{domain_id}");
     request.setBody("{\"default\":false,\"custom_spf\":true}");
     Response response = sg.api(request);
     System.out.println(response.getStatusCode());
@@ -5756,16 +5757,16 @@ For more information on whitelabeling, please see our [User Guide](https://sendg
     throw ex;
   }
   ```
-## Retrieve a domain whitelabel.
+## Retrieve a domain white-label.
 
-**This endpoint allows you to retrieve a specific domain whitelabel.**
+**This endpoint allows you to retrieve a specific domain white-label.**
 
-A domain whitelabel allows you to remove the via or sent on behalf of message that your recipients see when they read your emails. Whitelabeling a domain allows you to replace sendgrid.net with your personal sending domain. You will be required to create a subdomain so that SendGrid can generate the DNS records which you must give to your host provider. If you choose to use Automated Security, SendGrid will provide you with 3 CNAME records. If you turn Automated Security off, you will be given 2 TXT records and 1 MX record.
+A domain white-label allows you to remove the via or sent on behalf of message that your recipients see when they read your emails. White-labeling a domain allows you to replace sendgrid.net with your personal sending domain. You will be required to create a subdomain so that SendGrid can generate the DNS records which you must give to your host provider. If you choose to use Automated Security, SendGrid will provide you with 3 CNAME records. If you turn Automated Security off, you will be given 2 TXT records and 1 MX record.
 
-For more information on whitelabeling, please see our [User Guide](https://sendgrid.com/docs/User_Guide/Settings/Whitelabel/index.html)
+For more information on white-labeling, please see our [User Guide](https://sendgrid.com/docs/User_Guide/Settings/White-label/index.html)
 
 
-### GET /whitelabel/domains/{domain_id}
+### GET /white-label/domains/{domain_id}
 
 
 ```java
@@ -5773,7 +5774,7 @@ For more information on whitelabeling, please see our [User Guide](https://sendg
     SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
     Request request = new Request();
     request.setMethod(Method.GET);
-    request.setEndpoint("whitelabel/domains/{domain_id}");
+    request.setEndpoint("white-label/domains/{domain_id}");
     Response response = sg.api(request);
     System.out.println(response.getStatusCode());
     System.out.println(response.getBody());
@@ -5782,15 +5783,15 @@ For more information on whitelabeling, please see our [User Guide](https://sendg
     throw ex;
   }
   ```
-## Delete a domain whitelabel.
+## Delete a domain white-label.
 
-**This endpoint allows you to delete a domain whitelabel.**
+**This endpoint allows you to delete a domain white-label.**
 
-A domain whitelabel allows you to remove the via or sent on behalf of message that your recipients see when they read your emails. Whitelabeling a domain allows you to replace sendgrid.net with your personal sending domain. You will be required to create a subdomain so that SendGrid can generate the DNS records which you must give to your host provider. If you choose to use Automated Security, SendGrid will provide you with 3 CNAME records. If you turn Automated Security off, you will be given 2 TXT records and 1 MX record.
+A domain white-label allows you to remove the via or sent on behalf of the message that your recipients see when they read your emails. White-labeling a domain allows you to replace sendgrid.net with your personal sending domain. You will be required to create a subdomain so that SendGrid can generate the DNS records which you must give to your host provider. If you choose to use Automated Security, SendGrid will provide you with 3 CNAME records. If you turn Automated Security off, you will be given 2 TXT records and 1 MX record.
 
-For more information on whitelabeling, please see our [User Guide](https://sendgrid.com/docs/User_Guide/Settings/Whitelabel/index.html)
+For more information on white-labeling, please see our [User Guide](https://sendgrid.com/docs/User_Guide/Settings/White-label/index.html)
 
-### DELETE /whitelabel/domains/{domain_id}
+### DELETE /white-label/domains/{domain_id}
 
 
 ```java
@@ -5798,7 +5799,7 @@ For more information on whitelabeling, please see our [User Guide](https://sendg
     SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
     Request request = new Request();
     request.setMethod(Method.DELETE);
-    request.setEndpoint("whitelabel/domains/{domain_id}");
+    request.setEndpoint("white-label/domains/{domain_id}");
     Response response = sg.api(request);
     System.out.println(response.getStatusCode());
     System.out.println(response.getBody());
@@ -5807,22 +5808,22 @@ For more information on whitelabeling, please see our [User Guide](https://sendg
     throw ex;
   }
   ```
-## Associate a domain whitelabel with a given user.
+## Associate a domain white-label with a given user.
 
-**This endpoint allows you to associate a specific domain whitelabel with a subuser.**
+**This endpoint allows you to associate a specific domain white-label with a sub-user.**
 
-A domain whitelabel allows you to remove the via or sent on behalf of message that your recipients see when they read your emails. Whitelabeling a domain allows you to replace sendgrid.net with your personal sending domain. You will be required to create a subdomain so that SendGrid can generate the DNS records which you must give to your host provider. If you choose to use Automated Security, SendGrid will provide you with 3 CNAME records. If you turn Automated Security off, you will be given 2 TXT records and 1 MX record.
+A domain white-label allows you to remove the via or sent on behalf of the message that your recipients see when they read your emails. White-labeling a domain allows you to replace sendgrid.net with your personal sending domain. You will be required to create a subdomain so that SendGrid can generate the DNS records which you must give to your host provider. If you choose to use Automated Security, SendGrid will provide you with 3 CNAME records. If you turn Automated Security off, you will be given 2 TXT records and 1 MX record.
 
-Domain whitelabels can be associated with (i.e. assigned to) subusers from a parent account. This functionality allows subusers to send mail using their parent's whitelabels. To associate a whitelabel with a subuser, the parent account must first create the whitelabel and validate it. The parent may then associate the whitelabel via the subuser management tools.
+Domain white-labels can be associated with (i.e. assigned to) sub-users from a parent account. This functionality allows sub-users to send mail using their parent's white-labels. To associate a white-label with a sub-user, the parent account must first create the white-label and validate it. The parent may then associate the white-label via the sub-user management tools.
 
-For more information on whitelabeling, please see our [User Guide](https://sendgrid.com/docs/User_Guide/Settings/Whitelabel/index.html)
+For more information on white-labeling, please see our [User Guide](https://sendgrid.com/docs/User_Guide/Settings/White-label/index.html)
 
 ## URI Parameters
 | URI Parameter   | Type   | Description  |
 |---|---|---|
-| domain_id | integer   | ID of the domain whitelabel to associate with the subuser. |
+| domain_id | integer   | ID of the domain white-label to associate with the sub-user. |
 
-### POST /whitelabel/domains/{domain_id}/subuser
+### POST /white-label/domains/{domain_id}/sub-user
 
 
 ```java
@@ -5830,7 +5831,7 @@ For more information on whitelabeling, please see our [User Guide](https://sendg
     SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
     Request request = new Request();
     request.setMethod(Method.POST);
-    request.setEndpoint("whitelabel/domains/{domain_id}/subuser");
+    request.setEndpoint("white-label/domains/{domain_id}/sub-user");
     request.setBody("{\"username\":\"jane@example.com\"}");
     Response response = sg.api(request);
     System.out.println(response.getStatusCode());
@@ -5840,20 +5841,20 @@ For more information on whitelabeling, please see our [User Guide](https://sendg
     throw ex;
   }
   ```
-## Add an IP to a domain whitelabel.
+## Add an IP to a domain white-label.
 
-**This endpoint allows you to add an IP address to a domain whitelabel.**
+**This endpoint allows you to add an IP address to a domain white-label.**
 
-A domain whitelabel allows you to remove the via or sent on behalf of message that your recipients see when they read your emails. Whitelabeling a domain allows you to replace sendgrid.net with your personal sending domain. You will be required to create a subdomain so that SendGrid can generate the DNS records which you must give to your host provider. If you choose to use Automated Security, SendGrid will provide you with 3 CNAME records. If you turn Automated Security off, you will be given 2 TXT records and 1 MX record.
+A domain white-label allows you to remove the via or sent on behalf of the message that your recipients see when they read your emails. White-labeling a domain allows you to replace sendgrid.net with your personal sending domain. You will be required to create a subdomain so that SendGrid can generate the DNS records which you must give to your host provider. If you choose to use Automated Security, SendGrid will provide you with 3 CNAME records. If you turn Automated Security off, you will be given 2 TXT records and 1 MX record.
 
-For more information on whitelabeling, please see our [User Guide](https://sendgrid.com/docs/User_Guide/Settings/Whitelabel/index.html)
+For more information on white-labeling, please see our [User Guide](https://sendgrid.com/docs/User_Guide/Settings/White-label/index.html)
 
 ## URI Parameters
 | URI Parameter   | Type  |  Description  |
 |---|---|---|
 | id | integer  | ID of the domain to which you are adding an IP |
 
-### POST /whitelabel/domains/{id}/ips
+### POST /white-label/domains/{id}/ips
 
 
 ```java
@@ -5861,7 +5862,7 @@ For more information on whitelabeling, please see our [User Guide](https://sendg
     SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
     Request request = new Request();
     request.setMethod(Method.POST);
-    request.setEndpoint("whitelabel/domains/{id}/ips");
+    request.setEndpoint("white-label/domains/{id}/ips");
     request.setBody("{\"ip\":\"192.168.0.1\"}");
     Response response = sg.api(request);
     System.out.println(response.getStatusCode());
@@ -5871,21 +5872,21 @@ For more information on whitelabeling, please see our [User Guide](https://sendg
     throw ex;
   }
   ```
-## Remove an IP from a domain whitelabel.
+## Remove an IP from a domain white-label.
 
-**This endpoint allows you to remove a domain's IP address from that domain's whitelabel.**
+**This endpoint allows you to remove a domain's IP address from that domain's white-label.**
 
-A domain whitelabel allows you to remove the via or sent on behalf of message that your recipients see when they read your emails. Whitelabeling a domain allows you to replace sendgrid.net with your personal sending domain. You will be required to create a subdomain so that SendGrid can generate the DNS records which you must give to your host provider. If you choose to use Automated Security, SendGrid will provide you with 3 CNAME records. If you turn Automated Security off, you will be given 2 TXT records and 1 MX record.
+A domain white-label allows you to remove the via or sent on behalf of the message that your recipients see when they read your emails. White-labeling a domain allows you to replace sendgrid.net with your personal sending domain. You will be required to create a subdomain so that SendGrid can generate the DNS records which you must give to your host provider. If you choose to use Automated Security, SendGrid will provide you with 3 CNAME records. If you turn Automated Security off, you will be given 2 TXT records and 1 MX record.
 
-For more information on whitelabeling, please see our [User Guide](https://sendgrid.com/docs/User_Guide/Settings/Whitelabel/index.html)
+For more information on white-labeling, please see our [User Guide](https://sendgrid.com/docs/User_Guide/Settings/White-label/index.html)
 
 ## URI Parameters
 | URI Parameter   | Type  | Description  |
 |---|---|---|
-| id | integer  | ID of the domain whitelabel to delete the IP from. |
-| ip | string | IP to remove from the domain whitelabel. |
+| id | integer  | ID of the domain white-label to delete the IP from. |
+| IP | string | IP to remove from the domain white-label. |
 
-### DELETE /whitelabel/domains/{id}/ips/{ip}
+### DELETE /white-label/domains/{id}/ips/{ip}
 
 
 ```java
@@ -5893,7 +5894,7 @@ For more information on whitelabeling, please see our [User Guide](https://sendg
     SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
     Request request = new Request();
     request.setMethod(Method.DELETE);
-    request.setEndpoint("whitelabel/domains/{id}/ips/{ip}");
+    request.setEndpoint("white-label/domains/{id}/ips/{ip}");
     Response response = sg.api(request);
     System.out.println(response.getStatusCode());
     System.out.println(response.getBody());
@@ -5902,20 +5903,20 @@ For more information on whitelabeling, please see our [User Guide](https://sendg
     throw ex;
   }
   ```
-## Validate a domain whitelabel.
+## Validate a domain white-label.
 
-**This endpoint allows you to validate a domain whitelabel. If it fails, it will return an error message describing why the whitelabel could not be validated.**
+**This endpoint allows you to validate a domain white-label. If it fails, it will return an error message describing why the white-label could not be validated.**
 
-A domain whitelabel allows you to remove the via or sent on behalf of message that your recipients see when they read your emails. Whitelabeling a domain allows you to replace sendgrid.net with your personal sending domain. You will be required to create a subdomain so that SendGrid can generate the DNS records which you must give to your host provider. If you choose to use Automated Security, SendGrid will provide you with 3 CNAME records. If you turn Automated Security off, you will be given 2 TXT records and 1 MX record.
+A domain white-label allows you to remove the via or sent on behalf of the message that your recipients see when they read your emails. White-labeling a domain allows you to replace sendgrid.net with your personal sending domain. You will be required to create a subdomain so that SendGrid can generate the DNS records which you must give to your host provider. If you choose to use Automated Security, SendGrid will provide you with 3 CNAME records. If you turn Automated Security off, you will be given 2 TXT records and 1 MX record.
 
-For more information on whitelabeling, please see our [User Guide](https://sendgrid.com/docs/User_Guide/Settings/Whitelabel/index.html)
+For more information on white-labeling, please see our [User Guide](https://sendgrid.com/docs/User_Guide/Settings/White-label/index.html)
 
 ## URI Parameters
 | URI Parameter   | Type   | Description  |
 |---|---|---|
-| id | integer  |ID of the domain whitelabel to validate. |
+| id | integer  |ID of the domain white-label to validate. |
 
-### POST /whitelabel/domains/{id}/validate
+### POST /white-label/domains/{id}/validate
 
 
 ```java
@@ -5923,7 +5924,7 @@ For more information on whitelabeling, please see our [User Guide](https://sendg
     SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
     Request request = new Request();
     request.setMethod(Method.POST);
-    request.setEndpoint("whitelabel/domains/{id}/validate");
+    request.setEndpoint("white-label/domains/{id}/validate");
     Response response = sg.api(request);
     System.out.println(response.getStatusCode());
     System.out.println(response.getBody());
@@ -5932,17 +5933,17 @@ For more information on whitelabeling, please see our [User Guide](https://sendg
     throw ex;
   }
   ```
-## Create an IP whitelabel
+## Create an IP white-label
 
-**This endpoint allows you to create an IP whitelabel.**
+**This endpoint allows you to create an IP white-label.**
 
-When creating an IP whitelable, you should use the same subdomain that you used when you created a domain whitelabel.
+When creating an IP white-lable, you should use the same subdomain that you used when you created a domain white-label.
 
-A IP whitelabel consists of a subdomain and domain that will be used to generate a reverse DNS record for a given IP. Once SendGrid has verified that the appropriate A record for the IP has been created, the appropriate reverse DNS record for the IP is generated.
+An IP white-label consists of a subdomain and domain that will be used to generate a reverse DNS record for a given IP. Once SendGrid has verified that the appropriate A record for the IP has been created, the appropriate reverse DNS record for the IP is generated.
 
-For more information, please see our [User Guide](https://sendgrid.com/docs/API_Reference/Web_API_v3/Whitelabel/ips.html).
+For more information, please see our [User Guide](https://sendgrid.com/docs/API_Reference/Web_API_v3/White-label/ips.html).
 
-### POST /whitelabel/ips
+### POST /white-label/ips
 
 
 ```java
@@ -5950,7 +5951,7 @@ For more information, please see our [User Guide](https://sendgrid.com/docs/API_
     SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
     Request request = new Request();
     request.setMethod(Method.POST);
-    request.setEndpoint("whitelabel/ips");
+    request.setEndpoint("white-label/ips");
     request.setBody("{\"ip\":\"192.168.1.1\",\"domain\":\"example.com\",\"subdomain\":\"email\"}");
     Response response = sg.api(request);
     System.out.println(response.getStatusCode());
@@ -5960,17 +5961,17 @@ For more information, please see our [User Guide](https://sendgrid.com/docs/API_
     throw ex;
   }
   ```
-## Retrieve all IP whitelabels
+## Retrieve all IP white-labels
 
-**This endpoint allows you to retrieve all of the IP whitelabels that have been created by this account.**
+**This endpoint allows you to retrieve all of the IP white-labels that have been created by this account.**
 
 You may include a search key by using the "ip" parameter. This enables you to perform a prefix search for a given IP segment (e.g. "192.").
 
-A IP whitelabel consists of a subdomain and domain that will be used to generate a reverse DNS record for a given IP. Once SendGrid has verified that the appropriate A record for the IP has been created, the appropriate reverse DNS record for the IP is generated.
+An IP white-label consists of a subdomain and domain that will be used to generate a reverse DNS record for a given IP. Once SendGrid has verified that the appropriate A record for the IP has been created, the appropriate reverse DNS record for the IP is generated.
 
-For more information, please see our [User Guide](https://sendgrid.com/docs/API_Reference/Web_API_v3/Whitelabel/ips.html).
+For more information, please see our [User Guide](https://sendgrid.com/docs/API_Reference/Web_API_v3/White-label/ips.html).
 
-### GET /whitelabel/ips
+### GET /white-label/ips
 
 
 ```java
@@ -5978,7 +5979,7 @@ For more information, please see our [User Guide](https://sendgrid.com/docs/API_
     SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
     Request request = new Request();
     request.setMethod(Method.GET);
-    request.setEndpoint("whitelabel/ips");
+    request.setEndpoint("white-label/ips");
     request.addQueryParam("ip", "test_string");
       request.addQueryParam("limit", "1");
       request.addQueryParam("offset", "1");
@@ -5990,15 +5991,15 @@ For more information, please see our [User Guide](https://sendgrid.com/docs/API_
     throw ex;
   }
   ```
-## Retrieve an IP whitelabel
+## Retrieve an IP white-label
 
-**This endpoint allows you to retrieve an IP whitelabel.**
+**This endpoint allows you to retrieve an IP white-label.**
 
-A IP whitelabel consists of a subdomain and domain that will be used to generate a reverse DNS record for a given IP. Once SendGrid has verified that the appropriate A record for the IP has been created, the appropriate reverse DNS record for the IP is generated.
+An IP white-label consists of a subdomain and domain that will be used to generate a reverse DNS record for a given IP. Once SendGrid has verified that the appropriate A record for the IP has been created, the appropriate reverse DNS record for the IP is generated.
 
-For more information, please see our [User Guide](https://sendgrid.com/docs/API_Reference/Web_API_v3/Whitelabel/ips.html).
+For more information, please see our [User Guide](https://sendgrid.com/docs/API_Reference/Web_API_v3/White-label/ips.html).
 
-### GET /whitelabel/ips/{id}
+### GET /white-label/ips/{id}
 
 
 ```java
@@ -6006,7 +6007,7 @@ For more information, please see our [User Guide](https://sendgrid.com/docs/API_
     SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
     Request request = new Request();
     request.setMethod(Method.GET);
-    request.setEndpoint("whitelabel/ips/{id}");
+    request.setEndpoint("white-label/ips/{id}");
     Response response = sg.api(request);
     System.out.println(response.getStatusCode());
     System.out.println(response.getBody());
@@ -6015,15 +6016,15 @@ For more information, please see our [User Guide](https://sendgrid.com/docs/API_
     throw ex;
   }
   ```
-## Delete an IP whitelabel
+## Delete an IP white-label
 
-**This endpoint allows you to delete an IP whitelabel.**
+**This endpoint allows you to delete an IP white-label.**
 
-A IP whitelabel consists of a subdomain and domain that will be used to generate a reverse DNS record for a given IP. Once SendGrid has verified that the appropriate A record for the IP has been created, the appropriate reverse DNS record for the IP is generated.
+An IP white-label consists of a subdomain and domain that will be used to generate a reverse DNS record for a given IP. Once SendGrid has verified that the appropriate A record for the IP has been created, the appropriate reverse DNS record for the IP is generated.
 
-For more information, please see our [User Guide](https://sendgrid.com/docs/API_Reference/Web_API_v3/Whitelabel/ips.html).
+For more information, please see our [User Guide](https://sendgrid.com/docs/API_Reference/Web_API_v3/White-label/ips.html).
 
-### DELETE /whitelabel/ips/{id}
+### DELETE /white-label/ips/{id}
 
 
 ```java
@@ -6031,7 +6032,7 @@ For more information, please see our [User Guide](https://sendgrid.com/docs/API_
     SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
     Request request = new Request();
     request.setMethod(Method.DELETE);
-    request.setEndpoint("whitelabel/ips/{id}");
+    request.setEndpoint("white-label/ips/{id}");
     Response response = sg.api(request);
     System.out.println(response.getStatusCode());
     System.out.println(response.getBody());
@@ -6040,15 +6041,15 @@ For more information, please see our [User Guide](https://sendgrid.com/docs/API_
     throw ex;
   }
   ```
-## Validate an IP whitelabel
+## Validate an IP white-label
 
-**This endpoint allows you to validate an IP whitelabel.**
+**This endpoint allows you to validate an IP white-label.**
 
-A IP whitelabel consists of a subdomain and domain that will be used to generate a reverse DNS record for a given IP. Once SendGrid has verified that the appropriate A record for the IP has been created, the appropriate reverse DNS record for the IP is generated.
+An IP white-label consists of a subdomain and domain that will be used to generate a reverse DNS record for a given IP. Once SendGrid has verified that the appropriate A record for the IP has been created, the appropriate reverse DNS record for the IP is generated.
 
-For more information, please see our [User Guide](https://sendgrid.com/docs/API_Reference/Web_API_v3/Whitelabel/ips.html).
+For more information, please see our [User Guide](https://sendgrid.com/docs/API_Reference/Web_API_v3/White-label/ips.html).
 
-### POST /whitelabel/ips/{id}/validate
+### POST /white-label/ips/{id}/validate
 
 
 ```java
@@ -6056,7 +6057,7 @@ For more information, please see our [User Guide](https://sendgrid.com/docs/API_
     SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
     Request request = new Request();
     request.setMethod(Method.POST);
-    request.setEndpoint("whitelabel/ips/{id}/validate");
+    request.setEndpoint("white-label/ips/{id}/validate");
     Response response = sg.api(request);
     System.out.println(response.getStatusCode());
     System.out.println(response.getBody());
@@ -6065,15 +6066,15 @@ For more information, please see our [User Guide](https://sendgrid.com/docs/API_
     throw ex;
   }
   ```
-## Create a Link Whitelabel
+## Create a Link White-label
 
-**This endpoint allows you to create a new link whitelabel.**
+**This endpoint allows you to create a new link white-label.**
 
-Email link whitelabels allow all of the click-tracked links you send in your emails to include the URL of your domain instead of sendgrid.net.
+Email link white-labels allow all of the click-tracked links you send in your emails to include the URL of your domain instead of sendgrid.net.
 
-For more information, please see our [User Guide](https://sendgrid.com/docs/API_Reference/Web_API_v3/Whitelabel/links.html).
+For more information, please see our [User Guide](https://sendgrid.com/docs/API_Reference/Web_API_v3/White-label/links.html).
 
-### POST /whitelabel/links
+### POST /white-label/links
 
 
 ```java
@@ -6081,7 +6082,7 @@ For more information, please see our [User Guide](https://sendgrid.com/docs/API_
     SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
     Request request = new Request();
     request.setMethod(Method.POST);
-    request.setEndpoint("whitelabel/links");
+    request.setEndpoint("white-label/links");
     request.setBody("{\"default\":true,\"domain\":\"example.com\",\"subdomain\":\"mail\"}");
     request.addQueryParam("limit", "1");
       request.addQueryParam("offset", "1");
@@ -6093,15 +6094,15 @@ For more information, please see our [User Guide](https://sendgrid.com/docs/API_
     throw ex;
   }
   ```
-## Retrieve all link whitelabels
+## Retrieve all link white-labels
 
-**This endpoint allows you to retrieve all link whitelabels.**
+**This endpoint allows you to retrieve all link white-labels.**
 
-Email link whitelabels allow all of the click-tracked links you send in your emails to include the URL of your domain instead of sendgrid.net.
+Email link white-labels allow all of the click-tracked links you send in your emails to include the URL of your domain instead of sendgrid.net.
 
-For more information, please see our [User Guide](https://sendgrid.com/docs/API_Reference/Web_API_v3/Whitelabel/links.html).
+For more information, please see our [User Guide](https://sendgrid.com/docs/API_Reference/Web_API_v3/White-label/links.html).
 
-### GET /whitelabel/links
+### GET /white-label/links
 
 
 ```java
@@ -6109,7 +6110,7 @@ For more information, please see our [User Guide](https://sendgrid.com/docs/API_
     SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
     Request request = new Request();
     request.setMethod(Method.GET);
-    request.setEndpoint("whitelabel/links");
+    request.setEndpoint("white-label/links");
     request.addQueryParam("limit", "1");
     Response response = sg.api(request);
     System.out.println(response.getStatusCode());
@@ -6119,22 +6120,22 @@ For more information, please see our [User Guide](https://sendgrid.com/docs/API_
     throw ex;
   }
   ```
-## Retrieve a Default Link Whitelabel
+## Retrieve a Default Link White-label
 
-**This endpoint allows you to retrieve the default link whitelabel.**
+**This endpoint allows you to retrieve the default link white-label.**
 
-Default link whitelabel is the actual link whitelabel to be used when sending messages. If there are multiple link whitelabels, the default is determined by the following order:
+Default link white-label is the actual link white-label to be used when sending messages. If there are multiple link white-labels, the default is determined by the following order:
 <ul>
-  <li>Validated link whitelabels marked as "default"</li>
-  <li>Legacy link whitelabels (migrated from the whitelabel wizard)</li>
-  <li>Default SendGrid link whitelabel (i.e. 100.ct.sendgrid.net)</li>
+  <li>Validated link white-labels marked as "default"</li>
+  <li>Legacy link white-labels (migrated from the white-label wizard)</li>
+  <li>Default SendGrid link white-label (i.e. 100.ct.sendgrid.net)</li>
 </ul>
 
-Email link whitelabels allow all of the click-tracked links you send in your emails to include the URL of your domain instead of sendgrid.net.
+Email link white-labels allow all of the click-tracked links you send in your emails to include the URL of your domain instead of sendgrid.net.
 
-For more information, please see our [User Guide](https://sendgrid.com/docs/API_Reference/Web_API_v3/Whitelabel/links.html).
+For more information, please see our [User Guide](https://sendgrid.com/docs/API_Reference/Web_API_v3/White-label/links.html).
 
-### GET /whitelabel/links/default
+### GET /white-label/links/default
 
 
 ```java
@@ -6142,7 +6143,7 @@ For more information, please see our [User Guide](https://sendgrid.com/docs/API_
     SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
     Request request = new Request();
     request.setMethod(Method.GET);
-    request.setEndpoint("whitelabel/links/default");
+    request.setEndpoint("white-label/links/default");
     request.addQueryParam("domain", "test_string");
     Response response = sg.api(request);
     System.out.println(response.getStatusCode());
@@ -6152,19 +6153,19 @@ For more information, please see our [User Guide](https://sendgrid.com/docs/API_
     throw ex;
   }
   ```
-## Retrieve Associated Link Whitelabel
+## Retrieve Associated Link White-label
 
-**This endpoint allows you to retrieve the associated link whitelabel for a subuser.**
+**This endpoint allows you to retrieve the associated link white-label for a sub-user.**
 
-Link whitelables can be associated with subusers from the parent account. This functionality allows
-subusers to send mail using their parent's link whitelabels. To associate a link whitelabel, the parent account
-must first create a whitelabel and validate it. The parent may then associate that whitelabel with a subuser via the API or the Subuser Management page in the user interface.
+Link whitelables can be associated with sub-users from the parent account. This functionality allows
+sub-users to send mail using their parent's link white-labels. To associate a link white-label, the parent account
+must first create a white-label and validate it. The parent may then associate that white-label with a sub-user via the API or the Sub-user Management page in the user interface.
 
-Email link whitelabels allow all of the click-tracked links you send in your emails to include the URL of your domain instead of sendgrid.net.
+Email link white-labels allow all of the click-tracked links you send in your emails to include the URL of your domain instead of sendgrid.net.
 
-For more information, please see our [User Guide](https://sendgrid.com/docs/API_Reference/Web_API_v3/Whitelabel/links.html).
+For more information, please see our [User Guide](https://sendgrid.com/docs/API_Reference/Web_API_v3/White-label/links.html).
 
-### GET /whitelabel/links/subuser
+### GET /white-label/links/sub-user
 
 
 ```java
@@ -6172,7 +6173,7 @@ For more information, please see our [User Guide](https://sendgrid.com/docs/API_
     SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
     Request request = new Request();
     request.setMethod(Method.GET);
-    request.setEndpoint("whitelabel/links/subuser");
+    request.setEndpoint("white-label/links/sub-user");
     request.addQueryParam("username", "test_string");
     Response response = sg.api(request);
     System.out.println(response.getStatusCode());
@@ -6182,19 +6183,19 @@ For more information, please see our [User Guide](https://sendgrid.com/docs/API_
     throw ex;
   }
   ```
-## Disassociate a Link Whitelabel
+## Disassociate a Link White-label
 
-**This endpoint allows you to disassociate a link whitelabel from a subuser.**
+**This endpoint allows you to disassociate a link white-label from a sub-user.**
 
-Link whitelables can be associated with subusers from the parent account. This functionality allows
-subusers to send mail using their parent's link whitelabels. To associate a link whitelabel, the parent account
-must first create a whitelabel and validate it. The parent may then associate that whitelabel with a subuser via the API or the Subuser Management page in the user interface.
+Link whitelables can be associated with sub-users from the parent account. This functionality allows
+sub-users to send mail using their parent's link white-labels. To associate a link white-label, the parent account
+must first create a white-label and validate it. The parent may then associate that white-label with a sub-user via the API or the Sub-user Management page in the user interface.
 
-Email link whitelabels allow all of the click-tracked links you send in your emails to include the URL of your domain instead of sendgrid.net.
+Email link white-labels allow all of the click-tracked links you send in your emails to include the URL of your domain instead of sendgrid.net.
 
-For more information, please see our [User Guide](https://sendgrid.com/docs/API_Reference/Web_API_v3/Whitelabel/links.html).
+For more information, please see our [User Guide](https://sendgrid.com/docs/API_Reference/Web_API_v3/White-label/links.html).
 
-### DELETE /whitelabel/links/subuser
+### DELETE /white-label/links/sub-user
 
 
 ```java
@@ -6202,7 +6203,7 @@ For more information, please see our [User Guide](https://sendgrid.com/docs/API_
     SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
     Request request = new Request();
     request.setMethod(Method.DELETE);
-    request.setEndpoint("whitelabel/links/subuser");
+    request.setEndpoint("white-label/links/sub-user");
     request.addQueryParam("username", "test_string");
     Response response = sg.api(request);
     System.out.println(response.getStatusCode());
@@ -6212,15 +6213,15 @@ For more information, please see our [User Guide](https://sendgrid.com/docs/API_
     throw ex;
   }
   ```
-## Update a Link Whitelabel
+## Update a Link White-label
 
-**This endpoint allows you to update a specific link whitelabel. You can use this endpoint to change a link whitelabel's default status.**
+**This endpoint allows you to update a specific link white-label. You can use this endpoint to change a link white-label's default status.**
 
-Email link whitelabels allow all of the click-tracked links you send in your emails to include the URL of your domain instead of sendgrid.net.
+Email link white-labels allow all of the click-tracked links you send in your emails to include the URL of your domain instead of sendgrid.net.
 
-For more information, please see our [User Guide](https://sendgrid.com/docs/API_Reference/Web_API_v3/Whitelabel/links.html).
+For more information, please see our [User Guide](https://sendgrid.com/docs/API_Reference/Web_API_v3/White-label/links.html).
 
-### PATCH /whitelabel/links/{id}
+### PATCH /white-label/links/{id}
 
 
 ```java
@@ -6228,7 +6229,7 @@ For more information, please see our [User Guide](https://sendgrid.com/docs/API_
     SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
     Request request = new Request();
     request.setMethod(Method.PATCH);
-    request.setEndpoint("whitelabel/links/{id}");
+    request.setEndpoint("white-label/links/{id}");
     request.setBody("{\"default\":true}");
     Response response = sg.api(request);
     System.out.println(response.getStatusCode());
@@ -6238,15 +6239,15 @@ For more information, please see our [User Guide](https://sendgrid.com/docs/API_
     throw ex;
   }
   ```
-## Retrieve a Link Whitelabel
+## Retrieve a Link White-label
 
-**This endpoint allows you to retrieve a specific link whitelabel.**
+**This endpoint allows you to retrieve a specific link white-label.**
 
-Email link whitelabels allow all of the click-tracked links you send in your emails to include the URL of your domain instead of sendgrid.net.
+Email link white-labels allow all of the click-tracked links you send in your emails to include the URL of your domain instead of sendgrid.net.
 
-For more information, please see our [User Guide](https://sendgrid.com/docs/API_Reference/Web_API_v3/Whitelabel/links.html).
+For more information, please see our [User Guide](https://sendgrid.com/docs/API_Reference/Web_API_v3/White-label/links.html).
 
-### GET /whitelabel/links/{id}
+### GET /white-label/links/{id}
 
 
 ```java
@@ -6254,7 +6255,7 @@ For more information, please see our [User Guide](https://sendgrid.com/docs/API_
     SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
     Request request = new Request();
     request.setMethod(Method.GET);
-    request.setEndpoint("whitelabel/links/{id}");
+    request.setEndpoint("white-label/links/{id}");
     Response response = sg.api(request);
     System.out.println(response.getStatusCode());
     System.out.println(response.getBody());
@@ -6263,15 +6264,15 @@ For more information, please see our [User Guide](https://sendgrid.com/docs/API_
     throw ex;
   }
   ```
-## Delete a Link Whitelabel
+## Delete a Link White-label
 
-**This endpoint allows you to delete a link whitelabel.**
+**This endpoint allows you to delete a link white-label.**
 
-Email link whitelabels allow all of the click-tracked links you send in your emails to include the URL of your domain instead of sendgrid.net.
+Email link white-labels allow all of the click-tracked links you send in your emails to include the URL of your domain instead of sendgrid.net.
 
-For more information, please see our [User Guide](https://sendgrid.com/docs/API_Reference/Web_API_v3/Whitelabel/links.html).
+For more information, please see our [User Guide](https://sendgrid.com/docs/API_Reference/Web_API_v3/White-label/links.html).
 
-### DELETE /whitelabel/links/{id}
+### DELETE /white-label/links/{id}
 
 
 ```java
@@ -6279,7 +6280,7 @@ For more information, please see our [User Guide](https://sendgrid.com/docs/API_
     SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
     Request request = new Request();
     request.setMethod(Method.DELETE);
-    request.setEndpoint("whitelabel/links/{id}");
+    request.setEndpoint("white-label/links/{id}");
     Response response = sg.api(request);
     System.out.println(response.getStatusCode());
     System.out.println(response.getBody());
@@ -6288,15 +6289,15 @@ For more information, please see our [User Guide](https://sendgrid.com/docs/API_
     throw ex;
   }
   ```
-## Validate a Link Whitelabel
+## Validate a Link White-label
 
-**This endpoint allows you to validate a link whitelabel.**
+**This endpoint allows you to validate a link white-label.**
 
-Email link whitelabels allow all of the click-tracked links you send in your emails to include the URL of your domain instead of sendgrid.net.
+Email link white-labels allow all of the click-tracked links you send in your emails to include the URL of your domain instead of sendgrid.net.
 
-For more information, please see our [User Guide](https://sendgrid.com/docs/API_Reference/Web_API_v3/Whitelabel/links.html).
+For more information, please see our [User Guide](https://sendgrid.com/docs/API_Reference/Web_API_v3/White-label/links.html).
 
-### POST /whitelabel/links/{id}/validate
+### POST /white-label/links/{id}/validate
 
 
 ```java
@@ -6304,7 +6305,7 @@ For more information, please see our [User Guide](https://sendgrid.com/docs/API_
     SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
     Request request = new Request();
     request.setMethod(Method.POST);
-    request.setEndpoint("whitelabel/links/{id}/validate");
+    request.setEndpoint("white-label/links/{id}/validate");
     Response response = sg.api(request);
     System.out.println(response.getStatusCode());
     System.out.println(response.getBody());
@@ -6313,19 +6314,19 @@ For more information, please see our [User Guide](https://sendgrid.com/docs/API_
     throw ex;
   }
   ```
-## Associate a Link Whitelabel
+## Associate a Link White-label
 
-**This endpoint allows you to associate a link whitelabel with a subuser account.**
+**This endpoint allows you to associate a link white-label with a sub-user account.**
 
-Link whitelables can be associated with subusers from the parent account. This functionality allows
-subusers to send mail using their parent's link whitelabels. To associate a link whitelabel, the parent account
-must first create a whitelabel and validate it. The parent may then associate that whitelabel with a subuser via the API or the Subuser Management page in the user interface.
+Link whitelables can be associated with sub-users from the parent account. This functionality allows
+sub-users to send mail using their parent's link white-labels. To associate a link white-label, the parent account
+must first create a white-label and validate it. The parent may then associate that white-label with a sub-user via the API or the Sub-user Management page in the user interface.
 
-Email link whitelabels allow all of the click-tracked links you send in your emails to include the URL of your domain instead of sendgrid.net.
+Email link white-labels allow all of the click-tracked links you send in your emails to include the URL of your domain instead of sendgrid.net.
 
-For more information, please see our [User Guide](https://sendgrid.com/docs/API_Reference/Web_API_v3/Whitelabel/links.html).
+For more information, please see our [User Guide](https://sendgrid.com/docs/API_Reference/Web_API_v3/White-label/links.html).
 
-### POST /whitelabel/links/{link_id}/subuser
+### POST /white-label/links/{link_id}/sub-user
 
 
 ```java
@@ -6333,7 +6334,7 @@ For more information, please see our [User Guide](https://sendgrid.com/docs/API_
     SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
     Request request = new Request();
     request.setMethod(Method.POST);
-    request.setEndpoint("whitelabel/links/{link_id}/subuser");
+    request.setEndpoint("white-label/links/{link_id}/sub-user");
     request.setBody("{\"username\":\"jane@example.com\"}");
     Response response = sg.api(request);
     System.out.println(response.getStatusCode());
@@ -6343,4 +6344,6 @@ For more information, please see our [User Guide](https://sendgrid.com/docs/API_
     throw ex;
   }
   ```
+
+
 

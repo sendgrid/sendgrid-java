@@ -236,7 +236,7 @@ public class SendGridExample {
 
     email.setSendAt(1461775052, 1);
 
-    // The values below this comment are global to entire message
+    // The values below this comment are global to an entire message
 
     email.setFrom("test@example.com", "Example User 0");
 
@@ -413,7 +413,7 @@ Template Body:
 ```html
 <html>
 <head>
-	<title></title>
+    <title></title>
 </head>
 <body>
 Hello -name-,
