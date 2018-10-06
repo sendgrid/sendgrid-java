@@ -497,7 +497,7 @@ If the API Key ID does not exist an HTTP 404 will be returned.
 
 **This endpoint allows you to revoke an existing API Key.**
 
-Authentications using this API Key will fail after this request is made, with some small propagation delay.If the API Key ID does not exist an HTTP 404 will be returned.
+Authentications using this API Key will fail after this request is made, with some small propagation delay. If the API Key ID does not exist an HTTP 404 will be returned.
 
 The API Keys feature allows customers to be able to generate an API Key credential which can be used for authentication with the SendGrid v3 Web API or the [Mail API Endpoint](https://sendgrid.com/docs/API_Reference/Web_API/mail.html).
 
@@ -2191,7 +2191,7 @@ For more information about segments in Marketing Campaigns, please see our [User
 | Webmail |	A web-based email client. | I.E., Yahoo, Google, AOL, or Outlook.com. |
 | Phone | A smart phone. | iPhone, Android, Blackberry, etc.
 | Tablet | A tablet computer. | iPad, android based tablet, etc. |
-| Other | An unrecognized device. |
+| Other | An unrecognised device. |
 
 Advanced Stats provide a more in-depth view of your email statistics and the actions taken by your recipients. You can segment these statistics by geographic location, device type, client type, browser, and mailbox provider. For more information about statistics, please see our [User Guide](https://sendgrid.com/docs/User_Guide/Statistics/index.html).
 
@@ -2315,7 +2315,7 @@ A single IP address or a range of IP addresses may be dedicated to an account in
 
 IP Pools allow you to group your dedicated SendGrid IP addresses together. For example, you could create separate pools for your transactional and marketing email. When sending marketing emails, specify that you want to use the marketing IP pool. This allows you to maintain separate reputations for your different email traffic.
 
-IP pools can only be used with whitelabeled IP addresses.
+IP pools can only be used with white labeled IP addresses.
 
 If an IP pool is NOT specified for an email, it will use any IP available, including ones in pools.
 
@@ -2343,7 +2343,7 @@ If an IP pool is NOT specified for an email, it will use any IP available, inclu
 
 IP Pools allow you to group your dedicated SendGrid IP addresses together. For example, you could create separate pools for your transactional and marketing email. When sending marketing emails, specify that you want to use the marketing IP pool. This allows you to maintain separate reputations for your different email traffic.
 
-IP pools can only be used with whitelabeled IP addresses.
+IP pools can only be used with white labeled IP addresses.
 
 If an IP pool is NOT specified for an email, it will use any IP available, including ones in pools.
 
@@ -2370,7 +2370,7 @@ If an IP pool is NOT specified for an email, it will use any IP available, inclu
 
 IP Pools allow you to group your dedicated SendGrid IP addresses together. For example, you could create separate pools for your transactional and marketing email. When sending marketing emails, specify that you want to use the marketing IP pool. This allows you to maintain separate reputations for your different email traffic.
 
-IP pools can only be used with whitelabeled IP addresses.
+IP pools can only be used with white labeled IP addresses.
 
 If an IP pool is NOT specified for an email, it will use any IP available, including ones in pools.
 
@@ -2398,7 +2398,7 @@ If an IP pool is NOT specified for an email, it will use any IP available, inclu
 
 IP Pools allow you to group your dedicated SendGrid IP addresses together. For example, you could create separate pools for your transactional and marketing email. When sending marketing emails, specify that you want to use the marketing IP pool. This allows you to maintain separate reputations for your different email traffic.
 
-IP pools can only be used with whitelabeled IP addresses.
+IP pools can only be used with white labeled IP addresses.
 
 If an IP pool is NOT specified for an email, it will use any IP available, including ones in pools.
 
@@ -2425,7 +2425,7 @@ If an IP pool is NOT specified for an email, it will use any IP available, inclu
 
 IP Pools allow you to group your dedicated SendGrid IP addresses together. For example, you could create separate pools for your transactional and marketing email. When sending marketing emails, specify that you want to use the marketing IP pool. This allows you to maintain separate reputations for your different email traffic.
 
-IP pools can only be used with whitelabeled IP addresses.
+IP pools can only be used with white labeled IP addresses.
 
 If an IP pool is NOT specified for an email, it will use any IP available, including ones in pools.
 
@@ -3349,7 +3349,7 @@ API Keys can be used to authenticate the use of [SendGrids v3 Web API](https://s
 
 *You may create up to 100 unique sender identities.*
 
-Sender Identities are required to be verified before use. If your domain has been whitelabeled it will auto verify on creation. Otherwise an email will be sent to the `from.email`.
+Sender Identities are required to be verified before use. If your domain has been white labeled it will auto verify on creation. Otherwise an email will be sent to the `from.email`.
 
 ### POST /senders
 
@@ -3373,7 +3373,7 @@ Sender Identities are required to be verified before use. If your domain has bee
 
 **This endpoint allows you to retrieve a list of all sender identities that have been created for your account.**
 
-Sender Identities are required to be verified before use. If your domain has been whitelabeled it will auto verify on creation. Otherwise an email will be sent to the `from.email`.
+Sender Identities are required to be verified before use. If your domain has been white labeled it will auto verify on creation. Otherwise an email will be sent to the `from.email`.
 
 ### GET /senders
 
@@ -3396,7 +3396,7 @@ Sender Identities are required to be verified before use. If your domain has bee
 
 **This endpoint allows you to update a sender identity.**
 
-Updates to `from.email` require re-verification. If your domain has been whitelabeled it will auto verify on creation. Otherwise an email will be sent to the `from.email`.
+Updates to `from.email` require re-verification. If your domain has been white labeled it will auto verify on creation. Otherwise an email will be sent to the `from.email`.
 
 Partial updates are allowed, but fields that are marked as "required" in the POST (create) endpoint must not be nil if that field is included in the PATCH request.
 
@@ -3422,7 +3422,7 @@ Partial updates are allowed, but fields that are marked as "required" in the POS
 
 **This endpoint allows you to retrieve a specific sender identity.**
 
-Sender Identities are required to be verified before use. If your domain has been whitelabeled it will auto verify on creation. Otherwise an email will be sent to the `from.email`.
+Sender Identities are required to be verified before use. If your domain has been white labeled it will auto verify on creation. Otherwise an email will be sent to the `from.email`.
 
 ### GET /senders/{sender_id}
 
@@ -3445,7 +3445,7 @@ Sender Identities are required to be verified before use. If your domain has bee
 
 **This endpoint allows you to delete one of your sender identities.**
 
-Sender Identities are required to be verified before use. If your domain has been whitelabeled it will auto verify on creation. Otherwise an email will be sent to the `from.email`.
+Sender Identities are required to be verified before use. If your domain has been white labeled it will auto verify on creation. Otherwise an email will be sent to the `from.email`.
 
 ### DELETE /senders/{sender_id}
 
@@ -3468,7 +3468,7 @@ Sender Identities are required to be verified before use. If your domain has bee
 
 **This endpoint allows you to resend a sender identity verification email.**
 
-Sender Identities are required to be verified before use. If your domain has been whitelabeled it will auto verify on creation. Otherwise an email will be sent to the `from.email`.
+Sender Identities are required to be verified before use. If your domain has been white labeled it will auto verify on creation. Otherwise an email will be sent to the `from.email`.
 
 ### POST /senders/{sender_id}/resend_verification
 
@@ -3761,7 +3761,7 @@ Each subuser should be assigned to an IP address, from which all of this subuser
 More information:
 
 * [How to request more IPs](https://sendgrid.com/docs/Classroom/Basics/Account/adding_an_additional_dedicated_ip_to_your_account.html)
-* [IPs can be whitelabeled](https://sendgrid.com/docs/User_Guide/Settings/Whitelabel/ips.html)
+* [IPs can be white labeled](https://sendgrid.com/docs/User_Guide/Settings/Whitelabel/ips.html)
 
 ### PUT /subusers/{subuser_name}/ips
 
@@ -5125,7 +5125,7 @@ For more information about your user profile:
 If the maximum number of cancellations/pauses are added, HTTP 400 will
 be returned.
 
-The Cancel Scheduled Sends feature allows the customer to cancel a scheduled send based on a Batch ID included in the SMTPAPI header.Scheduled sends cancelled less than 10 minutes before the scheduled time are not guaranteed to be cancelled.
+The Cancel Scheduled Sends feature allows the customer to cancel a scheduled send based on a Batch ID included in the SMTPAPI header. Scheduled sends cancelled less than 10 minutes before the scheduled time are not guaranteed to be cancelled.
 
 ### POST /user/scheduled_sends
 
@@ -5149,7 +5149,7 @@ The Cancel Scheduled Sends feature allows the customer to cancel a scheduled sen
 
 **This endpoint allows you to retrieve all cancel/paused scheduled send information.**
 
-The Cancel Scheduled Sends feature allows the customer to cancel a scheduled send based on a Batch ID included in the SMTPAPI header.Scheduled sends cancelled less than 10 minutes before the scheduled time are not guaranteed to be cancelled.
+The Cancel Scheduled Sends feature allows the customer to cancel a scheduled send based on a Batch ID included in the SMTPAPI header. Scheduled sends cancelled less than 10 minutes before the scheduled time are not guaranteed to be cancelled.
 
 ### GET /user/scheduled_sends
 
@@ -5172,7 +5172,7 @@ The Cancel Scheduled Sends feature allows the customer to cancel a scheduled sen
 
 **This endpoint allows you to update the status of a scheduled send for the given `batch_id`.**
 
-The Cancel Scheduled Sends feature allows the customer to cancel a scheduled send based on a Batch ID included in the SMTPAPI header.Scheduled sends cancelled less than 10 minutes before the scheduled time are not guaranteed to be cancelled.
+The Cancel Scheduled Sends feature allows the customer to cancel a scheduled send based on a Batch ID included in the SMTPAPI header. Scheduled sends cancelled less than 10 minutes before the scheduled time are not guaranteed to be cancelled.
 
 ### PATCH /user/scheduled_sends/{batch_id}
 
@@ -5196,7 +5196,7 @@ The Cancel Scheduled Sends feature allows the customer to cancel a scheduled sen
 
 **This endpoint allows you to retrieve the cancel/paused scheduled send information for a specific `batch_id`.**
 
-The Cancel Scheduled Sends feature allows the customer to cancel a scheduled send based on a Batch ID included in the SMTPAPI header.Scheduled sends cancelled less than 10 minutes before the scheduled time are not guaranteed to be cancelled.
+The Cancel Scheduled Sends feature allows the customer to cancel a scheduled send based on a Batch ID included in the SMTPAPI header. Scheduled sends cancelled less than 10 minutes before the scheduled time are not guaranteed to be cancelled.
 
 ### GET /user/scheduled_sends/{batch_id}
 
@@ -5219,7 +5219,7 @@ The Cancel Scheduled Sends feature allows the customer to cancel a scheduled sen
 
 **This endpoint allows you to delete the cancellation/pause of a scheduled send.**
 
-The Cancel Scheduled Sends feature allows the customer to cancel a scheduled send based on a Batch ID included in the SMTPAPI header.Scheduled sends cancelled less than 10 minutes before the scheduled time are not guaranteed to be cancelled.
+The Cancel Scheduled Sends feature allows the customer to cancel a scheduled send based on a Batch ID included in the SMTPAPI header. Scheduled sends cancelled less than 10 minutes before the scheduled time are not guaranteed to be cancelled.
 
 ### DELETE /user/scheduled_sends/{batch_id}
 
@@ -5936,7 +5936,7 @@ For more information on whitelabeling, please see our [User Guide](https://sendg
 
 **This endpoint allows you to create an IP whitelabel.**
 
-When creating an IP whitelable, you should use the same subdomain that you used when you created a domain whitelabel.
+When creating an IP whitelabel, you should use the same subdomain that you used when you created a domain whitelabel.
 
 A IP whitelabel consists of a subdomain and domain that will be used to generate a reverse DNS record for a given IP. Once SendGrid has verified that the appropriate A record for the IP has been created, the appropriate reverse DNS record for the IP is generated.
 
@@ -6156,7 +6156,7 @@ For more information, please see our [User Guide](https://sendgrid.com/docs/API_
 
 **This endpoint allows you to retrieve the associated link whitelabel for a subuser.**
 
-Link whitelables can be associated with subusers from the parent account. This functionality allows
+Link whitelabels can be associated with subusers from the parent account. This functionality allows
 subusers to send mail using their parent's link whitelabels. To associate a link whitelabel, the parent account
 must first create a whitelabel and validate it. The parent may then associate that whitelabel with a subuser via the API or the Subuser Management page in the user interface.
 
@@ -6186,7 +6186,7 @@ For more information, please see our [User Guide](https://sendgrid.com/docs/API_
 
 **This endpoint allows you to disassociate a link whitelabel from a subuser.**
 
-Link whitelables can be associated with subusers from the parent account. This functionality allows
+Link whitelabels can be associated with subusers from the parent account. This functionality allows
 subusers to send mail using their parent's link whitelabels. To associate a link whitelabel, the parent account
 must first create a whitelabel and validate it. The parent may then associate that whitelabel with a subuser via the API or the Subuser Management page in the user interface.
 
@@ -6317,7 +6317,7 @@ For more information, please see our [User Guide](https://sendgrid.com/docs/API_
 
 **This endpoint allows you to associate a link whitelabel with a subuser account.**
 
-Link whitelables can be associated with subusers from the parent account. This functionality allows
+Link whitelabels can be associated with subusers from the parent account. This functionality allows
 subusers to send mail using their parent's link whitelabels. To associate a link whitelabel, the parent account
 must first create a whitelabel and validate it. The parent may then associate that whitelabel with a subuser via the API or the Subuser Management page in the user interface.
 
