@@ -50,7 +50,7 @@ You can just drop the jar file in. It's a fat jar - it has all the dependencies 
 <a name="testing"></a>
 ## Testing v3 /mail/send Calls Directly
 
-[Here](https://sendgrid.com/docs/Classroom/Send/v3_Mail_Send/curl_examples.html) are some cURL examples for common use cases.
+[Here](https://sendgrid.com/docs/for-developers/sending-email/curl-examples/) are some cURL examples for common use cases.
 
 <a name="versions"></a>
 ## Versions
