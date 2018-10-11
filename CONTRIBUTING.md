@@ -1,13 +1,19 @@
 Hello! Thank you for choosing to help contribute to one of the SendGrid open source libraries. There are many ways you can contribute and help is always welcome.  We simply ask that you follow the following contribution policies.
 
-- [CLAs and CCLAs](#cla)
-- [Roadmap & Milestones](#roadmap)
+- [CLAs and CCLAs](#clas-and-cclas)
 - [Feature Request](#feature-request)
 - [Submit a Bug Report](#submit-a-bug-report)
+    - [Please use our Bug Report Template](#please-use-our-bug-report-template)
 - [Improvements to the Codebase](#improvements-to-the-codebase)
-- [Understanding the Code Base](#understanding-the-codebase)
+    - [Development Environment](#development-environment)
+        - [Install and Run Locally](#install-and-run-locally)
+            - [Prerequisites](#prerequisites)
+            - [Initial setup:](#initial-setup)
+- [Environment Variables](#environment-variables)
+            - [Execute:](#execute)
+- [Understanding the Code Base](#understanding-the-code-base)
 - [Testing](#testing)
-- [Style Guidelines & Naming Conventions](#style-guidelines-and-naming-conventions)
+- [Style Guidelines & Naming Conventions](#style-guidelines--naming-conventions)
 - [Creating a Pull Request](#creating-a-pull-request)
 
 <a name="roadmap"></a>
@@ -102,7 +108,7 @@ touch Example.java
 Add the example you want to test to Example.java, including the headers at the top of the file.
 
 ``` bash
-javac -classpath ../repo/com/sendgrid/4.2.1/sendgrid-4.2.1-jar.jar:. Example.java && java -classpath ../repo/com/sendgrid/4.2.1/sendgrid-4.2.1-jar.jar:. Example
+javac -classpath ../repo/com/sendgrid/4.3.0/sendgrid-4.3.0-jar.jar:. Example.java && java -classpath ../repo/com/sendgrid/4.3.0/sendgrid-4.3.0-jar.jar:. Example
 ```
 
 <a name="understanding-the-codebase"></a>
