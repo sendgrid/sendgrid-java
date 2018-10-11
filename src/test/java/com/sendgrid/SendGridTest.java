@@ -3406,4 +3406,40 @@ public class SendGridTest {
     Assert.assertEquals(200, response.getStatusCode());
   }
 
+  @Test
+  public void test_add_impersonate_subuser() {
+    SendGrid sg = new SendGrid(SENDGRID_API_KEY);
+    Map<String,String> requestHeaders = new HashMap<>();
+
+    sg.addImpersonateSubuser("subusername");
+    requestHeaders.put("on-behalf-of", "subusername");
+    Assert.assertEquals(sg.getRequestHeaders().get("on-behalf-of"), requestHeaders.get("on-behalf-of"));
+  }
+
+  @Test
+  public void test_remove_impersonate_subuser() {
+    SendGrid sg = new SendGrid(SENDGRID_API_KEY);
+    Map<String,String> requestHeaders = new HashMap<>();
+
+    sg.addImpersonateSubuser("subusername");
+    requestHeaders.put("on-behalf-of", "subusername");
+    Assert.assertEquals(sg.getRequestHeaders().get("on-behalf-of"), requestHeaders.get("on-behalf-of"));
+
+    sg.removeImpersonateSubuser();
+    requestHeaders.remove("on-behalf-of");
+    Assert.assertEquals(sg.getRequestHeaders().get("on-behalf-of"), requestHeaders.get("on-behalf-of"));
+  }
+
+  @Test
+  public void test_get_impersonate_subuser() {
+    SendGrid sg = new SendGrid(SENDGRID_API_KEY);
+    
+    sg.addImpersonateSubuser("subusername");
+    Assert.assertEquals(sg.getImpersonateSubuser(), "subusername");
+
+    sg.removeImpersonateSubuser();
+    Assert.assertEquals(sg.getImpersonateSubuser(), null);
+
+  }
+
 }

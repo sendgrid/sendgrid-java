@@ -41,6 +41,9 @@ public class SendGrid implements SendGridAPI {
   /** The number of milliseconds to sleep between retries. */
   private int rateLimitSleep;
 
+  /** The subuser to be impersonated. */
+  private String subuser;
+
   /**
    * Construct a new SendGrid API wrapper.
    * @param apiKey is your SendGrid API Key: https://app.sendgrid.com/settings/api_keys
@@ -191,6 +194,31 @@ public class SendGrid implements SendGridAPI {
    */
   public void setRateLimitSleep(int rateLimitSleep) {
     this.rateLimitSleep = rateLimitSleep;
+  }
+
+  /**
+   * Add the subuser to be impersonated to the subsequent requests
+   * @param subuser the subuser to be impersonated
+   */
+  public void addImpersonateSubuser(String subuser) {
+    this.subuser = subuser;
+    this.addRequestHeader("on-behalf-of", subuser);
+  }
+
+  /**
+   * Remove the impersonated subuser from the subsequent requests
+   */
+  public void removeImpersonateSubuser() {
+    this.subuser = null;
+    this.removeRequestHeader("on-behalf-of");
+  }
+
+  /**
+   * Get the impersonated subuser or null if empty
+   * @return the impersonated subuser
+   */
+  public String getImpersonateSubuser() {
+    return this.subuser; 
   }
 
   /**
