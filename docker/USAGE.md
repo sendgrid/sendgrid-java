@@ -23,7 +23,10 @@ You can mount repositories in the `/mnt/sendgrid-java` and `/mnt/java-http-clien
 
 <a name="Testing"></a>
 # Testing
-Testing is easy!  Run the container, `cd sendgrid`, and run `./gradlew test`.
+Testing is easy!  
+1. Run the container: `docker run -it sendgrid/sendgrid-java`
+2. `cd sendgrid-java`
+3. run `./gradlew test`
 
 <a name="about"></a>
 # About
