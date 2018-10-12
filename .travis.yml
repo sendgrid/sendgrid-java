@@ -14,6 +14,7 @@ before_install:
   - cat /etc/hosts # optionally check the content *after*
 after_script:
   - lsof -i :4010 -S # adds some debugging statements
+  - "mvn spotbugs:spotbugs checkstyle:check -Dcheckstyle.config.location=google_checks.xml"
   - "./gradlew build"
   - "./scripts/upload.sh"
 env:
