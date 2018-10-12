@@ -8,9 +8,7 @@ This documentation provides examples for specific use cases. Please [open an iss
 * [How to View Email Statistics](#email-stats)
 
 <a name="transactional-templates"></a>
-# (LEGACY) Transactional Templates
-
-IF YOU ARE USING OUR NEW TEMPLATES, PLEASE SEE [THIS ISSUE](https://github.com/sendgrid/sendgrid-java/issues/447).
+# Transactional Templates
 
 For this example, we assume you have created a [transactional template](https://sendgrid.com/docs/User_Guide/Transactional_Templates/index.html). Following is the template content we used for testing.
 
