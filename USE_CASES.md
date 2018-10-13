@@ -17,7 +17,11 @@ Template ID (replace with your own):
 ```text
 d-2c214ac919e84170b21855cc129b4a5f
 ```
+Email Subject:
 
+```text
+{{subject}}
+```
 Template Body:
 
 ```html
@@ -49,6 +53,7 @@ public class Example {
     mail.setTemplateId("d-2c214ac919e84170b21855cc129b4a5f");
 
     Personalization personalization = new Personalization();
+    personalization.addDynamicTemplateData("subject", "Testing Templates");
     personalization.addDynamicTemplateData("name", "Example User");
     personalization.addDynamicTemplateData("city", "Denver");
     personalization.addTo(new Email("test@example.com"));
@@ -89,7 +94,7 @@ public class Example {
         \"personalizations\":
         [{
           \"to\": [{\"email\": \"test@example.com\"}],
-          \"dynamic_template_data\": {\"name\": \"Example User\", \"city\": \"Denver\"}
+          \"dynamic_template_data\": {\"subject\": \"Testing Templates\",\"name\": \"Example User\", \"city\": \"Denver\"}
         }],
         \"template_id\": \"d-2c214ac919e84170b21855cc129b4a5f\"}");
       Response response = sg.api(request);
