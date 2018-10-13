@@ -256,6 +256,10 @@ public class Mail {
     return attachments;
   }
 
+  public static MailBuilder builder(){
+    return MailBuilder.aMail();
+  }
+
   /**
    * Add attachments to the email.
    * @param attachments attachments to add.

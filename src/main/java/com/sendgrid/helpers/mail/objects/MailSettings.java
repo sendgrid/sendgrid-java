@@ -12,6 +12,11 @@ public class MailSettings {
   @JsonProperty("sandbox_mode") private Setting sandBoxMode;
   @JsonProperty("spam_check") private SpamCheckSetting spamCheckSetting;
 
+
+  public static MailSettingsBuilder builder() {
+    return MailSettingsBuilder.aMailSettings();
+  }
+
   @JsonProperty("bcc")
   public BccSettings getBccSettings() {
     return bccSettings;
