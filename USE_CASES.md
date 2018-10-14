@@ -125,6 +125,14 @@ Email Subject:
 <%subject%>
 ```
 
+If the subject contains ", " or "&"  the you need 
+
+```text
+\{<%subject%>\}
+```
+
+Otherwise an exception will be thrown.
+
 Template Body:
 
 ```html
