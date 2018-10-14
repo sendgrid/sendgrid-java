@@ -22,13 +22,13 @@ Template ID (replace with your own):
 Email Subject:
 
 ```text
-<%subject%>
+{{subject}}
 ```
 
 If the subject contains ", " or "&"  the you need 
 
 ```text
-\{<%subject%>\}
+{{{subject%}}}
 ```
 
 Otherwise an exception will be thrown.
