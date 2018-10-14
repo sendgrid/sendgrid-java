@@ -1792,6 +1792,24 @@ public class SendGridTest {
   }
 
   @Test
+  public void test_mail_settings_invalid_subject_name_template() throws IOException {
+    SendGrid sg = new SendGrid("SENDGRID_API_KEY", true);
+    sg.setHost("localhost:4010");
+    sg.addRequestHeader("X-Mock", "200");
+
+    Request request = new Request();
+    request.setMethod(Method.PATCH);
+    request.setEndpoint("mail_settings/template");
+    request.setBody("{\"personalizations\":[{\"to\":[{\"email\":\"test@example.com\"}],\"substitutions\":{\"-name-\":\"ExampleUser\",\"-city-\":\"Denver\"},\"subject\":\" -subject-\"}],\"from\":{\"email\":\"test@example.com\"},\"content\":[{\"type\":\"text/html\",\"value\":\"I'mreplacingthe<strong>bodytag</strong>\"}],\"template_id\":\"d-13b8f94f-bcae-4ec6-b752-70d6cb59f932\"}");
+    try {
+      Response response = sg.api(request);
+      Assert.assertEquals(200, response.getStatusCode());
+    } catch (IOException ex) {
+      Assert.fail();
+    }
+  }
+  
+  @Test
   public void test_mail_settings_template_get() throws IOException {
     SendGrid sg = new SendGrid("SENDGRID_API_KEY", true);
     sg.setHost("localhost:4010");
