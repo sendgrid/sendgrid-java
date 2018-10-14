@@ -28,7 +28,7 @@ Email Subject:
 If the subject contains ", " or "&"  the you need 
 
 ```text
-{{{subject%}}}
+{{{subject}}}
 ```
 
 Otherwise an exception will be thrown.
