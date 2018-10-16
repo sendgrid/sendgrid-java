@@ -3406,4 +3406,26 @@ public class SendGridTest {
     Assert.assertEquals(200, response.getStatusCode());
   }
 
+  @Test
+  public void test_tracking_settings_subscription_helper_patch() throws IOException {
+    SendGrid sg = new SendGrid("SENDGRID_API_KEY", true);
+    sg.setHost("localhost:4010");
+    sg.addRequestHeader("X-Mock", "200");
+
+    Request request = new Request();
+    request.setMethod(Method.PATCH);
+    request.setEndpoint("tracking_settings/subscription");
+
+    SubscriptionTracking st = new SubscriptionTracking();
+    st.setEnabled(true);
+    st.setHtmlContent("To unsubscribe <% click here %>");
+    st.setPlainContent("To unsubscribe <% clickhere %>");
+    st.setCustomLandingPageUrl("http://www.mywebsite.com/");
+    st.setSendGridLandingPageHtml("We will miss you");
+    st.setReplacementTag("replace");
+
+    request.setBody(st.build());
+    Response response = sg.api(request);
+    Assert.assertEquals(200, response.getStatusCode());
+  }
 }
