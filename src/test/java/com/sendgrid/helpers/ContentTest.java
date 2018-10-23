@@ -1,9 +1,10 @@
-package com.sendgrid;
+package com.sendgrid.helpers;
 
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
+import com.sendgrid.helpers.mail.objects.Content;
 import org.junit.rules.ExpectedException;
 
 import java.util.ArrayList;
