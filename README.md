@@ -237,4 +237,4 @@ Please email the Developer Experience Team [here](mailto:dx@sendgrid.com) in cas
 sendgrid-java is maintained and funded by SendGrid, Inc. The names and logos for sendgrid-java are trademarks of SendGrid, Inc.
 
 # License
-[The MIT License (MIT)](LICENSE.txt)
+[The MIT License (MIT)](LICENSE.md)
