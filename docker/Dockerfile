@@ -16,7 +16,6 @@ RUN chmod +x ./install.sh && \
 WORKDIR /root/sources
 RUN git clone https://github.com/sendgrid/sendgrid-java.git
 WORKDIR /root
-RUN ln -s /root/sources/sendgrid-java
 
 COPY entrypoint.sh entrypoint.sh
 RUN chmod +x entrypoint.sh
