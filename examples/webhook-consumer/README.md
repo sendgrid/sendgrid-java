@@ -2,7 +2,7 @@ This example contains spring boot java project, that can receive and process [Se
 
 This tutorial depends on macOS terminal, but project can be started on any platform
 
-###Local run
+### Local run
 
 For this step you will need:
 
@@ -37,7 +37,7 @@ For this step you will need:
     `INFO 1 --- [p-nio-80-exec-1] c.e.sendgrid.demo.SendgridController     : SendgridEvent{email='test@gmail.com', timestamp='12345', smtpId='null', event='null', category='null'}`
 
 
-###Remote deployment
+### Remote deployment
 
 For example we will use [heroku](https://www.heroku.com) cloud platform
 
@@ -105,7 +105,7 @@ For this step you will need:
     Where you can see logging for test events from sendgrid.
 
 You are done!
-###Project Structure
+### Project Structure
 
 `DemoApplication.java`
 
