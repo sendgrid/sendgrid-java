@@ -155,27 +155,34 @@ public class TypeAssertsTest {
     String json = "[{\"a\":\"a\", \"b\":\"b\"}, {\"a\":\"c\", \"b\":\"d\"}]";
     JsonNode root = objectMapper.readTree(json);
 
-    TypeAsserts.applyAssertions((el) -> {
-      JsonNode a = el.get("a");
-      TypeAsserts.assertString("a", true, a);
+    TypeAsserts.applyAssertions(new TypeAsserts.ThrowingConsumer<JsonNode, TypeCheckException>() {
+      @Override
+      public void accept(JsonNode el) throws TypeCheckException {
+        JsonNode a = el.get("a");
+        TypeAsserts.assertString("a", true, a);
 
-      JsonNode b = el.get("b");
-      TypeAsserts.assertString("b", true, b);
+        JsonNode b = el.get("b");
+        TypeAsserts.assertString("b", true, b);
+      }
     }, root);
   }
 
   @Test
-  public void test_apply_asserts_on_incorrect_object_not_ok() throws TypeCheckException, IOException {
+  public void test_apply_asserts_on_incorrect_object_not_ok()
+      throws TypeCheckException, IOException {
     String json = "[{\"a\":\"a\", \"b\":\"b\"}, {\"a\":\"c\"}]";
     JsonNode root = objectMapper.readTree(json);
 
     thrown.expect(TypeCheckException.class);
-    TypeAsserts.applyAssertions((el) -> {
-      JsonNode a = el.get("a");
-      TypeAsserts.assertString("a", true, a);
+    TypeAsserts.applyAssertions(new TypeAsserts.ThrowingConsumer<JsonNode, TypeCheckException>() {
+      @Override
+      public void accept(JsonNode el) throws TypeCheckException {
+        JsonNode a = el.get("a");
+        TypeAsserts.assertString("a", true, a);
 
-      JsonNode b = el.get("b");
-      TypeAsserts.assertString("b", true, b);
+        JsonNode b = el.get("b");
+        TypeAsserts.assertString("b", true, b);
+      }
     }, root);
   }
 

@@ -18,34 +18,34 @@ public class TypeCheckerTest {
 
   @Test
   public void test_example_ok() throws TypeCheckException, IOException {
-   String json = "{\n" +
-       "  \"personalizations\": [\n" +
-       "    {\n" +
-       "      \"to\": [\n" +
-       "        {\n" +
-       "          \"email\": \"john.doe@example.com\",\n" +
-       "          \"name\": \"John Doe\"\n" +
-       "        }\n" +
-       "      ],\n" +
-       "      \"subject\": \"Hello, World!\"\n" +
-       "    }\n" +
-       "  ],\n" +
+    String json = "{\n" +
+        "  \"personalizations\": [\n" +
+        "    {\n" +
+        "      \"to\": [\n" +
+        "        {\n" +
+        "          \"email\": \"john.doe@example.com\",\n" +
+        "          \"name\": \"John Doe\"\n" +
+        "        }\n" +
+        "      ],\n" +
+        "      \"subject\": \"Hello, World!\"\n" +
+        "    }\n" +
+        "  ],\n" +
 
-       "  \"from\": {\n" +
-       "    \"email\": \"sam.smith@example.com\",\n" +
-       "    \"name\": \"Sam Smith\"\n" +
-       "  },\n" +
-       "  \"reply_to\": {\n" +
-       "    \"email\": \"sam.smith@example.com\",\n" +
-       "    \"name\": \"Sam Smith\"\n" +
-       "  },\n" +
-       "  \"content\": [\n" +
-       "    {\n" +
-       "      \"type\": \"text/plain\",\n" +
-       "      \"value\": \"Hello, World!\"\n" +
-       "    }\n" +
-       "  ]\n" +
-       "}";
+        "  \"from\": {\n" +
+        "    \"email\": \"sam.smith@example.com\",\n" +
+        "    \"name\": \"Sam Smith\"\n" +
+        "  },\n" +
+        "  \"reply_to\": {\n" +
+        "    \"email\": \"sam.smith@example.com\",\n" +
+        "    \"name\": \"Sam Smith\"\n" +
+        "  },\n" +
+        "  \"content\": [\n" +
+        "    {\n" +
+        "      \"type\": \"text/plain\",\n" +
+        "      \"value\": \"Hello, World!\"\n" +
+        "    }\n" +
+        "  ]\n" +
+        "}";
 
     typeChecker.checkMailParams(json);
   }
@@ -108,7 +108,6 @@ public class TypeCheckerTest {
     thrown.expect(TypeCheckException.class);
     typeChecker.checkMailParams(json);
   }
-
 
 
 }

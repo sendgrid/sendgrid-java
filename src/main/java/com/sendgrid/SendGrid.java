@@ -6,8 +6,8 @@ import com.sendgrid.typechecker.TypeChecker;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.concurrent.Executors;
 import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 /**
   * Class SendGrid allows for quick and easy access to the SendGrid API.
