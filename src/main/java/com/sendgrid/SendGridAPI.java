@@ -87,5 +87,5 @@ public interface SendGridAPI {
    * @return returns a response.
    * @throws IOException in case of network or marshal error.
    */
-  public Response api(Request request) throws IOException;
+  public Response api(Request request) throws Exception;
 }

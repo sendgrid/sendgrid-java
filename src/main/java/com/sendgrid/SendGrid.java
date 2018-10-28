@@ -1,5 +1,8 @@
 package com.sendgrid;
 
+import com.sendgrid.typechecker.TypeCheckException;
+import com.sendgrid.typechecker.TypeChecker;
+
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
@@ -40,6 +43,8 @@ public class SendGrid implements SendGridAPI {
 
   /** The number of milliseconds to sleep between retries. */
   private int rateLimitSleep;
+
+  private TypeChecker typeChecker = new TypeChecker();
 
   /**
    * Construct a new SendGrid API wrapper.
@@ -209,7 +214,9 @@ public class SendGrid implements SendGridAPI {
    * @return the response object.
    * @throws IOException in case of a network error.
    */
-  public Response api(Request request) throws IOException {
+  public Response api(Request request) throws IOException, TypeCheckException {
+    typeChecker.checkRequest(request);
+
     Request req = new Request();
     req.setMethod(request.getMethod());
     req.setBaseUri(this.host);
@@ -260,7 +267,7 @@ public class SendGrid implements SendGridAPI {
         for (int i = 0; i < rateLimitRetry; ++i) {
           try {
             response = api(request);
-          } catch (IOException ex) {
+          } catch (IOException | TypeCheckException ex) {
             // Stop retrying if there is a network error.
             callback.error(ex);
             return;
