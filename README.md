@@ -8,6 +8,13 @@
 [![Open Source Helpers](https://www.codetriage.com/sendgrid/sendgrid-java/badges/users.svg)](https://www.codetriage.com/sendgrid/sendgrid-java)
 [![MIT licensed](https://img.shields.io/badge/license-MIT-blue.svg)](./LICENSE.txt)
 
+## Announcements
+If you're a software engineer who is passionate about #DeveloperExperience
+and/or #OpenSource, [this is an incredible opportunity to join our
+#DX team](https://sendgrid.com/careers/role/1421152/?gh_jid=1421152) as a
+Developer Experience Engineer and work with @thinkingserious and @aroach! Tell your friends :)
+
+
 **NEW:** Subscribe to email [notifications](https://dx.sendgrid.com/newsletter/java) for releases and breaking changes.
 
 **This library allows you to quickly and easily use the SendGrid Web API v3 via Java.**
