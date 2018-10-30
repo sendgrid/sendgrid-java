@@ -201,6 +201,8 @@ public class Example {
 <a name="announcements"></a>
 # Announcements
 
+If you're a software engineer who is passionate about #DeveloperExperience and/or #OpenSource, this is an incredible opportunity to join our #DX team as a Developer Experience Engineer and work with @thinkingserious and @aroach! Tell your friends :)
+
 Please see our announcement regarding [breaking changes](https://github.com/sendgrid/sendgrid-java/issues/140). Your support is appreciated!
 
 All updates to this library are documented in our [CHANGELOG](https://github.com/sendgrid/sendgrid-java/blob/master/CHANGELOG.md) and [releases](https://github.com/sendgrid/sendgrid-java/releases). You may also subscribe to email [release notifications](https://dx.sendgrid.com/newsletter/java) for releases and breaking changes.
