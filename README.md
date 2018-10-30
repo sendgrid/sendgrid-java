@@ -201,7 +201,7 @@ public class Example {
 <a name="announcements"></a>
 # Announcements
 
-If you're a software engineer who is passionate about #DeveloperExperience and/or #OpenSource, this is an incredible opportunity to join our #DX team as a Developer Experience Engineer and work with @thinkingserious and @aroach! Tell your friends :)
+If you're a software engineer who is passionate about #DeveloperExperience and/or #OpenSource, [this is an incredible opportunity to join our #DX team](https://sendgrid.com/careers/role/1421152/?gh_jid=1421152) as a Developer Experience Engineer and work with **@thinkingserious** and **@aroach**! Tell your friends :)
 
 Please see our announcement regarding [breaking changes](https://github.com/sendgrid/sendgrid-java/issues/140). Your support is appreciated!
 
