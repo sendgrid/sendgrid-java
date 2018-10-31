@@ -3,12 +3,12 @@ package com.sendgrid;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.concurrent.Executors;
 import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 /**
-  * Class Twilio SendGrid allows for quick and easy access to the Twilio SendGrid API.
-  */
+ * The Twilio SendGrid class allows for quick and easy access to the Twilio SendGrid API.
+ */
 public class SendGrid implements SendGridAPI {
 
   private static final String VERSION = "3.0.0";
@@ -43,6 +43,7 @@ public class SendGrid implements SendGridAPI {
 
   /**
    * Construct a new Twilio SendGrid API wrapper.
+   *
    * @param apiKey is your Twilio SendGrid API Key: https://app.sendgrid.com/settings/api_keys
    */
   public SendGrid(String apiKey) {
@@ -52,6 +53,7 @@ public class SendGrid implements SendGridAPI {
 
   /**
    * Construct a new Twilio SendGrid API wrapper.
+   *
    * @param apiKey is your Twilio SendGrid API Key: https://app.sendgrid.com/settings/api_keys
    * @param test is true if you are unit testing
    */
@@ -62,6 +64,7 @@ public class SendGrid implements SendGridAPI {
 
   /**
    * Construct a new Twilio SendGrid API wrapper.
+   *
    * @param apiKey is your Twilio SendGrid API Key: https://app.sendgrid.com/settings/api_keys
    * @param client the Client to use (allows to customize its configuration)
    */
@@ -72,6 +75,7 @@ public class SendGrid implements SendGridAPI {
 
   /**
    * Initialize the client.
+   *
    * @param apiKey the user's API key.
    */
   public void initializeSendGrid(String apiKey) {
@@ -89,14 +93,16 @@ public class SendGrid implements SendGridAPI {
 
   /**
    * Retrieve the current library version.
+   *
    * @return the current version.
    */
   public String getLibraryVersion() {
-    return this.VERSION;
+    return VERSION;
   }
 
   /**
    * Get the API version.
+   *
    * @return the current API versioin (v3 by default).
    */
   public String getVersion() {
@@ -105,6 +111,7 @@ public class SendGrid implements SendGridAPI {
 
   /**
    * Set the API version.
+   *
    * @param version the new version.
    */
   public void setVersion(String version) {
@@ -113,6 +120,7 @@ public class SendGrid implements SendGridAPI {
 
   /**
    * Obtain the request headers.
+   *
    * @return the request headers.
    */
   public Map<String, String> getRequestHeaders() {
@@ -121,6 +129,7 @@ public class SendGrid implements SendGridAPI {
 
   /**
    * Add a new request header.
+   *
    * @param key the header key.
    * @param value the header value.
    * @return the new set of request headers.
@@ -132,6 +141,7 @@ public class SendGrid implements SendGridAPI {
 
   /**
    * Remove a request header.
+   *
    * @param key the header key to remove.
    * @return the new set of request headers.
    */
@@ -142,6 +152,7 @@ public class SendGrid implements SendGridAPI {
 
   /**
    * Get the Twilio SendGrid host (api.sendgrid.com by default).
+   *
    * @return the Twilio SendGrid host.
    */
   public String getHost() {
@@ -150,6 +161,7 @@ public class SendGrid implements SendGridAPI {
 
   /**
    * Set the Twilio SendGrid host.
+   *
    * @param host the new Twilio SendGrid host.
    */
   public void setHost(String host) {
@@ -157,8 +169,8 @@ public class SendGrid implements SendGridAPI {
   }
 
   /**
-   * Get the maximum number of retries on a rate limit response. 
-   * The default is 5.
+   * Get the maximum number of retries on a rate limit response. The default is 5.
+   *
    * @return the number of retries on a rate limit.
    */
   public int getRateLimitRetry() {
@@ -167,6 +179,7 @@ public class SendGrid implements SendGridAPI {
 
   /**
    * Set the maximum number of retries on a rate limit response.
+   *
    * @param rateLimitRetry the maximum retry count.
    */
   public void setRateLimitRetry(int rateLimitRetry) {
@@ -174,9 +187,9 @@ public class SendGrid implements SendGridAPI {
   }
 
   /**
-   * Get the duration of time (in milliseconds) to sleep between
-   * consecutive rate limit retries. The Twilio SendGrid API enforces
-   * the rate limit to the second. The default value is 1.1 seconds.
+   * Get the duration of time (in milliseconds) to sleep between consecutive rate limit retries. The
+   * Twilio SendGrid API enforces the rate limit to the second. The default value is 1.1 seconds.
+   *
    * @return the sleep duration.
    */
   public int getRateLimitSleep() {
@@ -184,8 +197,8 @@ public class SendGrid implements SendGridAPI {
   }
 
   /**
-   * Set the duration of time (in milliseconds) to sleep between
-   * consecutive rate limit retries.
+   * Set the duration of time (in milliseconds) to sleep between consecutive rate limit retries.
+   *
    * @param rateLimitSleep the sleep duration.
    */
   public void setRateLimitSleep(int rateLimitSleep) {
@@ -194,6 +207,7 @@ public class SendGrid implements SendGridAPI {
 
   /**
    * Impersonate subuser for subsequent requests
+   *
    * @param subuser the subuser to be impersonated
    */
   public void addImpersonateSubuser(String subuser) {
@@ -211,14 +225,16 @@ public class SendGrid implements SendGridAPI {
 
   /**
    * Get the impersonated subuser or null if empty
+   *
    * @return the impersonated subuser
    */
   public String getImpersonateSubuser() {
-    return this.subuser; 
+    return this.subuser;
   }
 
   /**
    * Makes the call to the Twilio SendGrid API, override this method for testing.
+   *
    * @param request the request to make.
    * @return the response object.
    * @throws IOException in case of a network error.
@@ -229,6 +245,7 @@ public class SendGrid implements SendGridAPI {
 
   /**
    * Class api sets up the request to the Twilio SendGrid API, this is main interface.
+   *
    * @param request the request object.
    * @return the response object.
    * @throws IOException in case of a network error.
@@ -250,9 +267,9 @@ public class SendGrid implements SendGridAPI {
   }
 
   /**
-   * Attempt an API call. This method executes the API call asynchronously
-   * on an internal thread pool. If the call is rate limited, the thread
-   * will retry up to the maximum configured time.
+   * Attempt an API call. This method executes the API call asynchronously on an internal thread
+   * pool. If the call is rate limited, the thread will retry up to the maximum configured time.
+   *
    * @param request the API request.
    */
   public void attempt(Request request) {
@@ -267,10 +284,10 @@ public class SendGrid implements SendGridAPI {
   }
 
   /**
-   * Attempt an API call. This method executes the API call asynchronously
-   * on an internal thread pool. If the call is rate limited, the thread
-   * will retry up to the maximum configured time. The supplied callback
-   * will be called in the event of an error, or a successful response.
+   * Attempt an API call. This method executes the API call asynchronously on an internal thread
+   * pool. If the call is rate limited, the thread will retry up to the maximum configured time. The
+   * supplied callback will be called in the event of an error, or a successful response.
+   *
    * @param request the API request.
    * @param callback the callback.
    */
