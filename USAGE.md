@@ -2710,6 +2710,9 @@ This endpoint has a helper, check it out [here](https://github.com/sendgrid/send
     throw ex;
   }
   ```
+
+If a SENDGRID_CHECK_TEMPLATES environment variable is set to "true", a template_id in the body of the email will be checked against the templates in the user's account; an exception will be thrown if no template exists with the specified template_id.
+
 <a name="mail-settings"></a>
 # MAIL SETTINGS
 

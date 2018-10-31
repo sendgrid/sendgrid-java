@@ -1,5 +1,8 @@
 package com.sendgrid;
 
+import com.fasterxml.jackson.core.JsonFactory;
+import com.fasterxml.jackson.core.JsonParser;
+import com.fasterxml.jackson.core.JsonToken;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
@@ -17,6 +20,10 @@ public class SendGrid implements SendGridAPI {
   private static final String USER_AGENT = "sendgrid/" + VERSION + ";java";
   private static final int RATE_LIMIT_RESPONSE_CODE = 429;
   private static final int THREAD_POOL_SIZE = 8;
+
+  /** The system's environment variables; useful for overriding for testing. */
+  // TODO: use an ImmutableMap.
+  private Map<String, String> environment = new HashMap<>();
 
   private ExecutorService pool;
 
@@ -46,28 +53,37 @@ public class SendGrid implements SendGridAPI {
    * @param apiKey is your Twilio SendGrid API Key: https://app.sendgrid.com/settings/api_keys
    */
   public SendGrid(String apiKey) {
-    this.client = new Client();
-    initializeSendGrid(apiKey);
+    this(apiKey, new Client());
   }
 
   /**
    * Construct a new Twilio SendGrid API wrapper.
-   * @param apiKey is your Twilio SendGrid API Key: https://app.sendgrid.com/settings/api_keys
-   * @param test is true if you are unit testing
+   * @param apiKey your Twili SendGrid API Key: https://app.sendgrid.com/settings/api_keys
+   * @param test true if you are unit testing
    */
   public SendGrid(String apiKey, Boolean test) {
-    this.client = new Client(test);
-    initializeSendGrid(apiKey);
+    this(apiKey, new Client((test)));
   }
 
   /**
    * Construct a new Twilio SendGrid API wrapper.
-   * @param apiKey is your Twilio SendGrid API Key: https://app.sendgrid.com/settings/api_keys
+   * @param apiKey your SendGrid API Key: https://app.sendgrid.com/settings/api_keys
    * @param client the Client to use (allows to customize its configuration)
    */
   public SendGrid(String apiKey, Client client) {
+    this(apiKey, client, System.getenv());
+  }
+
+  /**
+   * Construct a new SendGrid API wrapper.
+   * @param apiKey your SendGrid API Key: https://app.sendgrid.com/settings/api_keys
+   * @param client the Client to use (allows to customize its configuration)
+   * @param environment the system's environment variables
+   */
+  SendGrid(String apiKey, Client client, Map<String, String> environment) {
     this.client = client;
     initializeSendGrid(apiKey);
+    this.environment.putAll(environment);
   }
 
   /**
@@ -228,12 +244,14 @@ public class SendGrid implements SendGridAPI {
   }
 
   /**
-   * Class api sets up the request to the Twilio SendGrid API, this is main interface.
+   * Creates a new request based on the request parameter and calls the Twilio SendGrid REST API.
    * @param request the request object.
    * @return the response object.
-   * @throws IOException in case of a network error.
+   * @throws IOException in case of a network error, or if template checking is enabled,
+   *   in the event of malformed JSON in the body of the request or a missing template.
    */
   public Response api(Request request) throws IOException {
+    checkTemplate(request);
     Request req = new Request();
     req.setMethod(request.getMethod());
     req.setBaseUri(this.host);
@@ -247,6 +265,84 @@ public class SendGrid implements SendGridAPI {
     }
 
     return makeCall(req);
+  }
+
+  /**
+   * If the endpoint is 'mail/send' and an exception should be thrown for an invalid template id in
+   * the body of the request, then if a template_id is specified in the body of the request, check
+   * that the template_id is valid by making a request to the SendGrid server.
+   *
+   * @param mainRequest the main request that is being checked
+   * @throws IOException in the event of malformed JSON in the body of the request or a missing
+   *   template
+   */
+  void checkTemplate(Request mainRequest) throws IOException {
+    if (endpointIsMailSend(mainRequest) && shouldThrowExceptionsForInvalidTemplateId()) {
+      String templateId = extractTemplateId(mainRequest.getBody());
+      if (templateId == null) {
+        return;
+      }
+      Request templateGetRequest = new Request();
+      templateGetRequest.setMethod(Method.GET);
+      templateGetRequest.setEndpoint("templates/" + templateId);
+      Response templateGetResponse = makeCall(templateGetRequest);
+      int statusCode = templateGetResponse.getStatusCode();
+      if (statusCode < 200 || statusCode >= 300) {
+        throw new IOException(
+            "Error checking template '" + templateId + "', status code = " + statusCode);
+      }
+    }
+  }
+
+  /**
+   * Extracts the first template id from {@code jsonText} if one is present.
+   *
+   * @param jsonText the JSON text to extract the template id from, if present.
+   * @return the template id if it exists, otherwise null.
+   * @throws IOException in the event of malformed JSON.
+   */
+  String extractTemplateId(String jsonText) throws IOException {
+    JsonFactory jsonFactory = new JsonFactory();
+    JsonParser jsonParser = jsonFactory.createParser(jsonText);
+
+    if (jsonParser.nextToken() != JsonToken.START_OBJECT) {
+      throw new IOException("Expected body to start with an Object");
+    }
+
+    String templateId = null;
+
+    JsonToken jsonToken;
+    while ((jsonToken = jsonParser.nextToken()) != null) {
+      if (jsonToken == JsonToken.FIELD_NAME) {
+        String fieldName = jsonParser.getCurrentName();
+        // Move to value.
+        jsonParser.nextToken();
+        if (fieldName.equals("template_id")) {
+          templateId = jsonParser.getText();
+          break;
+        }
+      }
+    }
+
+    jsonParser.close();
+    return templateId;
+  }
+
+  private boolean endpointIsMailSend(Request request) {
+    return request.getEndpoint().equals("mail/send");
+  }
+
+  private boolean shouldThrowExceptionsForInvalidTemplateId() {
+    // Another possibility is to have a specific field in the request body that enables template
+    // checks.
+    return isTrue(environment.get("SENDGRID_CHECK_TEMPLATES"));
+  }
+
+  private boolean isTrue(String value) {
+    if (value == null) {
+      return false;
+    }
+    return value.toLowerCase().equals("true");
   }
 
   /**
