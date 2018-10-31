@@ -1,0 +1,37 @@
+/**
+ * Reconnects if connection is closed.
+ * <b>Note</b>Internal method
+ * @return true if store re-connection is performed and this means that close should be closed after the work is done
+ * @throws MessagingException
+ */
+public boolean reconnectStoreIfClosed() throws MessagingException {
+
+    boolean storeReconnected = false;
+
+    // the folder is empty when the message is not loaded from IMAP server, but from a file
+    Folder imapFolder = message.getFolder();
+    if (imapFolder == null) {
+        imapFolder = this.partOfImapFolder;
+    } else {
+        partOfImapFolder = imapFolder; // keep reference
+    }
+    if (imapFolder != null) {
+        Store store = imapFolder.getStore();
+        if (store != null) {
+            if (!store.isConnected()) {
+                log.debug("Reconnecting store... ");
+                store.connect();
+                storeReconnected = true;
+            }
+
+            // Open folder in read-only mode
+            if (!imapFolder.isOpen()) {
+                log.debug("Reopening folder " + imapFolder.getFullName()
+                          + " in order to get contents of mail message");
+                imapFolder.open(Folder.READ_ONLY);
+            }
+        }
+    }
+    return storeReconnected;
+}
+ 
