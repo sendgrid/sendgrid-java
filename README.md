@@ -232,9 +232,10 @@ Please see our [troubleshooting guide](https://github.com/sendgrid/sendgrid-java
 
 sendgrid-java is guided and supported by the Twilio Developer Experience Team.
 
-Please email the Developer Experience Team [here](mailto:dx@sendgrid.com) in case of any queries. 
+Please email the Developer Experience Team [here](mailto:dx@sendgrid.com) in case of any queries.
 
 sendgrid-java is maintained and funded by Twilio SendGrid, Inc. The names and logos for sendgrid-java are trademarks of Twilio SendGrid, Inc.
 
 # License
+
 [The MIT License (MIT)](LICENSE.md)

@@ -41,7 +41,7 @@ A software bug is a demonstrable issue in the code base. In order for us to diag
 
 Before you decide to create a new issue, please try the following:
 
-1. Check the Github issues tab if the identified issue has already been reported, if so, please add a +1 to the existing post.
+1. Check the GitHub issues tab if the identified issue has already been reported, if so, please add a +1 to the existing post.
 2. Update to the latest version of this code and check if issue has already been fixed
 3. Copy and fill in the Bug Report Template we have provided below
 
@@ -166,10 +166,10 @@ Please run your code through:
    ```bash
    # Clone your fork of the repo into the current directory
    git clone https://github.com/sendgrid/sendgrid-java
-   
+
    # Navigate to the newly cloned directory
    cd sendgrid-java
-   
+
    # Assign the original repo to a remote called "upstream"
    git remote add upstream https://github.com/sendgrid/sendgrid-java
    ```
