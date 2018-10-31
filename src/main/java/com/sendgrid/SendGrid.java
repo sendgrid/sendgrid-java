@@ -20,9 +20,6 @@ public class SendGrid implements SendGridAPI {
 
   private ExecutorService pool;
 
-  /** The user's API key. */
-  private String apiKey;
-
   /** The SendGrid host to which to connect. */
   private String host;
 
@@ -75,7 +72,6 @@ public class SendGrid implements SendGridAPI {
    * @param apiKey the user's API key.
    */
   public void initializeSendGrid(String apiKey) {
-    this.apiKey = apiKey;
     this.host = "api.sendgrid.com";
     this.version = "v3";
     this.requestHeaders = new HashMap<String, String>();
