@@ -84,7 +84,7 @@ mvn install
 
 ### via jar file
 
-You can just drop the jar file in. It's a fat jar - it has all the dependencies built in.
+You can just drop the jar file in. It's a big jar - it has all the dependencies built in.
 
 [sendgrid-java.jar](https://github.com/sendgrid/sendgrid-java/releases/download/v4.3.0/sendgrid-java.jar)
 
