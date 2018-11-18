@@ -6,7 +6,7 @@
 [![Twitter Follow](https://img.shields.io/twitter/follow/sendgrid.svg?style=social&label=Follow)](https://twitter.com/sendgrid)
 [![GitHub contributors](https://img.shields.io/github/contributors/sendgrid/sendgrid-java.svg)](https://github.com/sendgrid/sendgrid-java/graphs/contributors)
 [![Open Source Helpers](https://www.codetriage.com/sendgrid/sendgrid-java/badges/users.svg)](https://www.codetriage.com/sendgrid/sendgrid-java)
-[![MIT licensed](https://img.shields.io/badge/license-MIT-blue.svg)](./LICENSE.txt)
+[![MIT licensed](https://img.shields.io/badge/license-MIT-blue.svg)](./LICENSE.md)
 
 **NEW:** Subscribe to email [notifications](https://dx.sendgrid.com/newsletter/java) for releases and breaking changes.
 
@@ -237,4 +237,4 @@ Please email the Developer Experience Team [here](mailto:dx@sendgrid.com) in cas
 sendgrid-java is maintained and funded by SendGrid, Inc. The names and logos for sendgrid-java are trademarks of SendGrid, Inc.
 
 # License
-[The MIT License (MIT)](LICENSE.txt)
+[The MIT License (MIT)](LICENSE.md)
