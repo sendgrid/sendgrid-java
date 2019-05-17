@@ -7,13 +7,13 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.ExecutorService;
 
 /**
-  * Class SendGrid allows for quick and easy access to the SendGrid API.
+  * Class Twilio SendGrid allows for quick and easy access to the Twilio SendGrid API.
   */
 public class SendGrid implements SendGridAPI {
 
   private static final String VERSION = "3.0.0";
 
-  /** The user agent string to return to SendGrid. */
+  /** The user agent string to return to Twilio SendGrid. */
   private static final String USER_AGENT = "sendgrid/" + VERSION + ";java";
   private static final int RATE_LIMIT_RESPONSE_CODE = 429;
   private static final int THREAD_POOL_SIZE = 8;
@@ -23,7 +23,7 @@ public class SendGrid implements SendGridAPI {
   /** The user's API key. */
   private String apiKey;
 
-  /** The SendGrid host to which to connect. */
+  /** The Twilio SendGrid host to which to connect. */
   private String host;
 
   /** The API version. */
@@ -45,8 +45,8 @@ public class SendGrid implements SendGridAPI {
   private String subuser;
 
   /**
-   * Construct a new SendGrid API wrapper.
-   * @param apiKey is your SendGrid API Key: https://app.sendgrid.com/settings/api_keys
+   * Construct a new Twilio SendGrid API wrapper.
+   * @param apiKey is your Twilio SendGrid API Key: https://app.sendgrid.com/settings/api_keys
    */
   public SendGrid(String apiKey) {
     this.client = new Client();
@@ -54,8 +54,8 @@ public class SendGrid implements SendGridAPI {
   }
 
   /**
-   * Construct a new SendGrid API wrapper.
-   * @param apiKey is your SendGrid API Key: https://app.sendgrid.com/settings/api_keys
+   * Construct a new Twilio SendGrid API wrapper.
+   * @param apiKey is your Twilio SendGrid API Key: https://app.sendgrid.com/settings/api_keys
    * @param test is true if you are unit testing
    */
   public SendGrid(String apiKey, Boolean test) {
@@ -64,8 +64,8 @@ public class SendGrid implements SendGridAPI {
   }
 
   /**
-   * Construct a new SendGrid API wrapper.
-   * @param apiKey is your SendGrid API Key: https://app.sendgrid.com/settings/api_keys
+   * Construct a new Twilio SendGrid API wrapper.
+   * @param apiKey is your Twilio SendGrid API Key: https://app.sendgrid.com/settings/api_keys
    * @param client the Client to use (allows to customize its configuration)
    */
   public SendGrid(String apiKey, Client client) {
@@ -145,16 +145,16 @@ public class SendGrid implements SendGridAPI {
   }
 
   /**
-   * Get the SendGrid host (api.sendgrid.com by default).
-   * @return the SendGrid host.
+   * Get the Twilio SendGrid host (api.sendgrid.com by default).
+   * @return the Twilio SendGrid host.
    */
   public String getHost() {
     return this.host;
   }
 
   /**
-   * Set the SendGrid host.
-   * @param host the new SendGrid host.
+   * Set the Twilio SendGrid host.
+   * @param host the new Twilio SendGrid host.
    */
   public void setHost(String host) {
     this.host = host;
@@ -179,7 +179,7 @@ public class SendGrid implements SendGridAPI {
 
   /**
    * Get the duration of time (in milliseconds) to sleep between
-   * consecutive rate limit retries. The SendGrid API enforces
+   * consecutive rate limit retries. The Twilio SendGrid API enforces
    * the rate limit to the second. The default value is 1.1 seconds.
    * @return the sleep duration.
    */
@@ -222,7 +222,7 @@ public class SendGrid implements SendGridAPI {
   }
 
   /**
-   * Makes the call to the SendGrid API, override this method for testing.
+   * Makes the call to the Twilio SendGrid API, override this method for testing.
    * @param request the request to make.
    * @return the response object.
    * @throws IOException in case of a network error.
@@ -232,7 +232,7 @@ public class SendGrid implements SendGridAPI {
   }
 
   /**
-   * Class api sets up the request to the SendGrid API, this is main interface.
+   * Class api sets up the request to the Twilio SendGrid API, this is main interface.
    * @param request the request object.
    * @return the response object.
    * @throws IOException in case of a network error.
