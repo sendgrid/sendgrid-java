@@ -198,7 +198,7 @@ public class Example {
         [{
           \"to\": [{\"email\": \"test@example.com\"}],
           \"substitutions\": {\"-name-\": \"Example User\", \"-city-\": \"Denver\"},
-          \"subject\": \"Hello World from the SendGrid Java Library!\"
+          \"subject\": \"Hello World from the Twilio SendGrid Java Library!\"
         }],
         \"from\": {\"email\": \"test@example.com\"},
         \"content\":
@@ -223,14 +223,14 @@ public class Example {
 
 You can find documentation for how to setup a domain authentication via the UI [here](https://sendgrid.com/docs/ui/account-and-settings/how-to-set-up-domain-authentication/) and via API [here](https://github.com/sendgrid/sendgrid-nodejs/blob/master/packages/client/USAGE.md#sender-authentication).
 
-Find more information about all of SendGrid's authentication related documentation [here](https://sendgrid.com/docs/ui/account-and-settings/).
+Find more information about all of Twilio SendGrid's authentication related documentation [here](https://sendgrid.com/docs/ui/account-and-settings/).
 
 <a name="email-stats"></a>
 # How to View Email Statistics
 
 You can find documentation for how to view your email statistics via the UI [here](https://app.sendgrid.com/statistics) and via API [here](https://github.com/sendgrid/sendgrid-java/blob/master/USAGE.md#stats).
 
-Alternatively, we can post events to a URL of your choice via our [Event Webhook](https://sendgrid.com/docs/API_Reference/Webhooks/event.html) about events that occur as SendGrid processes your email.
+Alternatively, we can post events to a URL of your choice via our [Event Webhook](https://sendgrid.com/docs/API_Reference/Webhooks/event.html) about events that occur as Twilio SendGrid processes your email.
 
 <a name="sms"></a>
 # Send a SMS Message

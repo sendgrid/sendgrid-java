@@ -35,7 +35,7 @@ public class Example {
     fromEmail.setEmail("test@example.com");
     mail.setFrom(fromEmail);
 
-    mail.setSubject("Hello World from the SendGrid Java Library");
+    mail.setSubject("Hello World from the Twilio SendGrid Java Library");
 
     Personalization personalization = new Personalization();
     Email to = new Email();
@@ -59,7 +59,7 @@ public class Example {
     bcc.setName("Example User");
     bcc.setEmail("test6@example.com");
     personalization.addBcc(bcc);
-    personalization.setSubject("Hello World from the Personalized SendGrid Java Library");
+    personalization.setSubject("Hello World from the Personalized Twilio SendGrid Java Library");
     personalization.addHeader("X-Test", "test");
     personalization.addHeader("X-Mock", "true");
     personalization.addSubstitution("%name%", "Example User");
@@ -91,7 +91,7 @@ public class Example {
     bcc2.setName("Example User");
     bcc2.setEmail("test6@example.com");
     personalization2.addBcc(bcc2);
-    personalization2.setSubject("Hello World from the Personalized SendGrid Java Library");
+    personalization2.setSubject("Hello World from the Personalized Twilio SendGrid Java Library");
     personalization2.addHeader("X-Test", "test");
     personalization2.addHeader("X-Mock", "true");
     personalization2.addSubstitution("%name%", "Example User");
@@ -230,7 +230,7 @@ public class Example {
   // Minimum required to send an email
   public static Mail buildHelloEmail() throws IOException {
     Email from = new Email("test@example.com");
-    String subject = "Hello World from the SendGrid Java Library";
+    String subject = "Hello World from the Twilio SendGrid Java Library";
     Email to = new Email("test@example.com");
     Content content = new Content("text/plain", "some text here");
     // Note that when you use this constructor an initial personalization object
