@@ -1385,7 +1385,7 @@ Advanced Stats provide a more in-depth view of your email statistics and the act
 
 **This endpoint allows you to create a custom field.**
 
-The contactdb is a database of your contacts for [Twilio Twilio SendGrid Marketing Campaigns](https://sendgrid.com/docs/User_Guide/Marketing_Campaigns/index.html).
+The contactdb is a database of your contacts for [Twilio SendGrid Marketing Campaigns](https://sendgrid.com/docs/User_Guide/Marketing_Campaigns/index.html).
 
 ### POST /contactdb/custom_fields
 
