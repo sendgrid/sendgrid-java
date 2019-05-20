@@ -1,6 +1,10 @@
 # Change Log
 All notable changes to this project will be documented in this file.
 
+## [4.4.1] - 2019-05-20
+### Fix
+- 4.4.0 release not deployed properly to Maven
+
 ## [4.4.0] - 2019-05-20
 ### Added
 - [PR #500](https://github.com/sendgrid/sendgrid-java/pull/500/files): Update CONTRIBUTING.md - using gitflow workflow, development branch instead of master -- BIG thanks to [Alex](https://github.com/pushkyn)
