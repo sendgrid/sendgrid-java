@@ -6,8 +6,8 @@ RUN yum install -y git
 
 WORKDIR /root
 
-# Install Prism
-ADD https://raw.githubusercontent.com/stoplightio/prism/master/install.sh install.sh
+# install Prism
+ADD https://raw.githubusercontent.com/stoplightio/prism/master/install install.sh
 RUN chmod +x ./install.sh && \
     ./install.sh && \
     rm ./install.sh

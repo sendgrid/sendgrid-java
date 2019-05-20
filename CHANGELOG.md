@@ -1,6 +1,20 @@
 # Change Log
 All notable changes to this project will be documented in this file.
 
+## [4.4.0] - 2019-05-20
+### Added
+- [PR #500](https://github.com/sendgrid/sendgrid-java/pull/500/files): Update CONTRIBUTING.md - using gitflow workflow, development branch instead of master -- BIG thanks to [Alex](https://github.com/pushkyn)
+- [PR #521](https://github.com/sendgrid/sendgrid-java/pull/521/files): Updating prerequisites -- BIG thanks to [Rishabh](https://github.com/Rishabh04-02)
+- [PR #495](https://github.com/sendgrid/sendgrid-java/pull/495/files): Add ability to impersonate subusers -- BIG thanks to [Rohit Tarachandani](https://github.com/Rohit-T)
+- [PR #569](https://github.com/sendgrid/sendgrid-java/pull/495/files): Twilio Branding + CLA Policy Update
+
+### Fix
+- [PR #497](https://github.com/sendgrid/sendgrid-java/pull/497): USE_CASES.md was missing the subject in the template and the dynamic data for the subject -- BIG thanks to [Kyle Roberts](https://github.com/kylearoberts)
+- [PR #306](https://github.com/sendgrid/sendgrid-java/pull/306): Java packages were not corresponding to the actual location of classes,
+all packages were update to match class location -- BIG thanks to [Bojan Trajkovski](https://github.com/btrajkovski)
+- [PR #544](https://github.com/sendgrid/sendgrid-java/pull/544): Remove references to "Whitelabel" -- BIG thanks to [Chandler Weiner](https://github.com/crweiner)
+- [PR #507](https://github.com/sendgrid/sendgrid-java/pull/507): Update TROUBLESHOOTING.md broken link -- BIG thanks to [Andrew Joshua Loria](https://github.com/ajloria)
+
 ## [4.3.0] - 2018-10-11
 ### Added
 - [PR #449](https://github.com/sendgrid/sendgrid-java/pull/449/files): Dynamic Templates support -- BIG thanks to [Marcus Vinícius](https://github.com/Markuus13)
