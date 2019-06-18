@@ -3,6 +3,7 @@ matrix:
   include:
     - jdk: openjdk8
     - jdk: oraclejdk8
+    - jdk: openjdk11
 before_script:
 - "./scripts/startPrism.sh &"
 - sleep 20
