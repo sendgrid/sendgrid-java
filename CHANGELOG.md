@@ -1,6 +1,36 @@
 # Change Log
 All notable changes to this project will be documented in this file.
 
+## [4.4.1] - 2019-05-20
+### Fix
+- 4.4.0 release not deployed properly to Maven
+
+## [4.4.0] - 2019-05-20
+### Added
+- [PR #500](https://github.com/sendgrid/sendgrid-java/pull/500/files): Update CONTRIBUTING.md - using gitflow workflow, development branch instead of master -- BIG thanks to [Alex](https://github.com/pushkyn)
+- [PR #521](https://github.com/sendgrid/sendgrid-java/pull/521/files): Updating prerequisites -- BIG thanks to [Rishabh](https://github.com/Rishabh04-02)
+- [PR #495](https://github.com/sendgrid/sendgrid-java/pull/495/files): Add ability to impersonate subusers -- BIG thanks to [Rohit Tarachandani](https://github.com/Rohit-T)
+- [PR #569](https://github.com/sendgrid/sendgrid-java/pull/495/files): Twilio Branding + CLA Policy Update
+
+### Fix
+- [PR #497](https://github.com/sendgrid/sendgrid-java/pull/497): USE_CASES.md was missing the subject in the template and the dynamic data for the subject -- BIG thanks to [Kyle Roberts](https://github.com/kylearoberts)
+- [PR #306](https://github.com/sendgrid/sendgrid-java/pull/306): Java packages were not corresponding to the actual location of classes,
+all packages were update to match class location -- BIG thanks to [Bojan Trajkovski](https://github.com/btrajkovski)
+- [PR #544](https://github.com/sendgrid/sendgrid-java/pull/544): Remove references to "Whitelabel" -- BIG thanks to [Chandler Weiner](https://github.com/crweiner)
+- [PR #507](https://github.com/sendgrid/sendgrid-java/pull/507): Update TROUBLESHOOTING.md broken link -- BIG thanks to [Andrew Joshua Loria](https://github.com/ajloria)
+
+## [4.3.0] - 2018-10-11
+### Added
+- [PR #449](https://github.com/sendgrid/sendgrid-java/pull/449/files): Dynamic Templates support -- BIG thanks to [Marcus Vinícius](https://github.com/Markuus13)
+- [PR #451](https://github.com/sendgrid/sendgrid-java/pull/451/files): Added CodeTriage tag -- BIG thanks to [Anshul Singhal](https://github.com/af4ro)
+- [PR #453](https://github.com/sendgrid/sendgrid-java/pull/453/files): Documentation readability update -- BIG thanks to [Anshul Singhal](https://github.com/af4ro)
+- [PR #461](https://github.com/sendgrid/sendgrid-java/pull/461/files): Update README to use implementation instead of compile -- BIG thanks to [Rosário Pereira Fernandes](https://github.com/rosariopfernandes)
+- [PR #463](https://github.com/sendgrid/sendgrid-java/pull/463/files): Link to the online version of CLA in README.md -- BIG thanks to [Bharat Raghunathan](https://github.com/Bharat123rox)
+
+### Fix
+- [PR #358](https://github.com/sendgrid/sendgrid-java/pull/358): Fixing similar code issue in examples/ips/ips.java -- BIG thanks to [Julian Jacques Maurer](https://github.com/derjayjay)
+- [PR #475](https://github.com/sendgrid/sendgrid-java/pull/475): Fix formatting of README in examples/accesssettings -- BIG thanks to [Nathan Seebarran](https://github.com/nathan78906) 
+
 ## [4.2.1] - 2018-05-08
 ### Security Fix
 - Update to latest Jackson recommended dependency, based on [this article](https://medium.com/@cowtowncoder/on-jackson-cves-dont-panic-here-is-what-you-need-to-know-54cd0d6e8062).

@@ -8,7 +8,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 //////////////////////////////////////////////////////////////////
-// Create a domain whitelabel.
+// Create a domain authorization.
 // POST /whitelabel/domains
 
 
@@ -31,7 +31,7 @@ public class Example {
 }
 
 //////////////////////////////////////////////////////////////////
-// List all domain whitelabels.
+// List all domain authorization.
 // GET /whitelabel/domains
 
 
@@ -58,7 +58,7 @@ public class Example {
 }
 
 //////////////////////////////////////////////////////////////////
-// Get the default domain whitelabel.
+// Get the default domain authorization.
 // GET /whitelabel/domains/default
 
 
@@ -80,7 +80,7 @@ public class Example {
 }
 
 //////////////////////////////////////////////////////////////////
-// List the domain whitelabel associated with the given user.
+// List the domain authorization associated with the given user.
 // GET /whitelabel/domains/subuser
 
 
@@ -102,7 +102,7 @@ public class Example {
 }
 
 //////////////////////////////////////////////////////////////////
-// Disassociate a domain whitelabel from a given user.
+// Disassociate a domain authorization from a given user.
 // DELETE /whitelabel/domains/subuser
 
 
@@ -124,7 +124,7 @@ public class Example {
 }
 
 //////////////////////////////////////////////////////////////////
-// Update a domain whitelabel.
+// Update a domain authorization.
 // PATCH /whitelabel/domains/{domain_id}
 
 
@@ -147,7 +147,7 @@ public class Example {
 }
 
 //////////////////////////////////////////////////////////////////
-// Retrieve a domain whitelabel.
+// Retrieve a domain authorization.
 // GET /whitelabel/domains/{domain_id}
 
 
@@ -169,7 +169,7 @@ public class Example {
 }
 
 //////////////////////////////////////////////////////////////////
-// Delete a domain whitelabel.
+// Delete a domain authorization.
 // DELETE /whitelabel/domains/{domain_id}
 
 
@@ -191,7 +191,7 @@ public class Example {
 }
 
 //////////////////////////////////////////////////////////////////
-// Associate a domain whitelabel with a given user.
+// Associate a domain authorization with a given user.
 // POST /whitelabel/domains/{domain_id}/subuser
 
 
@@ -214,7 +214,7 @@ public class Example {
 }
 
 //////////////////////////////////////////////////////////////////
-// Add an IP to a domain whitelabel.
+// Add an IP to a domain authorization.
 // POST /whitelabel/domains/{id}/ips
 
 
@@ -237,7 +237,7 @@ public class Example {
 }
 
 //////////////////////////////////////////////////////////////////
-// Remove an IP from a domain whitelabel.
+// Remove an IP from a domain authorization.
 // DELETE /whitelabel/domains/{id}/ips/{ip}
 
 
@@ -259,7 +259,7 @@ public class Example {
 }
 
 //////////////////////////////////////////////////////////////////
-// Validate a domain whitelabel.
+// Validate a domain authorization.
 // POST /whitelabel/domains/{id}/validate
 
 

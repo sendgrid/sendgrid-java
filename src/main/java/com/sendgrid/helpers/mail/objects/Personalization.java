@@ -1,4 +1,4 @@
-package com.sendgrid;
+package com.sendgrid.helpers.mail.objects;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
@@ -19,8 +19,9 @@ public class Personalization {
   @JsonProperty("headers") private Map<String,String> headers;
   @JsonProperty("substitutions") private Map<String,String> substitutions;
   @JsonProperty("custom_args") private Map<String,String> customArgs;
+  @JsonProperty("dynamic_template_data") private Map<String,Object> dynamicTemplateData;
   @JsonProperty("send_at") private long sendAt;
-  
+
   @JsonProperty("to")
   public List<Email> getTos() {
     if(tos == null)
@@ -142,6 +143,19 @@ public class Personalization {
 
   public void setSendAt(long sendAt) {
     this.sendAt = sendAt;
+  }
+
+  @JsonProperty("dynamic_template_data")
+  public Map<String,Object> getDynamicTemplateData() {
+    return dynamicTemplateData == null
+            ? Collections.<String,Object>emptyMap() : dynamicTemplateData;
+  }
+
+  public void addDynamicTemplateData(String key, Object value) {
+    if (dynamicTemplateData == null) {
+      dynamicTemplateData = new HashMap<String,Object>();
+    }
+    dynamicTemplateData.put(key, value);
   }
 
   @Override

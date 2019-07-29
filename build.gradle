@@ -17,7 +17,7 @@ apply plugin: 'maven'
 apply plugin: 'signing'
 
 group         = 'com.sendgrid'
-version       = '4.2.1'
+version       = '4.4.1'
 ext.packaging = 'jar'
 
 allprojects {
@@ -46,9 +46,9 @@ buildscript {
 
 dependencies {
   implementation 'com.sendgrid:java-http-client:4.1.0'
-  implementation 'com.fasterxml.jackson.core:jackson-core:2.9.5'
-  implementation 'com.fasterxml.jackson.core:jackson-annotations:2.9.5'
-  implementation 'com.fasterxml.jackson.core:jackson-databind:2.9.5'
+  implementation 'com.fasterxml.jackson.core:jackson-core:2.9.9'
+  implementation 'com.fasterxml.jackson.core:jackson-annotations:2.9.9'
+  implementation 'com.fasterxml.jackson.core:jackson-databind:2.9.9'
   testImplementation group: 'junit', name: 'junit', version: '4.12'
 }
 
@@ -69,7 +69,7 @@ fatJar {
   classifier 'jar'
   baseName "sendgrid"
   manifest {
-    attributes("Implementation-Title": "SendGrid", "Implementation-Version": version)
+    attributes("Implementation-Title": "Twilio SendGrid", "Implementation-Version": version)
   }
 }
 
@@ -125,7 +125,7 @@ uploadArchives {
       pom.project {
         name 'sendgrid-java'
         packaging 'jar'
-        description 'SendGrid Java helper library'
+        description 'Twilio SendGrid Java helper library'
         url 'https://github.com/sendgrid/sendgrid-java'
 
         scm {
