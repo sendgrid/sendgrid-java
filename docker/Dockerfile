@@ -6,17 +6,15 @@ RUN yum install -y git
 
 WORKDIR /root
 
-# install Prism
-ADD https://raw.githubusercontent.com/stoplightio/prism/master/install install.sh
-RUN chmod +x ./install.sh && \
-    ./install.sh && \
-    rm ./install.sh
-
 # Set up default Twilio SendGrid env
 WORKDIR /root/sources
 RUN git clone https://github.com/sendgrid/sendgrid-java.git
 WORKDIR /root
 RUN ln -s /root/sources/sendgrid-java
+
+# Use older gradle commands to support the gradle version in the wrapper
+RUN sed -i 's/implementation/compile/g' /root/sendgrid-java/build.gradle
+RUN sed -i 's/testImplementation/testCompile/g' /root/sendgrid-java/build.gradle
 
 COPY entrypoint.sh entrypoint.sh
 RUN chmod +x entrypoint.sh
