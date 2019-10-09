@@ -50,7 +50,7 @@ Update the development environment with your [SENDGRID_API_KEY](https://app.send
 cp .env_sample .env
 ```
 2. Edit the new `.env` to add your API key
-3. Source the `.env` file to set rhe variable in the current session
+3. Source the `.env` file to set the variable in the current session
 ```bash
 source .env
 ```
