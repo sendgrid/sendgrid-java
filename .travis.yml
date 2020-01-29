@@ -4,14 +4,16 @@ matrix:
     - jdk: openjdk8
     - jdk: oraclejdk8
 before_script:
-- "./scripts/startPrism.sh &"
-- sleep 20
+  - "./scripts/startPrism.sh &"
+  - sleep 20
 before_install:
   - cat /etc/hosts # optionally check the content *before*
   - sudo hostname "$(hostname | cut -c1-63)"
   - sed -e "s/^\\(127\\.0\\.0\\.1.*\\)/\\1 $(hostname | cut -c1-63)/" /etc/hosts > /tmp/hosts
   - sudo mv /tmp/hosts /etc/hosts
   - cat /etc/hosts # optionally check the content *after*
+install:
+  - make install
 after_script:
   - lsof -i :4010 -S # adds some debugging statements
   - "./gradlew build"
@@ -22,13 +24,12 @@ env:
   - secure: Iki1btwhG1nlyjnEMu90Oh/hoatFpPiiKkqpj7siLnlLp2xbBQ2003jRsn30I3Vujes2ugvzdlHqBJ9lDwRvfGrKXcLlRvYuDQ24N2YKquEiKHUxs+iMOzTQj6Sf64KL5O0aSZd1l5rjWgsQ0qqjHW9u3l5bUjqxzrhAI2Js37U=
   - secure: Khi6a4z1lfZmDEDV738MOiWznRcTv5ILZUM+igEw2txX7PGX+B5909WridpAijTGiurJ6eda7jvsUgci8DTPQCXB18LD6N870hnPcSQkuI6zDAhKTx+w/ZsfPLWh28sP2CVzbqGdxaitZDKxRWaVmKnBZpyi8XI9UKjmyK2sjwE=
   - secure: wKXAjjBgCLM4h++nP1xDQQtYU10JbwwynY0XB920SoQjI2Uu82cMPtkEXFWTpzyIS2hE5B3qvu75VHNdLqDUtek3e3lBg5k3SpYgGin20dg3SDEJrvA4vlvcApdQ132pMEWdDOVwzbXhm9+JTjALYbc3fX+VAQX1u5daPyeDGC4=
-notifications:
-  hipchat:
-    rooms:
-      secure: kJyc36IRkovqK3JuMXJuBBkDFkDfZ9iAE8ZziszzL9zNsfY2fAQWDk4bMrFO0yYW9OwRXl0gT97HVYWBZFDhjtstUJxit0lpUB+TNIDw2lqCkOIPxGKgcBB9mDS795QyLJzletObP/guPxbzSNOGLa6+k4GbTtTMXRhjzN6lF0o=
-    template:
-    - '<a href="https://travis-ci.org/%{repository}/builds/%{build_id}">%{repository}
-      Build %{build_number}</a> on branch <i>%{branch}</i> by %{author}: <strong>%{message}</strong>
-      <a href="https://github.com/sendgrid/%{repository}/commits/%{commit}">View on GitHub</a>'
-    format: html
-    notify: true
+deploy:
+  - provider: script
+      script: mvn clean deploy --settings .maven.xml -DskipTests=true -B -U -Prelease
+      skip_cleanup: true
+      on:
+        tags: true
+        jdk: openjdk8
+
+

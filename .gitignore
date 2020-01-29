@@ -15,3 +15,4 @@ examples/Example.java
 .project
 .env
 .vscode
+sendgrid-java.jar
