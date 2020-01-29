@@ -18,9 +18,9 @@ env:
     - secure: wKXAjjBgCLM4h++nP1xDQQtYU10JbwwynY0XB920SoQjI2Uu82cMPtkEXFWTpzyIS2hE5B3qvu75VHNdLqDUtek3e3lBg5k3SpYgGin20dg3SDEJrvA4vlvcApdQ132pMEWdDOVwzbXhm9+JTjALYbc3fX+VAQX1u5daPyeDGC4=
 deploy:
   - provider: script
-      script: bash scripts/deploy.sh
-      edge: true
-      on:
-        tags: true
-        jdk: openjdk8
-        branch: master
+    script: bash scripts/deploy.sh
+    edge: true
+    on:
+      tags: true
+      jdk: openjdk8
+      branch: master
