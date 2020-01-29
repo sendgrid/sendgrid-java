@@ -1,8 +1,12 @@
 language: java
 matrix:
   include:
+    - name: 'OpenJDK 7'
+      jdk: openjdk7
     - name: 'OpenJDK 8'
       jdk: openjdk8
+    - name: 'Oracle JDK 7'
+      jdk: oraclejdk7
     - name: 'Oracle JDK 8'
       jdk: oraclejdk8
   allow_failures:
