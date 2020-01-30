@@ -33,7 +33,7 @@
             <resource>
                 <directory>${basedir}</directory>
                 <includes>
-                     <include>LICENSE.txt</include>
+                     <include>LICENSE.md</include>
                 </includes>
             </resource>
         </resources>
@@ -100,6 +100,31 @@
                         <phase>package</phase>
                         <goals>
                             <goal>single</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-shade-plugin</artifactId>
+                <version>3.2.1</version>
+                <configuration>
+                    <relocations>
+                        <relocation>
+                            <pattern>com.sendgrid.helpers.mail.objects</pattern>
+                            <shadedPattern>com.sendgrid</shadedPattern>
+                        </relocation>
+                        <relocation>
+                            <pattern>com.sendgrid.helpers.mail</pattern>
+                            <shadedPattern>com.sendgrid</shadedPattern>
+                        </relocation>
+                    </relocations>
+                </configuration>
+                <executions>
+                    <execution>
+                        <phase>package</phase>
+                        <goals>
+                        <goal>shade</goal>
                         </goals>
                     </execution>
                 </executions>
