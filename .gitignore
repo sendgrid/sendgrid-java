@@ -16,3 +16,4 @@ examples/Example.java
 .env
 .vscode
 sendgrid-java.jar
+dependency-reduced-pom.xml
