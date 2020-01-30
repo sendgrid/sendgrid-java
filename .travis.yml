@@ -20,7 +20,7 @@ before_script:
   - "./scripts/startPrism.sh &"
   - sleep 20
 install:
-  - make install
+  - mvn --settings .maven.xml install -DskipTests=true -Dgpg.skip -Dmaven.javadoc.skip=true -B -V
 after_script:
   - "./scripts/upload.sh"
 env:
@@ -31,7 +31,7 @@ env:
     - secure: wKXAjjBgCLM4h++nP1xDQQtYU10JbwwynY0XB920SoQjI2Uu82cMPtkEXFWTpzyIS2hE5B3qvu75VHNdLqDUtek3e3lBg5k3SpYgGin20dg3SDEJrvA4vlvcApdQ132pMEWdDOVwzbXhm9+JTjALYbc3fX+VAQX1u5daPyeDGC4=
 deploy:
   - provider: script
-    script: bash scripts/deploy.sh
+    script: mvn clean deploy --settings .maven.xml -DskipTests=true -B -U -Prelease
     edge: true
     on:
       tags: true

@@ -2,7 +2,7 @@
 
 install:
 	@java -version || (echo "Java is not installed, please install Java >= 7"; exit 1);
-	mvn clean install -DskipTests=true -Dgpg.skip -Dmaven.javadoc.skip=true -B
+	mvn clean install -DskipTests=true -Dgpg.skip -B
 
 test:
 	mvn test

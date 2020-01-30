@@ -26,9 +26,9 @@
         <url>https://github.com/sendgrid/sendgrid-java</url>
         <connection>scm:git:git@github.com:sendgrid/sendgrid-java.git</connection>
         <developerConnection>scm:git:git@github.com:sendgrid/sendgrid-java.git</developerConnection>
-      <tag>HEAD</tag>
+        <tag>HEAD</tag>
   </scm>
-    <build>        
+    <build>
         <resources>
             <resource>
                 <directory>${basedir}</directory>
