@@ -67,7 +67,7 @@ Add the following to your build.gradle file in the root of your project.
 ...
 dependencies {
   ...
-  implementation 'com.sendgrid:sendgrid-java:4.4.1'
+  implementation 'com.sendgrid:sendgrid-java:4.4.2'
 }
 
 repositories {
@@ -86,7 +86,7 @@ mvn install
 
 You can just drop the jar file in. It's a fat jar - it has all the dependencies built in.
 
-[sendgrid-java.jar](https://github.com/sendgrid/sendgrid-java/releases/download/v4.4.1/sendgrid-java.jar)
+[sendgrid-java.jar](https://github.com/sendgrid/sendgrid-java/releases/download/v4.4.2/sendgrid-java.jar)
 
 ## Dependencies
 
@@ -232,7 +232,7 @@ Please see our [troubleshooting guide](https://github.com/sendgrid/sendgrid-java
 
 sendgrid-java is guided and supported by the Twilio Developer Experience Team.
 
-Please email the Developer Experience Team [here](mailto:dx@sendgrid.com) in case of any queries. 
+Please email the Developer Experience Team [here](mailto:dx@sendgrid.com) in case of any queries.
 
 sendgrid-java is maintained and funded by Twilio SendGrid, Inc. The names and logos for sendgrid-java are trademarks of Twilio SendGrid, Inc.
 

@@ -100,7 +100,7 @@ touch Example.java
 Add the example you want to test to Example.java, including the headers at the top of the file.
 
 ``` bash
-javac -classpath ../repo/com/sendgrid/4.4.1/sendgrid-4.4.1-jar.jar:. Example.java && java -classpath ../repo/com/sendgrid/4.4.1/sendgrid-4.4.1-jar.jar:. Example
+javac -classpath ../repo/com/sendgrid/4.4.2/sendgrid-4.4.2-jar.jar:. Example.java && java -classpath ../repo/com/sendgrid/4.4.2/sendgrid-4.4.2-jar.jar:. Example
 ```
 
 <a name="understanding-the-codebase"></a>
@@ -166,10 +166,10 @@ Please run your code through:
    ```bash
    # Clone your fork of the repo into the current directory
    git clone https://github.com/sendgrid/sendgrid-java
-   
+
    # Navigate to the newly cloned directory
    cd sendgrid-java
-   
+
    # Assign the original repo to a remote called "upstream"
    git remote add upstream https://github.com/sendgrid/sendgrid-java
    ```
