@@ -1,6 +1,15 @@
 # Change Log
 All notable changes to this project will be documented in this file.
 
+[2020-02-01] Version 4.4.2
+--------------------------
+**Library - Chore**
+- [PR #471](https://github.com/sendgrid/sendgrid-java/pull/471): Update build.gradle. Thanks to [@doilio](https://github.com/doilio)!
+- [PR #557](https://github.com/sendgrid/sendgrid-java/pull/557): Update Jackson dependencies to the latest version. Thanks to [@wkurniawan07](https://github.com/wkurniawan07)!
+- [PR #574](https://github.com/sendgrid/sendgrid-java/pull/574): maven-compiler-plugin 3.8.1. Thanks to [@sullis](https://github.com/sullis)!
+- [PR #599](https://github.com/sendgrid/sendgrid-java/pull/599): prep the repo for automated release. Thanks to [@eshanholtz](https://github.com/eshanholtz)!
+
+
 [2019-05-20] Version 4.4.1
 ---------------------------
 ### Fix
