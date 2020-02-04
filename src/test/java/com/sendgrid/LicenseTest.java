@@ -22,7 +22,6 @@ public class LicenseTest {
             }
         }
         String expectedCopyright = String.format("Copyright (C) %d, Twilio SendGrid, Inc. <help@twilio.com>", Calendar.getInstance().get(Calendar.YEAR));
-        Assert.assertEquals("" +
-                "License has incorrect year", copyrightText, expectedCopyright);
+        Assert.assertEquals("License has incorrect year", copyrightText, expectedCopyright);
     }
 }
