@@ -19,7 +19,7 @@ This Docker image contains
 
 Run it in interactive mode with `-it`.
 
-You can mount repositories in the `/mnt/sendgrid-java` and `/mnt/java-http-client` directories to use them instead of the default SendGrid libraries. Read on for more info.
+You can mount repositories in the `/mnt/sendgrid-java` and `/mnt/java-http-client` directories to use them instead of the default Twilio SendGrid libraries. Read on for more info.
 
 <a name="Testing"></a>
 # Testing
@@ -31,8 +31,9 @@ Testing is easy!
 <a name="about"></a>
 # About
 
-sendgrid-java is guided and supported by the SendGrid [Developer Experience Team](mailto:dx@sendgrid.com).
+sendgrid-java is guided and supported by the Twilio SendGrid [Developer Experience Team](mailto:dx@sendgrid.com).
 
-sendgrid-java is maintained and funded by SendGrid, Inc. The names and logos for sendgrid-java are trademarks of SendGrid, Inc.
+sendgrid-java is maintained and funded by Twilio SendGrid, Inc. The names and logos for sendgrid-java are trademarks of Twilio SendGrid, Inc.
 
-![SendGrid Logo](https://uiux.s3.amazonaws.com/2016-logos/email-logo%402x.png)
+![SendGrid Logo](https://github.com/sendgrid/sendgrid-python/raw/master/twilio_sendgrid_logo.png)
+

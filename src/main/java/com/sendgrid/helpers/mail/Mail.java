@@ -14,7 +14,7 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * Class Mail builds an object that sends an email through SendGrid. 
+ * Class Mail builds an object that sends an email through Twilio SendGrid. 
  * Note that this object is not thread safe.
  */
 @JsonInclude(Include.NON_DEFAULT)

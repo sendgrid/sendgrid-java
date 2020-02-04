@@ -8,7 +8,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 //////////////////////////////////////////////////////////////////
-// Create a Link Whitelabel
+// Create a Branded Link
 // POST /whitelabel/links
 
 
@@ -33,7 +33,7 @@ public class Example {
 }
 
 //////////////////////////////////////////////////////////////////
-// Retrieve all link whitelabels
+// Retrieve all link Branding
 // GET /whitelabel/links
 
 
@@ -56,7 +56,7 @@ public class Example {
 }
 
 //////////////////////////////////////////////////////////////////
-// Retrieve a Default Link Whitelabel
+// Retrieve a Default Link Branding
 // GET /whitelabel/links/default
 
 
@@ -79,7 +79,7 @@ public class Example {
 }
 
 //////////////////////////////////////////////////////////////////
-// Retrieve Associated Link Whitelabel
+// Retrieve Associated Link Branding
 // GET /whitelabel/links/subuser
 
 
@@ -102,7 +102,7 @@ public class Example {
 }
 
 //////////////////////////////////////////////////////////////////
-// Disassociate a Link Whitelabel
+// Disassociate a Link Branding
 // DELETE /whitelabel/links/subuser
 
 
@@ -125,7 +125,7 @@ public class Example {
 }
 
 //////////////////////////////////////////////////////////////////
-// Update a Link Whitelabel
+// Update a Link Branding
 // PATCH /whitelabel/links/{id}
 
 
@@ -148,7 +148,7 @@ public class Example {
 }
 
 //////////////////////////////////////////////////////////////////
-// Retrieve a Link Whitelabel
+// Retrieve a Link Branding
 // GET /whitelabel/links/{id}
 
 
@@ -170,7 +170,7 @@ public class Example {
 }
 
 //////////////////////////////////////////////////////////////////
-// Delete a Link Whitelabel
+// Delete a Link Branding
 // DELETE /whitelabel/links/{id}
 
 
@@ -192,7 +192,7 @@ public class Example {
 }
 
 //////////////////////////////////////////////////////////////////
-// Validate a Link Whitelabel
+// Validate a Link Branding
 // POST /whitelabel/links/{id}/validate
 
 
@@ -214,7 +214,7 @@ public class Example {
 }
 
 //////////////////////////////////////////////////////////////////
-// Associate a Link Whitelabel
+// Associate a Link Branding
 // POST /whitelabel/links/{link_id}/subuser
 
 

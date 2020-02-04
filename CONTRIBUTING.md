@@ -1,16 +1,17 @@
-Hello! Thank you for choosing to help contribute to one of the SendGrid open source libraries. There are many ways you can contribute and help is always welcome. We simply ask that you follow the following contribution policies.
+Hello! Thank you for choosing to help contribute to one of the Twilio SendGrid open source libraries. There are many ways you can contribute and help is always welcome. We simply ask that you follow the following contribution policies.
 
-- [CLAs and CCLAs](#clas-and-cclas)
+**All third party contributors acknowledge that any contributions they provide will be made under the same open source license that the open source project is provided under.**
+
 - [Feature Request](#feature-request)
 - [Submit a Bug Report](#submit-a-bug-report)
-    - [Please use our Bug Report Template](#please-use-our-bug-report-template)
+  - [Please use our Bug Report Template](#please-use-our-bug-report-template)
 - [Improvements to the Codebase](#improvements-to-the-codebase)
-    - [Development Environment](#development-environment)
-        - [Install and Run Locally](#install-and-run-locally)
-            - [Prerequisites](#prerequisites)
-            - [Initial setup:](#initial-setup)
+  - [Development Environment](#development-environment)
+    - [Install and Run Locally](#install-and-run-locally)
+      - [Prerequisites](#prerequisites)
+      - [Initial setup:](#initial-setup)
 - [Environment Variables](#environment-variables)
-            - [Execute:](#execute)
+      - [Execute:](#execute)
 - [Understanding the Code Base](#understanding-the-code-base)
 - [Testing](#testing)
 - [Style Guidelines & Naming Conventions](#style-guidelines--naming-conventions)
@@ -18,17 +19,6 @@ Hello! Thank you for choosing to help contribute to one of the SendGrid open sou
 
 <a name="roadmap"></a>
 We use [Milestones](https://github.com/sendgrid/sendgrid-java/milestones) to help define current roadmaps, please feel free to grab an issue from the current milestone. Please indicate that you have begun work on it to avoid collisions. Once a PR is made, community review, comments, suggestions and additional PRs are welcomed and encouraged.
-
-<a name="cla"></a>
-## CLAs and CCLAs
-
-Before you get started, SendGrid requires that a SendGrid Contributor License Agreement (CLA) be filled out by every contributor to a SendGrid open source project.
-
-Our goal with the CLA is to clarify the rights of our contributors and reduce other risks arising from inappropriate contributions.  The CLA also clarifies the rights SendGrid holds in each contribution and helps to avoid misunderstandings over what rights each contributor is required to grant to SendGrid when making a contribution.  In this way the CLA encourages broad participation by our open source community and helps us build strong open source projects, free from any individual contributor withholding or revoking rights to any contribution.
-
-SendGrid does not merge a pull request made against a SendGrid open source project until that pull request is associated with a signed CLA. Copies of the CLA are available [here](https://gist.github.com/SendGridDX/98b42c0a5d500058357b80278fde3be8#file-sendgrid_cla).
-
-When you create a Pull Request, after a few seconds, a comment will appear with a link to the CLA. Click the link and fill out the brief form and then click the "I agree" button and you are all set. You will not be asked to re-sign the CLA unless we make a change.
 
 There are a few ways to contribute, which we'll enumerate below:
 
@@ -84,7 +74,7 @@ cd sendgrid-java
 
 ## Environment Variables
 
-First, get your free SendGrid account [here](https://sendgrid.com/free?source=sendgrid-java).
+First, get your free Twilio SendGrid account [here](https://sendgrid.com/free?source=sendgrid-java).
 
 Next, update your environment with your [SENDGRID_API_KEY](https://app.sendgrid.com/settings/api_keys).
 
@@ -110,7 +100,7 @@ touch Example.java
 Add the example you want to test to Example.java, including the headers at the top of the file.
 
 ``` bash
-javac -classpath ../repo/com/sendgrid/4.3.0/sendgrid-4.3.0-jar.jar:. Example.java && java -classpath ../repo/com/sendgrid/4.3.0/sendgrid-4.3.0-jar.jar:. Example
+javac -classpath ../repo/com/sendgrid/4.4.2/sendgrid-4.4.2-jar.jar:. Example.java && java -classpath ../repo/com/sendgrid/4.4.2/sendgrid-4.4.2-jar.jar:. Example
 ```
 
 <a name="understanding-the-codebase"></a>
@@ -126,7 +116,7 @@ Unit and integration tests.
 
 **/src/main**
 
-The interface to the SendGrid API.
+The interface to the Twilio SendGrid API.
 
 <a name="testing"></a>
 ## Testing
@@ -176,10 +166,10 @@ Please run your code through:
    ```bash
    # Clone your fork of the repo into the current directory
    git clone https://github.com/sendgrid/sendgrid-java
-   
+
    # Navigate to the newly cloned directory
    cd sendgrid-java
-   
+
    # Assign the original repo to a remote called "upstream"
    git remote add upstream https://github.com/sendgrid/sendgrid-java
    ```

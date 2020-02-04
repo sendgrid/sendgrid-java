@@ -18,7 +18,7 @@ public class CommonExample {
 }
 
 //////////////////////////////////////////////////////////////////
-// Create an IP whitelabel
+// Create a reverse DNS record
 // POST /whitelabel/ips
 
 
@@ -40,7 +40,7 @@ public class Example extends CommonExample {
 }
 
 //////////////////////////////////////////////////////////////////
-// Retrieve all IP whitelabels
+// Retrieve all reverse DNS records
 // GET /whitelabel/ips
 
 
@@ -64,7 +64,7 @@ public class Example extends CommonExample {
 }
 
 //////////////////////////////////////////////////////////////////
-// Retrieve an IP whitelabel
+// Retrieve a reverse DNS record
 // GET /whitelabel/ips/{id}
 
 
@@ -85,7 +85,7 @@ public class Example extends CommonExample {
 }
 
 //////////////////////////////////////////////////////////////////
-// Delete an IP whitelabel
+// Delete a reverse DNS record
 // DELETE /whitelabel/ips/{id}
 
 
@@ -106,7 +106,7 @@ public class Example extends CommonExample {
 }
 
 //////////////////////////////////////////////////////////////////
-// Validate an IP whitelabel
+// Validate a reverse DNS record
 // POST /whitelabel/ips/{id}/validate
 
 
