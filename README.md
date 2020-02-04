@@ -50,7 +50,7 @@ Update the development environment with your [SENDGRID_API_KEY](https://app.send
 cp .env_sample .env
 ```
 2. Edit the new `.env` to add your API key
-3. Source the `.env` file to set rhe variable in the current session
+3. Source the `.env` file to set the variable in the current session
 ```bash
 source .env
 ```
@@ -220,7 +220,6 @@ Quick links:
 - [Feature Request](https://github.com/sendgrid/sendgrid-java/blob/master/CONTRIBUTING.md#feature-request)
 - [Bug Reports](https://github.com/sendgrid/sendgrid-java/blob/master/CONTRIBUTING.md#submit-a-bug-report)
 - [Improvements to the Codebase](https://github.com/sendgrid/sendgrid-java/blob/master/CONTRIBUTING.md#improvements-to-the-codebase)
-- [Sign the CLA to Create a Pull Request](https://cla.sendgrid.com/sendgrid/sendgrid-java)
 
 <a name="troubleshooting"></a>
 # Troubleshooting
