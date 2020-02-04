@@ -220,7 +220,6 @@ Quick links:
 - [Feature Request](https://github.com/sendgrid/sendgrid-java/blob/master/CONTRIBUTING.md#feature-request)
 - [Bug Reports](https://github.com/sendgrid/sendgrid-java/blob/master/CONTRIBUTING.md#submit-a-bug-report)
 - [Improvements to the Codebase](https://github.com/sendgrid/sendgrid-java/blob/master/CONTRIBUTING.md#improvements-to-the-codebase)
-- [Sign the CLA to Create a Pull Request](https://cla.sendgrid.com/sendgrid/sendgrid-java)
 
 <a name="troubleshooting"></a>
 # Troubleshooting
