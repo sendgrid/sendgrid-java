@@ -41,13 +41,13 @@ A software bug is a demonstrable issue in the code base. In order for us to diag
 
 Before you decide to create a new issue, please try the following:
 
-1. Check the Github issues tab if the identified issue has already been reported, if so, please add a +1 to the existing post.
+1. Check the GitHub issues tab if the identified issue has already been reported, if so, please add a +1 to the existing post.
 2. Update to the latest version of this code and check if issue has already been fixed
 3. Copy and fill in the Bug Report Template we have provided below
 
 ### Please use our Bug Report Template
 
-In order to make the process easier, we've included a [sample bug report template](https://github.com/sendgrid/sendgrid-java/blob/master/.github/ISSUE_TEMPLATE) (borrowed from [Ghost](https://github.com/TryGhost/Ghost/)). The template uses [GitHub flavored markdown](https://help.github.com/articles/github-flavored-markdown/) for formatting.
+In order to make the process easier, we've included a [sample bug report template](https://github.com/sendgrid/sendgrid-java/blob/master/ISSUE_TEMPLATE.md) (borrowed from [Ghost](https://github.com/TryGhost/Ghost/)). The template uses [GitHub flavored markdown](https://help.github.com/articles/github-flavored-markdown/) for formatting.
 
 <a name="improvements-to-the-codebase"></a>
 ## Improvements to the Codebase
@@ -72,7 +72,7 @@ git clone https://github.com/sendgrid/sendgrid-java.git
 cd sendgrid-java
 ```
 
-## Environment Variables
+### Environment Variables
 
 First, get your free Twilio SendGrid account [here](https://sendgrid.com/free?source=sendgrid-java).
 
