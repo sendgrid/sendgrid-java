@@ -7,12 +7,12 @@ RUN yum install -y git
 WORKDIR /root
 
 # install Prism
-ADD https://raw.githubusercontent.com/stoplightio/prism/master/install.sh install.sh
+ADD https://raw.githubusercontent.com/stoplightio/prism/master/install install.sh
 RUN chmod +x ./install.sh && \
     ./install.sh && \
     rm ./install.sh
 
-# set up default sendgrid env
+# Set up default Twilio SendGrid env
 WORKDIR /root/sources
 RUN git clone https://github.com/sendgrid/sendgrid-java.git
 WORKDIR /root

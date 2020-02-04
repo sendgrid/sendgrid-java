@@ -6,6 +6,7 @@ This documentation provides examples for specific use cases. Please [open an iss
 * [Legacy Templates](#legacy-templates)
 * [How to Setup a Domain Authentication](#domain-authentication)
 * [How to View Email Statistics](#email-stats)
+* [Send a SMS Message](#sms)
 
 <a name="transactional-templates"></a>
 # Transactional Templates
@@ -197,7 +198,7 @@ public class Example {
         [{
           \"to\": [{\"email\": \"test@example.com\"}],
           \"substitutions\": {\"-name-\": \"Example User\", \"-city-\": \"Denver\"},
-          \"subject\": \"Hello World from the SendGrid Java Library!\"
+          \"subject\": \"Hello World from the Twilio SendGrid Java Library!\"
         }],
         \"from\": {\"email\": \"test@example.com\"},
         \"content\":
@@ -222,12 +223,96 @@ public class Example {
 
 You can find documentation for how to setup a domain authentication via the UI [here](https://sendgrid.com/docs/ui/account-and-settings/how-to-set-up-domain-authentication/) and via API [here](https://github.com/sendgrid/sendgrid-nodejs/blob/master/packages/client/USAGE.md#sender-authentication).
 
-Find more information about all of SendGrid's authentication related documentation [here](https://sendgrid.com/docs/ui/account-and-settings/).
+Find more information about all of Twilio SendGrid's authentication related documentation [here](https://sendgrid.com/docs/ui/account-and-settings/).
 
 <a name="email-stats"></a>
 # How to View Email Statistics
 
 You can find documentation for how to view your email statistics via the UI [here](https://app.sendgrid.com/statistics) and via API [here](https://github.com/sendgrid/sendgrid-java/blob/master/USAGE.md#stats).
 
-Alternatively, we can post events to a URL of your choice via our [Event Webhook](https://sendgrid.com/docs/API_Reference/Webhooks/event.html) about events that occur as SendGrid processes your email.
+Alternatively, we can post events to a URL of your choice via our [Event Webhook](https://sendgrid.com/docs/API_Reference/Webhooks/event.html) about events that occur as Twilio SendGrid processes your email.
 
+<a name="sms"></a>
+# Send a SMS Message
+
+Following are the steps to add Twilio SMS to your app:
+
+## 1. Obtain a Free Twilio Account
+
+Sign up for a free Twilio account [here](https://www.twilio.com/try-twilio?source=sendgrid-java).
+
+## 2. Update Your Environment Variables
+
+You can obtain your Account Sid and Auth Token from [twilio.com/console](https://twilio.com/console).
+
+### Mac
+
+```bash
+echo "export TWILIO_ACCOUNT_SID='YOUR_TWILIO_ACCOUNT_SID'" > twilio.env
+echo "export TWILIO_AUTH_TOKEN='YOUR_TWILIO_AUTH_TOKEN'" >> twilio.env
+echo "twilio.env" >> .gitignore
+source ./twilio.env
+```
+
+### Windows
+
+Temporarily set the environment variable (accessible only during the current CLI session):
+
+```bash
+set TWILIO_ACCOUNT_SID=YOUR_TWILIO_ACCOUNT_SID
+set TWILIO_AUTH_TOKEN=YOUR_TWILIO_AUTH_TOKEN
+```
+
+Permanently set the environment variable (accessible in all subsequent CLI sessions):
+
+```bash
+setx TWILIO_ACCOUNT_SID "YOUR_TWILIO_ACCOUNT_SID"
+setx TWILIO_AUTH_TOKEN "YOUR_TWILIO_AUTH_TOKEN"
+```
+
+## 3. Install the Twilio Helper Library
+
+`twilio-java` uses Maven.  At present the jars *are* available from a public [maven](http://mvnrepository.com/artifact/com.twilio.sdk/twilio) repository.
+
+Use the following dependency in your project to grab via Maven:
+
+```xml
+<dependency>
+  <groupId>com.twilio.sdk</groupId>
+  <artifactId>twilio</artifactId>
+  <version>7.X.X</version>
+  <scope>compile</scope>
+</dependency>
+```
+
+or Gradle:
+```groovy
+compile "com.twilio.sdk:twilio:7.X.X"
+````
+
+If you want to compile it yourself, here is how:
+
+```bash
+$ git clone git@github.com:twilio/twilio-java
+$ cd twilio-java
+$ mvn install       # Requires maven, download from http://maven.apache.org/download.html
+```
+
+Then, you can execute the following code.
+
+```java
+String accountSid = Environment.GetEnvironmentVariable("TWILIO_ACCOUNT_SID");
+String authToken = Environment.GetEnvironmentVariable("TWILIO_AUTH_TOKEN");
+
+Twilio.init(accountSid, authToken);
+
+Message message = Message.creator(
+    new PhoneNumber("+15558881234"),  // To number
+    new PhoneNumber("+15559994321"),  // From number
+    "Hello world!"                    // SMS body
+).create();
+
+System.out.println(message.getSid());
+```
+
+For more information, please visit the [Twilio SMS Java documentation](https://www.twilio.com/docs/sms/quickstart/java).

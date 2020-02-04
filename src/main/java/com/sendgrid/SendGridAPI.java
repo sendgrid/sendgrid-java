@@ -6,9 +6,9 @@ import java.util.Map;
 public interface SendGridAPI {
 
   /**
-   * Initializes SendGrid
+   * Initializes Twilio SendGrid
    * 
-   * @param apiKey is your SendGrid API Key: https://app.sendgrid.com/settings/api_keys
+   * @param apiKey is your Twilio SendGrid API Key: https://app.sendgrid.com/settings/api_keys
    */
   void initializeSendGrid(String apiKey);
 
@@ -29,7 +29,7 @@ public interface SendGridAPI {
   /**
    * Sets the version.
    * 
-   * @param version the SendGrid version.
+   * @param version the Twilio SendGrid version.
    */
   void setVersion(String version);
 
@@ -71,7 +71,7 @@ public interface SendGridAPI {
   void setHost(String host);
 
   /**
-   * Class makeCall makes the call to the SendGrid API, override this method for
+   * Class makeCall makes the call to the Twilio SendGrid API, override this method for
    * testing.
    * 
    * @param request the request
@@ -81,7 +81,7 @@ public interface SendGridAPI {
   Response makeCall(Request request) throws IOException;
 
   /**
-   * Class api sets up the request to the SendGrid API, this is main interface.
+   * Class api sets up the request to the Twilio SendGrid API, this is main interface.
    * 
    * @param request the request
    * @return returns a response.
