@@ -1,19 +1,20 @@
-![SendGrid Logo](https://uiux.s3.amazonaws.com/2016-logos/email-logo%402x.png)
+![SendGrid Logo](https://github.com/sendgrid/sendgrid-python/raw/master/twilio_sendgrid_logo.png)
 
 [![Travis Badge](https://travis-ci.org/sendgrid/sendgrid-java.svg?branch=master)](https://travis-ci.org/sendgrid/sendgrid-java)
 [![Maven Central](https://img.shields.io/maven-central/v/com.sendgrid/sendgrid-java.svg)](http://mvnrepository.com/artifact/com.sendgrid/sendgrid-java)
 [![Email Notifications Badge](https://dx.sendgrid.com/badge/java)](https://dx.sendgrid.com/newsletter/java)
 [![Twitter Follow](https://img.shields.io/twitter/follow/sendgrid.svg?style=social&label=Follow)](https://twitter.com/sendgrid)
 [![GitHub contributors](https://img.shields.io/github/contributors/sendgrid/sendgrid-java.svg)](https://github.com/sendgrid/sendgrid-java/graphs/contributors)
-[![MIT licensed](https://img.shields.io/badge/license-MIT-blue.svg)](./LICENSE.txt)
+[![Open Source Helpers](https://www.codetriage.com/sendgrid/sendgrid-java/badges/users.svg)](https://www.codetriage.com/sendgrid/sendgrid-java)
+[![MIT licensed](https://img.shields.io/badge/license-MIT-blue.svg)](./LICENSE.md)
 
 **NEW:** Subscribe to email [notifications](https://dx.sendgrid.com/newsletter/java) for releases and breaking changes.
 
-**This library allows you to quickly and easily use the SendGrid Web API v3 via Java.**
+**This library allows you to quickly and easily use the Twilio SendGrid Web API v3 via Java.**
 
-Version 3.X.X of this library provides full support for all SendGrid [Web API v3](https://sendgrid.com/docs/API_Reference/Web_API_v3/index.html) endpoints, including the new [v3 /mail/send](https://sendgrid.com/blog/introducing-v3mailsend-sendgrids-new-mail-endpoint).
+Version 3.X.X of this library provides full support for all Twilio SendGrid [Web API v3](https://sendgrid.com/docs/API_Reference/Web_API_v3/index.html) endpoints, including the new [v3 /mail/send](https://sendgrid.com/blog/introducing-v3mailsend-sendgrids-new-mail-endpoint).
 
-This library represents the beginning of a new path for SendGrid. We want this library to be community driven and SendGrid led. We need your help to realize this goal. To help make sure we are building the right things in the right order, we ask that you create [issues](https://github.com/sendgrid/sendgrid-java/issues) and [pull requests](https://github.com/sendgrid/sendgrid-java/blob/master/CONTRIBUTING.md) or simply upvote or comment on existing issues or pull requests.
+This library represents the beginning of a new path for Twilio SendGrid. We want this library to be community driven and Twilio SendGrid led. We need your help to realize this goal. To help make sure we are building the right things in the right order, we ask that you create [issues](https://github.com/sendgrid/sendgrid-java/issues) and [pull requests](https://github.com/sendgrid/sendgrid-java/blob/master/CONTRIBUTING.md) or simply upvote or comment on existing issues or pull requests.
 
 Please browse the rest of this README for further details.
 
@@ -38,7 +39,7 @@ We appreciate your continued support, thank you!
 ## Prerequisites
 
 - Java version Oracle JDK 7, 8 or OpenJDK 7
-- The SendGrid service, starting at the [free level](https://sendgrid.com/free?source=sendgrid-java)
+- The Twilio SendGrid service, starting at the [free level](https://sendgrid.com/free?source=sendgrid-java) to send up to 40,000 emails for the first 30 days, then send 100 emails/day free forever or check out [our pricing](https://sendgrid.com/pricing?source=sendgrid-java).
 
 ## Setup Environment Variables
 
@@ -49,7 +50,7 @@ Update the development environment with your [SENDGRID_API_KEY](https://app.send
 cp .env_sample .env
 ```
 2. Edit the new `.env` to add your API key
-3. Source the `.env` file to set rhe variable in the current session
+3. Source the `.env` file to set the variable in the current session
 ```bash
 source .env
 ```
@@ -66,7 +67,7 @@ Add the following to your build.gradle file in the root of your project.
 ...
 dependencies {
   ...
-  compile 'com.sendgrid:sendgrid-java:4.1.2'
+  implementation 'com.sendgrid:sendgrid-java:4.4.2'
 }
 
 repositories {
@@ -85,7 +86,7 @@ mvn install
 
 You can just drop the jar file in. It's a fat jar - it has all the dependencies built in.
 
-[sendgrid-java-latest.jar](http://dx.sendgrid.com/downloads/sendgrid-java/sendgrid-java-latest.jar)
+[sendgrid-java.jar](https://github.com/sendgrid/sendgrid-java/releases/download/v4.4.2/sendgrid-java.jar)
 
 ## Dependencies
 
@@ -107,7 +108,7 @@ import java.io.IOException;
 public class Example {
   public static void main(String[] args) throws IOException {
     Email from = new Email("test@example.com");
-    String subject = "Sending with SendGrid is Fun";
+    String subject = "Sending with Twilio SendGrid is Fun";
     Email to = new Email("test@example.com");
     Content content = new Content("text/plain", "and easy to do anywhere, even with Java");
     Mail mail = new Mail(from, subject, to, content);
@@ -146,7 +147,7 @@ public class Example {
       Request request = new Request();
       request.setMethod(Method.POST);
       request.setEndpoint("mail/send");
-      request.setBody("{\"personalizations\":[{\"to\":[{\"email\":\"test@example.com\"}],\"subject\":\"Sending with SendGrid is Fun\"}],\"from\":{\"email\":\"test@example.com\"},\"content\":[{\"type\":\"text/plain\",\"value\": \"and easy to do anywhere, even with Java\"}]}");
+      request.setBody("{\"personalizations\":[{\"to\":[{\"email\":\"test@example.com\"}],\"subject\":\"Sending with Twilio SendGrid is Fun\"}],\"from\":{\"email\":\"test@example.com\"},\"content\":[{\"type\":\"text/plain\",\"value\": \"and easy to do anywhere, even with Java\"}]}");
       Response response = sg.api(request);
       System.out.println(response.getStatusCode());
       System.out.println(response.getBody());
@@ -185,7 +186,7 @@ public class Example {
 <a name="usage"></a>
 # Usage
 
-- [SendGrid Docs](https://sendgrid.com/docs/API_Reference/Web_API_v3/index.html)
+- [Twilio SendGrid Docs](https://sendgrid.com/docs/API_Reference/Web_API_v3/index.html)
 - [Library Usage Docs](https://github.com/sendgrid/sendgrid-java/tree/master/USAGE.md)
 - [Example Code](https://github.com/sendgrid/sendgrid-java/tree/master/examples)
 - [How-to: Migration from v2 to v3](https://sendgrid.com/docs/Classroom/Send/v3_Mail_Send/how_to_migrate_from_v2_to_v3_mail_send.html)
@@ -218,7 +219,6 @@ Quick links:
 
 - [Feature Request](https://github.com/sendgrid/sendgrid-java/blob/master/CONTRIBUTING.md#feature-request)
 - [Bug Reports](https://github.com/sendgrid/sendgrid-java/blob/master/CONTRIBUTING.md#submit-a-bug-report)
-- [Sign the CLA to Create a Pull Request](https://github.com/sendgrid/sendgrid-java/blob/master/CONTRIBUTING.md#cla)
 - [Improvements to the Codebase](https://github.com/sendgrid/sendgrid-java/blob/master/CONTRIBUTING.md#improvements-to-the-codebase)
 
 <a name="troubleshooting"></a>
@@ -229,9 +229,12 @@ Please see our [troubleshooting guide](https://github.com/sendgrid/sendgrid-java
 <a name="about"></a>
 # About
 
-sendgrid-java is guided and supported by the SendGrid [Developer Experience Team](mailto:dx@sendgrid.com).
+sendgrid-java is guided and supported by the Twilio Developer Experience Team.
 
-sendgrid-java is maintained and funded by SendGrid, Inc. The names and logos for sendgrid-java are trademarks of SendGrid, Inc.
+Please email the Developer Experience Team [here](mailto:dx@sendgrid.com) in case of any queries.
+
+sendgrid-java is maintained and funded by Twilio SendGrid, Inc. The names and logos for sendgrid-java are trademarks of Twilio SendGrid, Inc.
 
 # License
-[The MIT License (MIT)](LICENSE.txt)
+
+[The MIT License (MIT)](LICENSE.md)
