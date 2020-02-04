@@ -20,7 +20,7 @@
     </license>
   </licenses>
   <properties>
-    <jackson.version>2.9.9</jackson.version>
+    <jackson.version>2.10.2</jackson.version>
     <java-http-client.version>4.3.0</java-http-client.version>
   </properties>
   <scm>
