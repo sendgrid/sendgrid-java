@@ -1,6 +1,23 @@
 # Change Log
 All notable changes to this project will be documented in this file.
 
+[2020-02-05] Version 4.4.3
+--------------------------
+**Library - Docs**
+- [PR #604](https://github.com/sendgrid/sendgrid-java/pull/604): Fix GitHub spelling. Thanks to [@friederbluemle](https://github.com/friederbluemle)!
+- [PR #534](https://github.com/sendgrid/sendgrid-java/pull/534): Fix whitespace errors and typos. Thanks to [@friederbluemle](https://github.com/friederbluemle)!
+- [PR #402](https://github.com/sendgrid/sendgrid-java/pull/402): Add Code Review to Contributing.md. Thanks to [@derekneuland](https://github.com/derekneuland)!
+- [PR #603](https://github.com/sendgrid/sendgrid-java/pull/603): baseline all the templated markdown docs. Thanks to [@childish-sambino](https://github.com/childish-sambino)!
+- [PR #387](https://github.com/sendgrid/sendgrid-java/pull/387): makes Environmental Variables a sub topic in CONTRIBUTING.md. Thanks to [@thepriefy](https://github.com/thepriefy)!
+- [PR #516](https://github.com/sendgrid/sendgrid-java/pull/516): fix a minor type in README. Thanks to [@anuragsachdeva28](https://github.com/anuragsachdeva28)!
+- [PR #590](https://github.com/sendgrid/sendgrid-java/pull/590): fix typo in README. Thanks to [@brianjester](https://github.com/brianjester)!
+
+**Library - Chore**
+- [PR #542](https://github.com/sendgrid/sendgrid-java/pull/542): Removed the apiKey instance variable as it wasn't being used. Thanks to [@RohanTalip](https://github.com/RohanTalip)!
+- [PR #563](https://github.com/sendgrid/sendgrid-java/pull/563): Remove unnecessary access modifiers on interface methods. Thanks to [@ethanwood17](https://github.com/ethanwood17)!
+- [PR #602](https://github.com/sendgrid/sendgrid-java/pull/602): Bump jackson.version from 2.9.9 to 2.10.2. Thanks to [@dependabot](https://github.com/dependabot)!
+
+
 [2020-02-01] Version 4.4.2
 --------------------------
 **Library - Chore**
