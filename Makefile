@@ -4,7 +4,7 @@ VERSION := $(shell mvn help:evaluate -Dexpression=project.version --batch-mode |
 install:
 	@java -version || (echo "Java is not installed, please install Java >= 7"; exit 1);
 	mvn clean install -DskipTests=true -Dgpg.skip -B
-	cp target/sendgrid-java-$(VERSION).jar sendgrid-java.jar
+	cp target/sendgrid-java-$(VERSION)-shaded.jar sendgrid-java.jar
 
 test:
 	mvn test
