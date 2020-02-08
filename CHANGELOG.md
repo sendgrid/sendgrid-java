@@ -1,6 +1,12 @@
 # Change Log
 All notable changes to this project will be documented in this file.
 
+[2020-02-08] Version 4.4.4
+--------------------------
+**Library - Fix**
+- [PR #608](https://github.com/sendgrid/sendgrid-java/pull/608): update release jar. Thanks to [@eshanholtz](https://github.com/eshanholtz)!
+
+
 [2020-02-05] Version 4.4.3
 --------------------------
 **Library - Docs**
