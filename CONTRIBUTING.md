@@ -155,7 +155,7 @@ Generally, we follow the style guidelines as suggested by the official language.
 
 Please run your code through:
 - [FindBugs](http://findbugs.sourceforge.net/)
-- [CheckStyle](http://checkstyle.sourceforge.net/) with [Google's Java Style Guide](http://checkstyle.sourceforge.net/reports/google-java-style.html).
+- [CheckStyle](http://checkstyle.sourceforge.net/) with [Google's Java Style Guide](https://google.github.io/styleguide/javaguide.html).
 
 <a name="creating-a-pull-request"></a>
 ## Creating a Pull Request
