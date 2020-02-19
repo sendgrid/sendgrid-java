@@ -1,6 +1,12 @@
 # Change Log
 All notable changes to this project will be documented in this file.
 
+[2020-02-19] Version 4.4.5
+--------------------------
+**Library - Docs**
+- [PR #540](https://github.com/sendgrid/sendgrid-java/pull/540): Update the link for Google's Style Guide. Thanks to [@RohanTalip](https://github.com/RohanTalip)!
+
+
 [2020-02-08] Version 4.4.4
 --------------------------
 **Library - Fix**
