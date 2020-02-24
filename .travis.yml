@@ -1,23 +1,23 @@
 language: java
 before_install:
-  - echo $GPG_SECRET_KEYS | base64 --decode | $GPG_EXECUTABLE --import || true
+  - echo $GPG_SECRET_KEYS | base64 --decode | $GPG_EXECUTABLE --import --batch || true
 matrix:
   include:
-    - name: 'OpenJDK 7'
-      jdk: openjdk7
-    - name: 'OpenJDK 8'
-      jdk: openjdk8
-    - name: 'Oracle JDK 7'
-      jdk: oraclejdk7
-    - name: 'Oracle JDK 8'
-      jdk: oraclejdk8
-    - name: 'OpenJDK 11'
-      jdk: openjdk11
+    - jdk: openjdk7
+      dist: trusty
+    - jdk: openjdk8
+      dist: xenial
+    - jdk: openjdk11
+      dist: xenial
+    - jdk: oraclejdk7
+      dist: precise
+    - jdk: oraclejdk8
+      dist: trusty
+    - jdk: oraclejdk11
+      dist: trusty
   allow_failures:
-    - name: 'Oracle JDK 8' # See https://travis-ci.community/t/expected-feature-release-number-in-range-of-9-to-12-but-got-8-installing-oraclejdk8/1345/14
-    - name: 'OpenJDK 7'
-    - name: 'Oracle JDK 7'
-    - name: 'OpenJDK 11'
+    - jdk: openjdk7
+    - jdk: oraclejdk7
 before_script:
   - "./scripts/startPrism.sh &"
   - sleep 20
