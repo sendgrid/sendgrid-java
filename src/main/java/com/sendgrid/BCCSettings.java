@@ -5,9 +5,9 @@ import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 /**
- * This object allows you to have a blind carbon copy 
- * automatically sent to the specified email address 
- * for every email that is sent.
+ * A JSON-serializable model of the blind carbon copy (BCC)
+ * settings. This allows for automatic copies of every
+ * email sent to be made to the specified email address.
  */
 @JsonInclude(Include.NON_NULL)
 public class BCCSettings {
@@ -19,8 +19,10 @@ public class BCCSettings {
     private String email;
 
     /**
-     * Determines if this setting is enabled.
-     * @return true if BCC is enabled, false otherwise.
+     * Gets whether BCC has been enabled.
+     *
+     * @return {@code true} if BCC has been enabled;
+     *         {@code false} otherwise.
      */
     @JsonProperty("enable")
     public boolean getEnable() {
@@ -28,9 +30,11 @@ public class BCCSettings {
     }
 
     /**
-     * Set whether or not BCC is enabled.
-     * @param enable true if BCC is enabled, false otherwise.
-     * @return this object.
+     * Sets whether BCC has been enabled.
+     *
+     * @param enable {@code true} if BCC has been enabled;
+     *               {@code false} otherwise.
+     * @return {@code this} for chaining.
      */
     public BCCSettings enable(boolean enable) {
         this.enable = enable;
@@ -38,8 +42,9 @@ public class BCCSettings {
     }
 
     /**
-     * Get the email address that you would like to receive the BCC.
-     * @return the address.
+     * Gets the email address that will receive the copies.
+     *
+     * @return the email address.
      */
     @JsonProperty("email")
     public String getEmail() {
@@ -47,9 +52,10 @@ public class BCCSettings {
     }
 
     /**
-     * Set the email address that you would like to receive the BCC.
-     * @param email the address.
-     * @return this object.
+     * Sets the email address that will receive the copies.
+     *
+     * @param email the email address.
+     * @return {@code this} for chaining.
      */
     public BCCSettings email(String email) {
         this.email = email;

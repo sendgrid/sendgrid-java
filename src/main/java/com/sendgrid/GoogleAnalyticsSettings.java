@@ -5,7 +5,9 @@ import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 /**
- * An object configuring the tracking provided by Google Analytics.
+ * A JSON-serializable model of the Google Analytics settings.
+ * This allows for tracking provided by Google, to be used in
+ * emails.
  */
 @JsonInclude(Include.NON_NULL)
 public class GoogleAnalyticsSettings {
@@ -29,8 +31,10 @@ public class GoogleAnalyticsSettings {
     private String campaignMedium;
 
     /**
-     * Get whether or not this setting is enabled.
-     * @return true if enabled, false otherwise.
+     * Gets whether Google Analytics has been enabled.
+     *
+     * @return {@code true} if Google Analytics has been enabled;
+     *         {@code false} otherwise.
      */
     @JsonProperty("enable")
     public boolean getEnable() {
@@ -38,9 +42,11 @@ public class GoogleAnalyticsSettings {
     }
 
     /**
-     * Set whether or not this setting is enabled.
-     * @param enable true if enabled, false otherwise.
-     * @return this object.
+     * Sets whether Google Analytics has been enabled.
+     *
+     * @param enable {@code true} if Google Analytics has been enabled;
+     *               {@code false} otherwise.
+     * @return {@code this} for chaining.
      */
     public GoogleAnalyticsSettings enable(boolean enable) {
         this.enable = enable;
@@ -48,8 +54,9 @@ public class GoogleAnalyticsSettings {
     }
 
     /**
-     * Get the name of the referrer source. 
-     * (e.g. Google, SomeDomain.com, or Marketing Email)
+     * Get the name of the referrer source - for example: {@code Google},
+     * {@code SomeDomain.com}, or {@code Marketing Email}.
+     *
      * @return the referrer source.
      */
     @JsonProperty("utm_source")
@@ -58,9 +65,10 @@ public class GoogleAnalyticsSettings {
     }
 
     /**
-     * Set the name of the referrer source. 
+     * Set the name of the referrer source.
+     *
      * @param campaignSource the referrer source.
-     * @return this object.
+     * @return {@code this} for chaining.
      */
     public GoogleAnalyticsSettings campaignSource(String campaignSource) {
         this.campaignSource = campaignSource;
@@ -69,6 +77,7 @@ public class GoogleAnalyticsSettings {
 
     /**
      * Get the term used to identify any paid keywords.
+     *
      * @return the term.
      */
     @JsonProperty("utm_term")
@@ -78,8 +87,9 @@ public class GoogleAnalyticsSettings {
 
     /**
      * Set the term used to identify any paid keywords.
+     *
      * @param campaignTerm the term.
-     * @return this object.
+     * @return {@code this} for chaining.
      */
     public GoogleAnalyticsSettings campaignTerm(String campaignTerm) {
         this.campaignTerm = campaignTerm;
@@ -87,8 +97,9 @@ public class GoogleAnalyticsSettings {
     }
 
     /**
-     * Get the content Used to differentiate your campaign 
+     * Get the content used to differentiate your campaign
      * from advertisements.
+     *
      * @return the content.
      */
     @JsonProperty("utm_content")
@@ -97,10 +108,11 @@ public class GoogleAnalyticsSettings {
     }
 
     /**
-     * Set the content Used to differentiate your campaign 
+     * Set the content used to differentiate your campaign
      * from advertisements.
+     *
      * @param campaignContent the content.
-     * @return this object.
+     * @return {@code this} for chaining.
      */
     public GoogleAnalyticsSettings campaignContent(String campaignContent) {
         this.campaignContent = campaignContent;
@@ -109,6 +121,7 @@ public class GoogleAnalyticsSettings {
 
     /**
      * Get the name of the campaign.
+     *
      * @return the name.
      */
     @JsonProperty("utm_campaign")
@@ -118,8 +131,9 @@ public class GoogleAnalyticsSettings {
 
     /**
      * Set the name of the campaign.
+     *
      * @param campaignName the name.
-     * @return this object.
+     * @return {@code this} for chaining.
      */
     public GoogleAnalyticsSettings campaignName(String campaignName) {
         this.campaignName = campaignName;
@@ -127,7 +141,8 @@ public class GoogleAnalyticsSettings {
     }
 
     /**
-     * Get the name of the marketing medium. (e.g. Email)
+     * Get the name of the marketing medium - for example, {@code Email}.
+     *
      * @return the medium name.
      */
     @JsonProperty("utm_medium")
@@ -136,9 +151,10 @@ public class GoogleAnalyticsSettings {
     }
 
     /**
-     * Set the name of the marketing medium. (e.g. Email)
+     * Set the name of the marketing medium - for example, {@code Email}.
+     *
      * @param campaignMedium the medium name.
-     * @return this object.
+     * @return {@code this} for chaining.
      */
     public GoogleAnalyticsSettings campaignMedium(String campaignMedium) {
         this.campaignMedium = campaignMedium;

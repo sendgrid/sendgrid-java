@@ -27,8 +27,10 @@ public class SubscriptionTrackingSettings {
     private String substitutionTag;
 
     /**
-     * Determines if this setting is enabled.
-     * @return true if subscription tracking is enabled, false otherwise.
+     * Gets whether subscription tracking has been enabled.
+     *
+     * @return {@code true} if subscription tracking has been enabled;
+     *         {@code false} otherwise.
      */
     @JsonProperty("enable")
     public boolean getEnable() {
@@ -36,9 +38,11 @@ public class SubscriptionTrackingSettings {
     }
 
     /**
-     * Set if this setting is enabled.
-     * @param enable true if subscription tracking is enabled, false otherwise.
-     * @return this object.
+     * Sets whether subscription tracking is enabled.
+     *
+     * @param enable {@code true} if subscription tracking is to be enabled;
+     *               {@code false} otherwise.
+     * @return {@code this} for chaining.
      */
     public SubscriptionTrackingSettings enable(boolean enable) {
         this.enable = enable;
@@ -46,9 +50,10 @@ public class SubscriptionTrackingSettings {
     }
 
     /**
-     * Get the plain text to be appended to the email, with the 
+     * Gets the plain text to be appended to the email, with the
      * subscription tracking link. You may control where 
-     * the link is by using the tag &lt;% %&gt;
+     * the link is by using the tag {@code <% %>}.
+     *
      * @return the plain text.
      */
     @JsonProperty("text")
@@ -57,9 +62,10 @@ public class SubscriptionTrackingSettings {
     }
 
     /** 
-     * Set the plain text.
+     * Sets the plain text.
+     *
      * @param text the plain text.
-     * @return this object.
+     * @return {@code this} for chaining.
      */
     public SubscriptionTrackingSettings text(String text) {
         this.text = text;
@@ -67,9 +73,10 @@ public class SubscriptionTrackingSettings {
     }
 
     /**
-     * Get the HTML to be appended to the email, with the 
+     * Gets the HTML to be appended to the email, with the
      * subscription tracking link. You may control where 
-     * the link is by using the tag &lt;% %&gt;
+     * the link is by using the tag {@code <% %>}.
+     *
      * @return the HTML.
      */
     @JsonProperty("html")
@@ -78,9 +85,10 @@ public class SubscriptionTrackingSettings {
     }
 
     /**
-     * Set the HTML.
+     * Sets the HTML.
+     *
      * @param html the HTML.
-     * @return this object.
+     * @return {@code this} for chaining.
      */
     public SubscriptionTrackingSettings html(String html) {
         this.html = html;
@@ -88,12 +96,13 @@ public class SubscriptionTrackingSettings {
     }
 
     /**
-     * Get the    tag that will be replaced with the 
-     * unsubscribe URL. for example: [unsubscribe_url].
+     * Gets the tag that will be replaced with the
+     * unsubscribe URL. for example: {@code [unsubscribe_url]}.
      * If this parameter is used, it will override both 
      * the text and html parameters. The URL of the link 
      * will be placed at the substitution tag’s location, 
      * with no additional formatting.
+     *
      * @return the substitution tag.
      */
     @JsonProperty("substitution_tag")
@@ -102,9 +111,10 @@ public class SubscriptionTrackingSettings {
     }
 
     /**
-     * Set the substitution tag.
+     * Sets the substitution tag.
+     *
      * @param substitutionTag the substitution tag.
-     * @return this object.
+     * @return {@code this} for chaining.
      */
     public SubscriptionTrackingSettings substitutionTag(String substitutionTag) {
         this.substitutionTag = substitutionTag;

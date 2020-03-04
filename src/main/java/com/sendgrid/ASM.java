@@ -7,7 +7,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.Arrays;
 
 /**
- * An object allowing you to specify how to handle unsubscribes.
+ * A JSON-serializable model, describing how unsubscribes should
+ * be handled.
  */
 @JsonInclude(Include.NON_DEFAULT)
 public class ASM {
@@ -19,7 +20,8 @@ public class ASM {
     private int[] groupsToDisplay;
 
     /**
-     * Get the group ID.
+     * Gets the group ID.
+     *
      * @return the group ID.
      */
     @JsonProperty("group_id")
@@ -28,9 +30,10 @@ public class ASM {
     }
 
     /**
-     * Set the group ID.
+     * Sets the group ID.
+     *
      * @param groupId the group ID.
-     * @return this object.
+     * @return {@code this} for chaining.
      */
     public ASM groupId(int groupId) {
         this.groupId = groupId;
@@ -38,7 +41,8 @@ public class ASM {
     }
 
     /**
-     * Get the groups to display.
+     * Gets the groups to display.
+     *
      * @return the groups to display.
      */
     @JsonProperty("groups_to_display")
@@ -47,9 +51,10 @@ public class ASM {
     }
 
     /**
-     * Set the groups to display.
+     * Sets the groups to display.
+     *
      * @param groupsToDisplay the groups to display.
-     * @return this object.
+     * @return {@code this} for chaining.
      */
     public ASM groupsToDisplay(int[] groupsToDisplay) {
         this.groupsToDisplay = Arrays.copyOf(groupsToDisplay, groupsToDisplay.length);

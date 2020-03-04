@@ -11,10 +11,11 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * An object representing a message and its metadata.
- * A personalization can be thought of as an envelope 
- * - it defines who should receive an individual message 
- * and how that message should be handled.
+ * A JSON-serializable model of the personalization an email
+ * should receive for a specific individual.
+ * <p>
+ * One analogy, is an envelope - in that it defines who receives
+ * the email (the recipient) and how the message should be handled.
  */
 @JsonInclude(Include.NON_DEFAULT)
 public class Personalization {
@@ -44,14 +45,13 @@ public class Personalization {
     private long sendAt;
 
     /**
-     * Get the to list. This is an array of recipients. Each object 
-     * within this array may contain the name, but must always 
-     * contain the email, of a recipient.
-     * 
-     * The maximum number of entries is 1000.
-     * 
-     * Content added to the returned list will be included when sent.
-     * @return the to list.
+     * Gets a {@link List} view of all the email address pairs which
+     * should receive the email, in short - it is a view of all the
+     * recipients whether their name is present or otherwise.
+     * <p>
+     * <strong>The maximum recipients is 1000!</strong>
+     *
+     * @return The recipients.
      */
     @JsonProperty("to")
     public List<Email> getTos() {
@@ -61,9 +61,11 @@ public class Personalization {
     }
 
     /**
-     * Add a recipient.
+     * Adds an recipient, in the form of an email address pair, to
+     * receive the email.
+     *
      * @param email an email address.
-     * @return this object.
+     * @return {@code this} for chaining.
      */
     public Personalization to(Email email) {
         Email newEmail = new Email()
@@ -80,14 +82,14 @@ public class Personalization {
     }
 
     /**
-     * Set the CC list. This is an array of recipients. Each object 
-     * within this array may contain the name, but must always 
-     * contain the email, of a recipient.
-     * 
-     * The maximum number of entries is 1000.
-     * 
-     * Content added to the returned list will be included when sent.
-     * @return the CC list.
+     * Gets a {@link List} view of all the email address pairs which
+     * should receive a carbon copy of the email, in short - it is a
+     * view of all the recipients whether their name is present or
+     * otherwise.
+     * <p>
+     * <strong>The maximum carbon copies is 1000!</strong>
+     *
+     * @return The recipients.
      */
     @JsonProperty("cc")
     public List<Email> getCcs() {
@@ -97,9 +99,11 @@ public class Personalization {
     }
 
     /**
-     * Add a recipient.
+     * Adds a carbon-copy recipient, in the form of an email address pair, to
+     * receive the email.
+     *
      * @param email an email address.
-     * @return this object.
+     * @return {@code this} for chaining.
      */
     public Personalization cc(Email email) {
         Email newEmail = new Email()
@@ -116,14 +120,14 @@ public class Personalization {
     }
 
     /**
-     * Set the BCC list. This is an array of recipients. Each object 
-     * within this array may contain the name, but must always 
-     * contain the email, of a recipient.
-     * 
-     * The maximum number of entries is 1000.
-     * 
-     * Content added to the returned list will be included when sent.
-     * @return the BCC list.
+     * Gets a {@link List} view of all the email address pairs which
+     * should receive a blind carbon copy of the email, in short - it
+     * is a view of all the recipients whether their name is present or
+     * otherwise.
+     * <p>
+     * <strong>The maximum blind carbon copies is 1000!</strong>
+     *
+     * @return The recipients.
      */
     @JsonProperty("bcc")
     public List<Email> getBccs() {
@@ -133,9 +137,11 @@ public class Personalization {
     }
 
     /**
-     * Add a recipient.
+     * Adds a blind carbon-copy recipient, in the form of an email address pair, to
+     * receive the email.
+     *
      * @param email an email address.
-     * @return this object.
+     * @return {@code this} for chaining.
      */
     public Personalization bcc(Email email) {
         Email newEmail = new Email()
@@ -152,7 +158,8 @@ public class Personalization {
     }
 
     /**
-     * Get the subject of the email.
+     * Gets the subject of the email.
+     *
      * @return the subject.
      */
     @JsonProperty("subject")
@@ -161,9 +168,10 @@ public class Personalization {
     }
 
     /**
-     * Set the subject of the email.
+     * Sets the subject of the email.
+     *
      * @param subject the subject.
-     * @return this object.
+     * @return {@code this} for chaining.
      */
     public Personalization subject(String subject) {
         this.subject = subject;
@@ -174,11 +182,11 @@ public class Personalization {
      * Get the headers. The headers are a collection of JSON 
      * key/value pairs allowing you to specify specific handling 
      * instructions for your email. You may not overwrite the 
-     * following headers: x-sg-id, x-sg-eid, received, 
-     * dkim-signature, Content-Type, Content-Transfer-Encoding, 
-     * To, From, Subject, Reply-To, CC, BCC
-     * 
-     * Content added to the returned list will be included when sent. 
+     * following headers: {@code x-sg-id}, {@code x-sg-eid},
+     * {@code received}, {@code dkim-signature}, {@code Content-Type},
+     * {@code Content-Transfer-Encoding}, {@code To}, {@code From},
+     * {@code Subject}, {@code Reply-To}, {@code CC}, {@code BCC}
+     *
      * @return the headers.
      */
     @JsonProperty("headers")
@@ -189,10 +197,11 @@ public class Personalization {
     }
 
     /**
-     * Add a header.
+     * Adds a header.
+     *
      * @param key the header key.
      * @param value the header value.
-     * @return this object.
+     * @return {@code this} for chaining.
      */
     public Personalization header(String key, String value) {
         if (headers == null) {
@@ -205,7 +214,7 @@ public class Personalization {
     }
 
     /**
-     * Get the substitusions. Substitutions are a collection of 
+     * Gets the substitusions. Substitutions are a collection of
      * key/value pairs following the pattern 
      * "substitution_tag":"value to substitute". All are assumed 
      * to be strings. These substitutions will apply to the text 
@@ -213,10 +222,9 @@ public class Personalization {
      * to the subject and reply-to parameters. The total 
      * collective size of your substitutions may not exceed 
      * 10,000 bytes per personalization object.
-     * 
-     * The maximum number of entries is 1000.
-     * 
-     * Content added to the returned list will be included when sent. 
+     * <p>
+     * <strong>The maximum blind carbon copies is 1000!</strong>
+     *
      * @return the substitutions.
      */
     @JsonProperty("substitutions")
@@ -227,10 +235,11 @@ public class Personalization {
     }
 
     /**
-     * Add a substitusion.
+     * Adds a substitution.
+     *
      * @param key the key.
      * @param value the value.
-     * @return this object.
+     * @return {@code this} for chaining.
      */
     public Personalization substitution(String key, String value) {
         if (substitutions == null) {
@@ -243,15 +252,14 @@ public class Personalization {
     }
 
     /**
-     * Get the custom arguments. Values that are specific to 
+     * Gets the custom arguments. Values that are specific to
      * this personalization that will be carried along with 
      * the email and its activity data. Substitutions will
      * not be made on custom arguments, so any string that 
      * is entered into this parameter will be assumed to be 
      * the custom argument that you would like to be used. i
      * May not exceed 10,000 bytes.
-     * 
-     * Content added to the returned list will be included when sent. 
+     *
      * @return the custom arguments.
      */
     @JsonProperty("custom_args")
@@ -262,10 +270,11 @@ public class Personalization {
     }
 
     /**
-     * Add a custom argument.
+     * Adds a custom argument.
+     *
      * @param key the key.
      * @param value the value.
-     * @return this object.
+     * @return {@code this} for chaining.
      */
     public Personalization customArg(String key, String value) {
         if (customArgs == null) {
@@ -278,10 +287,11 @@ public class Personalization {
     }
 
     /**
-     * Get the send at time. This is a unix timestamp 
+     * Gets the send at time. This is a unix timestamp
      * allowing you to specify when you want your 
      * email to be delivered. Scheduling more than
      * 72 hours in advance is forbidden.
+     *
      * @return the send at time.
      */
     @JsonProperty("send_at")
@@ -290,9 +300,10 @@ public class Personalization {
     }
 
     /**
-     * Set the send at time.
+     * Sets the send at time.
+     *
      * @param sendAt the send at time (Unix timestamp).
-     * @return this object.
+     * @return {@code this} for chaining.
      */
     public Personalization sendAt(long sendAt) {
         this.sendAt = sendAt;

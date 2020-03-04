@@ -5,9 +5,8 @@ import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 /**
- * An object representing a collection of different mail 
- * settings that you can use to specify how you would 
- * like this email to be handled.
+ * A JSON-serializable model of the settings associated with
+ * a given {@link Mail}.
  */
 @JsonInclude(Include.NON_DEFAULT)
 public class MailSettings {
@@ -28,7 +27,8 @@ public class MailSettings {
     private SpamCheckSettings spamCheckSettings;
 
     /**
-     * Get the BCC settings.
+     * Gets the BCC settings.
+     *
      * @return the BCC settings.
      */
     @JsonProperty("bcc")
@@ -37,9 +37,10 @@ public class MailSettings {
     }
 
     /**
-     * Set the BCC settings.
+     * Sets the BCC settings.
+     *
      * @param bccSettings the BCC settings.
-     * @return this object.
+     * @return {@code this} for chaining.
      */
     public MailSettings bccSettings(BCCSettings bccSettings) {
         this.bccSettings = bccSettings;
@@ -48,10 +49,11 @@ public class MailSettings {
 
     /**
      * A setting that allows you to bypass all unsubscribe 
-     * groups and suppressions to ensure that the email is 
+     * groups and suppressions to ensure that the email is
      * delivered to every single recipient. This should only 
      * be used in emergencies when it is absolutely necessary 
      * that every recipient receives your email.
+     *
      * @return the bypass list setting.
      */
     @JsonProperty("bypass_list_management")
@@ -60,9 +62,10 @@ public class MailSettings {
     }
 
     /**
-     * Set the bypass setting.
+     * Sets the bypass setting.
+     *
      * @param bypassListManagement the setting.
-     * @return this object.
+     * @return {@code this} for chaining.
      */
     public MailSettings bypassListManagement(Setting bypassListManagement) {
         this.bypassListManagement = bypassListManagement;
@@ -70,7 +73,8 @@ public class MailSettings {
     }
 
     /**
-     * Get the the footer settings that you would like included on every email.
+     * Gets the the footer settings that you would like included on every email.
+     *
      * @return the settings.
      */
     @JsonProperty("footer")
@@ -79,9 +83,10 @@ public class MailSettings {
     }
 
     /**
-     * Set the the footer settings that you would like included on every email.
+     * Sets the the footer settings that you would like included on every email.
+     *
      * @param footerSettings the settings.
-     * @return this object.
+     * @return {@code this} for chaining.
      */
     public MailSettings footerSettings(FooterSettings footerSettings) {
         this.footerSettings = footerSettings;
@@ -89,8 +94,9 @@ public class MailSettings {
     }
 
     /**
-     * Get sandbox mode. This allows you to send a test email to 
+     * Gets sandbox mode. This allows you to send a test email to
      * ensure that your request body is valid and formatted correctly.
+     *
      * @return the sandbox mode setting.
      */
     @JsonProperty("sandbox_mode")
@@ -99,9 +105,10 @@ public class MailSettings {
     }
 
     /**
-     * Set sandbox mode. 
+     * Sets sandbox mode.
+     *
      * @param sandBoxMode the sandbox mode setting.
-     * @return this object.
+     * @return {@code this} for chaining.
      */
     @JsonProperty("sandbox_mode")
     public MailSettings sandboxMode(Setting sandBoxMode) {
@@ -110,8 +117,9 @@ public class MailSettings {
     }
 
     /**
-     * Get the spam check settings. This allows you to test the 
+     * Gets the spam check settings. This allows you to test the
      * content of your email for spam.
+     *
      * @return the spam check settings.
      */
     @JsonProperty("spam_check")
@@ -120,10 +128,11 @@ public class MailSettings {
     }
 
     /**
-     * Set the spam check settings. This allows you to test the 
+     * Sets the spam check settings. This allows you to test the
      * content of your email for spam.
+     *
      * @param spamCheckSettings the spam check settings.
-     * @return this object.
+     * @return {@code this} for chaining.
      */
     public MailSettings spamCheckSettings(SpamCheckSettings spamCheckSettings) {
         this.spamCheckSettings = spamCheckSettings;

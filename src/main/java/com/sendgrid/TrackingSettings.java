@@ -5,9 +5,8 @@ import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 /**
- * An object representing the settings to determine how 
- * you would like to track the metrics of how your recipients 
- * interact with your email.
+ * A JSON-serializable model of the settings defining how metrics
+ * tracking should be performed for recipient interactions.
  */
 @JsonInclude(Include.NON_DEFAULT)
 public class TrackingSettings {
@@ -25,9 +24,10 @@ public class TrackingSettings {
     private GoogleAnalyticsSettings googleAnalyticsSettings;
 
     /**
-     * Get the click tracking settings. Click tracking allows you to 
+     * Gets the click tracking settings. Click tracking allows you to
      * track whether a recipient clicked a link in your email.
-     * @return the settings.
+     *
+     * @return the click tracking settings.
      */
     @JsonProperty("click_tracking")
     public ClickTrackingSettings getClickTrackingSettings() {
@@ -35,9 +35,10 @@ public class TrackingSettings {
     }
 
     /**
-     * Set the click tracking settings.
-     * @param clickTrackingSettings the settings.
-     * @return this object.
+     * Sets the click tracking settings.
+     *
+     * @param clickTrackingSettings the new click tracking settings.
+     * @return {@code this} for chaining.
      */
     public TrackingSettings clickTrackingSettings(ClickTrackingSettings clickTrackingSettings) {
         this.clickTrackingSettings = clickTrackingSettings;
@@ -45,10 +46,12 @@ public class TrackingSettings {
     }
 
     /**
-     * Get the open tracking settings. The open tracking allows you to 
-     * track whether the email was opened or not, but including a single
-     * pixel image in the body of the content. When the pixel is loaded, we can log that the email was opened.
-     * @return the settings.
+     * Gets the open tracking settings. The open tracking allows you to
+     * track whether the email was opened or not, by including a single
+     * pixel image in the body of the content. When the pixel is loaded,
+     * we can log that the email was opened.
+     *
+     * @return the open tracking settings.
      */
     @JsonProperty("open_tracking")
     public OpenTrackingSettings getOpenTrackingSettings() {
@@ -56,9 +59,10 @@ public class TrackingSettings {
     }
 
     /**
-     * Set the open tracking settings.
-     * @param openTrackingSettings the settings.
-     * @return this object.
+     * Sets the open tracking settings.
+     *
+     * @param openTrackingSettings the open tracking settings.
+     * @return {@code this} for chaining.
      */
     public TrackingSettings openTrackingSettings(OpenTrackingSettings openTrackingSettings) {
         this.openTrackingSettings = openTrackingSettings;
@@ -66,11 +70,13 @@ public class TrackingSettings {
     }
 
     /**
-     * Get the subscription tracking settings. The subscription 
+     * Gets the subscription tracking settings. The subscription
      * tracking setting allows you to insert a subscription 
-     * management link at the bottom of the text and html bodies 
+     * management link at the bottom of the text and html body
      * of your email. If you would like to specify the location 
-     * of the link within your email, you may use the substitution_tag.
+     * of the link within your email, you may use the
+     * {@code substitution_tag}.
+     *
      * @return the settings.
      */
     @JsonProperty("subscription_tracking")
@@ -79,9 +85,10 @@ public class TrackingSettings {
     }
 
     /**
-     * Set the subscription tracking settings.
-     * @param subscriptionTrackingSettings the settings.
-     * @return this object.
+     * Sets the subscription tracking settings.
+     *
+     * @param subscriptionTrackingSettings the subscription tracking settings.
+     * @return {@code this} for chaining.
      */
     public TrackingSettings subscriptionTrackingSetting(SubscriptionTrackingSettings subscriptionTrackingSettings) {
         this.subscriptionTrackingSettings = subscriptionTrackingSettings;
@@ -89,9 +96,10 @@ public class TrackingSettings {
     }
 
     /**
-     * Get the Google Analytics settings. This setting allows you to 
+     * Gets the Google Analytics settings. This setting allows you to
      * enable tracking provided by Google Analytics.
-     * @return the settings.
+     *
+     * @return the google analytics settings.
      */
     @JsonProperty("ganalytics")
     public GoogleAnalyticsSettings getGoogleAnalyticsSettings() {
@@ -99,9 +107,10 @@ public class TrackingSettings {
     }
 
     /**
-     * Set the Google Analytics settings.
-     * @param googleAnalyticsSettings the settings.
-     * @return this object.
+     * Sets the Google Analytics settings.
+     *
+     * @param googleAnalyticsSettings the google analytics settings.
+     * @return {@code this} for chaining.
      */
     public TrackingSettings googleAnalyticsSettings(GoogleAnalyticsSettings googleAnalyticsSettings) {
         this.googleAnalyticsSettings = googleAnalyticsSettings;

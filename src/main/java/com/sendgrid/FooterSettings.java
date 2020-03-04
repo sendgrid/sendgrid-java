@@ -5,8 +5,9 @@ import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 /**
- * An object representing the default footer 
- * that you would like included on every email.
+ * A JSON-serializable model of the footer settings.
+ * This allows for a default footer to be included
+ * on every email sent.
  */
 @JsonInclude(Include.NON_NULL)
 public class FooterSettings {
@@ -21,8 +22,10 @@ public class FooterSettings {
     private String html;
 
     /**
-     * Get whether or not the footer is enabled.
-     * @return true if the footer is enabled, false otherwise.
+     * Gets whether the footer has been enabled.
+     *
+     * @return {@code true} if the footer has been enabled;
+     *         {@code false} otherwise.
      */
     @JsonProperty("enable")
     public boolean getEnable() {
@@ -30,9 +33,11 @@ public class FooterSettings {
     }
 
     /**
-     * Set whether or not the footer is enabled.
-     * @param enable true if the footer is enabled, false otherwise.
-     * @return this object.
+     * Sets whether the footer has been enabled.
+     *
+     * @param enable {@code true} if the footer has been enabled;
+     *               {@code false} otherwise.
+     * @return {@code this} for chaining.
      */
     public FooterSettings enable(boolean enable) {
         this.enable = enable;
@@ -40,7 +45,8 @@ public class FooterSettings {
     }
 
     /**
-     * Get the plain text content of the footer.
+     * Gets the plain text content of the footer.
+     *
      * @return the footer plain text.
      */
     @JsonProperty("text")
@@ -49,9 +55,10 @@ public class FooterSettings {
     }
 
     /**
-     * Set the plain text content of the footer.
+     * Sets the plain text content of the footer.
+     *
      * @param text the footer plain text.
-     * @return this object.
+     * @return {@code this} for chaining.
      */
     public FooterSettings text(String text) {
         this.text = text;
@@ -59,7 +66,8 @@ public class FooterSettings {
     }
 
     /**
-     * Get the HTML content of the footer.
+     * Gets the HTML content of the footer.
+     *
      * @return the footer HTML.
      */
     @JsonProperty("html")
@@ -68,9 +76,10 @@ public class FooterSettings {
     }
 
     /**
-     * Set the HTML content of the footer.
+     * Sets the HTML content of the footer.
+     *
      * @param html the footer HTML.
-     * @return this object.
+     * @return {@code this} for chaining.
      */
     public FooterSettings html(String html) {
         this.html = html;
