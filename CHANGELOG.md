@@ -1,6 +1,15 @@
 # Change Log
 All notable changes to this project will be documented in this file.
 
+[2020-03-18] Version 4.4.6
+--------------------------
+**Library - Docs**
+- [PR #264](https://github.com/sendgrid/sendgrid-java/pull/264): Overhaul javadocs, using Oracle's styleguide. Thanks to [@jamierocks](https://github.com/jamierocks)!
+
+**Library - Chore**
+- [PR #610](https://github.com/sendgrid/sendgrid-java/pull/610): fix JDK Travis failures. Thanks to [@childish-sambino](https://github.com/childish-sambino)!
+
+
 [2020-02-19] Version 4.4.5
 --------------------------
 **Library - Docs**
