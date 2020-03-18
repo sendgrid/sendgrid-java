@@ -16,6 +16,15 @@ public class SettingsSerializationTest {
 	private ObjectMapper mapper = new ObjectMapper();
 
 	@Test
+	public void testSettingSerialization() throws Exception {
+		Setting setting = new Setting();
+		setting.setEnable(false);
+
+		String json = mapper.writeValueAsString(setting);
+		Assert.assertEquals(json, "{\"enable\":false}");
+	}
+
+	@Test
 	public void testOpenTrackingSettingSerialization() throws Exception {
 		OpenTrackingSetting setting = new OpenTrackingSetting();
 		setting.setEnable(false);
