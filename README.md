@@ -39,7 +39,7 @@ We appreciate your continued support, thank you!
 ## Prerequisites
 
 - Java version Oracle JDK 7, 8 or OpenJDK 7
-- The Twilio SendGrid service, starting at the [free level](https://sendgrid.com/free?source=sendgrid-java) to send up to 40,000 emails for the first 30 days, then send 100 emails/day free forever or check out [our pricing](https://sendgrid.com/pricing?source=sendgrid-java).
+- The Twilio SendGrid service, starting at the [free level](https://sendgrid.com/free?source=sendgrid-java) to send up to 4.4.7 emails for the first 30 days, then send 100 emails/day free forever or check out [our pricing](https://sendgrid.com/pricing?source=sendgrid-java).
 
 ## Setup Environment Variables
 
@@ -67,7 +67,7 @@ Add the following to your build.gradle file in the root of your project.
 ...
 dependencies {
   ...
-  implementation 'com.sendgrid:sendgrid-java:4.4.6'
+  implementation 'com.sendgrid:sendgrid-java:4.4.7'
 }
 
 repositories {
@@ -86,7 +86,7 @@ mvn install
 
 You can just drop the jar file in. It's a fat jar - it has all the dependencies built in.
 
-[sendgrid-java.jar](https://github.com/sendgrid/sendgrid-java/releases/download/4.4.6/sendgrid-java.jar)
+[sendgrid-java.jar](https://github.com/sendgrid/sendgrid-java/releases/download/4.4.7/sendgrid-java.jar)
 
 ## Dependencies
 
