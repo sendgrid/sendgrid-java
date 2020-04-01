@@ -1,6 +1,16 @@
 # Change Log
 All notable changes to this project will be documented in this file.
 
+[2020-04-01] Version 4.4.7
+--------------------------
+**Library - Docs**
+- [PR #617](https://github.com/sendgrid/sendgrid-java/pull/617): support verbiage for login issues. Thanks to [@adamchasetaylor](https://github.com/adamchasetaylor)!
+- [PR #615](https://github.com/sendgrid/sendgrid-java/pull/615): fix link to jar file. Thanks to [@eshanholtz](https://github.com/eshanholtz)!
+
+**Library - Fix**
+- [PR #612](https://github.com/sendgrid/sendgrid-java/pull/612): correct the serialization of Setting to include non-null values. Thanks to [@childish-sambino](https://github.com/childish-sambino)!
+
+
 [2020-03-18] Version 4.4.6
 --------------------------
 **Library - Docs**
