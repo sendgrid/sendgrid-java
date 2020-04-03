@@ -79,7 +79,7 @@ public class SendGrid implements SendGridAPI {
     this.version = "v3";
     this.requestHeaders = new HashMap<String, String>();
     this.requestHeaders.put("Authorization", "Bearer " + apiKey);
-    this.requestHeaders.put("User-agent", USER_AGENT);
+    this.requestHeaders.put("User-Agent", USER_AGENT);
     this.requestHeaders.put("Accept", "application/json");
     this.rateLimitRetry = 5;
     this.rateLimitSleep = 1100;
@@ -157,7 +157,7 @@ public class SendGrid implements SendGridAPI {
   }
 
   /**
-   * Get the maximum number of retries on a rate limit response. 
+   * Get the maximum number of retries on a rate limit response.
    * The default is 5.
    * @return the number of retries on a rate limit.
    */
@@ -214,7 +214,7 @@ public class SendGrid implements SendGridAPI {
    * @return the impersonated subuser
    */
   public String getImpersonateSubuser() {
-    return this.subuser; 
+    return this.subuser;
   }
 
   /**
