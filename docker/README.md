@@ -28,10 +28,4 @@ Due to Oracle's JDK license, you must build this Docker image using the official
 
 For more detailed information, see [USAGE.md](https://github.com/sendgrid/sendgrid-java/blob/master/docker/USAGE.md).
 
-# About
-
-sendgrid-java is guided and supported by the Twilio Developer Experience Team.
-
-sendgrid-java is maintained and funded by Twilio SendGrid, Inc. The names and logos for sendgrid-java are trademarks of SendGrid, Inc.
-
 ![SendGrid Logo](https://github.com/sendgrid/sendgrid-python/raw/master/twilio_sendgrid_logo.png)

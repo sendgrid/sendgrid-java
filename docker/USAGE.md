@@ -28,12 +28,5 @@ Testing is easy!
 2. `cd sendgrid-java`
 3. run `./gradlew test`
 
-<a name="about"></a>
-# About
-
-sendgrid-java is guided and supported by the Twilio SendGrid [Developer Experience Team](mailto:dx@sendgrid.com).
-
-sendgrid-java is maintained and funded by Twilio SendGrid, Inc. The names and logos for sendgrid-java are trademarks of Twilio SendGrid, Inc.
-
 ![SendGrid Logo](https://github.com/sendgrid/sendgrid-python/raw/master/twilio_sendgrid_logo.png)
 
