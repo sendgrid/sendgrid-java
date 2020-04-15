@@ -1,6 +1,12 @@
 # Change Log
 All notable changes to this project will be documented in this file.
 
+[2020-04-15] Version 4.4.8
+--------------------------
+**Library - Fix**
+- [PR #618](https://github.com/sendgrid/sendgrid-java/pull/618): correct the User-Agent casing. Thanks to [@childish-sambino](https://github.com/childish-sambino)!
+
+
 [2020-04-01] Version 4.4.7
 --------------------------
 **Library - Docs**
