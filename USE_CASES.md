@@ -5,8 +5,9 @@ This documentation provides examples for specific use cases. Please [open an iss
 * [Transactional Templates](#transactional-templates)
 * [Legacy Templates](#legacy-templates)
 * [How to Setup a Domain Authentication](#domain-authentication)
-* [How to View Email Statistics](#email-stats)
-* [Send a SMS Message](#sms)
+* [How to View Email Statistics](#how-to-view-email-statistics)
+* [Send an Email With Twilio Email (Pilot)](#send-an-email-with-twilio-email-pilot)
+* [Send an SMS Message](#send-an-sms-message)
 
 <a name="transactional-templates"></a>
 # Transactional Templates
@@ -225,84 +226,92 @@ You can find documentation for how to setup a domain authentication via the UI [
 
 Find more information about all of Twilio SendGrid's authentication related documentation [here](https://sendgrid.com/docs/ui/account-and-settings/).
 
-<a name="email-stats"></a>
 # How to View Email Statistics
 
 You can find documentation for how to view your email statistics via the UI [here](https://app.sendgrid.com/statistics) and via API [here](https://github.com/sendgrid/sendgrid-java/blob/master/USAGE.md#stats).
 
 Alternatively, we can post events to a URL of your choice via our [Event Webhook](https://sendgrid.com/docs/API_Reference/Webhooks/event.html) about events that occur as Twilio SendGrid processes your email.
 
-<a name="sms"></a>
-# Send a SMS Message
+# Send an Email With Twilio Email (Pilot)
 
-Following are the steps to add Twilio SMS to your app:
-
-## 1. Obtain a Free Twilio Account
+### 1. Obtain a Free Twilio Account
 
 Sign up for a free Twilio account [here](https://www.twilio.com/try-twilio?source=sendgrid-java).
 
-## 2. Update Your Environment Variables
+### 2. Set Up Your Environment Variables
 
-You can obtain your Account Sid and Auth Token from [twilio.com/console](https://twilio.com/console).
+The Twilio API allows for authentication using with either an API key/secret or your Account SID/Auth Token. You can create an API key [here](https://twil.io/get-api-key) or obtain your Account SID and Auth Token [here](https://twil.io/console).
 
-### Mac
+Once you have those, follow the steps below based on your operating system.
+
+#### Linux/Mac
 
 ```bash
+echo "export TWILIO_API_KEY='YOUR_TWILIO_API_KEY'" > twilio.env
+echo "export TWILIO_API_SECRET='YOUR_TWILIO_API_SECRET'" >> twilio.env
+
+# or
+
 echo "export TWILIO_ACCOUNT_SID='YOUR_TWILIO_ACCOUNT_SID'" > twilio.env
 echo "export TWILIO_AUTH_TOKEN='YOUR_TWILIO_AUTH_TOKEN'" >> twilio.env
+```
+
+Then:
+
+```bash
 echo "twilio.env" >> .gitignore
 source ./twilio.env
 ```
 
-### Windows
+#### Windows
 
 Temporarily set the environment variable (accessible only during the current CLI session):
 
 ```bash
+set TWILIO_API_KEY=YOUR_TWILIO_API_KEY
+set TWILIO_API_SECRET=YOUR_TWILIO_API_SECRET
+
+: or
+
 set TWILIO_ACCOUNT_SID=YOUR_TWILIO_ACCOUNT_SID
 set TWILIO_AUTH_TOKEN=YOUR_TWILIO_AUTH_TOKEN
 ```
 
-Permanently set the environment variable (accessible in all subsequent CLI sessions):
+Or permanently set the environment variable (accessible in all subsequent CLI sessions):
 
 ```bash
+setx TWILIO_API_KEY "YOUR_TWILIO_API_KEY"
+setx TWILIO_API_SECRET "YOUR_TWILIO_API_SECRET"
+
+: or
+
 setx TWILIO_ACCOUNT_SID "YOUR_TWILIO_ACCOUNT_SID"
 setx TWILIO_AUTH_TOKEN "YOUR_TWILIO_AUTH_TOKEN"
 ```
 
-## 3. Install the Twilio Helper Library
-
-`twilio-java` uses Maven.  At present the jars *are* available from a public [maven](http://mvnrepository.com/artifact/com.twilio.sdk/twilio) repository.
-
-Use the following dependency in your project to grab via Maven:
-
-```xml
-<dependency>
-  <groupId>com.twilio.sdk</groupId>
-  <artifactId>twilio</artifactId>
-  <version>7.X.X</version>
-  <scope>compile</scope>
-</dependency>
-```
-
-or Gradle:
-```groovy
-compile "com.twilio.sdk:twilio:7.X.X"
-````
-
-If you want to compile it yourself, here is how:
-
-```bash
-$ git clone git@github.com:twilio/twilio-java
-$ cd twilio-java
-$ mvn install       # Requires maven, download from http://maven.apache.org/download.html
-```
-
-Then, you can execute the following code.
+### 3. Initialize the Twilio Email Client
 
 ```java
-String accountSid = Environment.GetEnvironmentVariable("TWILIO_ACCOUNT_SID");
-String authToken = Environment.GetEnvironmentVariable("TWILIO_AUTH_TOKEN");
+TwilioEmail mailClient = new TwilioEmail(System.getenv("TWILIO_API_KEY"), System.getenv("TWILIO_API_SECRET"));
+
+// or
+
+TwilioEmail mailClient = new TwilioEmail(System.getenv("TWILIO_ACCOUNT_SID"), System.getenv("TWILIO_AUTH_TOKEN"));
+```
+
+This client has the same interface as the `SendGrid` client.
+
+# Send an SMS Message
+
+First, follow the above steps for creating a Twilio account and setting up environment variables with the proper credentials.
+
+Then, install the Twilio Helper Library by following the [installation steps](https://github.com/twilio/twilio-java#installation).
+
+Finally, send a message.
+
+```java
+String accountSid = System.getenv("TWILIO_ACCOUNT_SID");
+String authToken = System.getenv("TWILIO_AUTH_TOKEN");
 
 Twilio.init(accountSid, authToken);
 
