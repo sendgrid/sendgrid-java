@@ -6,86 +6,87 @@ import java.util.Map;
 public interface SendGridAPI {
 
   /**
-   * Initializes Twilio SendGrid
-   * 
-   * @param apiKey is your Twilio SendGrid API Key: https://app.sendgrid.com/settings/api_keys
+   * Initialize the client.
+   *
+   * @param auth authorization header value
+   * @param host the base URL for the API
    */
-  void initializeSendGrid(String apiKey);
+  void initialize(final String auth, final String host);
 
   /**
-   * Returns the library version
-   * 
-   * @return the library version.
+   * Get the current library version.
+   *
+   * @return the current version
    */
   String getLibraryVersion();
 
   /**
-   * Gets the version.
+   * Get the API version.
    *
-   * @return returns the version.
+   * @return the current API version
    */
   String getVersion();
 
   /**
-   * Sets the version.
-   * 
-   * @param version the Twilio SendGrid version.
+   * Set the API version.
+   *
+   * @param version the new version
    */
-  void setVersion(String version);
+  void setVersion(final String version);
 
   /**
-   * Gets the request headers.
-   * @return returns a map of request headers.
+   * Get the request headers.
+   *
+   * @return the request headers
    */
   Map<String, String> getRequestHeaders();
 
   /**
-   * Adds a request headers.
-   * 
-   * @param key the key
-   * @param value the value
-   * @return returns a map of request headers.
+   * Add/update a request header.
+   *
+   * @param key   the header key
+   * @param value the header value
+   * @return the new set of request headers
    */
-  Map<String, String> addRequestHeader(String key, String value);
+  Map<String, String> addRequestHeader(final String key, final String value);
 
   /**
-   * Removes a request headers.
-   * 
-   * @param key the key
-   * @return returns a map of request headers.
+   * Remove a request header.
+   *
+   * @param key the header key to remove
+   * @return the new set of request headers
    */
-  Map<String, String> removeRequestHeader(String key);
+  Map<String, String> removeRequestHeader(final String key);
 
   /**
-   * Gets the host.
-   * 
-   * @return returns the host.
+   * Get the host.
+   *
+   * @return the host
    */
   String getHost();
 
   /**
-   * Sets the host.
-   * 
-   * @param host the host to set
+   * Set the host.
+   *
+   * @param host the new host
    */
-  void setHost(String host);
+  void setHost(final String host);
 
   /**
-   * Class makeCall makes the call to the Twilio SendGrid API, override this method for
-   * testing.
-   * 
-   * @param request the request
-   * @return returns a response.
-   * @throws IOException in case of network or marshal error.
+   * Makes the call to the Twilio SendGrid API, override this method for testing.
+   *
+   * @param request the request to make
+   * @return the response object
+   * @throws IOException in case of a network error
    */
-  Response makeCall(Request request) throws IOException;
+  Response makeCall(final Request request) throws IOException;
 
   /**
    * Class api sets up the request to the Twilio SendGrid API, this is main interface.
-   * 
-   * @param request the request
-   * @return returns a response.
-   * @throws IOException in case of network or marshal error.
+   *
+   * @param request the request object
+   * @return the response object
+   * @throws IOException in case of a network error
    */
-  Response api(Request request) throws IOException;
+  Response api(final Request request) throws IOException;
 }
