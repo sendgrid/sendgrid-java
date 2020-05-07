@@ -12,20 +12,22 @@ import java.security.spec.X509EncodedKeySpec;
 import java.util.Base64;
 
 /**
- * This class allows you to easily use the Event Webhook feature.
- * Read the docs for more details: https://sendgrid.com/docs/for-developers/tracking-events/event.
+ * This class allows you to easily use the Event Webhook feature. Read the docs
+ * for more details:
+ * https://sendgrid.com/docs/for-developers/tracking-events/event.
  */
 public class EventWebhook {
-
     /**
      * Verify signed event webhook requests.
      *
      * @param publicKey: your verification key under Mail Settings
-     * @param signature: value obtained from the 'X-Twilio-Email-Event-Webhook-Signature' header
-     * @param timestamp: value obtained from the 'X-Twilio-Email-Event-Webhook-Timestamp' header
+     * @param signature: value obtained from the
+     *                   'X-Twilio-Email-Event-Webhook-Signature' header
+     * @param timestamp: value obtained from the
+     *                   'X-Twilio-Email-Event-Webhook-Timestamp' header
      * @param payload:   event payload in the request body
      */
-    public static boolean VerifySignature(String publicKey, String signature, String timestamp, String payload)
+    public static boolean VerifySignature(String publicKey, String payload, String signature, String timestamp)
             throws NoSuchAlgorithmException, NoSuchProviderException, InvalidKeyException, SignatureException,
             InvalidKeySpecException {
 
