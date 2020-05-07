@@ -21,11 +21,11 @@ public class EventWebhook {
      * Verify signed event webhook requests.
      *
      * @param publicKey: your verification key under Mail Settings
+     * @param payload:   event payload in the request body
      * @param signature: value obtained from the
      *                   'X-Twilio-Email-Event-Webhook-Signature' header
      * @param timestamp: value obtained from the
      *                   'X-Twilio-Email-Event-Webhook-Timestamp' header
-     * @param payload:   event payload in the request body
      */
     public static boolean VerifySignature(String publicKey, String payload, String signature, String timestamp)
             throws NoSuchAlgorithmException, NoSuchProviderException, InvalidKeyException, SignatureException,
@@ -37,18 +37,18 @@ public class EventWebhook {
         // generate the public key
         byte[] publicKeyInBytes = Base64.getDecoder().decode(publicKey);
         KeyFactory factory = KeyFactory.getInstance("ECDSA", "BC");
-        java.security.PublicKey ecPublicKey = (ECPublicKey) factory
+        java.security.PublicKey ellipticCurvePublicKey = (ECPublicKey) factory
                 .generatePublic(new X509EncodedKeySpec(publicKeyInBytes));
 
         // create the signature object
-        Signature s = Signature.getInstance("SHA256withECDSA", "BC");
-        s.initVerify(ecPublicKey);
-        s.update(payloadWithTimestamp.getBytes());
+        Signature signatureObject = Signature.getInstance("SHA256withECDSA", "BC");
+        signatureObject.initVerify(ellipticCurvePublicKey);
+        signatureObject.update(payloadWithTimestamp.getBytes());
 
         // decode the signature
         byte[] signatureInBytes = Base64.getDecoder().decode(signature);
 
         // verify the signature
-        return s.verify(signatureInBytes);
+        return signatureObject.verify(signatureInBytes);
     }
 }
