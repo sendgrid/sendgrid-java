@@ -18,31 +18,45 @@ import java.util.Base64;
  */
 public class EventWebhook {
     /**
+     * Convert the public key string to a ECPublicKey.
+     * 
+     * @param publicKey: verification key under Mail Settings
+     * @return a public key using the ECDSA algorithm
+     * @throws NoSuchAlgorithmException
+     * @throws NoSuchProviderException
+     * @throws InvalidKeySpecException
+     */
+    public java.security.interfaces.ECPublicKey ConvertPublicKeyToECDSA(String publicKey)
+            throws NoSuchAlgorithmException, NoSuchProviderException, InvalidKeySpecException {
+        byte[] publicKeyInBytes = Base64.getDecoder().decode(publicKey);
+        KeyFactory factory = KeyFactory.getInstance("ECDSA", "BC");
+        return (ECPublicKey) factory.generatePublic(new X509EncodedKeySpec(publicKeyInBytes));
+    }
+
+    /**
      * Verify signed event webhook requests.
-     *
-     * @param publicKey: your verification key under Mail Settings
+     * 
+     * @param publicKey: elliptic curve public key
      * @param payload:   event payload in the request body
      * @param signature: value obtained from the
      *                   'X-Twilio-Email-Event-Webhook-Signature' header
      * @param timestamp: value obtained from the
      *                   'X-Twilio-Email-Event-Webhook-Timestamp' header
+     * @return true or false if signature is valid
+     * @throws NoSuchAlgorithmException
+     * @throws NoSuchProviderException
+     * @throws InvalidKeyException
+     * @throws SignatureException
      */
-    public static boolean VerifySignature(String publicKey, String payload, String signature, String timestamp)
-            throws NoSuchAlgorithmException, NoSuchProviderException, InvalidKeyException, SignatureException,
-            InvalidKeySpecException {
+    public boolean VerifySignature(ECPublicKey publicKey, String payload, String signature, String timestamp)
+            throws NoSuchAlgorithmException, NoSuchProviderException, InvalidKeyException, SignatureException {
 
         // prepend the payload with the timestamp
         String payloadWithTimestamp = timestamp + payload;
 
-        // generate the public key
-        byte[] publicKeyInBytes = Base64.getDecoder().decode(publicKey);
-        KeyFactory factory = KeyFactory.getInstance("ECDSA", "BC");
-        java.security.PublicKey ellipticCurvePublicKey = (ECPublicKey) factory
-                .generatePublic(new X509EncodedKeySpec(publicKeyInBytes));
-
         // create the signature object
         Signature signatureObject = Signature.getInstance("SHA256withECDSA", "BC");
-        signatureObject.initVerify(ellipticCurvePublicKey);
+        signatureObject.initVerify(publicKey);
         signatureObject.update(payloadWithTimestamp.getBytes());
 
         // decode the signature
