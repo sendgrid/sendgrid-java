@@ -1,4 +1,4 @@
-package com.sendgrid.helpers.eventsettings;
+package com.sendgrid.helpers.eventwebhook;
 
 public enum EventWebhookHeader {
     SIGNATURE("X-Twilio-Email-Event-Webhook-Signature"), TIMESTAMP("X-Twilio-Email-Event-Webhook-Timestamp");

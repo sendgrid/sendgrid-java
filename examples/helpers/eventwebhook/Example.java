@@ -16,10 +16,10 @@ public class Example {
         Security.addProvider(new org.bouncycastle.jce.provider.BouncyCastleProvider());
 
         try {
-            String publicKey = "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAE5Ii1BRQHaQn4TDnWLjSSXtZS7QaZlHncC+4qc9mxFI5LGq82ijP6747JcE+8xtDIYuvs2DcdNPm9kC9cyyni6w==";
-            String payload = "helloworld";
-            String signature = "MEQCIB3bJQOarffIdM7+MEee+kYAdoViz6RUoScOASwMcXQxAiAcrus/j853JUlVm5qIRfbKBJwJq89znqOTedy3RetXLQ==";
-            String timestamp = "1587100636";
+            String publicKey = "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEqTxd43gyp8IOEto2LdIfjRQrIbsd4SXZkLW6jDutdhXSJCWHw8REntlo7aNDthvj+y7GjUuFDb/R1NGe1OPzpA==";
+            String payload = "[{\"email\":\"example@test.com\",\"timestamp\":1583532164,\"smtp-id\":\"<14c5d75ce93.dfd.64b469@ismtpd-555>\",\"event\":\"processed\",\"category\":\"cat facts\",\"sg_event_id\":\"sg_event_id\",\"sg_message_id\":\"sg_message_id\"}]";
+            String signature = "MEUCIB3PweCEFCNC0kCi6XFmlDSeFV9INyue8XmKejxu6OrKAiEAguMqCpe/5HpuK21G/+QxcZSKQm3lzM4YAblVHAhoXeU=";
+            String timestamp = "1587162961";
             boolean valid = EventWebhook.VerifySignature(publicKey, payload, signature, timestamp);
             System.out.println("Valid Signature: " + valid);
         } catch (Exception exception) {

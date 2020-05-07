@@ -1,4 +1,4 @@
-package com.sendgrid.helpers.eventsettings;
+package com.sendgrid.helpers.eventwebhook;
 
 import java.security.InvalidKeyException;
 import java.security.KeyFactory;
