@@ -9,7 +9,7 @@
   <groupId>com.sendgrid</groupId>
   <artifactId>sendgrid-java</artifactId>
   <name>Twilio SendGrid Java helper library</name>
-  <version>4.4.8</version>
+  <version>4.5.0</version>
   <description>This Java module allows you to quickly and easily send emails through Twilio SendGrid using Java.</description>
   <url>https://github.com/sendgrid/sendgrid-java</url>
   <licenses>
@@ -26,7 +26,7 @@
     <url>https://github.com/sendgrid/sendgrid-java</url>
     <connection>scm:git:git@github.com:sendgrid/sendgrid-java.git</connection>
     <developerConnection>scm:git:git@github.com:sendgrid/sendgrid-java.git</developerConnection>
-    <tag>4.4.8</tag>
+    <tag>4.5.0</tag>
   </scm>
   <profiles>
     <profile>
@@ -303,10 +303,10 @@
       <version>2.1.0</version>
       <scope>test</scope>
     </dependency>
-   <dependency>
-     <groupId>org.bouncycastle</groupId>
-     <artifactId>bcprov-jdk15on</artifactId>
-     <version>1.65</version>
-   </dependency>
+    <dependency>
+      <groupId>org.bouncycastle</groupId>
+      <artifactId>bcprov-jdk15on</artifactId>
+      <version>1.65</version>
+    </dependency>
   </dependencies>
 </project>
