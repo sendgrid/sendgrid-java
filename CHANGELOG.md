@@ -1,6 +1,13 @@
 # Change Log
 All notable changes to this project will be documented in this file.
 
+[2020-05-13] Version 4.5.0
+--------------------------
+**Library - Feature**
+- [PR #622](https://github.com/sendgrid/sendgrid-java/pull/622): verify signature from event webhook. Thanks to [@anujs3](https://github.com/anujs3)!
+- [PR #621](https://github.com/sendgrid/sendgrid-java/pull/621): add support for Twilio Email. Thanks to [@childish-sambino](https://github.com/childish-sambino)!
+
+
 [2020-04-15] Version 4.4.8
 --------------------------
 **Library - Fix**
