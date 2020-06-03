@@ -1,35 +1,19 @@
 language: java
 before_install:
   - echo $GPG_SECRET_KEYS | base64 --decode | $GPG_EXECUTABLE --import --batch || true
-matrix:
-  include:
-    - jdk: openjdk7
-      dist: trusty
-    - jdk: openjdk8
-      dist: xenial
-    - jdk: openjdk11
-      dist: xenial
-    - jdk: oraclejdk7
-      dist: precise
-    - jdk: oraclejdk8
-      dist: trusty
-    - jdk: oraclejdk11
-      dist: trusty
-  allow_failures:
-    - jdk: openjdk7
-    - jdk: oraclejdk7
-before_script:
-  - "./scripts/startPrism.sh &"
-  - sleep 20
-install:
-  - mvn --settings .maven.xml install -DskipTests=true -Dgpg.skip -Dmaven.javadoc.skip=true -B -V
+env:
+  - version=8
+  - version=11
+script:
+  - make test-docker
+
 deploy:
   - provider: script
     script: mvn clean deploy --settings .maven.xml -DskipTests=true -B -U -Prelease
     edge: true
     on:
       tags: true
-      jdk: openjdk8
+      condition: $version = 8
       branch: master
 
 notifications:

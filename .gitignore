@@ -17,3 +17,4 @@ examples/Example.java
 .vscode
 sendgrid-java.jar
 dependency-reduced-pom.xml
+prism*

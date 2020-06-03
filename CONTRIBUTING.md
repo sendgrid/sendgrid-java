@@ -128,25 +128,9 @@ All test files are in the [`tests`](https://github.com/sendgrid/sendgrid-java/tr
 
 For the purposes of contributing to this repo, please update the [`SendGridTest.java`](https://github.com/sendgrid/sendgrid-java/tree/master/src/test/java/com/sendgrid/SendGridTest.java) file with unit tests as you modify the code.
 
-1. Download [prism](http://stoplight.io/platform/prism/) for your platform ([Mac OS X](https://github.com/stoplightio/prism/releases/download/v0.6.21/prism_darwin_amd64), [Linux](https://github.com/stoplightio/prism/releases/download/v0.6.21/prism_linux_amd64), [Windows](https://github.com/stoplightio/prism/releases/download/v0.6.21/prism_windows_amd64.exe)) and save the binary to the sendgrid-java directory (or any directory you would like. The sendgrid-java directory is chosen mostly for convenience.)
+The integration tests require a Twilio SendGrid mock API in order to execute. We've simplified setting this up using Docker to run the tests. You will just need [Docker Desktop](https://docs.docker.com/get-docker/) and `make`.
 
-1. Add execute permissions
-
-   ```bash
-   chmod +x prism
-   ```
-
-1. In a separate terminal, cd into the directory you chose for prism and start the sendgrid local server which the tests will use.
-
-   ```bash
-   ./prism run --mock --list --spec https://raw.githubusercontent.com/sendgrid/sendgrid-oai/master/oai_stoplight.json
-   ```
-
-1. Now you can run the test suite from the root of the project
-
-   ```bash
-   ./gradlew test -i
-   ```
+Once these are available, simply execute the Docker test target to run all tests: `make test-docker`. This command can also be used to open an interactive shell into the container where this library is installed. To start a *bash* shell for example, use this command: `command=bash make test-docker`.
 
 <a name="style-guidelines-and-naming-conventions"></a>
 ## Style Guidelines & Naming Conventions
