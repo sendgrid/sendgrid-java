@@ -13,7 +13,7 @@ deploy:
     edge: true
     on:
       tags: true
-      condition: env(version)=8
+      condition: $version = 8
       branch: master
 
 notifications:
