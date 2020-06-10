@@ -1,6 +1,12 @@
 # Change Log
 All notable changes to this project will be documented in this file.
 
+[2020-06-10] Version 4.6.0
+--------------------------
+**Library - Feature**
+- [PR #626](https://github.com/sendgrid/sendgrid-java/pull/626): add prism Docker setup. Thanks to [@childish-sambino](https://github.com/childish-sambino)!
+
+
 [2020-05-13] Version 4.5.0
 --------------------------
 **Library - Feature**
