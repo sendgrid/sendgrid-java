@@ -1,4 +1,5 @@
 language: java
+jdk: openjdk8
 before_install:
   - echo $GPG_SECRET_KEYS | base64 --decode | $GPG_EXECUTABLE --import --batch || true
 env:
