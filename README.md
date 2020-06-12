@@ -39,7 +39,7 @@ We appreciate your continued support, thank you!
 ## Prerequisites
 
 - Java version Oracle JDK 7, 8 or OpenJDK 7
-- The Twilio SendGrid service, starting at the [free level](https://sendgrid.com/free?source=sendgrid-java) to send up to 4.6.0 emails for the first 30 days, then send 100 emails/day free forever or check out [our pricing](https://sendgrid.com/pricing?source=sendgrid-java).
+- The Twilio SendGrid service, starting at the [free level](https://sendgrid.com/free?source=sendgrid-java) to send up to 40,000 emails for the first 30 days, then send 100 emails/day free forever or check out [our pricing](https://sendgrid.com/pricing?source=sendgrid-java).
 
 ## Setup Environment Variables
 
