@@ -1,6 +1,12 @@
 # Change Log
 All notable changes to this project will be documented in this file.
 
+[2020-07-08] Version 4.6.1
+--------------------------
+**Library - Fix**
+- [PR #635](https://github.com/sendgrid/sendgrid-java/pull/635): don't use dependency version ranges. Thanks to [@childish-sambino](https://github.com/childish-sambino)!
+
+
 [2020-06-10] Version 4.6.0
 --------------------------
 **Library - Feature**
