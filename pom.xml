@@ -305,8 +305,8 @@
     </dependency>
     <dependency>
       <groupId>org.bouncycastle</groupId>
-      <artifactId>bcprov-jdk15on</artifactId>
-      <version>1.66</version>
+      <artifactId>bcprov-jdk15to18</artifactId>
+      <version>1.65</version>
     </dependency>
   </dependencies>
 </project>
