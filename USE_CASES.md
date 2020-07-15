@@ -1,7 +1,8 @@
 This documentation provides examples for specific use cases. Please [open an issue](https://github.com/sendgrid/sendgrid-java/issues) or make a pull request for any use cases you would like us to document here. Thank you!
 
-# Table of Contents
+# Use Cases
 
+* [Send Mail Examples](examples/helpers/mail/Example.java)
 * [Transactional Templates](#transactional-templates)
 * [Legacy Templates](#legacy-templates)
 * [How to Setup a Domain Authentication](#domain-authentication)
@@ -9,7 +10,6 @@ This documentation provides examples for specific use cases. Please [open an iss
 * [Send an Email With Twilio Email (Pilot)](#send-an-email-with-twilio-email-pilot)
 * [Send an SMS Message](#send-an-sms-message)
 
-<a name="transactional-templates"></a>
 # Transactional Templates
 
 For this example, we assume you have created a [transactional template](https://sendgrid.com/docs/User_Guide/Transactional_Templates/index.html) in the UI or via the API. Following is the template content we used for testing.
@@ -110,7 +110,6 @@ public class Example {
 }
 ```
 
-<a name="legacy-templates"></a>
 # Legacy Templates
 
 For this example, we assume you have created a [legacy template](https://sendgrid.com/docs/User_Guide/Transactional_Templates/index.html). Following is the template content we used for testing.
