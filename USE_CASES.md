@@ -3,6 +3,8 @@ This documentation provides examples for specific use cases. Please [open an iss
 # Use Cases
 
 * [Send Mail Examples](examples/helpers/mail/Example.java)
+  * [Send a Single Email to Multiple Recipients](examples/helpers/mail/SingleEmailMultipleRecipients.java)
+  * [Send Multiple Emails to Multiple Recipients](examples/helpers/mail/MultipleEmailsMultipleRecipients.java)
 * [Transactional Templates](#transactional-templates)
 * [Legacy Templates](#legacy-templates)
 * [How to Setup a Domain Authentication](#domain-authentication)
