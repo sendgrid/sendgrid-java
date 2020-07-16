@@ -16,6 +16,9 @@ public class MultipleEmailsMultipleRecipients {
 
     mail.setFrom(new Email("test@example.com", "Example User"));
     mail.setSubject("Sending with Twilio SendGrid is Fun");
+
+    // Details on how to send an email with dynamic transactional templates:
+    // https://sendgrid.com/docs/ui/sending-email/how-to-send-an-email-with-dynamic-transactional-templates/
     mail.setTemplateId("d-12345678901234567890123456789012");
 
     final Personalization personalization1 = new Personalization();
