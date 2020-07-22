@@ -1,6 +1,16 @@
 # Change Log
 All notable changes to this project will be documented in this file.
 
+[2020-07-22] Version 4.6.2
+--------------------------
+**Library - Chore**
+- [PR #639](https://github.com/sendgrid/sendgrid-java/pull/639): migrate to new default sendgrid-oai branch. Thanks to [@eshanholtz](https://github.com/eshanholtz)!
+
+**Library - Docs**
+- [PR #638](https://github.com/sendgrid/sendgrid-java/pull/638): add multi-recipient examples. Thanks to [@childish-sambino](https://github.com/childish-sambino)!
+- [PR #637](https://github.com/sendgrid/sendgrid-java/pull/637): fix the kitchen sink example and link to it in the use cases doc. Thanks to [@childish-sambino](https://github.com/childish-sambino)!
+
+
 [2020-07-08] Version 4.6.1
 --------------------------
 **Library - Fix**
