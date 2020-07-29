@@ -1,16 +1,11 @@
-package com.sendgrid;
+package com.sendgrid.helpers.mail;
 
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
-
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.databind.ObjectWriter;
 import com.fasterxml.jackson.databind.SerializationFeature;
+import com.sendgrid.helpers.mail.objects.*;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -19,7 +14,7 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * Class Mail builds an object that sends an email through SendGrid. 
+ * Class Mail builds an object that sends an email through Twilio SendGrid. 
  * Note that this object is not thread safe.
  */
 @JsonInclude(Include.NON_DEFAULT)
@@ -112,6 +107,28 @@ public class Mail {
     SORTED_MAPPER.configure(SerializationFeature.ORDER_MAP_ENTRIES_BY_KEYS, true);
   }
 
+  private <T> List<T> addToList(T element, List<T> defaultList) {
+    if (defaultList != null) {
+      defaultList.add(element);
+      return defaultList;
+    } else {
+      List<T> list = new ArrayList<T>();
+      list.add(element);
+      return list;
+    }
+  }
+
+  private <K,V> Map<K,V> addToMap(K key, V value, Map<K,V> defaultMap) {
+    if (defaultMap != null) {
+      defaultMap.put(key, value);
+      return defaultMap;
+    } else {
+      Map<K,V> map = new HashMap<K,V>();
+      map.put(key, value);
+      return map;
+    }
+  }
+  
   /** Construct a new Mail object. */
   public Mail() {
     return;
@@ -200,12 +217,7 @@ public class Mail {
    * @param personalization a personalization.
    */
   public void addPersonalization(Personalization personalization) {
-    if (this.personalization == null) {
-      this.personalization = new ArrayList<Personalization>();
-      this.personalization.add(personalization);
-    } else {
-      this.personalization.add(personalization);
-    }
+    this.personalization = addToList(personalization, this.personalization);
   }
 
   /**
@@ -226,12 +238,7 @@ public class Mail {
     Content newContent = new Content();
     newContent.setType(content.getType());
     newContent.setValue(content.getValue());
-    if (this.content == null) {
-      this.content = new ArrayList<Content>();
-      this.content.add(newContent);
-    } else {
-      this.content.add(newContent);
-    }
+    this.content = addToList(newContent, this.content);
   }
 
   /**
@@ -255,12 +262,7 @@ public class Mail {
     newAttachment.setFilename(attachments.getFilename());
     newAttachment.setDisposition(attachments.getDisposition());
     newAttachment.setContentId(attachments.getContentId());
-    if (this.attachments == null) {
-      this.attachments = new ArrayList<Attachments>();
-      this.attachments.add(newAttachment);
-    } else {
-      this.attachments.add(newAttachment);
-    }
+    this.attachments = addToList(newAttachment, this.attachments);
   }
 
   /**
@@ -296,12 +298,7 @@ public class Mail {
    * @param value the section's value.
    */
   public void addSection(String key, String value) {
-    if (sections == null) {
-      sections = new HashMap<String,String>();
-      sections.put(key, value);
-    } else {
-      sections.put(key, value);
-    }
+    this.sections = addToMap(key, value, this.sections);
   }
 
   /**
@@ -320,12 +317,7 @@ public class Mail {
    * @param value the header's value.
    */
   public void addHeader(String key, String value) {
-    if (headers == null) {
-      headers = new HashMap<String,String>();
-      headers.put(key, value);
-    } else {
-      headers.put(key, value);
-    }
+    this.headers = addToMap(key, value, this.headers);
   }
 
   /**
@@ -343,12 +335,7 @@ public class Mail {
    * @param category the category.
    */
   public void addCategory(String category) {
-    if (categories == null) {
-      categories = new ArrayList<String>();
-      categories.add(category);
-    } else {
-      categories.add(category);
-    }
+    this.categories = addToList(category, this.categories);
   }
 
   /**
@@ -367,12 +354,7 @@ public class Mail {
    * @param value the argument's value.
    */
   public void addCustomArg(String key, String value) {
-    if (customArgs == null) {
-      customArgs = new HashMap<String,String>();
-      customArgs.put(key, value);
-    } else {
-      customArgs.put(key, value);
-    }
+    this.customArgs = addToMap(key, value, this.customArgs);
   }
 
   /**
@@ -503,5 +485,75 @@ public class Mail {
     } catch (IOException ex) {
       throw ex;
     }
+  }
+
+  @Override
+  public int hashCode() {
+    final int prime = 31;
+    int result = 1;
+    result = prime * result + ((batchId == null) ? 0 : batchId.hashCode());
+    result = prime * result + ((categories == null) ? 0 : categories.hashCode());
+    result = prime * result + ((customArgs == null) ? 0 : customArgs.hashCode());
+    result = prime * result + ((headers == null) ? 0 : headers.hashCode());
+    result = prime * result + ((ipPoolId == null) ? 0 : ipPoolId.hashCode());
+    result = prime * result + ((sections == null) ? 0 : sections.hashCode());
+    result = prime * result + (int) (sendAt ^ (sendAt >>> 32));
+    result = prime * result + ((subject == null) ? 0 : subject.hashCode());
+    result = prime * result + ((templateId == null) ? 0 : templateId.hashCode());
+    return result;
+  }
+
+  @Override
+  public boolean equals(Object obj) {
+    if (this == obj)
+      return true;
+    if (obj == null)
+      return false;
+    if (getClass() != obj.getClass())
+      return false;
+    Mail other = (Mail) obj;
+    if (batchId == null) {
+      if (other.batchId != null)
+        return false;
+    } else if (!batchId.equals(other.batchId))
+      return false;
+    if (categories == null) {
+      if (other.categories != null)
+        return false;
+    } else if (!categories.equals(other.categories))
+      return false;
+    if (customArgs == null) {
+      if (other.customArgs != null)
+        return false;
+    } else if (!customArgs.equals(other.customArgs))
+      return false;
+    if (headers == null) {
+      if (other.headers != null)
+        return false;
+    } else if (!headers.equals(other.headers))
+      return false;
+    if (ipPoolId == null) {
+      if (other.ipPoolId != null)
+        return false;
+    } else if (!ipPoolId.equals(other.ipPoolId))
+      return false;
+    if (sections == null) {
+      if (other.sections != null)
+        return false;
+    } else if (!sections.equals(other.sections))
+      return false;
+    if (sendAt != other.sendAt)
+      return false;
+    if (subject == null) {
+      if (other.subject != null)
+        return false;
+    } else if (!subject.equals(other.subject))
+      return false;
+    if (templateId == null) {
+      if (other.templateId != null)
+        return false;
+    } else if (!templateId.equals(other.templateId))
+      return false;
+    return true;
   }
 }
