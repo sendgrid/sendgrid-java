@@ -1,0 +1,23 @@
+![SendGrid Logo](https://uiux.s3.amazonaws.com/2016-logos/email-logo%402x.png)
+
+This folder contains various examples on using the Mail Settings endpoint of SendGrid with Java:
+
+* [Retrieve all mail settings (GET /mail_settings)](GetAllMailSettings.java)
+* [Retrieve address whitelist mail settings (GET /mail_settings/address_whitelist)](GetAddressWhitelistMailSettings.java)
+* [Retrieve all BCC mail settings (GET /mail_settings/bcc)](GetBCCMailSettings.java)
+* [Retrieve bounce purge mail settings (GET /mail_settings/bounce_purge)](GetBouncePurgeMailSettings.java)
+* [Retrieve footer mail settings (GET /mail_settings/footer)](GetFooterMailSettings.java)
+* [Retrieve forward bounce mail settings (GET /mail_settings/forward_bounce)](GetForwardBounceMailSettings.java)
+* [Retrieve forward spam mail settings (GET /mail_settings/forward_spam)](GetForwardSpamMailSettings.java)
+* [Retrieve plain content mail settings (GET /mail_settings/plain_content)](GetPlainContentMailSettings.java)
+* [Retrieve spam check mail settings (GET /mail_settings/spam_check)](GetSpamCheckMailSettings.java)
+* [Retrieve legacy template mail settings (GET /mail_settings/template)](GetTemplateMailSettings.java)
+* [Update address whitelist mail settings (PATCH /mail_settings/address_whitelist)](UpdateAddressWhitelist.java)
+* [Update BCC mail settings (PATCH /mail_settings/bcc)](UpdateBCCMailSettings.java)
+* [Update bounce purge mail settings (PATCH /mail_settings/bounce_purge)](UpdateBouncePurgeMailSettings.java)
+* [Update footer mail settings (PATCH /mail_settings/footer)](UpdateFooterMailSettings.java)
+* [Update forward bounce mail settings (PATCH /mail_settings/forward_bounce)](UpdateForwardBounceMailSettings.java)
+* [Update forward spam mail settings (PATCH /mail_settings/forward_spam)](UpdateForwardSpamMailSettings.java)
+* [Update plain content mail settings (PATCH /mail_settings/plain_content)](UpdatePlainContentMailSettings.java)
+* [Update spam check mail settings (PATCH /mail_settings/spam_check)](UpdateSpamCheckMailSettings.java)
+* [Update template mail settings (PATCH /mail_settings/template)](UpdateTemplateMailSettings.java)
