@@ -5,14 +5,17 @@ import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 /**
- * This object allows you to have a blind carbon copy 
- * automatically sent to the specified email address 
- * for every email that is sent.
+ * This object allows you to have a blind carbon copy automatically sent to the specified email
+ * address for every email that is sent.
  */
 @JsonInclude(Include.NON_EMPTY)
 public class BccSettings {
-  @JsonProperty("enable") private boolean enable;
-  @JsonProperty("email") private String email;
+
+  @JsonProperty("enable")
+  private boolean enable;
+
+  @JsonProperty("email")
+  private String email;
 
   @JsonProperty("enable")
   public boolean getEnable() {
@@ -43,20 +46,26 @@ public class BccSettings {
 
   @Override
   public boolean equals(Object obj) {
-    if (this == obj)
+    if (this == obj) {
       return true;
-    if (obj == null)
+    }
+    if (obj == null) {
       return false;
-    if (getClass() != obj.getClass())
+    }
+    if (getClass() != obj.getClass()) {
       return false;
+    }
     BccSettings other = (BccSettings) obj;
     if (email == null) {
-      if (other.email != null)
+      if (other.email != null) {
         return false;
-    } else if (!email.equals(other.email))
+      }
+    } else if (!email.equals(other.email)) {
       return false;
-    if (enable != other.enable)
+    }
+    if (enable != other.enable) {
       return false;
+    }
     return true;
   }
 }
