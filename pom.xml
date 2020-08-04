@@ -15,7 +15,7 @@
   <licenses>
     <license>
       <name>The MIT License (MIT)</name>
-      <url>https://github.com/sendgrid/java-http-client/blob/master/LICENSE</url>
+      <url>https://github.com/sendgrid/java-http-client/blob/HEAD/LICENSE</url>
       <distribution>repo</distribution>
     </license>
   </licenses>
