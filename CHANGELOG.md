@@ -1,6 +1,20 @@
 # Change Log
 All notable changes to this project will be documented in this file.
 
+[2020-08-05] Version 4.6.3
+--------------------------
+**Library - Chore**
+- [PR #539](https://github.com/sendgrid/sendgrid-java/pull/539): tidied up a little. Thanks to [@RohanTalip](https://github.com/RohanTalip)!
+
+**Library - Docs**
+- [PR #370](https://github.com/sendgrid/sendgrid-java/pull/370): breakup examples to their own files in examples/user/user.java. Thanks to [@rivenhk](https://github.com/rivenhk)!
+- [PR #390](https://github.com/sendgrid/sendgrid-java/pull/390): Update README link to avoid redirection. Thanks to [@Rolstenhouse](https://github.com/Rolstenhouse)!
+
+**Library - Fix**
+- [PR #643](https://github.com/sendgrid/sendgrid-java/pull/643): Replace `bcprov-jdk15to18` with `bcprov-jdk15on`. Thanks to [@Stephan202](https://github.com/Stephan202)!
+- [PR #642](https://github.com/sendgrid/sendgrid-java/pull/642): remove the content verifier. Thanks to [@childish-sambino](https://github.com/childish-sambino)!
+
+
 [2020-07-22] Version 4.6.2
 --------------------------
 **Library - Chore**

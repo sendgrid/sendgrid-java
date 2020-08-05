@@ -9,7 +9,7 @@
   <groupId>com.sendgrid</groupId>
   <artifactId>sendgrid-java</artifactId>
   <name>Twilio SendGrid Java helper library</name>
-  <version>4.6.2</version>
+  <version>4.6.3</version>
   <description>This Java module allows you to quickly and easily send emails through Twilio SendGrid using Java.</description>
   <url>https://github.com/sendgrid/sendgrid-java</url>
   <licenses>
@@ -26,7 +26,7 @@
     <url>https://github.com/sendgrid/sendgrid-java</url>
     <connection>scm:git:git@github.com:sendgrid/sendgrid-java.git</connection>
     <developerConnection>scm:git:git@github.com:sendgrid/sendgrid-java.git</developerConnection>
-    <tag>4.6.2</tag>
+    <tag>4.6.3</tag>
   </scm>
   <profiles>
     <profile>
@@ -274,7 +274,7 @@
     <dependency>
       <groupId>com.sendgrid</groupId>
       <artifactId>java-http-client</artifactId>
-      <version>4.3.3</version>
+      <version>4.3.4</version>
     </dependency>
     <dependency>
       <groupId>com.fasterxml.jackson.core</groupId>
