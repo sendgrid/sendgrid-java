@@ -231,7 +231,7 @@ request.addQueryParam("limit", "1");
 ## [3.0.9] - 2016-08-24
 ### Added
 - Table of Contents in the README
-- Added a [USE_CASES.md](https://github.com/sendgrid/sendgrid-java/blob/HEAD/USE_CASES.md) section, with the first use case example for transactional templates
+- Added a [USE_CASES.md](USE_CASES.md) section, with the first use case example for transactional templates
 
 ## [3.0.8] - 2016-08-09
 ### Fixed
@@ -250,7 +250,7 @@ request.addQueryParam("limit", "1");
 
 ## [3.0.6] - 2016-07-26
 ### Added
-- [Troubleshooting](https://github.com/sendgrid/sendgrid-python/blob/HEAD/TROUBLESHOOTING.md) section
+- [Troubleshooting](TROUBLESHOOTING.md) section
 
 ## [3.0.5] - 2016-07-20
 ### Added
