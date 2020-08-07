@@ -55,7 +55,7 @@ public class Example {
 // v3 Mail Send
 // POST /mail/send
 
-// This endpoint has a helper, check it out [here](https://github.com/sendgrid/sendgrid-java/blob/master/src/main/java/com/sendgrid/helpers/README.md).
+// This endpoint has a helper, check it out [here](https://github.com/sendgrid/sendgrid-java/blob/HEAD/src/main/java/com/sendgrid/helpers/README.md).
 
 public class Example {
   public static void main(String[] args) throws IOException {

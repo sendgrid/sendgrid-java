@@ -6,7 +6,7 @@
 
 # Quick Start
 
-Run the [example](https://github.com/sendgrid/sendgrid-java/tree/master/examples/mail) (make sure you have set your environment variable to include your SENDGRID_API_KEY).
+Run the [example](../../../../../../examples/mail) (make sure you have set your environment variable to include your SENDGRID_API_KEY).
 
 ```bash
 cd examples/mail
@@ -15,5 +15,5 @@ javac -classpath ../../build/libs/sendgrid-4.2.1-jar.jar:. Example.java && java 
 
 ## Usage
 
-- See the [example](https://github.com/sendgrid/sendgrid-java/tree/master/examples/mail) for a complete working example.
+- See the [example](../../../../../../examples/mail) for a complete working example.
 - [Documentation](https://sendgrid.com/docs/API_Reference/Web_API_v3/Mail/index.html)

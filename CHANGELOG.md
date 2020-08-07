@@ -114,7 +114,7 @@ All notable changes to this project will be documented in this file.
 
 ## [4.4.0] - 2019-05-20
 ### Added
-- [PR #500](https://github.com/sendgrid/sendgrid-java/pull/500/files): Update CONTRIBUTING.md - using gitflow workflow, development branch instead of master -- BIG thanks to [Alex](https://github.com/pushkyn)
+- [PR #500](https://github.com/sendgrid/sendgrid-java/pull/500/files): Update CONTRIBUTING.md - using gitflow workflow, development branch instead of main -- BIG thanks to [Alex](https://github.com/pushkyn)
 - [PR #521](https://github.com/sendgrid/sendgrid-java/pull/521/files): Updating prerequisites -- BIG thanks to [Rishabh](https://github.com/Rishabh04-02)
 - [PR #495](https://github.com/sendgrid/sendgrid-java/pull/495/files): Add ability to impersonate subusers -- BIG thanks to [Rohit Tarachandani](https://github.com/Rohit-T)
 - [PR #569](https://github.com/sendgrid/sendgrid-java/pull/495/files): Twilio Branding + CLA Policy Update
@@ -231,7 +231,7 @@ request.addQueryParam("limit", "1");
 ## [3.0.9] - 2016-08-24
 ### Added
 - Table of Contents in the README
-- Added a [USE_CASES.md](https://github.com/sendgrid/sendgrid-java/blob/master/USE_CASES.md) section, with the first use case example for transactional templates
+- Added a [USE_CASES.md](USE_CASES.md) section, with the first use case example for transactional templates
 
 ## [3.0.8] - 2016-08-09
 ### Fixed
@@ -250,7 +250,7 @@ request.addQueryParam("limit", "1");
 
 ## [3.0.6] - 2016-07-26
 ### Added
-- [Troubleshooting](https://github.com/sendgrid/sendgrid-python/blob/master/TROUBLESHOOTING.md) section
+- [Troubleshooting](TROUBLESHOOTING.md) section
 
 ## [3.0.5] - 2016-07-20
 ### Added
