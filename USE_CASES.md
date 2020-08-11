@@ -34,6 +34,8 @@ If the subject contains ", " or "&"  the you need
 {{{subject}}}
 ```
 
+Otherwise an exception will be thrown.
+
 Template Body:
 
 ```html
@@ -135,8 +137,6 @@ Email Subject:
 ```text
 <%subject%>
 ```
-
-Otherwise an exception will be thrown.
 
 Template Body:
 
