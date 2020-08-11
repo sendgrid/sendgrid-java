@@ -21,11 +21,19 @@ Template ID (replace with your own):
 ```text
 d-2c214ac919e84170b21855cc129b4a5f
 ```
+
 Email Subject:
 
 ```text
 {{subject}}
 ```
+
+If the subject contains ", " or "&"  the you need 
+
+```text
+{{{subject}}}
+```
+
 Template Body:
 
 ```html
@@ -125,13 +133,7 @@ Template ID (replace with your own):
 Email Subject:
 
 ```text
-{{subject}}
-```
-
-If the subject contains ", " or "&"  the you need 
-
-```text
-{{{subject}}}
+<%subject%>
 ```
 
 Otherwise an exception will be thrown.
