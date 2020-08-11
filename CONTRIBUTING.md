@@ -63,7 +63,7 @@ Please note that we utilize the [Gitflow Workflow](https://www.atlassian.com/git
 
 ##### Prerequisites #####
 
-- Java version Oracle JDK 7, 8 or OpenJDK 7
+- Java 8 or 11
 - [java-http-client](https://github.com/sendgrid/java-http-client)
 
 ##### Initial setup: #####
