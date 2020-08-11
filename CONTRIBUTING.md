@@ -88,7 +88,7 @@ source ./sendgrid.env
 
 ##### Execute: #####
 
-See the [examples folder](https://github.com/sendgrid/sendgrid-java/tree/master/examples) to get started quickly.
+See the [examples folder](examples) to get started quickly.
 
 Check out the documentation for [Web API v3 endpoints](https://sendgrid.com/docs/API_Reference/Web_API_v3/index.html).
 
@@ -124,9 +124,9 @@ The interface to the Twilio SendGrid API.
 
 All PRs require passing tests before the PR will be reviewed.
 
-All test files are in the [`tests`](https://github.com/sendgrid/sendgrid-java/tree/master/src/test/java/com/sendgrid) directory.
+All test files are in the [`tests`](src/test/java/com/sendgrid) directory.
 
-For the purposes of contributing to this repo, please update the [`SendGridTest.java`](https://github.com/sendgrid/sendgrid-java/tree/master/src/test/java/com/sendgrid/SendGridTest.java) file with unit tests as you modify the code.
+For the purposes of contributing to this repo, please update the [`SendGridTest.java`](src/test/java/com/sendgrid/SendGridTest.java) file with unit tests as you modify the code.
 
 The integration tests require a Twilio SendGrid mock API in order to execute. We've simplified setting this up using Docker to run the tests. You will just need [Docker Desktop](https://docs.docker.com/get-docker/) and `make`.
 
@@ -196,7 +196,7 @@ Please run your code through:
    ```
 
 7. [Open a Pull Request](https://help.github.com/articles/using-pull-requests/)
-    with a clear title and description against the `master` branch. All tests must be passing before we will review the PR.
+    with a clear title and description against the `main` branch. All tests must be passing before we will review the PR.
 
 ## Code Reviews<a name="code-reviews"></a>
 If you can, please look at open PRs and review them. Give feedback and help us merge these PRs much faster! If you don't know how, GitHub has some <a href="https://help.github.com/articles/about-pull-request-reviews/">great information on how to review a Pull Request.</a>
