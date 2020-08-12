@@ -7,8 +7,6 @@ env:
   - version=11
 script:
   - make test-docker
-after_script:
-  - mvn spotbugs:spotbugs checkstyle:check -Dcheckstyle.config.location=google_checks.xml
 
 deploy:
   - provider: script
