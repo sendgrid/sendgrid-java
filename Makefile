@@ -7,7 +7,7 @@ install:
 	cp target/sendgrid-java-$(VERSION)-shaded.jar sendgrid-java.jar
 
 test:
-	mvn test
+	mvn test spotbugs:spotbugs checkstyle:check -Dcheckstyle.config.location=google_checks.xml
 
 test-integ: test
 
