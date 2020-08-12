@@ -1,17 +1,17 @@
-package com.sendgrid;
+package com.sendgrid.helpers.mail;
 
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
-
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.databind.ObjectWriter;
 import com.fasterxml.jackson.databind.SerializationFeature;
-
+import com.sendgrid.helpers.mail.objects.ASM;
+import com.sendgrid.helpers.mail.objects.Attachments;
+import com.sendgrid.helpers.mail.objects.Content;
+import com.sendgrid.helpers.mail.objects.Email;
+import com.sendgrid.helpers.mail.objects.MailSettings;
+import com.sendgrid.helpers.mail.objects.Personalization;
+import com.sendgrid.helpers.mail.objects.TrackingSettings;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -19,95 +19,106 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * Class Mail builds an object that sends an email through SendGrid. 
- * Note that this object is not thread safe.
+ * Class Mail builds an object that sends an email through Twilio SendGrid. Note that this object is
+ * not thread safe.
  */
 @JsonInclude(Include.NON_DEFAULT)
 public class Mail {
 
   /** The email's from field. */
-  @JsonProperty("from") public Email from;
+  @JsonProperty("from")
+  public Email from;
 
-  /** The email's subject line. This is the global, or 
-   * “message level”, subject of your email. This may 
-   * be overridden by personalizations[x].subject. 
+  /**
+   * The email's subject line. This is the global, or “message level”, subject of your email. This
+   * may be overridden by personalizations[x].subject.
    */
-  @JsonProperty("subject") public String subject;
+  @JsonProperty("subject")
+  public String subject;
 
-  /** 
-   * The email's personalization. Each object within 
-   * personalizations can be thought of as an envelope 
-   * - it defines who should receive an individual message 
-   * and how that message should be handled. 
+  /**
+   * The email's personalization. Each object within personalizations can be thought of as an
+   * envelope - it defines who should receive an individual message and how that message should be
+   * handled.
    */
-  @JsonProperty("personalizations") public List<Personalization> personalization;
+  @JsonProperty("personalizations")
+  public List<Personalization> personalization;
 
   /** The email's content. */
-  @JsonProperty("content") public List<Content> content;
+  @JsonProperty("content")
+  public List<Content> content;
 
   /** The email's attachments. */
-  @JsonProperty("attachments") public List<Attachments> attachments;
+  @JsonProperty("attachments")
+  public List<Attachments> attachments;
 
   /** The email's template ID. */
-  @JsonProperty("template_id") public String templateId;
+  @JsonProperty("template_id")
+  public String templateId;
 
-  /** 
-   * The email's sections. An object of key/value pairs that 
-   * define block sections of code to be used as substitutions. 
+  /**
+   * The email's sections. An object of key/value pairs that define block sections of code to be
+   * used as substitutions.
    */
-  @JsonProperty("sections") public Map<String,String> sections;
+  @JsonProperty("sections")
+  public Map<String, String> sections;
 
   /** The email's headers. */
-  @JsonProperty("headers") public Map<String,String> headers;
+  @JsonProperty("headers")
+  public Map<String, String> headers;
 
   /** The email's categories. */
-  @JsonProperty("categories") public List<String> categories;
-  
-  /** 
-   * The email's custom arguments. Values that are specific to 
-   * the entire send that will be carried along with the email 
-   * and its activity data. Substitutions will not be made on 
-   * custom arguments, so any string that is entered into this 
-   * parameter will be assumed to be the custom argument that 
-   * you would like to be used. This parameter is overridden by 
-   * personalizations[x].custom_args if that parameter has been 
-   * defined. Total custom args size may not exceed 10,000 bytes.
-   */
-  @JsonProperty("custom_args") public Map<String,String> customArgs;
+  @JsonProperty("categories")
+  public List<String> categories;
 
-  /** 
-   * A unix timestamp allowing you to specify when you want 
-   * your email to be delivered. This may be overridden by 
-   * the personalizations[x].send_at parameter. Scheduling 
-   * more than 72 hours in advance is forbidden. 
+  /**
+   * The email's custom arguments. Values that are specific to the entire send that will be carried
+   * along with the email and its activity data. Substitutions will not be made on custom arguments,
+   * so any string that is entered into this parameter will be assumed to be the custom argument
+   * that you would like to be used. This parameter is overridden by personalizations[x].custom_args
+   * if that parameter has been defined. Total custom args size may not exceed 10,000 bytes.
    */
-  @JsonProperty("send_at") public long sendAt;
+  @JsonProperty("custom_args")
+  public Map<String, String> customArgs;
 
-  /** 
-   * This ID represents a batch of emails to be sent at the 
-   * same time. Including a batch_id in your request allows 
-   * you include this email in that batch, and also enables 
-   * you to cancel or pause the delivery of that batch. For 
-   * more information, see https://sendgrid.com/docs/API_Reference/Web_API_v3/cancel_schedule_send.
+  /**
+   * A unix timestamp allowing you to specify when you want your email to be delivered. This may be
+   * overridden by the personalizations[x].send_at parameter. Scheduling more than 72 hours in
+   * advance is forbidden.
    */
-  @JsonProperty("batch_id") public String batchId;
+  @JsonProperty("send_at")
+  public long sendAt;
+
+  /**
+   * This ID represents a batch of emails to be sent at the same time. Including a batch_id in your
+   * request allows you include this email in that batch, and also enables you to cancel or pause
+   * the delivery of that batch. For more information, see https://sendgrid.com/docs/API_Reference/Web_API_v3/cancel_schedule_send.
+   */
+  @JsonProperty("batch_id")
+  public String batchId;
 
   /** The email's unsubscribe handling object. */
-  @JsonProperty("asm") public ASM asm;
+  @JsonProperty("asm")
+  public ASM asm;
 
   /** The email's IP pool name. */
-  @JsonProperty("ip_pool_name") public String ipPoolId;
+  @JsonProperty("ip_pool_name")
+  public String ipPoolId;
 
   /** The email's mail settings. */
-  @JsonProperty("mail_settings") public MailSettings mailSettings;
+  @JsonProperty("mail_settings")
+  public MailSettings mailSettings;
 
   /** The email's tracking settings. */
-  @JsonProperty("tracking_settings") public TrackingSettings trackingSettings;
+  @JsonProperty("tracking_settings")
+  public TrackingSettings trackingSettings;
 
   /** The email's reply to address. */
-  @JsonProperty("reply_to") public Email replyTo;
+  @JsonProperty("reply_to")
+  public Email replyTo;
 
   private static final ObjectMapper SORTED_MAPPER = new ObjectMapper();
+
   static {
     SORTED_MAPPER.configure(SerializationFeature.ORDER_MAP_ENTRIES_BY_KEYS, true);
   }
@@ -123,17 +134,17 @@ public class Mail {
     }
   }
 
-  private <K,V> Map<K,V> addToMap(K key, V value, Map<K,V> defaultMap) {
+  private <K, V> Map<K, V> addToMap(K key, V value, Map<K, V> defaultMap) {
     if (defaultMap != null) {
       defaultMap.put(key, value);
       return defaultMap;
     } else {
-      Map<K,V> map = new HashMap<K,V>();
+      Map<K, V> map = new HashMap<K, V>();
       map.put(key, value);
       return map;
     }
   }
-  
+
   /** Construct a new Mail object. */
   public Mail() {
     return;
@@ -141,13 +152,13 @@ public class Mail {
 
   /**
    * Construct a new Mail object.
+   *
    * @param from the email's from address.
    * @param subject the email's subject line.
    * @param to the email's recipient.
    * @param content the email's content.
    */
-  public Mail(Email from, String subject, Email to, Content content)
-  {
+  public Mail(Email from, String subject, Email to, Content content) {
     this.setFrom(from);
     this.setSubject(subject);
     Personalization personalization = new Personalization();
@@ -158,6 +169,7 @@ public class Mail {
 
   /**
    * Get the email's from address.
+   *
    * @return the email's from address.
    */
   @JsonProperty("from")
@@ -167,6 +179,7 @@ public class Mail {
 
   /**
    * Set the email's from address.
+   *
    * @param from the email's from address.
    */
   public void setFrom(Email from) {
@@ -175,6 +188,7 @@ public class Mail {
 
   /**
    * Get the email's subject line.
+   *
    * @return the email's subject line.
    */
   @JsonProperty("subject")
@@ -184,6 +198,7 @@ public class Mail {
 
   /**
    * Set the email's subject line.
+   *
    * @param subject the email's subject line.
    */
   public void setSubject(String subject) {
@@ -192,6 +207,7 @@ public class Mail {
 
   /**
    * Get the email's unsubscribe handling object (ASM).
+   *
    * @return the email's ASM.
    */
   @JsonProperty("asm")
@@ -201,6 +217,7 @@ public class Mail {
 
   /**
    * Set the email's unsubscribe handling object (ASM).
+   *
    * @param asm the email's ASM.
    */
   public void setASM(ASM asm) {
@@ -208,8 +225,9 @@ public class Mail {
   }
 
   /**
-   * Get the email's personalizations. Content added to the returned
-   * list will be included when sent.
+   * Get the email's personalizations. Content added to the returned list will be included when
+   * sent.
+   *
    * @return the email's personalizations.
    */
   @JsonProperty("personalizations")
@@ -219,6 +237,7 @@ public class Mail {
 
   /**
    * Add a personalizaton to the email.
+   *
    * @param personalization a personalization.
    */
   public void addPersonalization(Personalization personalization) {
@@ -226,8 +245,8 @@ public class Mail {
   }
 
   /**
-   * Get the email's content. Content added to the returned list
-   * will be included when sent.
+   * Get the email's content. Content added to the returned list will be included when sent.
+   *
    * @return the email's content.
    */
   @JsonProperty("content")
@@ -237,6 +256,7 @@ public class Mail {
 
   /**
    * Add content to this email.
+   *
    * @param content content to add to this email.
    */
   public void addContent(Content content) {
@@ -247,8 +267,9 @@ public class Mail {
   }
 
   /**
-   * Get the email's attachments. Attachments added to the returned
-   * list will be included when sent.
+   * Get the email's attachments. Attachments added to the returned list will be included when
+   * sent.
+   *
    * @return the email's attachments.
    */
   @JsonProperty("attachments")
@@ -258,6 +279,7 @@ public class Mail {
 
   /**
    * Add attachments to the email.
+   *
    * @param attachments attachments to add.
    */
   public void addAttachments(Attachments attachments) {
@@ -272,6 +294,7 @@ public class Mail {
 
   /**
    * Get the email's template ID.
+   *
    * @return the email's template ID.
    */
   @JsonProperty("template_id")
@@ -281,6 +304,7 @@ public class Mail {
 
   /**
    * Set the email's template ID.
+   *
    * @param templateId the email's template ID.
    */
   public void setTemplateId(String templateId) {
@@ -288,17 +312,18 @@ public class Mail {
   }
 
   /**
-   * Get the email's sections. Sections added to the returned list
-   * will be included when sent.
+   * Get the email's sections. Sections added to the returned list will be included when sent.
+   *
    * @return the email's sections.
    */
   @JsonProperty("sections")
-  public Map<String,String> getSections() {
+  public Map<String, String> getSections() {
     return sections;
   }
 
   /**
    * Add a section to the email.
+   *
    * @param key the section's key.
    * @param value the section's value.
    */
@@ -307,17 +332,18 @@ public class Mail {
   }
 
   /**
-   * Get the email's headers. Headers added to the returned list
-   * will be included when sent.
+   * Get the email's headers. Headers added to the returned list will be included when sent.
+   *
    * @return the email's headers.
    */
   @JsonProperty("headers")
-  public Map<String,String> getHeaders() {
+  public Map<String, String> getHeaders() {
     return headers;
   }
 
   /**
    * Add a header to the email.
+   *
    * @param key the header's key.
    * @param value the header's value.
    */
@@ -326,8 +352,8 @@ public class Mail {
   }
 
   /**
-   * Get the email's categories. Categories added to the returned list
-   * will be included when sent.
+   * Get the email's categories. Categories added to the returned list will be included when sent.
+   *
    * @return the email's categories.
    */
   @JsonProperty("categories")
@@ -337,6 +363,7 @@ public class Mail {
 
   /**
    * Add a category to the email.
+   *
    * @param category the category.
    */
   public void addCategory(String category) {
@@ -344,17 +371,19 @@ public class Mail {
   }
 
   /**
-   * Get the email's custom arguments. Custom arguments added to the returned list
-   * will be included when sent.
+   * Get the email's custom arguments. Custom arguments added to the returned list will be included
+   * when sent.
+   *
    * @return the email's custom arguments.
    */
   @JsonProperty("custom_args")
-  public Map<String,String> getCustomArgs() {
+  public Map<String, String> getCustomArgs() {
     return customArgs;
   }
 
   /**
    * Add a custom argument to the email.
+   *
    * @param key argument's key.
    * @param value the argument's value.
    */
@@ -364,6 +393,7 @@ public class Mail {
 
   /**
    * Get the email's send at time (Unix timestamp).
+   *
    * @return the email's send at time.
    */
   @JsonProperty("send_at")
@@ -373,6 +403,7 @@ public class Mail {
 
   /**
    * Set the email's send at time (Unix timestamp).
+   *
    * @param sendAt the send at time.
    */
   public void setSendAt(long sendAt) {
@@ -381,6 +412,7 @@ public class Mail {
 
   /**
    * Get the email's batch ID.
+   *
    * @return the batch ID.
    */
   @JsonProperty("batch_id")
@@ -390,6 +422,7 @@ public class Mail {
 
   /**
    * Set the email's batch ID.
+   *
    * @param batchId the batch ID.
    */
   public void setBatchId(String batchId) {
@@ -398,6 +431,7 @@ public class Mail {
 
   /**
    * Get the email's IP pool ID.
+   *
    * @return the IP pool ID.
    */
   @JsonProperty("ip_pool_name")
@@ -407,6 +441,7 @@ public class Mail {
 
   /**
    * Set the email's IP pool ID.
+   *
    * @param ipPoolId the IP pool ID.
    */
   public void setIpPoolId(String ipPoolId) {
@@ -415,6 +450,7 @@ public class Mail {
 
   /**
    * Get the email's settings.
+   *
    * @return the settings.
    */
   @JsonProperty("mail_settings")
@@ -424,6 +460,7 @@ public class Mail {
 
   /**
    * Set the email's settings.
+   *
    * @param mailSettings the settings.
    */
   public void setMailSettings(MailSettings mailSettings) {
@@ -432,6 +469,7 @@ public class Mail {
 
   /**
    * Get the email's tracking settings.
+   *
    * @return the tracking settings.
    */
   @JsonProperty("tracking_settings")
@@ -441,6 +479,7 @@ public class Mail {
 
   /**
    * Set the email's tracking settings.
+   *
    * @param trackingSettings the tracking settings.
    */
   public void setTrackingSettings(TrackingSettings trackingSettings) {
@@ -449,6 +488,7 @@ public class Mail {
 
   /**
    * Get the email's reply to address.
+   *
    * @return the reply to address.
    */
   @JsonProperty("reply_to")
@@ -458,6 +498,7 @@ public class Mail {
 
   /**
    * Set the email's reply to address.
+   *
    * @param replyTo the reply to address.
    */
   public void setReplyTo(Email replyTo) {
@@ -466,6 +507,7 @@ public class Mail {
 
   /**
    * Create a string represenation of the Mail object JSON.
+   *
    * @return a JSON string.
    * @throws IOException in case of a JSON marshal error.
    */
@@ -480,6 +522,7 @@ public class Mail {
 
   /**
    * Create a string represenation of the Mail object JSON and pretty print it.
+   *
    * @return a pretty JSON string.
    * @throws IOException in case of a JSON marshal error.
    */
@@ -510,55 +553,75 @@ public class Mail {
 
   @Override
   public boolean equals(Object obj) {
-    if (this == obj)
+    if (this == obj) {
       return true;
-    if (obj == null)
+    }
+    if (obj == null) {
       return false;
-    if (getClass() != obj.getClass())
+    }
+    if (getClass() != obj.getClass()) {
       return false;
+    }
     Mail other = (Mail) obj;
     if (batchId == null) {
-      if (other.batchId != null)
+      if (other.batchId != null) {
         return false;
-    } else if (!batchId.equals(other.batchId))
+      }
+    } else if (!batchId.equals(other.batchId)) {
       return false;
+    }
     if (categories == null) {
-      if (other.categories != null)
+      if (other.categories != null) {
         return false;
-    } else if (!categories.equals(other.categories))
+      }
+    } else if (!categories.equals(other.categories)) {
       return false;
+    }
     if (customArgs == null) {
-      if (other.customArgs != null)
+      if (other.customArgs != null) {
         return false;
-    } else if (!customArgs.equals(other.customArgs))
+      }
+    } else if (!customArgs.equals(other.customArgs)) {
       return false;
+    }
     if (headers == null) {
-      if (other.headers != null)
+      if (other.headers != null) {
         return false;
-    } else if (!headers.equals(other.headers))
+      }
+    } else if (!headers.equals(other.headers)) {
       return false;
+    }
     if (ipPoolId == null) {
-      if (other.ipPoolId != null)
+      if (other.ipPoolId != null) {
         return false;
-    } else if (!ipPoolId.equals(other.ipPoolId))
+      }
+    } else if (!ipPoolId.equals(other.ipPoolId)) {
       return false;
+    }
     if (sections == null) {
-      if (other.sections != null)
+      if (other.sections != null) {
         return false;
-    } else if (!sections.equals(other.sections))
+      }
+    } else if (!sections.equals(other.sections)) {
       return false;
-    if (sendAt != other.sendAt)
+    }
+    if (sendAt != other.sendAt) {
       return false;
+    }
     if (subject == null) {
-      if (other.subject != null)
+      if (other.subject != null) {
         return false;
-    } else if (!subject.equals(other.subject))
+      }
+    } else if (!subject.equals(other.subject)) {
       return false;
+    }
     if (templateId == null) {
-      if (other.templateId != null)
+      if (other.templateId != null) {
         return false;
-    } else if (!templateId.equals(other.templateId))
+      }
+    } else if (!templateId.equals(other.templateId)) {
       return false;
+    }
     return true;
   }
 }

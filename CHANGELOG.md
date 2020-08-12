@@ -1,6 +1,131 @@
 # Change Log
 All notable changes to this project will be documented in this file.
 
+[2020-08-05] Version 4.6.3
+--------------------------
+**Library - Chore**
+- [PR #539](https://github.com/sendgrid/sendgrid-java/pull/539): tidied up a little. Thanks to [@RohanTalip](https://github.com/RohanTalip)!
+
+**Library - Docs**
+- [PR #370](https://github.com/sendgrid/sendgrid-java/pull/370): breakup examples to their own files in examples/user/user.java. Thanks to [@rivenhk](https://github.com/rivenhk)!
+- [PR #390](https://github.com/sendgrid/sendgrid-java/pull/390): Update README link to avoid redirection. Thanks to [@Rolstenhouse](https://github.com/Rolstenhouse)!
+
+**Library - Fix**
+- [PR #643](https://github.com/sendgrid/sendgrid-java/pull/643): Replace `bcprov-jdk15to18` with `bcprov-jdk15on`. Thanks to [@Stephan202](https://github.com/Stephan202)!
+- [PR #642](https://github.com/sendgrid/sendgrid-java/pull/642): remove the content verifier. Thanks to [@childish-sambino](https://github.com/childish-sambino)!
+
+
+[2020-07-22] Version 4.6.2
+--------------------------
+**Library - Chore**
+- [PR #639](https://github.com/sendgrid/sendgrid-java/pull/639): migrate to new default sendgrid-oai branch. Thanks to [@eshanholtz](https://github.com/eshanholtz)!
+
+**Library - Docs**
+- [PR #638](https://github.com/sendgrid/sendgrid-java/pull/638): add multi-recipient examples. Thanks to [@childish-sambino](https://github.com/childish-sambino)!
+- [PR #637](https://github.com/sendgrid/sendgrid-java/pull/637): fix the kitchen sink example and link to it in the use cases doc. Thanks to [@childish-sambino](https://github.com/childish-sambino)!
+
+
+[2020-07-08] Version 4.6.1
+--------------------------
+**Library - Fix**
+- [PR #635](https://github.com/sendgrid/sendgrid-java/pull/635): don't use dependency version ranges. Thanks to [@childish-sambino](https://github.com/childish-sambino)!
+
+
+[2020-06-10] Version 4.6.0
+--------------------------
+**Library - Feature**
+- [PR #626](https://github.com/sendgrid/sendgrid-java/pull/626): add prism Docker setup. Thanks to [@childish-sambino](https://github.com/childish-sambino)!
+
+
+[2020-05-13] Version 4.5.0
+--------------------------
+**Library - Feature**
+- [PR #622](https://github.com/sendgrid/sendgrid-java/pull/622): verify signature from event webhook. Thanks to [@anujs3](https://github.com/anujs3)!
+- [PR #621](https://github.com/sendgrid/sendgrid-java/pull/621): add support for Twilio Email. Thanks to [@childish-sambino](https://github.com/childish-sambino)!
+
+
+[2020-04-15] Version 4.4.8
+--------------------------
+**Library - Fix**
+- [PR #618](https://github.com/sendgrid/sendgrid-java/pull/618): correct the User-Agent casing. Thanks to [@childish-sambino](https://github.com/childish-sambino)!
+
+
+[2020-04-01] Version 4.4.7
+--------------------------
+**Library - Docs**
+- [PR #617](https://github.com/sendgrid/sendgrid-java/pull/617): support verbiage for login issues. Thanks to [@adamchasetaylor](https://github.com/adamchasetaylor)!
+- [PR #615](https://github.com/sendgrid/sendgrid-java/pull/615): fix link to jar file. Thanks to [@eshanholtz](https://github.com/eshanholtz)!
+
+**Library - Fix**
+- [PR #612](https://github.com/sendgrid/sendgrid-java/pull/612): correct the serialization of Setting to include non-null values. Thanks to [@childish-sambino](https://github.com/childish-sambino)!
+
+
+[2020-03-18] Version 4.4.6
+--------------------------
+**Library - Docs**
+- [PR #264](https://github.com/sendgrid/sendgrid-java/pull/264): Overhaul javadocs, using Oracle's styleguide. Thanks to [@jamierocks](https://github.com/jamierocks)!
+
+**Library - Chore**
+- [PR #610](https://github.com/sendgrid/sendgrid-java/pull/610): fix JDK Travis failures. Thanks to [@childish-sambino](https://github.com/childish-sambino)!
+
+
+[2020-02-19] Version 4.4.5
+--------------------------
+**Library - Docs**
+- [PR #540](https://github.com/sendgrid/sendgrid-java/pull/540): Update the link for Google's Style Guide. Thanks to [@RohanTalip](https://github.com/RohanTalip)!
+
+
+[2020-02-08] Version 4.4.4
+--------------------------
+**Library - Fix**
+- [PR #608](https://github.com/sendgrid/sendgrid-java/pull/608): update release jar. Thanks to [@eshanholtz](https://github.com/eshanholtz)!
+
+
+[2020-02-05] Version 4.4.3
+--------------------------
+**Library - Docs**
+- [PR #604](https://github.com/sendgrid/sendgrid-java/pull/604): Fix GitHub spelling. Thanks to [@friederbluemle](https://github.com/friederbluemle)!
+- [PR #534](https://github.com/sendgrid/sendgrid-java/pull/534): Fix whitespace errors and typos. Thanks to [@friederbluemle](https://github.com/friederbluemle)!
+- [PR #402](https://github.com/sendgrid/sendgrid-java/pull/402): Add Code Review to Contributing.md. Thanks to [@derekneuland](https://github.com/derekneuland)!
+- [PR #603](https://github.com/sendgrid/sendgrid-java/pull/603): baseline all the templated markdown docs. Thanks to [@childish-sambino](https://github.com/childish-sambino)!
+- [PR #387](https://github.com/sendgrid/sendgrid-java/pull/387): makes Environmental Variables a sub topic in CONTRIBUTING.md. Thanks to [@thepriefy](https://github.com/thepriefy)!
+- [PR #516](https://github.com/sendgrid/sendgrid-java/pull/516): fix a minor type in README. Thanks to [@anuragsachdeva28](https://github.com/anuragsachdeva28)!
+- [PR #590](https://github.com/sendgrid/sendgrid-java/pull/590): fix typo in README. Thanks to [@brianjester](https://github.com/brianjester)!
+
+**Library - Chore**
+- [PR #542](https://github.com/sendgrid/sendgrid-java/pull/542): Removed the apiKey instance variable as it wasn't being used. Thanks to [@RohanTalip](https://github.com/RohanTalip)!
+- [PR #563](https://github.com/sendgrid/sendgrid-java/pull/563): Remove unnecessary access modifiers on interface methods. Thanks to [@ethanwood17](https://github.com/ethanwood17)!
+- [PR #602](https://github.com/sendgrid/sendgrid-java/pull/602): Bump jackson.version from 2.9.9 to 2.10.2. Thanks to [@dependabot](https://github.com/dependabot)!
+
+
+[2020-02-01] Version 4.4.2
+--------------------------
+**Library - Chore**
+- [PR #471](https://github.com/sendgrid/sendgrid-java/pull/471): Update build.gradle. Thanks to [@doilio](https://github.com/doilio)!
+- [PR #557](https://github.com/sendgrid/sendgrid-java/pull/557): Update Jackson dependencies to the latest version. Thanks to [@wkurniawan07](https://github.com/wkurniawan07)!
+- [PR #574](https://github.com/sendgrid/sendgrid-java/pull/574): maven-compiler-plugin 3.8.1. Thanks to [@sullis](https://github.com/sullis)!
+- [PR #599](https://github.com/sendgrid/sendgrid-java/pull/599): prep the repo for automated release. Thanks to [@eshanholtz](https://github.com/eshanholtz)!
+
+
+[2019-05-20] Version 4.4.1
+---------------------------
+### Fix
+- 4.4.0 release not deployed properly to Maven
+
+## [4.4.0] - 2019-05-20
+### Added
+- [PR #500](https://github.com/sendgrid/sendgrid-java/pull/500/files): Update CONTRIBUTING.md - using gitflow workflow, development branch instead of main -- BIG thanks to [Alex](https://github.com/pushkyn)
+- [PR #521](https://github.com/sendgrid/sendgrid-java/pull/521/files): Updating prerequisites -- BIG thanks to [Rishabh](https://github.com/Rishabh04-02)
+- [PR #495](https://github.com/sendgrid/sendgrid-java/pull/495/files): Add ability to impersonate subusers -- BIG thanks to [Rohit Tarachandani](https://github.com/Rohit-T)
+- [PR #569](https://github.com/sendgrid/sendgrid-java/pull/495/files): Twilio Branding + CLA Policy Update
+
+### Fix
+- [PR #497](https://github.com/sendgrid/sendgrid-java/pull/497): USE_CASES.md was missing the subject in the template and the dynamic data for the subject -- BIG thanks to [Kyle Roberts](https://github.com/kylearoberts)
+- [PR #306](https://github.com/sendgrid/sendgrid-java/pull/306): Java packages were not corresponding to the actual location of classes,
+all packages were update to match class location -- BIG thanks to [Bojan Trajkovski](https://github.com/btrajkovski)
+- [PR #544](https://github.com/sendgrid/sendgrid-java/pull/544): Remove references to "Whitelabel" -- BIG thanks to [Chandler Weiner](https://github.com/crweiner)
+- [PR #507](https://github.com/sendgrid/sendgrid-java/pull/507): Update TROUBLESHOOTING.md broken link -- BIG thanks to [Andrew Joshua Loria](https://github.com/ajloria)
+
 ## [4.3.0] - 2018-10-11
 ### Added
 - [PR #449](https://github.com/sendgrid/sendgrid-java/pull/449/files): Dynamic Templates support -- BIG thanks to [Marcus Vinícius](https://github.com/Markuus13)
@@ -106,7 +231,7 @@ request.addQueryParam("limit", "1");
 ## [3.0.9] - 2016-08-24
 ### Added
 - Table of Contents in the README
-- Added a [USE_CASES.md](https://github.com/sendgrid/sendgrid-java/blob/master/USE_CASES.md) section, with the first use case example for transactional templates
+- Added a [USE_CASES.md](USE_CASES.md) section, with the first use case example for transactional templates
 
 ## [3.0.8] - 2016-08-09
 ### Fixed
@@ -125,7 +250,7 @@ request.addQueryParam("limit", "1");
 
 ## [3.0.6] - 2016-07-26
 ### Added
-- [Troubleshooting](https://github.com/sendgrid/sendgrid-python/blob/master/TROUBLESHOOTING.md) section
+- [Troubleshooting](TROUBLESHOOTING.md) section
 
 ## [3.0.5] - 2016-07-20
 ### Added
