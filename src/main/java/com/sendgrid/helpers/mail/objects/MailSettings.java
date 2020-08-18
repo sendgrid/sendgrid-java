@@ -59,7 +59,7 @@ public class MailSettings {
   }
 
   /**
-   * Get the the footer settings that you would like included on every email.
+   * Get the footer settings that you would like included on every email.
    *
    * @return the setting.
    */
@@ -70,7 +70,7 @@ public class MailSettings {
   }
 
   /**
-   * Set the the footer settings that you would like included on every email.
+   * Set the footer settings that you would like included on every email.
    *
    * @param footerSetting the setting.
    */
