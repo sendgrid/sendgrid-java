@@ -1,6 +1,18 @@
 # Change Log
 All notable changes to this project will be documented in this file.
 
+[2020-08-19] Version 4.6.4
+--------------------------
+**Library - Docs**
+- [PR #491](https://github.com/sendgrid/sendgrid-java/pull/491): add contribution guide for first-timers. Thanks to [@daniloff200](https://github.com/daniloff200)!
+
+**Library - Test**
+- [PR #496](https://github.com/sendgrid/sendgrid-java/pull/496): Add spotbugs and checkstyle maven plugins for Travis CI. Thanks to [@rosariopfernandes](https://github.com/rosariopfernandes)!
+
+**Library - Chore**
+- [PR #644](https://github.com/sendgrid/sendgrid-java/pull/644): update GitHub branch references to use HEAD. Thanks to [@thinkingserious](https://github.com/thinkingserious)!
+
+
 [2020-08-05] Version 4.6.3
 --------------------------
 **Library - Chore**
