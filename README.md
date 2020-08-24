@@ -29,7 +29,6 @@ We appreciate your continued support, thank you!
 * [Usage](#usage)
 * [Use Cases](#use-cases)
 * [Announcements](#announcements)
-* [Roadmap](#roadmap)
 * [How to Contribute](#contribute)
 * [Troubleshooting](#troubleshooting)
 * [About](#about)
@@ -206,11 +205,6 @@ public class Example {
 Please see our announcement regarding [breaking changes](https://github.com/sendgrid/sendgrid-java/issues/140). Your support is appreciated!
 
 All updates to this library are documented in our [CHANGELOG](CHANGELOG.md) and [releases](https://github.com/sendgrid/sendgrid-java/releases). You may also subscribe to email [release notifications](https://dx.sendgrid.com/newsletter/java) for releases and breaking changes.
-
-<a name="roadmap"></a>
-# Roadmap
-
-If you are interested in the future direction of this project, please take a look at our open [issues](https://github.com/sendgrid/sendgrid-java/issues) and [pull requests](https://github.com/sendgrid/sendgrid-java/pulls). We would love to hear your feedback.
 
 <a name="contribute"></a>
 # How to Contribute
