@@ -1,30 +1,49 @@
-package com.sendgrid;
+package com.sendgrid.helpers.mail.objects;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
-
-import java.util.Collections;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 @JsonInclude(Include.NON_DEFAULT)
 public class Personalization {
-  @JsonProperty("to") private List<Email> tos;
-  @JsonProperty("cc") private List<Email> ccs;
-  @JsonProperty("bcc") private List<Email> bccs;
-  @JsonProperty("subject") private String subject;
-  @JsonProperty("headers") private Map<String,String> headers;
-  @JsonProperty("substitutions") private Map<String,String> substitutions;
-  @JsonProperty("custom_args") private Map<String,String> customArgs;
-  @JsonProperty("send_at") private long sendAt;
-  
+
+  @JsonProperty("to")
+  private List<Email> tos;
+
+  @JsonProperty("cc")
+  private List<Email> ccs;
+
+  @JsonProperty("bcc")
+  private List<Email> bccs;
+
+  @JsonProperty("subject")
+  private String subject;
+
+  @JsonProperty("headers")
+  private Map<String, String> headers;
+
+  @JsonProperty("substitutions")
+  private Map<String, String> substitutions;
+
+  @JsonProperty("custom_args")
+  private Map<String, String> customArgs;
+
+  @JsonProperty("dynamic_template_data")
+  private Map<String, Object> dynamicTemplateData;
+
+  @JsonProperty("send_at")
+  private long sendAt;
+
   @JsonProperty("to")
   public List<Email> getTos() {
-    if(tos == null)
-       return Collections.<Email>emptyList();
+    if (tos == null) {
+      return Collections.<Email>emptyList();
+    }
     return tos;
   }
 
@@ -42,8 +61,9 @@ public class Personalization {
 
   @JsonProperty("cc")
   public List<Email> getCcs() {
-    if(ccs == null)
-       return Collections.<Email>emptyList();
+    if (ccs == null) {
+      return Collections.<Email>emptyList();
+    }
     return ccs;
   }
 
@@ -61,8 +81,9 @@ public class Personalization {
 
   @JsonProperty("bcc")
   public List<Email> getBccs() {
-    if(bccs == null)
-       return Collections.<Email>emptyList();
+    if (bccs == null) {
+      return Collections.<Email>emptyList();
+    }
     return bccs;
   }
 
@@ -88,15 +109,16 @@ public class Personalization {
   }
 
   @JsonProperty("headers")
-  public Map<String,String> getHeaders() {
-    if(headers == null)
-       return Collections.<String,String>emptyMap();
+  public Map<String, String> getHeaders() {
+    if (headers == null) {
+      return Collections.<String, String>emptyMap();
+    }
     return headers;
   }
 
   public void addHeader(String key, String value) {
     if (headers == null) {
-      headers = new HashMap<String,String>();
+      headers = new HashMap<String, String>();
       headers.put(key, value);
     } else {
       headers.put(key, value);
@@ -104,15 +126,16 @@ public class Personalization {
   }
 
   @JsonProperty("substitutions")
-  public Map<String,String> getSubstitutions() {
-    if(substitutions == null)
-       return Collections.<String,String>emptyMap();
+  public Map<String, String> getSubstitutions() {
+    if (substitutions == null) {
+      return Collections.<String, String>emptyMap();
+    }
     return substitutions;
   }
 
   public void addSubstitution(String key, String value) {
     if (substitutions == null) {
-      substitutions = new HashMap<String,String>();
+      substitutions = new HashMap<String, String>();
       substitutions.put(key, value);
     } else {
       substitutions.put(key, value);
@@ -120,15 +143,16 @@ public class Personalization {
   }
 
   @JsonProperty("custom_args")
-  public Map<String,String> getCustomArgs() {
-    if(customArgs == null)
-       return Collections.<String,String>emptyMap();
+  public Map<String, String> getCustomArgs() {
+    if (customArgs == null) {
+      return Collections.<String, String>emptyMap();
+    }
     return customArgs;
   }
 
   public void addCustomArg(String key, String value) {
     if (customArgs == null) {
-      customArgs = new HashMap<String,String>();
+      customArgs = new HashMap<String, String>();
       customArgs.put(key, value);
     } else {
       customArgs.put(key, value);
@@ -142,6 +166,19 @@ public class Personalization {
 
   public void setSendAt(long sendAt) {
     this.sendAt = sendAt;
+  }
+
+  @JsonProperty("dynamic_template_data")
+  public Map<String, Object> getDynamicTemplateData() {
+    return dynamicTemplateData == null
+        ? Collections.<String, Object>emptyMap() : dynamicTemplateData;
+  }
+
+  public void addDynamicTemplateData(String key, Object value) {
+    if (dynamicTemplateData == null) {
+      dynamicTemplateData = new HashMap<String, Object>();
+    }
+    dynamicTemplateData.put(key, value);
   }
 
   @Override
@@ -161,50 +198,68 @@ public class Personalization {
 
   @Override
   public boolean equals(Object obj) {
-    if (this == obj)
+    if (this == obj) {
       return true;
-    if (obj == null)
+    }
+    if (obj == null) {
       return false;
-    if (getClass() != obj.getClass())
+    }
+    if (getClass() != obj.getClass()) {
       return false;
+    }
     Personalization other = (Personalization) obj;
     if (bccs == null) {
-      if (other.bccs != null)
+      if (other.bccs != null) {
         return false;
-    } else if (!bccs.equals(other.bccs))
+      }
+    } else if (!bccs.equals(other.bccs)) {
       return false;
+    }
     if (ccs == null) {
-      if (other.ccs != null)
+      if (other.ccs != null) {
         return false;
-    } else if (!ccs.equals(other.ccs))
+      }
+    } else if (!ccs.equals(other.ccs)) {
       return false;
+    }
     if (customArgs == null) {
-      if (other.customArgs != null)
+      if (other.customArgs != null) {
         return false;
-    } else if (!customArgs.equals(other.customArgs))
+      }
+    } else if (!customArgs.equals(other.customArgs)) {
       return false;
+    }
     if (headers == null) {
-      if (other.headers != null)
+      if (other.headers != null) {
         return false;
-    } else if (!headers.equals(other.headers))
+      }
+    } else if (!headers.equals(other.headers)) {
       return false;
-    if (sendAt != other.sendAt)
+    }
+    if (sendAt != other.sendAt) {
       return false;
+    }
     if (subject == null) {
-      if (other.subject != null)
+      if (other.subject != null) {
         return false;
-    } else if (!subject.equals(other.subject))
+      }
+    } else if (!subject.equals(other.subject)) {
       return false;
+    }
     if (substitutions == null) {
-      if (other.substitutions != null)
+      if (other.substitutions != null) {
         return false;
-    } else if (!substitutions.equals(other.substitutions))
+      }
+    } else if (!substitutions.equals(other.substitutions)) {
       return false;
+    }
     if (tos == null) {
-      if (other.tos != null)
+      if (other.tos != null) {
         return false;
-    } else if (!tos.equals(other.tos))
+      }
+    } else if (!tos.equals(other.tos)) {
       return false;
+    }
     return true;
   }
 }
