@@ -268,7 +268,7 @@ request.addQueryParam("limit", "1");
 ### Added
 - README updates
 - Update introduction blurb to include information regarding our forward path
-- Update the v3 /mail/send an example to include non-helper usage
+- Update the v3 /mail/send example to include non-helper usage
 - Update the generic v3 example to include non-fluent interface usage
 
 ## [3.0.4] - 2016-07-19
@@ -282,7 +282,7 @@ request.addQueryParam("limit", "1");
 
 ## [3.0.2] - 2016-07-05
 ### Updated
-- Content-based  on our updated [Swagger/OAI doc](https://github.com/sendgrid/sendgrid-oai)
+- Content based on our updated [Swagger/OAI doc](https://github.com/sendgrid/sendgrid-oai)
 
 ## [3.0.1] - 2016-06-28
 ### Fixed

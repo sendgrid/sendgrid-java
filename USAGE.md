@@ -531,7 +531,7 @@ The API Keys feature allows customers to be able to generate an API Key credenti
 
 **This endpoint allows you to create a new suppression group.**
 
-Suppression groups, or unsubscribe groups, are specific types or categories of email that you would like your recipients to be able to unsubscribe from. For example Daily Newsletters, Invoices, System Alerts.
+Suppression groups, or unsubscribe groups, are specific types or categories of email that you would like your recipients to be able to unsubscribe from. For example: Daily Newsletters, Invoices, System Alerts.
 
 The **name** and **description** of the unsubscribe group will be visible to recipients when they are managing their subscriptions.
 
@@ -587,7 +587,7 @@ Suppression groups, or [unsubscribe groups](https://sendgrid.com/docs/API_Refere
 
 **This endpoint allows you to update or change a suppression group.**
 
-Suppression groups, or unsubscribe groups, are specific types or categories of email that you would like your recipients to be able to unsubscribe from. For example Daily Newsletters, Invoices, System Alerts.
+Suppression groups, or unsubscribe groups, are specific types or categories of email that you would like your recipients to be able to unsubscribe from. For example: Daily Newsletters, Invoices, System Alerts.
 
 The **name** and **description** of the unsubscribe group will be visible to recipients when they are managing their subscriptions.
 
@@ -615,7 +615,7 @@ Each user can create up to 25 different suppression groups.
 
 **This endpoint allows you to retrieve a single suppression group.**
 
-Suppression groups, or unsubscribe groups, are specific types or categories of email that you would like your recipients to be able to unsubscribe from. For example Daily Newsletters, Invoices, System Alerts.
+Suppression groups, or unsubscribe groups, are specific types or categories of email that you would like your recipients to be able to unsubscribe from. For example: Daily Newsletters, Invoices, System Alerts.
 
 The **name** and **description** of the unsubscribe group will be visible to recipients when they are managing their subscriptions.
 
@@ -644,7 +644,7 @@ Each user can create up to 25 different suppression groups.
 
 You can only delete groups that have not been attached to sent mail in the last 60 days. If a recipient uses the "one-click unsubscribe" option on an email associated with a deleted group, that recipient will be added to the global suppression list.
 
-Suppression groups, or unsubscribe groups, are specific types or categories of email that you would like your recipients to be able to unsubscribe from. For example Daily Newsletters, Invoices, System Alerts.
+Suppression groups, or unsubscribe groups, are specific types or categories of email that you would like your recipients to be able to unsubscribe from. For example: Daily Newsletters, Invoices, System Alerts.
 
 The **name** and **description** of the unsubscribe group will be visible to recipients when they are managing their subscriptions.
 
@@ -886,7 +886,7 @@ Suppressions are a list of email addresses that will not receive content sent un
 <a name="browsers"></a>
 # BROWSERS
 
-## Retrieve email statistics by the browser.
+## Retrieve email statistics by browser.
 
 **This endpoint allows you to retrieve your email statistics segmented by browser type.**
 
@@ -2009,7 +2009,7 @@ List Id:
 * Send this to segment from an existing list
 * Don't send this in order to segment from your entire contactdb.
 
-Valid operators for creating and update depend on the type of the field you are segmenting:
+Valid operators for create and update depend on the type of the field you are segmenting:
 
 * **Dates:** "eq", "ne", "lt" (before), "gt" (after)
 * **Text:** "contains", "eq" (is - matches the full field), "ne" (is not - matches any field where the entire field is not the condition value)
@@ -5135,7 +5135,7 @@ For more information, please see our [User Guide](https://sendgrid.com/docs/User
 ```
 ## Retrieve all global suppressions
 
-**This endpoint allows you to retrieve a list of all email address that is globally suppressed.**
+**This endpoint allows you to retrieve a list of all email addresses that are globally suppressed.**
 
 A global suppression (or global unsubscribe) is an email address of a recipient who does not want to receive any of your messages. A globally suppressed recipient will be removed from any email you send. For more information, please see our [User Guide](https://sendgrid.com/docs/User_Guide/Suppressions/global_unsubscribes.html).
 
