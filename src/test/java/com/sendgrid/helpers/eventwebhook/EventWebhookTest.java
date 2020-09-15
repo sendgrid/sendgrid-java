@@ -61,6 +61,8 @@ public class EventWebhookTest {
     @BeforeClass
     public static void setUp() throws JsonProcessingException {
         Security.addProvider(new BouncyCastleProvider());
+
+        // Be sure to include the trailing carriage return and newline!
         PAYLOAD = new ObjectMapper().writeValueAsString(EVENTS) + "\r\n";
     }
 
