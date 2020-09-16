@@ -10,7 +10,7 @@
 
 **NEW:** Subscribe to email [notifications](https://dx.sendgrid.com/newsletter/java) for releases and breaking changes.
 
-**The default branch name for this repository has been changed to `main` as of 4.6.4.**
+**The default branch name for this repository has been changed to `main` as of 4.6.5.**
 
 **This library allows you to quickly and easily use the Twilio SendGrid Web API v3 via Java.**
 
@@ -40,7 +40,7 @@ We appreciate your continued support, thank you!
 ## Prerequisites
 
 - Java 8 or 11
-- The Twilio SendGrid service, starting at the [free level](https://sendgrid.com/free?source=sendgrid-java) to send up to 4.6.4 emails for the first 30 days, then send 100 emails/day free forever or check out [our pricing](https://sendgrid.com/pricing?source=sendgrid-java).
+- The Twilio SendGrid service, starting at the [free level](https://sendgrid.com/free?source=sendgrid-java) to send up to 4.6.5 emails for the first 30 days, then send 100 emails/day free forever or check out [our pricing](https://sendgrid.com/pricing?source=sendgrid-java).
 
 ## Setup Environment Variables
 
@@ -68,7 +68,7 @@ Add the following to your build.gradle file in the root of your project.
 ...
 dependencies {
   ...
-  implementation 'com.sendgrid:sendgrid-java:4.6.4'
+  implementation 'com.sendgrid:sendgrid-java:4.6.5'
 }
 
 repositories {
@@ -87,7 +87,7 @@ mvn install
 
 You can just drop the jar file in. It's a fat jar - it has all the dependencies built in.
 
-[sendgrid-java.jar](https://github.com/sendgrid/sendgrid-java/releases/download/4.6.4/sendgrid-java.jar)
+[sendgrid-java.jar](https://github.com/sendgrid/sendgrid-java/releases/download/4.6.5/sendgrid-java.jar)
 
 ## Dependencies
 
