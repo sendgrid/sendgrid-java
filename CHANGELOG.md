@@ -1,6 +1,12 @@
 # Change Log
 All notable changes to this project will be documented in this file.
 
+[2020-09-16] Version 4.6.5
+--------------------------
+**Library - Docs**
+- [PR #477](https://github.com/sendgrid/sendgrid-java/pull/477): Run *.md documents through Grammer.ly. Thanks to [@vinird](https://github.com/vinird)!
+
+
 [2020-08-19] Version 4.6.4
 --------------------------
 **Library - Docs**
