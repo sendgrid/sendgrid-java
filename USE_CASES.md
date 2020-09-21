@@ -1,16 +1,20 @@
-This documentation provides examples for specific use cases. Please [open an issue](https://github.com/sendgrid/sendgrid-java/issues) or make a pull request for any use cases you would like us to document here. Thank you!
+This document provides examples for specific use cases. Please [open an issue](https://github.com/sendgrid/sendgrid-java/issues) or make a pull request for any use cases you would like us to document here. Thank you!
 
-# Table of Contents
+# Use Cases
 
+* [Send Mail Examples](examples/helpers/mail/Example.java)
+  * [Send a Single Email to Multiple Recipients](examples/helpers/mail/SingleEmailMultipleRecipients.java)
+  * [Send Multiple Emails to Multiple Recipients](examples/helpers/mail/MultipleEmailsMultipleRecipients.java)
 * [Transactional Templates](#transactional-templates)
 * [Legacy Templates](#legacy-templates)
-* [How to Setup a Domain Whitelabel](#domain-whitelabel)
-* [How to View Email Statistics](#email-stats)
+* [How to Setup a Domain Authentication](#domain-authentication)
+* [How to View Email Statistics](#how-to-view-email-statistics)
+* [Send an Email With Twilio Email (Pilot)](#send-an-email-with-twilio-email-pilot)
+* [Send an SMS Message](#send-an-sms-message)
 
-<a name="transactional-templates"></a>
 # Transactional Templates
 
-For this example, we assume you have created a [transactional template](https://sendgrid.com/docs/User_Guide/Transactional_Templates/index.html). Following is the template content we used for testing.
+For this example, we assume you have created a [transactional template](https://sendgrid.com/docs/User_Guide/Transactional_Templates/index.html) in the UI or via the API. Following is the template content we used for testing.
 
 Template ID (replace with your own):
 
@@ -108,7 +112,6 @@ public class Example {
 }
 ```
 
-<a name="legacy-templates"></a>
 # Legacy Templates
 
 For this example, we assume you have created a [legacy template](https://sendgrid.com/docs/User_Guide/Transactional_Templates/index.html). Following is the template content we used for testing.
@@ -197,7 +200,7 @@ public class Example {
         [{
           \"to\": [{\"email\": \"test@example.com\"}],
           \"substitutions\": {\"-name-\": \"Example User\", \"-city-\": \"Denver\"},
-          \"subject\": \"Hello World from the SendGrid Java Library!\"
+          \"subject\": \"Hello World from the Twilio SendGrid Java Library!\"
         }],
         \"from\": {\"email\": \"test@example.com\"},
         \"content\":
@@ -217,17 +220,109 @@ public class Example {
 }
 ```
 
-<a name="domain-whitelabel"></a>
-# How to Setup a Domain Whitelabel
+<a name="domain-authentication"></a>
+# How to Setup a Domain Authentication
 
-You can find documentation for how to setup a domain whitelabel via the UI [here](https://sendgrid.com/docs/Classroom/Basics/Whitelabel/setup_domain_whitelabel.html) and via API [here](https://github.com/sendgrid/sendgrid-java/blob/master/USAGE.md#whitelabel).
+You can find documentation for how to set up a domain authentication via the UI [here](https://sendgrid.com/docs/ui/account-and-settings/how-to-set-up-domain-authentication/) and via API [here](USAGE.md#sender-authentication).
 
-Find more information about all of SendGrid's whitelabeling related documentation [here](https://sendgrid.com/docs/Classroom/Basics/Whitelabel/index.html).
+Find more information about all of Twilio SendGrid's authentication related documentation [here](https://sendgrid.com/docs/ui/account-and-settings/).
 
-<a name="email-stats"></a>
 # How to View Email Statistics
 
-You can find documentation for how to view your email statistics via the UI [here](https://app.sendgrid.com/statistics) and via API [here](https://github.com/sendgrid/sendgrid-java/blob/master/USAGE.md#stats).
+You can find documentation for how to view your email statistics via the UI [here](https://app.sendgrid.com/statistics) and via API [here](USAGE.md#stats).
 
-Alternatively, we can post events to a URL of your choice via our [Event Webhook](https://sendgrid.com/docs/API_Reference/Webhooks/event.html) about events that occur as SendGrid processes your email.
+Alternatively, we can post events to a URL of your choice via our [Event Webhook](https://sendgrid.com/docs/API_Reference/Webhooks/event.html) about events that occur as Twilio SendGrid processes your email.
 
+# Send an Email With Twilio Email (Pilot)
+
+### 1. Obtain a Free Twilio Account
+
+Sign up for a free Twilio account [here](https://www.twilio.com/try-twilio?source=sendgrid-java).
+
+### 2. Set Up Your Environment Variables
+
+The Twilio API allows for authentication using with either an API key/secret or your Account SID/Auth Token. You can create an API key [here](https://twil.io/get-api-key) or obtain your Account SID and Auth Token [here](https://twil.io/console).
+
+Once you have those, follow the steps below based on your operating system.
+
+#### Linux/Mac
+
+```bash
+echo "export TWILIO_API_KEY='YOUR_TWILIO_API_KEY'" > twilio.env
+echo "export TWILIO_API_SECRET='YOUR_TWILIO_API_SECRET'" >> twilio.env
+
+# or
+
+echo "export TWILIO_ACCOUNT_SID='YOUR_TWILIO_ACCOUNT_SID'" > twilio.env
+echo "export TWILIO_AUTH_TOKEN='YOUR_TWILIO_AUTH_TOKEN'" >> twilio.env
+```
+
+Then:
+
+```bash
+echo "twilio.env" >> .gitignore
+source ./twilio.env
+```
+
+#### Windows
+
+Temporarily set the environment variable (accessible only during the current CLI session):
+
+```bash
+set TWILIO_API_KEY=YOUR_TWILIO_API_KEY
+set TWILIO_API_SECRET=YOUR_TWILIO_API_SECRET
+
+: or
+
+set TWILIO_ACCOUNT_SID=YOUR_TWILIO_ACCOUNT_SID
+set TWILIO_AUTH_TOKEN=YOUR_TWILIO_AUTH_TOKEN
+```
+
+Or permanently set the environment variable (accessible in all subsequent CLI sessions):
+
+```bash
+setx TWILIO_API_KEY "YOUR_TWILIO_API_KEY"
+setx TWILIO_API_SECRET "YOUR_TWILIO_API_SECRET"
+
+: or
+
+setx TWILIO_ACCOUNT_SID "YOUR_TWILIO_ACCOUNT_SID"
+setx TWILIO_AUTH_TOKEN "YOUR_TWILIO_AUTH_TOKEN"
+```
+
+### 3. Initialize the Twilio Email Client
+
+```java
+TwilioEmail mailClient = new TwilioEmail(System.getenv("TWILIO_API_KEY"), System.getenv("TWILIO_API_SECRET"));
+
+// or
+
+TwilioEmail mailClient = new TwilioEmail(System.getenv("TWILIO_ACCOUNT_SID"), System.getenv("TWILIO_AUTH_TOKEN"));
+```
+
+This client has the same interface as the `SendGrid` client.
+
+# Send an SMS Message
+
+First, follow the above steps for creating a Twilio account and setting up environment variables with the proper credentials.
+
+Then, install the Twilio Helper Library by following the [installation steps](https://github.com/twilio/twilio-java#installation).
+
+Finally, send a message.
+
+```java
+String accountSid = System.getenv("TWILIO_ACCOUNT_SID");
+String authToken = System.getenv("TWILIO_AUTH_TOKEN");
+
+Twilio.init(accountSid, authToken);
+
+Message message = Message.creator(
+    new PhoneNumber("+15558881234"),  // To number
+    new PhoneNumber("+15559994321"),  // From number
+    "Hello world!"                    // SMS body
+).create();
+
+System.out.println(message.getSid());
+```
+
+For more information, please visit the [Twilio SMS Java documentation](https://www.twilio.com/docs/sms/quickstart/java).
