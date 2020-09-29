@@ -13,3 +13,8 @@ examples/Example.java
 .settings
 .classpath
 .project
+.env
+.vscode
+sendgrid-java.jar
+dependency-reduced-pom.xml
+prism*
