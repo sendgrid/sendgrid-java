@@ -236,7 +236,7 @@ public class Mail {
   }
 
   /**
-   * Add a personalizaton to the email.
+   * Add a personalization to the email.
    *
    * @param personalization a personalization.
    */
