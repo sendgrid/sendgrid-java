@@ -1,6 +1,12 @@
 # Change Log
 All notable changes to this project will be documented in this file.
 
+[2020-10-14] Version 4.6.7
+--------------------------
+**Library - Docs**
+- [PR #360](https://github.com/sendgrid/sendgrid-java/pull/360): reorganize examples. Thanks to [@derjayjay](https://github.com/derjayjay)!
+
+
 [2020-09-28] Version 4.6.6
 --------------------------
 **Library - Docs**
