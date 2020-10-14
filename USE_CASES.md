@@ -53,7 +53,7 @@ import java.io.IOException;
 public class Example {
   public static void main(String[] args) throws IOException {
     Mail mail = new Mail();
-    mail.setFrom(new Email("teste@example.com"));
+    mail.setFrom(new Email("tester@example.com"));
     mail.setTemplateId("d-2c214ac919e84170b21855cc129b4a5f");
 
     Personalization personalization = new Personalization();

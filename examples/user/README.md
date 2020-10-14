@@ -33,7 +33,7 @@
 - [Update Username](UpdateUsername.java)
 
 ## Security Settings Examples
-- [Get Enforced TLS](GetEnforedTLS.java)
+- [Get Enforced TLS](GetEnforcedTLS.java)
 - [Update Enforced TLS](UpdateEnforcedTLS.java)
 
 ## Webhook Settings Examples
