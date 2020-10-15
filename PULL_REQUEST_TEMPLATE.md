@@ -21,7 +21,7 @@ A short description of what this PR does.
 ### Checklist
 - [ ] I acknowledge that all my contributions will be made under the project's license
 - [ ] I have made a material change to the repo (functionality, testing, spelling, grammar)
-- [ ] I have read the [Contribution Guidelines](CONTRIBUTING.md) and my PR follows them
+- [ ] I have read the [Contribution Guidelines](https://github.com/sendgrid/sendgrid-java/blob/main/CONTRIBUTING.md) and my PR follows them
 - [ ] I have titled the PR appropriately
 - [ ] I have updated my branch with the main branch
 - [ ] I have added tests that prove my fix is effective or that my feature works
