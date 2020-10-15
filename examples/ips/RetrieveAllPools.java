@@ -13,7 +13,7 @@ import java.util.Map;
 // GET /ips/pools
 
 
-public class RetieveAllIPPools {
+public class RetrieveAllIPPools {
   public static void main(String[] args) throws IOException {
     try {
       SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));

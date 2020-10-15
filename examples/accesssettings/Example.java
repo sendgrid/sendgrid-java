@@ -23,7 +23,7 @@ public class Example {
         return response;
     }
 
-    protected void printResonseInfo(Response response) {
+    protected void printResponseInfo(Response response) {
         System.out.println(response.getStatusCode());
         System.out.println(response.getBody());
         System.out.println(response.getHeaders());
