@@ -42,6 +42,7 @@ public class Example {
       Request request = new Request();
       request.setMethod(Method.GET);
       request.setEndpoint("templates");
+      request.addQueryParam("generations", "legacy,dynamic")
       Response response = sg.api(request);
       System.out.println(response.getStatusCode());
       System.out.println(response.getBody());
