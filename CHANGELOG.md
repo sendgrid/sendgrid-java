@@ -1,6 +1,13 @@
 # Change Log
 All notable changes to this project will be documented in this file.
 
+[2020-11-05] Version 4.6.8
+--------------------------
+**Library - Chore**
+- [PR #651](https://github.com/sendgrid/sendgrid-java/pull/651): Fix PR link for PRs. Thanks to [@jsoref](https://github.com/jsoref)!
+- [PR #650](https://github.com/sendgrid/sendgrid-java/pull/650): fix spelling typos. Thanks to [@jsoref](https://github.com/jsoref)!
+
+
 [2020-10-14] Version 4.6.7
 --------------------------
 **Library - Docs**
