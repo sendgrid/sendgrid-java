@@ -12,7 +12,7 @@ public class LicenseTest {
   @Test
   public void testLicenseShouldHaveCorrectYear() throws IOException {
     String copyrightText = null;
-    try (BufferedReader br = new BufferedReader(new FileReader("./LICENSE.md"))) {
+    try (BufferedReader br = new BufferedReader(new FileReader("./LICENSE"))) {
       for (String line; (line = br.readLine()) != null; ) {
         if (line.startsWith("Copyright")) {
           copyrightText = line;

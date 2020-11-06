@@ -238,7 +238,7 @@ public class Mail {
   }
 
   /**
-   * Add a personalizaton to the email.
+   * Add a personalization to the email.
    *
    * @param personalization a personalization.
    */
@@ -518,7 +518,7 @@ public class Mail {
   }
 
   /**
-   * Create a string represenation of the Mail object JSON.
+   * Create a string representation of the Mail object JSON.
    *
    * @return a JSON string.
    * @throws IOException in case of a JSON marshal error.
@@ -533,7 +533,7 @@ public class Mail {
   }
 
   /**
-   * Create a string represenation of the Mail object JSON and pretty print it.
+   * Create a string representation of the Mail object JSON and pretty print it.
    *
    * @return a pretty JSON string.
    * @throws IOException in case of a JSON marshal error.

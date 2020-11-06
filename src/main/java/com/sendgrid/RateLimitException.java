@@ -30,7 +30,7 @@ public class RateLimitException extends Exception {
   }
 
   /**
-   * Get the number of times the action was attemted.
+   * Get the number of times the action was attempted.
    *
    * @return the retry count.
    */

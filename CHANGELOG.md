@@ -1,10 +1,32 @@
 # Change Log
 All notable changes to this project will be documented in this file.
 
+[2020-11-05] Version 4.6.8
+--------------------------
+**Library - Chore**
+- [PR #651](https://github.com/sendgrid/sendgrid-java/pull/651): Fix PR link for PRs. Thanks to [@jsoref](https://github.com/jsoref)!
+- [PR #650](https://github.com/sendgrid/sendgrid-java/pull/650): fix spelling typos. Thanks to [@jsoref](https://github.com/jsoref)!
+
+
+[2020-10-14] Version 4.6.7
+--------------------------
+**Library - Docs**
+- [PR #360](https://github.com/sendgrid/sendgrid-java/pull/360): reorganize examples. Thanks to [@derjayjay](https://github.com/derjayjay)!
+
+
+[2020-09-28] Version 4.6.6
+--------------------------
+**Library - Docs**
+- [PR #504](https://github.com/sendgrid/sendgrid-java/pull/504): Update documentation for GET /templates. Thanks to [@LinkedList](https://github.com/LinkedList)!
+
+**Library - Fix**
+- [PR #649](https://github.com/sendgrid/sendgrid-java/pull/649): update the eventwebhook sample data, example, tests, and byte handling. Thanks to [@childish-sambino](https://github.com/childish-sambino)!
+
+
 [2020-09-16] Version 4.6.5
 --------------------------
 **Library - Docs**
-- [PR #477](https://github.com/sendgrid/sendgrid-java/pull/477): Run *.md documents through Grammer.ly. Thanks to [@vinird](https://github.com/vinird)!
+- [PR #477](https://github.com/sendgrid/sendgrid-java/pull/477): Run *.md documents through Grammar.ly. Thanks to [@vinird](https://github.com/vinird)!
 
 
 [2020-08-19] Version 4.6.4

@@ -1,16 +1,16 @@
 ![SendGrid Logo](twilio_sendgrid_logo.png)
 
-[![Travis Badge](https://travis-ci.org/sendgrid/sendgrid-java.svg?branch=main)](https://travis-ci.org/sendgrid/sendgrid-java)
+[![Travis Badge](https://travis-ci.com/sendgrid/sendgrid-java.svg?branch=main)](https://travis-ci.com/sendgrid/sendgrid-java)
 [![Maven Central](https://img.shields.io/maven-central/v/com.sendgrid/sendgrid-java.svg)](http://mvnrepository.com/artifact/com.sendgrid/sendgrid-java)
 [![Email Notifications Badge](https://dx.sendgrid.com/badge/java)](https://dx.sendgrid.com/newsletter/java)
 [![Twitter Follow](https://img.shields.io/twitter/follow/sendgrid.svg?style=social&label=Follow)](https://twitter.com/sendgrid)
 [![GitHub contributors](https://img.shields.io/github/contributors/sendgrid/sendgrid-java.svg)](https://github.com/sendgrid/sendgrid-java/graphs/contributors)
 [![Open Source Helpers](https://www.codetriage.com/sendgrid/sendgrid-java/badges/users.svg)](https://www.codetriage.com/sendgrid/sendgrid-java)
-[![MIT licensed](https://img.shields.io/badge/license-MIT-blue.svg)](./LICENSE.md)
+[![MIT licensed](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 
 **NEW:** Subscribe to email [notifications](https://dx.sendgrid.com/newsletter/java) for releases and breaking changes.
 
-**The default branch name for this repository has been changed to `main` as of 4.6.5.**
+**The default branch name for this repository has been changed to `main` as of 4.6.8.**
 
 **This library allows you to quickly and easily use the Twilio SendGrid Web API v3 via Java.**
 
@@ -40,7 +40,7 @@ We appreciate your continued support, thank you!
 ## Prerequisites
 
 - Java 8 or 11
-- The Twilio SendGrid service, starting at the [free level](https://sendgrid.com/free?source=sendgrid-java) to send up to 4.6.5 emails for the first 30 days, then send 100 emails/day free forever or check out [our pricing](https://sendgrid.com/pricing?source=sendgrid-java).
+- The Twilio SendGrid service, starting at the [free level](https://sendgrid.com/free?source=sendgrid-java) to send up to 4.6.8 emails for the first 30 days, then send 100 emails/day free forever or check out [our pricing](https://sendgrid.com/pricing?source=sendgrid-java).
 
 ## Setup Environment Variables
 
@@ -68,7 +68,7 @@ Add the following to your build.gradle file in the root of your project.
 ...
 dependencies {
   ...
-  implementation 'com.sendgrid:sendgrid-java:4.6.5'
+  implementation 'com.sendgrid:sendgrid-java:4.6.8'
 }
 
 repositories {
@@ -87,7 +87,7 @@ mvn install
 
 You can just drop the jar file in. It's a fat jar - it has all the dependencies built in.
 
-[sendgrid-java.jar](https://github.com/sendgrid/sendgrid-java/releases/download/4.6.5/sendgrid-java.jar)
+[sendgrid-java.jar](https://github.com/sendgrid/sendgrid-java/releases/download/4.6.8/sendgrid-java.jar)
 
 ## Dependencies
 
@@ -233,4 +233,4 @@ If you've instead found a bug in the library or would like new features added, g
 
 # License
 
-[The MIT License (MIT)](LICENSE.md)
+[The MIT License (MIT)](LICENSE)

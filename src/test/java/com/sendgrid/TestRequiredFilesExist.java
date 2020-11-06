@@ -70,10 +70,10 @@ public class TestRequiredFilesExist {
     assertTrue(new File("./ISSUE_TEMPLATE.md").exists());
   }
 
-  // ./LICENSE.md
+  // ./LICENSE
   @Test
   public void checkLicenseExists() {
-    assertTrue(new File("./LICENSE.md").exists());
+    assertTrue(new File("./LICENSE").exists());
   }
 
   // ./PULL_REQUEST_TEMPLATE.md

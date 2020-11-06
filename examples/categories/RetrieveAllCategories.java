@@ -7,19 +7,21 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
-
 //////////////////////////////////////////////////////////////////
-// Retrieve all IP pools.
-// GET /ips/pools
+// Retrieve all categories
+// GET /categories
 
 
-public class RetrieveAllIPPools {
+public class RetrieveAllCategories {
   public static void main(String[] args) throws IOException {
     try {
       SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
       Request request = new Request();
       request.setMethod(Method.GET);
-      request.setEndpoint("ips/pools");
+      request.setEndpoint("categories");
+      request.addQueryParam("category", "test_string");
+      request.addQueryParam("limit", "1");
+      request.addQueryParam("offset", "1");
       Response response = sg.api(request);
       System.out.println(response.getStatusCode());
       System.out.println(response.getBody());
