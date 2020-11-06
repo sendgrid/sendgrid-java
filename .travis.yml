@@ -15,11 +15,11 @@ deploy:
     on:
       tags: true
       condition: $version = 8
-      branch: master
+      branch: main
 
 notifications:
   slack:
-    if: branch = master
+    if: branch = main
     on_pull_requests: false
     on_success: never
     on_failure: change

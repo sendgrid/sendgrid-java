@@ -1,7 +1,10 @@
-This documentation provides examples for specific use cases. Please [open an issue](https://github.com/sendgrid/sendgrid-java/issues) or make a pull request for any use cases you would like us to document here. Thank you!
+This document provides examples for specific use cases. Please [open an issue](https://github.com/sendgrid/sendgrid-java/issues) or make a pull request for any use cases you would like us to document here. Thank you!
 
-# Table of Contents
+# Use Cases
 
+* [Send Mail Examples](examples/helpers/mail/Example.java)
+  * [Send a Single Email to Multiple Recipients](examples/helpers/mail/SingleEmailMultipleRecipients.java)
+  * [Send Multiple Emails to Multiple Recipients](examples/helpers/mail/MultipleEmailsMultipleRecipients.java)
 * [Transactional Templates](#transactional-templates)
 * [Legacy Templates](#legacy-templates)
 * [How to Setup a Domain Authentication](#domain-authentication)
@@ -9,10 +12,9 @@ This documentation provides examples for specific use cases. Please [open an iss
 * [Send an Email With Twilio Email (Pilot)](#send-an-email-with-twilio-email-pilot)
 * [Send an SMS Message](#send-an-sms-message)
 
-<a name="transactional-templates"></a>
 # Transactional Templates
 
-For this example, we assume you have created a [transactional template](https://sendgrid.com/docs/User_Guide/Transactional_Templates/index.html) in the UI or via the API. Following is the template content we used for testing.
+For this example, we assume you have created a [dynamic transactional template](https://sendgrid.com/docs/ui/sending-email/how-to-send-an-email-with-dynamic-transactional-templates/) in the UI or via the API. Following is the template content we used for testing.
 
 Template ID (replace with your own):
 
@@ -51,7 +53,7 @@ import java.io.IOException;
 public class Example {
   public static void main(String[] args) throws IOException {
     Mail mail = new Mail();
-    mail.setFrom(new Email("teste@example.com"));
+    mail.setFrom(new Email("tester@example.com"));
     mail.setTemplateId("d-2c214ac919e84170b21855cc129b4a5f");
 
     Personalization personalization = new Personalization();
@@ -110,10 +112,9 @@ public class Example {
 }
 ```
 
-<a name="legacy-templates"></a>
 # Legacy Templates
 
-For this example, we assume you have created a [legacy template](https://sendgrid.com/docs/User_Guide/Transactional_Templates/index.html). Following is the template content we used for testing.
+For this example, we assume you have created a [legacy transactional template](https://sendgrid.com/docs/User_Guide/Transactional_Templates/index.html) in the UI or via the API. Following is the template content we used for testing.
 
 Template ID (replace with your own):
 
@@ -222,13 +223,13 @@ public class Example {
 <a name="domain-authentication"></a>
 # How to Setup a Domain Authentication
 
-You can find documentation for how to setup a domain authentication via the UI [here](https://sendgrid.com/docs/ui/account-and-settings/how-to-set-up-domain-authentication/) and via API [here](https://github.com/sendgrid/sendgrid-nodejs/blob/master/packages/client/USAGE.md#sender-authentication).
+You can find documentation for how to set up a domain authentication via the UI [here](https://sendgrid.com/docs/ui/account-and-settings/how-to-set-up-domain-authentication/) and via API [here](USAGE.md#sender-authentication).
 
 Find more information about all of Twilio SendGrid's authentication related documentation [here](https://sendgrid.com/docs/ui/account-and-settings/).
 
 # How to View Email Statistics
 
-You can find documentation for how to view your email statistics via the UI [here](https://app.sendgrid.com/statistics) and via API [here](https://github.com/sendgrid/sendgrid-java/blob/master/USAGE.md#stats).
+You can find documentation for how to view your email statistics via the UI [here](https://app.sendgrid.com/statistics) and via API [here](USAGE.md#stats).
 
 Alternatively, we can post events to a URL of your choice via our [Event Webhook](https://sendgrid.com/docs/API_Reference/Webhooks/event.html) about events that occur as Twilio SendGrid processes your email.
 

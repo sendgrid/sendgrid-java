@@ -18,9 +18,6 @@ Hello! Thank you for choosing to help contribute to one of the Twilio SendGrid o
 - [Creating a Pull Request](#creating-a-pull-request)
 - [Code Reviews](#code-reviews)
 
-<a name="roadmap"></a>
-We use [Milestones](https://github.com/sendgrid/sendgrid-java/milestones) to help define current roadmaps, please feel free to grab an issue from the current milestone. Please indicate that you have begun work on it to avoid collisions. Once a PR is made, community review, comments, suggestions and additional PRs are welcomed and encouraged.
-
 There are a few ways to contribute, which we'll enumerate below:
 
 <a name="feature-request"></a>
@@ -43,7 +40,7 @@ A software bug is a demonstrable issue in the code base. In order for us to diag
 Before you decide to create a new issue, please try the following:
 
 1. Check the GitHub issues tab if the identified issue has already been reported, if so, please add a +1 to the existing post.
-2. Update to the latest version of this code and check if issue has already been fixed
+2. Update to the latest version of this code and check if the issue has already been fixed
 3. Copy and fill in the Bug Report Template we have provided below
 
 ### Please use our Bug Report Template
@@ -63,7 +60,7 @@ Please note that we utilize the [Gitflow Workflow](https://www.atlassian.com/git
 
 ##### Prerequisites #####
 
-- Java version Oracle JDK 7, 8 or OpenJDK 7
+- Java 8 or 11
 - [java-http-client](https://github.com/sendgrid/java-http-client)
 
 ##### Initial setup: #####
@@ -88,7 +85,7 @@ source ./sendgrid.env
 
 ##### Execute: #####
 
-See the [examples folder](https://github.com/sendgrid/sendgrid-java/tree/master/examples) to get started quickly.
+See the [examples folder](examples) to get started quickly.
 
 Check out the documentation for [Web API v3 endpoints](https://sendgrid.com/docs/API_Reference/Web_API_v3/index.html).
 
@@ -101,7 +98,7 @@ touch Example.java
 Add the example you want to test to Example.java, including the headers at the top of the file.
 
 ``` bash
-javac -classpath ../repo/com/sendgrid/4.6.0/sendgrid-4.6.0-jar.jar:. Example.java && java -classpath ../repo/com/sendgrid/4.6.0/sendgrid-4.6.0-jar.jar:. Example
+javac -classpath ../repo/com/sendgrid/4.6.8/sendgrid-4.6.8-jar.jar:. Example.java && java -classpath ../repo/com/sendgrid/4.6.8/sendgrid-4.6.8-jar.jar:. Example
 ```
 
 <a name="understanding-the-codebase"></a>
@@ -124,9 +121,9 @@ The interface to the Twilio SendGrid API.
 
 All PRs require passing tests before the PR will be reviewed.
 
-All test files are in the [`tests`](https://github.com/sendgrid/sendgrid-java/tree/master/src/test/java/com/sendgrid) directory.
+All test files are in the [`tests`](src/test/java/com/sendgrid) directory.
 
-For the purposes of contributing to this repo, please update the [`SendGridTest.java`](https://github.com/sendgrid/sendgrid-java/tree/master/src/test/java/com/sendgrid/SendGridTest.java) file with unit tests as you modify the code.
+For the purposes of contributing to this repo, please update the [`SendGridTest.java`](src/test/java/com/sendgrid/SendGridTest.java) file with unit tests as you modify the code.
 
 The integration tests require a Twilio SendGrid mock API in order to execute. We've simplified setting this up using Docker to run the tests. You will just need [Docker Desktop](https://docs.docker.com/get-docker/) and `make`.
 
@@ -196,7 +193,7 @@ Please run your code through:
    ```
 
 7. [Open a Pull Request](https://help.github.com/articles/using-pull-requests/)
-    with a clear title and description against the `master` branch. All tests must be passing before we will review the PR.
+    with a clear title and description against the `main` branch. All tests must be passing before we will review the PR.
 
 ## Code Reviews<a name="code-reviews"></a>
 If you can, please look at open PRs and review them. Give feedback and help us merge these PRs much faster! If you don't know how, GitHub has some <a href="https://help.github.com/articles/about-pull-request-reviews/">great information on how to review a Pull Request.</a>

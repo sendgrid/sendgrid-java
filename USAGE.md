@@ -77,7 +77,7 @@ For more information, please see our [User Guide](http://sendgrid.com/docs/User_
   } catch (IOException ex) {
     throw ex;
   }
-  ```
+```
 ## Add one or more IPs to the whitelist
 
 **This endpoint allows you to add one or more IP addresses to your IP whitelist.**
@@ -105,7 +105,7 @@ For more information, please see our [User Guide](http://sendgrid.com/docs/User_
   } catch (IOException ex) {
     throw ex;
   }
-  ```
+```
 ## Retrieve a list of currently whitelisted IPs
 
 **This endpoint allows you to retrieve a list of IP addresses that are currently whitelisted.**
@@ -130,7 +130,7 @@ For more information, please see our [User Guide](http://sendgrid.com/docs/User_
   } catch (IOException ex) {
     throw ex;
   }
-  ```
+```
 ## Remove one or more IPs from the whitelist
 
 **This endpoint allows you to remove one or more IPs from your IP whitelist.**
@@ -158,7 +158,7 @@ For more information, please see our [User Guide](http://sendgrid.com/docs/User_
   } catch (IOException ex) {
     throw ex;
   }
-  ```
+```
 ## Retrieve a specific whitelisted IP
 
 **This endpoint allows you to retrieve a specific IP address that has been whitelisted.**
@@ -185,7 +185,7 @@ For more information, please see our [User Guide](http://sendgrid.com/docs/User_
   } catch (IOException ex) {
     throw ex;
   }
-  ```
+```
 ## Remove a specific IP from the whitelist
 
 **This endpoint allows you to remove a specific IP address from your IP whitelist.**
@@ -212,7 +212,7 @@ For more information, please see our [User Guide](http://sendgrid.com/docs/User_
   } catch (IOException ex) {
     throw ex;
   }
-  ```
+```
 <a name="alerts"></a>
 # ALERTS
 
@@ -243,7 +243,7 @@ For more information about alerts, please see our [User Guide](https://sendgrid.
   } catch (IOException ex) {
     throw ex;
   }
-  ```
+```
 ## Retrieve all alerts
 
 **This endpoint allows you to retrieve all of your alerts.**
@@ -270,7 +270,7 @@ For more information about alerts, please see our [User Guide](https://sendgrid.
   } catch (IOException ex) {
     throw ex;
   }
-  ```
+```
 ## Update an alert
 
 **This endpoint allows you to update an alert.**
@@ -298,7 +298,7 @@ For more information about alerts, please see our [User Guide](https://sendgrid.
   } catch (IOException ex) {
     throw ex;
   }
-  ```
+```
 ## Retrieve a specific alert
 
 **This endpoint allows you to retrieve a specific alert.**
@@ -325,7 +325,7 @@ For more information about alerts, please see our [User Guide](https://sendgrid.
   } catch (IOException ex) {
     throw ex;
   }
-  ```
+```
 ## Delete an alert
 
 **This endpoint allows you to delete an alert.**
@@ -352,7 +352,7 @@ For more information about alerts, please see our [User Guide](https://sendgrid.
   } catch (IOException ex) {
     throw ex;
   }
-  ```
+```
 <a name="api-keys"></a>
 # API KEYS
 
@@ -360,7 +360,7 @@ For more information about alerts, please see our [User Guide](https://sendgrid.
 
 **This endpoint allows you to create a new random API Key for the user.**
 
-A JSON request body containing a "name" property is required. If number of maximum keys is reached, HTTP 403 will be returned.
+A JSON request body containing a "name" property is required. If the number of maximum keys is reached, HTTP 403 will be returned.
 
 There is a limit of 100 API Keys on your account.
 
@@ -385,7 +385,7 @@ See the [API Key Permissions List](https://sendgrid.com/docs/API_Reference/Web_A
   } catch (IOException ex) {
     throw ex;
   }
-  ```
+```
 ## Retrieve all API Keys belonging to the authenticated user
 
 **This endpoint allows you to retrieve all API Keys that belong to the authenticated user.**
@@ -409,13 +409,13 @@ The API Keys feature allows customers to be able to generate an API Key credenti
   } catch (IOException ex) {
     throw ex;
   }
-  ```
+```
 ## Update the name & scopes of an API Key
 
 **This endpoint allows you to update the name and scopes of a given API key.**
 
 A JSON request body with a "name" property is required.
-Most provide the list of all the scopes an api key should have.
+Most provide the list of all the scopes an API key should have.
 
 The API Keys feature allows customers to be able to generate an API Key credential which can be used for authentication with the SendGrid v3 Web API or the [Mail API Endpoint](https://sendgrid.com/docs/API_Reference/Web_API/mail.html).
 
@@ -437,7 +437,7 @@ The API Keys feature allows customers to be able to generate an API Key credenti
   } catch (IOException ex) {
     throw ex;
   }
-  ```
+```
 ## Update API keys
 
 **This endpoint allows you to update the name of an existing API Key.**
@@ -469,10 +469,10 @@ The API Keys feature allows customers to be able to generate an API Key credenti
   } catch (IOException ex) {
     throw ex;
   }
-  ```
+```
 ## Retrieve an existing API Key
 
-**This endpoint allows you to retrieve a single api key.**
+**This endpoint allows you to retrieve a single API key.**
 
 If the API Key ID does not exist an HTTP 404 will be returned.
 
@@ -492,12 +492,12 @@ If the API Key ID does not exist an HTTP 404 will be returned.
   } catch (IOException ex) {
     throw ex;
   }
-  ```
+```
 ## Delete API keys
 
 **This endpoint allows you to revoke an existing API Key.**
 
-Authentications using this API Key will fail after this request is made, with some small propagation delay.If the API Key ID does not exist an HTTP 404 will be returned.
+Authentications using this API Key will fail after this request is made, with some small propagation delay. If the API Key ID does not exist an HTTP 404 will be returned.
 
 The API Keys feature allows customers to be able to generate an API Key credential which can be used for authentication with the Twilio SendGrid v3 Web API or the [Mail API Endpoint](https://sendgrid.com/docs/API_Reference/Web_API/mail.html).
 
@@ -523,7 +523,7 @@ The API Keys feature allows customers to be able to generate an API Key credenti
   } catch (IOException ex) {
     throw ex;
   }
-  ```
+```
 <a name="asm"></a>
 # ASM
 
@@ -546,7 +546,7 @@ Each user can create up to 25 different suppression groups.
     Request request = new Request();
     request.setMethod(Method.POST);
     request.setEndpoint("asm/groups");
-    request.setBody("{\"is_default\":true,\"description\":\"Suggestions for products our users might like.\",\"name\":\"Product) Suggestions\"}";
+    request.setBody("{\"is_default\":true,\"description\":\"Suggestions for products our users might like.\",\"name\":\"Product) Suggestions\"}");
     Response response = sg.api(request);
     System.out.println(response.getStatusCode());
     System.out.println(response.getBody());
@@ -554,7 +554,7 @@ Each user can create up to 25 different suppression groups.
   } catch (IOException ex) {
     throw ex;
   }
-  ```
+```
 ## Retrieve information about multiple suppression groups
 
 **This endpoint allows you to retrieve information about multiple suppression groups.**
@@ -582,7 +582,7 @@ Suppression groups, or [unsubscribe groups](https://sendgrid.com/docs/API_Refere
   } catch (IOException ex) {
     throw ex;
   }
-  ```
+```
 ## Update a suppression group.
 
 **This endpoint allows you to update or change a suppression group.**
@@ -610,7 +610,7 @@ Each user can create up to 25 different suppression groups.
   } catch (IOException ex) {
     throw ex;
   }
-  ```
+```
 ## Get information on a single suppression group.
 
 **This endpoint allows you to retrieve a single suppression group.**
@@ -637,7 +637,7 @@ Each user can create up to 25 different suppression groups.
   } catch (IOException ex) {
     throw ex;
   }
-  ```
+```
 ## Delete a suppression group.
 
 **This endpoint allows you to delete a suppression group.**
@@ -666,7 +666,7 @@ Each user can create up to 25 different suppression groups.
   } catch (IOException ex) {
     throw ex;
   }
-  ```
+```
 ## Add suppressions to a suppression group
 
 **This endpoint allows you to add email addresses to an unsubscribe group.**
@@ -692,7 +692,7 @@ Suppressions are recipient email addresses that are added to [unsubscribe groups
   } catch (IOException ex) {
     throw ex;
   }
-  ```
+```
 ## Retrieve all suppressions for a suppression group
 
 **This endpoint allows you to retrieve all suppressed email addresses belonging to the given group.**
@@ -715,7 +715,7 @@ Suppressions are recipient email addresses that are added to [unsubscribe groups
   } catch (IOException ex) {
     throw ex;
   }
-  ```
+```
 ## Search for suppressions within a group
 
 **This endpoint allows you to search a suppression group for multiple suppressions.**
@@ -741,7 +741,7 @@ Suppressions are a list of email addresses that will not receive content sent un
   } catch (IOException ex) {
     throw ex;
   }
-  ```
+```
 ## Delete a suppression from a suppression group
 
 **This endpoint allows you to remove a suppressed email address from the given suppression group.**
@@ -764,7 +764,7 @@ Suppressions are recipient email addresses that are added to [unsubscribe groups
   } catch (IOException ex) {
     throw ex;
   }
-  ```
+```
 ## Retrieve all suppressions
 
 **This endpoint allows you to retrieve a list of all suppressions.**
@@ -787,7 +787,7 @@ Suppressions are a list of email addresses that will not receive content sent un
   } catch (IOException ex) {
     throw ex;
   }
-  ```
+```
 ## Add recipient addresses to the global suppression group.
 
 **This endpoint allows you to add one or more email addresses to the global suppressions group.**
@@ -811,7 +811,7 @@ A global suppression (or global unsubscribe) is an email address of a recipient 
   } catch (IOException ex) {
     throw ex;
   }
-  ```
+```
 ## Retrieve a Global Suppression
 
 **This endpoint allows you to retrieve a global suppression. You can also use this endpoint to confirm if an email address is already globally suppressed.**
@@ -836,7 +836,7 @@ A global suppression (or global unsubscribe) is an email address of a recipient 
   } catch (IOException ex) {
     throw ex;
   }
-  ```
+```
 ## Delete a Global Suppression
 
 **This endpoint allows you to remove an email address from the global suppressions group.**
@@ -859,7 +859,7 @@ A global suppression (or global unsubscribe) is an email address of a recipient 
   } catch (IOException ex) {
     throw ex;
   }
-  ```
+```
 ## Retrieve all suppression groups for an email address
 
 **This endpoint returns the list of all groups that the given email address has been unsubscribed from.**
@@ -882,7 +882,7 @@ Suppressions are a list of email addresses that will not receive content sent un
   } catch (IOException ex) {
     throw ex;
   }
-  ```
+```
 <a name="browsers"></a>
 # BROWSERS
 
@@ -916,7 +916,7 @@ Advanced Stats provide a more in-depth view of your email statistics and the act
   } catch (IOException ex) {
     throw ex;
   }
-  ```
+```
 <a name="campaigns"></a>
 # CAMPAIGNS
 
@@ -926,7 +926,7 @@ Advanced Stats provide a more in-depth view of your email statistics and the act
 
 Our Marketing Campaigns API lets you create, manage, send, and schedule campaigns.
 
-Note: In order to send or schedule the campaign, you will be required to provide a subject, sender ID, content (we suggest both html and plain text), and at least one list or segment ID. This information is not required when you create a campaign.
+Note: In order to send or schedule the campaign, you will be required to provide a subject, sender ID, content (we suggest both HTML and plain text), and at least one list or segment ID. This information is not required when you create a campaign.
 
 For more information:
 
@@ -941,7 +941,7 @@ For more information:
     Request request = new Request();
     request.setMethod(Method.POST);
     request.setEndpoint("campaigns");
-    request.setBody("{\"custom_unsubscribe_url\":\"\",\"html_content\":\"<html><head><title></title></head><body><p>Check out our) spring line!</p></body></html>\",\"list_ids\":[110,124],\"sender_id\":124451,\"subject\":\"New Products for Spring!\",\"plain_content\":\"Check out our spring line!\",\"suppression_group_id\":42,\"title\":\"March Newsletter\",\"segment_ids\":[110],\"categories\":[\"spring line\"],\"ip_pool\":\"marketing\"}";
+    request.setBody("{\"custom_unsubscribe_url\":\"\",\"html_content\":\"<html><head><title></title></head><body><p>Check out our) spring line!</p></body></html>\",\"list_ids\":[110,124],\"sender_id\":124451,\"subject\":\"New Products for Spring!\",\"plain_content\":\"Check out our spring line!\",\"suppression_group_id\":42,\"title\":\"March Newsletter\",\"segment_ids\":[110],\"categories\":[\"spring line\"],\"ip_pool\":\"marketing\"}");
     Response response = sg.api(request);
     System.out.println(response.getStatusCode());
     System.out.println(response.getBody());
@@ -949,7 +949,7 @@ For more information:
   } catch (IOException ex) {
     throw ex;
   }
-  ```
+```
 ## Retrieve all Campaigns
 
 **This endpoint allows you to retrieve a list of all of your campaigns.**
@@ -980,7 +980,7 @@ For more information:
   } catch (IOException ex) {
     throw ex;
   }
-  ```
+```
 ## Update a Campaign
 
 Update a campaign. This is especially useful if you only set up the campaign using POST /campaigns, but didn't set many of the parameters.
@@ -998,7 +998,7 @@ For more information:
     Request request = new Request();
     request.setMethod(Method.PATCH);
     request.setEndpoint("campaigns/{campaign_id}");
-    request.setBody("{\"html_content\":\"<html><head><title></title></head><body><p>Check out our summer line!</p></body></html)>\",\"subject\":\"New Products for Summer!\",\"title\":\"May Newsletter\",\"categories\":[\"summer line\"],\"plain_content\":\"Check out our summer line!\"}";
+    request.setBody("{\"html_content\":\"<html><head><title></title></head><body><p>Check out our summer line!</p></body></html)>\",\"subject\":\"New Products for Summer!\",\"title\":\"May Newsletter\",\"categories\":[\"summer line\"],\"plain_content\":\"Check out our summer line!\"}");
     Response response = sg.api(request);
     System.out.println(response.getStatusCode());
     System.out.println(response.getBody());
@@ -1006,7 +1006,7 @@ For more information:
   } catch (IOException ex) {
     throw ex;
   }
-  ```
+```
 ## Retrieve a single campaign
 
 **This endpoint allows you to retrieve a specific campaign.**
@@ -1033,7 +1033,7 @@ For more information:
   } catch (IOException ex) {
     throw ex;
   }
-  ```
+```
 ## Delete a Campaign
 
 **This endpoint allows you to delete a specific campaign.**
@@ -1060,7 +1060,7 @@ For more information:
   } catch (IOException ex) {
     throw ex;
   }
-  ```
+```
 ## Update a Scheduled Campaign
 
 **This endpoint allows to you change the scheduled time and date for a campaign to be sent.**
@@ -1086,7 +1086,7 @@ For more information:
   } catch (IOException ex) {
     throw ex;
   }
-  ```
+```
 ## Schedule a Campaign
 
 **This endpoint allows you to schedule a specific date and time for your campaign to be sent.**
@@ -1112,7 +1112,7 @@ For more information:
   } catch (IOException ex) {
     throw ex;
   }
-  ```
+```
 ## View Scheduled Time of a Campaign
 
 **This endpoint allows you to retrieve the date and time that the given campaign has been scheduled to be sent.**
@@ -1137,7 +1137,7 @@ For more information:
   } catch (IOException ex) {
     throw ex;
   }
-  ```
+```
 ## Unschedule a Scheduled Campaign
 
 **This endpoint allows you to unschedule a campaign that has already been scheduled to be sent.**
@@ -1165,7 +1165,7 @@ For more information:
   } catch (IOException ex) {
     throw ex;
   }
-  ```
+```
 ## Send a Campaign
 
 **This endpoint allows you to immediately send a campaign at the time you make the API call.**
@@ -1192,7 +1192,7 @@ For more information:
   } catch (IOException ex) {
     throw ex;
   }
-  ```
+```
 ## Send a Test Campaign
 
 **This endpoint allows you to send a test campaign.**
@@ -1220,7 +1220,7 @@ For more information:
   } catch (IOException ex) {
     throw ex;
   }
-  ```
+```
 <a name="categories"></a>
 # CATEGORIES
 
@@ -1249,7 +1249,7 @@ Categories can help organize your email analytics by enabling you to tag emails 
   } catch (IOException ex) {
     throw ex;
   }
-  ```
+```
 ## Retrieve Email Statistics for Categories
 
 **This endpoint allows you to retrieve all of your email statistics for each of your categories.**
@@ -1280,7 +1280,7 @@ Categories allow you to group your emails together according to broad topics tha
   } catch (IOException ex) {
     throw ex;
   }
-  ```
+```
 ## Retrieve sums of email stats for each category [Needs: Stats object defined, has category ID?]
 
 **This endpoint allows you to retrieve the total sum of each email statistic for every category over the given date range.**
@@ -1312,7 +1312,7 @@ Categories allow you to group your emails together according to broad topics tha
   } catch (IOException ex) {
     throw ex;
   }
-  ```
+```
 <a name="clients"></a>
 # CLIENTS
 
@@ -1343,7 +1343,7 @@ Advanced Stats provide a more in-depth view of your email statistics and the act
   } catch (IOException ex) {
     throw ex;
   }
-  ```
+```
 ## Retrieve stats by a specific client type.
 
 **This endpoint allows you to retrieve your email statistics segmented by a specific client type.**
@@ -1377,7 +1377,7 @@ Advanced Stats provide a more in-depth view of your email statistics and the act
   } catch (IOException ex) {
     throw ex;
   }
-  ```
+```
 <a name="contactdb"></a>
 # CONTACTDB
 
@@ -1404,7 +1404,7 @@ The contactdb is a database of your contacts for [Twilio SendGrid Marketing Camp
   } catch (IOException ex) {
     throw ex;
   }
-  ```
+```
 ## Retrieve all custom fields
 
 **This endpoint allows you to retrieve all custom fields.**
@@ -1427,7 +1427,7 @@ The contactdb is a database of your contacts for [Twilio SendGrid Marketing Camp
   } catch (IOException ex) {
     throw ex;
   }
-  ```
+```
 ## Retrieve a Custom Field
 
 **This endpoint allows you to retrieve a custom field by ID.**
@@ -1450,7 +1450,7 @@ The contactdb is a database of your contacts for [Twilio SendGrid Marketing Camp
   } catch (IOException ex) {
     throw ex;
   }
-  ```
+```
 ## Delete a Custom Field
 
 **This endpoint allows you to delete a custom field by ID.**
@@ -1473,7 +1473,7 @@ The contactdb is a database of your contacts for [Twilio SendGrid Marketing Camp
   } catch (IOException ex) {
     throw ex;
   }
-  ```
+```
 ## Create a List
 
 **This endpoint allows you to create a list for your recipients.**
@@ -1497,7 +1497,7 @@ The Contacts API helps you manage your [Marketing Campaigns](https://sendgrid.co
   } catch (IOException ex) {
     throw ex;
   }
-  ```
+```
 ## Retrieve all lists
 
 **This endpoint allows you to retrieve all of your recipient lists. If you don't have any lists, an empty array will be returned.**
@@ -1520,7 +1520,7 @@ The Contacts API helps you manage your [Marketing Campaigns](https://sendgrid.co
   } catch (IOException ex) {
     throw ex;
   }
-  ```
+```
 ## Delete Multiple lists
 
 **This endpoint allows you to delete multiple recipient lists.**
@@ -1544,7 +1544,7 @@ The Contacts API helps you manage your [Marketing Campaigns](https://sendgrid.co
   } catch (IOException ex) {
     throw ex;
   }
-  ```
+```
 ## Update a List
 
 **This endpoint allows you to update the name of one of your recipient lists.**
@@ -1569,7 +1569,7 @@ The Contacts API helps you manage your [Marketing Campaigns](https://sendgrid.co
   } catch (IOException ex) {
     throw ex;
   }
-  ```
+```
 ## Retrieve a single list
 
 This endpoint allows you to retrieve a single recipient list.
@@ -1592,7 +1592,7 @@ The Contacts API helps you manage your [Marketing Campaigns](https://sendgrid.co
   } catch (IOException ex) {
     throw ex;
   }
-  ```
+```
 ## Delete a List
 
 **This endpoint allows you to delete a specific recipient list with the given ID.**
@@ -1616,7 +1616,7 @@ The Contacts API helps you manage your [Marketing Campaigns](https://sendgrid.co
   } catch (IOException ex) {
     throw ex;
   }
-  ```
+```
 ## Add Multiple Recipients to a List
 
 **This endpoint allows you to add multiple recipients to a list.**
@@ -1642,7 +1642,7 @@ The Contacts API helps you manage your [Marketing Campaigns](https://sendgrid.co
   } catch (IOException ex) {
     throw ex;
   }
-  ```
+```
 ## Retrieve all recipients on a List
 
 **This endpoint allows you to retrieve all recipients on the list with the given ID.**
@@ -1667,7 +1667,7 @@ The Contacts API helps you manage your [Marketing Campaigns](https://sendgrid.co
   } catch (IOException ex) {
     throw ex;
   }
-  ```
+```
 ## Add a Single Recipient to a List
 
 **This endpoint allows you to add a single recipient to a list.**
@@ -1690,7 +1690,7 @@ The Contacts API helps you manage your [Marketing Campaigns](https://sendgrid.co
   } catch (IOException ex) {
     throw ex;
   }
-  ```
+```
 ## Delete a Single Recipient from a Single List
 
 **This endpoint allows you to delete a single recipient from a list.**
@@ -1714,7 +1714,7 @@ The Contacts API helps you manage your [Marketing Campaigns](https://sendgrid.co
   } catch (IOException ex) {
     throw ex;
   }
-  ```
+```
 ## Update Recipient
 
 **This endpoint allows you to update one or more recipients.**
@@ -1742,7 +1742,7 @@ The contactdb is a database of your contacts for [Twilio SendGrid Marketing Camp
   } catch (IOException ex) {
     throw ex;
   }
-  ```
+```
 ## Add recipients
 
 **This endpoint allows you to add a Marketing Campaigns recipient.**
@@ -1760,7 +1760,7 @@ The Contacts API helps you manage your [Marketing Campaigns](https://sendgrid.co
     Request request = new Request();
     request.setMethod(Method.POST);
     request.setEndpoint("contactdb/recipients");
-    request.setBody("[{\"age\":25,\"last_name\":\"User\",\"email\":\"example@example.com\",\"first_name\":\"\"},{\"age\":25,\"last)_name\":\"User\",\"email\":\"example2@example.com\",\"first_name\":\"Example\"}]";
+    request.setBody("[{\"age\":25,\"last_name\":\"User\",\"email\":\"example@example.com\",\"first_name\":\"\"},{\"age\":25,\"last)_name\":\"User\",\"email\":\"example2@example.com\",\"first_name\":\"Example\"}]");
     Response response = sg.api(request);
     System.out.println(response.getStatusCode());
     System.out.println(response.getBody());
@@ -1768,7 +1768,7 @@ The Contacts API helps you manage your [Marketing Campaigns](https://sendgrid.co
   } catch (IOException ex) {
     throw ex;
   }
-  ```
+```
 ## Retrieve recipients
 
 **This endpoint allows you to retrieve all of your Marketing Campaigns recipients.**
@@ -1796,10 +1796,10 @@ The Contacts API helps you manage your [Marketing Campaigns](https://sendgrid.co
   } catch (IOException ex) {
     throw ex;
   }
-  ```
+```
 ## Delete Recipient
 
-**This endpoint allows you to deletes one or more recipients.**
+**This endpoint allows you to delete one or more recipients.**
 
 The body of an API call to this endpoint must include an array of recipient IDs of the recipients you want to delete.
 
@@ -1822,7 +1822,7 @@ The contactdb is a database of your contacts for [Twilio SendGrid Marketing Camp
   } catch (IOException ex) {
     throw ex;
   }
-  ```
+```
 ## Retrieve the count of billable recipients
 
 **This endpoint allows you to retrieve the number of Marketing Campaigns recipients that you will be billed for.**
@@ -1847,7 +1847,7 @@ The Contacts API helps you manage your [Marketing Campaigns](https://sendgrid.co
   } catch (IOException ex) {
     throw ex;
   }
-  ```
+```
 ## Retrieve a Count of Recipients
 
 **This endpoint allows you to retrieve the total number of Marketing Campaigns recipients.**
@@ -1870,7 +1870,7 @@ The contactdb is a database of your contacts for [Twilio SendGrid Marketing Camp
   } catch (IOException ex) {
     throw ex;
   }
-  ```
+```
 ## Retrieve recipients matching search criteria
 
 **This endpoint allows you to perform a search on all of your Marketing Campaigns recipients.**
@@ -1878,11 +1878,11 @@ The contactdb is a database of your contacts for [Twilio SendGrid Marketing Camp
 field_name:
 
 * is a variable that is substituted for your actual custom field name from your recipient.
-* Text fields must be url-encoded. Date fields are searchable only by unix timestamp (e.g. 2/2/2015 becomes 1422835200)
+* Text fields must be URL-encoded. Date fields are searchable only by Unix timestamp (e.g. 2/2/2015 becomes 1422835200)
 * If field_name is a 'reserved' date field, such as created_at or updated_at, the system will internally convert
-your epoch time to a date range encompassing the entire day. For example, an epoch time of 1422835600 converts to
-Mon, 02 Feb 2015 00:06:40 GMT, but internally the system will search from Mon, 02 Feb 2015 00:00:00 GMT through
-Mon, 02 Feb 2015 23:59:59 GMT.
+  your epoch time to a date range encompassing the entire day. For example, an epoch time of 1422835600 converts to
+  Mon, 02 Feb 2015 00:06:40 GMT, but internally the system will search from Mon, 02 Feb 2015 00:00:00 GMT through
+  Mon, 02 Feb 2015 23:59:59 GMT.
 
 The contactdb is a database of your contacts for [Twilio SendGrid Marketing Campaigns](https://sendgrid.com/docs/User_Guide/Marketing_Campaigns/index.html).
 
@@ -1903,7 +1903,7 @@ The contactdb is a database of your contacts for [Twilio SendGrid Marketing Camp
   } catch (IOException ex) {
     throw ex;
   }
-  ```
+```
 ## Retrieve a single recipient
 
 **This endpoint allows you to retrieve a single recipient by ID from your contact database.**
@@ -1926,7 +1926,7 @@ The Contacts API helps you manage your [Marketing Campaigns](https://sendgrid.co
   } catch (IOException ex) {
     throw ex;
   }
-  ```
+```
 ## Delete a Recipient
 
 **This endpoint allows you to delete a single recipient with the given ID from your contact database.**
@@ -1949,7 +1949,7 @@ The Contacts API helps you manage your [Marketing Campaigns](https://sendgrid.co
   } catch (IOException ex) {
     throw ex;
   }
-  ```
+```
 ## Retrieve the lists that a recipient is on
 
 **This endpoint allows you to retrieve the lists that a given recipient belongs to.**
@@ -1974,7 +1974,7 @@ The Contacts API helps you manage your [Marketing Campaigns](https://sendgrid.co
   } catch (IOException ex) {
     throw ex;
   }
-  ```
+```
 ## Retrieve reserved fields
 
 **This endpoint allows you to list all fields that are reserved and can't be used for custom field names.**
@@ -1997,7 +1997,7 @@ The contactdb is a database of your contacts for [Twilio SendGrid Marketing Camp
   } catch (IOException ex) {
     throw ex;
   }
-  ```
+```
 ## Create a Segment
 
 **This endpoint allows you to create a segment.**
@@ -2033,7 +2033,7 @@ For more information about segments in Marketing Campaigns, please see our [User
     Request request = new Request();
     request.setMethod(Method.POST);
     request.setEndpoint("contactdb/segments");
-    request.setBody("{\"conditions\":[{\"operator\":\"eq\",\"field\":\"last_name\",\"and)_or\":\"\",\"value\":\"Miller\"},{\"operator\":\"gt\",\"field\":\"last_clicked\",\"and_or\":\"and\",\"value\":\"01/02/2015\"},{\"operator\":\"eq\",\"field\":\"clicks.campaign_identifier\",\"and_or\":\"or\",\"value\":\"513\"}],\"name\":\"Last Name Miller\",\"list_id\":4}";
+    request.setBody("{\"conditions\":[{\"operator\":\"eq\",\"field\":\"last_name\",\"and)_or\":\"\",\"value\":\"Miller\"},{\"operator\":\"gt\",\"field\":\"last_clicked\",\"and_or\":\"and\",\"value\":\"01/02/2015\"},{\"operator\":\"eq\",\"field\":\"clicks.campaign_identifier\",\"and_or\":\"or\",\"value\":\"513\"}],\"name\":\"Last Name Miller\",\"list_id\":4}");
     Response response = sg.api(request);
     System.out.println(response.getStatusCode());
     System.out.println(response.getBody());
@@ -2041,7 +2041,7 @@ For more information about segments in Marketing Campaigns, please see our [User
   } catch (IOException ex) {
     throw ex;
   }
-  ```
+```
 ## Retrieve all segments
 
 **This endpoint allows you to retrieve all of your segments.**
@@ -2066,7 +2066,7 @@ For more information about segments in Marketing Campaigns, please see our [User
   } catch (IOException ex) {
     throw ex;
   }
-  ```
+```
 ## Update a segment
 
 **This endpoint allows you to update a segment.**
@@ -2084,7 +2084,7 @@ For more information about segments in Marketing Campaigns, please see our [User
     Request request = new Request();
     request.setMethod(Method.PATCH);
     request.setEndpoint("contactdb/segments/{segment_id}");
-    request.setBody("{\"conditions\":[{\"operator\":\"eq\",\"field\":\"last_name\",\"and)_or\":\"\",\"value\":\"Miller\"}],\"name\":\"The Millers\",\"list_id\":5}";
+    request.setBody("{\"conditions\":[{\"operator\":\"eq\",\"field\":\"last_name\",\"and)_or\":\"\",\"value\":\"Miller\"}],\"name\":\"The Millers\",\"list_id\":5}");
     request.addQueryParam("segment_id", "test_string");
     Response response = sg.api(request);
     System.out.println(response.getStatusCode());
@@ -2093,7 +2093,7 @@ For more information about segments in Marketing Campaigns, please see our [User
   } catch (IOException ex) {
     throw ex;
   }
-  ```
+```
 ## Retrieve a segment
 
 **This endpoint allows you to retrieve a single segment with the given ID.**
@@ -2119,10 +2119,10 @@ For more information about segments in Marketing Campaigns, please see our [User
   } catch (IOException ex) {
     throw ex;
   }
-  ```
+```
 ## Delete a segment
 
-**This endpoint allows you to delete a segment from your recipients database.**
+**This endpoint allows you to delete a segment from your recipient's database.**
 
 You also have the option to delete all the contacts from your Marketing Campaigns recipient database who were in this segment.
 
@@ -2147,7 +2147,7 @@ For more information about segments in Marketing Campaigns, please see our [User
   } catch (IOException ex) {
     throw ex;
   }
-  ```
+```
 ## Retrieve recipients on a segment
 
 **This endpoint allows you to retrieve all of the recipients in a segment with the given ID.**
@@ -2174,7 +2174,7 @@ For more information about segments in Marketing Campaigns, please see our [User
   } catch (IOException ex) {
     throw ex;
   }
-  ```
+```
 <a name="devices"></a>
 # DEVICES
 
@@ -2189,8 +2189,8 @@ For more information about segments in Marketing Campaigns, please see our [User
 |---|---|---|
 | Desktop | Email software on desktop computer. | I.E., Outlook, Sparrow, or Apple Mail. |
 | Webmail |	A web-based email client. | I.E., Yahoo, Google, AOL, or Outlook.com. |
-| Phone | A smart phone. | iPhone, Android, Blackberry, etc.
-| Tablet | A tablet computer. | iPad, android based tablet, etc. |
+| Phone | A smartphone. | iPhone, Android, Blackberry, etc.
+| Tablet | A tablet computer. | iPad, Android based tablet, etc. |
 | Other | An unrecognized device. |
 
 Advanced Stats provide a more in-depth view of your email statistics and the actions taken by your recipients. You can segment these statistics by geographic location, device type, client type, browser, and mailbox provider. For more information about statistics, please see our [User Guide](https://sendgrid.com/docs/User_Guide/Statistics/index.html).
@@ -2216,7 +2216,7 @@ Advanced Stats provide a more in-depth view of your email statistics and the act
   } catch (IOException ex) {
     throw ex;
   }
-  ```
+```
 <a name="geo"></a>
 # GEO
 
@@ -2250,7 +2250,7 @@ Advanced Stats provide a more in-depth view of your email statistics and the act
   } catch (IOException ex) {
     throw ex;
   }
-  ```
+```
 <a name="ips"></a>
 # IPS
 
@@ -2258,7 +2258,7 @@ Advanced Stats provide a more in-depth view of your email statistics and the act
 
 **This endpoint allows you to retrieve a list of all assigned and unassigned IPs.**
 
-Response includes warm up status, pools, assigned subusers, and authorization info. The start_date field corresponds to when warmup started for that IP.
+The response includes warm-up status, pools, assigned subusers, and authorization info. The start_date field corresponds to when warmup started for that IP.
 
 A single IP address or a range of IP addresses may be dedicated to an account in order to send email for multiple domains. The reputation of this IP is based on the aggregate performance of all the senders who use it.
 
@@ -2283,7 +2283,7 @@ A single IP address or a range of IP addresses may be dedicated to an account in
   } catch (IOException ex) {
     throw ex;
   }
-  ```
+```
 ## Retrieve all assigned IPs
 
 **This endpoint allows you to retrieve only assigned IP addresses.**
@@ -2306,7 +2306,7 @@ A single IP address or a range of IP addresses may be dedicated to an account in
   } catch (IOException ex) {
     throw ex;
   }
-  ```
+```
 ## Create an IP pool.
 
 **This endpoint allows you to create an IP pool.**
@@ -2336,7 +2336,7 @@ If an IP pool is NOT specified for an email, it will use any IP available, inclu
   } catch (IOException ex) {
     throw ex;
   }
-  ```
+```
 ## Retrieve all IP pools.
 
 **This endpoint allows you to retrieve all of your IP pools.**
@@ -2363,7 +2363,7 @@ If an IP pool is NOT specified for an email, it will use any IP available, inclu
   } catch (IOException ex) {
     throw ex;
   }
-  ```
+```
 ## Update an IP pools name.
 
 **This endpoint allows you to update the name of an IP pool.**
@@ -2391,7 +2391,7 @@ If an IP pool is NOT specified for an email, it will use any IP available, inclu
   } catch (IOException ex) {
     throw ex;
   }
-  ```
+```
 ## Retrieve all IPs in a specified pool.
 
 **This endpoint allows you to list all of the IP addresses that are in a specific IP pool.**
@@ -2418,7 +2418,7 @@ If an IP pool is NOT specified for an email, it will use any IP available, inclu
   } catch (IOException ex) {
     throw ex;
   }
-  ```
+```
 ## Delete an IP pool.
 
 **This endpoint allows you to delete an IP pool.**
@@ -2445,7 +2445,7 @@ If an IP pool is NOT specified for an email, it will use any IP available, inclu
   } catch (IOException ex) {
     throw ex;
   }
-  ```
+```
 ## Add an IP address to a pool
 
 **This endpoint allows you to add an IP address to an IP pool.**
@@ -2471,7 +2471,7 @@ A single IP address or a range of IP addresses may be dedicated to an account in
   } catch (IOException ex) {
     throw ex;
   }
-  ```
+```
 ## Remove an IP address from a pool.
 
 **This endpoint allows you to remove an IP address from an IP pool.**
@@ -2496,8 +2496,8 @@ A single IP address or a range of IP addresses may be dedicated to an account in
   } catch (IOException ex) {
     throw ex;
   }
-  ```
-## Add an IP to warmup
+```
+## Add an IP to warm up
 
 **This endpoint allows you to enter an IP address into warmup mode.**
 
@@ -2522,7 +2522,7 @@ For more general information about warming up IPs, please see our [Classroom](ht
   } catch (IOException ex) {
     throw ex;
   }
-  ```
+```
 ## Retrieve all IPs currently in warmup
 
 **This endpoint allows you to retrieve all of your IP addresses that are currently warming up.**
@@ -2547,7 +2547,7 @@ For more general information about warming up IPs, please see our [Classroom](ht
   } catch (IOException ex) {
     throw ex;
   }
-  ```
+```
 ## Retrieve warmup status for a specific IP address
 
 **This endpoint allows you to retrieve the warmup status for a specific IP address.**
@@ -2572,7 +2572,7 @@ For more general information about warming up IPs, please see our [Classroom](ht
   } catch (IOException ex) {
     throw ex;
   }
-  ```
+```
 ## Remove an IP from warmup
 
 **This endpoint allows you to remove an IP address from warmup mode.**
@@ -2597,7 +2597,7 @@ For more general information about warming up IPs, please see our [Classroom](ht
   } catch (IOException ex) {
     throw ex;
   }
-  ```
+```
 ## Retrieve all IP pools an IP address belongs to
 
 **This endpoint allows you to see which IP pools a particular IP address has been added to.**
@@ -2622,7 +2622,7 @@ A single IP address or a range of IP addresses may be dedicated to an account in
   } catch (IOException ex) {
     throw ex;
   }
-  ```
+```
 <a name="mail"></a>
 # MAIL
 
@@ -2630,7 +2630,7 @@ A single IP address or a range of IP addresses may be dedicated to an account in
 
 **This endpoint allows you to generate a new batch ID. This batch ID can be associated with scheduled sends via the mail/send endpoint.**
 
-If you set the SMTPAPI header `batch_id`, it allows you to then associate multiple scheduled mail/send requests together with the same ID. Then at anytime up to 10 minutes before the schedule date, you can cancel all of the mail/send requests that have this batch ID by calling the Cancel Scheduled Send endpoint.
+If you set the SMTPAPI header, `batch_id`, it allows you to then associate multiple scheduled mail/send requests together with the same ID. Then at any time up to 10 minutes before the scheduled date, you can cancel all of the mail/send requests that have this batch ID by calling the Cancel Scheduled Send endpoint.
 
 More Information:
 
@@ -2652,12 +2652,12 @@ More Information:
   } catch (IOException ex) {
     throw ex;
   }
-  ```
+```
 ## Validate batch ID
 
 **This endpoint allows you to validate a batch ID.**
 
-If you set the SMTPAPI header `batch_id`, it allows you to then associate multiple scheduled mail/send requests together with the same ID. Then at anytime up to 10 minutes before the schedule date, you can cancel all of the mail/send requests that have this batch ID by calling the Cancel Scheduled Send endpoint.
+If you set the SMTPAPI header, `batch_id`, it allows you to then associate multiple scheduled mail/send requests together with the same ID. Then at any time up to 10 minutes before the scheduled date, you can cancel all of the mail/send requests that have this batch ID by calling the Cancel Scheduled Send endpoint.
 
 More Information:
 
@@ -2679,10 +2679,10 @@ More Information:
   } catch (IOException ex) {
     throw ex;
   }
-  ```
+```
 ## v3 Mail Send
 
-This endpoint allows you to send email over Twilio SendGrid's v3 Web API, the most recent version of our API. If you are looking for documentation about the v2 Mail Send endpoint, please see our [v2 API Reference](https://sendgrid.com/docs/API_Reference/Web_API/mail.html).
+This endpoint allows you to send an email over Twilio SendGrid's v3 Web API, the most recent version of our API. If you are looking for documentation about the v2 Mail Send endpoint, please see our [v2 API Reference](https://sendgrid.com/docs/API_Reference/Web_API/mail.html).
 
 * Top level parameters are referred to as "global".
 * Individual fields within the personalizations array will override any other global, or message level, parameters that are defined outside of personalizations.
@@ -2693,7 +2693,7 @@ For more detailed information about how to use the v3 Mail Send endpoint, please
 
 ### POST /mail/send
 
-This endpoint has a helper, check it out [here](https://github.com/sendgrid/sendgrid-java/blob/master/src/main/java/com/sendgrid/helpers/README.md).
+This endpoint has a helper, check it out [here](src/main/java/com/sendgrid/helpers/README.md).
 
 ```java
   try {
@@ -2701,7 +2701,7 @@ This endpoint has a helper, check it out [here](https://github.com/sendgrid/send
     Request request = new Request();
     request.setMethod(Method.POST);
     request.setEndpoint("mail/send");
-    request.setBody("{\"custom_args\":{\"New Argument 1\":\"New Value 1\",\"activationAttempt\":\"1\",\"customerAccountNumber\":\")[CUSTOMER ACCOUNT NUMBER GOES HERE]\"},\"from\":{\"email\":\"sam.smith@example.com\",\"name\":\"Sam Smith\"},\"attachments\":[{\"name\":\"file1\",\"filename\":\"file1.jpg\",\"content\":\"[BASE64 encoded content block here]\",\"disposition\":\"inline\",\"content_id\":\"ii_139db99fdb5c3704\",\"type\":\"jpg\"}],\"personalizations\":[{\"to\":[{\"email\":\"john.doe@example.com\",\"name\":\"John Doe\"}],\"cc\":[{\"email\":\"jane.doe@example.com\",\"name\":\"Jane Doe\"}],\"bcc\":[{\"email\":\"sam.doe@example.com\",\"name\":\"Sam Doe\"}],\"custom_args\":{\"New Argument 1\":\"New Value 1\",\"activationAttempt\":\"1\",\"customerAccountNumber\":\"[CUSTOMER ACCOUNT NUMBER GOES HERE]\"},\"headers\":{\"X-Accept-Language\":\"en\",\"X-Mailer\":\"MyApp\"},\"send_at\":1409348513,\"substitutions\":{\"type\":\"object\",\"id\":\"substitutions\"},\"subject\":\"Hello, World!\"}],\"subject\":\"Hello, World!\",\"ip_pool_name\":\"[YOUR POOL NAME GOES HERE]\",\"content\":[{\"type\":\"text/html\",\"value\":\"<html><p>Hello, world!</p><img src=[CID GOES HERE]></img></html>\"}],\"headers\":{},\"asm\":{\"groups_to_display\":[1,2,3],\"group_id\":1},\"batch_id\":\"[YOUR BATCH ID GOES HERE]\",\"tracking_settings\":{\"subscription_tracking\":{\"text\":\"If you would like to unsubscribe and stop receiving these emails <% click here %>.\",\"enable\":true,\"html\":\"If you would like to unsubscribe and stop receiving these emails <% clickhere %>.\",\"substitution_tag\":\"<%click here%>\"},\"open_tracking\":{\"enable\":true,\"substitution_tag\":\"%opentrack\"},\"click_tracking\":{\"enable\":true,\"enable_text\":true},\"ganalytics\":{\"utm_campaign\":\"[NAME OF YOUR REFERRER SOURCE]\",\"enable\":true,\"utm_name\":\"[NAME OF YOUR CAMPAIGN]\",\"utm_term\":\"[IDENTIFY PAID KEYWORDS HERE]\",\"utm_content\":\"[USE THIS SPACE TO DIFFERENTIATE YOUR EMAIL FROM ADS]\",\"utm_medium\":\"[NAME OF YOUR MARKETING MEDIUM e.g. email]\"}},\"mail_settings\":{\"footer\":{\"text\":\"Thanks,/n The Twilio SendGrid Team\",\"enable\":true,\"html\":\"<p>Thanks</br>The Twilio SendGrid Team</p>\"},\"spam_check\":{\"threshold\":3,\"post_to_url\":\"http://example.com/compliance\",\"enable\":true},\"bypass_list_management\":{\"enable\":true},\"sandbox_mode\":{\"enable\":false},\"bcc\":{\"enable\":true,\"email\":\"ben.doe@example.com\"}},\"reply_to\":{\"email\":\"sam.smith@example.com\",\"name\":\"Sam Smith\"},\"sections\":{\"section\":{\":sectionName2\":\"section 2 text\",\":sectionName1\":\"section 1 text\"}},\"template_id\":\"[YOUR TEMPLATE ID GOES HERE]\",\"categories\":[\"category1\",\"category2\"],\"send_at\":1409348513}";
+    request.setBody("{\"custom_args\":{\"New Argument 1\":\"New Value 1\",\"activationAttempt\":\"1\",\"customerAccountNumber\":\")[CUSTOMER ACCOUNT NUMBER GOES HERE]\"},\"from\":{\"email\":\"sam.smith@example.com\",\"name\":\"Sam Smith\"},\"attachments\":[{\"name\":\"file1\",\"filename\":\"file1.jpg\",\"content\":\"[BASE64 encoded content block here]\",\"disposition\":\"inline\",\"content_id\":\"ii_139db99fdb5c3704\",\"type\":\"jpg\"}],\"personalizations\":[{\"to\":[{\"email\":\"john.doe@example.com\",\"name\":\"John Doe\"}],\"cc\":[{\"email\":\"jane.doe@example.com\",\"name\":\"Jane Doe\"}],\"bcc\":[{\"email\":\"sam.doe@example.com\",\"name\":\"Sam Doe\"}],\"custom_args\":{\"New Argument 1\":\"New Value 1\",\"activationAttempt\":\"1\",\"customerAccountNumber\":\"[CUSTOMER ACCOUNT NUMBER GOES HERE]\"},\"headers\":{\"X-Accept-Language\":\"en\",\"X-Mailer\":\"MyApp\"},\"send_at\":1409348513,\"substitutions\":{\"type\":\"object\",\"id\":\"substitutions\"},\"subject\":\"Hello, World!\"}],\"subject\":\"Hello, World!\",\"ip_pool_name\":\"[YOUR POOL NAME GOES HERE]\",\"content\":[{\"type\":\"text/html\",\"value\":\"<html><p>Hello, world!</p><img src=[CID GOES HERE]></img></html>\"}],\"headers\":{},\"asm\":{\"groups_to_display\":[1,2,3],\"group_id\":1},\"batch_id\":\"[YOUR BATCH ID GOES HERE]\",\"tracking_settings\":{\"subscription_tracking\":{\"text\":\"If you would like to unsubscribe and stop receiving these emails <% click here %>.\",\"enable\":true,\"html\":\"If you would like to unsubscribe and stop receiving these emails <% clickhere %>.\",\"substitution_tag\":\"<%click here%>\"},\"open_tracking\":{\"enable\":true,\"substitution_tag\":\"%opentrack\"},\"click_tracking\":{\"enable\":true,\"enable_text\":true},\"ganalytics\":{\"utm_campaign\":\"[NAME OF YOUR REFERRER SOURCE]\",\"enable\":true,\"utm_name\":\"[NAME OF YOUR CAMPAIGN]\",\"utm_term\":\"[IDENTIFY PAID KEYWORDS HERE]\",\"utm_content\":\"[USE THIS SPACE TO DIFFERENTIATE YOUR EMAIL FROM ADS]\",\"utm_medium\":\"[NAME OF YOUR MARKETING MEDIUM e.g. email]\"}},\"mail_settings\":{\"footer\":{\"text\":\"Thanks,/n The Twilio SendGrid Team\",\"enable\":true,\"html\":\"<p>Thanks</br>The Twilio SendGrid Team</p>\"},\"spam_check\":{\"threshold\":3,\"post_to_url\":\"http://example.com/compliance\",\"enable\":true},\"bypass_list_management\":{\"enable\":true},\"sandbox_mode\":{\"enable\":false},\"bcc\":{\"enable\":true,\"email\":\"ben.doe@example.com\"}},\"reply_to\":{\"email\":\"sam.smith@example.com\",\"name\":\"Sam Smith\"},\"sections\":{\"section\":{\":sectionName2\":\"section 2 text\",\":sectionName1\":\"section 1 text\"}},\"template_id\":\"[YOUR TEMPLATE ID GOES HERE]\",\"categories\":[\"category1\",\"category2\"],\"send_at\":1409348513}");
     Response response = sg.api(request);
     System.out.println(response.getStatusCode());
     System.out.println(response.getBody());
@@ -2709,7 +2709,7 @@ This endpoint has a helper, check it out [here](https://github.com/sendgrid/send
   } catch (IOException ex) {
     throw ex;
   }
-  ```
+```
 <a name="mail-settings"></a>
 # MAIL SETTINGS
 
@@ -2737,7 +2737,7 @@ Mail settings allow you to tell Twilio SendGrid specific things to do to every e
   } catch (IOException ex) {
     throw ex;
   }
-  ```
+```
 ## Update address whitelist mail settings
 
 **This endpoint allows you to update your current email address whitelist settings.**
@@ -2763,7 +2763,7 @@ Mail settings allow you to tell Twilio SendGrid specific things to do to every e
   } catch (IOException ex) {
     throw ex;
   }
-  ```
+```
 ## Retrieve address whitelist mail settings
 
 **This endpoint allows you to retrieve your current email address whitelist settings.**
@@ -2788,12 +2788,12 @@ Mail settings allow you to tell Twilio SendGrid specific things to do to every e
   } catch (IOException ex) {
     throw ex;
   }
-  ```
+```
 ## Update BCC mail settings
 
 **This endpoint allows you to update your current BCC mail settings.**
 
-When the BCC mail setting is enabled, Twilio SendGrid will automatically send a blind carbon copy (BCC) to an address for every email sent without adding that address to the header. Please note that only one email address may be entered in this field, if you wish to distribute BCCs to multiple addresses you will need to create a distribution group or use forwarding rules.
+When the BCC mail setting is enabled, Twilio SendGrid will automatically send a blind carbon copy (BCC) to an address for every email sent without adding that address to the header. Please note that only one email address may be entered in this field if you wish to distribute BCCs to multiple addresses you will need to create a distribution group or use forwarding rules.
 
 Mail settings allow you to tell Twilio SendGrid specific things to do to every email that you send to your recipients over Twilio SendGrid's [Web API](https://sendgrid.com/docs/API_Reference/Web_API/mail.html) or [SMTP Relay](https://sendgrid.com/docs/API_Reference/SMTP_API/index.html).
 
@@ -2814,12 +2814,12 @@ Mail settings allow you to tell Twilio SendGrid specific things to do to every e
   } catch (IOException ex) {
     throw ex;
   }
-  ```
+```
 ## Retrieve all BCC mail settings
 
 **This endpoint allows you to retrieve your current BCC mail settings.**
 
-When the BCC mail setting is enabled, Twilio SendGrid will automatically send a blind carbon copy (BCC) to an address for every email sent without adding that address to the header. Please note that only one email address may be entered in this field, if you wish to distribute BCCs to multiple addresses you will need to create a distribution group or use forwarding rules.
+When the BCC mail setting is enabled, Twilio SendGrid will automatically send a blind carbon copy (BCC) to an address for every email sent without adding that address to the header. Please note that only one email address may be entered in this field if you wish to distribute BCCs to multiple addresses you will need to create a distribution group or use forwarding rules.
 
 Mail settings allow you to tell Twilio SendGrid specific things to do to every email that you send to your recipients over Twilio SendGrid's [Web API](https://sendgrid.com/docs/API_Reference/Web_API/mail.html) or [SMTP Relay](https://sendgrid.com/docs/API_Reference/SMTP_API/index.html).
 
@@ -2839,7 +2839,7 @@ Mail settings allow you to tell Twilio SendGrid specific things to do to every e
   } catch (IOException ex) {
     throw ex;
   }
-  ```
+```
 ## Update bounce purge mail settings
 
 **This endpoint allows you to update your current bounce purge settings.**
@@ -2865,7 +2865,7 @@ Mail settings allow you to tell Twilio SendGrid specific things to do to every e
   } catch (IOException ex) {
     throw ex;
   }
-  ```
+```
 ## Retrieve bounce purge mail settings
 
 **This endpoint allows you to retrieve your current bounce purge settings.**
@@ -2890,7 +2890,7 @@ Mail settings allow you to tell Twilio SendGrid specific things to do to every e
   } catch (IOException ex) {
     throw ex;
   }
-  ```
+```
 ## Update footer mail settings
 
 **This endpoint allows you to update your current Footer mail settings.**
@@ -2916,7 +2916,7 @@ Mail settings allow you to tell Twilio SendGrid specific things to do to every e
   } catch (IOException ex) {
     throw ex;
   }
-  ```
+```
 ## Retrieve footer mail settings
 
 **This endpoint allows you to retrieve your current Footer mail settings.**
@@ -2941,7 +2941,7 @@ Mail settings allow you to tell Twilio SendGrid specific things to do to every e
   } catch (IOException ex) {
     throw ex;
   }
-  ```
+```
 ## Update forward bounce mail settings
 
 **This endpoint allows you to update your current bounce forwarding mail settings.**
@@ -2967,7 +2967,7 @@ Mail settings allow you to tell Twilio SendGrid specific things to do to every e
   } catch (IOException ex) {
     throw ex;
   }
-  ```
+```
 ## Retrieve forward bounce mail settings
 
 **This endpoint allows you to retrieve your current bounce forwarding mail settings.**
@@ -2992,7 +2992,7 @@ Mail settings allow you to tell Twilio SendGrid specific things to do to every e
   } catch (IOException ex) {
     throw ex;
   }
-  ```
+```
 ## Update forward spam mail settings
 
 **This endpoint allows you to update your current Forward Spam mail settings.**
@@ -3018,7 +3018,7 @@ Mail settings allow you to tell Twilio SendGrid specific things to do to every e
   } catch (IOException ex) {
     throw ex;
   }
-  ```
+```
 ## Retrieve forward spam mail settings
 
 **This endpoint allows you to retrieve your current Forward Spam mail settings.**
@@ -3043,7 +3043,7 @@ Mail settings allow you to tell Twilio SendGrid specific things to do to every e
   } catch (IOException ex) {
     throw ex;
   }
-  ```
+```
 ## Update plain content mail settings
 
 **This endpoint allows you to update your current Plain Content mail settings.**
@@ -3069,7 +3069,7 @@ Mail settings allow you to tell Twilio SendGrid specific things to do to every e
   } catch (IOException ex) {
     throw ex;
   }
-  ```
+```
 ## Retrieve plain content mail settings
 
 **This endpoint allows you to retrieve your current Plain Content mail settings.**
@@ -3094,7 +3094,7 @@ Mail settings allow you to tell Twilio SendGrid specific things to do to every e
   } catch (IOException ex) {
     throw ex;
   }
-  ```
+```
 ## Update spam check mail settings
 
 **This endpoint allows you to update your current spam checker mail settings.**
@@ -3120,7 +3120,7 @@ Mail settings allow you to tell Twilio SendGrid specific things to do to every e
   } catch (IOException ex) {
     throw ex;
   }
-  ```
+```
 ## Retrieve spam check mail settings
 
 **This endpoint allows you to retrieve your current Spam Checker mail settings.**
@@ -3145,7 +3145,7 @@ Mail settings allow you to tell Twilio SendGrid specific things to do to every e
   } catch (IOException ex) {
     throw ex;
   }
-  ```
+```
 ## Update template mail settings
 
 **This endpoint allows you to update your current legacy email template settings.**
@@ -3173,7 +3173,7 @@ Mail settings allow you to tell Twilio SendGrid specific things to do to every e
   } catch (IOException ex) {
     throw ex;
   }
-  ```
+```
 ## Retrieve legacy template mail settings
 
 **This endpoint allows you to retrieve your current legacy email template settings.**
@@ -3200,7 +3200,7 @@ Mail settings allow you to tell Twilio SendGrid specific things to do to every e
   } catch (IOException ex) {
     throw ex;
   }
-  ```
+```
 <a name="mailbox-providers"></a>
 # MAILBOX PROVIDERS
 
@@ -3234,7 +3234,7 @@ Advanced Stats provide a more in-depth view of your email statistics and the act
   } catch (IOException ex) {
     throw ex;
   }
-  ```
+```
 <a name="partner-settings"></a>
 # PARTNER SETTINGS
 
@@ -3262,7 +3262,7 @@ Our partner settings allow you to integrate your Twilio SendGrid account with ou
   } catch (IOException ex) {
     throw ex;
   }
-  ```
+```
 ## Updates New Relic partner settings.
 
 **This endpoint allows you to update or change your New Relic partner settings.**
@@ -3288,7 +3288,7 @@ By integrating with New Relic, you can send your Twilio SendGrid email statistic
   } catch (IOException ex) {
     throw ex;
   }
-  ```
+```
 ## Returns all New Relic partner settings.
 
 **This endpoint allows you to retrieve your current New Relic partner settings.**
@@ -3313,7 +3313,7 @@ By integrating with New Relic, you can send your Twilio SendGrid email statistic
   } catch (IOException ex) {
     throw ex;
   }
-  ```
+```
 <a name="scopes"></a>
 # SCOPES
 
@@ -3339,7 +3339,7 @@ API Keys can be used to authenticate the use of [Twilio SendGrid's v3 Web API](h
   } catch (IOException ex) {
     throw ex;
   }
-  ```
+```
 <a name="senders"></a>
 # SENDERS
 
@@ -3349,7 +3349,7 @@ API Keys can be used to authenticate the use of [Twilio SendGrid's v3 Web API](h
 
 *You may create up to 100 unique sender identities.*
 
-Sender Identities are required to be verified before use. If your domain has been authorized, it will auto verify on creation. Otherwise an email will be sent to the `from.email`.
+Sender Identities are required to be verified before use. If your domain has been authorized, it will auto verify on creation. Otherwise, an email will be sent to the `from.email`.
 
 ### POST /senders
 
@@ -3360,7 +3360,7 @@ Sender Identities are required to be verified before use. If your domain has bee
     Request request = new Request();
     request.setMethod(Method.POST);
     request.setEndpoint("senders");
-    request.setBody("{\"city\":\"Denver\",\"from\":{\"email\":\"from@example.com\",\"name\":\"Example) INC\"},\"zip\":\"80202\",\"country\":\"United States\",\"state\":\"Colorado\",\"address_2\":\"Apt. 456\",\"address\":\"123 Elm St.\",\"reply_to\":{\"email\":\"replyto@example.com\",\"name\":\"Example INC\"},\"nickname\":\"My Sender ID\"}";
+    request.setBody("{\"city\":\"Denver\",\"from\":{\"email\":\"from@example.com\",\"name\":\"Example) INC\"},\"zip\":\"80202\",\"country\":\"United States\",\"state\":\"Colorado\",\"address_2\":\"Apt. 456\",\"address\":\"123 Elm St.\",\"reply_to\":{\"email\":\"replyto@example.com\",\"name\":\"Example INC\"},\"nickname\":\"My Sender ID\"}");
     Response response = sg.api(request);
     System.out.println(response.getStatusCode());
     System.out.println(response.getBody());
@@ -3368,12 +3368,12 @@ Sender Identities are required to be verified before use. If your domain has bee
   } catch (IOException ex) {
     throw ex;
   }
-  ```
+```
 ## Get all Sender Identities
 
 **This endpoint allows you to retrieve a list of all sender identities that have been created for your account.**
 
-Sender Identities are required to be verified before use. If your domain has been authorized, it will auto verify on creation. Otherwise an email will be sent to the `from.email`.
+Sender Identities are required to be verified before use. If your domain has been authorized, it will auto verify on creation. Otherwise, an email will be sent to the `from.email`.
 
 ### GET /senders
 
@@ -3391,12 +3391,12 @@ Sender Identities are required to be verified before use. If your domain has bee
   } catch (IOException ex) {
     throw ex;
   }
-  ```
+```
 ## Update a Sender Identity
 
 **This endpoint allows you to update a sender identity.**
 
-Updates to `from.email` require re-verification. If your domain has been authorized, it will auto verify on creation. Otherwise an email will be sent to the `from.email`.
+Updates to `from.email` require re-verification. If your domain has been authorized, it will auto verify on creation. Otherwise, an email will be sent to the `from.email`.
 
 Partial updates are allowed, but fields that are marked as "required" in the POST (create) endpoint must not be nil if that field is included in the PATCH request.
 
@@ -3409,7 +3409,7 @@ Partial updates are allowed, but fields that are marked as "required" in the POS
     Request request = new Request();
     request.setMethod(Method.PATCH);
     request.setEndpoint("senders/{sender_id}");
-    request.setBody("{\"city\":\"Denver\",\"from\":{\"email\":\"from@example.com\",\"name\":\"Example) INC\"},\"zip\":\"80202\",\"country\":\"United States\",\"state\":\"Colorado\",\"address_2\":\"Apt. 456\",\"address\":\"123 Elm St.\",\"reply_to\":{\"email\":\"replyto@example.com\",\"name\":\"Example INC\"},\"nickname\":\"My Sender ID\"}";
+    request.setBody("{\"city\":\"Denver\",\"from\":{\"email\":\"from@example.com\",\"name\":\"Example) INC\"},\"zip\":\"80202\",\"country\":\"United States\",\"state\":\"Colorado\",\"address_2\":\"Apt. 456\",\"address\":\"123 Elm St.\",\"reply_to\":{\"email\":\"replyto@example.com\",\"name\":\"Example INC\"},\"nickname\":\"My Sender ID\"}");
     Response response = sg.api(request);
     System.out.println(response.getStatusCode());
     System.out.println(response.getBody());
@@ -3417,12 +3417,12 @@ Partial updates are allowed, but fields that are marked as "required" in the POS
   } catch (IOException ex) {
     throw ex;
   }
-  ```
+```
 ## View a Sender Identity
 
 **This endpoint allows you to retrieve a specific sender identity.**
 
-Sender Identities are required to be verified before use. If your domain has been authorized, it will auto verify on creation. Otherwise an email will be sent to the `from.email`.
+Sender Identities are required to be verified before use. If your domain has been authorized, it will auto verify on creation. Otherwise, an email will be sent to the `from.email`.
 
 ### GET /senders/{sender_id}
 
@@ -3440,12 +3440,12 @@ Sender Identities are required to be verified before use. If your domain has bee
   } catch (IOException ex) {
     throw ex;
   }
-  ```
+```
 ## Delete a Sender Identity
 
 **This endpoint allows you to delete one of your sender identities.**
 
-Sender Identities are required to be verified before use. If your domain has been authorized, it will auto verify on creation. Otherwise an email will be sent to the `from.email`.
+Sender Identities are required to be verified before use. If your domain has been authorized, it will auto verify on creation. Otherwise, an email will be sent to the `from.email`.
 
 ### DELETE /senders/{sender_id}
 
@@ -3463,12 +3463,12 @@ Sender Identities are required to be verified before use. If your domain has bee
   } catch (IOException ex) {
     throw ex;
   }
-  ```
+```
 ## Resend Sender Identity Verification
 
 **This endpoint allows you to resend a sender identity verification email.**
 
-Sender Identities are required to be verified before use. If your domain has been authorized, it will auto verify on creation. Otherwise an email will be sent to the `from.email`.
+Sender Identities are required to be verified before use. If your domain has been authorized, it will auto verify on creation. Otherwise, an email will be sent to the `from.email`.
 
 ### POST /senders/{sender_id}/resend_verification
 
@@ -3486,7 +3486,7 @@ Sender Identities are required to be verified before use. If your domain has bee
   } catch (IOException ex) {
     throw ex;
   }
-  ```
+```
 <a name="sender-authentication"></a>
 # SENDER AUTHENTICATION
 
@@ -3511,7 +3511,7 @@ For more information on domain authentication, please see our [User Guide](https
     Request request = new Request();
     request.setMethod(Method.POST);
     request.setEndpoint("whitelabel/domains");
-    request.setBody("{\"automatic)_security\":false,\"username\":\"john@example.com\",\"domain\":\"example.com\",\"default\":true,\"custom_spf\":true,\"ips\":[\"192.168.1.1\",\"192.168.1.2\"],\"subdomain\":\"news\"}";
+    request.setBody("{\"automatic)_security\":false,\"username\":\"john@example.com\",\"domain\":\"example.com\",\"default\":true,\"custom_spf\":true,\"ips\":[\"192.168.1.1\",\"192.168.1.2\"],\"subdomain\":\"news\"}");
     Response response = sg.api(request);
     System.out.println(response.getStatusCode());
     System.out.println(response.getBody());
@@ -3785,7 +3785,7 @@ For more information on domain authentication, please see our [User Guide](https
     throw ex;
   }
   ```
-## Remove an IP from a domain authenticaiton.
+## Remove an IP from a domain authentication.
 
 **This endpoint allows you to remove a domain's IP address from that domain's authentication.**
 
@@ -4288,7 +4288,7 @@ Parent accounts will see aggregated stats for their account and all subuser acco
   } catch (IOException ex) {
     throw ex;
   }
-  ```
+```
 <a name="subusers"></a>
 # SUBUSERS
 
@@ -4310,7 +4310,7 @@ For more information about Subusers:
     Request request = new Request();
     request.setMethod(Method.POST);
     request.setEndpoint("subusers");
-    request.setBody("{\"username\":\"John@example.com\",\"ips\":[\"1.1.1.1\",\"2.2.2.2\"],\"password\":\"johns_password\",\"email\)":\"John@example.com\"}";
+    request.setBody("{\"username\":\"John@example.com\",\"ips\":[\"1.1.1.1\",\"2.2.2.2\"],\"password\":\"johns_password\",\"email\)":\"John@example.com\"}");
     Response response = sg.api(request);
     System.out.println(response.getStatusCode());
     System.out.println(response.getBody());
@@ -4318,7 +4318,7 @@ For more information about Subusers:
   } catch (IOException ex) {
     throw ex;
   }
-  ```
+```
 ## List all Subusers
 
 This endpoint allows you to retrieve a list of all of your subusers. You can choose to retrieve specific subusers as well as limit the results that come back from the API.
@@ -4347,10 +4347,10 @@ For more information about Subusers:
   } catch (IOException ex) {
     throw ex;
   }
-  ```
+```
 ## Retrieve Subuser Reputations
 
-Subuser sender reputations give a good idea how well a sender is doing with regards to how recipients and recipient servers react to the mail that is being received. When a bounce, spam report, or other negative action happens on a sent email, it will effect your sender rating.
+Subuser sender reputations give a good idea how well a sender is doing with regards to how recipients and recipient servers react to the mail that is being received. When a bounce, spam report, or other negative action happens on a sent email, it will affect your sender rating.
 
 This endpoint allows you to request the reputations for your subusers.
 
@@ -4371,7 +4371,7 @@ This endpoint allows you to request the reputations for your subusers.
   } catch (IOException ex) {
     throw ex;
   }
-  ```
+```
 ## Retrieve email statistics for your subusers.
 
 **This endpoint allows you to retrieve the email statistics for the given subusers.**
@@ -4404,7 +4404,7 @@ For more information, see our [User Guide](https://sendgrid.com/docs/User_Guide/
   } catch (IOException ex) {
     throw ex;
   }
-  ```
+```
 ## Retrieve monthly stats for all subusers
 
 **This endpoint allows you to retrieve the monthly email statistics for all subusers over the given date range.**
@@ -4438,7 +4438,7 @@ For more information, see our [User Guide](https://sendgrid.com/docs/User_Guide/
   } catch (IOException ex) {
     throw ex;
   }
-  ```
+```
 ##  Retrieve the totals for each email statistic metric for all subusers.
 
 **This endpoint allows you to retrieve the total sums of each email statistic metric for all subusers over the given date range.**
@@ -4471,7 +4471,7 @@ For more information, see our [User Guide](https://sendgrid.com/docs/User_Guide/
   } catch (IOException ex) {
     throw ex;
   }
-  ```
+```
 ## Enable/disable a subuser
 
 This endpoint allows you to enable or disable a subuser.
@@ -4498,7 +4498,7 @@ For more information about Subusers:
   } catch (IOException ex) {
     throw ex;
   }
-  ```
+```
 ## Delete a subuser
 
 This endpoint allows you to delete a subuser. This is a permanent action, once deleted a subuser cannot be retrieved.
@@ -4524,7 +4524,7 @@ For more information about Subusers:
   } catch (IOException ex) {
     throw ex;
   }
-  ```
+```
 ## Update IPs assigned to a subuser
 
 Each subuser should be assigned to an IP address, from which all of this subuser's mail will be sent. Often, this is the same IP as the parent account, but each subuser can have their own, or multiple, IP addresses as well.
@@ -4551,7 +4551,7 @@ More information:
   } catch (IOException ex) {
     throw ex;
   }
-  ```
+```
 ## Update Monitor Settings for a subuser
 
 Subuser monitor settings allow you to receive a sample of an outgoing message by a specific customer at a specific frequency of emails.
@@ -4573,7 +4573,7 @@ Subuser monitor settings allow you to receive a sample of an outgoing message by
   } catch (IOException ex) {
     throw ex;
   }
-  ```
+```
 ## Create monitor settings
 
 Subuser monitor settings allow you to receive a sample of an outgoing message by a specific customer at a specific frequency of emails.
@@ -4595,7 +4595,7 @@ Subuser monitor settings allow you to receive a sample of an outgoing message by
   } catch (IOException ex) {
     throw ex;
   }
-  ```
+```
 ## Retrieve monitor settings for a subuser
 
 Subuser monitor settings allow you to receive a sample of an outgoing message by a specific customer at a specific frequency of emails.
@@ -4616,7 +4616,7 @@ Subuser monitor settings allow you to receive a sample of an outgoing message by
   } catch (IOException ex) {
     throw ex;
   }
-  ```
+```
 ## Delete monitor settings
 
 Subuser monitor settings allow you to receive a sample of an outgoing message by a specific customer at a specific frequency of emails.
@@ -4637,7 +4637,7 @@ Subuser monitor settings allow you to receive a sample of an outgoing message by
   } catch (IOException ex) {
     throw ex;
   }
-  ```
+```
 ## Retrieve the monthly email statistics for a single subuser
 
 **This endpoint allows you to retrieve the monthly email statistics for a specific subuser.**
@@ -4670,7 +4670,7 @@ For more information, see our [User Guide](https://sendgrid.com/docs/User_Guide/
   } catch (IOException ex) {
     throw ex;
   }
-  ```
+```
 <a name="suppression"></a>
 # SUPPRESSION
 
@@ -4702,7 +4702,7 @@ For more information, please see our [User Guide](https://sendgrid.com/docs/User
   } catch (IOException ex) {
     throw ex;
   }
-  ```
+```
 ## Delete blocks
 
 **This endpoint allows you to delete all email addresses on your blocks list.**
@@ -4733,7 +4733,7 @@ For more information, please see our [User Guide](https://sendgrid.com/docs/User
   } catch (IOException ex) {
     throw ex;
   }
-  ```
+```
 ## Retrieve a specific block
 
 **This endpoint allows you to retrieve a specific email address from your blocks list.**
@@ -4758,7 +4758,7 @@ For more information, please see our [User Guide](https://sendgrid.com/docs/User
   } catch (IOException ex) {
     throw ex;
   }
-  ```
+```
 ## Delete a specific block
 
 **This endpoint allows you to delete a specific email address from your blocks list.**
@@ -4783,7 +4783,7 @@ For more information, please see our [User Guide](https://sendgrid.com/docs/User
   } catch (IOException ex) {
     throw ex;
   }
-  ```
+```
 ## Retrieve all bounces
 
 **This endpoint allows you to retrieve all of your bounces.**
@@ -4813,7 +4813,7 @@ For more information see:
   } catch (IOException ex) {
     throw ex;
   }
-  ```
+```
 ## Delete bounces
 
 **This endpoint allows you to delete all of your bounces. You can also use this endpoint to remove a specific email address from your bounce list.**
@@ -4845,7 +4845,7 @@ Note: the `delete_all` and `emails` parameters should be used independently of e
   } catch (IOException ex) {
     throw ex;
   }
-  ```
+```
 ## Retrieve a Bounce
 
 **This endpoint allows you to retrieve a specific bounce for a given email address.**
@@ -4874,12 +4874,12 @@ For more information see:
   } catch (IOException ex) {
     throw ex;
   }
-  ```
+```
 ## Delete a bounce
 
 **This endpoint allows you to remove an email address from your bounce list.**
 
-Bounces are messages that are returned to the server that sent it. This endpoint allows you to delete a single email addresses from your bounce list.
+Bounces are messages that are returned to the server that sent it. This endpoint allows you to delete a single email address from your bounce list.
 
 For more information see:
 
@@ -4904,12 +4904,12 @@ For more information see:
   } catch (IOException ex) {
     throw ex;
   }
-  ```
+```
 ## Retrieve all invalid emails
 
 **This endpoint allows you to retrieve a list of all invalid email addresses.**
 
-An invalid email occurs when you attempt to send email to an address that is formatted in a manner that does not meet internet email format standards or the email does not exist at the recipients mail server.
+An invalid email occurs when you attempt to send email to an address that is formatted in a manner that does not meet internet email format standards or the email does not exist at the recipient's mail server.
 
 Examples include addresses without the @ sign or addresses that include certain special characters and/or spaces. This response can come from our own server or the recipient mail server.
 
@@ -4935,7 +4935,7 @@ For more information, please see our [User Guide](https://sendgrid.com/docs/User
   } catch (IOException ex) {
     throw ex;
   }
-  ```
+```
 ## Delete invalid emails
 
 **This endpoint allows you to remove email addresses from your invalid email address list.**
@@ -4945,7 +4945,7 @@ There are two options for deleting invalid email addresses:
 1) You can delete all invalid email addresses by setting `delete_all` to true in the request body.
 2) You can delete some invalid email addresses by specifying certain addresses in an array in the request body.
 
-An invalid email occurs when you attempt to send email to an address that is formatted in a manner that does not meet internet email format standards or the email does not exist at the recipients mail server.
+An invalid email occurs when you attempt to send email to an address that is formatted in a manner that does not meet internet email format standards or the email does not exist at the recipient's mail server.
 
 Examples include addresses without the @ sign or addresses that include certain special characters and/or spaces. This response can come from our own server or the recipient mail server.
 
@@ -4968,12 +4968,12 @@ For more information, please see our [User Guide](https://sendgrid.com/docs/User
   } catch (IOException ex) {
     throw ex;
   }
-  ```
+```
 ## Retrieve a specific invalid email
 
 **This endpoint allows you to retrieve a specific invalid email addresses.**
 
-An invalid email occurs when you attempt to send email to an address that is formatted in a manner that does not meet internet email format standards or the email does not exist at the recipients mail server.
+An invalid email occurs when you attempt to send email to an address that is formatted in a manner that does not meet internet email format standards or the email does not exist at the recipient's mail server.
 
 Examples include addresses without the @ sign or addresses that include certain special characters and/or spaces. This response can come from our own server or the recipient mail server.
 
@@ -4995,12 +4995,12 @@ For more information, please see our [User Guide](https://sendgrid.com/docs/User
   } catch (IOException ex) {
     throw ex;
   }
-  ```
+```
 ## Delete a specific invalid email
 
 **This endpoint allows you to remove a specific email address from the invalid email address list.**
 
-An invalid email occurs when you attempt to send email to an address that is formatted in a manner that does not meet internet email format standards or the email does not exist at the recipients mail server.
+An invalid email occurs when you attempt to send email to an address that is formatted in a manner that does not meet internet email format standards or the email does not exist at the recipient's mail server.
 
 Examples include addresses without the @ sign or addresses that include certain special characters and/or spaces. This response can come from our own server or the recipient mail server.
 
@@ -5022,7 +5022,7 @@ For more information, please see our [User Guide](https://sendgrid.com/docs/User
   } catch (IOException ex) {
     throw ex;
   }
-  ```
+```
 ## Retrieve a specific spam report
 
 **This endpoint allows you to retrieve a specific spam report.**
@@ -5047,7 +5047,7 @@ For more information, please see our [User Guide](https://sendgrid.com/docs/User
   } catch (IOException ex) {
     throw ex;
   }
-  ```
+```
 ## Delete a specific spam report
 
 **This endpoint allows you to delete a specific spam report.**
@@ -5072,7 +5072,7 @@ For more information, please see our [User Guide](https://sendgrid.com/docs/User
   } catch (IOException ex) {
     throw ex;
   }
-  ```
+```
 ## Retrieve all spam reports
 
 **This endpoint allows you to retrieve all spam reports.**
@@ -5101,7 +5101,7 @@ For more information, please see our [User Guide](https://sendgrid.com/docs/User
   } catch (IOException ex) {
     throw ex;
   }
-  ```
+```
 ## Delete spam reports
 
 **This endpoint allows you to delete your spam reports.**
@@ -5132,10 +5132,10 @@ For more information, please see our [User Guide](https://sendgrid.com/docs/User
   } catch (IOException ex) {
     throw ex;
   }
-  ```
+```
 ## Retrieve all global suppressions
 
-**This endpoint allows you to retrieve a list of all email address that are globally suppressed.**
+**This endpoint allows you to retrieve a list of all email addresses that are globally suppressed.**
 
 A global suppression (or global unsubscribe) is an email address of a recipient who does not want to receive any of your messages. A globally suppressed recipient will be removed from any email you send. For more information, please see our [User Guide](https://sendgrid.com/docs/User_Guide/Suppressions/global_unsubscribes.html).
 
@@ -5159,7 +5159,7 @@ A global suppression (or global unsubscribe) is an email address of a recipient 
   } catch (IOException ex) {
     throw ex;
   }
-  ```
+```
 <a name="templates"></a>
 # TEMPLATES
 
@@ -5188,7 +5188,7 @@ Transactional templates are templates created specifically for transactional ema
   } catch (IOException ex) {
     throw ex;
   }
-  ```
+```
 ## Retrieve all transactional templates.
 
 **This endpoint allows you to retrieve all transactional templates.**
@@ -5206,6 +5206,7 @@ Transactional templates are templates created specifically for transactional ema
     Request request = new Request();
     request.setMethod(Method.GET);
     request.setEndpoint("templates");
+    request.addQueryParam("generations", "legacy,dynamic")
     Response response = sg.api(request);
     System.out.println(response.getStatusCode());
     System.out.println(response.getBody());
@@ -5213,7 +5214,7 @@ Transactional templates are templates created specifically for transactional ema
   } catch (IOException ex) {
     throw ex;
   }
-  ```
+```
 ## Edit a transactional template.
 
 **This endpoint allows you to edit a transactional template.**
@@ -5240,7 +5241,7 @@ Transactional templates are templates created specifically for transactional ema
   } catch (IOException ex) {
     throw ex;
   }
-  ```
+```
 ## Retrieve a single transactional template.
 
 **This endpoint allows you to retrieve a single transactional template.**
@@ -5266,7 +5267,7 @@ Transactional templates are templates created specifically for transactional ema
   } catch (IOException ex) {
     throw ex;
   }
-  ```
+```
 ## Delete a template.
 
 **This endpoint allows you to delete a transactional template.**
@@ -5292,7 +5293,7 @@ Transactional templates are templates created specifically for transactional ema
   } catch (IOException ex) {
     throw ex;
   }
-  ```
+```
 ## Create a new transactional template version.
 
 **This endpoint allows you to create a new version of a template.**
@@ -5311,7 +5312,7 @@ For more information about transactional templates, please see our [User Guide](
     Request request = new Request();
     request.setMethod(Method.POST);
     request.setEndpoint("templates/{template_id}/versions");
-    request.setBody("{\"name\":\"example_version_name\",\"html_content\":\"<%body%>\",\"plain_content\":\")<%body%>\",\"active\":1,\"template_id\":\"ddb96bbc-9b92-425e-8979-99464621b543\",\"subject\":\"<%subject%>\"}";
+    request.setBody("{\"name\":\"example_version_name\",\"html_content\":\"<%body%>\",\"plain_content\":\")<%body%>\",\"active\":1,\"template_id\":\"ddb96bbc-9b92-425e-8979-99464621b543\",\"subject\":\"<%subject%>\"}");
     Response response = sg.api(request);
     System.out.println(response.getStatusCode());
     System.out.println(response.getBody());
@@ -5319,7 +5320,7 @@ For more information about transactional templates, please see our [User Guide](
   } catch (IOException ex) {
     throw ex;
   }
-  ```
+```
 ## Edit a transactional template version.
 
 **This endpoint allows you to edit a version of one of your transactional templates.**
@@ -5343,7 +5344,7 @@ For more information about transactional templates, please see our [User Guide](
     Request request = new Request();
     request.setMethod(Method.PATCH);
     request.setEndpoint("templates/{template_id}/versions/{version_id}");
-    request.setBody("{\"active\":1,\"html_content\":\"<%body%>\",\"subject\":\"<%subject%>\",\"name\":\"updated_example)_name\",\"plain_content\":\"<%body%>\"}";
+    request.setBody("{\"active\":1,\"html_content\":\"<%body%>\",\"subject\":\"<%subject%>\",\"name\":\"updated_example)_name\",\"plain_content\":\"<%body%>\"}");
     Response response = sg.api(request);
     System.out.println(response.getStatusCode());
     System.out.println(response.getBody());
@@ -5351,7 +5352,7 @@ For more information about transactional templates, please see our [User Guide](
   } catch (IOException ex) {
     throw ex;
   }
-  ```
+```
 ## Retrieve a specific transactional template version.
 
 **This endpoint allows you to retrieve a specific version of a template.**
@@ -5382,7 +5383,7 @@ For more information about transactional templates, please see our [User Guide](
   } catch (IOException ex) {
     throw ex;
   }
-  ```
+```
 ## Delete a transactional template version.
 
 **This endpoint allows you to delete one of your transactional template versions.**
@@ -5413,7 +5414,7 @@ For more information about transactional templates, please see our [User Guide](
   } catch (IOException ex) {
     throw ex;
   }
-  ```
+```
 ## Activate a transactional template version.
 
 **This endpoint allows you to activate a version of one of your templates.**
@@ -5445,7 +5446,7 @@ For more information about transactional templates, please see our [User Guide](
   } catch (IOException ex) {
     throw ex;
   }
-  ```
+```
 <a name="tracking-settings"></a>
 # TRACKING SETTINGS
 
@@ -5475,7 +5476,7 @@ For more information about tracking, please see our [User Guide](https://sendgri
   } catch (IOException ex) {
     throw ex;
   }
-  ```
+```
 ## Update Click Tracking Settings
 
 **This endpoint allows you to change your current click tracking setting. You can enable, or disable, click tracking using this endpoint.**
@@ -5501,7 +5502,7 @@ For more information about tracking, please see our [User Guide](https://sendgri
   } catch (IOException ex) {
     throw ex;
   }
-  ```
+```
 ## Retrieve Click Track Settings
 
 **This endpoint allows you to retrieve your current click tracking setting.**
@@ -5526,7 +5527,7 @@ For more information about tracking, please see our [User Guide](https://sendgri
   } catch (IOException ex) {
     throw ex;
   }
-  ```
+```
 ## Update Google Analytics Settings
 
 **This endpoint allows you to update your current setting for Google Analytics.**
@@ -5548,7 +5549,7 @@ For more information about tracking, please see our [User Guide](https://sendgri
     Request request = new Request();
     request.setMethod(Method.PATCH);
     request.setEndpoint("tracking_settings/google_analytics");
-    request.setBody("{\"utm_campaign\":\"website\",\"utm_term\":\"\",\"utm_content\":\"\",\"enabled\":true,\"utm)_source\":\"sendgrid.com\",\"utm_medium\":\"email\"}";
+    request.setBody("{\"utm_campaign\":\"website\",\"utm_term\":\"\",\"utm_content\":\"\",\"enabled\":true,\"utm)_source\":\"sendgrid.com\",\"utm_medium\":\"email\"}");
     Response response = sg.api(request);
     System.out.println(response.getStatusCode());
     System.out.println(response.getBody());
@@ -5556,7 +5557,7 @@ For more information about tracking, please see our [User Guide](https://sendgri
   } catch (IOException ex) {
     throw ex;
   }
-  ```
+```
 ## Retrieve Google Analytics Settings
 
 **This endpoint allows you to retrieve your current setting for Google Analytics.**
@@ -5585,7 +5586,7 @@ For more information about tracking, please see our [User Guide](https://sendgri
   } catch (IOException ex) {
     throw ex;
   }
-  ```
+```
 ## Update Open Tracking Settings
 
 **This endpoint allows you to update your current settings for open tracking.**
@@ -5613,7 +5614,7 @@ For more information about tracking, please see our [User Guide](https://sendgri
   } catch (IOException ex) {
     throw ex;
   }
-  ```
+```
 ## Get Open Tracking Settings
 
 **This endpoint allows you to retrieve your current settings for open tracking.**
@@ -5640,7 +5641,7 @@ For more information about tracking, please see our [User Guide](https://sendgri
   } catch (IOException ex) {
     throw ex;
   }
-  ```
+```
 ## Update Subscription Tracking Settings
 
 **This endpoint allows you to update your current settings for subscription tracking.**
@@ -5660,7 +5661,7 @@ For more information about tracking, please see our [User Guide](https://sendgri
     Request request = new Request();
     request.setMethod(Method.PATCH);
     request.setEndpoint("tracking_settings/subscription");
-    request.setBody("{\"url\":\"url\",\"html_content\":\"html content\",\"enabled\":true,\"landing\":\"landing page) html\",\"replace\":\"replacement tag\",\"plain_content\":\"text content\"}";
+    request.setBody("{\"url\":\"url\",\"html_content\":\"html content\",\"enabled\":true,\"landing\":\"landing page) html\",\"replace\":\"replacement tag\",\"plain_content\":\"text content\"}");
     Response response = sg.api(request);
     System.out.println(response.getStatusCode());
     System.out.println(response.getBody());
@@ -5668,7 +5669,7 @@ For more information about tracking, please see our [User Guide](https://sendgri
   } catch (IOException ex) {
     throw ex;
   }
-  ```
+```
 ## Retrieve Subscription Tracking Settings
 
 **This endpoint allows you to retrieve your current settings for subscription tracking.**
@@ -5695,7 +5696,7 @@ For more information about tracking, please see our [User Guide](https://sendgri
   } catch (IOException ex) {
     throw ex;
   }
-  ```
+```
 <a name="user"></a>
 # USER
 
@@ -5727,7 +5728,7 @@ For more information about your user profile:
   } catch (IOException ex) {
     throw ex;
   }
-  ```
+```
 ## Retrieve your credit balance
 
 **This endpoint allows you to retrieve the current credit balance for your account.**
@@ -5750,7 +5751,7 @@ Your monthly credit allotment limits the number of emails you may send before in
   } catch (IOException ex) {
     throw ex;
   }
-  ```
+```
 ## Update your account email address
 
 **This endpoint allows you to update the email address currently on file for your account.**
@@ -5778,7 +5779,7 @@ For more information about your user profile:
   } catch (IOException ex) {
     throw ex;
   }
-  ```
+```
 ## Retrieve your account email address
 
 **This endpoint allows you to retrieve the email address currently on file for your account.**
@@ -5805,7 +5806,7 @@ For more information about your user profile:
   } catch (IOException ex) {
     throw ex;
   }
-  ```
+```
 ## Update your password
 
 **This endpoint allows you to update your password.**
@@ -5833,7 +5834,7 @@ For more information about your user profile:
   } catch (IOException ex) {
     throw ex;
   }
-  ```
+```
 ## Update a user's profile
 
 **This endpoint allows you to update your current profile details.**
@@ -5863,7 +5864,7 @@ It should be noted that any one or more of the parameters can be updated via the
   } catch (IOException ex) {
     throw ex;
   }
-  ```
+```
 ## Get a user's profile
 
 Keeping your user profile up to date is important. This will help Twilio SendGrid to verify who you are as well as contact you should we need to.
@@ -5888,7 +5889,7 @@ For more information about your user profile:
   } catch (IOException ex) {
     throw ex;
   }
-  ```
+```
 ## Cancel or pause a scheduled send
 
 **This endpoint allows you to cancel or pause an email that has been scheduled to be sent.**
@@ -5896,7 +5897,7 @@ For more information about your user profile:
 If the maximum number of cancellations/pauses are added, HTTP 400 will
 be returned.
 
-The Cancel Scheduled Sends feature allows the customer to cancel a scheduled send based on a Batch ID included in the SMTPAPI header.Scheduled sends cancelled less than 10 minutes before the scheduled time are not guaranteed to be cancelled.
+The Cancel Scheduled Sends feature allows the customer to cancel a scheduled send based on a Batch ID included in the SMTPAPI header.Scheduled sends canceled less than 10 minutes before the scheduled time are not guaranteed to be canceled.
 
 ### POST /user/scheduled_sends
 
@@ -5915,12 +5916,12 @@ The Cancel Scheduled Sends feature allows the customer to cancel a scheduled sen
   } catch (IOException ex) {
     throw ex;
   }
-  ```
+```
 ## Retrieve all scheduled sends
 
 **This endpoint allows you to retrieve all cancel/paused scheduled send information.**
 
-The Cancel Scheduled Sends feature allows the customer to cancel a scheduled send based on a Batch ID included in the SMTPAPI header.Scheduled sends cancelled less than 10 minutes before the scheduled time are not guaranteed to be cancelled.
+The Cancel Scheduled Sends feature allows the customer to cancel a scheduled send based on a Batch ID included in the SMTPAPI header.Scheduled sends canceled less than 10 minutes before the scheduled time are not guaranteed to be canceled.
 
 ### GET /user/scheduled_sends
 
@@ -5938,12 +5939,12 @@ The Cancel Scheduled Sends feature allows the customer to cancel a scheduled sen
   } catch (IOException ex) {
     throw ex;
   }
-  ```
+```
 ## Update user scheduled send information
 
 **This endpoint allows you to update the status of a scheduled send for the given `batch_id`.**
 
-The Cancel Scheduled Sends feature allows the customer to cancel a scheduled send based on a Batch ID included in the SMTPAPI header.Scheduled sends cancelled less than 10 minutes before the scheduled time are not guaranteed to be cancelled.
+The Cancel Scheduled Sends feature allows the customer to cancel a scheduled send based on a Batch ID included in the SMTPAPI header.Scheduled sends canceled less than 10 minutes before the scheduled time are not guaranteed to be canceled.
 
 ### PATCH /user/scheduled_sends/{batch_id}
 
@@ -5962,12 +5963,12 @@ The Cancel Scheduled Sends feature allows the customer to cancel a scheduled sen
   } catch (IOException ex) {
     throw ex;
   }
-  ```
+```
 ## Retrieve scheduled send
 
 **This endpoint allows you to retrieve the cancel/paused scheduled send information for a specific `batch_id`.**
 
-The Cancel Scheduled Sends feature allows the customer to cancel a scheduled send based on a Batch ID included in the SMTPAPI header.Scheduled sends cancelled less than 10 minutes before the scheduled time are not guaranteed to be cancelled.
+The Cancel Scheduled Sends feature allows the customer to cancel a scheduled send based on a Batch ID included in the SMTPAPI header.Scheduled sends canceled less than 10 minutes before the scheduled time are not guaranteed to be canceled.
 
 ### GET /user/scheduled_sends/{batch_id}
 
@@ -5985,7 +5986,7 @@ The Cancel Scheduled Sends feature allows the customer to cancel a scheduled sen
   } catch (IOException ex) {
     throw ex;
   }
-  ```
+```
 ## Delete a cancellation or pause of a scheduled send
 
 **This endpoint allows you to delete the cancellation/pause of a scheduled send.**
@@ -6008,7 +6009,7 @@ The Cancel Scheduled Sends feature allows the customer to cancel a scheduled sen
   } catch (IOException ex) {
     throw ex;
   }
-  ```
+```
 ## Update Enforced TLS settings
 
 **This endpoint allows you to update your current Enforced TLS settings.**
@@ -6034,7 +6035,7 @@ The Enforced TLS settings specify whether or not the recipient is required to su
   } catch (IOException ex) {
     throw ex;
   }
-  ```
+```
 ## Retrieve current Enforced TLS settings.
 
 **This endpoint allows you to retrieve your current Enforced TLS settings.**
@@ -6059,7 +6060,7 @@ The Enforced TLS settings specify whether or not the recipient is required to su
   } catch (IOException ex) {
     throw ex;
   }
-  ```
+```
 ## Update your username
 
 **This endpoint allows you to update the username for your account.**
@@ -6087,7 +6088,7 @@ For more information about your user profile:
   } catch (IOException ex) {
     throw ex;
   }
-  ```
+```
 ## Retrieve your username
 
 **This endpoint allows you to retrieve your current account username.**
@@ -6114,7 +6115,7 @@ For more information about your user profile:
   } catch (IOException ex) {
     throw ex;
   }
-  ```
+```
 ## Update Event Notification Settings
 
 **This endpoint allows you to update your current event webhook settings.**
@@ -6134,7 +6135,7 @@ Common uses of this data are to remove unsubscribes, react to spam reports, dete
     Request request = new Request();
     request.setMethod(Method.PATCH);
     request.setEndpoint("user/webhooks/event/settings");
-    request.setBody("{\"group_resubscribe\":true,\"delivered\":true,\"group_unsubscribe\":true,\"spam_report\":true,\"url\":\"url\)",\"enabled\":true,\"bounce\":true,\"deferred\":true,\"unsubscribe\":true,\"dropped\":true,\"open\":true,\"click\":true,\"processed\":true}";
+    request.setBody("{\"group_resubscribe\":true,\"delivered\":true,\"group_unsubscribe\":true,\"spam_report\":true,\"url\":\"url\)",\"enabled\":true,\"bounce\":true,\"deferred\":true,\"unsubscribe\":true,\"dropped\":true,\"open\":true,\"click\":true,\"processed\":true}");
     Response response = sg.api(request);
     System.out.println(response.getStatusCode());
     System.out.println(response.getBody());
@@ -6142,7 +6143,7 @@ Common uses of this data are to remove unsubscribes, react to spam reports, dete
   } catch (IOException ex) {
     throw ex;
   }
-  ```
+```
 ## Retrieve Event Webhook settings
 
 **This endpoint allows you to retrieve your current event webhook settings.**
@@ -6169,7 +6170,7 @@ Common uses of this data are to remove unsubscribes, react to spam reports, dete
   } catch (IOException ex) {
     throw ex;
   }
-  ```
+```
 ## Test Event Notification Settings
 
 **This endpoint allows you to test your event webhook by sending a fake event notification post to the provided URL.**
@@ -6195,7 +6196,7 @@ Common uses of this data are to remove unsubscribes, react to spam reports, dete
   } catch (IOException ex) {
     throw ex;
   }
-  ```
+```
 ## Create a parse setting
 
 **This endpoint allows you to create a new inbound parse setting.**
@@ -6211,7 +6212,7 @@ The inbound parse webhook allows you to have incoming emails parsed, extracting 
     Request request = new Request();
     request.setMethod(Method.POST);
     request.setEndpoint("user/webhooks/parse/settings");
-    request.setBody("{\"url\":\"http://email.myhosthame.com\",\"send_raw\":false,\"hostname\":\"myhostname.com\",\"spam)_check\":true}";
+    request.setBody("{\"url\":\"http://email.myhosthame.com\",\"send_raw\":false,\"hostname\":\"myhostname.com\",\"spam)_check\":true}");
     Response response = sg.api(request);
     System.out.println(response.getStatusCode());
     System.out.println(response.getBody());
@@ -6219,7 +6220,7 @@ The inbound parse webhook allows you to have incoming emails parsed, extracting 
   } catch (IOException ex) {
     throw ex;
   }
-  ```
+```
 ## Retrieve all parse settings
 
 **This endpoint allows you to retrieve all of your current inbound parse settings.**
@@ -6242,7 +6243,7 @@ The inbound parse webhook allows you to have incoming emails parsed, extracting 
   } catch (IOException ex) {
     throw ex;
   }
-  ```
+```
 ## Update a parse setting
 
 **This endpoint allows you to update a specific inbound parse setting.**
@@ -6266,7 +6267,7 @@ The inbound parse webhook allows you to have incoming emails parsed, extracting 
   } catch (IOException ex) {
     throw ex;
   }
-  ```
+```
 ## Retrieve a specific parse setting
 
 **This endpoint allows you to retrieve a specific inbound parse setting.**
@@ -6289,7 +6290,7 @@ The inbound parse webhook allows you to have incoming emails parsed, extracting 
   } catch (IOException ex) {
     throw ex;
   }
-  ```
+```
 ## Delete a parse setting
 
 **This endpoint allows you to delete a specific inbound parse setting.**
@@ -6312,7 +6313,7 @@ The inbound parse webhook allows you to have incoming emails parsed, extracting 
   } catch (IOException ex) {
     throw ex;
   }
-  ```
+```
 ## Retrieves Inbound Parse Webhook statistics.
 
 **This endpoint allows you to retrieve the statistics for your Parse Webhook usage.**
@@ -6342,4 +6343,4 @@ There are a number of pre-made integrations for the Twilio SendGrid Parse Webhoo
   } catch (IOException ex) {
     throw ex;
   }
-  ```
+```

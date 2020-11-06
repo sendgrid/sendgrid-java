@@ -7,13 +7,13 @@ install:
 	cp target/sendgrid-java-$(VERSION)-shaded.jar sendgrid-java.jar
 
 test:
-	mvn test
+	mvn test spotbugs:spotbugs checkstyle:check -Dcheckstyle.config.location=google_checks.xml
 
 test-integ: test
 
 version ?= latest
 test-docker:
-	curl -s https://raw.githubusercontent.com/sendgrid/sendgrid-oai/master/prism/prism.sh -o prism.sh
+	curl -s https://raw.githubusercontent.com/sendgrid/sendgrid-oai/HEAD/prism/prism.sh -o prism.sh
 	version=$(version) bash ./prism.sh
 
 clean:

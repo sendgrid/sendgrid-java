@@ -4,16 +4,8 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
-import java.util.regex.Pattern;
-import java.lang.IllegalArgumentException;
-
 /**
- * An object in which you may specify the content of your email. 
+ * An object in which you may specify the content of your email.
  */
 @JsonInclude(Include.NON_DEFAULT)
 public class Content {
@@ -44,7 +36,6 @@ public class Content {
   }
 
   public void setValue(String value) {
-    ContentVerifier.verifyContent(value);
     this.value = value;
   }
 
@@ -77,19 +68,5 @@ public class Content {
     } else if (!value.equals(other.value))
       return false;
     return true;
-  }
-}
-
-class ContentVerifier {
-  private static final List<Pattern> FORBIDDEN_PATTERNS = Collections.singletonList(
-          Pattern.compile(".*SG\\.[a-zA-Z0-9(-|_)]*\\.[a-zA-Z0-9(-|_)]*.*")
-  );
-
-  static void verifyContent(String content) {
-    for (Pattern pattern: FORBIDDEN_PATTERNS) {
-      if (pattern.matcher(content).matches()) {
-        throw new IllegalArgumentException("Found a Forbidden Pattern in the content of the email");
-      }
-    }
   }
 }
