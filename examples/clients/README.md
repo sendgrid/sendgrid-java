@@ -1,4 +1,4 @@
-![SendGrid Logo](https://uiux.s3.amazonaws.com/2016-logos/email-logo%402x.png)
+![SendGrid Logo](https://github.com/sendgrid/sendgrid-java/blob/main/twilio_sendgrid_logo.png)
 
 This folder contains various examples on using the CLIENTS endpoint of SendGrid with Java:
 
