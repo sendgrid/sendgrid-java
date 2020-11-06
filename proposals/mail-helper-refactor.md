@@ -12,7 +12,7 @@ public class SendGridExample {
   public static void main(String[] args) throws SendGridException {
     From from = new From("test@example.com", "Example User");
     To to = new To("test@example.com", "Example User");
-    Subject subject = new Subject("Sending with SendGrid is Fun");
+    Subject subject = new Subject("Sending with Twilio SendGrid is Fun");
     PlainTextContent plainTextContent = new PlainTextContent("and easy to do anywhere, even with Java");
     HtmlContent htmlContent = new HtmlContent("<strong>and easy to do anywhere, even with Java</strong>");
     SendGridMessage email = new SendGridMessage(from,
@@ -51,7 +51,7 @@ public class SendGridExample {
     tos.add(new To("test1@example.com", "Example User1"));
     tos.add(new To("test2@example.com", "Example User2"));
     tos.add(new To("test3@example.com", "Example User3"));
-    Subject subject = new Subject("Sending with SendGrid is Fun");
+    Subject subject = new Subject("Sending with Twilio SendGrid is Fun");
     PlainTextContent plainTextContent = new PlainTextContent("and easy to do anywhere, even with Java");
     HtmlContent htmlContent = new HtmlContent("<strong>and easy to do anywhere, even with Java</strong>");
     SendGridMessage email = new SendGridMessage(from,
@@ -140,7 +140,7 @@ public class SendGridExample {
   public static void main(String[] args) throws SendGridException {
     From from = new From("test@example.com", "Example User");
     To to = new To("test@example.com", "Example User");
-    Subject subject = new Subject("Sending with SendGrid is Fun");
+    Subject subject = new Subject("Sending with Twilio SendGrid is Fun");
     PlainTextContent plainTextContent = new PlainTextContent("and easy to do anywhere, even with Java");
     HtmlContent htmlContent = new HtmlContent("<strong>and easy to do anywhere, even with Java</strong>");
     SendGridMessage email = new SendGridMessage(from,
@@ -242,7 +242,7 @@ public class SendGridExample {
 
     email.setSubject("this subject overrides the Global Subject");
 
-    email.setGlobalSubject("Sending with SendGrid is Fun");
+    email.setGlobalSubject("Sending with Twilio SendGrid is Fun");
 
     email.addContent(MimeType.TEXT, "and easy to do anywhere, even with C#");
     email.addContent(MimeType.HTML, "<strong>and easy to do anywhere, even with C#</strong>");
@@ -362,7 +362,7 @@ public class SendGridExample {
   public static void main(String[] args) throws SendGridException {
     From from = new From("test@example.com", "Example User");
     To to = new To("test@example.com", "Example User");
-    Subject subject = new Subject("Sending with SendGrid is Fun");
+    Subject subject = new Subject("Sending with Twilio SendGrid is Fun");
     PlainTextContent plainTextContent = new PlainTextContent("and easy to do anywhere, even with Java");
     HtmlContent htmlContent = new HtmlContent("<strong>and easy to do anywhere, even with Java</strong>");
     SendGridMessage email = new SendGridMessage(from,
@@ -437,7 +437,7 @@ public class SendGridExample {
   public static void main(String[] args) throws SendGridException {
     From from = new From("test@example.com", "Example User");
     To to = new To("test@example.com", "Example User");
-    Subject subject = new Subject("Sending with SendGrid is Fun");
+    Subject subject = new Subject("Sending with Twilio SendGrid is Fun");
     PlainTextContent plainTextContent = new PlainTextContent("and easy to do anywhere, even with Java");
     HtmlContent htmlContent = new HtmlContent("<strong>and easy to do anywhere, even with Java</strong>");
     SendGridMessage email = new SendGridMessage(from,
