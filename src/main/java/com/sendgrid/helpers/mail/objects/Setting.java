@@ -1,12 +1,14 @@
-package com.sendgrid;
+package com.sendgrid.helpers.mail.objects;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-@JsonInclude(Include.NON_DEFAULT)
+@JsonInclude(Include.NON_NULL)
 public class Setting {
-  @JsonProperty("enable") private boolean enable;
+
+  @JsonProperty("enable")
+  private boolean enable;
 
   @JsonProperty("enable")
   public boolean getEnable() {
@@ -27,15 +29,19 @@ public class Setting {
 
   @Override
   public boolean equals(Object obj) {
-    if (this == obj)
+    if (this == obj) {
       return true;
-    if (obj == null)
+    }
+    if (obj == null) {
       return false;
-    if (getClass() != obj.getClass())
+    }
+    if (getClass() != obj.getClass()) {
       return false;
+    }
     Setting other = (Setting) obj;
-    if (enable != other.enable)
+    if (enable != other.enable) {
       return false;
+    }
     return true;
   }
 }
