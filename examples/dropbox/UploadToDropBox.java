@@ -9,6 +9,7 @@ import org.apache.commons.codec.binary.Base64;
 import java.io.ByteArrayInputStream;
 import java.io.InputStream;
 import java.nio.charset.Charset;
+
 /*
     Add Dropbox dependencies for compiling code
     Gradle : compile 'com.dropbox.core:dropbox-core-sdk:3.0.5'
@@ -31,10 +32,10 @@ public class UploadToDropBox {
         String path = "/path/to/folder";
 
         Attachments attachments = new Attachments.Builder(fileName, contentStream)
-                .withType(type)
-                .withContentId(contentId)
-                .withDisposition(dispositon)
-                .build();
+            .withType(type)
+            .withContentId(contentId)
+            .withDisposition(dispositon)
+            .build();
         String returnPath = uploadToDropbox(attachments, accessToken, path);
         System.out.println("Path: " + returnPath);
     }
@@ -44,20 +45,18 @@ public class UploadToDropBox {
      *
      * @param attachments attachment to be uploaded
      * @param accessToken user's Dropbox access token
-     * @param path path of the folder in which attachment needs to be added. Should not end with /
+     * @param path        path of the folder in which attachment needs to be added. Should not end with /
      * @return the full path to the uploaded file
      */
-    private static String uploadToDropbox(Attachments attachments, String accessToken, String path){
+    private static String uploadToDropbox(Attachments attachments, String accessToken, String path) {
         try {
             DbxRequestConfig config = DbxRequestConfig.newBuilder("sendgrid/0.1").build();
             DbxClientV2 client = new DbxClientV2(config, accessToken);
             FileMetadata uploadedFile = client.files().upload(String.format("%s/%s", path, attachments.getFilename()))
-                    .uploadAndFinish(new ByteArrayInputStream((Base64.decodeBase64(attachments.getContent()))));
+                .uploadAndFinish(new ByteArrayInputStream((Base64.decodeBase64(attachments.getContent()))));
             return uploadedFile.getPathDisplay();
-        }catch(Exception ex) {
+        } catch (Exception ex) {
             throw new RuntimeException("Error while uploading to Dropbox", ex);
         }
     }
-
 }
-
