@@ -1,9 +1,5 @@
 package accesssettings;
 
-/**
- * Created by deepap on 28/10/17.
- */
-
 import com.sendgrid.Method;
 import com.sendgrid.Request;
 import com.sendgrid.Response;
