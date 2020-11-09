@@ -7,20 +7,11 @@ import org.junit.Test;
 
 public class TestRequiredFilesExist {
 
-  // ./Docker or docker/Docker
+  // ./Dockerfile
   @Test
   public void checkDockerExists() {
-    boolean dockerExists = new File("./Dockerfile").exists() ||
-        new File("./docker/Dockerfile").exists();
-    assertTrue(dockerExists);
+    assertTrue(new File("./Dockerfile").exists());
   }
-
-  // // ./docker-compose.yml or ./docker/docker-compose.yml
-  // @Test public void checkDockerComposeExists() {
-  //     boolean dockerComposeExists = new File("./docker-compose.yml").exists() ||
-  //     new File("./docker/docker-compose.yml").exists();
-  //     assertTrue(dockerComposeExists);
-  // }
 
   // ./.env_sample
   @Test
@@ -98,11 +89,5 @@ public class TestRequiredFilesExist {
   @Test
   public void checkUsageGuideExists() {
     assertTrue(new File("./USAGE.md").exists());
-  }
-
-  // ./USE_CASES.md
-  @Test
-  public void checkUseCases() {
-    assertTrue(new File("./USE_CASES.md").exists());
   }
 }
