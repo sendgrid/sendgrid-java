@@ -1,19 +1,28 @@
 package com.sendgrid.helpers.mail.objects;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.sendgrid.BccSettings;
-import com.sendgrid.ClickTrackingSetting;
-import com.sendgrid.FooterSetting;
-import com.sendgrid.GoogleAnalyticsSetting;
-import com.sendgrid.OpenTrackingSetting;
-import com.sendgrid.SpamCheckSetting;
-import com.sendgrid.SubscriptionTrackingSetting;
+import com.sendgrid.helpers.mail.objects.BccSettings;
+import com.sendgrid.helpers.mail.objects.ClickTrackingSetting;
+import com.sendgrid.helpers.mail.objects.FooterSetting;
+import com.sendgrid.helpers.mail.objects.GoogleAnalyticsSetting;
+import com.sendgrid.helpers.mail.objects.OpenTrackingSetting;
+import com.sendgrid.helpers.mail.objects.SpamCheckSetting;
+import com.sendgrid.helpers.mail.objects.SubscriptionTrackingSetting;
 import org.junit.Assert;
 import org.junit.Test;
 
 public class SettingsSerializationTest {
 
 	private ObjectMapper mapper = new ObjectMapper();
+
+	@Test
+	public void testSettingSerialization() throws Exception {
+		Setting setting = new Setting();
+		setting.setEnable(false);
+
+		String json = mapper.writeValueAsString(setting);
+		Assert.assertEquals(json, "{\"enable\":false}");
+	}
 
 	@Test
 	public void testOpenTrackingSettingSerialization() throws Exception {

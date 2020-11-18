@@ -1,6 +1,6 @@
 package com.sendgrid.helpers;
 
-import com.sendgrid.Attachments;
+import com.sendgrid.helpers.mail.objects.Attachments;
 import org.apache.commons.codec.binary.Base64;
 import org.junit.Assert;
 import org.junit.Test;
@@ -18,18 +18,18 @@ public class AttachmentBuilderTest {
         String content = "This test checks if the builder works fine";
         InputStream contentStream = new ByteArrayInputStream(content.getBytes(Charset.forName("UTF-8")));
         String contentId = "someId";
-        String dispositon = "someDisposition";
+        String disposition = "someDisposition";
 
         Attachments attachments = new Attachments.Builder(fileName, contentStream)
                 .withType(type)
                 .withContentId(contentId)
-                .withDisposition(dispositon)
+                .withDisposition(disposition)
                 .build();
 
         Assert.assertEquals(attachments.getType(), type);
         Assert.assertEquals(attachments.getFilename(), fileName);
         Assert.assertEquals(attachments.getContentId(), contentId);
-        Assert.assertEquals(attachments.getDisposition(), dispositon);
+        Assert.assertEquals(attachments.getDisposition(), disposition);
         Assert.assertEquals(attachments.getContent(), Base64.encodeBase64String(content.getBytes(Charset.forName("UTF-8"))));
     }
 
