@@ -1,6 +1,20 @@
 # Change Log
 All notable changes to this project will be documented in this file.
 
+[2020-11-18] Version 4.7.0
+--------------------------
+**Library - Docs**
+- [PR #656](https://github.com/sendgrid/sendgrid-java/pull/656): Fix broken link in readme. Thanks to [@KakeJopulsky](https://github.com/KakeJopulsky)!
+- [PR #405](https://github.com/sendgrid/sendgrid-java/pull/405): Create use-cases directory. Thanks to [@jamietanna](https://github.com/jamietanna)!
+- [PR #418](https://github.com/sendgrid/sendgrid-java/pull/418): Fixes Javadoc errors in Attachments.java. Thanks to [@pacbac](https://github.com/pacbac)!
+- [PR #628](https://github.com/sendgrid/sendgrid-java/pull/628): Correct number of free emails. Thanks to [@twogood](https://github.com/twogood)!
+- [PR #304](https://github.com/sendgrid/sendgrid-java/pull/304): Save attachment to Dropbox. Thanks to [@deepapanwar](https://github.com/deepapanwar)!
+- [PR #357](https://github.com/sendgrid/sendgrid-java/pull/357): Fix code issues in examples/clients/clients.java. Thanks to [@pushkyn](https://github.com/pushkyn)!
+
+**Library - Feature**
+- [PR #292](https://github.com/sendgrid/sendgrid-java/pull/292): Add helper for get unassigned IPs. Thanks to [@pushkyn](https://github.com/pushkyn)!
+
+
 [2020-11-05] Version 4.6.8
 --------------------------
 **Library - Chore**
