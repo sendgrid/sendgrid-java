@@ -1,33 +1,16 @@
-import com.sendgrid.ASM;
-import com.sendgrid.Attachments;
-import com.sendgrid.BccSettings;
-import com.sendgrid.ClickTrackingSetting;
-import com.sendgrid.Client;
-import com.sendgrid.Content;
-import com.sendgrid.Email;
-import com.sendgrid.FooterSetting;
-import com.sendgrid.GoogleAnalyticsSetting;
-import com.sendgrid.Mail;
-import com.sendgrid.MailSettings;
 import com.sendgrid.Method;
-import com.sendgrid.OpenTrackingSetting;
-import com.sendgrid.Personalization;
 import com.sendgrid.Request;
 import com.sendgrid.Response;
 import com.sendgrid.SendGrid;
-import com.sendgrid.Setting;
-import com.sendgrid.SpamCheckSetting;
-import com.sendgrid.SubscriptionTrackingSetting;
-import com.sendgrid.TrackingSettings;
+import com.sendgrid.helpers.mail.Mail;
+import com.sendgrid.helpers.mail.objects.*;
 
 import java.io.IOException;
-import java.util.HashMap;
-import java.util.Map;
 
 public class Example {
 
   // Fully populated Mail object
-  public static Mail buildKitchenSink() throws IOException {
+  public static Mail buildKitchenSink() {
     Mail mail = new Mail();
 
     Email fromEmail = new Email();
@@ -35,7 +18,7 @@ public class Example {
     fromEmail.setEmail("test@example.com");
     mail.setFrom(fromEmail);
 
-    mail.setSubject("Hello World from the SendGrid Java Library");
+    mail.setSubject("Hello World from the Twilio SendGrid Java Library");
 
     Personalization personalization = new Personalization();
     Email to = new Email();
@@ -59,7 +42,7 @@ public class Example {
     bcc.setName("Example User");
     bcc.setEmail("test6@example.com");
     personalization.addBcc(bcc);
-    personalization.setSubject("Hello World from the Personalized SendGrid Java Library");
+    personalization.setSubject("Hello World from the Personalized Twilio SendGrid Java Library");
     personalization.addHeader("X-Test", "test");
     personalization.addHeader("X-Mock", "true");
     personalization.addSubstitution("%name%", "Example User");
@@ -91,7 +74,7 @@ public class Example {
     bcc2.setName("Example User");
     bcc2.setEmail("test6@example.com");
     personalization2.addBcc(bcc2);
-    personalization2.setSubject("Hello World from the Personalized SendGrid Java Library");
+    personalization2.setSubject("Hello World from the Personalized Twilio SendGrid Java Library");
     personalization2.addHeader("X-Test", "test");
     personalization2.addHeader("X-Mock", "true");
     personalization2.addSubstitution("%name%", "Example User");
@@ -143,7 +126,7 @@ public class Example {
 
     ASM asm = new ASM();
     asm.setGroupId(99);
-    asm.setGroupsToDisplay(new int[] {4,5,6,7,8});
+    asm.setGroupsToDisplay(new int[]{4, 5, 6, 7, 8});
     mail.setASM(asm);
 
     // This must be a valid [batch ID](https://sendgrid.com/docs/API_Reference/SMTP_API/scheduling_parameters.html) to work
@@ -207,10 +190,30 @@ public class Example {
     return mail;
   }
 
+  // API V3 Dynamic Template implementation
+  public static Mail buildDynamicTemplate() {
+    Mail mail = new Mail();
+
+    Email fromEmail = new Email();
+    fromEmail.setName("Example User");
+    fromEmail.setEmail("test@example.com");
+    mail.setFrom(fromEmail);
+
+    mail.setTemplateId("d-c6dcf1f72bdd4beeb15a9aa6c72fcd2c");
+
+    Personalization personalization = new Personalization();
+    personalization.addDynamicTemplateData("name", "Example User");
+    personalization.addDynamicTemplateData("city", "Denver");
+    personalization.addTo(new Email("test@example.com"));
+    mail.addPersonalization(personalization);
+
+    return mail;
+  }
+
   // Minimum required to send an email
-  public static Mail buildHelloEmail() throws IOException {
+  public static Mail buildHelloEmail() {
     Email from = new Email("test@example.com");
-    String subject = "Hello World from the SendGrid Java Library";
+    String subject = "Hello World from the Twilio SendGrid Java Library";
     Email to = new Email("test@example.com");
     Content content = new Content("text/plain", "some text here");
     // Note that when you use this constructor an initial personalization object
@@ -224,45 +227,38 @@ public class Example {
   }
 
   public static void baselineExample() throws IOException {
-    SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
-    sg.addRequestHeader("X-Mock", "true");
-
-    Request request = new Request();
-    Mail helloWorld = buildHelloEmail();
-    try {
-      request.setMethod(Method.POST);
-      request.setEndpoint("mail/send");
-      request.setBody(helloWorld.build());
-      Response response = sg.api(request);
-      System.out.println(response.getStatusCode());
-      System.out.println(response.getBody());
-      System.out.println(response.getHeaders());
-    } catch (IOException ex) {
-      throw ex;
-    }
+    final Mail helloWorld = buildHelloEmail();
+    send(helloWorld);
   }
 
   public static void kitchenSinkExample() throws IOException {
-    SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
+    final Mail kitchenSink = buildKitchenSink();
+    send(kitchenSink);
+  }
+
+  public static void dynamicTemplateExample() throws IOException {
+    final Mail dynamicTemplate = buildDynamicTemplate();
+    send(dynamicTemplate);
+  }
+
+  private static void send(final Mail mail) throws IOException {
+    final SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
     sg.addRequestHeader("X-Mock", "true");
 
-    Request request = new Request();
-    Mail kitchenSink = buildKitchenSink();
-    try {
-      request.setMethod(Method.POST);
-      request.setEndpoint("mail/send");
-      request.setBody(kitchenSink.build());
-      Response response = sg.api(request);
-      System.out.println(response.getStatusCode());
-      System.out.println(response.getBody());
-      System.out.println(response.getHeaders());
-    } catch (IOException ex) {
-      throw ex;
-    }
+    final Request request = new Request();
+    request.setMethod(Method.POST);
+    request.setEndpoint("mail/send");
+    request.setBody(mail.build());
+
+    final Response response = sg.api(request);
+    System.out.println(response.getStatusCode());
+    System.out.println(response.getBody());
+    System.out.println(response.getHeaders());
   }
 
   public static void main(String[] args) throws IOException {
     baselineExample();
     kitchenSinkExample();
+    dynamicTemplateExample();
   }
 }
