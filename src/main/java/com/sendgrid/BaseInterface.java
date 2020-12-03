@@ -272,6 +272,8 @@ public abstract class BaseInterface implements SendGridAPI {
       req.addHeader(header.getKey(), header.getValue());
     }
 
+    req.getHeaders().putAll(request.getHeaders());
+
     for (final Map.Entry<String, String> queryParam : request.getQueryParams().entrySet()) {
       req.addQueryParam(queryParam.getKey(), queryParam.getValue());
     }

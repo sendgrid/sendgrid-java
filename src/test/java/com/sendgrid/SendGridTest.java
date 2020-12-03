@@ -3190,4 +3190,56 @@ public class SendGridTest {
     sg.removeImpersonateSubuser();
     Assert.assertEquals(sg.getImpersonateSubuser(), null);
    }
+
+  @Test
+  public void test_sendgrid_object_headers_are_used_in_request() throws IOException {
+    Client client = mock(Client.class);
+    SendGrid sg = new SendGrid(SENDGRID_API_KEY, client);
+    sg.addRequestHeader("set-on-sendgrid", "123");
+
+    Request request = new Request();
+
+    sg.api(request);
+    verify(client).api(argThat((Request req) -> req.getHeaders().containsKey("set-on-sendgrid")));
+  }
+
+  @Test
+  public void test_request_headers_are_used_in_request() throws IOException {
+    Client client = mock(Client.class);
+    SendGrid sg = new SendGrid(SENDGRID_API_KEY, client);
+
+    Request request = new Request();
+    request.addHeader("set-on-request", "456");
+
+    sg.api(request);
+    verify(client).api(argThat((Request req) -> req.getHeaders().containsKey("set-on-request")));
+  }
+
+
+  @Test
+  public void test_sendgrid_object_and_request_headers_are_both_used_in_request() throws IOException {
+    Client client = mock(Client.class);
+    SendGrid sg = new SendGrid(SENDGRID_API_KEY, client);
+    sg.addRequestHeader("set-on-sendgrid", "123");
+
+    Request request = new Request();
+    request.addHeader("set-on-request", "456");
+
+    sg.api(request);
+    verify(client).api(argThat((Request req) ->
+            req.getHeaders().containsKey("set-on-sendgrid") && req.getHeaders().containsKey("set-on-request")));
+  }
+
+  @Test
+  public void test_request_headers_override_sendgrid_object_headers() throws IOException {
+    Client client = mock(Client.class);
+    SendGrid sg = new SendGrid(SENDGRID_API_KEY, client);
+    sg.addRequestHeader("set-on-both", "123");
+
+    Request request = new Request();
+    request.addHeader("set-on-both", "456");
+
+    sg.api(request);
+    verify(client).api(argThat((Request req) -> req.getHeaders().get("set-on-both").equals("456")));
+  }
 }
