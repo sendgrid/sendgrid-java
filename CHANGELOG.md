@@ -1,6 +1,12 @@
 # Change Log
 All notable changes to this project will be documented in this file.
 
+[2020-12-16] Version 4.7.1
+--------------------------
+**Library - Fix**
+- [PR #657](https://github.com/sendgrid/sendgrid-java/pull/657): Utilize headers set on the Request object. Thanks to [@prputnam](https://github.com/prputnam)!
+
+
 [2020-11-18] Version 4.7.0
 --------------------------
 **Library - Docs**
