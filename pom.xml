@@ -20,7 +20,7 @@
     </license>
   </licenses>
   <properties>
-    <jackson.version>2.10.2</jackson.version>
+    <jackson.version>2.12.1</jackson.version>
   </properties>
   <scm>
     <url>https://github.com/sendgrid/sendgrid-java</url>
