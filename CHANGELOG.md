@@ -1,6 +1,12 @@
 # Change Log
 All notable changes to this project will be documented in this file.
 
+[2021-02-24] Version 4.7.2
+--------------------------
+**Library - Chore**
+- [PR #671](https://github.com/sendgrid/sendgrid-java/pull/671): bump jackson.version from 2.10.2 to 2.12.1. Thanks to [@dependabot](https://github.com/dependabot)!
+
+
 [2020-12-16] Version 4.7.1
 --------------------------
 **Library - Fix**
