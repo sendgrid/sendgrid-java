@@ -6,8 +6,8 @@ env:
 - version=8
 - version=11
 script:
-- echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
-  - make test-docker
+- echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin"
+- make test-docker
 deploy:
 - provider: script
   script: mvn clean deploy --settings .maven.xml -DskipTests=true -B -U -Prelease
