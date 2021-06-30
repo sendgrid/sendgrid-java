@@ -1,6 +1,12 @@
 # Change Log
 All notable changes to this project will be documented in this file.
 
+[2021-06-30] Version 4.7.3
+--------------------------
+**Library - Docs**
+- [PR #679](https://github.com/sendgrid/sendgrid-java/pull/679): Fix number of free emails in README. Thanks to [@mjjs](https://github.com/mjjs)!
+
+
 [2021-02-24] Version 4.7.2
 --------------------------
 **Library - Chore**
