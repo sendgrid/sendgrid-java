@@ -286,7 +286,7 @@
     <dependency>
       <groupId>com.sendgrid</groupId>
       <artifactId>java-http-client</artifactId>
-      <version>4.3.6</version>
+      <version>4.3.7</version>
     </dependency>
     <dependency>
       <groupId>com.fasterxml.jackson.core</groupId>
