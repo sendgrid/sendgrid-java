@@ -1,6 +1,12 @@
 # Change Log
 All notable changes to this project will be documented in this file.
 
+[2021-08-11] Version 4.7.4
+--------------------------
+**Library - Chore**
+- [PR #694](https://github.com/sendgrid/sendgrid-java/pull/694): [Snyk] Security upgrade com.sendgrid:java-http-client from 4.3.6 to 4.3.7. Thanks to [@svcprodsec-sendgrid](https://github.com/svcprodsec-sendgrid)!
+
+
 [2021-06-30] Version 4.7.3
 --------------------------
 **Library - Docs**
