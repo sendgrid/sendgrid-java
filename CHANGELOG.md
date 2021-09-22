@@ -1,6 +1,12 @@
 # Change Log
 All notable changes to this project will be documented in this file.
 
+[2021-09-22] Version 4.7.5
+--------------------------
+**Library - Chore**
+- [PR #703](https://github.com/sendgrid/sendgrid-java/pull/703): update docker. Thanks to [@eshanholtz](https://github.com/eshanholtz)!
+
+
 [2021-08-11] Version 4.7.4
 --------------------------
 **Library - Chore**
