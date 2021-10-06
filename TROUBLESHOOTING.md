@@ -18,6 +18,7 @@ If you can't find a solution below, please open an [issue](https://github.com/se
 - [Using the Package Manager](#using-the-package-manager)
 - [Android Compatibility](#android-compatibility)
 - [Viewing the Request Body](#viewing-the-request-body)
+- [Verifying Event Webhooks](#signed-webhooks)
 
 <a name="migrating"></a>
 ## Migrating from v2 to v3
@@ -114,3 +115,15 @@ You can do this right before you call `request.setBody(mail.build())` like so:
 ```java
 System.out.println(mail.build());
 ```
+
+<a name="signed-webhooks"></a>
+## Signed Webhook Verification
+
+Twilio SendGrid's Event Webhook will notify a URL via HTTP POST with information about events that occur as your mail is processed. [This](https://docs.sendgrid.com/for-developers/tracking-events/getting-started-event-webhook-security-features) article covers all you need to know to secure the Event Webhook, allowing you to verify that incoming requests originate from Twilio SendGrid. The sendgrid-java library can help you verify these Signed Event Webhooks.
+
+You can find the end-to-end usage example [here](examples/helpers/eventwebhook/Example.java) and the tests [here](/src/test/java/com/sendgrid/helpers/eventwebhook/EventWebhookTest.java). 
+
+If you are still having trouble getting the validation to work, follow the following instructions:
+- Be sure to use the *raw* payload for validation
+- Be sure to include a trailing carriage return and newline in your payload
+- In case of multi-event webhooks, make sure you include the trailing newline and carriage return after *each* event
