@@ -1,6 +1,12 @@
 # Change Log
 All notable changes to this project will be documented in this file.
 
+[2021-10-18] Version 4.7.6
+--------------------------
+**Library - Docs**
+- [PR #705](https://github.com/sendgrid/sendgrid-java/pull/705): improve signed webhook events docs. Thanks to [@shwetha-manvinkurke](https://github.com/shwetha-manvinkurke)!
+
+
 [2021-09-22] Version 4.7.5
 --------------------------
 **Library - Chore**
