@@ -12,6 +12,7 @@ public class Example {
     public static void main(String[] args) {
         final Mail mail = new Mail();
 
+        // Note that the domain of the from addresses should be the same
         mail.setFrom(new Email("test@example.com", "Example User"));
         mail.setSubject("I'm the original subject");
         mail.addContent(new Content("text/plain", "and this is some content"));

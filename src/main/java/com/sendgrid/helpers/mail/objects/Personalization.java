@@ -64,9 +64,6 @@ public class Personalization {
 
   @JsonProperty("from")
   public Email getFrom() {
-    if (from == null) {
-      return null;
-    }
     return from;
   }
 
