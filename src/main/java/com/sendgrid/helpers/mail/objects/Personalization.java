@@ -15,6 +15,9 @@ public class Personalization {
   @JsonProperty("to")
   private List<Email> tos;
 
+  @JsonProperty("from")
+  private Email from;
+
   @JsonProperty("cc")
   private List<Email> ccs;
 
@@ -57,6 +60,15 @@ public class Personalization {
     } else {
       tos.add(newEmail);
     }
+  }
+
+  @JsonProperty("from")
+  public Email getFrom() {
+    return from;
+  }
+
+  public void setFrom(Email email) {
+    this.from = email;
   }
 
   @JsonProperty("cc")
@@ -258,6 +270,13 @@ public class Personalization {
         return false;
       }
     } else if (!tos.equals(other.tos)) {
+      return false;
+    }
+    if (from == null) {
+      if (other.from != null) {
+        return false;
+      }
+    } else if (!from.equals(other.from)) {
       return false;
     }
     return true;

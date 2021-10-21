@@ -29,6 +29,7 @@ public class MultipleEmailsMultipleRecipients {
 
     final Personalization personalization2 = new Personalization();
     personalization2.addTo(new Email("test2@example.com", "Example User2"));
+    personalization2.setFrom(new Email("test3@example.com", "Example User3"));
     personalization2.addDynamicTemplateData("name", "Example User2");
     personalization2.addDynamicTemplateData("city", "San Francisco");
     mail.addPersonalization(personalization2);
