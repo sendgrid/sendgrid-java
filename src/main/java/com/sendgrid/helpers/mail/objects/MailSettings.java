@@ -227,6 +227,27 @@ public class MailSettings {
     } else if (!bypassListManagement.equals(other.bypassListManagement)) {
       return false;
     }
+    if (bypassSpamManagement == null) {
+      if (other.bypassSpamManagement != null) {
+        return false;
+      }
+    } else if (!bypassSpamManagement.equals(other.bypassSpamManagement)) {
+      return false;
+    }
+    if (bypassBounceManagement == null) {
+      if (other.bypassBounceManagement != null) {
+        return false;
+      }
+    } else if (!bypassBounceManagement.equals(other.bypassBounceManagement)) {
+      return false;
+    }
+    if (bypassUnsubscribeManagement == null) {
+      if (other.bypassUnsubscribeManagement != null) {
+        return false;
+      }
+    } else if (!bypassUnsubscribeManagement.equals(other.bypassUnsubscribeManagement)) {
+      return false;
+    }
     if (footerSetting == null) {
       if (other.footerSetting != null) {
         return false;
