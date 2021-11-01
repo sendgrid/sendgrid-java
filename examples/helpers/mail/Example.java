@@ -149,6 +149,15 @@ public class Example {
     Setting bypassListManagement = new Setting();
     bypassListManagement.setEnable(true);
     mailSettings.setBypassListManagement(bypassListManagement);
+    Setting bypassSpamManagement = new Setting();
+    bypassSpamManagement.setEnable(true);
+    mailSettings.setBypassSpamManagement(bypassSpamManagement);
+    Setting bypassBounceManagement = new Setting();
+    bypassBounceManagement.setEnable(true);
+    mailSettings.setBypassBounceManagement(bypassBounceManagement);
+    Setting bypassUnsubscribeManagement = new Setting();
+    bypassUnsubscribeManagement.setEnable(true);
+    mailSettings.setBypassUnsubscribeManagement(bypassUnsubscribeManagement);
     FooterSetting footerSetting = new FooterSetting();
     footerSetting.setEnable(true);
     footerSetting.setText("Footer Text");

@@ -189,6 +189,12 @@ public class MailSettings {
     result = prime * result + ((bccSettings == null) ? 0 : bccSettings.hashCode());
     result =
         prime * result + ((bypassListManagement == null) ? 0 : bypassListManagement.hashCode());
+    result =
+        prime * result + ((bypassSpamManagement == null) ? 0 : bypassSpamManagement.hashCode());
+    result =
+        prime * result + ((bypassBounceManagement == null) ? 0 : bypassBounceManagement.hashCode());
+    result =
+        prime * result + ((bypassUnsubscribeManagement == null) ? 0 : bypassUnsubscribeManagement.hashCode());
     result = prime * result + ((footerSetting == null) ? 0 : footerSetting.hashCode());
     result = prime * result + ((sandBoxMode == null) ? 0 : sandBoxMode.hashCode());
     result = prime * result + ((spamCheckSetting == null) ? 0 : spamCheckSetting.hashCode());
