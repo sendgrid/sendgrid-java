@@ -18,6 +18,15 @@ public class MailSettings {
   @JsonProperty("bypass_list_management")
   private Setting bypassListManagement;
 
+  @JsonProperty("bypass_spam_management")
+  private Setting bypassSpamManagement;
+
+  @JsonProperty("bypass_bounce_management")
+  private Setting bypassBounceManagement;
+
+  @JsonProperty("bypass_unsubscribe_management")
+  private Setting bypassUnsubscribeManagement;
+
   @JsonProperty("footer")
   private FooterSetting footerSetting;
 
@@ -56,6 +65,58 @@ public class MailSettings {
 
   public void setBypassListManagement(Setting bypassListManagement) {
     this.bypassListManagement = bypassListManagement;
+  }
+
+  /**
+   * Allows you to bypass the spam report list to ensure that the email is delivered to recipients.
+   * Bounce and unsubscribe lists will still be checked; addresses on these other lists will not
+   * receive the message.
+   *
+   * This filter cannot be combined with the bypass_list_management filter.
+   * @return the bypass spam setting
+   */
+
+  @JsonProperty("bypass_spam_management")
+  public Setting getBypassSpamManagement() {
+    return bypassSpamManagement;
+  }
+
+  public void setBypassSpamManagement(Setting bypassSpamManagement) {
+    this.bypassSpamManagement = bypassSpamManagement;
+  }
+
+  /**
+   * Allows you to bypass the bounce list to ensure that the email is delivered to recipients.
+   * Spam report and unsubscribe lists will still be checked; addresses on these other lists
+   * will not receive the message.
+   *
+   * This filter cannot be combined with the bypass_list_management filter.
+   * @return the bypass bounce setting
+   */
+  @JsonProperty("bypass_bounce_management")
+  public Setting getBypassBounceManagement() {
+    return bypassBounceManagement;
+  }
+  public void setBypassBounceManagement(Setting bypassBounceManagement) {
+    this.bypassBounceManagement = bypassBounceManagement;
+  }
+
+  /**
+   * Allows you to bypass the global unsubscribe list to ensure that the email is delivered
+   * to recipients. Bounce and spam report lists will still be checked; addresses on these
+   * other lists will not receive the message. This filter applies only to global unsubscribes
+   * and will not bypass group unsubscribes.
+   *
+   * This filter cannot be combined with the bypass_list_management filter.
+   * @return the bypass unsubscribe setting
+   */
+  @JsonProperty("bypass_unsubscribe_management")
+  public Setting getBypassUnsubscribeManagement() {
+    return bypassUnsubscribeManagement;
+  }
+
+  public void setBypassUnsubscribeManagement(Setting bypassUnsubscribeManagement) {
+    this.bypassUnsubscribeManagement = bypassUnsubscribeManagement;
   }
 
   /**
@@ -128,6 +189,12 @@ public class MailSettings {
     result = prime * result + ((bccSettings == null) ? 0 : bccSettings.hashCode());
     result =
         prime * result + ((bypassListManagement == null) ? 0 : bypassListManagement.hashCode());
+    result =
+        prime * result + ((bypassSpamManagement == null) ? 0 : bypassSpamManagement.hashCode());
+    result =
+        prime * result + ((bypassBounceManagement == null) ? 0 : bypassBounceManagement.hashCode());
+    result =
+        prime * result + ((bypassUnsubscribeManagement == null) ? 0 : bypassUnsubscribeManagement.hashCode());
     result = prime * result + ((footerSetting == null) ? 0 : footerSetting.hashCode());
     result = prime * result + ((sandBoxMode == null) ? 0 : sandBoxMode.hashCode());
     result = prime * result + ((spamCheckSetting == null) ? 0 : spamCheckSetting.hashCode());
@@ -158,6 +225,27 @@ public class MailSettings {
         return false;
       }
     } else if (!bypassListManagement.equals(other.bypassListManagement)) {
+      return false;
+    }
+    if (bypassSpamManagement == null) {
+      if (other.bypassSpamManagement != null) {
+        return false;
+      }
+    } else if (!bypassSpamManagement.equals(other.bypassSpamManagement)) {
+      return false;
+    }
+    if (bypassBounceManagement == null) {
+      if (other.bypassBounceManagement != null) {
+        return false;
+      }
+    } else if (!bypassBounceManagement.equals(other.bypassBounceManagement)) {
+      return false;
+    }
+    if (bypassUnsubscribeManagement == null) {
+      if (other.bypassUnsubscribeManagement != null) {
+        return false;
+      }
+    } else if (!bypassUnsubscribeManagement.equals(other.bypassUnsubscribeManagement)) {
       return false;
     }
     if (footerSetting == null) {
