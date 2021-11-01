@@ -149,6 +149,8 @@ public class Example {
     Setting bypassListManagement = new Setting();
     bypassListManagement.setEnable(true);
     mailSettings.setBypassListManagement(bypassListManagement);
+    // Note: Bypass Spam, Bounce, and Unsubscribe management cannot
+    // be combined with Bypass List Management
     Setting bypassSpamManagement = new Setting();
     bypassSpamManagement.setEnable(true);
     mailSettings.setBypassSpamManagement(bypassSpamManagement);
