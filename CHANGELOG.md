@@ -1,6 +1,15 @@
 # Change Log
 All notable changes to this project will be documented in this file.
 
+[2021-11-03] Version 4.8.0
+--------------------------
+**Library - Fix**
+- [PR #707](https://github.com/sendgrid/sendgrid-java/pull/707): Add missing bypass settings to MailSettings. Thanks to [@arkitex](https://github.com/arkitex)!
+
+**Library - Feature**
+- [PR #706](https://github.com/sendgrid/sendgrid-java/pull/706): allow personalization of the From name and email for each email recipient. Thanks to [@beebzz](https://github.com/beebzz)!
+
+
 [2021-10-18] Version 4.7.6
 --------------------------
 **Library - Docs**
