@@ -8,6 +8,7 @@ install:
 
 package:
 	mvn package -DskipTests=true -Dgpg.skip -Dmaven.javadoc.skip=true -B
+	cp target/sendgrid-java-$(VERSION)-shaded.jar sendgrid-java.jar
 
 test:
 	mvn test spotbugs:spotbugs checkstyle:check -Dcheckstyle.config.location=google_checks.xml
