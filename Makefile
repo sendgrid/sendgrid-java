@@ -1,4 +1,4 @@
-.PHONY: install test test-integ test-docker clean
+.PHONY: install package test test-integ test-docker clean
 
 VERSION := $(shell mvn help:evaluate -Dexpression=project.version --batch-mode | grep -e '^[^\[]')
 install:
