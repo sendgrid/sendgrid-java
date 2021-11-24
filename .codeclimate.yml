@@ -1,8 +1,0 @@
----
-plugins:
-  checkstyle:
-    enabled: true
-  fixme:
-    enabled: true
-  pmd:
-    enabled: true

@@ -2193,25 +2193,25 @@ public class SendGridTest {
   }
 
   @Test
-  public void test_suppression_spam_report__email__get() throws IOException {
+  public void test_suppression_spam_reports__email__get() throws IOException {
     SendGrid sg = new SendGrid("SENDGRID_API_KEY");
     sg.addRequestHeader("X-Mock", "200");
 
     Request request = new Request();
     request.setMethod(Method.GET);
-    request.setEndpoint("suppression/spam_report/{email}");
+    request.setEndpoint("suppression/spam_reports/{email}");
     Response response = sg.api(request);
     Assert.assertEquals(200, response.getStatusCode());
   }
 
   @Test
-  public void test_suppression_spam_report__email__delete() throws IOException {
+  public void test_suppression_spam_reports__email__delete() throws IOException {
     SendGrid sg = new SendGrid("SENDGRID_API_KEY");
     sg.addRequestHeader("X-Mock", "204");
 
     Request request = new Request();
     request.setMethod(Method.DELETE);
-    request.setEndpoint("suppression/spam_report/{email}");
+    request.setEndpoint("suppression/spam_reports/{email}");
     Response response = sg.api(request);
     Assert.assertEquals(204, response.getStatusCode());
   }
