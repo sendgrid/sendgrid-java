@@ -1,6 +1,6 @@
 ![SendGrid Logo](twilio_sendgrid_logo.png)
 
-[![Travis Badge](https://travis-ci.com/sendgrid/sendgrid-java.svg?branch=main)](https://travis-ci.com/sendgrid/sendgrid-java)
+[![BuildStatus](https://github.com/sendgrid/sendgrid-java/actions/workflows/test.yml/badge.svg)](https://github.com/sendgrid/sendgrid-java/actions/workflows/test.yml)
 [![Maven Central](https://img.shields.io/maven-central/v/com.sendgrid/sendgrid-java.svg)](http://mvnrepository.com/artifact/com.sendgrid/sendgrid-java)
 [![Twitter Follow](https://img.shields.io/twitter/follow/sendgrid.svg?style=social&label=Follow)](https://twitter.com/sendgrid)
 [![GitHub contributors](https://img.shields.io/github/contributors/sendgrid/sendgrid-java.svg)](https://github.com/sendgrid/sendgrid-java/graphs/contributors)

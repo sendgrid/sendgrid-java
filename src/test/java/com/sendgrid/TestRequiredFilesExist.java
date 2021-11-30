@@ -25,18 +25,6 @@ public class TestRequiredFilesExist {
     assertTrue(new File("./.gitignore").exists());
   }
 
-  // ./.travis.yml
-  @Test
-  public void checkTravisExists() {
-    assertTrue(new File("./.travis.yml").exists());
-  }
-
-  // ./.codeclimate.yml
-  @Test
-  public void checkCodeClimateExists() {
-    assertTrue(new File("./.codeclimate.yml").exists());
-  }
-
   // ./CHANGELOG.md
   @Test
   public void checkChangelogExists() {
