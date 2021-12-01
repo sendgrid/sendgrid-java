@@ -1,6 +1,13 @@
 # Change Log
 All notable changes to this project will be documented in this file.
 
+[2021-12-01] Version 4.8.1
+--------------------------
+**Library - Chore**
+- [PR #710](https://github.com/sendgrid/sendgrid-java/pull/710): fix pom for release. Thanks to [@eshanholtz](https://github.com/eshanholtz)!
+- [PR #709](https://github.com/sendgrid/sendgrid-java/pull/709): migrate to github actions. Thanks to [@eshanholtz](https://github.com/eshanholtz)!
+
+
 [2021-11-03] Version 4.8.0
 --------------------------
 **Library - Fix**
