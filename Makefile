@@ -15,7 +15,6 @@ test:
 
 test-integ: test
 
-
 version ?= latest
 test-docker:
 	curl -s https://raw.githubusercontent.com/sendgrid/sendgrid-oai/cert-fix/prism/prism.sh -o prism.sh
