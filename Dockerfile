@@ -15,7 +15,6 @@ RUN wget http://repos.fedorapeople.org/repos/dchen/apache-maven/epel-apache-mave
 RUN keytool -import -trustcacerts -cacerts -storepass changeit -noprompt \
     -alias api.sendgrid.com -file /usr/local/share/ca-certificates/cert.crt || true
 
-
 WORKDIR /app
 COPY . .
 
