@@ -4,7 +4,7 @@ FROM openjdk:$version
 # version <= 11
 RUN apt-get update \
     && apt-get install -y make maven || true
-COPY prism/prism/nginx/java_cert.crt /usr/local/share/ca-certificates/cert.crt
+COPY prism/prism/nginx/cert.crt /usr/local/share/ca-certificates/cert.crt
 RUN update-ca-certificates || true
 
 # version > 11
