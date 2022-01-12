@@ -98,7 +98,7 @@ touch Example.java
 Add the example you want to test to Example.java, including the headers at the top of the file.
 
 ``` bash
-javac -classpath ../repo/com/sendgrid/4.8.1/sendgrid-4.8.1-jar.jar:. Example.java && java -classpath ../repo/com/sendgrid/4.8.1/sendgrid-4.8.1-jar.jar:. Example
+javac -classpath ../repo/com/sendgrid/4.8.2/sendgrid-4.8.2-jar.jar:. Example.java && java -classpath ../repo/com/sendgrid/4.8.2/sendgrid-4.8.2-jar.jar:. Example
 ```
 
 <a name="understanding-the-codebase"></a>
