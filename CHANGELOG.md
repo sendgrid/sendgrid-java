@@ -1,6 +1,15 @@
 # Change Log
 All notable changes to this project will be documented in this file.
 
+[2022-01-12] Version 4.8.2
+--------------------------
+**Library - Fix**
+- [PR #713](https://github.com/sendgrid/sendgrid-java/pull/713): fix sendgrid-java unit tests. Thanks to [@beebzz](https://github.com/beebzz)!
+
+**Library - Chore**
+- [PR #712](https://github.com/sendgrid/sendgrid-java/pull/712): update license year. Thanks to [@JenniferMah](https://github.com/JenniferMah)!
+
+
 [2021-12-01] Version 4.8.1
 --------------------------
 **Library - Chore**
