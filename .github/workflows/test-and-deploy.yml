@@ -20,7 +20,7 @@ jobs:
         java: [8, 11]
     steps:
       - name: Checkout sendgrid-java
-      - uses: actions/checkout@v2
+        uses: actions/checkout@v2
 
       - name: Run Unit Tests
         run: make test-docker version=${{ matrix.java }}
@@ -32,7 +32,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout sendgrid-java
-      - uses: actions/checkout@v2
+        uses: actions/checkout@v2
 
       - name: Set up Sonatype Maven
         uses: actions/setup-java@v2
