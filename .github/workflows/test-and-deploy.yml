@@ -34,6 +34,13 @@ jobs:
       - name: Checkout sendgrid-java
         uses: actions/checkout@v2
 
+      - name: Create GitHub Release
+        uses: sendgrid/dx-automator/actions/release@main
+        with:
+          footer: '**[Maven](https://mvnrepository.com/artifact/com.sendgrid/sendgrid-java/${version})**'
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
       - name: Set up Sonatype Maven
         uses: actions/setup-java@v2
         with:
