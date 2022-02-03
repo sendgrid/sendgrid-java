@@ -45,7 +45,17 @@ jobs:
           gpg-private-key: ${{ secrets.GPG_PRIVATE_KEY }}
           gpg-passphrase: GPG_PASSPHRASE
 
-      - run: mvn install -DskipTests=true -Dgpg.skip -Dmaven.javadoc.skip=true -B -V
+      - name: Install dependencies and Build Release Artifacts
+        run: make install
+
+      - name: Create GitHub Release
+        uses: sendgrid/dx-automator/actions/release@main
+        with:
+          assets: sendgrid-java.jar
+          footer: '**[Maven](https://mvnrepository.com/artifact/com.sendgrid/sendgrid-java/${version})**'
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
       - name: Publish to Maven
         env:
           MAVEN_USERNAME: ${{ secrets.SONATYPE_USERNAME }}
