@@ -17,7 +17,7 @@ jobs:
     timeout-minutes: 20
     strategy:
       matrix:
-        java: [ 8, 11 ]
+        java: [ 8, 11, '17-oraclelinux7' ]
     env:
       DOCKER_LOGIN: ${{ secrets.DOCKER_USERNAME && secrets.DOCKER_AUTH_TOKEN }}
     steps:
@@ -46,7 +46,7 @@ jobs:
       - name: Set up Sonatype Maven
         uses: actions/setup-java@v2
         with:
-          java-version: 8
+          java-version: 17
           distribution: temurin
           server-id: ossrh
           server-username: MAVEN_USERNAME

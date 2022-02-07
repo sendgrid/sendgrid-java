@@ -38,7 +38,7 @@ We appreciate your continued support, thank you!
 
 ## Prerequisites
 
-- Java 8 or 11
+- Java 8, 11, or 17
 - The Twilio SendGrid service, starting at the [free level](https://sendgrid.com/free?source=sendgrid-java) to send up to 40,000 emails for the first 30 days, then send 100 emails/day free forever or check out [our pricing](https://sendgrid.com/pricing?source=sendgrid-java).
 
 ## Setup Environment Variables
