@@ -1,6 +1,13 @@
 # Change Log
 All notable changes to this project will be documented in this file.
 
+[2022-02-09] Version 4.8.3
+--------------------------
+**Library - Chore**
+- [PR #716](https://github.com/sendgrid/sendgrid-java/pull/716): add gh release to workflow. Thanks to [@shwetha-manvinkurke](https://github.com/shwetha-manvinkurke)!
+- [PR #715](https://github.com/sendgrid/sendgrid-java/pull/715): merge test and deploy workflows. Thanks to [@Hunga1](https://github.com/Hunga1)!
+
+
 [2022-01-12] Version 4.8.2
 --------------------------
 **Library - Fix**
