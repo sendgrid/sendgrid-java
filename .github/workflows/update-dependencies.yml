@@ -11,6 +11,7 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 20
     strategy:
+      max-parallel: 1
       matrix:
         java: [ 8, 11 ]
 
@@ -24,6 +25,14 @@ jobs:
       - name: Run Unit Tests
         run: make test-docker version=${{ matrix.java }}
 
+      - name: Add & Commit
+        if: matrix.java == '11'
+        uses: EndBug/add-and-commit@v8.0.2
+        with:
+          add: 'pom.xml'
+          default_author: 'github_actions'
+          message: 'chore: update sendgrid-java dependencies'
+
   commit-dependencies:
     name: Commit Updated Dependencies
     if: success()
@@ -36,24 +45,17 @@ jobs:
       - name: Updating semver dependencies
         run: make update-deps
 
-      - name: Add & Commit
-        uses: EndBug/add-and-commit@v8.0.2
-        with:
-          add: 'pom.xml'
-          default_author: 'github_actions'
-          message: 'Chore: update sendgrid-java dependencies'
-
   notify-on-failure:
     name: Slack notify on failure
     if: failure()
-    needs: [ update-dependencies-and-test, commit-dependencies ]
+    needs: [ update-dependencies-and-test ]
     runs-on: ubuntu-latest
     steps:
       - uses: rtCamp/action-slack-notify@v2
         env:
           SLACK_COLOR: failure
           SLACK_ICON_EMOJI: ':github:'
-          SLACK_MESSAGE: ${{ format('Update dependencies *{0}*, commit dependencies *{1}*, {2}/{3}/actions/runs/{4}', needs.update-dependencies-and-test.result, needs.commit-dependencies.result, github.server_url, github.repository, github.run_id) }}
+          SLACK_MESSAGE: ${{ format('Update dependencies *{0}*, {2}/{3}/actions/runs/{4}', needs.update-dependencies-and-test.result, github.server_url, github.repository, github.run_id) }}
           SLACK_TITLE: Action Failure - ${{ github.repository }}
           SLACK_USERNAME: GitHub Actions
           SLACK_MSG_AUTHOR: twilio-dx
