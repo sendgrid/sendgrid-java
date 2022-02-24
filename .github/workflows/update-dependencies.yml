@@ -33,18 +33,6 @@ jobs:
           default_author: 'github_actions'
           message: 'chore: update sendgrid-java dependencies'
 
-  commit-dependencies:
-    name: Commit Updated Dependencies
-    if: success()
-    needs: [ update-dependencies-and-test ]
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout sendgrid-java
-        uses: actions/checkout@v2
-
-      - name: Updating semver dependencies
-        run: make update-deps
-
   notify-on-failure:
     name: Slack notify on failure
     if: failure()
@@ -55,7 +43,7 @@ jobs:
         env:
           SLACK_COLOR: failure
           SLACK_ICON_EMOJI: ':github:'
-          SLACK_MESSAGE: ${{ format('Update dependencies *{0}*, {2}/{3}/actions/runs/{4}', needs.update-dependencies-and-test.result, github.server_url, github.repository, github.run_id) }}
+          SLACK_MESSAGE: ${{ format('Update dependencies *{0}*, {1}/{2}/actions/runs/{3}', needs.update-dependencies-and-test.result, github.server_url, github.repository, github.run_id) }}
           SLACK_TITLE: Action Failure - ${{ github.repository }}
           SLACK_USERNAME: GitHub Actions
           SLACK_MSG_AUTHOR: twilio-dx
