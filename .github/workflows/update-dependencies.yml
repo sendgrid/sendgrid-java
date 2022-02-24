@@ -1,0 +1,52 @@
+name: Update dependencies
+on:
+  schedule:
+    # Run automatically at 7AM PST Tuesday
+    - cron: '0 14 * * 2'
+  workflow_dispatch:
+
+jobs:
+  update-dependencies-and-test:
+    name: Update Dependencies & Test
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    strategy:
+      max-parallel: 1
+      matrix:
+        java: [ 8, 11 ]
+
+    steps:
+      - name: Checkout sendgrid-java
+        uses: actions/checkout@v2
+
+      - name: Updating semver dependencies
+        run: make update-deps
+
+      - name: Run Unit Tests
+        run: make test-docker version=${{ matrix.java }}
+
+      - name: Add & Commit
+        if: matrix.java == '11'
+        uses: EndBug/add-and-commit@v8.0.2
+        with:
+          add: 'pom.xml'
+          default_author: 'github_actions'
+          message: 'chore: update sendgrid-java dependencies'
+
+  notify-on-failure:
+    name: Slack notify on failure
+    if: failure()
+    needs: [ update-dependencies-and-test ]
+    runs-on: ubuntu-latest
+    steps:
+      - uses: rtCamp/action-slack-notify@v2
+        env:
+          SLACK_COLOR: failure
+          SLACK_ICON_EMOJI: ':github:'
+          SLACK_MESSAGE: ${{ format('Update dependencies *{0}*, {1}/{2}/actions/runs/{3}', needs.update-dependencies-and-test.result, github.server_url, github.repository, github.run_id) }}
+          SLACK_TITLE: Action Failure - ${{ github.repository }}
+          SLACK_USERNAME: GitHub Actions
+          SLACK_MSG_AUTHOR: twilio-dx
+          SLACK_FOOTER: Posted automatically using GitHub Actions
+          SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
+          MSG_MINIMAL: true
