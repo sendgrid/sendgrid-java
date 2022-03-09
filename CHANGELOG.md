@@ -1,6 +1,15 @@
 # Change Log
 All notable changes to this project will be documented in this file.
 
+[2022-03-09] Version 4.9.0
+--------------------------
+**Library - Chore**
+- [PR #721](https://github.com/sendgrid/sendgrid-java/pull/721): push Datadog Release Metric upon deploy success. Thanks to [@eshanholtz](https://github.com/eshanholtz)!
+
+**Library - Feature**
+- [PR #717](https://github.com/sendgrid/sendgrid-java/pull/717): add GH action to update dependencies. Thanks to [@JenniferMah](https://github.com/JenniferMah)!
+
+
 [2022-02-09] Version 4.8.3
 --------------------------
 **Library - Chore**
