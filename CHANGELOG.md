@@ -1,6 +1,12 @@
 # Change Log
 All notable changes to this project will be documented in this file.
 
+[2022-03-23] Version 4.9.1
+--------------------------
+**Library - Chore**
+- [PR #723](https://github.com/sendgrid/sendgrid-java/pull/723): Security upgrade com.fasterxml.jackson.core:jackson-databind from 2.12.1 to 2.13.0. Thanks to [@svcprodsec-sendgrid](https://github.com/svcprodsec-sendgrid)!
+
+
 [2022-03-09] Version 4.9.0
 --------------------------
 **Library - Chore**
