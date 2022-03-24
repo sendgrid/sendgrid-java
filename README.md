@@ -7,10 +7,6 @@
 [![Open Source Helpers](https://www.codetriage.com/sendgrid/sendgrid-java/badges/users.svg)](https://www.codetriage.com/sendgrid/sendgrid-java)
 [![MIT licensed](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 
-**NEW:** Subscribe to email [notifications](https://dx.sendgrid.com/newsletter/java) for releases and breaking changes.
-
-**The default branch name for this repository has been changed to `main` as of 07/27/2020.**
-
 **This library allows you to quickly and easily use the Twilio SendGrid Web API v3 via Java.**
 
 Version 3.X.X of this library provides full support for all Twilio SendGrid [Web API v3](https://sendgrid.com/docs/API_Reference/Web_API_v3/index.html) endpoints, including the new [v3 /mail/send](https://sendgrid.com/blog/introducing-v3mailsend-sendgrids-new-mail-endpoint).
@@ -201,9 +197,7 @@ public class Example {
 <a name="announcements"></a>
 # Announcements
 
-Please see our announcement regarding [breaking changes](https://github.com/sendgrid/sendgrid-java/issues/140). Your support is appreciated!
-
-All updates to this library are documented in our [CHANGELOG](CHANGELOG.md) and [releases](https://github.com/sendgrid/sendgrid-java/releases). You may also subscribe to email [release notifications](https://dx.sendgrid.com/newsletter/java) for releases and breaking changes.
+All updates to this library are documented in our [CHANGELOG](CHANGELOG.md) and [releases](https://github.com/sendgrid/sendgrid-java/releases).
 
 <a name="contribute"></a>
 # How to Contribute
