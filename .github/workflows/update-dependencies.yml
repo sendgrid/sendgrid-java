@@ -28,6 +28,8 @@ jobs:
       - name: Add & Commit
         if: matrix.java == '11'
         uses: EndBug/add-and-commit@v8.0.2
+        env:
+          GITHUB_TOKEN: ${{ secrets.SG_JAVA_GITHUB_TOKEN }}
         with:
           add: 'pom.xml'
           default_author: 'github_actions'
