@@ -43,12 +43,6 @@ public class TestRequiredFilesExist {
     assertTrue(new File("./CONTRIBUTING.md").exists());
   }
 
-  // ./ISSUE_TEMPLATE.md
-  @Test
-  public void checkIssuesTemplateExists() {
-    assertTrue(new File("./ISSUE_TEMPLATE.md").exists());
-  }
-
   // ./LICENSE
   @Test
   public void checkLicenseExists() {
