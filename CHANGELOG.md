@@ -1,6 +1,18 @@
 # Change Log
 All notable changes to this project will be documented in this file.
 
+[2022-05-18] Version 4.9.2
+--------------------------
+**Library - Docs**
+- [PR #732](https://github.com/sendgrid/sendgrid-java/pull/732): Modify README.md in alignment with SendGrid Support. Thanks to [@garethpaul](https://github.com/garethpaul)!
+
+**Library - Chore**
+- [PR #726](https://github.com/sendgrid/sendgrid-java/pull/726): security upgrade jackson-databind from 2.13.0 to 2.13.2. Thanks to [@tomoyaY](https://github.com/tomoyaY)!
+
+**Library - Fix**
+- [PR #725](https://github.com/sendgrid/sendgrid-java/pull/725): override default gh token. Thanks to [@beebzz](https://github.com/beebzz)!
+
+
 [2022-03-23] Version 4.9.1
 --------------------------
 **Library - Chore**
