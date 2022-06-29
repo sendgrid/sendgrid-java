@@ -1,6 +1,12 @@
 # Change Log
 All notable changes to this project will be documented in this file.
 
+[2022-06-29] Version 4.9.3
+--------------------------
+**Library - Chore**
+- [PR #727](https://github.com/sendgrid/sendgrid-java/pull/727): bump jackson-databind from 2.13.2 to 2.13.3. Thanks to [@dependabot](https://github.com/dependabot)!
+
+
 [2022-05-18] Version 4.9.2
 --------------------------
 **Library - Docs**
