@@ -18,7 +18,7 @@ public class SendGrid extends BaseInterface {
   }
 
   /**
-   * Construct a new Twilio SendGrid API wrapper.
+   * Construct a new Twilio SendGrid API wrapper with custom thread pool size
    *
    * @param apiKey is your Twilio SendGrid API Key: https://app.sendgrid.com/settings/api_keys
    * @param threadPoolSize the pool size to initialize for sending email asynchronously
@@ -39,7 +39,7 @@ public class SendGrid extends BaseInterface {
   }
 
   /**
-   * Construct a new Twilio SendGrid API wrapper.
+   * Construct a new Twilio SendGrid API wrapper with custom thread pool size
    *
    * @param apiKey is your Twilio SendGrid API Key: https://app.sendgrid.com/settings/api_keys
    * @param test   is true if you are unit testing
@@ -62,7 +62,7 @@ public class SendGrid extends BaseInterface {
   }
 
   /**
-   * Construct a new Twilio SendGrid API wrapper.
+   * Construct a new Twilio SendGrid API wrapper with custom thread pool size
    *
    * @param apiKey is your Twilio SendGrid API Key: https://app.sendgrid.com/settings/api_keys
    * @param client the Client to use (allows to customize its configuration)
@@ -83,7 +83,7 @@ public class SendGrid extends BaseInterface {
   }
 
   /**
-   * Initialize the client with custom thread pool size
+   * Initialize the client with custom thread pool size with custom thread pool size
    *
    * @param apiKey the user's API key
    * @param threadPoolSize the pool size to initialize for sending email asynchronously
