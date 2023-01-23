@@ -20,7 +20,8 @@
     </license>
   </licenses>
   <properties>
-    <jackson.version>2.13.3</jackson.version>
+    <jackson.version>2.13.4</jackson.version>
+    <jackson.databind.version>2.13.4.2</jackson.databind.version>
   </properties>
   <scm>
     <url>https://github.com/sendgrid/sendgrid-java</url>
@@ -277,7 +278,7 @@
     <dependency>
       <groupId>com.fasterxml.jackson.core</groupId>
       <artifactId>jackson-databind</artifactId>
-      <version>${jackson.version}</version>
+      <version>${jackson.databind.version}</version>
     </dependency>
     <dependency>
       <groupId>junit</groupId>
