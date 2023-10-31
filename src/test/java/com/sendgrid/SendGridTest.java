@@ -3242,4 +3242,50 @@ public class SendGridTest {
     sg.api(request);
     verify(client).api(argThat((Request req) -> req.getHeaders().get("set-on-both").equals("456")));
   }
+
+  @Test
+  public void testSetResidency_happy_path_eu() {
+    SendGrid sg = new SendGrid(SENDGRID_API_KEY);
+    sg.setDataResidency("eu");
+    Assert.assertEquals(sg.getHost(), "api.eu.sendgrid.com");
+  }
+  @Test
+  public void testSetResidency_happy_path_global() {
+    SendGrid sg = new SendGrid(SENDGRID_API_KEY);
+    sg.setDataResidency("global");
+    Assert.assertEquals(sg.getHost(), "api.eu.sendgrid.com");
+  }
+
+
+  @Test
+  public void testSetResidency_override_host() {
+    SendGrid sg = new SendGrid(SENDGRID_API_KEY);
+    sg.setHost("api.new.com");
+    sg.setDataResidency("eu");
+    Assert.assertEquals(sg.getHost(), "api.eu.sendgrid.com");
+  }
+
+  @Test
+  public void testsetResidency_override_data_residency() {
+    SendGrid sg = new SendGrid(SENDGRID_API_KEY);
+    sg.setDataResidency("eu");
+    sg.setHost("api.new.com");
+    Assert.assertEquals(sg.getHost(), "api.new.com");
+  }
+
+  @Test (expected = IllegalArgumentException.class)
+  public void testsetResidency_incorrect_region() {
+    SendGrid sg = new SendGrid(SENDGRID_API_KEY);
+    sg.setDataResidency("foo");
+  }
+  @Test (expected = IllegalArgumentException.class)
+  public void testsetResidency_null_region(){
+    SendGrid sg = new SendGrid(SENDGRID_API_KEY);
+    sg.setDataResidency("");
+  }
+  @Test
+  public void testsetResidency_default_region() {
+    SendGrid sg = new SendGrid(SENDGRID_API_KEY);
+    Assert.assertEquals(sg.getHost(), "api.sendgrid.com");
+  }
 }

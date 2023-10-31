@@ -16,6 +16,10 @@ public abstract class BaseInterface implements SendGridAPI {
   private static final String USER_AGENT = "sendgrid/" + VERSION + ";java";
   private static final int RATE_LIMIT_RESPONSE_CODE = 429;
   private static final int THREAD_POOL_SIZE = 8;
+  private static final Map<String, String> allowedRegionsHostMap = Map.of(
+      "eu", "api.eu.sendgrid.com",
+      "global", "api.sendgrid.com"
+  );
 
   private ExecutorService pool;
 
@@ -336,4 +340,22 @@ public abstract class BaseInterface implements SendGridAPI {
       }
     });
   }
+
+  /*
+  * Client libraries contain setters for specifying region/edge.
+  * This allows support global and eu regions only. This set will likely expand in the future.
+  * Global should be the default
+  * Global region means the message should be sent through:
+  * HTTP: api.sendgrid.com
+  * EU region means the message should be sent through:
+  * HTTP: api.eu.sendgrid.com
+*/
+  public void setDataResidency(String region){
+      if (allowedRegionsHostMap.containsKey(region)){
+        this.host = allowedRegionsHostMap.get(region);
+      }
+      else{
+        throw new IllegalArgumentException("region can only be \"eu\" or \"global\"");
+      }
+    }
 }
