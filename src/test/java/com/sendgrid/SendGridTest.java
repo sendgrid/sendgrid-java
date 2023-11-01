@@ -3253,7 +3253,7 @@ public class SendGridTest {
   public void testSetResidency_happy_path_global() {
     SendGrid sg = new SendGrid(SENDGRID_API_KEY);
     sg.setDataResidency("global");
-    Assert.assertEquals(sg.getHost(), "api.eu.sendgrid.com");
+    Assert.assertEquals(sg.getHost(), "api.sendgrid.com");
   }
 
 
