@@ -1,6 +1,15 @@
 # Change Log
 All notable changes to this project will be documented in this file.
 
+[2023-11-06] Version 4.10.0
+---------------------------
+**Library - Feature**
+- [PR #743](https://github.com/sendgrid/sendgrid-java/pull/743): Add data residency for eu and global regions. Thanks to [@shrutiburman](https://github.com/shrutiburman)!
+
+**Library - Test**
+- [PR #735](https://github.com/sendgrid/sendgrid-java/pull/735): Adding misc as PR type. Thanks to [@rakatyal](https://github.com/rakatyal)!
+
+
 [2022-06-29] Version 4.9.3
 --------------------------
 **Library - Chore**
