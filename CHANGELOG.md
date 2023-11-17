@@ -1,6 +1,13 @@
 # Change Log
 All notable changes to this project will be documented in this file.
 
+[2023-11-17] Version 4.10.1
+---------------------------
+**Library - Chore**
+- [PR #744](https://github.com/sendgrid/sendgrid-java/pull/744): updates bouncy castle to 1.76 (latest 1.7x). Thanks to [@mrdziuban](https://github.com/mrdziuban)!
+- [PR #741](https://github.com/sendgrid/sendgrid-java/pull/741): updates bouncy castle to 1.75 (latest 1.7x). Thanks to [@kebeda](https://github.com/kebeda)!
+
+
 [2023-11-06] Version 4.10.0
 ---------------------------
 **Library - Feature**
