@@ -1,6 +1,12 @@
 # Change Log
 All notable changes to this project will be documented in this file.
 
+[2024-02-14] Version 4.10.2
+---------------------------
+**Library - Chore**
+- [PR #745](https://github.com/sendgrid/sendgrid-java/pull/745): update jackson version and licence year. Thanks to [@tiwarishubham635](https://github.com/tiwarishubham635)!
+
+
 [2023-11-17] Version 4.10.1
 ---------------------------
 **Library - Chore**
