@@ -2705,6 +2705,19 @@ public class SendGridTest {
 
     Request request = new Request();
     request.setMethod(Method.PATCH);
+    request.setEndpoint("user/webhooks/event/settings/{id}");
+    request.setBody("{\"group_resubscribe\":true,\"delivered\":true,\"group_unsubscribe\":true,\"spam_report\":true,\"url\":\"url\",\"enabled\":true,\"bounce\":true,\"deferred\":true,\"unsubscribe\":true,\"dropped\":true,\"open\":true,\"click\":true,\"processed\":true}");
+    Response response = sg.api(request);
+    Assert.assertEquals(200, response.getStatusCode());
+  }
+
+  @Test
+  public void test_user_webhooks_event_settings_patch_legacy_no_id() throws IOException {
+    SendGrid sg = new SendGrid("SENDGRID_API_KEY");
+    sg.addRequestHeader("X-Mock", "200");
+
+    Request request = new Request();
+    request.setMethod(Method.PATCH);
     request.setEndpoint("user/webhooks/event/settings");
     request.setBody("{\"group_resubscribe\":true,\"delivered\":true,\"group_unsubscribe\":true,\"spam_report\":true,\"url\":\"url\",\"enabled\":true,\"bounce\":true,\"deferred\":true,\"unsubscribe\":true,\"dropped\":true,\"open\":true,\"click\":true,\"processed\":true}");
     Response response = sg.api(request);
@@ -2718,6 +2731,18 @@ public class SendGridTest {
 
     Request request = new Request();
     request.setMethod(Method.GET);
+    request.setEndpoint("user/webhooks/event/settings/{id}");
+    Response response = sg.api(request);
+    Assert.assertEquals(200, response.getStatusCode());
+  }
+
+  @Test
+  public void test_user_webhooks_event_settings_get_legacy_no_id() throws IOException {
+    SendGrid sg = new SendGrid("SENDGRID_API_KEY");
+    sg.addRequestHeader("X-Mock", "200");
+
+    Request request = new Request();
+    request.setMethod(Method.GET);
     request.setEndpoint("user/webhooks/event/settings");
     Response response = sg.api(request);
     Assert.assertEquals(200, response.getStatusCode());
@@ -2725,6 +2750,19 @@ public class SendGridTest {
 
   @Test
   public void test_user_webhooks_event_test_post() throws IOException {
+    SendGrid sg = new SendGrid("SENDGRID_API_KEY");
+    sg.addRequestHeader("X-Mock", "204");
+
+    Request request = new Request();
+    request.setMethod(Method.POST);
+    request.setEndpoint("user/webhooks/event/test");
+    request.setBody("{\"url\":\"url\", \"id\":\"id\"}");
+    Response response = sg.api(request);
+    Assert.assertEquals(204, response.getStatusCode());
+  }
+
+  @Test
+  public void test_user_webhooks_event_test_post_legacy_no_id() throws IOException {
     SendGrid sg = new SendGrid("SENDGRID_API_KEY");
     sg.addRequestHeader("X-Mock", "204");
 
