@@ -2,7 +2,6 @@ Hello! Thank you for choosing to help contribute to one of the Twilio SendGrid o
 
 **All third party contributors acknowledge that any contributions they provide will be made under the same open source license that the open source project is provided under.**
 
-- [Feature Request](#feature-request)
 - [Improvements to the Codebase](#improvements-to-the-codebase)
   - [Development Environment](#development-environment)
     - [Install and Run Locally](#install-and-run-locally)
