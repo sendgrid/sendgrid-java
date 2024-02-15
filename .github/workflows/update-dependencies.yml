@@ -36,6 +36,8 @@ jobs:
           message: 'chore: update sendgrid-java dependencies'
 
   notify-on-failure:
+    permissions:
+      contents: none
     name: Slack notify on failure
     if: failure()
     needs: [ update-dependencies-and-test ]
