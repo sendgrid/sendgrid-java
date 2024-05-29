@@ -295,6 +295,7 @@
       <groupId>org.bouncycastle</groupId>
       <artifactId>bcprov-jdk18on</artifactId>
       <version>1.76</version>
+      <scope>test</scope>
     </dependency>
   </dependencies>
   <reporting>
