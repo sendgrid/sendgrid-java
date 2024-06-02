@@ -1,6 +1,5 @@
 package com.sendgrid.http;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.Getter;
 
 import java.util.ArrayList;
@@ -10,9 +9,11 @@ import java.util.function.Predicate;
 public class RestClient {
     public static final Predicate<Integer> SUCCESS = i -> i != null && i >= 200 && i < 400;
     @Getter
-    private final HttpClient httpClient;
+    final HttpClient httpClient;
     @Getter
     private final List<String> userAgentExtensions;
+
+    //static final Logger logger = LoggerFactory.getLogger(RestClient.class);
 
     protected RestClient(final Builder b) {
         this.httpClient = b.httpClient;
@@ -40,6 +41,9 @@ public class RestClient {
         }
         
         public RestClient build() {
+            if (this.httpClient == null) {
+                this.httpClient = new NetworkHttpClient();
+            }
             return new RestClient(this);
         }
     }

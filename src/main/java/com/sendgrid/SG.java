@@ -1,6 +1,7 @@
 package com.sendgrid;
 
 import com.sendgrid.exception.AuthenticationException;
+import com.sendgrid.http.NetworkHttpClient;
 import com.sendgrid.http.RestClient;
 import com.sendgrid.http.TokenRestClient;
 
@@ -41,10 +42,10 @@ public class SG {
     private static TokenRestClient buildTokenRestClient() {
         if (SG.apiKey == null) {
             throw new AuthenticationException(
-                    "TwilioRestClient was used before AccountSid and AuthToken were set, please call Twilio.init()"
+                    "Api Key is not initialized, please call SG.init()"
             );
         }
-
-        return null;
+        TokenRestClient.Builder builder = new TokenRestClient.Builder(SG.apiKey);
+        return builder.build();
     }
 }

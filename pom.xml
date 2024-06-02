@@ -165,6 +165,11 @@
             <version>1.18.30</version>
             <scope>compile</scope>
           </dependency>
+          <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+            <version>1.7.30</version>
+          </dependency>
         </dependencies>
       </plugin>
       <plugin>
@@ -251,10 +256,12 @@
             <artifactId>spotbugs</artifactId>
             <version>4.0.4</version>
           </dependency>
+          
         </dependencies>
       </plugin>
     </plugins>
   </build>
+
   <developers>
     <developer>
       <id>thinkingserious</id>
@@ -269,6 +276,11 @@
       <groupId>com.sendgrid</groupId>
       <artifactId>java-http-client</artifactId>
       <version>4.5.0</version>
+    </dependency>
+    <dependency>
+      <groupId>com.fasterxml.jackson.datatype</groupId>
+      <artifactId>jackson-datatype-jsr310</artifactId>
+      <version>${jackson.version}</version>
     </dependency>
     <dependency>
       <groupId>com.fasterxml.jackson.core</groupId>

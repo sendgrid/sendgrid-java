@@ -1,5 +1,6 @@
 package com.sendgrid.http.auth;
 
+import com.sendgrid.http.Request;
 import lombok.RequiredArgsConstructor;
 
 import java.util.Base64;
@@ -10,7 +11,7 @@ public class BasicAuthStrategy implements AuthStrategy {
     private final String password;
 
     @Override
-    public void applyAuth() {
+    public void applyAuth(Request request) {
         String basicAuthValue = Base64.getEncoder().encodeToString((username + ":" + password).getBytes());
         //requestBuilder.addHeader("Authorization", "Basic " + basicAuthValue);
     }
