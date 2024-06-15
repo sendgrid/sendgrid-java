@@ -5,8 +5,8 @@ import com.sendgrid.http.auth.AuthStrategy;
 import com.sendgrid.http.auth.TokenStrategy;
 import com.sendgrid.http.httpclient.HttpClient;
 import com.sendgrid.http.httpclient.ApiKeyHttpClient;
-import com.sun.org.slf4j.internal.Logger;
-import com.sun.org.slf4j.internal.LoggerFactory;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import lombok.Getter;
 
 import java.util.ArrayList;
