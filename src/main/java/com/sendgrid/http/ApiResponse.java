@@ -1,7 +1,7 @@
 package com.sendgrid.http;
 
 import lombok.Getter;
-
+import org.apache.http.Header;
 import java.util.Map;
 import java.util.StringJoiner;
 
@@ -9,23 +9,19 @@ public class ApiResponse<T> {
     @Getter
     private Integer statusCode;
     @Getter
-    private String statusMessage;
-    @Getter
     private T body;
     @Getter
-    private Map<String, String> headers;
+    private Header[] headers;
 
 
-    public ApiResponse(int statusCode, String statusMessage, Map<String, String> headers) {
+    public ApiResponse(int statusCode, Header[] headers) {
         this.body = null;
         this.headers = headers;
         this.statusCode = statusCode;
-        this.statusMessage = statusMessage;
     }
 
-    public ApiResponse(int statusCode, String statusMessage, T body, Map<String, String> headers) {
+    public ApiResponse(int statusCode, T body, Header[] headers) {
         this.statusCode = statusCode;
-        this.statusMessage = statusMessage;
         this.body = body;
         this.headers = headers;
     }
@@ -34,9 +30,8 @@ public class ApiResponse<T> {
     public String toString() {
         StringJoiner joiner = new StringJoiner(", ", ApiResponse.class.getSimpleName() + "(", ")");
         if (statusCode != null) joiner.add("statusCode=" + statusCode);
-        if (statusMessage != null) joiner.add("statusMessage=" + statusMessage);
-        if (statusMessage != null) joiner.add("body=" + body);
-        if (statusMessage != null) joiner.add("headers=" + headers);
+        if (headers != null) joiner.add("headers=" + headers);
+        if (body != null) joiner.add("body=" + body);
         return joiner.toString();
     }
 }
