@@ -60,7 +60,7 @@ public class Request {
             return this;
         }
 
-        public Builder addHeaderParams(String key, String value) {
+        public Builder addHeaderParam(String key, String value) {
             headers.put(key, value);
             return this;
         }
@@ -80,7 +80,7 @@ public class Request {
             return this;
         }
 
-        public Builder body(String body) {
+        public Builder addBody(String body) {
             this.body = body;
             return this;
         }
