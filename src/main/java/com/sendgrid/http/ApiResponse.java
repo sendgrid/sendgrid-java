@@ -2,7 +2,6 @@ package com.sendgrid.http;
 
 import lombok.Getter;
 import org.apache.http.Header;
-import java.util.Map;
 import java.util.StringJoiner;
 
 public class ApiResponse<T> {
@@ -12,10 +11,10 @@ public class ApiResponse<T> {
     private T body;
     @Getter
     private Header[] headers;
-
+    public static final Void NO_CONTENT = null;
 
     public ApiResponse(int statusCode, Header[] headers) {
-        this.body = null;
+        this.body = (T) NO_CONTENT;
         this.headers = headers;
         this.statusCode = statusCode;
     }
@@ -30,8 +29,8 @@ public class ApiResponse<T> {
     public String toString() {
         StringJoiner joiner = new StringJoiner(", ", ApiResponse.class.getSimpleName() + "(", ")");
         if (statusCode != null) joiner.add("statusCode=" + statusCode);
-        if (headers != null) joiner.add("headers=" + headers);
         if (body != null) joiner.add("body=" + body);
+        if (headers != null) joiner.add("headers=" + headers);
         return joiner.toString();
     }
 }
