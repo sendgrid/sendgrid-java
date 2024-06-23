@@ -42,7 +42,18 @@ public class ApiKeyRestClient {
         }
         logRequest(request);
 
-        return null;
+        Response response = httpClient.makeRequest(request);
+
+        if (logger.isDebugEnabled()) {
+            logger.debug("status code: {}", response.getStatusCode());
+            org.apache.http.Header[] responseHeaders = response.getHeaders();
+            logger.debug("response headers:");
+            for (int i = 0; i < responseHeaders.length; i++) {
+                logger.debug("responseHeader: {}", responseHeaders[i]);
+            }
+        }
+
+        return response;
     }
     
     
