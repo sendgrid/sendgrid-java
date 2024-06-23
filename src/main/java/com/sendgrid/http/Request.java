@@ -72,7 +72,7 @@ public class Request {
          *  query:  If there is query parameter apart from limit and offset.
          *  It will be the responsibility of the client to build a compound query, encode it and pass it as a query parameter in the query field.
          */
-        public Builder addQueryParams(String key, String value) {
+        public Builder addQueryParam(String key, String value) {
             if (!queryParams.containsKey(key)) {
                 queryParams.put(key, new ArrayList<String>());
             }

@@ -1,5 +1,8 @@
 package com.sendgrid.constant;
 
+import lombok.experimental.UtilityClass;
+
+@UtilityClass
 public class Config {
     public static final String VERSION = "5.0.0-rc.0";
     public static final String JAVA_VERSION = System.getProperty("java.version");
