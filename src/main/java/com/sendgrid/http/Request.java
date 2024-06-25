@@ -16,6 +16,8 @@ public class Request {
     @Getter
     private final String url;
     @Getter
+    private final String domain;
+    @Getter
     private String body;
     @Getter
     private Map<String, String> headers;
@@ -33,26 +35,31 @@ public class Request {
     
     private Request(Builder builder) {
         this.method = builder.method;
+        this.domain = builder.domain;
+        this.region = builder.region;
         this.body = builder.body;
         this.headers = builder.headers;
 
-        String baseUrl = builder.url;
+        String baseUrl = Utility.buildBaseUrl(domain, region, builder.endPoint);
         baseUrl = Utility.buildWithPathParams(baseUrl, builder.pathParams);
         baseUrl = Utility.buildWithQueryParams(baseUrl, builder.queryParams);
         this.url = baseUrl;
     }
 
     public static class Builder {
-        private String url;
+        private String endPoint;
         private HttpMethod method;
+        private String domain;
+        private String region;
         private Map<String, String> headers = new HashMap<>();
-        private Map<String, List<String>> queryParams = new HashMap<>();
+        private Map<String, String> queryParams = new HashMap<>();
         private Map<String, String> pathParams = new HashMap<>();
         private String body;
 
-        public Builder(HttpMethod method, String url) {
+        public Builder(HttpMethod method, String endPoint, String domain) {
             this.method = method;
-            this.url = url;
+            this.endPoint = endPoint;
+            this.domain = domain;
         }
 
         public Builder addPathParam(String key, String value) {
@@ -70,13 +77,10 @@ public class Request {
          *  limit:  If limit occurs as query param in open api spec
          *  offset: If offset occurs as query param in open api spec
          *  query:  If there is query parameter apart from limit and offset.
-         *  It will be the responsibility of the client to build a compound query, encode it and pass it as a query parameter in the query field.
+         *  It will be the responsibility of the client to build a compound query and pass it as a query parameter in the query field.
          */
         public Builder addQueryParam(String key, String value) {
-            if (!queryParams.containsKey(key)) {
-                queryParams.put(key, new ArrayList<String>());
-            }
-            queryParams.get(key).add(value);
+            queryParams.put(key, value);
             return this;
         }
 
@@ -84,9 +88,16 @@ public class Request {
             this.body = body;
             return this;
         }
+        
+        public Builder region(String region) {
+            this.region = region;
+            return this;
+        }
 
         public Request build() {
             return new Request(this);
         }
     }
+    
+    
 }
