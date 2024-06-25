@@ -1,5 +1,6 @@
 package com.sendgrid;
 
+import com.sendgrid.constant.EnumConstants;
 import com.sendgrid.constant.ErrorMessages;
 import com.sendgrid.exception.AuthenticationException;
 import com.sendgrid.http.ApiKeyRestClient;
@@ -39,6 +40,9 @@ public class ApiKeySendGrid {
         if (region == null || region.isEmpty()) {
             throw new AuthenticationException(String.format(ErrorMessages.EMPTY_STRING, "REGION"));
         }
+        if (!EnumConstants.Region.getValues().contains(region)) {
+            throw new AuthenticationException(String.format(ErrorMessages.INVALID_STRING, "REGION"));
+        }
         if (!Objects.equals(region, ApiKeySendGrid.region)) {
             ApiKeySendGrid.invalidate();
         }
@@ -77,8 +81,10 @@ public class ApiKeySendGrid {
         if (userAgentExtensions != null) {
             builder.userAgentExtensions(ApiKeySendGrid.userAgentExtensions);
         }
-        // TODO: Check if it mandatory to fetch region from customer.
-        builder.region(region);
+        if (region == null)
+            builder.region(EnumConstants.Region.GLOBAL.getValue());
+        else 
+            builder.region(region);
         return builder.build();
     }
 

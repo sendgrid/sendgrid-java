@@ -14,6 +14,7 @@ import java.util.List;
 
 public class ApiKeyRestClient {
     private final String apiKey;
+    @Getter
     private final String region;
     @Getter
     private final ObjectMapper objectMapper;
