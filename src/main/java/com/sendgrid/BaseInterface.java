@@ -1,5 +1,7 @@
 package com.sendgrid;
 
+import com.sendgrid.constant.Config;
+
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
@@ -11,7 +13,7 @@ import java.util.concurrent.Executors;
  */
 public abstract class BaseInterface implements SendGridAPI {
 
-  private static final String VERSION = "4.10.2";
+  private static final String VERSION = Config.VERSION;
 
   private static final String USER_AGENT = "sendgrid/" + VERSION + ";java";
   private static final int RATE_LIMIT_RESPONSE_CODE = 429;
