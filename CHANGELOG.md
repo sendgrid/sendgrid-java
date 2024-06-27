@@ -1,6 +1,10 @@
 # Change Log
 All notable changes to this project will be documented in this file.
 
+[2024-06-27] Version 5.0.0-rc.1
+--------------------------------
+- Generating Sendgrid Code using open api spec.
+
 [2024-06-27] Version 5.0.0-rc.0
 --------------------------------
 - Release Candidate prep
