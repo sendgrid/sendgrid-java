@@ -90,93 +90,111 @@ You can just drop the jar file in. It's a fat jar - it has all the dependencies 
 <a name="quick-start"></a>
 # Quick Start
 
-## Hello Email
+## Alerts API
+Sendgrid provides an API for sending alerts. The following is the minimum needed code to send an alert using the Java Helper Library:
 
-The following is the minimum needed code to send an email with the [/mail/send Helper](src/main/java/com/sendgrid/helpers) ([here](examples/helpers/mail/Example.java#L30) is a full example):
-
-### With Mail Helper Class
-
+### Create Alerts
 ```java
 import com.sendgrid.*;
 import java.io.IOException;
 
 public class Example {
-  public static void main(String[] args) throws IOException {
-    Email from = new Email("test@example.com");
-    String subject = "Sending with Twilio SendGrid is Fun";
-    Email to = new Email("test@example.com");
-    Content content = new Content("text/plain", "and easy to do anywhere, even with Java");
-    Mail mail = new Mail(from, subject, to, content);
-
-    SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
-    Request request = new Request();
+  public static void main(String[] args) {
+      ApiKeySendGrid.init(System.getenv("SENDGRID_API_KEY"));
+      CreateAlertRequest createAlertRequest = new CreateAlertRequest.Builder(Type.USAGE_LIMIT, "example@example.com").percentage(50).build();
     try {
-      request.setMethod(Method.POST);
-      request.setEndpoint("mail/send");
-      request.setBody(mail.build());
-      Response response = sg.api(request);
-      System.out.println(response.getStatusCode());
-      System.out.println(response.getBody());
-      System.out.println(response.getHeaders());
-    } catch (IOException ex) {
-      throw ex;
+        CreateAlert createAlert =  new CreateAlert();
+        createAlert.setCreateAlertRequest(createAlertRequest);
+        ApiResponse apiResponse = createAlert.send();
+        System.out.println(response.getStatusCode());
+        System.out.println(response.getBody());
+        System.out.println(response.getHeaders());
+    } catch (ApiErrorResponse apiErrorResponse)  {
+        System.out.println(apiErrorResponse.getMessage());
     }
   }
 }
 ```
 
+### Fetch a specific alert
+```java
+import com.sendgrid.*;
+import java.io.IOException;
+
+public class Example {
+  public static void main(String[] args) {
+      ApiKeySendGrid.init(System.getenv("SENDGRID_API_KEY"));
+      GetAlert getAlert = new GetAlert(xxxxxxx); // alert id
+      ApiResponse getAlertResponse = null;
+    try {
+        getAlertResponse = getAlert.send();
+        GetAlert200Response alert = (GetAlert200Response) getAlertResponse.getBody();
+        System.out.println(alert);
+    } catch (ApiErrorResponse apiErrorResponse)  {
+        System.out.println(apiErrorResponse.getMessage());
+    }
+  }
+}
+```
+
+### List all alerts
+```java
+import com.sendgrid.*;
+import java.io.IOException;
+
+public class Example {
+  public static void main(String[] args) {
+      ApiKeySendGrid.init(System.getenv("SENDGRID_API_KEY"));
+      ListAlert listAlert = new ListAlert();
+      ApiResponse getAlert = null;
+    try {
+        getAlert = listAlert.send();
+        List<ListAlert200ResponseInner> body = (List<ListAlert200ResponseInner>)getAlert.getBody();
+        System.out.println(body);
+    } catch (ApiErrorResponse apiErrorResponse)  {
+        System.out.println(apiErrorResponse.getMessage());
+    }
+  }
+}
+```
+
+### Delete a specific alert
+```java
+import com.sendgrid.*;
+import java.io.IOException;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiKeySendGrid.init(System.getenv("SENDGRID_API_KEY"));
+        DeleteAlert deleteAlert = new DeleteAlert(xxxxxxx); // alert id
+        ApiResponse deleteAlertResponse;
+        try {
+            deleteAlertResponse = deleteAlert.send();
+            System.out.println(deleteAlertResponse.getStatusCode());
+            System.out.println(deleteAlertResponse.getBody());
+            System.out.println(deleteAlertResponse.getHeaders());
+            
+        } catch (ApiErrorResponse apiErrorResponse)  {
+            System.out.println(apiErrorResponse.getMessage());
+        }
+    }
+}
+```
+
+## Hello Email
+
+You can send an email with the [/mail/send Helper](src/main/java/com/sendgrid/helpers) ([here](examples/helpers/mail/Example.java#L30) is a full example).
+
+### With Mail Helper Class
 The `Mail` constructor creates a [personalization object](https://sendgrid.com/docs/Classroom/Send/v3_Mail_Send/personalizations.html) for you. [Here](examples/helpers/mail/Example.java#L221) is an example of how to add to it.
 
 ### Without Mail Helper Class
 
-The following is the minimum needed code to send an email without the /mail/send Helper ([here](examples/mail/mail.java#L54) is a full example):
-
-```java
-import com.sendgrid.*;
-import java.io.IOException;
-
-public class Example {
-  public static void main(String[] args) throws IOException {
-    try {
-      SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
-      Request request = new Request();
-      request.setMethod(Method.POST);
-      request.setEndpoint("mail/send");
-      request.setBody("{\"personalizations\":[{\"to\":[{\"email\":\"test@example.com\"}],\"subject\":\"Sending with Twilio SendGrid is Fun\"}],\"from\":{\"email\":\"test@example.com\"},\"content\":[{\"type\":\"text/plain\",\"value\": \"and easy to do anywhere, even with Java\"}]}");
-      Response response = sg.api(request);
-      System.out.println(response.getStatusCode());
-      System.out.println(response.getBody());
-      System.out.println(response.getHeaders());
-    } catch (IOException ex) {
-      throw ex;
-    }
-  }
-}
-```
+You can also send an email without the /mail/send Helper ([here](examples/mail/mail.java#L54) is a full example).
 
 ## General v3 Web API Usage
 
-```java
-import com.sendgrid.*;
-import java.io.IOException;
-
-public class Example {
-  public static void main(String[] args) throws IOException {
-    SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
-    try {
-      Request request = new Request();
-      request.setMethod(Method.GET);
-      request.setEndpoint("api_keys");
-      Response response = sg.api(request);
-      System.out.println(response.getStatusCode());
-      System.out.println(response.getBody());
-      System.out.println(response.getHeaders());
-    } catch (IOException ex) {
-      throw ex;
-    }
-  }
-}
-```
+[Here](examples/apikeys/apikeys.java) is the full example of using v3 web API.
 
 <a name="usage"></a>
 # Usage
