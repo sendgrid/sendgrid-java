@@ -11,6 +11,7 @@ import lombok.Getter;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 public class ApiKeyRestClient {
     private final String apiKey;
@@ -41,6 +42,7 @@ public class ApiKeyRestClient {
         if (userAgentExtensions != null && !userAgentExtensions.isEmpty()) {
             request.setUserAgentExtensions(userAgentExtensions);
         }
+        request.buildUrl();
         logRequest(request);
 
         Response response = httpClient.makeRequest(request);
@@ -87,24 +89,23 @@ public class ApiKeyRestClient {
 
 
     public void logRequest(final Request request) {
-//        if (logger.isDebugEnabled()) {
-//            logger.debug("-- BEGIN Twilio API Request --");
-//            logger.debug("request method: " + request.getMethod());
-//            // TODO: URL Encode query params before logging.
-//            logger.debug("request URL: " + request.getUrl().toString());
-//            
-//            final Map<String, String> headerParams = request.getHeaders();
-//
-//            if (headerParams != null && !headerParams.isEmpty()) {
-//                logger.debug("header parameters: ");
-//                for (String key : headerParams.keySet()) {
-//                    if (!key.toLowerCase().contains("authorization")) {
-//                        logger.debug(key + ": " + headerParams.get(key));
-//                    }
-//                }
-//            }
-//
-//            logger.debug("-- END Twilio API Request --");
-//        }
-    }
+       // if (logger.isDebugEnabled()) {
+            logger.debug("-- BEGIN Sendgrid API Request --");
+            logger.debug("request method: " + request.getMethod());
+            logger.debug("request URL: " + request.getUrl().toString());
+
+            final Map<String, String> headerParams = request.getHeaders();
+
+            if (headerParams != null && !headerParams.isEmpty()) {
+                logger.debug("header parameters: ");
+                for (String key : headerParams.keySet()) {
+                    if (!key.toLowerCase().contains("authorization")) {
+                        logger.debug(key + ": " + headerParams.get(key));
+                    }
+                }
+            }
+
+            logger.debug("-- END Sendgrid API Request --");
+        }
+   // }
 }
