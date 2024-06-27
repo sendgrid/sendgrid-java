@@ -12,7 +12,7 @@ import java.io.InputStream;
 import java.util.Map;
 
 /**
- * Twilio Exceptions.
+ * Sendgrid Exceptions.
  */
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class RestException {
@@ -24,11 +24,11 @@ public class RestException {
     private final Map<String, Object> details;
 
     /**
-     * Initialize a Twilio Rest Exception.
+     * Initialize a Sendgrid Rest Exception.
      *
      * @param status HTTP status code
      * @param message message of exception
-     * @param code Twilio status code
+     * @param code Sendgrid status code
      * @param moreInfo further information, if there is any
      */
     @JsonCreator
