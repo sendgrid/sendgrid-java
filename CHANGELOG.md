@@ -1,6 +1,10 @@
 # Change Log
 All notable changes to this project will be documented in this file.
 
+[2024-06-27] Version 5.0.0-rc.0
+--------------------------------
+- Release Candidate prep
+
 [2024-02-14] Version 4.10.2
 ---------------------------
 **Library - Chore**
