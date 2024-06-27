@@ -8,6 +8,6 @@ public class TokenStrategy implements AuthStrategy {
     private final String token;
     @Override
     public void applyAuth(Request request) {
-        request.addHeader("Authorization", "Bearer " + token);
+        request.addHeaderParam("Authorization", "Bearer " + token);
     }
 }
