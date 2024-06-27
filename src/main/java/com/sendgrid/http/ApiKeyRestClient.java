@@ -89,7 +89,7 @@ public class ApiKeyRestClient {
 
 
     public void logRequest(final Request request) {
-       // if (logger.isDebugEnabled()) {
+        if (logger.isDebugEnabled()) {
             logger.debug("-- BEGIN Sendgrid API Request --");
             logger.debug("request method: " + request.getMethod());
             logger.debug("request URL: " + request.getUrl().toString());
@@ -107,5 +107,5 @@ public class ApiKeyRestClient {
 
             logger.debug("-- END Sendgrid API Request --");
         }
-   // }
+    }
 }
