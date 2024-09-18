@@ -15,7 +15,7 @@ public abstract class BaseInterface implements SendGridAPI {
 
   private static final String USER_AGENT = "sendgrid/" + VERSION + ";java";
   private static final int RATE_LIMIT_RESPONSE_CODE = 429;
-  private static final int THREAD_POOL_SIZE = 8;
+  private static final int DEFAULT_THREAD_POOL_SIZE = 8;
 
   private static final Map<String, String> allowedRegionsHostMap;
   static {
@@ -93,6 +93,17 @@ public abstract class BaseInterface implements SendGridAPI {
    * @param host the base URL for the API
    */
   public void initialize(final String auth, final String host) {
+    initialize(auth, host, DEFAULT_THREAD_POOL_SIZE);
+  }
+
+  /**
+   * Initialize the client.
+   *
+   * @param auth           authorization header value
+   * @param host           the base URL for the API
+   * @param threadPoolSize the pool size to initialize for sending email asynchronously
+   */
+  public void initialize(final String auth, final String host, int threadPoolSize) {
     this.host = host;
     this.version = "v3";
     this.requestHeaders = new HashMap<>();
@@ -102,7 +113,7 @@ public abstract class BaseInterface implements SendGridAPI {
     this.rateLimitRetry = 5;
     this.rateLimitSleep = 1100;
 
-    this.pool = Executors.newFixedThreadPool(THREAD_POOL_SIZE);
+    this.pool = Executors.newFixedThreadPool(threadPoolSize);
   }
 
   /**
