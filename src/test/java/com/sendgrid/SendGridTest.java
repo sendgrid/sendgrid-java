@@ -43,7 +43,7 @@ public class SendGridTest {
   @Test
   public void testLibraryVersion() {
     SendGrid sg = new SendGrid(SENDGRID_API_KEY);
-    Assert.assertEquals(sg.getLibraryVersion(), "4.10.2");
+    Assert.assertEquals(sg.getLibraryVersion(), "4.10.3");
   }
 
   @Test

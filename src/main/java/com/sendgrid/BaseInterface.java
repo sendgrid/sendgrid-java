@@ -11,7 +11,7 @@ import java.util.concurrent.Executors;
  */
 public abstract class BaseInterface implements SendGridAPI {
 
-  private static final String VERSION = "4.10.2";
+  private static final String VERSION = "4.10.3";
 
   private static final String USER_AGENT = "sendgrid/" + VERSION + ";java";
   private static final int RATE_LIMIT_RESPONSE_CODE = 429;
