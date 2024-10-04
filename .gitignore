@@ -18,3 +18,4 @@ examples/Example.java
 sendgrid-java.jar
 dependency-reduced-pom.xml
 prism*
+sendgrid.env
