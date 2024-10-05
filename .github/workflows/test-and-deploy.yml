@@ -83,6 +83,8 @@ jobs:
           DD_API_KEY: ${{ secrets.DATADOG_API_KEY }}
 
   notify-on-failure:
+    permissions:
+      contents: none
     name: Slack notify on failure
     if: failure() && github.event_name != 'pull_request' && (github.ref == 'refs/heads/main' || github.ref_type == 'tag')
     needs: [ test, deploy ]
