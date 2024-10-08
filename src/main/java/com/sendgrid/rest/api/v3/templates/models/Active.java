@@ -19,9 +19,9 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import com.sendgrid.converter.Promoter;
 
 public enum Active {
-    _0("0"),
+    NUMBER_0(0),
 
-    _1("1");
+    NUMBER_1(1);
 
     private final String value;
 

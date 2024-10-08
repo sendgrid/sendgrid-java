@@ -15,7 +15,6 @@ package com.sendgrid.rest.api.v3.mccontacts.models;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.sendgrid.rest.api.v3.mccontacts.models.GetContactByIdentifiersRequestIdentifiersInner;
 import java.util.List;
 import java.util.StringJoiner;
 import lombok.Getter;
@@ -29,7 +28,7 @@ public class GetContactByIdentifiersRequest {
     @JsonProperty("identifiers")
     @Getter
     @Setter
-    private List<GetContactByIdentifiersRequestIdentifiersInner> identifiers;
+    private List<String> identifiers;
 
     public GetContactByIdentifiersRequest() {}
 
@@ -40,13 +39,9 @@ public class GetContactByIdentifiersRequest {
     // Builder class for constructing object
     public static class Builder {
 
-        private List<
-            GetContactByIdentifiersRequestIdentifiersInner
-        > identifiers;
+        private List<String> identifiers;
 
-        public Builder(
-            List<GetContactByIdentifiersRequestIdentifiersInner> identifiers
-        ) {
+        public Builder(List<String> identifiers) {
             this.identifiers = identifiers;
         }
 

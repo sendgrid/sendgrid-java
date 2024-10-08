@@ -34,21 +34,19 @@ import lombok.Setter;
 @RequiredArgsConstructor
 public class GetSegment extends ApiKeyBase {
 
-    private final String segmentsId;
     private final Integer segmentId;
 
     @Setter
     private String onBehalfOf;
 
     public ApiResponse<ContactdbSegments> send(final ApiKeyRestClient client) {
-        String path = "/v3/contactdb/segments/{segments_id}";
+        String path = "/v3/contactdb/segments/{segment_id}";
         Request request = new Request(
             HttpMethod.GET,
             path,
             Domains.API.toString()
         );
         addPathParams(request);
-        addQueryParams(request);
         addHeaderParams(request);
         Response response = client.request(request);
 
@@ -119,20 +117,14 @@ public class GetSegment extends ApiKeyBase {
     }
 
     private void addPathParams(Request request) {
-        if (segmentsId != null) {
-            request.addPathParam("segments_id", segmentsId.toString());
+        if (segmentId != null) {
+            request.addPathParam("segment_id", segmentId.toString());
         }
     }
 
     private void addHeaderParams(Request request) {
         if (onBehalfOf != null) {
             request.addHeaderParam("on-behalf-of", onBehalfOf.toString());
-        }
-    }
-
-    private void addQueryParams(Request request) {
-        if (segmentId != null) {
-            request.addQueryParam("segment_id", segmentId.toString());
         }
     }
 }

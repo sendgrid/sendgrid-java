@@ -18,18 +18,18 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.sendgrid.converter.Promoter;
 
-public enum IdentifierType {
-    EMAIL("EMAIL"),
+public enum IdentifierType1 {
+    EMAIL("email"),
 
-    PHONENUMBERID("PHONENUMBERID"),
+    PHONE_NUMBER_ID("phone_number_id"),
 
-    EXTERNALID("EXTERNALID"),
+    EXTERNAL_ID("external_id"),
 
-    ANONYMOUSID("ANONYMOUSID");
+    ANONYMOUS_ID("anonymous_id");
 
     private final String value;
 
-    private IdentifierType(final String value) {
+    private IdentifierType1(final String value) {
         this.value = value;
     }
 
@@ -40,7 +40,7 @@ public enum IdentifierType {
     }
 
     @JsonCreator
-    public static IdentifierType forValue(final String value) {
-        return Promoter.enumFromString(value, IdentifierType.values());
+    public static IdentifierType1 forValue(final String value) {
+        return Promoter.enumFromString(value, IdentifierType1.values());
     }
 }

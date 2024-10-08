@@ -33,10 +33,8 @@ import lombok.Setter;
 @RequiredArgsConstructor
 public class DeleteRecipientFromContactDbList extends ApiKeyBase {
 
-    private final Integer listsId;
-    private final String recipientsId;
     private final Integer listId;
-    private final Integer recipientId;
+    private final String recipientId;
 
     @Setter
     private String onBehalfOf;
@@ -45,15 +43,13 @@ public class DeleteRecipientFromContactDbList extends ApiKeyBase {
     private Object body;
 
     public ApiResponse<Object> send(final ApiKeyRestClient client) {
-        String path =
-            "/v3/contactdb/lists/{lists_id}/recipients/{recipients_id}";
+        String path = "/v3/contactdb/lists/{list_id}/recipients/{recipient_id}";
         Request request = new Request(
             HttpMethod.DELETE,
             path,
             Domains.API.toString()
         );
         addPathParams(request);
-        addQueryParams(request);
         addHeaderParams(request);
         addBody(request);
         Response response = client.request(request);
@@ -125,26 +121,17 @@ public class DeleteRecipientFromContactDbList extends ApiKeyBase {
     }
 
     private void addPathParams(Request request) {
-        if (listsId != null) {
-            request.addPathParam("lists_id", listsId.toString());
+        if (listId != null) {
+            request.addPathParam("list_id", listId.toString());
         }
-        if (recipientsId != null) {
-            request.addPathParam("recipients_id", recipientsId.toString());
+        if (recipientId != null) {
+            request.addPathParam("recipient_id", recipientId.toString());
         }
     }
 
     private void addHeaderParams(Request request) {
         if (onBehalfOf != null) {
             request.addHeaderParam("on-behalf-of", onBehalfOf.toString());
-        }
-    }
-
-    private void addQueryParams(Request request) {
-        if (listId != null) {
-            request.addQueryParam("list_id", listId.toString());
-        }
-        if (recipientId != null) {
-            request.addQueryParam("recipient_id", recipientId.toString());
         }
     }
 
