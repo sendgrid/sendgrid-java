@@ -1,6 +1,21 @@
 # Change Log
 All notable changes to this project will be documented in this file.
 
+[2024-10-08] Version 5.0.0-rc.2
+-------------------------------
+**Library - Feature**
+- [PR #764](https://github.com/sendgrid/sendgrid-java/pull/764): Update release and code. Thanks to [@sbansla](https://github.com/sbansla)!
+
+**Library - Chore**
+- [PR #763](https://github.com/sendgrid/sendgrid-java/pull/763): Update version. Thanks to [@sbansla](https://github.com/sbansla)!
+
+**Account provisioning**
+- Add Account Provisioning API
+
+**Domain authentication**
+- Add Domain Authentication API
+
+
 [2024-06-27] Version 5.0.0-rc.1
 --------------------------------
 - Generating Sendgrid Code using open api spec.

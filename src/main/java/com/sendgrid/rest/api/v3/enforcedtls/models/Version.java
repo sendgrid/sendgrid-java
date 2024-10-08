@@ -17,13 +17,14 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.sendgrid.converter.Promoter;
+import java.math.BigDecimal;
 
 public enum Version {
-    _1_1("1.1"),
+    NUMBER_1_DOT_1(new BigDecimal("1.1")),
 
-    _1_2("1.2"),
+    NUMBER_1_DOT_2(new BigDecimal("1.2")),
 
-    _1_3("1.3");
+    NUMBER_1_DOT_3(new BigDecimal("1.3"));
 
     private final String value;
 

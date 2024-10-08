@@ -34,7 +34,7 @@ import lombok.Setter;
 @RequiredArgsConstructor
 public class ListRecipientsFromContactDbList extends ApiKeyBase {
 
-    private final Integer listsId;
+    private final Integer listId;
 
     @Setter
     private Integer page;
@@ -42,15 +42,13 @@ public class ListRecipientsFromContactDbList extends ApiKeyBase {
     @Setter
     private Integer pageSize;
 
-    private final Integer listId;
-
     @Setter
     private String onBehalfOf;
 
     public ApiResponse<ListRecipientsFromContactDbList200Response> send(
         final ApiKeyRestClient client
     ) {
-        String path = "/v3/contactdb/lists/{lists_id}/recipients";
+        String path = "/v3/contactdb/lists/{list_id}/recipients";
         Request request = new Request(
             HttpMethod.GET,
             path,
@@ -118,8 +116,8 @@ public class ListRecipientsFromContactDbList extends ApiKeyBase {
     }
 
     private void addPathParams(Request request) {
-        if (listsId != null) {
-            request.addPathParam("lists_id", listsId.toString());
+        if (listId != null) {
+            request.addPathParam("list_id", listId.toString());
         }
     }
 
@@ -135,9 +133,6 @@ public class ListRecipientsFromContactDbList extends ApiKeyBase {
         }
         if (pageSize != null) {
             request.addQueryParam("page_size", pageSize.toString());
-        }
-        if (listId != null) {
-            request.addQueryParam("list_id", listId.toString());
         }
     }
 }

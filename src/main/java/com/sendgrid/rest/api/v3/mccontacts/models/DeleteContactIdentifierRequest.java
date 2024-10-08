@@ -15,6 +15,7 @@ package com.sendgrid.rest.api.v3.mccontacts.models;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.sendgrid.rest.api.v3.mccontacts.models.IdentifierType;
 import java.util.StringJoiner;
 import lombok.Getter;
 import lombok.Setter;
@@ -27,7 +28,7 @@ public class DeleteContactIdentifierRequest {
     @JsonProperty("identifier_type")
     @Getter
     @Setter
-    private String identifierType;
+    private IdentifierType identifierType;
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @JsonProperty("identifier_value")
@@ -45,10 +46,10 @@ public class DeleteContactIdentifierRequest {
     // Builder class for constructing object
     public static class Builder {
 
-        private String identifierType;
+        private IdentifierType identifierType;
         private String identifierValue;
 
-        public Builder(String identifierType, String identifierValue) {
+        public Builder(IdentifierType identifierType, String identifierValue) {
             this.identifierType = identifierType;
             this.identifierValue = identifierValue;
         }

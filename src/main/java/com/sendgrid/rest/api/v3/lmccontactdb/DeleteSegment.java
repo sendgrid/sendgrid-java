@@ -33,7 +33,7 @@ import lombok.Setter;
 @RequiredArgsConstructor
 public class DeleteSegment extends ApiKeyBase {
 
-    private final String segmentsId;
+    private final Integer segmentId;
 
     @Setter
     private Boolean deleteContacts;
@@ -45,7 +45,7 @@ public class DeleteSegment extends ApiKeyBase {
     private Object body;
 
     public ApiResponse<Object> send(final ApiKeyRestClient client) {
-        String path = "/v3/contactdb/segments/{segments_id}";
+        String path = "/v3/contactdb/segments/{segment_id}";
         Request request = new Request(
             HttpMethod.DELETE,
             path,
@@ -124,8 +124,8 @@ public class DeleteSegment extends ApiKeyBase {
     }
 
     private void addPathParams(Request request) {
-        if (segmentsId != null) {
-            request.addPathParam("segments_id", segmentsId.toString());
+        if (segmentId != null) {
+            request.addPathParam("segment_id", segmentId.toString());
         }
     }
 
