@@ -1,6 +1,14 @@
 # Change Log
 All notable changes to this project will be documented in this file.
 
+[2025-07-03] Version 5.0.0-rc.24
+--------------------------------
+**Library - Chore**
+- [PR #778](https://github.com/sendgrid/sendgrid-java/pull/778): Migrate ossrh to central. Thanks to [@sbansla](https://github.com/sbansla)!
+- [PR #777](https://github.com/sendgrid/sendgrid-java/pull/777): migrate ossrh to central publishing repo. Thanks to [@sbansla](https://github.com/sbansla)!
+- [PR #767](https://github.com/sendgrid/sendgrid-java/pull/767): move Bouncy Castle dependency to test scope. Thanks to [@tiwarishubham635](https://github.com/tiwarishubham635)!
+
+
 [2025-06-12] Version 5.0.0-rc.23
 --------------------------------
 **Library - Chore**
