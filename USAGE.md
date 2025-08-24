@@ -2033,7 +2033,7 @@ For more information about segments in Marketing Campaigns, please see our [User
     Request request = new Request();
     request.setMethod(Method.POST);
     request.setEndpoint("contactdb/segments");
-    request.setBody("{\"conditions\":[{\"operator\":\"eq\",\"field\":\"last_name\",\"and)_or\":\"\",\"value\":\"Miller\"},{\"operator\":\"gt\",\"field\":\"last_clicked\",\"and_or\":\"and\",\"value\":\"01/02/2015\"},{\"operator\":\"eq\",\"field\":\"clicks.campaign_identifier\",\"and_or\":\"or\",\"value\":\"513\"}],\"name\":\"Last Name Miller\",\"list_id\":4}");
+    request.setBody("{\"conditions\":[{\"operator\":\"eq\",\"field\":\"last_name\",\"and_or\":\"\",\"value\":\"Miller\"},{\"operator\":\"gt\",\"field\":\"last_clicked\",\"and_or\":\"and\",\"value\":\"01/02/2015\"},{\"operator\":\"eq\",\"field\":\"clicks.campaign_identifier\",\"and_or\":\"or\",\"value\":\"513\"}],\"name\":\"Last Name Miller\",\"list_id\":4}");
     Response response = sg.api(request);
     System.out.println(response.getStatusCode());
     System.out.println(response.getBody());
