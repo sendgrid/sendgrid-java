@@ -3,8 +3,14 @@ on:
   pull_request_target:
     types: [ opened, edited, synchronize, reopened ]
 
+permissions:
+  contents: read
+
 jobs:
   validate:
+    permissions:
+      pull-requests: read  # for amannn/action-semantic-pull-request to analyze PRs
+      statuses: write  # for amannn/action-semantic-pull-request to mark status of analyzed PR
     name: Validate title
     runs-on: ubuntu-latest
     steps:
