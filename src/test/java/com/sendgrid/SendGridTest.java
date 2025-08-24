@@ -32,6 +32,15 @@ public class SendGridTest {
   }
 
   @Test
+  public void testInitializationWithCustomThreadPoolSize() {
+    SendGrid sg = new SendGrid(SENDGRID_API_KEY, 4);
+    Assert.assertEquals(sg.getHost(), "api.sendgrid.com");
+    Assert.assertEquals(sg.getVersion(), "v3");
+    Map<String,String> requestHeaders = buildDefaultHeaders();
+    Assert.assertEquals(sg.getRequestHeaders(), requestHeaders);
+  }
+
+  @Test
   public void testConstructWithClient() throws IOException {
     Client client = mock(Client.class);
     SendGrid sg = new SendGrid(SENDGRID_API_KEY, client);
