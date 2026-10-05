@@ -27,12 +27,13 @@ jobs:
       - name: Checkout sendgrid-java
         uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5.0.0
 
+      # Plain CLI login: docker/login-action is not on this org's action allowlist.
       - name: Login to Docker Hub
         if: env.DOCKER_LOGIN
-        uses: docker/login-action@5e57cd118135c172c3672efd75eb46360885c0ef # v3.6.0
-        with:
-          username: ${{ secrets.DOCKER_USERNAME }}
-          password: ${{ secrets.DOCKER_AUTH_TOKEN }}
+        env:
+          DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
+          DOCKER_AUTH_TOKEN: ${{ secrets.DOCKER_AUTH_TOKEN }}
+        run: echo "$DOCKER_AUTH_TOKEN" | docker login -u "$DOCKER_USERNAME" --password-stdin
 
       - name: Install Docker Compose
         run: |
