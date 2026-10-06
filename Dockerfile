@@ -1,19 +1,14 @@
-ARG version=latest
-FROM openjdk:$version
+ARG version=8
+FROM maven:3.9-eclipse-temurin-${version}
 
-# version <= 11
 RUN apt-get update \
-    && apt-get install -y make maven || true
-COPY prism/prism/nginx/cert.crt /usr/local/share/ca-certificates/cert.crt
-RUN update-ca-certificates || true
+    && apt-get install -y --no-install-recommends make \
+    && rm -rf /var/lib/apt/lists/*
 
-# version > 11
-RUN yum update -y \
-    && yum install -y make wget || true
-RUN wget http://repos.fedorapeople.org/repos/dchen/apache-maven/epel-apache-maven.repo -O /etc/yum.repos.d/epel-apache-maven.repo \
-    && yum install -y maven || true
-RUN keytool -import -trustcacerts -cacerts -storepass changeit -noprompt \
-    -alias api.sendgrid.com -file /usr/local/share/ca-certificates/cert.crt || true
+# Trust the mock server's api.sendgrid.com certificate (see mock-server/).
+COPY mock-server/nginx/cert.crt /tmp/api.sendgrid.com.crt
+RUN keytool -importcert -noprompt -storepass changeit -alias api.sendgrid.com \
+    -file /tmp/api.sendgrid.com.crt -keystore "$(find "$JAVA_HOME" -name cacerts | head -1)"
 
 WORKDIR /app
 COPY . .
