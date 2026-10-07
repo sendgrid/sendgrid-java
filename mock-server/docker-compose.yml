@@ -1,0 +1,33 @@
+# Runs the test suite against a local mock of api.sendgrid.com:
+#   helper-runner -> nginx (TLS as api.sendgrid.com) -> prism (mock of the v3 spec)
+services:
+  helper-runner:
+    build:
+      context: ..
+      args:
+        - version=${version:-8}
+    command: make test-integ
+    depends_on:
+      nginx:
+        condition: service_healthy
+  nginx:
+    image: nginx:1.27-alpine@sha256:65645c7bb6a0661892a8b03b89d0743208a18dd2f3f17a54ef4b76fb8e2f2a10
+    networks:
+      default:
+        aliases:
+          - api.sendgrid.com
+    volumes:
+      - ./nginx:/etc/nginx:ro
+    depends_on:
+      - prism
+    healthcheck:
+      # 2xx-4xx means nginx is up and prism answered; 502 means prism isn't ready yet.
+      test: ["CMD-SHELL", "wget -S -O /dev/null http://127.0.0.1/ 2>&1 | grep -qE '^  HTTP/1\\.[01] [1-4][0-9][0-9]'"]
+      interval: 2s
+      timeout: 2s
+      retries: 30
+  prism:
+    platform: linux/amd64
+    build:
+      context: .
+      dockerfile: Dockerfile.prism

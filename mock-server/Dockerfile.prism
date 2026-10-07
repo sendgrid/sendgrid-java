@@ -1,0 +1,19 @@
+# Prism mock of the SendGrid v3 API, used by `make test-docker`.
+# Everything is pinned: the base image by digest, the Prism binary by sha256,
+# and the spec is vendored (see README.md in this directory).
+FROM debian:bookworm-slim@sha256:7c7b2c966bc9ee8cedfeef67e0e279108992c77681fa595db4a9d65c06ccc587
+
+ARG PRISM_VERSION=v2.0.17
+ARG PRISM_SHA256=80f37c2aedab2035a20e6025ac552908bce9e5d64a9338a48434e604e5590731
+
+RUN apt-get update \
+    && apt-get install -y --no-install-recommends curl ca-certificates \
+    && curl -fsSL "https://github.com/stoplightio/prism/releases/download/${PRISM_VERSION}/prism_linux_amd64" -o /usr/local/bin/prism \
+    && echo "${PRISM_SHA256}  /usr/local/bin/prism" | sha256sum -c - \
+    && chmod +x /usr/local/bin/prism \
+    && apt-get purge -y curl && apt-get autoremove -y && rm -rf /var/lib/apt/lists/*
+
+COPY oai_stoplight.json /oai_stoplight.json
+
+EXPOSE 4010
+CMD ["prism", "--port", "4010", "mock", "--spec", "/oai_stoplight.json"]
