@@ -6,12 +6,21 @@ import java.util.Map;
 public interface SendGridAPI {
 
   /**
-   * Initialize the client.
+   * Initialize the client with default thread pool size
    *
    * @param auth authorization header value
    * @param host the base URL for the API
    */
   void initialize(final String auth, final String host);
+
+  /**
+   * Initialize the client with custom thread pool size
+   *
+   * @param auth authorization header value
+   * @param host the base URL for the API
+   * @param threadPoolSize the pool size to initialize for sending email asynchronously
+   */
+  void initialize(final String auth, final String host, int threadPoolSize);
 
   /**
    * Get the current library version.
