@@ -15,10 +15,12 @@ test:
 
 test-integ: test
 
-version ?= latest
+version ?= 8
+COMPOSE := $(shell docker compose version >/dev/null 2>&1 && echo "docker compose" || echo "docker-compose")
 test-docker:
-	curl -s https://raw.githubusercontent.com/sendgrid/sendgrid-oai/HEAD/prism/prism-java.sh -o prism.sh
-	version=$(version) bash ./prism.sh
+	version=$(version) $(COMPOSE) -f mock-server/docker-compose.yml up --build --force-recreate \
+		--abort-on-container-exit --exit-code-from helper-runner --remove-orphans; \
+	status=$$?; version=$(version) $(COMPOSE) -f mock-server/docker-compose.yml down --remove-orphans; exit $$status
 
 update-deps:
 	mvn versions:use-latest-releases versions:commit -DallowMajorUpdates=false
