@@ -6126,7 +6126,7 @@ Twilio SendGrid's Event Webhook will notify a URL of your choice via HTTP POST w
 
 Common uses of this data are to remove unsubscribes, react to spam reports, determine unengaged recipients, identify bounced email addresses, or create advanced analytics of your email program.
 
-### PATCH /user/webhooks/event/settings
+### PATCH /user/webhooks/event/settings/{id}
 
 
 ```java
@@ -6134,7 +6134,7 @@ Common uses of this data are to remove unsubscribes, react to spam reports, dete
     SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
     Request request = new Request();
     request.setMethod(Method.PATCH);
-    request.setEndpoint("user/webhooks/event/settings");
+    request.setEndpoint("user/webhooks/event/settings/{id}");
     request.setBody("{\"group_resubscribe\":true,\"delivered\":true,\"group_unsubscribe\":true,\"spam_report\":true,\"url\":\"url\)",\"enabled\":true,\"bounce\":true,\"deferred\":true,\"unsubscribe\":true,\"dropped\":true,\"open\":true,\"click\":true,\"processed\":true}");
     Response response = sg.api(request);
     System.out.println(response.getStatusCode());
@@ -6154,7 +6154,7 @@ Twilio SendGrid's Event Webhook will notify a URL of your choice via HTTP POST w
 
 Common uses of this data are to remove unsubscribes, react to spam reports, determine unengaged recipients, identify bounced email addresses, or create advanced analytics of your email program.
 
-### GET /user/webhooks/event/settings
+### GET /user/webhooks/event/settings/{id}
 
 
 ```java
@@ -6162,7 +6162,7 @@ Common uses of this data are to remove unsubscribes, react to spam reports, dete
     SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
     Request request = new Request();
     request.setMethod(Method.GET);
-    request.setEndpoint("user/webhooks/event/settings");
+    request.setEndpoint("user/webhooks/event/settings/{id}");
     Response response = sg.api(request);
     System.out.println(response.getStatusCode());
     System.out.println(response.getBody());
